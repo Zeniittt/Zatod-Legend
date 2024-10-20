@@ -27,7 +27,8 @@ public class LeenalSkillSecondState : HeroState
 
         if (triggerCalled)
         {
-            hero.LeenaldMovement();
+            hero.currentStateIndex++;
+            stateMachine.ChangeState(hero.heroStates[hero.currentStateIndex]);
         }
     }
 }

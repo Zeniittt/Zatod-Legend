@@ -49,6 +49,9 @@ public class Guardian : Enemy
 
         if (currentStateIndex == enemyStates.Count - 1)
             currentStateIndex = 0;
+
+        if (canBeKnockback)
+            Knockback();
     }
 
     public void GuardianMovement()
@@ -64,11 +67,10 @@ public class Guardian : Enemy
         }
     }
 
-    public override void CanBeKnockback()
+    public override void Knockback()
     {
-        base.CanBeKnockback();
+        base.Knockback();
 
-        Debug.Log("Guardian Stun");
         stateMachine.ChangeState(stunnedState);
     }
 }

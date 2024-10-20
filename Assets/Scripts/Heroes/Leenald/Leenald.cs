@@ -106,8 +106,7 @@ public class Leenald : Hero
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                hit.GetComponent<Enemy>().CallCanBeKnockback();
-                //hit.GetComponent<Enemy>().CastKnockback();
+                hit.GetComponent<Enemy>().canBeKnockback = true;
             }
         }
     }

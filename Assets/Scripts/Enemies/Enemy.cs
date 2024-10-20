@@ -32,22 +32,10 @@ public class Enemy : Entity
 
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
-    public virtual void CanBeKnockback() {  }
+    public virtual void Knockback() {  }
 
-    public virtual void CallCanBeKnockback()
+    public void CastKnockback()
     {
-        if (this.GetType() != typeof(Enemy))
-        {
-            this.CanBeKnockback(); // G?i ph??ng th?c l?p con
-        }
-        else
-        {
-            Debug.Log("Cha rong");
-        }
-    }
-
-    public virtual void CastKnockback()
-    {
-        rb.velocity = new Vector2(knockbackDirection.x * -facingDirection, knockbackDirection.y);
+        rb.velocity = new Vector2(knockbackForce.x * -facingDirection, knockbackForce.y);
     }
 }

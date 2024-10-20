@@ -222,7 +222,7 @@ MonoBehaviour:
   idleTimeInitial: 1.5
   idleTime: 1
   canBeKnockback: 0
-  knockbackDirection: {x: 15, y: 1}
+  knockbackForce: {x: 5, y: 0}
 --- !u!1 &318055062
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ MonoBehaviour:
   idleTimeInitial: 2
   idleTime: 1
   canBeKnockback: 0
-  knockbackDirection: {x: 0, y: 0}
+  knockbackForce: {x: 0, y: 0}
   skillUltimatePrefab: {fileID: 3797485870484960330, guid: 77ea8a1215a31504ca83d79b0d4cc14a, type: 3}
   skillSecondRangeEffect: {fileID: 1342742393}
   radius: 2.5

@@ -24,12 +24,6 @@ public class Enemy_AnimationTriggers : MonoBehaviour
         }
     }
 
-    private void KnockbackTrigger()
-    {
-        enemy.CastKnockback();
-        //enemy.rb.velocity = new Vector2(enemy.knockbackDirection.x * -enemy.facingDirection, enemy.knockbackDirection.y);
-    }
-
     private void SelfDestroy()
     {
         if (enemy != null)

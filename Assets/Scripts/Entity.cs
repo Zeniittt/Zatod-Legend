@@ -32,7 +32,7 @@ public class Entity : MonoBehaviour
 
     [Header("Knockback Informations")]
     public bool canBeKnockback;
-    public Vector2 knockbackDirection;
+    public Vector2 knockbackForce;
 
 
 

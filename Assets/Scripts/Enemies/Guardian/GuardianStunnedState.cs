@@ -14,11 +14,18 @@ public class GuardianStunnedState : EnemyState
     public override void Enter()
     {
         base.Enter();
+
+        if(enemy.canBeKnockback)
+        {
+            enemy.CastKnockback();
+            enemy.canBeKnockback = false;
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
+
     }
 
     public override void Update()
@@ -27,7 +34,8 @@ public class GuardianStunnedState : EnemyState
 
         if (triggerCalled)
         {
-            stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.idleState); // tuy chon dung yen hay di chuyen ngay sau khi knockback
+            //enemy.GuardianMovement();
         }
     }
 }
