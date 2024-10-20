@@ -10,6 +10,7 @@ public class Guardian : Enemy
     public GuardianMoveState moveState { get; private set; }
     public GuardianBattleState battleState { get; private set; }
     public GuardianAttackState attackState { get; private set; }
+    public GuardianStunnedState stunnedState { get; private set; }
 
     #endregion
 
@@ -21,6 +22,7 @@ public class Guardian : Enemy
         moveState = new GuardianMoveState(this, stateMachine, "Move", this);
         battleState = new GuardianBattleState(this, stateMachine, "Idle", this);
         attackState = new GuardianAttackState(this, stateMachine, "Attack", this);
+        stunnedState = new GuardianStunnedState(this, stateMachine, "Stunned", this);
     }
 
     protected override void Start()
@@ -60,5 +62,13 @@ public class Guardian : Enemy
         {
             stateMachine.ChangeState(moveState);
         }
+    }
+
+    public override void CanBeKnockback()
+    {
+        base.CanBeKnockback();
+
+        Debug.Log("Guardian Stun");
+        stateMachine.ChangeState(stunnedState);
     }
 }

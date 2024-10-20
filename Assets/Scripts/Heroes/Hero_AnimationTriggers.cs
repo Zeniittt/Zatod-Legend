@@ -19,7 +19,7 @@ public class Hero_AnimationTriggers : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                Debug.Log("Hero do damage");
+                //Debug.Log("Hero do damage");
             }
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class Enemy : Entity
         base.Awake();
 
         stateMachine = new EnemyStateMachine();
+
     }
 
     protected override void Start()
@@ -30,4 +32,22 @@ public class Enemy : Entity
 
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
+    public virtual void CanBeKnockback() {  }
+
+    public virtual void CallCanBeKnockback()
+    {
+        if (this.GetType() != typeof(Enemy))
+        {
+            this.CanBeKnockback(); // G?i ph??ng th?c l?p con
+        }
+        else
+        {
+            Debug.Log("Cha rong");
+        }
+    }
+
+    public virtual void CastKnockback()
+    {
+        rb.velocity = new Vector2(knockbackDirection.x * -facingDirection, knockbackDirection.y);
+    }
 }

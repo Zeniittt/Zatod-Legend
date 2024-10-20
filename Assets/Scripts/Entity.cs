@@ -15,6 +15,9 @@ public class Entity : MonoBehaviour
 
     public int facingDirection { get; protected set; } = 1;
 
+    public float moveSpeed;
+    public int currentStateIndex = 0;
+
     [Header("Collision Information")]
     [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected Transform detectEnemy;
@@ -22,12 +25,15 @@ public class Entity : MonoBehaviour
     public Transform attackRange;
     public float attackRangeRadius;
 
-    public float moveSpeed;
+    [Header("Idle State Informations")]
     public bool isInitialTime;
     public float idleTimeInitial;
     public float idleTime;
 
-    public int currentStateIndex = 0;
+    [Header("Knockback Informations")]
+    public bool canBeKnockback;
+    public Vector2 knockbackDirection;
+
 
 
     protected virtual void Awake()

@@ -19,9 +19,15 @@ public class Enemy_AnimationTriggers : MonoBehaviour
         {
             if (hit.GetComponent<Hero>() != null)
             {
-                Debug.Log("Enemy do damage");
+                //Debug.Log("Enemy do damage");
             }
         }
+    }
+
+    private void KnockbackTrigger()
+    {
+        enemy.CastKnockback();
+        //enemy.rb.velocity = new Vector2(enemy.knockbackDirection.x * -enemy.facingDirection, enemy.knockbackDirection.y);
     }
 
     private void SelfDestroy()

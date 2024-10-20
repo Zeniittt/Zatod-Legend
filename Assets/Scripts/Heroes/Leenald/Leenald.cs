@@ -51,10 +51,10 @@ public class Leenald : Hero
 
         heroStates = new List<HeroState>
         {
-            idleState,
+/*            idleState,
             attackState,
             idleState,
-            attackState,
+            attackState,*/
             idleState,
             skillSecondState,
             idleState,
@@ -106,7 +106,8 @@ public class Leenald : Hero
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                Debug.Log("Second skill damage");
+                hit.GetComponent<Enemy>().CallCanBeKnockback();
+                //hit.GetComponent<Enemy>().CastKnockback();
             }
         }
     }

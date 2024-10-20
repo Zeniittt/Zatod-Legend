@@ -25,7 +25,7 @@ public class GuardianMoveState : EnemyState
     {
         base.Update();
 
-        enemy.SetVelocity(enemy.moveSpeed * enemy.facingDirection, rigidbody.velocity.y);
+        enemy.SetVelocity(enemy.moveSpeed * enemy.facingDirection, rb.velocity.y);
 
         if (enemy.IsEnemyDetected())
             stateMachine.ChangeState(enemy.battleState);
