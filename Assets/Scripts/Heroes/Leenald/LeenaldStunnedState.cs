@@ -15,6 +15,15 @@ public class LeenaldStunnedState : HeroState
     {
         base.Enter();
 
+        if (hero.canBeKnockback)
+        {
+            hero.CastKnockback();
+            hero.canBeKnockback = false;
+        }
+        else if (hero.canBeStun)
+        {
+            hero.Stun();
+        }
     }
 
     public override void Exit()
@@ -30,7 +39,8 @@ public class LeenaldStunnedState : HeroState
 
         if(triggerCalled)
         {
-            hero.LeenaldMovement();
+            //hero.LeenaldMovement();
+            stateMachine.ChangeState(hero.idleState);
         }
     }
 }

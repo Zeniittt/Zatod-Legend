@@ -19,6 +19,9 @@ public class GuardianStunnedState : EnemyState
         {
             enemy.CastKnockback();
             enemy.canBeKnockback = false;
+        } else if(enemy.canBeStun)
+        {
+            enemy.Stun();
         }
     }
 

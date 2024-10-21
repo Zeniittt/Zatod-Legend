@@ -19,7 +19,14 @@ public class LeenaldIdleState : HeroState
         {
             stateTimer = hero.idleTimeInitial;
         }
-        else
+        else if (hero.heroStates[hero.currentStateIndex--] == hero.stunnedState)
+        {
+            if (hero.canBeStun)
+            {
+                stateTimer = hero.stunDuration;
+                hero.canBeStun = false;
+            }
+        } else
         {
             stateTimer = hero.idleTime;
         }

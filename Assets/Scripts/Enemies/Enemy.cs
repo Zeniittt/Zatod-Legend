@@ -31,11 +31,4 @@ public class Enemy : Entity
     }
 
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
-
-    public virtual void Knockback() {  }
-
-    public void CastKnockback()
-    {
-        rb.velocity = new Vector2(knockbackForce.x * -facingDirection, knockbackForce.y);
-    }
 }

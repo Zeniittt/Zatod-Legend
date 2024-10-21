@@ -51,10 +51,10 @@ public class Leenald : Hero
 
         heroStates = new List<HeroState>
         {
-/*            idleState,
+            idleState,
             attackState,
             idleState,
-            attackState,*/
+            attackState,
             idleState,
             skillSecondState,
             idleState,
@@ -85,7 +85,10 @@ public class Leenald : Hero
             stateMachine.ChangeState(deadState);
 
         if (Input.GetKeyDown(KeyCode.S))
+        {
+            canBeStun = true;
             stateMachine.ChangeState(stunnedState);
+        }
     }
 
     public void CastSkillUltimate()
