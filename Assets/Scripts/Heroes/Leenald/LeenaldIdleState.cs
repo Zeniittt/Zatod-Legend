@@ -19,14 +19,11 @@ public class LeenaldIdleState : HeroState
         {
             stateTimer = hero.idleTimeInitial;
         }
-        else if (hero.heroStates[hero.currentStateIndex--] == hero.stunnedState)
+        else if (hero.canBeStun)
         {
-            if (hero.canBeStun)
-            {
-                stateTimer = hero.stunDuration;
-                hero.canBeStun = false;
-            }
-        } else
+            stateTimer = hero.stunDuration;
+        }
+        else
         {
             stateTimer = hero.idleTime;
         }
@@ -43,11 +40,14 @@ public class LeenaldIdleState : HeroState
 
         hero.SetZeroVelocity();
 
+
         if (stateTimer < 0)
         {
+            hero.canBeStun = false;
+
             if (hero.isInitialTime)
                 stateMachine.ChangeState(hero.moveState);
-            else
+            else 
             {
                 hero.LeenaldMovement();
             }

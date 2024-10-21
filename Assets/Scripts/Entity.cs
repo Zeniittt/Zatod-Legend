@@ -108,7 +108,6 @@ public class Entity : MonoBehaviour
 
         GameObject newStun = Instantiate(stunPrefab, stunPosition, Quaternion.identity);
 
-        newStun.GetComponent<StunEffect_Controller>().SetupStun(stunDuration);
         newStun.transform.SetParent(transform);
     }
 }
