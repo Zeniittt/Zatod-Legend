@@ -29,7 +29,9 @@ public class LeenaldSkillFourState : HeroState
 
         if (triggerCalled)
         {
-            hero.LeenaldMovement();
+            //hero.LeenaldMovement();
+            hero.currentStateIndex++;
+            stateMachine.ChangeState(hero.idleState);
         }
     }
 }

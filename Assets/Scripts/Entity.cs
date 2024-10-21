@@ -39,6 +39,8 @@ public class Entity : MonoBehaviour
     public float stunDuration;
     public bool canBeKnockback;
     public Vector2 knockbackForce;
+    public bool canBeKnockup;
+    public float knockupForce;
 
 
 
@@ -94,14 +96,6 @@ public class Entity : MonoBehaviour
     }
 
     public virtual bool IsEnemyDetected() => Physics2D.Raycast(detectEnemy.position, Vector2.right * facingDirection, detectEnemyDistance, whatIsEnemy);
-
-    public virtual void Knockback() { }
-
-    public void CastKnockback()
-    {
-        rb.velocity = new Vector2(knockbackForce.x * -facingDirection, knockbackForce.y);
-    }
-
     public virtual void Stun()
     {
         Vector2 stunPosition = new Vector2(transform.position.x, transform.position.y + yOffset);
@@ -110,4 +104,19 @@ public class Entity : MonoBehaviour
 
         newStun.transform.SetParent(transform);
     }
+
+    public virtual void Knockback() { }
+
+    public void CastKnockback()
+    {
+        rb.velocity = new Vector2(knockbackForce.x * -facingDirection, knockbackForce.y);
+    }
+
+    public virtual void Knockup() { }
+
+    public void CastKnockup()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, knockupForce);
+    }
+
 }

@@ -15,20 +15,25 @@ public class GuardianStunnedState : EnemyState
     {
         base.Enter();
 
-        if(enemy.canBeKnockback)
+        if (enemy.canBeStun)
+        {
+            enemy.Stun();
+        }
+        else if (enemy.canBeKnockback)
         {
             enemy.CastKnockback();
             enemy.canBeKnockback = false;
-        } else if(enemy.canBeStun)
+        }
+        else if(enemy.canBeKnockup)
         {
-            enemy.Stun();
+            enemy.CastKnockup();
+            enemy.canBeKnockup = false;
         }
     }
 
     public override void Exit()
     {
         base.Exit();
-
     }
 
     public override void Update()

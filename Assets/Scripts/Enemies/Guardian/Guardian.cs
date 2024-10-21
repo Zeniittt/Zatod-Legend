@@ -52,6 +52,9 @@ public class Guardian : Enemy
 
         if (canBeKnockback)
             Knockback();
+
+        if (canBeKnockup)
+            Knockup();
     }
 
     public void GuardianMovement()
@@ -70,6 +73,13 @@ public class Guardian : Enemy
     public override void Knockback()
     {
         base.Knockback();
+
+        stateMachine.ChangeState(stunnedState);
+    }
+
+    public override void Knockup()
+    {
+        base.Knockup();
 
         stateMachine.ChangeState(stunnedState);
     }

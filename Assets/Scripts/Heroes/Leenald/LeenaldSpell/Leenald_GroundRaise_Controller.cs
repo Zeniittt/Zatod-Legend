@@ -17,7 +17,7 @@ public class Leenald_GroundRaise_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                Debug.Log("...!!!");
+                hit.GetComponent<Enemy>().canBeKnockup = true;
             }
         }
     }
