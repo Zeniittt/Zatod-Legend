@@ -96,7 +96,7 @@ public class Entity : MonoBehaviour
 
     public virtual bool IsEnemyDetected() => Physics2D.Raycast(detectEnemy.position, Vector2.right * facingDirection, detectEnemyDistance, whatIsEnemy);
     
-    public virtual void Stun()
+    public virtual void CastStun()
     {
         stunObject.gameObject.SetActive(true);
     }

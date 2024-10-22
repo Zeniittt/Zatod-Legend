@@ -15,12 +15,18 @@ public class GuardianStunnedState : EnemyState
     {
         base.Enter();
 
+        if(enemy.canBeStun)
+        {
+            enemy.CastStun();
+        }
+
         if (enemy.canBeKnockback)
         {
             enemy.CastKnockback();
             enemy.canBeKnockback = false;
         }
-        else if(enemy.canBeKnockup)
+        
+        if(enemy.canBeKnockup)
         {
             enemy.CastKnockup();
             enemy.canBeKnockup = false;
@@ -40,8 +46,7 @@ public class GuardianStunnedState : EnemyState
 
         if (triggerCalled)
         {
-            stateMachine.ChangeState(enemy.idleState); // tuy chon dung yen hay di chuyen ngay sau khi knockback
-            //enemy.GuardianMovement();
+            stateMachine.ChangeState(enemy.afterStunnedState);
         }
     }
 }

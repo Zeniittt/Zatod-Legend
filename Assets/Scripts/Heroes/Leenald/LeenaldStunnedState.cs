@@ -21,7 +21,7 @@ public class LeenaldStunnedState : HeroState
             hero.canBeKnockback = false;
         } else if(hero.canBeStun)
         {
-            hero.Stun();
+            hero.CastStun();
         }
     }
 

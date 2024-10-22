@@ -11,6 +11,7 @@ public class Guardian : Enemy
     public GuardianBattleState battleState { get; private set; }
     public GuardianAttackState attackState { get; private set; }
     public GuardianStunnedState stunnedState { get; private set; }
+    public GuardianAfterStunnedState afterStunnedState { get; private set; }
 
     #endregion
 
@@ -23,6 +24,7 @@ public class Guardian : Enemy
         battleState = new GuardianBattleState(this, stateMachine, "Idle", this);
         attackState = new GuardianAttackState(this, stateMachine, "Attack", this);
         stunnedState = new GuardianStunnedState(this, stateMachine, "Stunned", this);
+        afterStunnedState = new GuardianAfterStunnedState(this, stateMachine, "AfterStunned", this);
     }
 
     protected override void Start()

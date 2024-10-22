@@ -26,7 +26,6 @@ public class Leenald_DesertDungeon_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                hit.GetComponent<Enemy>().SetZeroVelocity();
                 hit.GetComponent<Enemy>().canBeStun = true;
             }
         }
