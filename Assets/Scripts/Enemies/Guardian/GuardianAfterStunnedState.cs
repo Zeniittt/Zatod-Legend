@@ -17,7 +17,6 @@ public class GuardianAfterStunnedState : EnemyState
 
         if (enemy.canBeStun)
         {
-            enemy.CastStun();
             stateTimer = enemy.stunDuration;
         }
 
@@ -26,6 +25,7 @@ public class GuardianAfterStunnedState : EnemyState
     public override void Exit()
     {
         base.Exit();
+
     }
 
     public override void Update()
@@ -36,6 +36,7 @@ public class GuardianAfterStunnedState : EnemyState
 
         if (stateTimer < 0)
         {
+
             enemy.canBeStun = false;
 
             if (enemy.isInitialTime)
