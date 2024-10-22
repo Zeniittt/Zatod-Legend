@@ -15,11 +15,7 @@ public class GuardianStunnedState : EnemyState
     {
         base.Enter();
 
-        if (enemy.canBeStun)
-        {
-            enemy.Stun();
-        }
-        else if (enemy.canBeKnockback)
+        if (enemy.canBeKnockback)
         {
             enemy.CastKnockback();
             enemy.canBeKnockback = false;
@@ -39,6 +35,8 @@ public class GuardianStunnedState : EnemyState
     public override void Update()
     {
         base.Update();
+
+        enemy.SetZeroVelocity();
 
         if (triggerCalled)
         {

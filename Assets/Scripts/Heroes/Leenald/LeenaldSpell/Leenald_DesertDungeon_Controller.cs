@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class Leenald_DesertDungeon_Controller : MonoBehaviour
 {
+    Animator animator => GetComponent<Animator>();
+
     [SerializeField] private Transform rangeEffect;
     [SerializeField] private Vector2 boxSize;
     [SerializeField] private LayerMask whatIsEnemy;
+
+    private void Start()
+    {
+        if(animator != null)
+            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+    }
+
+    private void ExitFreezeTime() => Time.timeScale = 1;
 
     private void AnimationTrigger()
     {
@@ -16,7 +26,8 @@ public class Leenald_DesertDungeon_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                Debug.Log("...!!!");
+                hit.GetComponent<Enemy>().SetZeroVelocity();
+                hit.GetComponent<Enemy>().canBeStun = true;
             }
         }
     }
@@ -28,5 +39,8 @@ public class Leenald_DesertDungeon_Controller : MonoBehaviour
     }
 
 
-    private void SelfDestroy() => Destroy(gameObject);
+    private void SelfDestroy()
+    {
+        Destroy(gameObject);
+    }
 }

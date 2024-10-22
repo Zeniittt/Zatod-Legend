@@ -11,8 +11,8 @@ public class StunEffect_Controller : MonoBehaviour
     {
         if(entity != null)
         {
-            if(entity.canBeStun == false)
-                Destroy(gameObject);
+            if (entity.canBeStun == false)
+                gameObject.SetActive(false);
         }
     }
 }

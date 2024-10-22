@@ -21,6 +21,9 @@ public class Leenald : Hero
 
     [Header("Skill Ultimate Informations")]
     [SerializeField] private GameObject skillUltimatePrefab;
+    //private bool isInUltimateTime;
+    public Vector2 boxSize;
+    public List<Enemy> enemies;
 
     [Header("Skill Second Informations")]
     [SerializeField] private Transform skillSecondRangeEffect;
@@ -79,7 +82,11 @@ public class Leenald : Hero
             currentStateIndex = -1;
 
         if (Input.GetKeyDown(KeyCode.R))
+        {
+            //isInUltimateTime = true;
+            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
             stateMachine.ChangeState(skillUltimateState);
+        }    
 
         if (Input.GetKeyDown(KeyCode.D))
             stateMachine.ChangeState(deadState);
@@ -90,10 +97,54 @@ public class Leenald : Hero
             stateMachine.ChangeState(stunnedState);
         }
     }
+    public void LeenaldMovement()
+    {
+        if (IsEnemyDetected())
+        {
+            currentStateIndex++;
+            stateMachine.ChangeState(heroStates[currentStateIndex]);
+        }
+        else
+        {
+            stateMachine.ChangeState(moveState);
+        }
+    }
+
+    public void FindAllEnemiesInArea(Vector2 _position)
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(_position, boxSize, 0f, whatIsEnemy);
+
+        foreach (Collider2D collider in hitColliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemies.Add(enemy);
+                Debug.Log(enemy.transform.position);
+            }
+        }
+    }
+
+    private Vector2 ClosestEnemy()
+    {
+        Vector2 closestEnemyPosition = enemies[0].gameObject.transform.position;
+
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy.transform.position.x < closestEnemyPosition.x)
+                closestEnemyPosition = enemy.transform.position;
+        }
+
+        return closestEnemyPosition;
+    }
 
     public void CastSkillUltimate()
     {
-        GameObject newSkillUltimate = Instantiate(skillUltimatePrefab, transform.position, Quaternion.identity);
+        Time.timeScale = 0;
+        FindAllEnemiesInArea(transform.position);
+       Vector2 targetPosition = ClosestEnemy();
+
+        GameObject newSkillUltimate = Instantiate(skillUltimatePrefab, targetPosition, Quaternion.identity);
     }
 
     public void CastSkillFour()
@@ -114,25 +165,15 @@ public class Leenald : Hero
         }
     }
 
-    public void LeenaldMovement()
-    {
-        if (IsEnemyDetected())
-        {
-            currentStateIndex++;
-            stateMachine.ChangeState(heroStates[currentStateIndex]);
-        }
-        else
-        {
-            stateMachine.ChangeState(moveState);
-        }
-    }
-
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(skillSecondRangeEffect.position, radius);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position, boxSize);
     }
 
 

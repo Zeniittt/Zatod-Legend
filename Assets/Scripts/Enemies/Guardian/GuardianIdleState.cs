@@ -15,10 +15,17 @@ public class GuardianIdleState : EnemyState
     {
         base.Enter();
 
+        if (!enemy.stunObject.gameObject.activeSelf)
+        {
+            enemy.Stun();
+            stateTimer = enemy.stunDuration;
+            return;
+        }
+
         if (enemy.isInitialTime)
         {
             stateTimer = enemy.idleTimeInitial;
-        }
+        } 
         else
         {
             stateTimer = enemy.idleTime;
@@ -38,6 +45,8 @@ public class GuardianIdleState : EnemyState
 
         if (stateTimer < 0)
         {
+            enemy.canBeStun = false;
+
             if (enemy.isInitialTime)
                 stateMachine.ChangeState(enemy.moveState);
             else

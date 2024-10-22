@@ -33,9 +33,8 @@ public class Entity : MonoBehaviour
     [Space]
     [Space]
     [Header("Crowd Control Informations")]
-    [SerializeField] private GameObject stunPrefab;
+    [SerializeField] public Transform stunObject;
     public bool canBeStun;
-    [SerializeField] private float yOffset;
     public float stunDuration;
     public bool canBeKnockback;
     public Vector2 knockbackForce;
@@ -96,13 +95,10 @@ public class Entity : MonoBehaviour
     }
 
     public virtual bool IsEnemyDetected() => Physics2D.Raycast(detectEnemy.position, Vector2.right * facingDirection, detectEnemyDistance, whatIsEnemy);
+    
     public virtual void Stun()
     {
-        Vector2 stunPosition = new Vector2(transform.position.x, transform.position.y + yOffset);
-
-        GameObject newStun = Instantiate(stunPrefab, stunPosition, Quaternion.identity);
-
-        newStun.transform.SetParent(transform);
+        stunObject.gameObject.SetActive(true);
     }
 
     public virtual void Knockback() { }

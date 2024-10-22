@@ -50,6 +50,11 @@ public class Guardian : Enemy
         if (currentStateIndex == enemyStates.Count - 1)
             currentStateIndex = 0;
 
+        if(canBeStun && !stunObject.gameObject.activeSelf)
+        {
+            stateMachine.ChangeState(stunnedState);
+        }
+
         if (canBeKnockback)
             Knockback();
 
