@@ -41,6 +41,8 @@ public class Entity : MonoBehaviour
     public bool canBeKnockup;
     public float knockupForce;
 
+    [SerializeField] private GameObject dustEffectPrefab;
+    [SerializeField] private Transform dustEffectPosition;
 
 
     protected virtual void Awake()
@@ -115,6 +117,11 @@ public class Entity : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.up * knockupForce, ForceMode2D.Impulse);
+    }
+
+    public void CreateDust()
+    {
+        GameObject newDust = Instantiate(dustEffectPrefab, dustEffectPosition.transform.position, Quaternion.identity);
     }
 
 }

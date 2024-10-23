@@ -150,14 +150,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140212825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: -0.59, z: 0}
+  m_LocalPosition: {x: 3.04, y: -0.618, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1788854679}
+  - {fileID: 1840655865}
+  - {fileID: 1845508377}
   - {fileID: 344192853}
   - {fileID: 318055063}
-  - {fileID: 1840655865}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -174,8 +175,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16427088, y: 0.28664124}
-  m_Size: {x: 1.0991068, y: 2.2820165}
+  m_Offset: {x: -0.16427088, y: 0.27964425}
+  m_Size: {x: 1.0991068, y: 2.2960105}
   m_Direction: 0
 --- !u!50 &140212828
 Rigidbody2D:
@@ -226,9 +227,11 @@ MonoBehaviour:
   canBeStun: 0
   stunDuration: 2
   canBeKnockback: 0
-  knockbackForce: {x: 5, y: 7}
+  knockbackForce: {x: 5, y: 9}
   canBeKnockup: 0
   knockupForce: 13
+  dustEffectPrefab: {fileID: 5301496239964232419, guid: 26a43308c57f1ab4ab6c5e817b211322, type: 3}
+  dustEffectPosition: {fileID: 1845508377}
 --- !u!1001 &261376502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -324,7 +327,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 140212826}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &344192852
 GameObject:
@@ -355,7 +358,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 140212826}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &392592444
 GameObject:
@@ -421,7 +424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392592444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.6, y: 2.87, z: 0}
+  m_LocalPosition: {x: -2.29, y: 2.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -458,13 +461,15 @@ MonoBehaviour:
   isInitialTime: 0
   idleTimeInitial: 1.5
   idleTime: 1
-  stunObject: {fileID: 0}
+  stunObject: {fileID: 9170973891172618744, guid: 42c6cbd322170754ba727dce928acb05, type: 3}
   canBeStun: 0
   stunDuration: 3
   canBeKnockback: 0
   knockbackForce: {x: 0, y: 0}
   canBeKnockup: 0
   knockupForce: 0
+  dustEffectPrefab: {fileID: 0}
+  dustEffectPosition: {fileID: 0}
   skillUltimatePrefab: {fileID: 4164511445130511482, guid: 77ea8a1215a31504ca83d79b0d4cc14a, type: 3}
   boxSize: {x: 45, y: 10}
   enemies: []
@@ -1046,7 +1051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9170973891172618744, guid: 42c6cbd322170754ba727dce928acb05, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9170973891172618744, guid: 42c6cbd322170754ba727dce928acb05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1095,3 +1100,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9170973891172618744, guid: 42c6cbd322170754ba727dce928acb05, type: 3}
   m_PrefabInstance: {fileID: 1840655864}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1845508376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1845508377}
+  m_Layer: 7
+  m_Name: DustEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1845508377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845508376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.35, y: -0.868, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 140212826}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

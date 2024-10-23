@@ -36,14 +36,17 @@ public class GuardianStunnedState : EnemyState
     public override void Exit()
     {
         base.Exit();
+
+        if(!enemy.canBeStun)
+            enemy.CreateDust();
     }
 
     public override void Update()
     {
         base.Update();
-
+   
         if (triggerCalled)
-        {
+        {            
             stateMachine.ChangeState(enemy.afterStunnedState);
         }
     }
