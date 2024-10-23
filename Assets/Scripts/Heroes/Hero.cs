@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : Entity
+public class Hero : Character
 {
     public HeroStateMachine stateMachine { get; private set; }
 

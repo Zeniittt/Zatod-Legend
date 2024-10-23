@@ -23,10 +23,4 @@ public class Enemy_AnimationTriggers : MonoBehaviour
             }
         }
     }
-
-    private void SelfDestroy()
-    {
-        if (enemy != null)
-            Destroy(enemy.gameObject);
-    }
 }

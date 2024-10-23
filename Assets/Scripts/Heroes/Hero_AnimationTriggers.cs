@@ -17,9 +17,14 @@ public class Hero_AnimationTriggers : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
+            Enemy enemy = hit.GetComponent<Enemy>();
+
+            if (enemy != null && !enemy.isDead)
             {
-                //Debug.Log("Hero do damage");
+                EnemyStats target = hit.GetComponent<EnemyStats>();
+
+                if (target != null)
+                    hero.stats.DoPhysicDamage(target);
             }
         }
     }

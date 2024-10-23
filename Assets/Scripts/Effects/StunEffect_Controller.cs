@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StunEffect_Controller : MonoBehaviour
 {
-    Entity entity=> GetComponentInParent<Entity>();
+    Character entity=> GetComponentInParent<Character>();
 
 
     private void Update()

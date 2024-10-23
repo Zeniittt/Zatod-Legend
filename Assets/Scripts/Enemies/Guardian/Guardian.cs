@@ -12,6 +12,7 @@ public class Guardian : Enemy
     public GuardianAttackState attackState { get; private set; }
     public GuardianStunnedState stunnedState { get; private set; }
     public GuardianAfterStunnedState afterStunnedState { get; private set; }
+    public GuardianDeadState deadState { get; private set; }
 
     #endregion
 
@@ -25,6 +26,7 @@ public class Guardian : Enemy
         attackState = new GuardianAttackState(this, stateMachine, "Attack", this);
         stunnedState = new GuardianStunnedState(this, stateMachine, "Stunned", this);
         afterStunnedState = new GuardianAfterStunnedState(this, stateMachine, "AfterStunned", this);
+        deadState = new GuardianDeadState(this, stateMachine, "Dead", this);
     }
 
     protected override void Start()
@@ -89,5 +91,12 @@ public class Guardian : Enemy
         base.Knockup();
 
         stateMachine.ChangeState(stunnedState);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+
+        stateMachine.ChangeState(deadState);
     }
 }
