@@ -36,6 +36,7 @@ public class GuardianIdleState : EnemyState
 
         enemy.SetZeroVelocity();
 
+
         if (stateTimer < 0)
         {
             if (enemy.isInitialTime)

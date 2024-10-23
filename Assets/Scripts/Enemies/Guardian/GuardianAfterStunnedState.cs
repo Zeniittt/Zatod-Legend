@@ -18,6 +18,9 @@ public class GuardianAfterStunnedState : EnemyState
         if (enemy.canBeStun)
         {
             stateTimer = enemy.stunDuration;
+        } else
+        {
+            stateTimer = 1;
         }
 
     }

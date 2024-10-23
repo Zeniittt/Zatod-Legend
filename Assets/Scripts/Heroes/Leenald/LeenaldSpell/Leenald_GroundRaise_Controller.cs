@@ -15,7 +15,7 @@ public class Leenald_GroundRaise_Controller : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
+            if (hit.GetComponentInParent<Enemy>() != null)
             {
                 hit.GetComponent<Enemy>().canBeKnockup = true;
             }

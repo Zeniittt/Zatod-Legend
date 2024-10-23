@@ -31,6 +31,7 @@ public class Leenald : Hero
 
     [Header("Skill Four Informations")]
     [SerializeField] private GameObject skillFourPrefab;
+    [SerializeField] private Transform skillFourPosition;
 
     protected override void Awake()
     {
@@ -83,7 +84,6 @@ public class Leenald : Hero
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            //isInUltimateTime = true;
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
             stateMachine.ChangeState(skillUltimateState);
         }    
@@ -149,7 +149,7 @@ public class Leenald : Hero
 
     public void CastSkillFour()
     {
-        GameObject newSkillFour = Instantiate(skillFourPrefab, transform.position, Quaternion.identity);
+        GameObject newSkillFour = Instantiate(skillFourPrefab, skillFourPosition.position, Quaternion.identity);
     }
 
     public void CastSkillSecond()

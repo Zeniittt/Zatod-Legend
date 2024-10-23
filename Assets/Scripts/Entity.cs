@@ -105,6 +105,7 @@ public class Entity : MonoBehaviour
 
     public void CastKnockback()
     {
+        rb.velocity = Vector2.zero;
         rb.velocity = new Vector2(knockbackForce.x * -facingDirection, knockbackForce.y);
     }
 
@@ -112,7 +113,8 @@ public class Entity : MonoBehaviour
 
     public void CastKnockup()
     {
-        rb.velocity = new Vector2(rb.velocity.x, knockupForce);
+        rb.velocity = Vector2.zero;
+        rb.AddForce(Vector2.up * knockupForce, ForceMode2D.Impulse);
     }
 
 }
