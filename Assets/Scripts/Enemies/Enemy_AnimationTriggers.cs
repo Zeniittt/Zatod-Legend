@@ -17,9 +17,19 @@ public class Enemy_AnimationTriggers : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Hero>() != null)
+            Hero hero = hit.GetComponent<Hero>();
+
+            if (hero != null && !hero.isDead)
             {
-                //Debug.Log("Enemy do damage");
+                HeroStats target = hit.GetComponent<HeroStats>();
+
+                if (target != null)
+                {
+                    enemy.stats.DoPhysicDamage(target);
+                    target.fx.CreateHitFX(target.transform);
+                }
+
+                break;
             }
         }
     }

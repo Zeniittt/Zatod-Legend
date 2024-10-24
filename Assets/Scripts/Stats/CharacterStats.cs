@@ -46,10 +46,20 @@ public class CharacterStats : MonoBehaviour
             Die();
     }
 
-    public virtual void DecreaseHealthBy(int _damage)
+    public void DecreaseHealthBy(int _damage)
     {
         currentHealth -= _damage;
     }
+
+    public void IncreaseHealthBy(int _amount)
+    {
+        currentHealth += _amount;
+
+        if (currentHealth > health.GetValue())
+            currentHealth = health.GetValue();
+    }
+
+
 
     public virtual void Die() { }
 }

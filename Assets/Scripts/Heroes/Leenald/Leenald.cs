@@ -28,6 +28,7 @@ public class Leenald : Hero
 
     [Header("Skill Third Information")]
     [SerializeField] protected List<Character> allies;
+    [SerializeField] private int amountHeal;
 
     [Header("Skill Four Informations")]
     [SerializeField] private GameObject skillFourPrefab;
@@ -55,7 +56,7 @@ public class Leenald : Hero
 
         heroStates = new List<HeroState>
         {
-/*            idleState,
+            idleState,
             attackState,
             idleState,
             attackState,
@@ -64,7 +65,7 @@ public class Leenald : Hero
             idleState,
             attackState,
             idleState,
-            skillFourState,*/
+            skillFourState,
             idleState,
             attackState,
             idleState,
@@ -152,6 +153,7 @@ public class Leenald : Hero
         foreach (Hero ally in allies)
         {
             fx.CreateHealFX(ally.transform.position);
+            ally.stats.IncreaseHealthBy(amountHeal);
         }
 
         allies.Clear();
@@ -185,5 +187,10 @@ public class Leenald : Hero
         Gizmos.DrawWireSphere(skillSecondRangeEffect.position, radius);
     }
 
+    public override void Die()
+    {
+        base.Die();
 
+        stateMachine.ChangeState(deadState);
+    }
 }
