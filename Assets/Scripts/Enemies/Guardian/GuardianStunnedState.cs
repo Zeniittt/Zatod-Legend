@@ -37,8 +37,6 @@ public class GuardianStunnedState : EnemyState
     {
         base.Exit();
 
-        if(!enemy.canBeStun)
-            enemy.CreateDust();
     }
 
     public override void Update()

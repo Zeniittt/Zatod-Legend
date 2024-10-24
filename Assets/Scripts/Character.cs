@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -19,6 +20,7 @@ public class Character : MonoBehaviour
     public float moveSpeed;
     public int currentStateIndex = 0;
     public bool isDead;
+    public float yPositionDefault;
 
     [Header("Collision Information")]
     [SerializeField] protected LayerMask whatIsEnemy;
@@ -39,9 +41,13 @@ public class Character : MonoBehaviour
     public bool canBeStun;
     public float stunDuration;
     public bool canBeKnockback;
-    public Vector2 knockbackForce;
+    public float knockbackForce;
+    public float knockbackDuration;
     public bool canBeKnockup;
     public float knockupForce;
+    public float knockupDuration;
+    public float fallDuration;
+
 
     [SerializeField] private GameObject dustEffectPrefab;
     [SerializeField] private Transform dustEffectPosition;
@@ -135,21 +141,30 @@ public class Character : MonoBehaviour
 
     public void CastKnockback()
     {
-        rb.velocity = Vector2.zero;
-        rb.velocity = new Vector2(knockbackForce.x * -facingDirection, knockbackForce.y);
+        transform.DOMoveX(transform.position.x + (knockbackForce * -facingDirection), knockbackDuration)
+            .SetEase(Ease.InCubic);
+
+        Invoke("CreateDust", .5f);
     }
 
     public virtual void Knockup() { }
 
     public void CastKnockup()
     {
-        rb.velocity = Vector2.zero;
-        rb.AddForce(Vector2.up * knockupForce, ForceMode2D.Impulse);
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.Append(transform.DOMoveY(transform.position.y + knockupForce, knockupDuration)
+            .SetEase(Ease.OutCubic));
+
+        sequence.Append(transform.DOMoveY(transform.position.y, fallDuration)
+            .SetEase(Ease.InCubic));
+
+        Invoke("CreateDust", .8f);
     }
 
     public void CreateDust()
     {
-        GameObject newDust = Instantiate(dustEffectPrefab, dustEffectPosition.transform.position, Quaternion.identity);
+        GameObject newDust = Instantiate(dustEffectPrefab, transform.position, Quaternion.identity);
     }
 
     public IEnumerator FadeOut()

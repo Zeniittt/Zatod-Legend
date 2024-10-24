@@ -44,7 +44,6 @@ public class Hero : Character
             if (character != null && IsAlly(character))
             {
                 Physics2D.IgnoreCollision(cd, collider);
-                Debug.Log("Ignore");
             }
         }
 

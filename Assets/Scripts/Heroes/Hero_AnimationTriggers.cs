@@ -25,6 +25,7 @@ public class Hero_AnimationTriggers : MonoBehaviour
 
                 if (target != null)
                     hero.stats.DoPhysicDamage(target);
+                break;
             }
         }
     }

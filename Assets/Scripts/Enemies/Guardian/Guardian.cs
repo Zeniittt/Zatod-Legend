@@ -33,6 +33,7 @@ public class Guardian : Enemy
     {
         base.Start();
 
+        transform.position = new Vector3(transform.position.x, yPositionDefault);
         Flip();
 
         enemyStates = new List<EnemyState>
@@ -54,7 +55,7 @@ public class Guardian : Enemy
         if (currentStateIndex == enemyStates.Count - 1)
             currentStateIndex = 0;
 
-        if(canBeStun && !stunObject.gameObject.activeSelf)
+        if (canBeStun && !stunObject.gameObject.activeSelf)
         {
             stateMachine.ChangeState(stunnedState);
         }
