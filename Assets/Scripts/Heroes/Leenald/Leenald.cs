@@ -53,8 +53,6 @@ public class Leenald : Hero
     {
         base.Start();
 
-        allies.Add(this);
-
         heroStates = new List<HeroState>
         {
 /*            idleState,
@@ -155,12 +153,14 @@ public class Leenald : Hero
         {
             fx.CreateHealFX(ally.transform.position);
         }
+
+        allies.Clear();
     }
 
 
     private void FindAllAllyInArea(Vector2 _position)
     {
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(_position, observeRangeSize, 0f, whatIsEnemy);
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(_position, observeRangeSize, 0f, whatIsAlly);
 
         foreach (Collider2D collider in hitColliders)
         {

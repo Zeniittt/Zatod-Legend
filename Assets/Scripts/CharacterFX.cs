@@ -17,10 +17,11 @@ public class CharacterFX : MonoBehaviour
 
     [Header("Hit FX")]
     [SerializeField] private GameObject hitPrefab;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private Vector3 hitOffset;
 
     [Header("Heal Effect")]
     [SerializeField] private GameObject healPrefab;
+    [SerializeField] private Vector2 healOffset;
 
 
     private void Start()
@@ -60,7 +61,7 @@ public class CharacterFX : MonoBehaviour
 
         Vector3 hitFXRotation = new Vector3(0, 0, zRotation);
 
-        GameObject newHit = Instantiate(hitPrefab, _target.position + offset, Quaternion.identity);
+        GameObject newHit = Instantiate(hitPrefab, _target.position + hitOffset, Quaternion.identity);
         newHit.transform.Rotate(hitFXRotation);
 
         Destroy(newHit, .5f);
@@ -68,7 +69,7 @@ public class CharacterFX : MonoBehaviour
 
     public void CreateHealFX(Vector2 _position)
     {
-        GameObject newHeal = Instantiate(healPrefab, _position, Quaternion.identity);
+        GameObject newHeal = Instantiate(healPrefab, _position + healOffset, Quaternion.identity);
 
         Destroy(newHeal, .5f);
     }

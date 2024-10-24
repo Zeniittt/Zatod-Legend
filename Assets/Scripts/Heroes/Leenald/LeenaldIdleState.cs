@@ -52,7 +52,9 @@ public class LeenaldIdleState : HeroState
                 if (hero.IsEnemyDetected())
                     hero.LeenaldMovement();
                 else if (hero.ExistEnemyInObserve())
+                {
                     stateMachine.ChangeState(hero.moveState);
+                }
             }
         }
     }
