@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterFX : MonoBehaviour
 {
     private SpriteRenderer sr;
+
+    [Header("PopUpText FX")]
+    [SerializeField] private GameObject popUpTextPrefab;
 
     [Header("Stun FX")]
     public Transform stunObject;
@@ -27,6 +31,18 @@ public class CharacterFX : MonoBehaviour
     private void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    public void CreatePopUpText(Vector2 _position, string _text)
+    {
+        float randomX = Random.Range(-.5f, .5f);
+        float randomY = Random.Range(2.5f, 3.2f);
+
+        Vector2 positionOffset = new Vector2(randomX, randomY);
+
+        GameObject newText = Instantiate(popUpTextPrefab, _position + positionOffset, Quaternion.identity);
+
+        newText.GetComponent<TextMeshPro>().text = _text;
     }
 
     public void CastStunFX()
