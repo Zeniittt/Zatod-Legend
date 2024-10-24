@@ -16,6 +16,11 @@ public class Leenald_AnimationTriggers : Hero_AnimationTriggers
         hero.CastSkillFour();
     }
 
+    private void SkillThirdTrigger()
+    {
+        hero.CastSkillThird();
+    }
+
     private void SkillSecondTrigger()
     {
         hero.CastSkillSecond();

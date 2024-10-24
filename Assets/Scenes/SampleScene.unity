@@ -325,6 +325,7 @@ MonoBehaviour:
   attackRangeRadius: 1
   observeRangeSize: {x: 60, y: 15}
   enemies: []
+  allies: []
   ignoreAlly: {fileID: 1041955257}
   ignoreBoxSize: {x: 2, y: 2.6}
   whatIsAlly:
@@ -363,7 +364,7 @@ MonoBehaviour:
   health:
     baseValue: 150
   physicDamage:
-    baseValue: 10
+    baseValue: 5
   magicDamage:
     baseValue: 0
   armor:
@@ -388,6 +389,7 @@ MonoBehaviour:
   fadeDuration: 1
   hitPrefab: {fileID: 7512585946961074744, guid: cdb5b58bcaa38e74cbdbe79fdfb7c31c, type: 3}
   offset: {x: 0, y: 2, z: -1}
+  healPrefab: {fileID: 5882639190832279608, guid: f28fcb5891397bb4ba45b8e7b5bae032, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1290,7 @@ MonoBehaviour:
   attackRangeRadius: 1
   observeRangeSize: {x: 0, y: 0}
   enemies: []
+  allies: []
   ignoreAlly: {fileID: 883691687}
   ignoreBoxSize: {x: 2, y: 2.3}
   whatIsAlly:
@@ -1322,3 +1325,4 @@ MonoBehaviour:
   fadeDuration: 1
   hitPrefab: {fileID: 7512585946961074744, guid: cdb5b58bcaa38e74cbdbe79fdfb7c31c, type: 3}
   offset: {x: 0.1, y: 1, z: -1}
+  healPrefab: {fileID: 0}

@@ -26,6 +26,9 @@ public class Leenald : Hero
     [SerializeField] private Transform skillSecondRangeEffect;
     [SerializeField]private float radius;
 
+    [Header("Skill Third Information")]
+    [SerializeField] protected List<Character> allies;
+
     [Header("Skill Four Informations")]
     [SerializeField] private GameObject skillFourPrefab;
     [SerializeField] private Transform skillFourPosition;
@@ -50,9 +53,11 @@ public class Leenald : Hero
     {
         base.Start();
 
+        allies.Add(this);
+
         heroStates = new List<HeroState>
         {
-            idleState,
+/*            idleState,
             attackState,
             idleState,
             attackState,
@@ -61,7 +66,7 @@ public class Leenald : Hero
             idleState,
             attackState,
             idleState,
-            skillFourState,
+            skillFourState,*/
             idleState,
             attackState,
             idleState,
@@ -129,11 +134,6 @@ public class Leenald : Hero
         GameObject newSkillUltimate = Instantiate(skillUltimatePrefab, targetPosition, Quaternion.identity);
     }
 
-    public void CastSkillFour()
-    {
-        GameObject newSkillFour = Instantiate(skillFourPrefab, skillFourPosition.position, Quaternion.identity);
-    }
-
     public void CastSkillSecond()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(skillSecondRangeEffect.position, radius, whatIsEnemy);
@@ -145,6 +145,36 @@ public class Leenald : Hero
                 hit.GetComponent<Enemy>().canBeKnockback = true;
             }
         }
+    }
+
+    public void CastSkillThird()
+    {
+        FindAllAllyInArea(transform.position);
+
+        foreach (Hero ally in allies)
+        {
+            fx.CreateHealFX(ally.transform.position);
+        }
+    }
+
+
+    private void FindAllAllyInArea(Vector2 _position)
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(_position, observeRangeSize, 0f, whatIsEnemy);
+
+        foreach (Collider2D collider in hitColliders)
+        {
+            Hero ally = collider.GetComponent<Hero>();
+            if (ally != null)
+            {
+                allies.Add(ally);
+            }
+        }
+    }
+
+    public void CastSkillFour()
+    {
+        GameObject newSkillFour = Instantiate(skillFourPrefab, skillFourPosition.position, Quaternion.identity);
     }
 
     protected override void OnDrawGizmos()
