@@ -47,9 +47,12 @@ public class LeenaldIdleState : HeroState
 
             if (hero.isInitialTime)
                 stateMachine.ChangeState(hero.moveState);
-            else 
+            else
             {
-                hero.LeenaldMovement();
+                if (hero.IsEnemyDetected())
+                    hero.LeenaldMovement();
+                else if (hero.ExistEnemyInObserve())
+                    stateMachine.ChangeState(hero.moveState);
             }
         }
     }

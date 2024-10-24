@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &115088971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 115088972}
-  m_Layer: 7
-  m_Name: DustEffect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &115088972
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115088971}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3499999, y: -0.91800004, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1860807595}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &209411375
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1860807595}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &261376502
 PrefabInstance:
@@ -316,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392592444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.29, y: 2.4, z: 1}
+  m_LocalPosition: {x: -3.22, y: 2.4, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -346,6 +315,8 @@ MonoBehaviour:
   currentStateIndex: 0
   isDead: 0
   yPositionDefault: 0
+  observeRangeSize: {x: 60, y: 15}
+  enemies: []
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 128
@@ -375,8 +346,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   skillUltimatePrefab: {fileID: 4164511445130511482, guid: 77ea8a1215a31504ca83d79b0d4cc14a, type: 3}
-  boxSize: {x: 45, y: 20}
-  enemies: []
   skillSecondRangeEffect: {fileID: 1342742393}
   radius: 2.5
   skillFourPrefab: {fileID: 7385195848199803189, guid: ed069ae47db8be84f85e9645342e4002, type: 3}
@@ -601,7 +570,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1860807595}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650322812
 GameObject:
@@ -782,7 +751,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1860807595}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041955256
 GameObject:
@@ -1226,13 +1195,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860807593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -1.95, z: 1}
+  m_LocalPosition: {x: 3.42, y: -1.95, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1386284823}
   - {fileID: 1105004689}
-  - {fileID: 115088972}
   - {fileID: 634080697}
   - {fileID: 209411376}
   - {fileID: 883691687}
@@ -1294,11 +1262,13 @@ MonoBehaviour:
   currentStateIndex: 0
   isDead: 0
   yPositionDefault: -1.95
+  observeRangeSize: {x: 0, y: 0}
+  enemies: []
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
   detectEnemy: {fileID: 634080697}
-  detectEnemyDistance: 2
+  detectEnemyDistance: 1.7
   attackRange: {fileID: 209411376}
   attackRangeRadius: 1
   isInitialTime: 0
@@ -1315,7 +1285,7 @@ MonoBehaviour:
   knockupDuration: 0.3
   fallDuration: 0.3
   dustEffectPrefab: {fileID: 5301496239964232419, guid: 26a43308c57f1ab4ab6c5e817b211322, type: 3}
-  dustEffectPosition: {fileID: 115088972}
+  dustEffectPosition: {fileID: 0}
   fadeDuration: 1
   ignoreAlly: {fileID: 883691687}
   ignoreBoxSize: {x: 2, y: 2.3}

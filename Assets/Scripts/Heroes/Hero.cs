@@ -24,10 +24,35 @@ public class Hero : Character
     {
         base.Update();
 
+        FindAllEnemiesInArea(transform.position);
         DetectAndIgnoreAlly();
 
         stateMachine.currentState.Update();
 
+    }
+
+    public override void FindAllEnemiesInArea(Vector2 _position)
+    {
+        base.FindAllEnemiesInArea(_position);
+
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(_position, observeRangeSize, 0f, whatIsEnemy);
+
+        foreach (Collider2D collider in hitColliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemies.Add(enemy);
+            }
+        }
+    }
+
+    public bool ExistEnemyInObserve()
+    {
+        if (enemies.Count > 0)
+            return true;
+
+        return false;
     }
 
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();

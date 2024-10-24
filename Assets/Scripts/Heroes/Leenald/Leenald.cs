@@ -21,9 +21,6 @@ public class Leenald : Hero
 
     [Header("Skill Ultimate Informations")]
     [SerializeField] private GameObject skillUltimatePrefab;
-    //private bool isInUltimateTime;
-    public Vector2 boxSize;
-    public List<Enemy> enemies;
 
     [Header("Skill Second Informations")]
     [SerializeField] private Transform skillSecondRangeEffect;
@@ -106,22 +103,7 @@ public class Leenald : Hero
         }
         else
         {
-            stateMachine.ChangeState(moveState);
-        }
-    }
-
-    public void FindAllEnemiesInArea(Vector2 _position)
-    {
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(_position, boxSize, 0f, whatIsEnemy);
-
-        foreach (Collider2D collider in hitColliders)
-        {
-            Enemy enemy = collider.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemies.Add(enemy);
-                Debug.Log(enemy.transform.position);
-            }
+            stateMachine.ChangeState(idleState);
         }
     }
 
@@ -140,9 +122,9 @@ public class Leenald : Hero
 
     public void CastSkillUltimate()
     {
-        Time.timeScale = 0;
-        FindAllEnemiesInArea(transform.position);
+       Time.timeScale = 0;
        Vector2 targetPosition = ClosestEnemy();
+       targetPosition.y -= .2f; // this line to adjust postion of Desert Dungeon
 
         GameObject newSkillUltimate = Instantiate(skillUltimatePrefab, targetPosition, Quaternion.identity);
     }
@@ -171,9 +153,6 @@ public class Leenald : Hero
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(skillSecondRangeEffect.position, radius);
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position, boxSize);
     }
 
 

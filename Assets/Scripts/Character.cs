@@ -17,18 +17,29 @@ public class Character : MonoBehaviour
 
     public int facingDirection { get; protected set; } = 1;
 
+    [Space]
+    [Header("Basic Informations")]
     public float moveSpeed;
-    public int currentStateIndex = 0;
     public bool isDead;
+    public int currentStateIndex = 0;
     public float yPositionDefault;
 
+    [Space]
+    [Space]
     [Header("Collision Information")]
     [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected Transform detectEnemy;
     [SerializeField] protected float detectEnemyDistance = 2;
     public Transform attackRange;
     public float attackRangeRadius;
+    [SerializeField] protected Vector2 observeRangeSize;
+    [SerializeField] protected List<Character> enemies;
+    [SerializeField] protected Transform ignoreAlly;
+    [SerializeField] protected Vector2 ignoreBoxSize;
+    [SerializeField] protected LayerMask whatIsAlly;
 
+    [Space]
+    [Space]
     [Header("Idle State Informations")]
     public bool isInitialTime;
     public float idleTimeInitial;
@@ -41,22 +52,20 @@ public class Character : MonoBehaviour
     public bool canBeStun;
     public float stunDuration;
     public bool canBeKnockback;
-    public float knockbackForce;
-    public float knockbackDuration;
+    [SerializeField] private float knockbackForce;
+    [SerializeField] private float knockbackDuration;
     public bool canBeKnockup;
-    public float knockupForce;
-    public float knockupDuration;
-    public float fallDuration;
+    [SerializeField] private float knockupForce;
+    [SerializeField] private float knockupDuration;
+    [SerializeField] private float fallDuration;
 
-
+    [Space]
+    [Space]
+    [Header("FX")]
     [SerializeField] private GameObject dustEffectPrefab;
     [SerializeField] private Transform dustEffectPosition;
-
     public float fadeDuration = 1.0f;
 
-    public Transform ignoreAlly;
-    public Vector2 ignoreBoxSize;
-    public LayerMask whatIsAlly;
 
 
     protected virtual void Awake()
@@ -109,6 +118,9 @@ public class Character : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(attackRange.position, attackRangeRadius);
 
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position, observeRangeSize);
+
         Gizmos.color = Color.black;
         Gizmos.DrawWireCube(ignoreAlly.position, ignoreBoxSize);
     }
@@ -130,6 +142,11 @@ public class Character : MonoBehaviour
         }
 
         return false;
+    }
+
+    public virtual void FindAllEnemiesInArea(Vector2 _position)
+    {
+
     }
 
     public virtual void CastStun()

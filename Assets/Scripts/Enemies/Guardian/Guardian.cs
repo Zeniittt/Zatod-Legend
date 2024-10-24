@@ -33,7 +33,7 @@ public class Guardian : Enemy
     {
         base.Start();
 
-        transform.position = new Vector3(transform.position.x, yPositionDefault);
+        SetupGuardian();
         Flip();
 
         enemyStates = new List<EnemyState>
@@ -46,6 +46,14 @@ public class Guardian : Enemy
 
         isInitialTime = true;
         stateMachine.Initialize(idleState);
+    }
+
+    private void SetupGuardian()
+    {
+        if (yPositionDefault == -1.95f)
+            transform.position = new Vector3(transform.position.x, yPositionDefault, 1);
+        else if(yPositionDefault == -2.45f)
+            transform.position = new Vector3(transform.position.x, yPositionDefault, 0);
     }
 
     protected override void Update()

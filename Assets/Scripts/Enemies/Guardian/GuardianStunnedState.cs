@@ -42,6 +42,8 @@ public class GuardianStunnedState : EnemyState
     public override void Update()
     {
         base.Update();
+
+        enemy.SetZeroVelocity();
    
         if (triggerCalled)
         {            
