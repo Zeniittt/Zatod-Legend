@@ -35,7 +35,7 @@ public class Character : MonoBehaviour
     [Space]
     [Space]
     [Header("Crowd Control Informations")]
-    [SerializeField] public Transform stunObject;
+    public Transform stunObject;
     public bool canBeStun;
     public float stunDuration;
     public bool canBeKnockback;
@@ -47,6 +47,10 @@ public class Character : MonoBehaviour
     [SerializeField] private Transform dustEffectPosition;
 
     public float fadeDuration = 1.0f;
+
+    public Transform ignoreAlly;
+    public Vector2 ignoreBoxSize;
+    public LayerMask whatIsAlly;
 
 
     protected virtual void Awake()
@@ -65,7 +69,6 @@ public class Character : MonoBehaviour
 
     protected virtual void Update()
     {
-
     }
 
     #region Velocity
@@ -99,6 +102,9 @@ public class Character : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(attackRange.position, attackRangeRadius);
+
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireCube(ignoreAlly.position, ignoreBoxSize);
     }
 
     //public virtual bool IsEnemyDetected() => Physics2D.Raycast(detectEnemy.position, Vector2.right * facingDirection, detectEnemyDistance, whatIsEnemy);
