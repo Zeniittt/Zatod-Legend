@@ -63,7 +63,7 @@ public class Guardian : Enemy
         if (currentStateIndex == enemyStates.Count - 1)
             currentStateIndex = 0;
 
-        if (canBeStun && !stunObject.gameObject.activeSelf)
+        if (canBeStun && !fx.stunObject.gameObject.activeSelf)
         {
             stateMachine.ChangeState(stunnedState);
         }

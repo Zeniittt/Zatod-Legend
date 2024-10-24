@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 392592446}
   - component: {fileID: 392592445}
   - component: {fileID: 392592448}
+  - component: {fileID: 392592450}
   - component: {fileID: 392592449}
   m_Layer: 6
   m_Name: Hero_Leenald
@@ -312,11 +313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  currentStateIndex: 0
   isDead: 0
+  currentStateIndex: 0
   yPositionDefault: 0
-  observeRangeSize: {x: 60, y: 15}
-  enemies: []
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 128
@@ -324,10 +323,16 @@ MonoBehaviour:
   detectEnemyDistance: 2
   attackRange: {fileID: 1373499717}
   attackRangeRadius: 1
+  observeRangeSize: {x: 60, y: 15}
+  enemies: []
+  ignoreAlly: {fileID: 1041955257}
+  ignoreBoxSize: {x: 2, y: 2.6}
+  whatIsAlly:
+    serializedVersion: 2
+    m_Bits: 64
   isInitialTime: 0
   idleTimeInitial: 1.5
   idleTime: 1
-  stunObject: {fileID: 9170973891172618744, guid: 42c6cbd322170754ba727dce928acb05, type: 3}
   canBeStun: 0
   stunDuration: 3
   canBeKnockback: 0
@@ -337,14 +342,6 @@ MonoBehaviour:
   knockupForce: 0
   knockupDuration: 0
   fallDuration: 0
-  dustEffectPrefab: {fileID: 0}
-  dustEffectPosition: {fileID: 0}
-  fadeDuration: 1
-  ignoreAlly: {fileID: 1041955257}
-  ignoreBoxSize: {x: 2, y: 2.6}
-  whatIsAlly:
-    serializedVersion: 2
-    m_Bits: 64
   skillUltimatePrefab: {fileID: 4164511445130511482, guid: 77ea8a1215a31504ca83d79b0d4cc14a, type: 3}
   skillSecondRangeEffect: {fileID: 1342742393}
   radius: 2.5
@@ -362,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46ac98facc21e240a96ed6bf3c2d4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fx: {fileID: 0}
   health:
     baseValue: 150
   physicDamage:
@@ -373,6 +371,23 @@ MonoBehaviour:
   magicResistance:
     baseValue: 0
   currentHealth: 0
+--- !u!114 &392592450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392592444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009a1e02706a5864fb172a29fbc2ced1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunObject: {fileID: 261376503}
+  dustEffectPrefab: {fileID: 5301496239964232419, guid: 26a43308c57f1ab4ab6c5e817b211322, type: 3}
+  fadeDuration: 1
+  hitPrefab: {fileID: 7512585946961074744, guid: cdb5b58bcaa38e74cbdbe79fdfb7c31c, type: 3}
+  offset: {x: 0, y: 2, z: -1}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1173,7 @@ GameObject:
   - component: {fileID: 1860807594}
   - component: {fileID: 1860807596}
   - component: {fileID: 1860807598}
+  - component: {fileID: 1860807599}
   - component: {fileID: 1860807597}
   m_Layer: 7
   m_Name: Enemy_Guardian
@@ -1235,6 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6499205374ccde449a3a575efac2e433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fx: {fileID: 0}
   health:
     baseValue: 100
   physicDamage:
@@ -1259,11 +1276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  currentStateIndex: 0
   isDead: 0
+  currentStateIndex: 0
   yPositionDefault: -1.95
-  observeRangeSize: {x: 0, y: 0}
-  enemies: []
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
@@ -1271,10 +1286,16 @@ MonoBehaviour:
   detectEnemyDistance: 1.7
   attackRange: {fileID: 209411376}
   attackRangeRadius: 1
+  observeRangeSize: {x: 0, y: 0}
+  enemies: []
+  ignoreAlly: {fileID: 883691687}
+  ignoreBoxSize: {x: 2, y: 2.3}
+  whatIsAlly:
+    serializedVersion: 2
+    m_Bits: 128
   isInitialTime: 0
   idleTimeInitial: 1.6
   idleTime: 1
-  stunObject: {fileID: 1105004689}
   canBeStun: 0
   stunDuration: 2
   canBeKnockback: 0
@@ -1284,11 +1305,20 @@ MonoBehaviour:
   knockupForce: 3
   knockupDuration: 0.3
   fallDuration: 0.3
+--- !u!114 &1860807599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860807593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009a1e02706a5864fb172a29fbc2ced1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunObject: {fileID: 1105004689}
   dustEffectPrefab: {fileID: 5301496239964232419, guid: 26a43308c57f1ab4ab6c5e817b211322, type: 3}
-  dustEffectPosition: {fileID: 0}
   fadeDuration: 1
-  ignoreAlly: {fileID: 883691687}
-  ignoreBoxSize: {x: 2, y: 2.3}
-  whatIsAlly:
-    serializedVersion: 2
-    m_Bits: 128
+  hitPrefab: {fileID: 7512585946961074744, guid: cdb5b58bcaa38e74cbdbe79fdfb7c31c, type: 3}
+  offset: {x: 0.1, y: 1, z: -1}

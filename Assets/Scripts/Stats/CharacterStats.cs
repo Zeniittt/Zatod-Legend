@@ -13,6 +13,8 @@ public enum StatType
 
 public class CharacterStats : MonoBehaviour
 {
+    public CharacterFX fx;
+
     public Stat health;
     public Stat physicDamage;
     public Stat magicDamage;
@@ -24,6 +26,8 @@ public class CharacterStats : MonoBehaviour
 
     protected virtual void Start()
     {
+        fx = GetComponent<CharacterFX>();
+
         currentHealth = health.GetValue();        
     }
 

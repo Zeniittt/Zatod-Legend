@@ -24,7 +24,11 @@ public class Hero_AnimationTriggers : MonoBehaviour
                 EnemyStats target = hit.GetComponent<EnemyStats>();
 
                 if (target != null)
+                {
                     hero.stats.DoPhysicDamage(target);
+                    target.fx.CreateHitFX(target.transform);
+                }    
+
                 break;
             }
         }

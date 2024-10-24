@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     public Animator animator { get; private set; }
     public SpriteRenderer sr { get; private set; }
     public CharacterStats stats { get; private set; }
+    public CharacterFX fx { get; private set; }
 
     #endregion
 
@@ -48,7 +49,6 @@ public class Character : MonoBehaviour
     [Space]
     [Space]
     [Header("Crowd Control Informations")]
-    public Transform stunObject;
     public bool canBeStun;
     public float stunDuration;
     public bool canBeKnockback;
@@ -58,15 +58,6 @@ public class Character : MonoBehaviour
     [SerializeField] private float knockupForce;
     [SerializeField] private float knockupDuration;
     [SerializeField] private float fallDuration;
-
-    [Space]
-    [Space]
-    [Header("FX")]
-    [SerializeField] private GameObject dustEffectPrefab;
-    [SerializeField] private Transform dustEffectPosition;
-    public float fadeDuration = 1.0f;
-
-
 
     protected virtual void Awake()
     {
@@ -80,6 +71,7 @@ public class Character : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
         stats = GetComponent<CharacterStats>();
+        fx = GetComponent<CharacterFX>();
     }
 
     protected virtual void Update()
@@ -149,11 +141,6 @@ public class Character : MonoBehaviour
 
     }
 
-    public virtual void CastStun()
-    {
-        stunObject.gameObject.SetActive(true);
-    }
-
     public virtual void Knockback() { }
 
     public void CastKnockback()
@@ -161,7 +148,7 @@ public class Character : MonoBehaviour
         transform.DOMoveX(transform.position.x + (knockbackForce * -facingDirection), knockbackDuration)
             .SetEase(Ease.InCubic);
 
-        Invoke("CreateDust", .5f);
+        Invoke("CallCreateDust", .5f);
     }
 
     public virtual void Knockup() { }
@@ -176,27 +163,12 @@ public class Character : MonoBehaviour
         sequence.Append(transform.DOMoveY(transform.position.y, fallDuration)
             .SetEase(Ease.InCubic));
 
-        Invoke("CreateDust", .8f);
+        Invoke("CallCreateDust", .8f);
     }
 
-    public void CreateDust()
+    private void CallCreateDust()
     {
-        GameObject newDust = Instantiate(dustEffectPrefab, transform.position, Quaternion.identity);
-    }
-
-    public IEnumerator FadeOut()
-    {
-        float startAlpha = sr.color.a;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(startAlpha, 0f, elapsedTime / fadeDuration);
-            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
-            yield return null;
-        }
-
+        fx.CreateDustFX();
     }
 
     public virtual void Die()
