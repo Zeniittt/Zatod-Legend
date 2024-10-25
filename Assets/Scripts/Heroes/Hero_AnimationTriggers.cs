@@ -25,7 +25,7 @@ public class Hero_AnimationTriggers : MonoBehaviour
 
                 if (target != null)
                 {
-                    hero.stats.DoPhysicDamage(target);
+                    hero.stats.DoPhysicDamage(target, hero.stats.physicDamage.GetValue());
                     target.fx.CreateHitFX(target.transform);
                 }    
 

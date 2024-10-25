@@ -31,15 +31,29 @@ public class CharacterStats : MonoBehaviour
         currentHealth = health.GetValue();        
     }
 
-    public virtual void DoPhysicDamage(CharacterStats _targetStats)
+    public virtual void DoPhysicDamage(CharacterStats _targetStats, int _damage)
     {
-        int damage = physicDamage.GetValue();
+        fx.CreatePopUpText(_targetStats.transform.position, "- " + _damage.ToString(), new Vector3(255, 255, 255));
+        
+        _targetStats.TakePhysicDamage(_damage);
+    }
 
-        fx.CreatePopUpText(_targetStats.transform.position, "- " + damage.ToString(), new Vector3(243, 215, 0));
-        _targetStats.TakePhysicDamage(damage);
+    public virtual void DoMagicalDamage(CharacterStats _targetStats, int _damage)
+    {
+        fx.CreatePopUpText(_targetStats.transform.position, "- " + _damage.ToString(), new Vector3(243, 215, 0));
+        
+        _targetStats.TakeMagicalDamage(_damage);
     }
 
     public virtual void TakePhysicDamage(int _damage)
+    {
+        DecreaseHealthBy(_damage);
+
+        if (currentHealth <= 0)
+            Die();
+    }
+
+    public virtual void TakeMagicalDamage(int _damage)
     {
         DecreaseHealthBy(_damage);
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Leenald_GroundRaise_Controller : MonoBehaviour
 {
+    private Leenald hero => GetComponentInParent<Leenald>(); 
+
 
     [SerializeField] private Transform rangeEffect;
     [SerializeField] private Vector2 boxSize;
@@ -11,13 +13,20 @@ public class Leenald_GroundRaise_Controller : MonoBehaviour
 
     private void AnimationTrigger()
     {
+
         Collider2D[] colliders = Physics2D.OverlapBoxAll(rangeEffect.position, boxSize, whatIsEnemy);
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponentInParent<Enemy>() != null)
+            Enemy enemy = hit.GetComponent<Enemy>();
+
+            if (enemy != null && !enemy.isDead)
             {
-                hit.GetComponent<Enemy>().canBeKnockup = true;
+                enemy.canBeKnockup = true;
+
+                EnemyStats target = hit.GetComponent<EnemyStats>();
+                if (target != null)
+                    hero.stats.DoMagicalDamage(target, hero.damageSkillFour);
             }
         }
     }

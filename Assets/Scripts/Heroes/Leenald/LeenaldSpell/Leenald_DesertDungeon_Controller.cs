@@ -5,6 +5,8 @@ using UnityEngine;
 public class Leenald_DesertDungeon_Controller : MonoBehaviour
 {
     Animator animator => GetComponent<Animator>();
+    private Leenald hero => GetComponentInParent<Leenald>();
+
 
     [SerializeField] private Transform rangeEffect;
     [SerializeField] private Vector2 boxSize;
@@ -24,9 +26,15 @@ public class Leenald_DesertDungeon_Controller : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
+            Enemy enemy = hit.GetComponent<Enemy>();
+
+            if (enemy != null)
             {
-                hit.GetComponent<Enemy>().canBeStun = true;
+                enemy.canBeStun = true;
+
+                EnemyStats target = hit.GetComponent<EnemyStats>();
+                if (target != null)
+                    hero.stats.DoMagicalDamage(target, hero.damageSkillFour);
                 break;
             }
         }

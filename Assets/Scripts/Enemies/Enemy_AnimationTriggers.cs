@@ -25,7 +25,7 @@ public class Enemy_AnimationTriggers : MonoBehaviour
 
                 if (target != null)
                 {
-                    enemy.stats.DoPhysicDamage(target);
+                    enemy.stats.DoPhysicDamage(target, enemy.stats.physicDamage.GetValue());
                     target.fx.CreateHitFX(target.transform);
                 }
 

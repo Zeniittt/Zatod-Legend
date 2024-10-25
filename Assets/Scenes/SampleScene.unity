@@ -627,7 +627,7 @@ MonoBehaviour:
   health:
     baseValue: 150
   physicDamage:
-    baseValue: 5
+    baseValue: 7
   magicDamage:
     baseValue: 0
   armor:
@@ -698,12 +698,15 @@ MonoBehaviour:
   knockupDuration: 0
   fallDuration: 0
   skillUltimatePrefab: {fileID: 4164511445130511482, guid: 77ea8a1215a31504ca83d79b0d4cc14a, type: 3}
+  damageSkilUltimate: 30
   skillSecondRangeEffect: {fileID: 1342742393}
   radius: 2.5
+  damageSkillSecond: 15
   allies: []
   amountHeal: 20
   skillFourPrefab: {fileID: 7385195848199803189, guid: ed069ae47db8be84f85e9645342e4002, type: 3}
   skillFourPosition: {fileID: 1337410581}
+  damageSkillFour: 13
 --- !u!4 &868782332
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,7 +1263,7 @@ MonoBehaviour:
   health:
     baseValue: 100
   physicDamage:
-    baseValue: 10
+    baseValue: 5
   magicDamage:
     baseValue: 0
   armor:

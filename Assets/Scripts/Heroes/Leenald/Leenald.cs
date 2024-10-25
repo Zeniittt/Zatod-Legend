@@ -21,10 +21,12 @@ public class Leenald : Hero
 
     [Header("Skill Ultimate Informations")]
     [SerializeField] private GameObject skillUltimatePrefab;
+    public int damageSkilUltimate;
 
     [Header("Skill Second Informations")]
     [SerializeField] private Transform skillSecondRangeEffect;
-    [SerializeField]private float radius;
+    [SerializeField] private float radius;
+    [SerializeField] private int damageSkillSecond;
 
     [Header("Skill Third Information")]
     [SerializeField] protected List<Character> allies;
@@ -33,6 +35,7 @@ public class Leenald : Hero
     [Header("Skill Four Informations")]
     [SerializeField] private GameObject skillFourPrefab;
     [SerializeField] private Transform skillFourPosition;
+    public int damageSkillFour;
 
     protected override void Awake()
     {
@@ -130,7 +133,7 @@ public class Leenald : Hero
        Vector2 targetPosition = ClosestEnemy();
        targetPosition.y -= .2f; // this line to adjust postion of Desert Dungeon
 
-        GameObject newSkillUltimate = Instantiate(skillUltimatePrefab, targetPosition, Quaternion.identity);
+        GameObject newSkillUltimate = Instantiate(skillUltimatePrefab, targetPosition, Quaternion.identity, transform);
     }
 
     public void CastSkillSecond()
@@ -139,9 +142,17 @@ public class Leenald : Hero
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
+            Enemy enemy = hit.GetComponent<Enemy>();
+
+            if (enemy != null && !enemy.isDead)
             {
-                hit.GetComponent<Enemy>().canBeKnockback = true;
+                enemy.canBeKnockback = true;
+
+                EnemyStats target = hit.GetComponent<EnemyStats>();
+                if(target != null)
+                {
+                    stats.DoPhysicDamage(target, damageSkillSecond);
+                }
             }
         }
     }
@@ -177,7 +188,7 @@ public class Leenald : Hero
 
     public void CastSkillFour()
     {
-        GameObject newSkillFour = Instantiate(skillFourPrefab, skillFourPosition.position, Quaternion.identity);
+        GameObject newSkillFour = Instantiate(skillFourPrefab, skillFourPosition.position, Quaternion.identity, transform);
     }
 
     protected override void OnDrawGizmos()
