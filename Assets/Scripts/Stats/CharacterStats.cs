@@ -35,7 +35,7 @@ public class CharacterStats : MonoBehaviour
     {
         int damage = physicDamage.GetValue();
 
-        fx.CreatePopUpText(_targetStats.transform.position, "- " + damage.ToString());
+        fx.CreatePopUpText(_targetStats.transform.position, "- " + damage.ToString(), new Vector3(243, 215, 0));
         _targetStats.TakePhysicDamage(damage);
     }
 

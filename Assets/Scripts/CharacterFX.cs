@@ -33,7 +33,7 @@ public class CharacterFX : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void CreatePopUpText(Vector2 _position, string _text)
+    public void CreatePopUpText(Vector2 _position, string _text, Vector3 _color)
     {
         float randomX = Random.Range(-.5f, .5f);
         float randomY = Random.Range(2.5f, 3.2f);
@@ -42,7 +42,10 @@ public class CharacterFX : MonoBehaviour
 
         GameObject newText = Instantiate(popUpTextPrefab, _position + positionOffset, Quaternion.identity);
 
-        newText.GetComponent<TextMeshPro>().text = _text;
+        TextMeshPro textComponent = newText.GetComponent<TextMeshPro>();
+
+        textComponent.text = _text;
+        textComponent.color = new Color(_color.x / 255f, _color.y / 255f , _color.z / 255f);
     }
 
     public void CastStunFX()

@@ -154,6 +154,7 @@ public class Leenald : Hero
         {
             fx.CreateHealFX(ally.transform.position);
             ally.stats.IncreaseHealthBy(amountHeal);
+            fx.CreatePopUpText(ally.transform.position, "+ " + amountHeal.ToString(), new Vector3(144, 255, 107));
         }
 
         allies.Clear();
