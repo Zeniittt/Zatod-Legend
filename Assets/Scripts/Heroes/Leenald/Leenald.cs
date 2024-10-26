@@ -146,13 +146,12 @@ public class Leenald : Hero
 
             if (enemy != null && !enemy.isDead)
             {
-                enemy.canBeKnockback = true;
-
                 EnemyStats target = hit.GetComponent<EnemyStats>();
                 if(target != null)
-                {
                     stats.DoPhysicDamage(target, damageSkillSecond);
-                }
+
+                if (!enemy.isDead)
+                    enemy.canBeKnockback = true;
             }
         }
     }

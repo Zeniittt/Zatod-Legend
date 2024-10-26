@@ -2,38 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guardian : Enemy
+public class Archer : Enemy
 {
-    #region
+    #region States
 
-    public GuardianIdleState idleState { get; private set; }
-    public GuardianMoveState moveState { get; private set; }
-    public GuardianBattleState battleState { get; private set; }
-    public GuardianAttackState attackState { get; private set; }
-    public GuardianStunnedState stunnedState { get; private set; }
-    public GuardianAfterStunnedState afterStunnedState { get; private set; }
-    public GuardianDeadState deadState { get; private set; }
+    public ArcherIdleState idleState { get; private set; }
+    public ArcherMoveState moveState { get; private set; }
+    public ArcherBattleState battleState { get; private set; }
+    public ArcherAttackState attackState { get; private set; }
+    public ArcherStunnedState stunnedState { get; private set; }
+    public ArcherAfterStunnedState afterStunnedState { get; private set; }
+    public ArcherDeadState deadState { get; private set; }
 
     #endregion
+
+    [SerializeField] private GameObject arrowPrefab;
 
     protected override void Awake()
     {
         base.Awake();
 
-        idleState = new GuardianIdleState(this, stateMachine, "Idle", this);
-        moveState = new GuardianMoveState(this, stateMachine, "Move", this);
-        battleState = new GuardianBattleState(this, stateMachine, "Idle", this);
-        attackState = new GuardianAttackState(this, stateMachine, "Attack", this);
-        stunnedState = new GuardianStunnedState(this, stateMachine, "Stunned", this);
-        afterStunnedState = new GuardianAfterStunnedState(this, stateMachine, "AfterStunned", this);
-        deadState = new GuardianDeadState(this, stateMachine, "Dead", this);
+        idleState = new ArcherIdleState(this, stateMachine, "Idle", this);
+        moveState = new ArcherMoveState(this, stateMachine, "Move", this);
+        battleState = new ArcherBattleState(this, stateMachine, "Idle", this);
+        attackState = new ArcherAttackState(this, stateMachine, "Attack", this);
+        stunnedState = new ArcherStunnedState(this, stateMachine, "Stunned", this);
+        afterStunnedState = new ArcherAfterStunnedState(this, stateMachine, "AfterStunned", this);
+        deadState = new ArcherDeadState(this, stateMachine, "Dead", this);
     }
 
     protected override void Start()
     {
         base.Start();
 
-        SetupGuardian();
         Flip();
 
         enemyStates = new List<EnemyState>
@@ -87,15 +88,7 @@ public class Guardian : Enemy
         stateMachine.ChangeState(deadState);
     }
 
-    private void SetupGuardian()
-    {
-        if (yPositionDefault == -1.95f)
-            transform.position = new Vector3(transform.position.x, yPositionDefault, 1);
-        else if (yPositionDefault == -2.45f)
-            transform.position = new Vector3(transform.position.x, yPositionDefault, 0);
-    }
-
-    public void GuardianMovement()
+    public void ArcherMovement()
     {
         if (IsEnemyDetected())
         {
@@ -106,5 +99,12 @@ public class Guardian : Enemy
         {
             stateMachine.ChangeState(moveState);
         }
+    }
+
+    public void CreateArrow()
+    {
+        GameObject newArrow = Instantiate(arrowPrefab, attackRange.position, Quaternion.identity, transform);
+
+        newArrow.GetComponent<Archer_Arrow>().SetupArrow(facingDirection, stats);
     }
 }

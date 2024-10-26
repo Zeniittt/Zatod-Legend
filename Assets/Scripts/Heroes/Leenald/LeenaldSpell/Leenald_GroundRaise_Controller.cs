@@ -22,11 +22,12 @@ public class Leenald_GroundRaise_Controller : MonoBehaviour
 
             if (enemy != null && !enemy.isDead)
             {
-                enemy.canBeKnockup = true;
-
                 EnemyStats target = hit.GetComponent<EnemyStats>();
                 if (target != null)
                     hero.stats.DoMagicalDamage(target, hero.damageSkillFour);
+
+                if(!enemy.isDead)
+                    enemy.canBeKnockup = true;
             }
         }
     }
