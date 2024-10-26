@@ -23,9 +23,14 @@ public class CharacterFX : MonoBehaviour
     [SerializeField] private GameObject hitPrefab;
     [SerializeField] private Vector3 hitOffset;
 
-    [Header("Heal Effect")]
+    [Header("Heal FX")]
     [SerializeField] private GameObject healPrefab;
     [SerializeField] private Vector2 healOffset;
+
+    [Header("Hemorrhage FX")]
+    [SerializeField] private GameObject hemorrhagePrefab;
+    [SerializeField] private Vector2 hemorrhageOffset;
+
 
 
     private void Start()
@@ -91,5 +96,14 @@ public class CharacterFX : MonoBehaviour
         GameObject newHeal = Instantiate(healPrefab, _position + healOffset, Quaternion.identity);
 
         Destroy(newHeal, .5f);
+    }
+
+    public void CreateHemorrhage(Vector2 _position)
+    {
+        GameObject newHemorrhage = Instantiate(hemorrhagePrefab, _position + hemorrhageOffset, Quaternion.identity);
+
+        newHemorrhage.transform.Rotate(0, 0, 30);
+
+        Destroy(newHemorrhage, .5f);
     }
 }

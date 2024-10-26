@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_AnimationTriggers : MonoBehaviour
+public class GrayWolf_AnimationTriggers : Enemy_AnimationTriggers
 {
-    public Enemy enemy => GetComponentInParent<Enemy>();
+    GrayWolf grayWolf => GetComponentInParent<GrayWolf>();
 
-    private void AnimationFinishTrigger()
+    private void InitialAttackTrigger()
     {
-        enemy.AnimationFinishTrigger();
-    }
-
-    private void AttackTrigger()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.attackRange.position, enemy.attackRangeRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(grayWolf.initialAttackRange.position, grayWolf.initialAttackRangeRadius);
 
         foreach (var hit in colliders)
         {
@@ -25,8 +20,9 @@ public class Enemy_AnimationTriggers : MonoBehaviour
 
                 if (target != null)
                 {
-                    enemy.stats.DoPhysicDamage(target, enemy.stats.physicDamage.GetValue());
+                    grayWolf.stats.DoPhysicDamage(target, grayWolf.initialDamage);
                     target.fx.CreateHitFX(target.transform);
+                    target.fx.CreateHemorrhage(hero.transform.position);
                 }
 
                 break;

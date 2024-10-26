@@ -41,19 +41,10 @@ public class Guardian : Enemy
             idleState,
             attackState,
             idleState,
-            attackState
         };
 
         isInitialTime = true;
         stateMachine.Initialize(idleState);
-    }
-
-    private void SetupGuardian()
-    {
-        if (yPositionDefault == -1.95f)
-            transform.position = new Vector3(transform.position.x, yPositionDefault, 1);
-        else if(yPositionDefault == -2.45f)
-            transform.position = new Vector3(transform.position.x, yPositionDefault, 0);
     }
 
     protected override void Update()
@@ -73,6 +64,14 @@ public class Guardian : Enemy
 
         if (canBeKnockup)
             Knockup();
+    }
+
+    private void SetupGuardian()
+    {
+        if (yPositionDefault == -1.95f)
+            transform.position = new Vector3(transform.position.x, yPositionDefault, 1);
+        else if (yPositionDefault == -2.45f)
+            transform.position = new Vector3(transform.position.x, yPositionDefault, 0);
     }
 
     public void GuardianMovement()
