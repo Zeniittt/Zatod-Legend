@@ -30,6 +30,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Update()
     {
+        stateMachine.currentState.Update();
     }
 
     public void SetVelocity(float _xVelocity, float _yVelocity)

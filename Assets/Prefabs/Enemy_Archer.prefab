@@ -311,7 +311,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   detectEnemy: {fileID: 830917864745299466}
-  detectEnemyDistance: 10
+  detectEnemyDistance: 9
   attackRange: {fileID: 830917864553349532}
   attackRangeRadius: 1
   observeRangeSize: {x: 0, y: 0}
@@ -370,9 +370,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fx: {fileID: 0}
   health:
-    baseValue: 80
+    baseValue: 70
   physicDamage:
-    baseValue: 10
+    baseValue: 15
   magicDamage:
     baseValue: 0
   armor:
