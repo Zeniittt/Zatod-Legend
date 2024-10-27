@@ -23,6 +23,8 @@ public class CharacterStats : MonoBehaviour
 
     public int currentHealth;
 
+    public System.Action onHealthChanged;
+
 
     protected virtual void Start()
     {
@@ -64,6 +66,9 @@ public class CharacterStats : MonoBehaviour
     public void DecreaseHealthBy(int _damage)
     {
         currentHealth -= _damage;
+
+        if (onHealthChanged != null)
+            onHealthChanged();
     }
 
     public void IncreaseHealthBy(int _amount)
@@ -72,6 +77,9 @@ public class CharacterStats : MonoBehaviour
 
         if (currentHealth > health.GetValue())
             currentHealth = health.GetValue();
+
+        if (onHealthChanged != null)
+            onHealthChanged();
     }
 
 

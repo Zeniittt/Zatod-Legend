@@ -59,6 +59,9 @@ public class Character : MonoBehaviour
     [SerializeField] private float knockupDuration;
     [SerializeField] private float fallDuration;
 
+    public System.Action onFlipped;
+
+
     protected virtual void Awake()
     {
 
@@ -98,6 +101,9 @@ public class Character : MonoBehaviour
     {
         facingDirection = facingDirection * -1;
         transform.Rotate(0, 180, 0);
+
+        if (onFlipped != null)
+            onFlipped();
     }
 
     #endregion
