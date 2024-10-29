@@ -25,9 +25,9 @@ public class LeenaldMoveState : HeroState
     {
         base.Update();
 
-        hero.SetVelocity(hero.moveSpeed, rigidbody.velocity.y);
+        hero.SetVelocity(hero.moveSpeed * hero.facingDirection, rigidbody.velocity.y);
 
-        if (hero.IsEnemyDetected())
+        if (hero.CanAttack())
             stateMachine.ChangeState(hero.battleState);
     }
 }

@@ -27,7 +27,7 @@ public class ArcherMoveState : EnemyState
 
         enemy.SetVelocity(enemy.moveSpeed * enemy.facingDirection, rb.velocity.y);
 
-        if (enemy.IsEnemyDetected())
+        if (enemy.CanAttack())
             stateMachine.ChangeState(enemy.battleState);
     }
 }

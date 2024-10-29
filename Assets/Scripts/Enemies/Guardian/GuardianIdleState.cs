@@ -45,5 +45,21 @@ public class GuardianIdleState : EnemyState
                 enemy.GuardianMovement();
             }
         }
+
+  /*      if (stateTimer < 0)
+        {
+            if (enemy.isInitialTime)
+                stateMachine.ChangeState(enemy.moveState);
+            else
+            {
+                if (enemy.IsEnemyDetected())
+                    enemy.GuardianMovement();
+                else if (enemy.lineupAttack.Count > 0)
+                {
+                    enemy.FindClosestEnemy();
+                    stateMachine.ChangeState(enemy.moveState);
+                }
+            }
+        }*/
     }
 }

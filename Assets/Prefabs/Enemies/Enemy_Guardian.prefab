@@ -548,20 +548,17 @@ MonoBehaviour:
   isDead: 0
   currentStateIndex: 0
   yPositionDefault: -1.95
+  targetEnemy: {fileID: 0}
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
   detectEnemy: {fileID: 5116274050168194001}
-  detectEnemyDistance: 1.2
+  detectEnemyDistance: 1.5
   attackRange: {fileID: 5116274049741427544}
   attackRangeRadius: 1
-  observeRangeSize: {x: 0, y: 0}
-  enemies: []
   ignoreAlly: {fileID: 5116274049880973007}
   ignoreBoxSize: {x: 2, y: 2.3}
-  whatIsAlly:
-    serializedVersion: 2
-    m_Bits: 128
+  allies: []
   isInitialTime: 0
   idleTimeInitial: 1.5
   idleTime: 1
@@ -574,6 +571,7 @@ MonoBehaviour:
   knockupForce: 3
   knockupDuration: 0.3
   fallDuration: 0.3
+  lineupAttack: []
 --- !u!114 &5116274051394954695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +587,7 @@ MonoBehaviour:
   popUpTextPrefab: {fileID: 2962072881595535949, guid: 42faa3496100dd74bb3e65891550cc21, type: 3}
   stunObject: {fileID: 4054770246332749568}
   dustEffectPrefab: {fileID: 5301496239964232419, guid: 26a43308c57f1ab4ab6c5e817b211322, type: 3}
-  fadeDuration: 1
+  fadeDuration: 0.6
   hitPrefab: {fileID: 7512585946961074744, guid: cdb5b58bcaa38e74cbdbe79fdfb7c31c, type: 3}
   hitOffset: {x: 0, y: 1, z: -1}
   healPrefab: {fileID: 0}

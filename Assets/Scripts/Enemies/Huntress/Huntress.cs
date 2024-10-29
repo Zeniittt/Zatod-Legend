@@ -92,7 +92,7 @@ public class Huntress : Enemy
 
     public void HuntressMovement()
     {
-        if (IsEnemyDetected())
+        if (CanAttack())
         {
             currentStateIndex++;
             stateMachine.ChangeState(enemyStates[currentStateIndex]);

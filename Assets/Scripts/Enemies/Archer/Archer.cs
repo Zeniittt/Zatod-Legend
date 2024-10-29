@@ -90,7 +90,7 @@ public class Archer : Enemy
 
     public void ArcherMovement()
     {
-        if (IsEnemyDetected())
+        if (CanAttack())
         {
             currentStateIndex++;
             stateMachine.ChangeState(enemyStates[currentStateIndex]);

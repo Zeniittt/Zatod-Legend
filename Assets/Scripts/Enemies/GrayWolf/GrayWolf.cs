@@ -114,7 +114,7 @@ public class GrayWolf : Enemy
 
     public void GrayWolfMovement()
     {
-        if (IsEnemyDetected())
+        if (CanAttack())
         {
             currentStateIndex++;
             stateMachine.ChangeState(enemyStates[currentStateIndex]);
@@ -125,19 +125,10 @@ public class GrayWolf : Enemy
         }
     }
 
-    public virtual bool InitialAttackDetected()
+    public virtual bool CanInitialAttack()
     {
-        RaycastHit2D hit = Physics2D.Raycast(initialAttackDetect.position, Vector2.right * facingDirection, initialAttackDistance, whatIsEnemy);
-
-        if (hit.collider != null)
-        {
-            Character enemy = hit.collider.GetComponent<Character>();
-
-            if (enemy != null && !enemy.isDead)
-            {
-                return true;
-            }
-        }
+        if (Vector2.Distance(transform.position, targetEnemy.transform.position) <= initialAttackDistance)
+            return true;
 
         return false;
     }

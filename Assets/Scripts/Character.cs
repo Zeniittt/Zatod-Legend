@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     public SpriteRenderer sr { get; private set; }
     public CharacterStats stats { get; private set; }
     public CharacterFX fx { get; private set; }
+    public Lineup myLineup { get; private set; }
 
     #endregion
 
@@ -24,6 +25,7 @@ public class Character : MonoBehaviour
     public bool isDead;
     public int currentStateIndex = 0;
     public float yPositionDefault;
+    [SerializeField] protected GameObject targetEnemy;
 
     [Space]
     [Space]
@@ -33,11 +35,9 @@ public class Character : MonoBehaviour
     [SerializeField] protected float detectEnemyDistance = 2;
     public Transform attackRange;
     public float attackRangeRadius;
-    [SerializeField] protected Vector2 observeRangeSize;
-    [SerializeField] protected List<Character> enemies;
     [SerializeField] protected Transform ignoreAlly;
     [SerializeField] protected Vector2 ignoreBoxSize;
-    [SerializeField] protected LayerMask whatIsAlly;
+    [SerializeField] protected List<GameObject> allies;
 
     [Space]
     [Space]
@@ -75,10 +75,58 @@ public class Character : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
         stats = GetComponent<CharacterStats>();
         fx = GetComponent<CharacterFX>();
+        myLineup = GetComponentInParent<Lineup>();
+
+        targetEnemy = null;
     }
 
     protected virtual void Update()
     {
+        allies = myLineup.lineup;
+
+        IgnoreAlly();
+    }
+
+    public virtual bool IsEnemyDetected()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(detectEnemy.position, Vector2.right * facingDirection, detectEnemyDistance, whatIsEnemy);
+        
+        if(hit.collider != null)
+        {
+            Character enemy = hit.collider.GetComponent<Character>();
+
+            if (enemy != null && !enemy.isDead)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void FlipDependOnTargetEnemy()
+    {
+        if (transform.position.x > targetEnemy.transform.position.x && facingDirection == 1)
+            Flip();
+        else if (transform.position.x < targetEnemy.transform.position.x && facingDirection == -1)
+            Flip();
+    }
+
+    public bool CanAttack()
+    {
+        if (Vector2.Distance(transform.position, targetEnemy.transform.position) <= detectEnemyDistance)
+            return true;
+
+        return false;
+    }
+
+    public void IgnoreAlly()
+    {
+        foreach (GameObject ally in allies)
+        {
+            if(ally != null)
+                Physics2D.IgnoreCollision(cd, ally.GetComponent<CapsuleCollider2D>());
+        }
     }
 
     #region Velocity
@@ -108,44 +156,7 @@ public class Character : MonoBehaviour
 
     #endregion
 
-    protected virtual void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(detectEnemy.position, new Vector3(detectEnemy.position.x + detectEnemyDistance * facingDirection, detectEnemy.position.y));
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(attackRange.position, attackRangeRadius);
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position, observeRangeSize);
-
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireCube(ignoreAlly.position, ignoreBoxSize);
-    }
-
-    //public virtual bool IsEnemyDetected() => Physics2D.Raycast(detectEnemy.position, Vector2.right * facingDirection, detectEnemyDistance, whatIsEnemy);
-
-    public virtual bool IsEnemyDetected()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(detectEnemy.position, Vector2.right * facingDirection, detectEnemyDistance, whatIsEnemy);
-        
-        if(hit.collider != null)
-        {
-            Character enemy = hit.collider.GetComponent<Character>();
-
-            if (enemy != null && !enemy.isDead)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public virtual void FindAllEnemiesInArea(Vector2 _position)
-    {
-
-    }
+    #region Stun State
 
     public virtual void Knockback() { }
 
@@ -177,13 +188,27 @@ public class Character : MonoBehaviour
         fx.CreateDustFX();
     }
 
+    #endregion
+
     public virtual void Die()
     {
         isDead = true;
     }
 
+    protected virtual void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(detectEnemy.position, new Vector3(detectEnemy.position.x + detectEnemyDistance * facingDirection, detectEnemy.position.y));
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(attackRange.position, attackRangeRadius);
+
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireCube(ignoreAlly.position, ignoreBoxSize);
+    }
+
     public void SelfDestroy()
     {
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, .6f);
     }
 }

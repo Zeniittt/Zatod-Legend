@@ -29,7 +29,6 @@ public class Leenald : Hero
     [SerializeField] private int damageSkillSecond;
 
     [Header("Skill Third Information")]
-    [SerializeField] protected List<Character> allies;
     [SerializeField] private int amountHeal;
 
     [Header("Skill Four Informations")]
@@ -103,7 +102,7 @@ public class Leenald : Hero
     }
     public void LeenaldMovement()
     {
-        if (IsEnemyDetected())
+        if (CanAttack())
         {
             currentStateIndex++;
             stateMachine.ChangeState(heroStates[currentStateIndex]);
@@ -114,23 +113,35 @@ public class Leenald : Hero
         }
     }
 
-    private Vector2 ClosestEnemy()
+    private Vector2 NearestEnemyPosition()
     {
-        Vector2 closestEnemyPosition = enemies[0].gameObject.transform.position;
+        GameObject nearestEnemy = null;
+        float shortestDistance = Mathf.Infinity;
 
-        foreach (Enemy enemy in enemies)
+        foreach (GameObject enemy in lineupDefense)
         {
-            if (enemy.transform.position.x < closestEnemyPosition.x)
-                closestEnemyPosition = enemy.transform.position;
+            if(enemy != null)
+            {
+                float distance = Vector2.Distance(transform.position, enemy.transform.position);
+
+                if(distance < shortestDistance)
+                {
+                    shortestDistance = distance;
+                    nearestEnemy = enemy;
+                }
+            }
         }
 
-        return closestEnemyPosition;
+        if(nearestEnemy != null)
+            return nearestEnemy.transform.position;
+
+        return Vector2.zero;
     }
 
     public void CastSkillUltimate()
     {
        Time.timeScale = 0;
-       Vector2 targetPosition = ClosestEnemy();
+       Vector2 targetPosition = NearestEnemyPosition();
        targetPosition.y -= .2f; // this line to adjust postion of Desert Dungeon
 
         GameObject newSkillUltimate = Instantiate(skillUltimatePrefab, targetPosition, Quaternion.identity, transform);
@@ -158,36 +169,19 @@ public class Leenald : Hero
 
     public void CastSkillThird()
     {
-        FindAllAllyInArea(transform.position);
-
-        foreach (Hero ally in allies)
+        foreach (GameObject ally in allies)
         {
             fx.CreateHealFX(ally.transform.position);
-            ally.stats.IncreaseHealthBy(amountHeal);
+            ally.GetComponent<Character>().stats.IncreaseHealthBy(amountHeal);
             fx.CreatePopUpText(ally.transform.position, "+ " + amountHeal.ToString(), new Vector3(144, 255, 107));
-        }
-
-        allies.Clear();
-    }
-
-
-    private void FindAllAllyInArea(Vector2 _position)
-    {
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(_position, observeRangeSize, 0f, whatIsAlly);
-
-        foreach (Collider2D collider in hitColliders)
-        {
-            Hero ally = collider.GetComponent<Hero>();
-            if (ally != null)
-            {
-                allies.Add(ally);
-            }
         }
     }
 
     public void CastSkillFour()
     {
         GameObject newSkillFour = Instantiate(skillFourPrefab, skillFourPosition.position, Quaternion.identity, transform);
+
+        newSkillFour.GetComponent<Leenald_GroundRaise_Controller>().SetupGroundRaise();
     }
 
     protected override void OnDrawGizmos()

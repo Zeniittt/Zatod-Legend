@@ -9,12 +9,16 @@ public class Enemy : Character
 
     public List<EnemyState> enemyStates;
 
+    private Lineup lineupAttackScript;
+    public List<GameObject> lineupAttack;
+
     protected override void Awake()
     {
         base.Awake();
 
         stateMachine = new EnemyStateMachine();
 
+        lineupAttackScript = GameObject.Find("LineupAttack").GetComponent<Lineup>();
     }
 
     protected override void Start()
@@ -26,37 +30,32 @@ public class Enemy : Character
     {
         base.Update();
 
-        DetectAndIgnoreAlly();
+        lineupAttack = lineupAttackScript.lineup;
+        targetEnemy = FindTargetEnemy();
 
         stateMachine.currentState.Update();
     }
 
-    private void DetectAndIgnoreAlly()
+    public GameObject FindTargetEnemy()
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(ignoreAlly.position, ignoreBoxSize, whatIsAlly);
+        GameObject nearestEnemy = null;
+        float shortestDistance = Mathf.Infinity;
 
-        foreach (var collider in colliders)
+        foreach (GameObject enemy in lineupAttack)
         {
-            GameObject character = collider.gameObject;
-
-            if (character != null && IsAlly(character))
+            if (enemy != null)
             {
-                Physics2D.IgnoreCollision(cd, collider);
+                float distance = Vector2.Distance(transform.position, enemy.transform.position);
+
+                if (distance < shortestDistance)
+                {
+                    shortestDistance = distance;
+                    nearestEnemy = enemy;
+                }
             }
         }
 
-    }
-
-    public bool IsAlly(GameObject _detectedCharacter)
-    {
-
-        Enemy thisCharacter = GetComponent<Enemy>();
-        Enemy detectedCharacter = _detectedCharacter.GetComponent<Enemy>();
-
-        if (thisCharacter != null && detectedCharacter != null)
-            return true;
-
-        return false;
+        return nearestEnemy;
     }
 
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();

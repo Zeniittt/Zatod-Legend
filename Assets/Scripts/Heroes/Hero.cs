@@ -8,11 +8,17 @@ public class Hero : Character
 
     public List<HeroState> heroStates;
 
+    private Lineup lineupDefenseScript;
+    public List<GameObject> lineupDefense;
+
     protected override void Awake()
     {
         base.Awake();
 
         stateMachine = new HeroStateMachine();
+
+        lineupDefenseScript = GameObject.Find("LineupDefense").GetComponent<Lineup>();
+
     }
 
     protected override void Start()
@@ -24,67 +30,37 @@ public class Hero : Character
     {
         base.Update();
 
-        FindAllEnemiesInArea(transform.position);
-        DetectAndIgnoreAlly();
+        lineupDefense = lineupDefenseScript.lineup;
+        targetEnemy = FindTargetEnemy();
 
         stateMachine.currentState.Update();
 
     }
 
-    public override void FindAllEnemiesInArea(Vector2 _position)
+    public GameObject FindTargetEnemy()
     {
-        base.FindAllEnemiesInArea(_position);
+        GameObject nearestEnemy = null;
+        float shortestDistance = Mathf.Infinity;
 
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(_position, observeRangeSize, 0f, whatIsEnemy);
-
-        foreach (Collider2D collider in hitColliders)
+        foreach (GameObject enemy in lineupDefense)
         {
-            Enemy enemy = collider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemies.Add(enemy);
+                float distance = Vector2.Distance(transform.position, enemy.transform.position);
+
+                if (distance < shortestDistance)
+                {
+                    shortestDistance = distance;
+                    nearestEnemy = enemy;
+                }
             }
         }
-    }
 
-    public bool ExistEnemyInObserve()
-    {
-        if (enemies.Count > 0)
-            return true;
-
-        return false;
+        return nearestEnemy;
     }
 
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
-
-    private void DetectAndIgnoreAlly()
-    {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(ignoreAlly.position, ignoreBoxSize, whatIsAlly);
-
-        foreach (var collider in colliders)
-        {
-            GameObject character = collider.gameObject;
-
-            if (character != null && IsAlly(character))
-            {
-                Physics2D.IgnoreCollision(cd, collider);
-            }
-        }
-
-    }
-
-    public  bool IsAlly(GameObject _detectedCharacter)
-    {
-
-        Hero thisCharacter = GetComponent<Hero>();
-        Hero detectedCharacter = _detectedCharacter.GetComponent<Hero>();
-
-        if (thisCharacter != null && detectedCharacter != null)
-            return true;
-
-        return false;
-    }
 
     public virtual void UseUltimateSkill() { }
 }

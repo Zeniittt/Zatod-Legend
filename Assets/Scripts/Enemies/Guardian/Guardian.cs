@@ -97,7 +97,7 @@ public class Guardian : Enemy
 
     public void GuardianMovement()
     {
-        if (IsEnemyDetected())
+        if (CanAttack())
         {
             currentStateIndex++;
             stateMachine.ChangeState(enemyStates[currentStateIndex]);

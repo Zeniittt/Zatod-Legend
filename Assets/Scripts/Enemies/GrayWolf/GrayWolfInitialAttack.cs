@@ -27,7 +27,7 @@ public class GrayWolfInitialAttack : EnemyState
 
         enemy.SetVelocity(enemy.runSpeed * enemy.facingDirection, rb.velocity.y);
 
-        if(enemy.IsEnemyDetected())
+        if(enemy.CanAttack())
             stateMachine.ChangeState(enemy.battleState);
     }
 }

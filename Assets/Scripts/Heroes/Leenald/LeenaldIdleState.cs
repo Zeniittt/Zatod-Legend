@@ -49,10 +49,12 @@ public class LeenaldIdleState : HeroState
                 stateMachine.ChangeState(hero.moveState);
             else
             {
-                if (hero.IsEnemyDetected())
+                if (hero.CanAttack())
                     hero.LeenaldMovement();
-                else if (hero.ExistEnemyInObserve())
+                else if (hero.lineupDefense.Count > 0)
                 {
+                    hero.FlipDependOnTargetEnemy();
+                    if(hero.currentStateIndex == -1) hero.currentStateIndex = 0;
                     stateMachine.ChangeState(hero.moveState);
                 }
             }

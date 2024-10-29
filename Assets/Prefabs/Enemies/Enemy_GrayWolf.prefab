@@ -503,20 +503,17 @@ MonoBehaviour:
   isDead: 0
   currentStateIndex: 0
   yPositionDefault: -1.95
+  targetEnemy: {fileID: 0}
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
   detectEnemy: {fileID: 5063394489628350294}
-  detectEnemyDistance: 1.5
+  detectEnemyDistance: 1.7
   attackRange: {fileID: 5063394491191391775}
   attackRangeRadius: 1
-  observeRangeSize: {x: 0, y: 0}
-  enemies: []
   ignoreAlly: {fileID: 5063394490957101925}
   ignoreBoxSize: {x: 2.5, y: 2.3}
-  whatIsAlly:
-    serializedVersion: 2
-    m_Bits: 128
+  allies: []
   isInitialTime: 0
   idleTimeInitial: 1.5
   idleTime: 1
@@ -529,6 +526,7 @@ MonoBehaviour:
   knockupForce: 3
   knockupDuration: 0.3
   fallDuration: 0.3
+  lineupAttack: []
   runSpeed: 4
   initialAttackDetect: {fileID: 5063394490929737357}
   initialAttackDistance: 4

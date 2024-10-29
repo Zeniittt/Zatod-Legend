@@ -32,6 +32,12 @@ public class Leenald_GroundRaise_Controller : MonoBehaviour
         }
     }
 
+    public void SetupGroundRaise()
+    {
+        if (hero.facingDirection == -1)
+            transform.Rotate(0, 180, 0);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;

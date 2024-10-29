@@ -90,7 +90,7 @@ public class EvilWizard : Enemy
 
     public void EvilWizardMovement()
     {
-        if (IsEnemyDetected())
+        if (CanAttack())
         {
             currentStateIndex++;
             stateMachine.ChangeState(enemyStates[currentStateIndex]);
