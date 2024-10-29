@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardianIdleState : EnemyState
+public class HuntressAfterStunnedState : EnemyState
 {
-    private Guardian enemy;
+    private Huntress enemy;
 
-    public GuardianIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Guardian _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public HuntressAfterStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Huntress _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         this.enemy = _enemy;
     }
@@ -15,13 +15,13 @@ public class GuardianIdleState : EnemyState
     {
         base.Enter();
 
-        if (enemy.isInitialTime)
+        if (enemy.canBeStun)
         {
-            stateTimer = enemy.idleTimeInitial;
-        } 
+            stateTimer = enemy.stunDuration;
+        }
         else
         {
-            stateTimer = enemy.idleTime;
+            stateTimer = 1;
         }
     }
 
@@ -38,11 +38,14 @@ public class GuardianIdleState : EnemyState
 
         if (stateTimer < 0)
         {
+
+            enemy.canBeStun = false;
+
             if (enemy.isInitialTime)
                 stateMachine.ChangeState(enemy.moveState);
             else
             {
-                enemy.GuardianMovement();
+                enemy.HuntressMovement();
             }
         }
     }

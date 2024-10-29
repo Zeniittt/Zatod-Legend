@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardianIdleState : EnemyState
+public class HuntressIdleState : EnemyState
 {
-    private Guardian enemy;
+    private Huntress enemy;
 
-    public GuardianIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Guardian _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public HuntressIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Huntress _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         this.enemy = _enemy;
     }
@@ -18,7 +18,7 @@ public class GuardianIdleState : EnemyState
         if (enemy.isInitialTime)
         {
             stateTimer = enemy.idleTimeInitial;
-        } 
+        }
         else
         {
             stateTimer = enemy.idleTime;
@@ -42,7 +42,7 @@ public class GuardianIdleState : EnemyState
                 stateMachine.ChangeState(enemy.moveState);
             else
             {
-                enemy.GuardianMovement();
+                enemy.HuntressMovement();
             }
         }
     }

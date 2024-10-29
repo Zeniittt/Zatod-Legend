@@ -29,7 +29,6 @@ public class Enemy : Character
         DetectAndIgnoreAlly();
 
         stateMachine.currentState.Update();
-
     }
 
     private void DetectAndIgnoreAlly()
