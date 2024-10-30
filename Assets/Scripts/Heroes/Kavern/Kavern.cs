@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class Kavern : Hero
     public KavernAfterStunnedState afterStunnedState { get; private set; }
     public KavernDeadState deadState { get; private set; }
     public KavernSkillSecondState skillSecondState { get; private set; }
+    public KavernSkillThirdState skillThirdState { get; private set; }
 
 
     #endregion
@@ -28,6 +30,14 @@ public class Kavern : Hero
     public int damageDPS;
     public float timeDoDamage;
 
+    [Header("Skill Third Information")]
+    [SerializeField] private GameObject diagonalArrowPrefab;
+    public GameObject skillThirdTarget;
+    [SerializeField] private float yPosition;
+    [SerializeField] private int damageSkillThird;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpDuration;
+
     protected override void Awake()
     {
         base.Awake();
@@ -40,6 +50,7 @@ public class Kavern : Hero
         afterStunnedState = new KavernAfterStunnedState(this, stateMachine, "AfterStunned", this);
         deadState = new KavernDeadState(this, stateMachine, "Dead", this);
         skillSecondState = new KavernSkillSecondState(this, stateMachine, "SkillSecond", this);
+        skillThirdState = new KavernSkillThirdState(this, stateMachine, "SkillThird", this);
     }
 
     protected override void Start()
@@ -54,6 +65,9 @@ public class Kavern : Hero
             attackState,
             idleState,
             skillSecondState,
+            idleState,
+            attackState,
+            skillThirdState,
         };
 
         isInitialTime = true;
@@ -113,7 +127,7 @@ public class Kavern : Hero
 
     public void CreateArrow()
     {
-        GameObject newArrow = Instantiate(arrowPrefab, attackRange.position, Quaternion.identity, transform);
+        GameObject newArrow = Instantiate(arrowPrefab, attackRange.position, Quaternion.identity);
 
         newArrow.GetComponent<Kavern_Arrow>().SetupArrow(facingDirection, stats);
     }
@@ -125,4 +139,43 @@ public class Kavern : Hero
         newArrow.GetComponent<Kavern_PoisionArrow>().SetupArrow(facingDirection, stats, this, damageSkillSecond);
     }
 
+    public void CastSkillThirdEnter()
+    {
+        yPosition = transform.position.y;
+
+        transform.DOMoveY(transform.position.y + jumpForce, jumpDuration)
+            .SetEase(Ease.OutCubic);
+    }
+
+    public void CastSkillThirdExit()
+    {
+        transform.DOMoveY(yPosition, .1f)
+            .SetEase(Ease.OutCubic);
+    }
+
+    public void CastSkillThird()
+    {
+        FindSkillThirdTarget();
+
+        GameObject newArrow = Instantiate(diagonalArrowPrefab, attackRange.position, Quaternion.identity);
+
+        newArrow.GetComponent<Kavern_DiagonalArrow>().SetupArrow(stats, this, damageSkillThird);
+
+    }
+
+    private void FindSkillThirdTarget()
+    {
+        skillThirdTarget = lineupDefense[0];
+        int targetHealth = int.MaxValue;
+
+        foreach(GameObject enemy in lineupDefense)
+        {
+            CharacterStats stat = enemy.GetComponent<CharacterStats>();
+            if(stat.currentHealth < targetHealth)
+            {
+                targetHealth = stat.currentHealth;
+                skillThirdTarget = enemy;
+            }
+        }
+    }
 }

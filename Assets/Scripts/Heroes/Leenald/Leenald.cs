@@ -171,7 +171,7 @@ public class Leenald : Hero
     {
         foreach (GameObject ally in allies)
         {
-            fx.CreateHealFX(ally.transform.position);
+            ally.GetComponent<CharacterFX>().CreateHealFX(ally.transform.position);
             ally.GetComponent<Character>().stats.IncreaseHealthBy(amountHeal);
             fx.CreatePopUpText(ally.transform.position, "+ " + amountHeal.ToString(), new Vector3(144, 255, 107));
         }
