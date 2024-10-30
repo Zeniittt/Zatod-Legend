@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Kavern_AnimationTriggers : Hero_AnimationTriggers
 {
-    private Kavern kavern => GetComponentInParent<Kavern>();
+    private Kavern hero => GetComponentInParent<Kavern>();
 
     private void KavernAttackTrigger()
     {
-        kavern.CreateArrow();
+        hero.CreateArrow();
+    }
+
+    private void SkillSecondTrigger()
+    {
+        hero.CastSkillSecond();
     }
 }

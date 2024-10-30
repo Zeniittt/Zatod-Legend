@@ -157,7 +157,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000015258789, y: 0.31000042}
   m_SizeDelta: {x: 0.000045776, y: 22.25}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1357,7 +1357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &868782328
 Rigidbody2D:
   serializedVersion: 4
@@ -1425,6 +1425,8 @@ MonoBehaviour:
   healOffset: {x: 0, y: 2.3}
   hemorrhagePrefab: {fileID: 2306726698721340570, guid: d685759c68ccff046a96da3299c2c436, type: 3}
   hemorrhageOffset: {x: 0, y: 1.5}
+  poisionPrefab: {fileID: 0}
+  poisionOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &868782331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5116274051394954691, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.53
+      value: 5.37
       objectReference: {fileID: 0}
     - target: {fileID: 5116274051394954691, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1576,9 +1578,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5116274051394954693, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
+      propertyPath: health.baseValue
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 5116274051394954694, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
       propertyPath: detectEnemyDistance
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116274051394954695, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
+      propertyPath: poisionPrefab
+      value: 
+      objectReference: {fileID: 8940576111325091438, guid: abe2d4635fb603c47a282a8a6f46dafc, type: 3}
+    - target: {fileID: 5116274051394954695, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
+      propertyPath: poisionOffset.y
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
@@ -2198,6 +2212,8 @@ MonoBehaviour:
   healOffset: {x: 0, y: 0}
   hemorrhagePrefab: {fileID: 2306726698721340570, guid: d685759c68ccff046a96da3299c2c436, type: 3}
   hemorrhageOffset: {x: 0, y: 0}
+  poisionPrefab: {fileID: 8940576111325091438, guid: abe2d4635fb603c47a282a8a6f46dafc, type: 3}
+  poisionOffset: {x: 0, y: 1.5, z: 0}
 --- !u!114 &1877857821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,7 +2235,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   detectEnemy: {fileID: 1885764629}
-  detectEnemyDistance: 12
+  detectEnemyDistance: 15
   attackRange: {fileID: 249752278}
   attackRangeRadius: 1
   ignoreAlly: {fileID: 1818389588}
@@ -2239,6 +2255,11 @@ MonoBehaviour:
   fallDuration: 0.3
   lineupDefense: []
   arrowPrefab: {fileID: 2806275024588311352, guid: fa902390cbdfcb44bb088d61c714d641, type: 3}
+  poisionArrowPrefab: {fileID: 6599612216216012094, guid: a1f94e7e9ccb0f846877e81eb883ffb6, type: 3}
+  damageSkillSecond: 20
+  poisionDuration: 5
+  damageDPS: 3
+  timeDoDamage: 0.3
 --- !u!114 &1877857822
 MonoBehaviour:
   m_ObjectHideFlags: 0

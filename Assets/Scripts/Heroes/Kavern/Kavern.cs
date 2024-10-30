@@ -14,10 +14,19 @@ public class Kavern : Hero
     public KavernStunnedState stunnedState { get; private set; }
     public KavernAfterStunnedState afterStunnedState { get; private set; }
     public KavernDeadState deadState { get; private set; }
+    public KavernSkillSecondState skillSecondState { get; private set; }
+
 
     #endregion
 
     [SerializeField] private GameObject arrowPrefab;
+
+    [Header("Skill Second Informations")]
+    [SerializeField] private GameObject poisionArrowPrefab;
+    [SerializeField] private int damageSkillSecond;
+    public float poisionDuration;
+    public int damageDPS;
+    public float timeDoDamage;
 
     protected override void Awake()
     {
@@ -30,6 +39,7 @@ public class Kavern : Hero
         stunnedState = new KavernStunnedState(this, stateMachine, "Stunned", this);
         afterStunnedState = new KavernAfterStunnedState(this, stateMachine, "AfterStunned", this);
         deadState = new KavernDeadState(this, stateMachine, "Dead", this);
+        skillSecondState = new KavernSkillSecondState(this, stateMachine, "SkillSecond", this);
     }
 
     protected override void Start()
@@ -42,6 +52,8 @@ public class Kavern : Hero
             attackState,
             idleState,
             attackState,
+            idleState,
+            skillSecondState,
         };
 
         isInitialTime = true;
@@ -105,4 +117,12 @@ public class Kavern : Hero
 
         newArrow.GetComponent<Kavern_Arrow>().SetupArrow(facingDirection, stats);
     }
+
+    public void CastSkillSecond()
+    {
+        GameObject newArrow = Instantiate(poisionArrowPrefab, attackRange.position, Quaternion.identity, transform);
+
+        newArrow.GetComponent<Kavern_PoisionArrow>().SetupArrow(facingDirection, stats, this, damageSkillSecond);
+    }
+
 }

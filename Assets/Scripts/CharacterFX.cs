@@ -31,6 +31,9 @@ public class CharacterFX : MonoBehaviour
     [SerializeField] private GameObject hemorrhagePrefab;
     [SerializeField] private Vector2 hemorrhageOffset;
 
+    [Header("Poision FX")]
+    [SerializeField] private GameObject poisionPrefab;
+    [SerializeField] private Vector3 poisionOffset;
 
 
     private void Start()
@@ -105,5 +108,12 @@ public class CharacterFX : MonoBehaviour
         newHemorrhage.transform.Rotate(0, 0, 30);
 
         Destroy(newHemorrhage, .5f);
+    }
+
+    public void CreatePoision(Transform _target, float _duration, int _damagePerSecond, float _timeDoDamage)
+    {
+        GameObject newPoision = Instantiate(poisionPrefab, _target.position + poisionOffset, Quaternion.identity, _target);
+
+        newPoision.GetComponent<PoisionEffect>().SetupPoision(_duration, _damagePerSecond, _timeDoDamage);
     }
 }
