@@ -87,23 +87,6 @@ public class Character : MonoBehaviour
         IgnoreAlly();
     }
 
-    public virtual bool IsEnemyDetected()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(detectEnemy.position, Vector2.right * facingDirection, detectEnemyDistance, whatIsEnemy);
-        
-        if(hit.collider != null)
-        {
-            Character enemy = hit.collider.GetComponent<Character>();
-
-            if (enemy != null && !enemy.isDead)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     public void FlipDependOnTargetEnemy()
     {
         if (transform.position.x > targetEnemy.transform.position.x && facingDirection == 1)
