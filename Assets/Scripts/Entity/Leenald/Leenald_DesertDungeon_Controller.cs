@@ -35,7 +35,10 @@ public class Leenald_DesertDungeon_Controller : MonoBehaviour
                     hero.stats.DoMagicalDamage(target, hero.damageSkillFour);
 
                 if(!enemy.isDead)
+                {
+                    enemy.stunDuration = hero.skillUltimateStunDuration;
                     enemy.canBeStun = true;
+                }
 
                 break;
             }

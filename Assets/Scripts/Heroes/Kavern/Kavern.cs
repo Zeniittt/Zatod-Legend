@@ -17,6 +17,7 @@ public class Kavern : Hero
     public KavernDeadState deadState { get; private set; }
     public KavernSkillSecondState skillSecondState { get; private set; }
     public KavernSkillThirdState skillThirdState { get; private set; }
+    public KavernSkillFourState skillFourState { get; private set; }
 
 
     #endregion
@@ -38,6 +39,13 @@ public class Kavern : Hero
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpDuration;
 
+    [Header("Skill Four Informations")]
+    [SerializeField] private GameObject showerArrowPrefab;
+    public List<GameObject> skillFourTarget;
+    public float skillFourStunDuration;
+    public int damageArrow;
+    public int damageRoot;
+
     protected override void Awake()
     {
         base.Awake();
@@ -51,6 +59,7 @@ public class Kavern : Hero
         deadState = new KavernDeadState(this, stateMachine, "Dead", this);
         skillSecondState = new KavernSkillSecondState(this, stateMachine, "SkillSecond", this);
         skillThirdState = new KavernSkillThirdState(this, stateMachine, "SkillThird", this);
+        skillFourState = new KavernSkillFourState(this, stateMachine, "SkillFour", this);
     }
 
     protected override void Start()
@@ -67,7 +76,12 @@ public class Kavern : Hero
             skillSecondState,
             idleState,
             attackState,
+            idleState,
             skillThirdState,
+            idleState,
+            attackState,
+            idleState,
+            skillFourState,
         };
 
         isInitialTime = true;
@@ -177,5 +191,51 @@ public class Kavern : Hero
                 skillThirdTarget = enemy;
             }
         }
+    }
+
+    public void CastSkillFour()
+    {
+        FindSkillFourTarget();
+
+        int count = 0;
+
+        if (skillFourTarget.Count == 1) count = 1;
+        else count = 2;
+
+        for (int i = 0; i < count; i++)
+        {
+            GameObject newShowerArrow = Instantiate(showerArrowPrefab, skillFourTarget[i].transform.position, Quaternion.identity);
+            newShowerArrow.GetComponent<Kavern_ShowerArrow_Controller>().SetupShowerArrow(stats, skillFourTarget[i], skillFourStunDuration, damageArrow, damageRoot);
+        }
+
+        skillFourTarget.Clear();
+    }
+
+    private void FindSkillFourTarget()
+    {
+        if (lineupDefense.Count == 1)
+            skillFourTarget.Add(lineupDefense[0]);
+        else
+        {
+            foreach (GameObject enemy in lineupDefense)
+            {
+                skillFourTarget.Add(enemy);
+            }
+
+            skillFourTarget = Shuffle(skillFourTarget);
+        }
+    }
+
+    private List<GameObject> Shuffle(List<GameObject> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            GameObject temp = list[i];
+            list[i] = list[j];
+            list[j] = temp;
+        }
+
+        return list;
     }
 }

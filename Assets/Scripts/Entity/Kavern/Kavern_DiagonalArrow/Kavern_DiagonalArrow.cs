@@ -41,16 +41,13 @@ public class Kavern_DiagonalArrow : MonoBehaviour
     private void ArrowMove()
     {
         Vector3 targetPosition = new Vector3(kavern.skillThirdTarget.transform.position.x, kavern.skillThirdTarget.transform.position.y + 1, 0);
-        // Tính toán vector h??ng t? m?i tên t?i target hi?n t?i
+
         Vector3 direction = (targetPosition - transform.position).normalized;
 
-        // Tính góc xoay d?a trên h??ng (tr?c y và tr?c x)
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Xoay m?i tên ?? h??ng v? target
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // Di chuy?n m?i tên v? phía target v?i t?c ?? c? ??nh
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed);
     }
 

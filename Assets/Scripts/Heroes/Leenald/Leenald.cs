@@ -21,6 +21,7 @@ public class Leenald : Hero
 
     [Header("Skill Ultimate Informations")]
     [SerializeField] private GameObject skillUltimatePrefab;
+    public float skillUltimateStunDuration;
     public int damageSkilUltimate;
 
     [Header("Skill Second Informations")]

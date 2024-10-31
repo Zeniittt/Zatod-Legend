@@ -594,6 +594,8 @@ MonoBehaviour:
   healOffset: {x: 0, y: 0}
   hemorrhagePrefab: {fileID: 0}
   hemorrhageOffset: {x: 0, y: 0}
+  poisionPrefab: {fileID: 0}
+  poisionOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &5116274051394954693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9170973891172618744, guid: 42c6cbd322170754ba727dce928acb05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.98
+      value: 3.216
       objectReference: {fileID: 0}
     - target: {fileID: 9170973891172618744, guid: 42c6cbd322170754ba727dce928acb05, type: 3}
       propertyPath: m_LocalPosition.z

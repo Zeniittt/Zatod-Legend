@@ -20,4 +20,9 @@ public class Kavern_AnimationTriggers : Hero_AnimationTriggers
     {
         hero.CastSkillThird();
     }
+
+    private void SkillFourTrigger()
+    {
+        hero.CastSkillFour();
+    }
 }
