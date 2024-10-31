@@ -86,12 +86,6 @@ public class Leenald : Hero
         if (currentStateIndex == heroStates.Count - 1)
             currentStateIndex = -1;
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-            stateMachine.ChangeState(skillUltimateState);
-        }    
-
         if (Input.GetKeyDown(KeyCode.D))
             stateMachine.ChangeState(deadState);
 

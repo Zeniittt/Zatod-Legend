@@ -508,6 +508,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &368392904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368392905}
+  m_Layer: 0
+  m_Name: SkillUltimatePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368392905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368392904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.612, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1877857817}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &432407372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1526,7 +1557,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1532485101019315383, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3492580443047470518, guid: db554ed250de8e94aa7f832fe3a21e38, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2234,6 +2265,7 @@ Transform:
   - {fileID: 1885764629}
   - {fileID: 249752278}
   - {fileID: 1818389588}
+  - {fileID: 368392905}
   m_Father: {fileID: 344638020}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2355,6 +2387,9 @@ MonoBehaviour:
   skillFourStunDuration: 2
   damageArrow: 3
   damageRoot: 10
+  skillUltimatePrefab: {fileID: 2856783079512192860, guid: 64083ce346376a3498c4959947ce7f3f, type: 3}
+  ultimateSkillPosition: {fileID: 368392905}
+  damageSkilUltimate: 20
 --- !u!114 &1877857822
 MonoBehaviour:
   m_ObjectHideFlags: 0

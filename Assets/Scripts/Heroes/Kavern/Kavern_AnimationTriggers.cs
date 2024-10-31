@@ -11,6 +11,11 @@ public class Kavern_AnimationTriggers : Hero_AnimationTriggers
         hero.CreateArrow();
     }
 
+    private void SkillUltimateTrigger()
+    {
+        hero.CastSkillUltimate();
+    }
+
     private void SkillSecondTrigger()
     {
         hero.CastSkillSecond();
@@ -25,4 +30,8 @@ public class Kavern_AnimationTriggers : Hero_AnimationTriggers
     {
         hero.CastSkillFour();
     }
+
+    private void EnterFreezeTime() => Time.timeScale = 0;
+
+
 }

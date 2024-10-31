@@ -18,6 +18,7 @@ public class Kavern : Hero
     public KavernSkillSecondState skillSecondState { get; private set; }
     public KavernSkillThirdState skillThirdState { get; private set; }
     public KavernSkillFourState skillFourState { get; private set; }
+    public KavernSkillUltimateState skillUltimateState { get; private set; }
 
 
     #endregion
@@ -46,6 +47,11 @@ public class Kavern : Hero
     public int damageArrow;
     public int damageRoot;
 
+    [Header("Skill Ultimate Informations")]
+    [SerializeField] private GameObject skillUltimatePrefab;
+    [SerializeField] private Transform ultimateSkillPosition;
+    public int damageSkilUltimate;
+
     protected override void Awake()
     {
         base.Awake();
@@ -60,6 +66,7 @@ public class Kavern : Hero
         skillSecondState = new KavernSkillSecondState(this, stateMachine, "SkillSecond", this);
         skillThirdState = new KavernSkillThirdState(this, stateMachine, "SkillThird", this);
         skillFourState = new KavernSkillFourState(this, stateMachine, "SkillFour", this);
+        skillUltimateState = new KavernSkillUltimateState(this, stateMachine, "SkillUltimate", this);
     }
 
     protected override void Start()
@@ -95,6 +102,12 @@ public class Kavern : Hero
         if (currentStateIndex == heroStates.Count - 1)
             currentStateIndex = -1;
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+            stateMachine.ChangeState(skillUltimateState);
+        }
+
         if (Input.GetKeyDown(KeyCode.D))
             stateMachine.ChangeState(deadState);
 
@@ -124,6 +137,14 @@ public class Kavern : Hero
         base.Die();
 
         stateMachine.ChangeState(deadState);
+    }
+
+    protected override void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(ultimateSkillPosition.position, attackRangeRadius);
     }
 
     public void KavernMovement()
@@ -237,5 +258,12 @@ public class Kavern : Hero
         }
 
         return list;
+    }
+
+    public void CastSkillUltimate()
+    {
+        GameObject newSkillUltimate = Instantiate(skillUltimatePrefab, ultimateSkillPosition.transform.position, Quaternion.identity, transform);
+
+        newSkillUltimate.GetComponent<Kavern_BeamExtension_Controller>().SetupBeamExtension(stats, lineupDefense, damageSkilUltimate);
     }
 }
