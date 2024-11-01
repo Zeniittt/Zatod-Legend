@@ -167,6 +167,8 @@ public class Kavern : Hero
         newArrow.GetComponent<Kavern_Arrow>().SetupArrow(facingDirection, stats);
     }
 
+    #region Abilities
+
     public void CastSkillSecond()
     {
         GameObject newArrow = Instantiate(poisionArrowPrefab, attackRange.position, Quaternion.identity, transform);
@@ -266,4 +268,6 @@ public class Kavern : Hero
 
         newSkillUltimate.GetComponent<Kavern_BeamExtension_Controller>().SetupBeamExtension(stats, lineupDefense, damageSkilUltimate);
     }
+
+    #endregion
 }

@@ -30,7 +30,7 @@ public class GuardianDeadState : EnemyState
 
         if(triggerCalled)
         {
-            enemy.animator.enabled = false;
+            enemy.cd.enabled = false;
             enemy.StartCoroutine(enemy.fx.FadeOut());
 
             enemy.SelfDestroy();

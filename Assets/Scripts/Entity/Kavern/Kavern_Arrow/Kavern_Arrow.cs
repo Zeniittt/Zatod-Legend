@@ -52,11 +52,11 @@ public class Kavern_Arrow : Entity
             canMove = false;
             myStats.DoPhysicDamage(collision.GetComponent<CharacterStats>(), myStats.physicDamage.GetValue());
 
-            SelfDestroy(collision);
+            SelfDestroy();
         }
     }
 
-    private void SelfDestroy(Collider2D collision)
+    private void SelfDestroy()
     {
         Destroy(gameObject);
     }

@@ -17,7 +17,7 @@ public class KavernAfterStunnedState : HeroState
 
         if (hero.canBeStun)
         {
-            stateTimer = hero.skillFourStunDuration;
+            stateTimer = hero.stunDuration;
         }
         else
         {
