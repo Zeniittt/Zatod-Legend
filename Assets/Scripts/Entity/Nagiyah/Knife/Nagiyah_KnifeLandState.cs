@@ -24,5 +24,7 @@ public class Nagiyah_KnifeLandState : EntityState
     public override void Update()
     {
         base.Update();
+
+        entity.SetZeroVelocity();
     }
 }

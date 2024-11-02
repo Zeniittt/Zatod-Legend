@@ -288,8 +288,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12211037, y: 1.3296547}
-  m_Size: {x: 1.5582962, y: 2.5738773}
+  m_Offset: {x: -0.18209267, y: 1.1692569}
+  m_Size: {x: 0.8171501, y: 2.2530818}
   m_Direction: 0
 --- !u!114 &830917865282211673
 MonoBehaviour:
@@ -354,6 +354,8 @@ MonoBehaviour:
   healOffset: {x: 0, y: 0}
   hemorrhagePrefab: {fileID: 2306726698721340570, guid: d685759c68ccff046a96da3299c2c436, type: 3}
   hemorrhageOffset: {x: 0, y: 0}
+  poisionPrefab: {fileID: 0}
+  poisionOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &830917865282211655
 MonoBehaviour:
   m_ObjectHideFlags: 0

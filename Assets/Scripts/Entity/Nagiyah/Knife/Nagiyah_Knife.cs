@@ -14,7 +14,7 @@ public class Nagiyah_Knife : Entity
     #endregion
 
     [SerializeField] private string targetLayerName = "Enemy";
-    private CharacterStats myStats;
+    private Nagiyah nagiyah;
     public int speed;
     public int direction;
 
@@ -37,19 +37,27 @@ public class Nagiyah_Knife : Entity
         stateMachine.Initialize(moveState);
     }
 
-    public void SetupKnife(int _direction, CharacterStats _myStats)
+    public void SetupKnife(Nagiyah _nagiyah, int _direction)
     {
+        nagiyah = _nagiyah;
         direction = _direction;
-        myStats = _myStats;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(targetLayerName))
         {
-            myStats.DoPhysicDamage(collision.GetComponent<CharacterStats>(), myStats.physicDamage.GetValue());
+            nagiyah.stats.DoPhysicDamage(collision.GetComponent<CharacterStats>(), nagiyah.stats.physicDamage.GetValue());
+            
+            if(!nagiyah.isUnblockSkillSecond)
+            {
+                SelfDestroy();
+            } else
+            {
+                stateMachine.ChangeState(landState);
+                transform.SetParent(collision.transform);
+            }
 
-            SelfDestroy();
         }
     }
 

@@ -14,10 +14,19 @@ public class Nagiyah : Hero
     public NagiyahStunnedState stunnedState { get; private set; }
     public NagiyahAfterStunnedState afterStunnedState { get; private set; }
     public NagiyahDeadState deadState { get; private set; }
+    public NagiyahSkillSecondState skillSecondState { get; private set; }
 
     #endregion
 
     [SerializeField] private GameObject knifePrefab;
+
+    [Header("Skill Second Informations")]
+    public bool isUnblockSkillSecond;
+    private string knifeClone = "Nagiyah_Knife_Controller(Clone)";
+    [SerializeField] private int damageKnifeInRend;
+    [SerializeField] private Dictionary<GameObject, int> enemiesHasKnife;
+
+
 
 
     protected override void Awake()
@@ -31,6 +40,7 @@ public class Nagiyah : Hero
         stunnedState = new NagiyahStunnedState(this, stateMachine, "Stunned", this);
         afterStunnedState = new NagiyahAfterStunnedState(this, stateMachine, "AfterStunned", this);
         deadState = new NagiyahDeadState(this, stateMachine, "Dead", this);
+        skillSecondState = new NagiyahSkillSecondState(this, stateMachine, "SkillSecond", this);
     }
 
     protected override void Start()
@@ -102,8 +112,79 @@ public class Nagiyah : Hero
 
     public void CreateKnife()
     {
-        GameObject newKnife = Instantiate(knifePrefab, attackRange.position, Quaternion.identity);
+        float yOffset = Random.Range(-.5f, .5f);
+        Vector3 offset = new Vector3(0, yOffset, 0);
 
-        newKnife.GetComponent<Nagiyah_Knife>().SetupKnife(facingDirection, stats);
+        GameObject newKnife = Instantiate(knifePrefab, attackRange.position + offset, Quaternion.identity);
+        newKnife.GetComponent<Nagiyah_Knife>().SetupKnife(this, facingDirection);
     }
+
+    #region Skill Second
+
+    public void CanCastSkillSecond()
+    {
+        enemiesHasKnife = CheckEnemyHasKnife();
+
+        if (CanDeadByRend())
+        {
+            stateMachine.ChangeState(skillSecondState);
+
+            foreach (KeyValuePair<GameObject, int> enemy in enemiesHasKnife)
+            {
+                stats.DoPhysicDamage(enemy.Key.GetComponent<CharacterStats>(), enemy.Value * 5);
+            }
+
+            DeleteAllKnife(knifeClone);
+        }
+    }
+
+    void DeleteAllKnife(string name)
+    {
+        GameObject[] allKnife = GameObject.FindObjectsOfType<GameObject>();
+
+        foreach (GameObject knife in allKnife)
+        {
+            if (knife.name == name)
+            {
+                Destroy(knife);
+            }
+        }
+    }
+
+    private bool CanDeadByRend()
+    {
+        foreach (KeyValuePair<GameObject, int> enemy in enemiesHasKnife)
+        {
+            CharacterStats targetStats = enemy.Key.GetComponent<CharacterStats>();
+            int totalDamage = damageKnifeInRend * enemy.Value;
+
+            if (targetStats.currentHealth - totalDamage <= 0)
+                return true;
+        }
+
+        return false;
+    }
+
+    private Dictionary<GameObject, int> CheckEnemyHasKnife()
+    {
+        Dictionary<GameObject, int> result = new Dictionary<GameObject, int>();
+
+        foreach (GameObject enemy in lineupDefense)
+        {
+            int amountKnife = 0;
+
+            foreach (Transform child in enemy.transform)
+            {
+                if (child.name == knifeClone)
+                    amountKnife++;
+            }
+
+            if (amountKnife > 0)
+                result.Add(enemy, amountKnife);
+        }
+
+        return result;
+    }
+
+    #endregion
 }

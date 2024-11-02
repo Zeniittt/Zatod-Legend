@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NagiyahIdleState : HeroState
@@ -14,6 +15,8 @@ public class NagiyahIdleState : HeroState
     public override void Enter()
     {
         base.Enter();
+
+        hero.CanCastSkillSecond();
 
         if (hero.isInitialTime)
         {
@@ -35,7 +38,6 @@ public class NagiyahIdleState : HeroState
         base.Update();
 
         hero.SetZeroVelocity();
-
 
         if (stateTimer < 0)
         {
