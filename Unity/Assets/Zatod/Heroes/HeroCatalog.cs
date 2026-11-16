@@ -38,7 +38,7 @@ namespace Zatod.Heroes
                 foreach (var effect in skill.Effects)
                 {
                     Require(effect != null && Enum.IsDefined(typeof(SkillEffectKind), effect.Kind), "Invalid effect: " + skill.Id);
-                    Require(effect.DurationMilliseconds >= 0 && effect.AttackScaleBasisPoints >= 0, "Invalid effect duration/scale: " + skill.Id);
+                    Require(effect.DurationMilliseconds >= 0 && effect.DamageScaleBasisPoints >= 0, "Invalid effect duration/scale: " + skill.Id);
                     if (effect.Kind == SkillEffectKind.StatBonus) Stat(effect.StatId);
                     else Require(effect.Amount >= 0, "Negative damage/heal amount: " + skill.Id);
                 }

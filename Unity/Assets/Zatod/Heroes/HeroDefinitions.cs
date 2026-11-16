@@ -76,7 +76,7 @@ namespace Zatod.Heroes
     public sealed class SkillEffectDefinition
     {
         public SkillEffectKind Kind;
-        public int Amount, AttackScaleBasisPoints, DurationMilliseconds;
+        public int Amount, DamageScaleBasisPoints, DurationMilliseconds;
         public string StatId;
         public SkillEffectDefinition Copy() { return (SkillEffectDefinition)MemberwiseClone(); }
     }

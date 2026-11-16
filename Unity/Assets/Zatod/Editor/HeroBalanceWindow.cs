@@ -14,6 +14,8 @@ namespace Zatod.Editor
     public sealed class HeroBalanceWindow : EditorWindow
     {
         [SerializeField] string draftJson, sourceJson, previewJson;
+        [SerializeField] HeroConfigDocuments sourceDocuments;
+        [SerializeField] HeroConfigSection activeTab;
         HeroCatalogData draft;
         CharacterData preview;
         Label status;
@@ -27,15 +29,25 @@ namespace Zatod.Editor
         public void CreateGUI()
         {
             minSize = new Vector2(920, 600);
-            saveChangesMessage = "Hero config has unsaved changes. Save the JSON balance file?";
-            if (string.IsNullOrEmpty(draftJson) && File.Exists(HeroDataJson.CatalogAssetPath))
-                sourceJson = draftJson = File.ReadAllText(HeroDataJson.CatalogAssetPath);
+            saveChangesMessage = "Hero config has unsaved changes. Save the four JSON balance files?";
+            string loadError = null;
+            if (sourceDocuments == null && HeroConfigFileStore.AnyFileExists)
+            {
+                try
+                {
+                    sourceDocuments = HeroConfigFileStore.Read();
+                    sourceJson = HeroDataJson.WriteCatalog(HeroDataJson.ReadDocuments(sourceDocuments).Data);
+                    if (!hasUnsavedChanges || string.IsNullOrEmpty(draftJson)) draftJson = sourceJson;
+                }
+                catch (Exception error) { loadError = error.Message; }
+            }
             if (!string.IsNullOrEmpty(draftJson))
             {
                 try { draft = JsonUtility.FromJson<HeroCatalogData>(draftJson); }
                 catch { draft = null; }
             }
             BuildUi();
+            if (loadError != null) SetStatus("ERROR / " + loadError);
         }
 
         void BuildUi()
@@ -45,9 +57,9 @@ namespace Zatod.Editor
             if (style != null && !rootVisualElement.styleSheets.Contains(style)) rootVisualElement.styleSheets.Add(style);
             rootVisualElement.AddToClassList("hero-balance");
             rootVisualElement.Add(new Label("HERO BALANCE / JSON") { name = "hero-title" });
-            rootVisualElement.Add(new Label(HeroDataJson.CatalogAssetPath));
+            rootVisualElement.Add(new Label(HeroDataJson.ConfigAssetDirectory + "/{Stats, Items, Skills, Heroes}.txt"));
             var toolbar = new VisualElement(); toolbar.AddToClassList("toolbar");
-            toolbar.Add(Button("Reload file", "reload-config", () =>
+            toolbar.Add(Button("Reload files", "reload-config", () =>
             {
                 if (hasUnsavedChanges && !EditorUtility.DisplayDialog("Reload hero config", "Discard unsaved config edits?", "Reload", "Cancel")) return;
                 ReloadFromFile();
@@ -57,25 +69,46 @@ namespace Zatod.Editor
                 _ = new HeroCatalog(draft);
                 SetStatus("VALID / " + draft.ConfigVersion);
             })));
-            toolbar.Add(Button("Save config", "save-config", SaveConfig));
-            if (!File.Exists(HeroDataJson.CatalogAssetPath)) toolbar.Add(Button("Create test config", "create-sample", () => Guard(() => { CreateSampleFile(); ReloadFromFile(); })));
+            toolbar.Add(Button("Save all config", "save-config", SaveConfig));
+            if (!HeroConfigFileStore.AnyFileExists) toolbar.Add(Button("Create test config", "create-sample", () => Guard(() => { CreateSampleFiles(); ReloadFromFile(); })));
             rootVisualElement.Add(toolbar);
             status = new Label("Draft changes affect preview only. Save with a new ConfigVersion to apply to future loads.");
             status.name = "config-status"; status.AddToClassList("wrapped"); rootVisualElement.Add(status);
 
             var columns = new VisualElement(); columns.AddToClassList("columns"); rootVisualElement.Add(columns);
-            var authoring = new ScrollView(); authoring.AddToClassList("authoring"); columns.Add(authoring);
-            if (draft != null) DrawObject(authoring, draft);
-            var raw = new Foldout { text = "Raw JSON / import draft", value = false };
-            jsonInput = new TextField { name = "catalog-json-input", multiline = true, value = draftJson ?? "" };
-            jsonInput.AddToClassList("raw-json"); raw.Add(jsonInput);
-            raw.Add(Button("Apply JSON to draft", "apply-json", () => Guard(() =>
+            var authoring = new VisualElement(); authoring.AddToClassList("authoring"); columns.Add(authoring);
+            if (draft != null) DrawObject(authoring, draft, "SchemaVersion", "ConfigVersion");
+            var tabs = new VisualElement { name = "config-tabs" }; tabs.AddToClassList("config-tabs"); authoring.Add(tabs);
+            foreach (var section in HeroDataJson.Sections)
             {
-                var parsed = JsonUtility.FromJson<HeroCatalogData>(jsonInput.value);
-                if (parsed == null) throw new ArgumentException("Expected catalog JSON.");
-                draft = parsed; Edited(); BuildUi();
+                var selectedSection = section;
+                var tab = Button(section.ToString(), "tab-" + section, () =>
+                {
+                    activeTab = selectedSection;
+                    BuildUi();
+                });
+                tab.AddToClassList("config-tab");
+                if (section == activeTab) tab.AddToClassList("config-tab-active");
+                tabs.Add(tab);
+            }
+            var page = new ScrollView { name = "page-" + activeTab }; page.AddToClassList("tab-page"); authoring.Add(page);
+            page.Add(new Label(HeroDataJson.AssetPath(activeTab)) { name = "section-path" });
+            if (draft != null)
+            {
+                var field = typeof(HeroCatalogData).GetField(activeTab.ToString());
+                var list = (IList)field.GetValue(draft);
+                if (list == null) { list = (IList)Activator.CreateInstance(field.FieldType); field.SetValue(draft, list); }
+                DrawList(page, activeTab.ToString(), list, field.FieldType.GetGenericArguments()[0], true);
+            }
+            var raw = new Foldout { text = "Raw JSON / " + activeTab + ".txt", value = false };
+            jsonInput = new TextField { name = "section-json-input", multiline = true, value = draft == null ? "" : HeroDataJson.WriteSection(draft, activeTab) };
+            jsonInput.AddToClassList("raw-json"); raw.Add(jsonInput);
+            raw.Add(Button("Apply this table to draft", "apply-section-json", () => Guard(() =>
+            {
+                HeroDataJson.ApplySection(draft, activeTab, jsonInput.value);
+                Edited(); BuildUi();
             })));
-            authoring.Add(raw);
+            page.Add(raw);
 
             var sandbox = new ScrollView(); sandbox.AddToClassList("sandbox"); columns.Add(sandbox);
             sandbox.Add(new Label("HERODESK PREVIEW"));
@@ -121,11 +154,12 @@ namespace Zatod.Editor
             RefreshPreview();
         }
 
-        void DrawObject(VisualElement parent, object target)
+        void DrawObject(VisualElement parent, object target, params string[] fields)
         {
             foreach (var field in target.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance))
             {
                 if (Attribute.IsDefined(field, typeof(NonSerializedAttribute))) continue;
+                if (fields.Length > 0 && !fields.Contains(field.Name)) continue;
                 Type type = field.FieldType;
                 object value = field.GetValue(target);
                 string label = ObjectNames.NicifyVariableName(field.Name);
@@ -159,9 +193,9 @@ namespace Zatod.Editor
             }
         }
 
-        void DrawList(VisualElement parent, string label, IList list, Type elementType)
+        void DrawList(VisualElement parent, string label, IList list, Type elementType, bool expanded = false)
         {
-            var foldout = new Foldout { text = label + " (" + list.Count + ")", value = false }; parent.Add(foldout);
+            var foldout = new Foldout { text = label + " (" + list.Count + ")", value = expanded }; parent.Add(foldout);
             for (int i = 0; i < list.Count; i++)
             {
                 int index = i;
@@ -198,7 +232,7 @@ namespace Zatod.Editor
         {
             draftJson = JsonUtility.ToJson(draft, true);
             hasUnsavedChanges = draftJson != sourceJson;
-            if (jsonInput != null) jsonInput.SetValueWithoutNotify(draftJson);
+            if (jsonInput != null) jsonInput.SetValueWithoutNotify(HeroDataJson.WriteSection(draft, activeTab));
             RefreshPreview();
             SetStatus("DRAFT / Preview uses the current edits. Validate and change ConfigVersion before saving a balance update.");
         }
@@ -268,16 +302,9 @@ namespace Zatod.Editor
         {
             Guard(() =>
             {
-                string json = HeroDataJson.WriteCatalog(draft);
-                string current = File.Exists(HeroDataJson.CatalogAssetPath) ? File.ReadAllText(HeroDataJson.CatalogAssetPath) : null;
-                if (current != sourceJson) throw new IOException("Config changed on disk. Reload before saving; this draft has not overwritten it.");
-                if (!string.IsNullOrEmpty(sourceJson) && json != HeroDataJson.WriteCatalog(JsonUtility.FromJson<HeroCatalogData>(sourceJson))
-                    && draft.ConfigVersion == JsonUtility.FromJson<HeroCatalogData>(sourceJson).ConfigVersion)
-                    throw new ArgumentException("Change ConfigVersion before saving a balance update.");
-                HeroDataJson.WriteFileAtomically(HeroDataJson.CatalogAssetPath, json);
-                AssetDatabase.ImportAsset(HeroDataJson.CatalogAssetPath, ImportAssetOptions.ForceUpdate);
-                sourceJson = draftJson = json; hasUnsavedChanges = false;
-                SetStatus("SAVED / " + draft.ConfigVersion);
+                sourceDocuments = HeroConfigFileStore.Save(draft, sourceDocuments ?? new HeroConfigDocuments());
+                sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); hasUnsavedChanges = false;
+                SetStatus("SAVED / Stats.txt, Items.txt, Skills.txt, Heroes.txt / " + draft.ConfigVersion);
             });
         }
 
@@ -296,18 +323,18 @@ namespace Zatod.Editor
         {
             Guard(() =>
             {
-                string json = File.ReadAllText(HeroDataJson.CatalogAssetPath);
-                draft = HeroDataJson.ReadCatalog(json).Data;
-                sourceJson = draftJson = json; hasUnsavedChanges = false;
+                var documents = HeroConfigFileStore.Read();
+                draft = HeroDataJson.ReadDocuments(documents).Data;
+                sourceDocuments = documents;
+                sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); hasUnsavedChanges = false;
                 BuildUi(); SetStatus("LOADED / " + draft.ConfigVersion);
             });
         }
 
-        public static void CreateSampleFile()
+        public static void CreateSampleFiles()
         {
-            if (File.Exists(HeroDataJson.CatalogAssetPath)) throw new IOException("Hero config already exists; sample creation will not overwrite it.");
-            HeroDataJson.WriteFileAtomically(HeroDataJson.CatalogAssetPath, HeroDataJson.WriteCatalog(HeroCatalogSample.Create()));
-            AssetDatabase.ImportAsset(HeroDataJson.CatalogAssetPath, ImportAssetOptions.ForceUpdate);
+            if (HeroConfigFileStore.AnyFileExists) throw new IOException("Hero config already exists; sample creation will not overwrite it.");
+            HeroConfigFileStore.Save(HeroCatalogSample.Create(), new HeroConfigDocuments());
         }
 
         void Guard(Action action)

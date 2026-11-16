@@ -1,0 +1,101 @@
+{
+    "SchemaVersion": 1,
+    "ConfigVersion": "heroes-prototype-1-split-1",
+    "Skills": [
+        {
+            "Id": "warrior_ultimate",
+            "Name": "Heavy strike",
+            "Kind": 0,
+            "Activation": 1,
+            "Target": 1,
+            "EnergyCost": 100,
+            "CooldownMilliseconds": 0,
+            "CastRange": 1100,
+            "EffectRadius": 0,
+            "WindupMilliseconds": 600,
+            "RecoveryMilliseconds": 300,
+            "Effects": [
+                {
+                    "Kind": 0,
+                    "Amount": 0,
+                    "DamageScaleBasisPoints": 12000,
+                    "DurationMilliseconds": 0,
+                    "StatId": ""
+                },
+                {
+                    "Kind": 2,
+                    "Amount": 0,
+                    "DamageScaleBasisPoints": 0,
+                    "DurationMilliseconds": 1000,
+                    "StatId": ""
+                }
+            ]
+        },
+        {
+            "Id": "warrior_strike",
+            "Name": "Auto strike",
+            "Kind": 0,
+            "Activation": 0,
+            "Target": 1,
+            "EnergyCost": 0,
+            "CooldownMilliseconds": 5000,
+            "CastRange": 1100,
+            "EffectRadius": 0,
+            "WindupMilliseconds": 300,
+            "RecoveryMilliseconds": 0,
+            "Effects": [
+                {
+                    "Kind": 0,
+                    "Amount": 0,
+                    "DamageScaleBasisPoints": 15000,
+                    "DurationMilliseconds": 0,
+                    "StatId": ""
+                }
+            ]
+        },
+        {
+            "Id": "warrior_guard",
+            "Name": "Guard (passive)",
+            "Kind": 1,
+            "Activation": 2,
+            "Target": 0,
+            "EnergyCost": 0,
+            "CooldownMilliseconds": 0,
+            "CastRange": 0,
+            "EffectRadius": 0,
+            "WindupMilliseconds": 0,
+            "RecoveryMilliseconds": 0,
+            "Effects": [
+                {
+                    "Kind": 3,
+                    "Amount": 5,
+                    "DamageScaleBasisPoints": 0,
+                    "DurationMilliseconds": 0,
+                    "StatId": "defense"
+                }
+            ]
+        },
+        {
+            "Id": "warrior_heal",
+            "Name": "Recovery",
+            "Kind": 0,
+            "Activation": 0,
+            "Target": 4,
+            "EnergyCost": 0,
+            "CooldownMilliseconds": 8000,
+            "CastRange": 4800,
+            "EffectRadius": 0,
+            "WindupMilliseconds": 0,
+            "RecoveryMilliseconds": 0,
+            "Effects": [
+                {
+                    "Kind": 1,
+                    "Amount": 50,
+                    "DamageScaleBasisPoints": 0,
+                    "DurationMilliseconds": 0,
+                    "StatId": ""
+                }
+            ]
+        }
+    ]
+}

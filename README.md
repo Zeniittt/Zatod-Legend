@@ -6,12 +6,12 @@ Prototype gồm **combat + bản ghi Arena offline** và nền **data HeroDesk /
 
 ## HeroDesk và balance Hero
 
-Mở **Zatod > Heroes > Hero Balance** trong Unity. Config là JSON trong `Unity/Assets/Zatod/Resources/Data/HeroCatalog.txt`, không dùng ScriptableObject làm config.
+Mở **Zatod > Heroes > Hero Balance** trong Unity. Config JSON được tách thành `Stats.txt`, `Items.txt`, `Skills.txt`, `Heroes.txt` tại `Unity/Assets/Zatod/Resources/Data/`, không dùng ScriptableObject làm config.
 
-- Bên trái chỉnh stats, items, skills và chuỗi bậc; có thể thêm/xóa entry hoặc nhập raw JSON.
+- Bên trái có bốn tab **Stats / Items / Skills / Heroes**. Mỗi tab chỉnh một bảng riêng; có thể thêm/xóa entry hoặc nhập raw JSON của file tương ứng. Stat sức đánh dùng ID `damage`, phòng thủ dùng `defense`.
 - Bên phải xem tổng stats và nguồn đóng góp, thử **Fill current gear → Promote**. Hero mẫu có bốn bậc Trắng → Xanh Lá → Xanh Dương → Tím; mỗi bậc mở một skill, Ulti mở sẵn từ Trắng.
 - **Save + reload preview HeroDesk** ghi tiến trình sandbox ở `Artifacts/HeroDeskPreview.json`, rồi load lại để kiểm tra.
-- **Validate** kiểm tra config. Khi cân bằng, đổi `ConfigVersion` rồi **Save config**; thay đổi draft chưa tự ghi xuống file.
+- **Validate** kiểm tra liên kết giữa bốn bảng. Khi cân bằng, đổi `ConfigVersion` rồi **Save all config**; thay đổi draft chưa tự ghi xuống file. Chuyển tab giữ nguyên các chỉnh sửa đang có.
 
 `CharacterData.HeroDesk` là `List<HeroData>`. File lưu chỉ giữ ID và tiến trình; `HeroDefinition` được resolve khi load, stats được tính theo config đang áp dụng. Level, sao, Currencies và các phần dữ liệu nhân vật khác hiện chỉ có khai báo. Kỹ năng hiện có config/unlock và snapshot; chưa chạy effect trong combat.
 

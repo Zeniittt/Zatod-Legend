@@ -2,13 +2,24 @@
 
 ## Cách sử dụng trong Editor
 
-Mở **Zatod > Heroes > Hero Balance**. Cửa sổ UI Toolkit chỉnh trực tiếp một bản draft của JSON trong `Unity/Assets/Zatod/Resources/Data/HeroCatalog.txt`. Không có config ScriptableObject hoặc `.asset` trung gian.
+Mở **Zatod > Heroes > Hero Balance**. Cửa sổ UI Toolkit có bốn tab, mỗi tab tương ứng một file JSON `.txt` tại `Unity/Assets/Zatod/Resources/Data/`:
 
-Các nhóm Stats / Items / Skills / Heroes có thể thêm, xóa và sửa từng field. Mở các foldout để chỉnh rank, ô trang bị, skill slot, effect. Raw JSON cũng có thể nhập vào draft. **Validate** kiểm tra ID trùng, reference thiếu, bậc không tới được/vòng lặp, skill unlock sai, chỉ số trùng và timing/cost không hợp lệ. **Save config** chỉ ghi config hợp lệ, yêu cầu `ConfigVersion` mới khi đổi nội dung, và từ chối ghi đè nếu file đã bị thay đổi bên ngoài kể từ lúc load. **Reload file** đọc lại file; draft chưa lưu sẽ có xác nhận bỏ thay đổi.
+| Tab | File | Nội dung |
+|---|---|---|
+| Stats | `Stats.txt` | Danh sách định nghĩa stat |
+| Items | `Items.txt` | Trang bị và đóng góp stats |
+| Skills | `Skills.txt` | Kỹ năng, trigger, target và effect |
+| Heroes | `Heroes.txt` | Base stats, chuỗi bậc, ô trang bị và skill slot của Hero |
+
+Không có config ScriptableObject hoặc `.asset` trung gian. Mỗi file có `SchemaVersion`, `ConfigVersion` và riêng danh sách dữ liệu của bảng đó; cả bốn phải cùng version. `HeroCatalogData` chỉ là tập hợp trong bộ nhớ sau khi load, không còn là một file config gộp.
+
+Mỗi tab có thể thêm, xóa và sửa từng field. Mở foldout để chỉnh rank, ô trang bị, skill slot, effect. Raw JSON chỉ nhập/xuất bảng đang chọn. Chuyển tab giữ nguyên draft và tiến trình preview. **Validate** kiểm tra ID trùng, reference thiếu giữa các bảng, bậc không tới được/vòng lặp, skill unlock sai, chỉ số trùng và timing/cost không hợp lệ. **Save all config** chỉ ghi bộ config hợp lệ, yêu cầu `ConfigVersion` mới khi đổi nội dung, và kiểm tra cả bốn file có bị thay đổi bên ngoài kể từ lúc load hay không trước khi ghi file nào. **Reload files** đọc lại cả bộ; draft chưa lưu sẽ có xác nhận bỏ thay đổi.
+
+Khi lưu, Unity giữ import tới khi ghi xong cả bốn file. Nếu có lỗi ghi, code thử khôi phục các file đã đổi. Đây chưa phải giao dịch filesystem bảo đảm qua mất điện/crash: loader sẽ từ chối bộ file thiếu hoặc khác version, thay vì dùng lẫn các phiên bản. Khi chỉnh bằng text editor ngoài Unity, phải giữ cùng schema/version giữa bốn file và dùng Reload files để nạp lại.
 
 Preview là sandbox HeroDesk một Hero: **New hero**, **Fill current gear**, **Promote** và **Save + reload preview HeroDesk**. Các thay đổi này không ghi vào tài khoản hoặc server Arena. Save/load preview dùng `Artifacts/HeroDeskPreview.json` ở workspace. Preview hiển thị tổng stats, breakdown, skill đã mở và JSON tiến trình được lưu. Chưa có HeroDetailView runtime hoặc công thức lực chiến; không tự đặt một công thức lực chiến khi chưa chốt thiết kế.
 
-Hero mẫu `training_warrior`: base attack 5, mỗi `axe_basic` +5 attack; Trắng/Xanh Lá/Xanh Dương mỗi bậc có sáu ô rìu. Tím là bậc cuối, chưa có recipe tiếp theo. Mới nhận có attack 5; mặc sáu rìu thành 35; lên Xanh Lá vẫn 35; mặc tiếp sáu thành 65; lên Xanh Dương vẫn 65; tới Tím có 18 rìu đã hấp thụ và attack 95.
+Hero mẫu `training_warrior`: base damage 5, mỗi `axe_basic` +5 damage; Trắng/Xanh Lá/Xanh Dương mỗi bậc có sáu ô rìu. Tím là bậc cuối, chưa có recipe tiếp theo. Mới nhận có damage 5; mặc sáu rìu thành 35; lên Xanh Lá vẫn 35; mặc tiếp sáu thành 65; lên Xanh Dương vẫn 65; tới Tím có 18 rìu đã hấp thụ và damage 95. ID phòng thủ là `defense`. `attack_range` và `attack_interval` vẫn chỉ tầm/thời gian đánh, độc lập với stat `damage`.
 
 ## Data và nguồn dữ liệu chính
 
@@ -26,13 +37,14 @@ var catalog = HeroDataJson.LoadBundledCatalog();
 var character = HeroDataJson.ReadCharacter(savedJson, catalog);
 var hero = character.HeroDesk[0];
 var stats = HeroStatCalculator.Calculate(hero, catalog);
-int attack = stats.Get("attack");
+int damage = stats.Get("damage");
+int defense = stats.Get("defense");
 
 // Tạo snapshot trước khi áp dụng điều kiện phó bản, không sửa HeroData/config.
 var battleHero = HeroBattleFactory.Create(hero, catalog);
 ```
 
-File `.txt` được Unity đóng gói thành TextAsset trong Resources. Code server ngoài Unity có thể đọc cùng JSON bằng serializer tương thích để tạo `HeroCatalogData` rồi `new HeroCatalog(data)`. Đây chưa phải hệ thống phân phối/hot reload config từ server. Mỗi đợt áp dụng config phải dựng catalog mới và bind lại HeroDesk; không sửa catalog đang được gameplay sử dụng. Các DTO config có field public phục vụ authoring, nên quy tắc không sửa live catalog thuộc về caller. Battle snapshot đã tạo không bị ảnh hưởng khi đổi catalog.
+Bốn file `.txt` được Unity đóng gói thành TextAsset trong Resources. `HeroDataJson.LoadBundledCatalog` đọc và ghép chúng sau khi kiểm tra schema/version và reference. Code server ngoài Unity có thể đọc cùng JSON bằng serializer tương thích vào `StatsConfigData`, `ItemsConfigData`, `SkillsConfigData`, `HeroesConfigData`, ghép thành `HeroCatalogData` rồi `new HeroCatalog(data)`. Đây chưa phải hệ thống phân phối/hot reload config từ server. Mỗi đợt áp dụng config phải dựng catalog mới và bind lại HeroDesk; không sửa catalog đang được gameplay sử dụng. Các DTO config có field public phục vụ authoring, nên quy tắc không sửa live catalog thuộc về caller. Battle snapshot đã tạo không bị ảnh hưởng khi đổi catalog.
 
 ## Tính stats
 
@@ -68,7 +80,7 @@ Lịch sử đã hấp thụ không yêu cầu SlotId cũ còn tồn tại trong
 
 Config có Active/Passive độc lập với trigger: Automatic, UltimateIntent, BattleStart, AfterBasicAttack. UltimateIntent dành cho ý định dùng Ulti từ AI Arena offline hoặc lệnh người chơi được server chấp nhận ở Arena live sau này. Target hỗ trợ self/front enemy/weakest enemy/all enemies/weakest ally/all allies. Effect mẫu gồm Damage/Heal/Stun/StatBonus; hệ thống thực thi và các effect mở rộng như độc, đẩy lùi, hất tung chưa làm.
 
-Các timing skill dùng milliseconds. AttackScaleBasisPoints dùng 10000 = 100%; sample Ulti 12000 = 120% attack và stun 1000 ms. Các con số này hiện chỉ là config và snapshot, chưa điều khiển `BattleSimulation` cũ.
+Các timing skill dùng milliseconds. DamageScaleBasisPoints dùng 10000 = 100%; sample Ulti 12000 = 120% damage và stun 1000 ms. Các con số này hiện chỉ là config và snapshot, chưa điều khiển `BattleSimulation` cũ.
 
 Arena vẫn dùng `PrototypeTeams` và các skill hardcode trước đó. Không sửa schema/rules replay, seed, authority hoặc kết quả trận cũ. Chưa nối HeroDesk vào account persistence, network commands, squad selection hay combat. `HeroProgression.Equip/Promote` là thao tác dữ liệu tin cậy cho sandbox/future server, không kiểm tra hoặc trừ Inventory; không được expose trực tiếp cho client như một API cấp đồ miễn phí. Server tương lai phải kiểm tra sở hữu và lưu thay đổi inventory/HeroData trong cùng transaction.
 
@@ -82,4 +94,6 @@ JSON save/load helper kiểm tra schema và HeroDesk, resolve references và ghi
 
 76 assertions .NET kiểm tra rank/gear, không cộng trùng, skill unlock, terminal rank, HeroInstanceId, ví dụ 20→33, recipe grandfathering, chèn bậc, battle snapshot tách biệt, config/owned data không hợp lệ và overflow.
 
-`Unity/AgentScripts/VerifyHeroData.cs` chạy bằng Unity Pipeline để kiểm chứng JsonUtility thật, TextAsset, save/load disk và các nút/callback trong cửa sổ. Script khôi phục nội dung config ban đầu sau test save. Kết quả và ảnh QA ghi trong `Artifacts` ở workspace.
+`Unity/AgentScripts/VerifyHeroData.cs` có 81 assertions chạy bằng Unity Pipeline để kiểm chứng JsonUtility thật, bốn TextAsset, thiếu file/lệch version, reference giữa bảng, save/load disk và các nút/callback của từng tab. Script khôi phục cả bốn file ban đầu sau test save. Ảnh UI: `Artifacts/hero-balance-tabs.png`.
+
+Config gộp cũ đã được chuyển một lần sang bộ file mới, giữ mọi giá trị balance và đổi stat ID/reference `attack` → `damage`, `armor` → `defense`, cùng field skill `DamageScaleBasisPoints`. Bản gốc có trong `Artifacts/HeroConfigBeforeSplit/20261116-083431/`. Đây chỉ là chuyển đổi định dạng config prototype, không sửa HeroDesk người chơi hoặc replay Arena.

@@ -1,0 +1,36 @@
+{
+    "SchemaVersion": 1,
+    "ConfigVersion": "heroes-prototype-1-split-1",
+    "Stats": [
+        {
+            "Id": "health",
+            "Name": "Health",
+            "Minimum": 1
+        },
+        {
+            "Id": "damage",
+            "Name": "Damage",
+            "Minimum": 0
+        },
+        {
+            "Id": "defense",
+            "Name": "Defense",
+            "Minimum": 0
+        },
+        {
+            "Id": "attack_range",
+            "Name": "Attack range (center units)",
+            "Minimum": 0
+        },
+        {
+            "Id": "move_speed",
+            "Name": "Move speed (units/second)",
+            "Minimum": 0
+        },
+        {
+            "Id": "attack_interval",
+            "Name": "Attack interval (20 Hz ticks)",
+            "Minimum": 1
+        }
+    ]
+}

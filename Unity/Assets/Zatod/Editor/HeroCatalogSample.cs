@@ -12,14 +12,14 @@ namespace Zatod.Editor
             data.Stats.AddRange(new[]
             {
                 new StatDefinition { Id = "health", Name = "Health", Minimum = 1 },
-                new StatDefinition { Id = "attack", Name = "Attack" },
-                new StatDefinition { Id = "armor", Name = "Armor" },
+                new StatDefinition { Id = "damage", Name = "Damage" },
+                new StatDefinition { Id = "defense", Name = "Defense" },
                 new StatDefinition { Id = "attack_range", Name = "Attack range (center units)" },
                 new StatDefinition { Id = "move_speed", Name = "Move speed (units/second)" },
                 new StatDefinition { Id = "attack_interval", Name = "Attack interval (20 Hz ticks)", Minimum = 1 }
             });
-            data.Items.Add(new ItemDefinition { Id = "axe_basic", Name = "Training axe", Stats = new List<StatValue> { new StatValue("attack", 5) } });
-            data.Items.Add(new ItemDefinition { Id = "sword_basic", Name = "Training sword", Stats = new List<StatValue> { new StatValue("attack", 7) } });
+            data.Items.Add(new ItemDefinition { Id = "axe_basic", Name = "Training axe", Stats = new List<StatValue> { new StatValue("damage", 5) } });
+            data.Items.Add(new ItemDefinition { Id = "sword_basic", Name = "Training sword", Stats = new List<StatValue> { new StatValue("damage", 7) } });
             data.Skills.Add(new SkillDefinition
             {
                 Id = "warrior_ultimate", Name = "Heavy strike", Kind = SkillKind.Active,
@@ -27,7 +27,7 @@ namespace Zatod.Editor
                 EnergyCost = 100, CastRange = 1100, WindupMilliseconds = 600, RecoveryMilliseconds = 300,
                 Effects = new List<SkillEffectDefinition>
                 {
-                    new SkillEffectDefinition { Kind = SkillEffectKind.Damage, AttackScaleBasisPoints = 12000 },
+                    new SkillEffectDefinition { Kind = SkillEffectKind.Damage, DamageScaleBasisPoints = 12000 },
                     new SkillEffectDefinition { Kind = SkillEffectKind.Stun, DurationMilliseconds = 1000 }
                 }
             });
@@ -36,13 +36,13 @@ namespace Zatod.Editor
                 Id = "warrior_strike", Name = "Auto strike", Kind = SkillKind.Active,
                 Activation = SkillActivation.Automatic, Target = SkillTarget.FrontEnemy,
                 CooldownMilliseconds = 5000, CastRange = 1100, WindupMilliseconds = 300,
-                Effects = new List<SkillEffectDefinition> { new SkillEffectDefinition { Kind = SkillEffectKind.Damage, AttackScaleBasisPoints = 15000 } }
+                Effects = new List<SkillEffectDefinition> { new SkillEffectDefinition { Kind = SkillEffectKind.Damage, DamageScaleBasisPoints = 15000 } }
             });
             data.Skills.Add(new SkillDefinition
             {
                 Id = "warrior_guard", Name = "Guard (passive)", Kind = SkillKind.Passive,
                 Activation = SkillActivation.BattleStart, Target = SkillTarget.Self,
-                Effects = new List<SkillEffectDefinition> { new SkillEffectDefinition { Kind = SkillEffectKind.StatBonus, StatId = "armor", Amount = 5 } }
+                Effects = new List<SkillEffectDefinition> { new SkillEffectDefinition { Kind = SkillEffectKind.StatBonus, StatId = "defense", Amount = 5 } }
             });
             data.Skills.Add(new SkillDefinition
             {
@@ -56,7 +56,7 @@ namespace Zatod.Editor
                 Id = "training_warrior", Name = "Training Warrior", StartingRankId = "white",
                 BaseStats = new List<StatValue>
                 {
-                    new StatValue("health", 600), new StatValue("attack", 5), new StatValue("armor", 10),
+                    new StatValue("health", 600), new StatValue("damage", 5), new StatValue("defense", 10),
                     new StatValue("attack_range", 1100), new StatValue("move_speed", 1600), new StatValue("attack_interval", 27)
                 }
             };

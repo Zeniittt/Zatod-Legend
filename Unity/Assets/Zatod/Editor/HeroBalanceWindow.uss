@@ -3,6 +3,11 @@
 .toolbar { flex-direction: row; flex-wrap: wrap; margin-top: 6px; margin-bottom: 6px; }
 .columns { flex-direction: row; flex-grow: 1; margin-top: 10px; }
 .authoring { flex-grow: 3; flex-basis: 0; margin-right: 16px; }
+.config-tabs { flex-direction: row; margin-top: 10px; margin-bottom: 8px; }
+.config-tab { flex-grow: 1; min-height: 28px; }
+.config-tab-active { background-color: rgb(54, 99, 140); color: white; -unity-font-style: bold; }
+.tab-page { flex-grow: 1; }
+#section-path { white-space: normal; margin-bottom: 8px; }
 .sandbox { flex-grow: 2; flex-basis: 0; }
 .wrapped { white-space: normal; margin-bottom: 8px; }
 .raw-json { min-height: 160px; margin-top: 6px; margin-bottom: 6px; }

@@ -37,7 +37,7 @@ static class Program
         Check(hero.RankId == "white" && hero.Level == 1 && hero.Stars == 1, "Initial progression");
         Check(ReferenceEquals(hero.Definition, catalog.Hero(hero.HeroDefinitionId)), "Runtime definition reference");
         Check(HeroProgression.UnlockedSkills(hero, catalog).Single().IsUltimate, "White ultimate only");
-        Check(HeroStatCalculator.Calculate(hero, catalog).Get("attack") == 5, "Initial base attack");
+        Check(HeroStatCalculator.Calculate(hero, catalog).Get("damage") == 5, "Initial base attack");
         Reject(() => HeroProgression.Equip(hero, catalog, "missing", "axe_basic"), "Unknown slot accepted");
         Reject(() => HeroProgression.Equip(hero, catalog, "gear_1", "sword_basic"), "Wrong recipe item accepted");
         Check(hero.EquippedItems.Count == 0, "Rejected equip mutated hero");
@@ -48,16 +48,16 @@ static class Program
         HeroProgression.Equip(hero, catalog, "gear_6", "axe_basic");
         for (int promotion = 1; promotion <= 3; promotion++)
         {
-            int before = HeroStatCalculator.Calculate(hero, catalog).Get("attack");
+            int before = HeroStatCalculator.Calculate(hero, catalog).Get("damage");
             Check(HeroProgression.CanPromote(hero, catalog), "Full gear not promotable");
             HeroProgression.Promote(hero, catalog);
             Check(hero.EquippedItems.Count == 0 && hero.AbsorbedItems.Count == promotion * 6, "Absorption duplicated/lost gear");
             Check(hero.AbsorbedItems.All(a => a.Quantity == 1 && a.ItemId == "axe_basic"), "Incorrect absorbed facts");
-            Check(HeroStatCalculator.Calculate(hero, catalog).Get("attack") == before, "Promotion double-counted or lost gear stats");
+            Check(HeroStatCalculator.Calculate(hero, catalog).Get("damage") == before, "Promotion double-counted or lost gear stats");
             Check(HeroProgression.UnlockedSkills(hero, catalog).Count == promotion + 1, "Incorrect rank unlock");
             if (promotion < 3) Fill(hero, catalog);
         }
-        Check(hero.RankId == "purple" && HeroStatCalculator.Calculate(hero, catalog).Get("attack") == 95, "Terminal rank stats");
+        Check(hero.RankId == "purple" && HeroStatCalculator.Calculate(hero, catalog).Get("damage") == 95, "Terminal rank stats");
         Check(!HeroProgression.CanPromote(hero, catalog), "Terminal rank can promote");
         Reject(() => HeroProgression.Promote(hero, catalog), "Terminal promotion accepted");
         var character = new CharacterData { CharacterId = "account-1" };
@@ -83,28 +83,28 @@ static class Program
         var hero = catalog.CreateHero("training_warrior", "example-20-33");
         Fill(hero, catalog); HeroProgression.Promote(hero, catalog); Fill(hero, catalog);
         var result = HeroStatCalculator.Calculate(hero, catalog);
-        Check(result.Get("attack") == 20, "5 base + 1 absorbed axe + 2 equipped axes must be 20");
-        Check(result.Breakdown.Where(b => b.StatId == "attack").Sum(b => b.Value) == 20, "Breakdown differs from total");
+        Check(result.Get("damage") == 20, "5 base + 1 absorbed axe + 2 equipped axes must be 20");
+        Check(result.Breakdown.Where(b => b.StatId == "damage").Sum(b => b.Value) == 20, "Breakdown differs from total");
         var battle = HeroBattleFactory.Create(hero, catalog);
         var secondBattle = HeroBattleFactory.Create(hero, catalog);
         Check(battle.CurrentHp == 600 && battle.Energy == 0 && battle.Skills.Count == 2, "Battle initialization");
-        battle.Stats.Single(s => s.StatId == "armor").Value -= 10;
+        battle.Stats.Single(s => s.StatId == "defense").Value -= 10;
         battle.CurrentHp = 25;
         battle.Skills[0].Definition.Effects[0].Amount = 999;
         battle.Skills[0].CooldownRemainingMilliseconds = 500;
-        Check(HeroStatCalculator.Calculate(hero, catalog).Get("armor") == 10, "Stage modifier changed owned stats");
-        Check(secondBattle.Stats.Single(s => s.StatId == "armor").Value == 10 && secondBattle.CurrentHp == 600, "Runtime data shared between battles");
+        Check(HeroStatCalculator.Calculate(hero, catalog).Get("defense") == 10, "Stage modifier changed owned stats");
+        Check(secondBattle.Stats.Single(s => s.StatId == "defense").Value == 10 && secondBattle.CurrentHp == 600, "Runtime data shared between battles");
         Check(catalog.Skill("warrior_ultimate").Effects[0].Amount == 0, "Runtime effect mutated config");
         Check(secondBattle.Skills[0].Definition.Effects[0].Amount == 0 && secondBattle.Skills[0].CooldownRemainingMilliseconds == 0, "Skill effects/cooldowns shared between battles");
         var changed = Copy(data);
         changed.ConfigVersion = "heroes-prototype-2";
-        changed.Heroes[0].BaseStats.Single(s => s.StatId == "attack").Value = 3;
+        changed.Heroes[0].BaseStats.Single(s => s.StatId == "damage").Value = 3;
         changed.Items.Single(i => i.Id == "axe_basic").Stats[0].Value = 10;
-        changed.Skills[0].Effects[0].AttackScaleBasisPoints = 20000;
+        changed.Skills[0].Effects[0].DamageScaleBasisPoints = 20000;
         var balanced = new HeroCatalog(changed);
-        Check(HeroStatCalculator.Calculate(hero, balanced).Get("attack") == 33, "3 base + 1 absorbed axe + 2 equipped axes must be 33");
-        Check(battle.Stats.Single(s => s.StatId == "attack").Value == 20 && battle.ConfigVersion == "heroes-prototype-1", "Rebalance changed existing battle stats");
-        Check(battle.Skills[0].Definition.Effects[0].AttackScaleBasisPoints == 12000, "Rebalance changed existing battle skill snapshot");
+        Check(HeroStatCalculator.Calculate(hero, balanced).Get("damage") == 33, "3 base + 1 absorbed axe + 2 equipped axes must be 33");
+        Check(battle.Stats.Single(s => s.StatId == "damage").Value == 20 && battle.ConfigVersion == "heroes-prototype-1", "Rebalance changed existing battle stats");
+        Check(battle.Skills[0].Definition.Effects[0].DamageScaleBasisPoints == 12000, "Rebalance changed existing battle skill snapshot");
         var character = new CharacterData { CharacterId = "account-1", HeroDesk = new List<HeroData> { hero } };
         balanced.Bind(character);
         Check(ReferenceEquals(hero.Definition, changed.Heroes[0]), "Config reference not refreshed on bind");
@@ -113,25 +113,25 @@ static class Program
         foreach (var rank in changed.Heroes[0].Ranks)
             foreach (var slot in rank.EquipmentSlots) slot.RequiredItemId = "sword_basic";
         var recipe = new HeroCatalog(changed);
-        Check(HeroStatCalculator.Calculate(hero, recipe).Get("attack") == 33, "Recipe rewrote existing gear history");
+        Check(HeroStatCalculator.Calculate(hero, recipe).Get("damage") == 33, "Recipe rewrote existing gear history");
         Check(HeroProgression.CanPromote(hero, recipe), "Previously equipped items not grandfathered");
         HeroProgression.Promote(hero, recipe);
         Check(hero.AbsorbedItems.Count == 3 && hero.AbsorbedItems.All(i => i.ItemId == "axe_basic"), "Promotion replaced grandfathered item IDs");
-        Check(HeroStatCalculator.Calculate(hero, recipe).Get("attack") == 33, "Grandfathered gear changed on promotion");
+        Check(HeroStatCalculator.Calculate(hero, recipe).Get("damage") == 33, "Grandfathered gear changed on promotion");
         // Historical slot removal must not invalidate prior facts.
         changed.Heroes[0].Ranks[0].EquipmentSlots[0].Id = "new_recipe_slot";
         recipe = new HeroCatalog(changed);
-        Check(HeroStatCalculator.Calculate(hero, recipe).Get("attack") == 33, "Old slot ID removal rewrote history");
+        Check(HeroStatCalculator.Calculate(hero, recipe).Get("damage") == 33, "Old slot ID removal rewrote history");
         var newcomer = recipe.CreateHero("training_warrior", "newcomer");
         Reject(() => HeroProgression.Equip(newcomer, recipe, "new_recipe_slot", "axe_basic"), "New equip used obsolete recipe");
         HeroProgression.Equip(newcomer, recipe, "new_recipe_slot", "sword_basic");
-        Check(HeroStatCalculator.Calculate(newcomer, recipe).Get("attack") == 10, "New equip did not use new recipe");
+        Check(HeroStatCalculator.Calculate(newcomer, recipe).Get("damage") == 10, "New equip did not use new recipe");
 
         var floor = HeroCatalogSample.Create();
-        floor.Heroes[0].Ranks[0].BonusStats.Add(new StatValue("armor", -100));
+        floor.Heroes[0].Ranks[0].BonusStats.Add(new StatValue("defense", -100));
         var floorCatalog = new HeroCatalog(floor);
         var floorHero = floorCatalog.CreateHero("training_warrior", "floor");
-        Check(HeroStatCalculator.Calculate(floorHero, floorCatalog).Get("armor") == 0, "Stat minimum not applied at end");
+        Check(HeroStatCalculator.Calculate(floorHero, floorCatalog).Get("defense") == 0, "Stat minimum not applied at end");
         floor.Items[0].Stats[0].Value = int.MaxValue;
         floorHero.EquippedItems.Add(new EquippedItemData { SlotId = "gear_1", ItemId = "axe_basic" });
         bool overflow = false;
@@ -156,14 +156,14 @@ static class Program
         });
         changed.Heroes[0].Ranks.Reverse();
         var catalog = new HeroCatalog(changed);
-        Check(HeroStatCalculator.Calculate(hero, catalog).Get("attack") == 65 && hero.RankId == "blue", "Inserting/reordering ranks changed existing rank/history");
+        Check(HeroStatCalculator.Calculate(hero, catalog).Get("damage") == 65 && hero.RankId == "blue", "Inserting/reordering ranks changed existing rank/history");
         Check(HeroProgression.UnlockedSkills(hero, catalog).Count == 3, "Intermediate rank unlocked unintended skill");
         var newcomer = catalog.CreateHero("training_warrior", "new-path");
         Fill(newcomer, catalog); HeroProgression.Promote(newcomer, catalog);
         Fill(newcomer, catalog); HeroProgression.Promote(newcomer, catalog);
         Check(newcomer.RankId == "green_plus_1" && HeroProgression.UnlockedSkills(newcomer, catalog).Count == 2, "Intermediate rank path/unlocks");
         Fill(newcomer, catalog); HeroProgression.Promote(newcomer, catalog);
-        Check(newcomer.RankId == "blue" && HeroStatCalculator.Calculate(newcomer, catalog).Get("attack") == 70, "Intermediate gear not absorbed");
+        Check(newcomer.RankId == "blue" && HeroStatCalculator.Calculate(newcomer, catalog).Get("damage") == 70, "Intermediate gear not absorbed");
         Check(newcomer.AbsorbedItems.Count == 13, "Intermediate absorbed ledger");
     }
 
@@ -183,7 +183,7 @@ static class Program
         Reject(() => new HeroCatalog(bad), "Missing required item");
         bad = HeroCatalogSample.Create(); bad.Heroes[0].BaseStats.Add(new StatValue("missing", 1));
         Reject(() => new HeroCatalog(bad), "Unknown stat");
-        bad = HeroCatalogSample.Create(); bad.Heroes[0].BaseStats.Add(new StatValue("attack", 1));
+        bad = HeroCatalogSample.Create(); bad.Heroes[0].BaseStats.Add(new StatValue("damage", 1));
         Reject(() => new HeroCatalog(bad), "Duplicate stat");
         bad = HeroCatalogSample.Create(); bad.Heroes[0].Ranks[0].UnlockSkillSlotIds.Clear();
         Reject(() => new HeroCatalog(bad), "Ultimate locked at starting rank");
@@ -191,7 +191,7 @@ static class Program
         Reject(() => new HeroCatalog(bad), "Duplicate unlock");
         bad = HeroCatalogSample.Create(); bad.Skills[2].Activation = SkillActivation.UltimateIntent;
         Reject(() => new HeroCatalog(bad), "Passive uses manual activation");
-        bad = HeroCatalogSample.Create(); bad.Skills[0].Effects[0].AttackScaleBasisPoints = -1;
+        bad = HeroCatalogSample.Create(); bad.Skills[0].Effects[0].DamageScaleBasisPoints = -1;
         Reject(() => new HeroCatalog(bad), "Negative skill scale");
         var catalog = Catalog();
         var hero = catalog.CreateHero("training_warrior", "invalid-progress");

@@ -2,6 +2,15 @@
 
 Environment: Unity 6000.6.2f1, URP 17.6.0, Mirror v96.11.5, Windows x64.
 
+## Split config and tabbed Hero Editor — heroes-prototype-1-split-1
+
+- Config migrated from the combined asset to four separate JSON TextAssets: `Stats.txt`, `Items.txt`, `Skills.txt`, `Heroes.txt`. Original asset/meta backed up in `Artifacts/HeroConfigBeforeSplit/20261116-083431/` before removal through AssetDatabase.
+- Stat IDs and references renamed to `damage` and `defense`, including item stats, Hero base/rank stats and passive effect references. Skill scale field is now `DamageScaleBasisPoints`. Values and Hero progress formulas preserved.
+- **76 pure C# assertions pass** after the rename, including 20→33, detached battle snapshots and progression.
+- **81 Unity assertions pass**: four-file loading/roundtrip, missing table/file, mismatched versions, cross-table references, stat labels, independent tab contents, draft/progression preservation while switching tabs, per-table JSON edits, save/version checks, and external edits detected before overwriting any file. Test restores all four files.
+- Final compilation and Console: zero errors/warnings. Captured and visually inspected tabbed layout at `Artifacts/hero-balance-tabs.png`.
+- No combat/replay/network code changed; no standalone rebuild needed for this Editor/data adjustment.
+
 ## HeroDesk foundation — heroes-prototype-1
 
 - **76 pure C# assertions**: six-slot promotion, absorbed-item provenance and no double counting, four rank-based skill unlocks, terminal rank, multiple instances of one definition, invalid/duplicate IDs, the exact `20 → 33` balance example, grandfathered recipe changes, insertion/reordering of intermediate ranks, minimums/overflow and detached battle/skill snapshots.
