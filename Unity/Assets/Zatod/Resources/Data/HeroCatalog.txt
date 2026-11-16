@@ -1,0 +1,327 @@
+{
+    "SchemaVersion": 1,
+    "ConfigVersion": "heroes-prototype-1",
+    "Stats": [
+        {
+            "Id": "health",
+            "Name": "Health",
+            "Minimum": 1
+        },
+        {
+            "Id": "attack",
+            "Name": "Attack",
+            "Minimum": 0
+        },
+        {
+            "Id": "armor",
+            "Name": "Armor",
+            "Minimum": 0
+        },
+        {
+            "Id": "attack_range",
+            "Name": "Attack range (center units)",
+            "Minimum": 0
+        },
+        {
+            "Id": "move_speed",
+            "Name": "Move speed (units/second)",
+            "Minimum": 0
+        },
+        {
+            "Id": "attack_interval",
+            "Name": "Attack interval (20 Hz ticks)",
+            "Minimum": 1
+        }
+    ],
+    "Items": [
+        {
+            "Id": "axe_basic",
+            "Name": "Training axe",
+            "Stats": [
+                {
+                    "StatId": "attack",
+                    "Value": 5
+                }
+            ]
+        },
+        {
+            "Id": "sword_basic",
+            "Name": "Training sword",
+            "Stats": [
+                {
+                    "StatId": "attack",
+                    "Value": 7
+                }
+            ]
+        }
+    ],
+    "Skills": [
+        {
+            "Id": "warrior_ultimate",
+            "Name": "Heavy strike",
+            "Kind": 0,
+            "Activation": 1,
+            "Target": 1,
+            "EnergyCost": 100,
+            "CooldownMilliseconds": 0,
+            "CastRange": 1100,
+            "EffectRadius": 0,
+            "WindupMilliseconds": 600,
+            "RecoveryMilliseconds": 300,
+            "Effects": [
+                {
+                    "Kind": 0,
+                    "Amount": 0,
+                    "AttackScaleBasisPoints": 12000,
+                    "DurationMilliseconds": 0,
+                    "StatId": ""
+                },
+                {
+                    "Kind": 2,
+                    "Amount": 0,
+                    "AttackScaleBasisPoints": 0,
+                    "DurationMilliseconds": 1000,
+                    "StatId": ""
+                }
+            ]
+        },
+        {
+            "Id": "warrior_strike",
+            "Name": "Auto strike",
+            "Kind": 0,
+            "Activation": 0,
+            "Target": 1,
+            "EnergyCost": 0,
+            "CooldownMilliseconds": 5000,
+            "CastRange": 1100,
+            "EffectRadius": 0,
+            "WindupMilliseconds": 300,
+            "RecoveryMilliseconds": 0,
+            "Effects": [
+                {
+                    "Kind": 0,
+                    "Amount": 0,
+                    "AttackScaleBasisPoints": 15000,
+                    "DurationMilliseconds": 0,
+                    "StatId": ""
+                }
+            ]
+        },
+        {
+            "Id": "warrior_guard",
+            "Name": "Guard (passive)",
+            "Kind": 1,
+            "Activation": 2,
+            "Target": 0,
+            "EnergyCost": 0,
+            "CooldownMilliseconds": 0,
+            "CastRange": 0,
+            "EffectRadius": 0,
+            "WindupMilliseconds": 0,
+            "RecoveryMilliseconds": 0,
+            "Effects": [
+                {
+                    "Kind": 3,
+                    "Amount": 5,
+                    "AttackScaleBasisPoints": 0,
+                    "DurationMilliseconds": 0,
+                    "StatId": "armor"
+                }
+            ]
+        },
+        {
+            "Id": "warrior_heal",
+            "Name": "Recovery",
+            "Kind": 0,
+            "Activation": 0,
+            "Target": 4,
+            "EnergyCost": 0,
+            "CooldownMilliseconds": 8000,
+            "CastRange": 4800,
+            "EffectRadius": 0,
+            "WindupMilliseconds": 0,
+            "RecoveryMilliseconds": 0,
+            "Effects": [
+                {
+                    "Kind": 1,
+                    "Amount": 50,
+                    "AttackScaleBasisPoints": 0,
+                    "DurationMilliseconds": 0,
+                    "StatId": ""
+                }
+            ]
+        }
+    ],
+    "Heroes": [
+        {
+            "Id": "training_warrior",
+            "Name": "Training Warrior",
+            "StartingRankId": "white",
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "attack",
+                    "Value": 5
+                },
+                {
+                    "StatId": "armor",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        }
+    ]
+}
