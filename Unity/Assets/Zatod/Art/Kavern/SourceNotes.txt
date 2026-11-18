@@ -1,0 +1,9 @@
+Leaf Ranger ORIGINAL pixel (frame 288x128, khong sua gi, giu nguyen bang mau cua goi goc). Chi tach anim va projectile/effect.
+Idle 12, Run 10, Death 19, TakeHit 6
+Attack = 2_atk (15) + Attack_Projectile (mui ten bay 6 frame + hieu ung trung 6 frame, bat dau cung than frame 9) + Attack_Ring_FX (vong xanh o than 9-11 da tach)
+Skill2 = 2_atk (giong Attack) + Skill2_Projectile (mui ten bay 6 frame + no doc 8 frame, bat dau than 9) + Attack_Ring_FX
+Ultimate = sp_atk (17, da tach tia/hat) + Ultimate_Effect_Sparks (tia/hat dinh san trong frame than, theo frame than) + Ultimate_Effect_Beam (beam_extension_effect, 5 frame = than 10-14, canvas 544x128, dat tai x=288,y=36)
+Skill3 = 3_atk (12) + Skill3_Effect_ArrowShower (arrow_shower_effect 18 frame, dat tai (108,0), bat dau 7 frame sau khi than het)
+Skill4 = air_atk (10, da tach vong) + Skill4_Effect_Arrow (diagonal_arrow, than 6, toa do lop = he than nang 39 px) + Skill4_Effect_Hit_Thorns (8) + Skill4_Effect_Hit_Plain (6) + Skill4_Ring_FX. Than air_atk dat nang len 39 px so voi frame goc.
+Icon = ban nhieu pixel (x4) lam hom qua, giu nguyen.
+Mui ten bay: tinh tien sprite mui ten goc (khong xoay, khong ve them).

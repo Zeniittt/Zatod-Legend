@@ -131,6 +131,9 @@ GameObject:
   - component: {fileID: 461291595}
   - component: {fileID: 461291594}
   - component: {fileID: 461291593}
+  - component: {fileID: 461291597}
+  - component: {fileID: 461291598}
+  - component: {fileID: 461291599}
   m_Layer: 0
   m_Name: ArenaBootstrap
   m_TagString: Untagged
@@ -204,6 +207,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &461291597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461291592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8726ea78fc3876e4783a03fe1b368f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Zatod.Runtime::Zatod.Presentation.FormationView
+  Font: {fileID: 11400000, guid: bfd66f5e147037b48bc67945d19d2501, type: 2}
+  Tabs:
+  - Id: owned
+    Title: Hero
+    HeroDefinitionIds: []
+--- !u!114 &461291598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461291592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36b58233f927414dad79e878a39488e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Zatod.Runtime::Zatod.Presentation.HeroRosterView
+  PreviewGold: 620444897
+  PreviewDiamonds: 105434
+  PreviewPower: 10222
+  PreviewStamina: 95
+  PreviewMaxStamina: 140
+--- !u!114 &461291599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461291592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53096288f5ac7634e8c216626a92f7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Zatod.Runtime::Zatod.Presentation.CampaignView
 --- !u!1 &962756866
 GameObject:
   m_ObjectHideFlags: 0

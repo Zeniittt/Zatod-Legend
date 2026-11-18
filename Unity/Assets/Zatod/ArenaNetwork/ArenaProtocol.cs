@@ -4,7 +4,9 @@ using Mirror;
 namespace Zatod.Networking
 {
     // Prototype: one server-owned development account. No client-supplied stats or result.
-    public struct ChallengeRequest : NetworkMessage { public string requestId, opponentId; }
+    public struct ChallengeRequest : NetworkMessage { public string requestId, opponentId; public string[] heroInstanceIds; }
+    public struct CampaignChallengeRequest : NetworkMessage { public string requestId,stageId; public string[] heroInstanceIds; }
+    public struct CampaignProgressResponse : NetworkMessage { public string[] clearedStageIds; }
     public struct ReplayRequest : NetworkMessage { public string battleId; }
     public struct CatalogRequest : NetworkMessage { }
     public struct CatalogResponse : NetworkMessage { public ReplaySummary[] replays; }

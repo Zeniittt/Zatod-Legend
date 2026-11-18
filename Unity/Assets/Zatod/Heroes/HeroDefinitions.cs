@@ -12,6 +12,7 @@ namespace Zatod.Heroes
         public List<ItemDefinition> Items = new List<ItemDefinition>();
         public List<SkillDefinition> Skills = new List<SkillDefinition>();
         public List<HeroDefinition> Heroes = new List<HeroDefinition>();
+        public List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
     }
 
     [Serializable] public sealed class StatDefinition { public string Id, Name; public int Minimum; }
@@ -33,13 +34,30 @@ namespace Zatod.Heroes
         public List<StatValue> Stats = new List<StatValue>();
     }
 
+    public enum HeroPosition { Front, Middle, Rear }
+
     [Serializable]
     public sealed class HeroDefinition
     {
         public string Id, Name, StartingRankId;
+        public HeroPosition Position;
+        public string PortraitKey;
+        public string BodyPrefabResource, AnimationSetResource, NormalAttackSkillId;
+        public int ProjectileHurtboxHeight = 100;
+        public int DeathAnimationMilliseconds = 1500;
+        public List<HeroSpawnPointDefinition> SpawnPoints = new List<HeroSpawnPointDefinition>();
         public List<StatValue> BaseStats = new List<StatValue>();
         public List<HeroRankDefinition> Ranks = new List<HeroRankDefinition>();
         public List<HeroSkillSlotDefinition> SkillSlots = new List<HeroSkillSlotDefinition>();
+    }
+
+    [Serializable]
+    public sealed class HeroSpawnPointDefinition
+    {
+        public string Id;
+        // Local combat units: Forward mirrors with facing; Height is measured above the ground.
+        public int Forward, Height;
+        public HeroSpawnPointDefinition Copy() { return (HeroSpawnPointDefinition)MemberwiseClone(); }
     }
 
     [Serializable]
@@ -55,9 +73,11 @@ namespace Zatod.Heroes
     [Serializable] public sealed class EquipmentSlotDefinition { public string Id, RequiredItemId; }
     [Serializable] public sealed class HeroSkillSlotDefinition { public string Id, SkillId; public bool IsUltimate; }
     public enum SkillKind { Active, Passive }
-    public enum SkillActivation { Automatic, UltimateIntent, BattleStart, AfterBasicAttack }
-    public enum SkillTarget { Self, FrontEnemy, LowestHealthEnemy, AllEnemies, LowestHealthAlly, AllAllies }
-    public enum SkillEffectKind { Damage, Heal, Stun, StatBonus }
+    public enum SkillActivation { Automatic, UltimateIntent, BattleStart, AfterBasicAttack, OnDeath }
+    public enum SkillTarget { Self, FrontEnemy, LowestHealthEnemy, AllEnemies, LowestHealthAlly, AllAllies, NearestEnemy, EnemiesInRange, NearestEnemies, EnemiesInLine, FarthestEnemy, LowestHealthAndBehind }
+    public enum SkillEffectKind { Damage, Heal, Stun, StatBonus, KnockUp, Knockback, Poison, DamageBuff, Resurrect, Burn }
+    public enum SkillDelivery { Instant, Projectile, TargetedEffect, Beam }
+    public enum ProjectileAim { TargetPosition, Forward }
 
     [Serializable]
     public sealed class SkillDefinition
@@ -69,7 +89,92 @@ namespace Zatod.Heroes
         public SkillTarget Target;
         public int EnergyCost, CooldownMilliseconds, CastRange, EffectRadius;
         public int WindupMilliseconds, RecoveryMilliseconds;
+        public int MaxTargets, AnimationDurationMilliseconds;
+        public string TargetEffectState;
+        public int TargetEffectDelayMilliseconds, TargetEffectImpactMilliseconds, TargetEffectDurationMilliseconds;
+        public string ProjectileFlightState, ProjectileImpactState;
+        public int ProjectileImpactDurationMilliseconds, ProjectileTargetHeight;
+        public bool DescendingProjectile, ImpactOnGround;
+        public int ProjectileHitOffsetHeight;
+        public List<SkillVisualCue> CasterVisuals = new List<SkillVisualCue>();
+        public bool CastAtBattleStart;
+        public List<SkillCastSequence> CastSequences = new List<SkillCastSequence>();
+        public string AnimationState;
+        public SkillDelivery Delivery;
+        public string ProjectileResource;
+        public string ProjectileSpawnPointId;
+        public int ProjectileSpawnOffsetForward, ProjectileSpawnOffsetHeight, ProjectileHitOffsetForward;
+        // Zero retains legacy art size. 10000 uses the character's reference art scale.
+        public int ProjectileVisualScaleBasisPoints;
+        public ProjectileAim ProjectileAim;
+        public int ProjectileSpawnMilliseconds, ProjectileSpeed, ProjectileHitRadius, ProjectileLifetimeMilliseconds;
+        public int LifestealBasisPoints;
+        public string LifestealReturnState;
+        public int ProjectileMaxHits = 1;
+        public bool ProjectileTargetOnly;
+        public bool ProjectileTracksTarget;
         public List<SkillEffectDefinition> Effects = new List<SkillEffectDefinition>();
+        public SkillDefinition Copy()
+        {
+            var copy = (SkillDefinition)MemberwiseClone();
+            copy.Effects = Effects.ConvertAll(effect => effect.Copy());
+            copy.CasterVisuals = CasterVisuals.ConvertAll(cue => cue.Copy());
+            copy.CastSequences = CastSequences.ConvertAll(sequence => sequence.Copy());
+            return copy;
+        }
+    }
+
+    [Serializable]
+    public sealed class SkillVisualCue
+    {
+        public string State;
+        public int DelayMilliseconds, DurationMilliseconds, Forward, Height;
+        public bool FollowCaster = true, StretchToRange;
+        public bool AtTarget, FollowTarget, StretchToTarget;
+        public bool Shockwave;
+        public int MoveForward, MoveHeight, GrowMilliseconds;
+        public SkillVisualCue Copy() { return (SkillVisualCue)MemberwiseClone(); }
+    }
+
+    public enum SkillSequenceAction { Projectile, Effects, AreaPulse, TeleportToTarget, GrabTarget, ThrowTarget }
+    public enum SequenceTargetOrder { Nearest, LowestHealth }
+
+    [Serializable]
+    public sealed class SkillSequenceCue
+    {
+        public int DelayMilliseconds;
+        public SkillSequenceAction Action;
+        public int Distance, DurationMilliseconds, Height, TargetIndex;
+        public bool SelectTargetByIndex, RequireAttackRange, RequiresGrab;
+        public SequenceTargetOrder TargetOrder;
+        public SkillSequenceCue Copy() { return (SkillSequenceCue)MemberwiseClone(); }
+    }
+
+    [Serializable]
+    public sealed class SkillMotionKey
+    {
+        public int TimeMilliseconds, Forward, Height;
+        public SkillMotionKey Copy() { return (SkillMotionKey)MemberwiseClone(); }
+    }
+
+    [Serializable]
+    public sealed class SkillCastSequence
+    {
+        public bool Opening, ContinueAfterRelease;
+        public bool ReturnToStartOnEnd;
+        public string AnimationState;
+        public int DurationMilliseconds, ReleaseMilliseconds;
+        public List<SkillSequenceCue> Actions = new List<SkillSequenceCue>();
+        public List<SkillVisualCue> Visuals = new List<SkillVisualCue>();
+        public List<SkillMotionKey> Motion = new List<SkillMotionKey>();
+        public SkillCastSequence Copy()
+        {
+            var copy = (SkillCastSequence)MemberwiseClone();
+            copy.Actions = Actions.ConvertAll(c => c.Copy());
+            copy.Visuals = Visuals.ConvertAll(c => c.Copy());
+            copy.Motion = Motion.ConvertAll(c => c.Copy());
+            return copy;
+        }
     }
 
     [Serializable]
@@ -77,6 +182,12 @@ namespace Zatod.Heroes
     {
         public SkillEffectKind Kind;
         public int Amount, DamageScaleBasisPoints, DurationMilliseconds;
+        public int TickIntervalMilliseconds;
+        public int FirstTickDelayMilliseconds;
+        public string VisualState;
+        public int ModifierBasisPoints;
+        public int ReviveDelayMilliseconds, ReviveHealthBasisPoints, MaxTriggersPerBattle;
+        public int DisplacementDistance, KnockUpHeight;
         public string StatId;
         public SkillEffectDefinition Copy() { return (SkillEffectDefinition)MemberwiseClone(); }
     }

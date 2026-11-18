@@ -1,0 +1,2252 @@
+{
+    "HeroId": "leenald",
+    "CanvasWidth": 288,
+    "CanvasHeight": 128,
+    "PixelsPerUnit": 25,
+    "AnchorPixelX": 144.0,
+    "AnchorPixelY": 7.0,
+    "Clips": [
+        {
+            "State": "Idle",
+            "SourceFolder": "Idle",
+            "ClipResource": "Heroes/Leenald/Animations/Idle",
+            "FramesPerSecond": 12,
+            "Loop": true,
+            "Projectile": false,
+            "SourceFrames": [
+                "idle_1.png",
+                "idle_2.png",
+                "idle_3.png",
+                "idle_4.png",
+                "idle_5.png",
+                "idle_6.png"
+            ],
+            "Frames": [
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 27,
+                    "Height": 37,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 37,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 37,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 25,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 25,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 23,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Run",
+            "SourceFolder": "Run",
+            "ClipResource": "Heroes/Leenald/Animations/Run",
+            "FramesPerSecond": 12,
+            "Loop": true,
+            "Projectile": false,
+            "SourceFrames": [
+                "run_1.png",
+                "run_2.png",
+                "run_3.png",
+                "run_4.png",
+                "run_5.png",
+                "run_6.png",
+                "run_7.png",
+                "run_8.png"
+            ],
+            "Frames": [
+                {
+                    "X": 137,
+                    "Y": 6,
+                    "Width": 18,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 129,
+                    "Y": 6,
+                    "Width": 29,
+                    "Height": 37,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 24,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 129,
+                    "Y": 6,
+                    "Width": 29,
+                    "Height": 37,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 36,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 138,
+                    "Y": 7,
+                    "Width": 16,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 9,
+                    "Width": 20,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 130,
+                    "Y": 16,
+                    "Width": 27,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 136,
+                    "Y": 8,
+                    "Width": 18,
+                    "Height": 32,
+                    "Empty": false
+                },
+                {
+                    "X": 136,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 10,
+                    "Width": 22,
+                    "Height": 30,
+                    "Empty": false
+                },
+                {
+                    "X": 130,
+                    "Y": 16,
+                    "Width": 27,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 136,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 34,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Stun",
+            "SourceFolder": "TakeHit",
+            "ClipResource": "Heroes/Leenald/Animations/Stun",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "take_hit_1.png",
+                "take_hit_2.png",
+                "take_hit_3.png",
+                "take_hit_4.png",
+                "take_hit_5.png",
+                "take_hit_6.png"
+            ],
+            "Frames": [
+                {
+                    "X": 129,
+                    "Y": 6,
+                    "Width": 25,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 129,
+                    "Y": 6,
+                    "Width": 25,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 129,
+                    "Y": 6,
+                    "Width": 25,
+                    "Height": 40,
+                    "Empty": false
+                },
+                {
+                    "X": 129,
+                    "Y": 6,
+                    "Width": 25,
+                    "Height": 40,
+                    "Empty": false
+                },
+                {
+                    "X": 129,
+                    "Y": 6,
+                    "Width": 25,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 130,
+                    "Y": 7,
+                    "Width": 23,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 130,
+                    "Y": 7,
+                    "Width": 23,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 130,
+                    "Y": 7,
+                    "Width": 23,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 130,
+                    "Y": 7,
+                    "Width": 23,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 130,
+                    "Y": 7,
+                    "Width": 23,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Death",
+            "SourceFolder": "Death",
+            "ClipResource": "Heroes/Leenald/Animations/Death",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "death_1.png",
+                "death_2.png",
+                "death_3.png",
+                "death_4.png",
+                "death_5.png",
+                "death_6.png",
+                "death_7.png",
+                "death_8.png",
+                "death_9.png",
+                "death_10.png",
+                "death_11.png",
+                "death_12.png",
+                "death_13.png",
+                "death_14.png",
+                "death_15.png",
+                "death_16.png",
+                "death_17.png",
+                "death_18.png"
+            ],
+            "Frames": [
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 29,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 41,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 42,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 41,
+                    "Height": 19,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 40,
+                    "Height": 14,
+                    "Empty": false
+                },
+                {
+                    "X": 141,
+                    "Y": 6,
+                    "Width": 25,
+                    "Height": 7,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 7,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 3,
+                    "Height": 3,
+                    "Empty": true
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 29,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 29,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 29,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 39,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 40,
+                    "Height": 23,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 39,
+                    "Height": 17,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 38,
+                    "Height": 12,
+                    "Empty": false
+                },
+                {
+                    "X": 142,
+                    "Y": 7,
+                    "Width": 23,
+                    "Height": 5,
+                    "Empty": false
+                },
+                {
+                    "X": 155,
+                    "Y": 9,
+                    "Width": 10,
+                    "Height": 3,
+                    "Empty": false
+                },
+                {
+                    "X": 144,
+                    "Y": 7,
+                    "Width": 1,
+                    "Height": 1,
+                    "Empty": true
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "NormalAttack",
+            "SourceFolder": "Attack",
+            "ClipResource": "Heroes/Leenald/Animations/NormalAttack",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "2_atk_1.png",
+                "2_atk_2.png",
+                "2_atk_3.png",
+                "2_atk_4.png",
+                "2_atk_5.png",
+                "2_atk_6.png",
+                "2_atk_7.png",
+                "2_atk_8.png",
+                "2_atk_9.png",
+                "2_atk_10.png",
+                "2_atk_11.png",
+                "2_atk_12.png"
+            ],
+            "Frames": [
+                {
+                    "X": 130,
+                    "Y": 6,
+                    "Width": 21,
+                    "Height": 37,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 46,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 49,
+                    "Height": 37,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 51,
+                    "Height": 40,
+                    "Empty": false
+                },
+                {
+                    "X": 130,
+                    "Y": 6,
+                    "Width": 55,
+                    "Height": 41,
+                    "Empty": false
+                },
+                {
+                    "X": 138,
+                    "Y": 6,
+                    "Width": 43,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 138,
+                    "Y": 6,
+                    "Width": 49,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 138,
+                    "Y": 6,
+                    "Width": 50,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 138,
+                    "Y": 6,
+                    "Width": 46,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 138,
+                    "Y": 6,
+                    "Width": 52,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 57,
+                    "Height": 37,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 131,
+                    "Y": 7,
+                    "Width": 19,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 44,
+                    "Height": 32,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 47,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 49,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 131,
+                    "Y": 7,
+                    "Width": 53,
+                    "Height": 39,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 7,
+                    "Width": 41,
+                    "Height": 32,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 7,
+                    "Width": 47,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 7,
+                    "Width": 48,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 7,
+                    "Width": 44,
+                    "Height": 32,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 7,
+                    "Width": 50,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 7,
+                    "Width": 55,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Ultimate",
+            "SourceFolder": "Ultimate",
+            "ClipResource": "Heroes/Leenald/Animations/Ultimate",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "sp_atk_1.png",
+                "sp_atk_2.png",
+                "sp_atk_3.png",
+                "sp_atk_4.png",
+                "sp_atk_5.png",
+                "sp_atk_6.png",
+                "sp_atk_7.png",
+                "sp_atk_8.png",
+                "sp_atk_9.png",
+                "sp_atk_10.png",
+                "sp_atk_11.png",
+                "sp_atk_12.png",
+                "sp_atk_13.png",
+                "sp_atk_14.png",
+                "sp_atk_15.png",
+                "sp_atk_16.png",
+                "sp_atk_17.png",
+                "sp_atk_18.png",
+                "sp_atk_19.png",
+                "sp_atk_20.png",
+                "sp_atk_21.png",
+                "sp_atk_22.png",
+                "sp_atk_23.png",
+                "sp_atk_24.png",
+                "sp_atk_25.png"
+            ],
+            "Frames": [
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 131,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 127,
+                    "Y": 6,
+                    "Width": 34,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 128,
+                    "Y": 7,
+                    "Width": 32,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 21,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 20,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 21,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 21,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 21,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 21,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 21,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 21,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 7,
+                    "Width": 17,
+                    "Height": 29,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Skill2",
+            "SourceFolder": "Skill2",
+            "ClipResource": "Heroes/Leenald/Animations/Skill2",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "3_atk_12.png",
+                "3_atk_13.png",
+                "3_atk_14.png",
+                "3_atk_15.png",
+                "3_atk_16.png",
+                "3_atk_17.png",
+                "3_atk_18.png",
+                "3_atk_19.png",
+                "3_atk_20.png",
+                "3_atk_21.png",
+                "3_atk_22.png",
+                "3_atk_23.png"
+            ],
+            "Frames": [
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 24,
+                    "Height": 35,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 20,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 131,
+                    "Y": 6,
+                    "Width": 16,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 131,
+                    "Y": 6,
+                    "Width": 16,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 137,
+                    "Y": 6,
+                    "Width": 28,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 6,
+                    "Width": 37,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 6,
+                    "Width": 37,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 6,
+                    "Width": 38,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 6,
+                    "Width": 37,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 6,
+                    "Width": 37,
+                    "Height": 27,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 78,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 134,
+                    "Y": 7,
+                    "Width": 22,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 18,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 7,
+                    "Width": 14,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 7,
+                    "Width": 14,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 138,
+                    "Y": 7,
+                    "Width": 26,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 140,
+                    "Y": 7,
+                    "Width": 35,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 140,
+                    "Y": 7,
+                    "Width": 35,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 140,
+                    "Y": 7,
+                    "Width": 36,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 140,
+                    "Y": 7,
+                    "Width": 35,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 140,
+                    "Y": 7,
+                    "Width": 35,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 7,
+                    "Width": 76,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Skill3",
+            "SourceFolder": "Skill3",
+            "ClipResource": "Heroes/Leenald/Animations/Skill3",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "meditate_1.png",
+                "meditate_2.png",
+                "meditate_3.png",
+                "meditate_4.png",
+                "meditate_5.png",
+                "meditate_6.png",
+                "meditate_7.png",
+                "meditate_8.png",
+                "meditate_9.png",
+                "meditate_10.png",
+                "meditate_11.png",
+                "meditate_12.png",
+                "meditate_13.png",
+                "meditate_14.png",
+                "meditate_15.png",
+                "meditate_16.png"
+            ],
+            "Frames": [
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 131,
+                    "Y": 6,
+                    "Width": 24,
+                    "Height": 40,
+                    "Empty": false
+                },
+                {
+                    "X": 131,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 43,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 6,
+                    "Width": 18,
+                    "Height": 41,
+                    "Empty": false
+                },
+                {
+                    "X": 131,
+                    "Y": 6,
+                    "Width": 22,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 32,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 32,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 32,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 19,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 6,
+                    "Width": 26,
+                    "Height": 36,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 12,
+                    "Width": 22,
+                    "Height": 33,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 24,
+                    "Width": 21,
+                    "Height": 24,
+                    "Empty": false
+                },
+                {
+                    "X": 134,
+                    "Y": 23,
+                    "Width": 16,
+                    "Height": 23,
+                    "Empty": false
+                },
+                {
+                    "X": 132,
+                    "Y": 19,
+                    "Width": 20,
+                    "Height": 24,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 13,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 12,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 11,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 12,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 13,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 14,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 13,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 12,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 11,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 14,
+                    "Width": 17,
+                    "Height": 25,
+                    "Empty": false
+                },
+                {
+                    "X": 133,
+                    "Y": 7,
+                    "Width": 24,
+                    "Height": 34,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Skill4",
+            "SourceFolder": "Skill4",
+            "ClipResource": "Heroes/Leenald/Animations/Skill4",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "air_atk_1.png",
+                "air_atk_2.png",
+                "air_atk_3.png",
+                "air_atk_4.png",
+                "air_atk_5.png",
+                "air_atk_6.png",
+                "air_atk_7.png"
+            ],
+            "Frames": [
+                {
+                    "X": 131,
+                    "Y": 6,
+                    "Width": 24,
+                    "Height": 40,
+                    "Empty": false
+                },
+                {
+                    "X": 122,
+                    "Y": 6,
+                    "Width": 31,
+                    "Height": 39,
+                    "Empty": false
+                },
+                {
+                    "X": 121,
+                    "Y": 6,
+                    "Width": 43,
+                    "Height": 42,
+                    "Empty": false
+                },
+                {
+                    "X": 110,
+                    "Y": 6,
+                    "Width": 73,
+                    "Height": 46,
+                    "Empty": false
+                },
+                {
+                    "X": 101,
+                    "Y": 6,
+                    "Width": 86,
+                    "Height": 51,
+                    "Empty": false
+                },
+                {
+                    "X": 97,
+                    "Y": 6,
+                    "Width": 91,
+                    "Height": 58,
+                    "Empty": false
+                },
+                {
+                    "X": 135,
+                    "Y": 6,
+                    "Width": 23,
+                    "Height": 37,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 132,
+                    "Y": 11,
+                    "Width": 22,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 123,
+                    "Y": 10,
+                    "Width": 29,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 122,
+                    "Y": 13,
+                    "Width": 41,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 111,
+                    "Y": 13,
+                    "Width": 71,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 102,
+                    "Y": 13,
+                    "Width": 84,
+                    "Height": 43,
+                    "Empty": false
+                },
+                {
+                    "X": 98,
+                    "Y": 13,
+                    "Width": 89,
+                    "Height": 50,
+                    "Empty": false
+                },
+                {
+                    "X": 136,
+                    "Y": 12,
+                    "Width": 21,
+                    "Height": 30,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Ultimate_Projectile",
+            "SourceFolder": "Ultimate_Projectile",
+            "ClipResource": "Heroes/Leenald/Animations/Ultimate_Projectile",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": true,
+            "SourceFrames": [
+                "sp_atk_4_proj.png",
+                "sp_atk_5_proj.png",
+                "sp_atk_6_proj.png",
+                "sp_atk_7_proj.png",
+                "sp_atk_8_proj.png",
+                "sp_atk_9_proj.png",
+                "sp_atk_10_proj.png",
+                "sp_atk_11_proj.png",
+                "sp_atk_12_proj.png",
+                "sp_atk_13_proj.png",
+                "sp_atk_14_proj.png",
+                "sp_atk_15_proj.png",
+                "sp_atk_16_proj.png",
+                "sp_atk_17_proj.png",
+                "sp_atk_18_proj.png",
+                "sp_atk_19_proj.png",
+                "sp_atk_20_proj.png",
+                "sp_atk_21_proj.png",
+                "sp_atk_22_proj.png",
+                "sp_atk_23_proj.png",
+                "sp_atk_24_proj.png"
+            ],
+            "Frames": [
+                {
+                    "X": 134,
+                    "Y": 6,
+                    "Width": 94,
+                    "Height": 34,
+                    "Empty": false
+                },
+                {
+                    "X": 136,
+                    "Y": 5,
+                    "Width": 90,
+                    "Height": 48,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 4,
+                    "Width": 73,
+                    "Height": 50,
+                    "Empty": false
+                },
+                {
+                    "X": 138,
+                    "Y": 6,
+                    "Width": 85,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 24,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 51,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 59,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 56,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 55,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 53,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 53,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 52,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 66,
+                    "Height": 55,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 3,
+                    "Width": 82,
+                    "Height": 58,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 3,
+                    "Width": 81,
+                    "Height": 57,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 2,
+                    "Width": 75,
+                    "Height": 53,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 3,
+                    "Width": 73,
+                    "Height": 46,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 2,
+                    "Width": 68,
+                    "Height": 38,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 2,
+                    "Width": 66,
+                    "Height": 31,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 4,
+                    "Width": 65,
+                    "Height": 24,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 135,
+                    "Y": 7,
+                    "Width": 92,
+                    "Height": 32,
+                    "Empty": false
+                },
+                {
+                    "X": 137,
+                    "Y": 6,
+                    "Width": 88,
+                    "Height": 46,
+                    "Empty": false
+                },
+                {
+                    "X": 146,
+                    "Y": 5,
+                    "Width": 69,
+                    "Height": 48,
+                    "Empty": false
+                },
+                {
+                    "X": 139,
+                    "Y": 7,
+                    "Width": 83,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 22,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 49,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 57,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 54,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 53,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 51,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 51,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 50,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 7,
+                    "Width": 51,
+                    "Height": 53,
+                    "Empty": false
+                },
+                {
+                    "X": 157,
+                    "Y": 4,
+                    "Width": 67,
+                    "Height": 56,
+                    "Empty": false
+                },
+                {
+                    "X": 158,
+                    "Y": 4,
+                    "Width": 65,
+                    "Height": 55,
+                    "Empty": false
+                },
+                {
+                    "X": 160,
+                    "Y": 3,
+                    "Width": 57,
+                    "Height": 51,
+                    "Empty": false
+                },
+                {
+                    "X": 163,
+                    "Y": 4,
+                    "Width": 52,
+                    "Height": 44,
+                    "Empty": false
+                },
+                {
+                    "X": 167,
+                    "Y": 3,
+                    "Width": 43,
+                    "Height": 36,
+                    "Empty": false
+                },
+                {
+                    "X": 167,
+                    "Y": 3,
+                    "Width": 41,
+                    "Height": 29,
+                    "Empty": false
+                },
+                {
+                    "X": 167,
+                    "Y": 5,
+                    "Width": 40,
+                    "Height": 22,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": false,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0
+        },
+        {
+            "State": "Skill2_Projectile",
+            "SourceFolder": "Skill2_Projectile",
+            "ClipResource": "Heroes/Leenald/Animations/Skill2_Projectile",
+            "FramesPerSecond": 12,
+            "Loop": false,
+            "Projectile": true,
+            "SourceFrames": [
+                "3_atk_17_proj.png",
+                "3_atk_18_proj.png",
+                "3_atk_19_proj.png",
+                "3_atk_20_proj.png",
+                "3_atk_21_proj.png",
+                "3_atk_22_proj.png"
+            ],
+            "Frames": [
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 57,
+                    "Height": 17,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 95,
+                    "Height": 43,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 95,
+                    "Height": 43,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 95,
+                    "Height": 43,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 87,
+                    "Height": 28,
+                    "Empty": false
+                },
+                {
+                    "X": 143,
+                    "Y": 6,
+                    "Width": 72,
+                    "Height": 12,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [
+                {
+                    "X": 172,
+                    "Y": 7,
+                    "Width": 27,
+                    "Height": 15,
+                    "Empty": false
+                },
+                {
+                    "X": 172,
+                    "Y": 7,
+                    "Width": 65,
+                    "Height": 41,
+                    "Empty": false
+                },
+                {
+                    "X": 172,
+                    "Y": 7,
+                    "Width": 65,
+                    "Height": 41,
+                    "Empty": false
+                },
+                {
+                    "X": 172,
+                    "Y": 7,
+                    "Width": 65,
+                    "Height": 41,
+                    "Empty": false
+                },
+                {
+                    "X": 190,
+                    "Y": 7,
+                    "Width": 39,
+                    "Height": 26,
+                    "Empty": false
+                },
+                {
+                    "X": 207,
+                    "Y": 7,
+                    "Width": 7,
+                    "Height": 10,
+                    "Empty": false
+                }
+            ],
+            "UseProjectileOrigin": true,
+            "ProjectileOriginPixelX": 144.0,
+            "ProjectileOriginPixelY": 7.0
+        }
+    ]
+}

@@ -1,0 +1,434 @@
+{
+  "name": "Dissipate",
+  "category": "Projectile / ThunderTwins",
+  "source_clip": "Assets/AnimationClip/Dissipate_15.anim",
+  "source_clip_guid": "9a21ea4d44775ca4ebf872d1ecbd4f6a",
+  "source_controllers": [
+    "ThunderTwinsIdle1"
+  ],
+  "animator_states": {
+    "ThunderTwinsIdle1": [
+      {
+        "name": "Dissipate",
+        "speed": 1,
+        "speed_parameter": null,
+        "speed_parameter_active": 0
+      }
+    ]
+  },
+  "relationship_evidence": "Animator on GameObject ThunderTwins directly embedded in SalamanderWitch.prefab. Source sprite track only; transform/material curves remain in source .anim.",
+  "frame_count": 8,
+  "unique_sprite_count": 8,
+  "source_sprite_track_path": "",
+  "source_sample_rate": 20,
+  "duration_seconds": 0.4,
+  "loop": false,
+  "canvas": {
+    "width": 131,
+    "height": 74,
+    "anchor_bottom_left": [
+      67,
+      37
+    ]
+  },
+  "events": [
+    {
+      "time": 0.4,
+      "functionName": "SelfDestroy",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0
+    }
+  ],
+  "sequence_type": "one PNG per original sprite key, including repeated hold/end keys; use exact per-key durations, not a guessed fixed FPS",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.05,
+      "duration_seconds": 0.05,
+      "sprite_guid": "0d43287ebebeea941a38a56889e04b89",
+      "sprite_name": "ThunderTwinsDissipate1",
+      "source_asset": "Assets/Sprite/ThunderTwinsDissipate1.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsDissipate1.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 34.026752,
+        "y": 2.0513167,
+        "width": 67.897125,
+        "height": 59.921932
+      },
+      "source_pixel_crop_bottom_left": [
+        34,
+        2,
+        68,
+        60
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4414509,
+        "y": 0.49979502
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        29.9999989386625,
+        29.99999990237864
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        68,
+        60
+      ],
+      "padding_left_top": [
+        37,
+        7
+      ],
+      "export_pivot_pixels_bottom_left": [
+        66.9999989386625,
+        36.99999990237865
+      ],
+      "png_sha256": "0a8798eeff0686c8815bad8b9187352cc43b64417789f2d427e9518461af96b9",
+      "raw_png_sha256": "9b0eff24fa298ceee249c495b495e16fb1c1b74319626cb949c645dbf0602086"
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.05,
+      "end_seconds": 0.1,
+      "duration_seconds": 0.05,
+      "sprite_guid": "ae17bff74ca5d3541b4e4f39b1e57d2a",
+      "sprite_name": "ThunderTwinsDissipate2",
+      "source_asset": "Assets/Sprite/ThunderTwinsDissipate2.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsDissipate2.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 27.051317,
+        "y": 0.042907953,
+        "width": 79.90578,
+        "height": 63.957092
+      },
+      "source_pixel_crop_bottom_left": [
+        27,
+        0,
+        80,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.46240318,
+        "y": 0.49966455
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        37.000003772380396,
+        31.9999995464886
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        80,
+        64
+      ],
+      "padding_left_top": [
+        30,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.0000037723804,
+        36.999999546488596
+      ],
+      "png_sha256": "964d1545e3257df4f2c384dde8c1b08e04a21bb8fbc57b0a6ea5272f6c4ebb1e",
+      "raw_png_sha256": "685741d56027027aff150190ceb3bd163f082ef594d6a9efb77796f9c4e6497e"
+    },
+    {
+      "index": 3,
+      "file": "0003.png",
+      "raw_crop": "Raw_Crops/0003.png",
+      "time_seconds": 0.1,
+      "end_seconds": 0.15,
+      "duration_seconds": 0.04999999999999999,
+      "sprite_guid": "b3cac501406e9384b857ddda3bf7191e",
+      "sprite_name": "ThunderTwinsDissipate3",
+      "source_asset": "Assets/Sprite/ThunderTwinsDissipate3.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsDissipate3.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 13.056372,
+        "y": 0,
+        "width": 102.86751,
+        "height": 64
+      },
+      "source_pixel_crop_bottom_left": [
+        13,
+        0,
+        103,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.49523535,
+        "y": 0.5
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        50.9999993184785,
+        32.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        103,
+        64
+      ],
+      "padding_left_top": [
+        16,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        66.9999993184785,
+        37.0
+      ],
+      "png_sha256": "b082c7828e90495e07e619900809c32d37ae84b2dbc32bdfe690b75bc4b4f1cf",
+      "raw_png_sha256": "93cdbc92481d262d71989b43e1032882d4b85f482b9acf6aaa117b421900b955"
+    },
+    {
+      "index": 4,
+      "file": "0004.png",
+      "raw_crop": "Raw_Crops/0004.png",
+      "time_seconds": 0.15,
+      "end_seconds": 0.2,
+      "duration_seconds": 0.05000000000000002,
+      "sprite_guid": "0e3785826aaca4f4e867c9db11414ee0",
+      "sprite_name": "ThunderTwinsDissipate4",
+      "source_asset": "Assets/Sprite/ThunderTwinsDissipate4.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsDissipate4.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 12.051316,
+        "y": 0.042907953,
+        "width": 103.87257,
+        "height": 63.957092
+      },
+      "source_pixel_crop_bottom_left": [
+        12,
+        0,
+        104,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5001194,
+        "y": 0.49966455
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        52.00000338485799,
+        31.9999995464886
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        104,
+        64
+      ],
+      "padding_left_top": [
+        15,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.00000338485799,
+        36.999999546488596
+      ],
+      "png_sha256": "90931175b61d1d2dd44315d6fd6ac695cfc1b420d62109d499bc3d7394546751",
+      "raw_png_sha256": "fbbc4a3fe1609337bf4578a80856fdae7217de3198942ade8c0dba0873990088"
+    },
+    {
+      "index": 5,
+      "file": "0005.png",
+      "raw_crop": "Raw_Crops/0005.png",
+      "time_seconds": 0.2,
+      "end_seconds": 0.25,
+      "duration_seconds": 0.04999999999999999,
+      "sprite_guid": "c7633fcde9959ed4281b666560f442bf",
+      "sprite_name": "ThunderTwinsDissipate5",
+      "source_asset": "Assets/Sprite/ThunderTwinsDissipate5.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsDissipate5.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 31.042908,
+        "y": 0.076120496,
+        "width": 70.880974,
+        "height": 63.897125
+      },
+      "source_pixel_crop_bottom_left": [
+        31,
+        0,
+        71,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.46496388,
+        "y": 0.4996137
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.00000068921912,
+        31.999999536612503
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        71,
+        64
+      ],
+      "padding_left_top": [
+        34,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.00000068921912,
+        36.999999536612506
+      ],
+      "png_sha256": "1229336dcada3d0aeda2f72a57e6fb146b5230946dfc61a54048588744fdff9a",
+      "raw_png_sha256": "bd94a3ebd67ee20a07c3cf2d158310f0801ccade4c8071c73b8774dbe753f484"
+    },
+    {
+      "index": 6,
+      "file": "0006.png",
+      "raw_crop": "Raw_Crops/0006.png",
+      "time_seconds": 0.25,
+      "end_seconds": 0.3,
+      "duration_seconds": 0.04999999999999999,
+      "sprite_guid": "d07d1892dcb4f4b4bb63beffae002251",
+      "sprite_name": "ThunderTwinsDissipate6",
+      "source_asset": "Assets/Sprite/ThunderTwinsDissipate6.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsDissipate6.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 128,
+        "height": 64
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        128,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        64.0,
+        32.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        128,
+        64
+      ],
+      "padding_left_top": [
+        3,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.0,
+        37.0
+      ],
+      "png_sha256": "b0f0481fe137fc892dae0e4f7cb476f26fec71b33d9108f1f22b677f0f5d4cd5",
+      "raw_png_sha256": "536e79a8e7bfe8e7c412234916ca63848e2a917dfbcd07a3819e6becd9438201"
+    },
+    {
+      "index": 7,
+      "file": "0007.png",
+      "raw_crop": "Raw_Crops/0007.png",
+      "time_seconds": 0.3,
+      "end_seconds": 0.35,
+      "duration_seconds": 0.04999999999999999,
+      "sprite_guid": "fc5c98cb86bf93942a5156591d6ca4c0",
+      "sprite_name": "ThunderTwinsDissipate7",
+      "source_asset": "Assets/Sprite/ThunderTwinsDissipate7.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsDissipate7.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 31.02675,
+        "y": 2.026751,
+        "width": 60.946503,
+        "height": 61.936962
+      },
+      "source_pixel_crop_bottom_left": [
+        31,
+        2,
+        61,
+        62
+      ],
+      "source_pivot_normalized": {
+        "x": 0.54101956,
+        "y": 0.48393154
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.00000023659868,
+        30.00000040358148
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        61,
+        62
+      ],
+      "padding_left_top": [
+        34,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.00000023659868,
+        37.00000040358148
+      ],
+      "png_sha256": "2aa959ab6b3709f243b070e16ffba99b68251f5fc77d5bd9b28d04d44652d549",
+      "raw_png_sha256": "f2ed4e3adef77b142298273d524a03e4859e206671053a8c997eb7237bd82ac7"
+    },
+    {
+      "index": 8,
+      "file": "0008.png",
+      "raw_crop": "Raw_Crops/0008.png",
+      "time_seconds": 0.35,
+      "end_seconds": 0.4,
+      "duration_seconds": 0.050000000000000044,
+      "sprite_guid": "78473f36e4655d44c83e402f29bda8db",
+      "sprite_name": "ThunderTwinsDissipate8",
+      "source_asset": "Assets/Sprite/ThunderTwinsDissipate8.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsDissipate8.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 128,
+        "height": 64
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        128,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        64.0,
+        32.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        128,
+        64
+      ],
+      "padding_left_top": [
+        3,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.0,
+        37.0
+      ],
+      "png_sha256": "b0f0481fe137fc892dae0e4f7cb476f26fec71b33d9108f1f22b677f0f5d4cd5",
+      "raw_png_sha256": "536e79a8e7bfe8e7c412234916ca63848e2a917dfbcd07a3819e6becd9438201"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+﻿NIGHTLORD V3 — TƯỚNG CẬN CHIẾN HÀNG ĐẦU
+
+Mở START_HERE.html. Chuyển giữa body gốc và demo ghép; phát/dừng, lặp hoặc bước từng frame.
+
+Hero đứng hàng đầu, đánh thường cận chiến. Nhập trận theo nhịp Run → Run[Out] → Idle chung; không còn passive trồi lên/buff đầu trận.
+NormalAttack / Huyết Liên Trảm: chỉ LightAtk → LightAtk2 + BloodSlash 1/2. Đứng nguyên tại chỗ cận chiến, bỏ OnBlink, không có nhát LightAtk3 hay vệt BloodSlash3 trong đánh thường.
+Ultimate / Dạ Yến Linh Hồn: [C]HeavyCharge → [C]HeavyCharge[Loop] → [C]HeavyChargeCast. Nhân vật bay lên tụ lực, vòng NightSummon và 5 TormentedSouls truy mục tiêu; luồng hồn quay về minh họa hút máu. Gồng loop một vòng trong bản thử.
+Skill2 / Huyết Trảo: khôi phục đủ GrabAtk → GrabAtkPull → GrabAtkEnd từ bản đầu. Chọn đối thủ xa nhất tại lúc kích hoạt, dịch chuyển tới cách mục tiêu 110px trong preview ở mốc OnStrongDash gốc, tóm theo OnGrab rồi kéo giữ và hất. Hiệu ứng BloodSlash3 ở lúc hất giống Huyết Trảo cũ; chỉ mục tiêu được chọn nhận sát thương. Giữ trọn timing nguồn (~3,44s). Chuyển động kéo/hất và khoảng cách chỉ là minh họa.
+Skill3 / Huyết Ảnh Xuyên Trận: đứng tại chỗ tung ngay LightAtk3, chính nhát thứ ba bỏ khỏi NormalAttack. Bỏ hẳn Evade và CapeFX, đồng thời không dùng OnBlink nguồn. BloodSlash3 đánh địch có HP hiện tại thấp nhất và các địch đứng sau nó theo hướng đánh. Cảnh thử đặt địch yếu máu ở giữa, địch xa nhất ở sau để kiểm tra hai quy tắc chọn mục tiêu khác nhau.
+Skill4 / Tái Sinh Hắc Ảnh (đổi từ Skill3 cũ): khi HP=0, gập/chìm xuống bóng bằng Emerge[Out]/Emerge[In] đảo thứ tự và rút nhịp; giữ nguyên sprite bóng đen; đúng 2s từ sự kiện chết bắt đầu Emerge[In] → Emerge[Out], hồi đúng 50% HP tối đa và tăng nhẹ hút máu. HP được phục hồi khi bắt đầu trồi lên; hoạt ảnh trồi lên tiếp tục đến khi đứng dậy xong. Chưa chốt mức tăng hút máu, thời lượng hoặc số lần kích hoạt mỗi trận. Bản thử chỉ minh họa một lần hồi sinh.
+
+Đồng hồ hồi sinh tính từ HP=0, không tính sau clip Death gốc dài 5,2s. Nếu hồi sinh khả dụng thì chuyển sang chuỗi Skill4; Death nguyên bản vẫn giữ riêng cho trường hợp chết hẳn. Demo có 0,35s trước đòn chí mạng: HP=0 tại t=0,35s và HP=50% tại t=2,35s. Hình bóng không fade mất trong thời gian chờ.
+
+Mỗi state chứa PNG RGBA 0001.png… và Raw_Crops/; body giữ nguyên byte ảnh nguồn, canvas 178×97, pivot (100,52) tính từ trái dưới. Phases/ giữ các frame được chọn và timeline thực tế; source_animation.json lưu clip nguồn đầy đủ để tra cứu. Các pha hồi sinh được đảo thứ tự/rút nhịp/giữ frame theo thiết kế; metadata đánh dấu reverse_source_order và duration_scale rõ ràng.
+source_events chỉ để tra cứu. effective_source_events và proposed_events là mốc dùng cho bản thiết kế này; OnBlink trong normal/Skill3 và event gốc của pha đảo chiều hồi sinh không được áp dụng. Skill2 dùng OnStrongDash để dịch chuyển sát mục tiêu và OnGrab để tóm.
+Effects/ sao chép nguyên byte từ gói NightLord_FrameByFrame. Không ghép VFX vào PNG body dùng lại.
+Previews/<state>/Frames/ là PNG demo ghép 1000×450 ở 60 FPS, nền tối. demo.gif lấy mẫu 20 FPS để xem nhanh. HP bar, flash, chuyển động mục tiêu, đường bay, chọn địch yếu và hút máu là thiết kế minh họa, không phải code gameplay đã khôi phục. Chưa chốt damage, cooldown hay % hút máu. Dummy dùng ảnh cùng project.
+
+Nguồn tổng hợp nguyên bản: ../NightLord_FrameByFrame/. Gói này không sửa asset Unity. Script game gốc trong project là dummy; đây là preview và dữ liệu phối hợp, chưa phải hero chạy trong game.

@@ -1,0 +1,97 @@
+{
+  "name": "Casted",
+  "category": "Effect / TormentedSouls",
+  "source_clip": "Assets/AnimationClip/Casted_2.anim",
+  "source_clip_guid": "71c08722dd45b984f899a4eb788cf6ea",
+  "source_controllers": [
+    "TormentedSouls"
+  ],
+  "animator_states": {
+    "TormentedSouls": [
+      {
+        "name": "Casted",
+        "speed": 1,
+        "speed_parameter": null,
+        "speed_parameter_active": 0
+      }
+    ]
+  },
+  "relationship_evidence": "Animator on GameObject TormentedSouls directly embedded in NightLord.prefab. Label is the original object/effect identity, not a skill assignment.",
+  "frame_count": 1,
+  "unique_sprite_count": 1,
+  "source_sample_rate": 12,
+  "duration_seconds": 0.083333336,
+  "loop": false,
+  "canvas": {
+    "width": 87,
+    "height": 64,
+    "anchor_bottom_left": [
+      44,
+      32
+    ]
+  },
+  "events": [
+    {
+      "time": 0.083333336,
+      "functionName": "Trigger",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0
+    }
+  ],
+  "sequence_type": "one PNG per original sprite key, including repeated hold/end keys; use exact per-key durations, not a guessed fixed FPS",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.083333336,
+      "duration_seconds": 0.083333336,
+      "sprite_guid": "9bf6e2ac92252b74caa412f9e7222fc0",
+      "sprite_name": "Cast",
+      "source_asset": "Assets/Sprite/Cast.asset",
+      "source_texture": "Assets/Texture2D/Cast.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 12.07612,
+        "y": 10.056372,
+        "width": 49.847755,
+        "height": 26.889502
+      },
+      "source_pixel_crop_bottom_left": [
+        12,
+        10,
+        50,
+        27
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5601833,
+        "y": 0.5185529
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        27.999999893491506,
+        14.000001241655799
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        50,
+        27
+      ],
+      "padding_left_top": [
+        16,
+        19
+      ],
+      "export_pivot_pixels_bottom_left": [
+        43.999999893491506,
+        32.000001241655795
+      ],
+      "png_sha256": "40379fdaf019b7ae2f0d79d5dca933221fd6aa84a21371eeac25c002d9ddad2b",
+      "raw_png_sha256": "1ee7ecbefb59e3d889d3d84be34f4f0259e723a7a3fa9fabef95bb8f88b72ae3"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-param([UInt16]$Port = 7777, [string]$DataDirectory = '')
+param([UInt16]$Port = 7777, [string]$DataDirectory = '', [string]$BuildFolder = 'Windows')
 $ErrorActionPreference = 'Stop'
 $prototypeRoot = Split-Path -Parent $PSScriptRoot
-$arenaExecutable = Join-Path $prototypeRoot 'Builds\Windows\ZatodArena.exe'
+$arenaExecutable = Join-Path $prototypeRoot ('Builds\' + $BuildFolder + '\ZatodArena.exe')
 if (-not (Test-Path -LiteralPath $arenaExecutable)) { throw 'Build first in Unity: Zatod > Build Windows Prototype.' }
 if (-not $DataDirectory) { $DataDirectory = Join-Path $prototypeRoot 'ServerData' }
 $DataDirectory = [System.IO.Path]::GetFullPath($DataDirectory)

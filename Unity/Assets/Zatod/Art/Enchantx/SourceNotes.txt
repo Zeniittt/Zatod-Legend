@@ -1,0 +1,27 @@
+﻿CENTAURLADY — HERO KIT V4 / IDLE 18 FRAME + SMOOTH LANDING
+
+9 thư mục state: Idle, Run, Death, Takehit, NormalAttack, Ultimate, Skill2, Skill3, Skill4.
+Mỗi thư mục có 0001.png, 0002.png… đúng pixel nguồn; canvas RGBA 128×108, pivot (64,45) tính từ trái dưới. Raw_Crops/ giữ bản crop gốc. timing.csv và animation.json lưu thời lượng từng key, nguồn clip, phase và event.
+
+Idle v4: chỉ dùng frame 0001–0018 từ Idle nguồn; duration 1,80 giây, loop. PNG 19–30 không nằm trong Idle của bộ hero này. Toàn bộ Idle gốc vẫn còn trong CentaurLady_FrameByFrame.
+Skill3 v4: giữ khoảng nhảy 280px và đỉnh cao 64px. FallOut chỉ lấy hai frame đầu (khoảng 0,14s), bỏ các pose đứng thẳng chờ trước khi chạy. Đà ngang đi liên tục qua chạm đất, FallOut, Run và RunOut bằng đường cong nối đồng vận tốc; không còn đứng yên 0,35s rồi tăng tốc lại. Vận tốc rơi về 0 mềm ở mặt đất. Không pha mờ hay vẽ thêm frame nhân vật. FlameWings và buff sát thương theo sau vẫn giữ nguyên cơ chế/timing tương đối với cast.
+
+NormalAttack — Xạ kích: FrontHeavyAtk; Arrow sinh tại OnShot gốc ~0,10s.
+Ultimate — Wind Storm Arrow / Xuyên Phong: giữ chuỗi [C]LightCharge → [C]LightCharge[Loop] → [C]HeavyCharge[Loop] → [C]LightChargeCast. Mỗi vòng gồng giữ một lần. Tia tên sinh sau 0,30s đầu pha LightChargeCast, lúc pose chuyển từ gồng sang nhả tên (khoảng 1,80s toàn chuỗi). Đây là timing ghép theo hình ref, không sao chép nguyên event OnCast ở 0s. Các vòng gió giữ cố định ở chỗ bắn, không trượt cả hiệu ứng ngang màn hình như v2. Chuyển từ StormArrow/Triggered sang WindStorm/Casted → Triggered → Dissipate tại mục tiêu; có flash trúng đòn và nâng mục tiêu nhẹ như ref.
+Skill2 — Thiên Tiễn (chuyển từ Ultimate cũ): SpringRain; projectile SpringRain có Casted/Triggered/Dissipate. Chạy một lượt animation nhân vật dù source clip bật loop.
+Skill3 — Hiệu Lệnh Xung Trận: giữ 10 pha body như v2, nhưng quỹ đạo nhảy ngang 280px, cao 64px (v2 chỉ xa 105px, cao 176px). Nhân vật tiếp đất, chạy tới vị trí rồi dùng SummonUpCast. Tại event OnCast với tham số FlameWingsCheck, triệu hồi đúng FlameWings gốc: Entry (1s) → Walk/Flying (một chu kỳ 2/3s, bay lên) → Dissipate (0,9s). Khi bắt đầu nổ/tan, thêm vòng xung kích màu lửa và kích hoạt BUFF SÁT THƯƠNG toàn đội. Đây là buff damage theo feedback mới, không còn buff tốc đánh. Chưa chốt % hoặc thời gian buff.
+Skill4 — Liên Tiễn: FrontHeavyAtk → FrontHeavyAtk → FrontHeavyAtk. Mỗi phát bắn theo OnShot gốc, xấp xỉ 0,10 / 0,67 / 1,24 giây. Các pha Shot1/Shot2/Shot3 được tách riêng.
+
+Projectiles/ giữ riêng Arrow, StormArrow, SpringRain, FlameWings, WindStorm và Static_Parts; không ghép projectile vào PNG nhân vật dùng lại. Không dùng mũi tên xoay TeamBuffSignal của v2 nữa. FlameWings có đủ 7 clip/77 key: Entry, Idle, Walk (Flying), LightAtk, Land, Death, Dissipate. WindStorm có đủ 3 clip/13 key: Casted, Triggered, Dissipate. Hình và timing các clip này được đọc trực tiếp từ prefab/controller gốc trong project, không lấy hình từ GIF tham chiếu.
+Phases/ trong mỗi state nhiều clip giữ bản frame từng pha được chọn; phase.json là timeline xuất thực tế. source_animation.json và source_timing.csv mô tả clip nguồn đầy đủ để tra cứu, có thể chứa những key không dùng trong bản cắt. PNG đánh số ở gốc state là chuỗi nối liên tục. Nhân vật vẫn giữ nguyên pixel và pivot nguồn.
+Previews/<state>/Frames/ có PNG demo ghép 960×480 ở 60 FPS. demo.gif lấy mẫu 20 FPS để xem nhanh; bản PNG và trình xem dùng timeline 60 FPS. Đồng minh Rogue/Teresa và dummy là hình thay thế từ cùng project. Vòng nổ tăng sáng, ký hiệu buff, di chuyển và cơ chế gameplay là phần dựng demo, không phải code gốc được phục hồi. Hình nguồn phóng đúng 2× bằng nearest-neighbor; không vẽ lại hay lọc mờ.
+START_HERE_v4.html mở sẵn Skill3, cho phép xem body gốc hoặc demo ghép, dừng và bước từng frame. HERO_KIT_OVERVIEW.jpg và NATIVE_EFFECTS_OVERVIEW.jpg là ảnh tổng quan. Sources/ giữ bản sao asset/clip/texture nguồn của các hiệu ứng mới.
+
+Timing nguồn khác timing demo: frame body là từng sprite key với duration_seconds gốc; demo là ảnh lấy mẫu đều 60 FPS. Giữ nguyên keyframe lặp/giữ. Mốc source_events là event có trong clip; proposed_events là timing ghép theo ref hoặc thiết kế buff mới.
+Chưa có code gameplay, hitbox, damage, cooldown hay hệ thống buff. Các cơ chế xuyên, nhiều phát, vùng mưa tên và tăng sát thương toàn đội là thiết kế bộ hero; dữ liệu ảnh không tự thực hiện chúng. Không khẳng định khớp từng pixel/từng tick của gameplay trong GIF, vì thiếu script, particle/shader runtime và camera gốc.
+
+Tham chiếu đã xem theo từng frame:
+https://otsoga.itch.io/callen-addon1 — FlameWings ở GIF summon lên trời.
+https://otsoga.itch.io/centaur-lady — Wind Storm Arrow: gồng → tia tên với vòng gió cố định → lốc tại mục tiêu → tan.
+
+Nguồn nguyên bản đầy đủ: ../CentaurLady_FrameByFrame/. Gói này không sửa asset Unity.

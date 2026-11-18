@@ -14,6 +14,9 @@ namespace Zatod.Networking
             float deadline = Time.realtimeSinceStartup + 45;
             while (!connection.Connected && Time.realtimeSinceStartup < deadline) yield return null;
             if (!connection.Connected) { Fail("Could not connect"); yield break; }
+            bool leenald = Array.IndexOf(Environment.GetCommandLineArgs(), "--leenald-smoke") >= 0;
+            string heroId = ArenaConnection.Argument("--hero-smoke", leenald ? "leenald" : "");
+            if (heroId.Length > 0) connection.SelectedHeroInstanceIds = new[] { "preview-" + heroId };
             string savedId = ArenaConnection.Argument("--replay-id", "");
             string requested = savedId.Length > 0 ? savedId : connection.Challenge("balanced");
             if (savedId.Length > 0) connection.LoadReplay(savedId);
@@ -22,6 +25,8 @@ namespace Zatod.Networking
             var first = connection.LastRecord;
             if (savedId.Length == 0 && first.rulesVersion != BattleRecord.CurrentRules) { Fail("Server is running old combat rules"); yield break; }
             if (first.battleId != requested) { Fail("Battle ID differs from request"); yield break; }
+            if (heroId.Length > 0 && (!first.initial.Exists(f => f.heroDefinitionId == heroId) || first.initial.Count != 6 || first.projectiles.Count == 0))
+            { Fail("Selected Hero squad/projectiles missing: " + heroId); yield break; }
             var timeline = new ReplayTimeline(first);
             timeline.Seek(first.durationTicks);
             var final = first.snapshots[first.snapshots.Count - 1];

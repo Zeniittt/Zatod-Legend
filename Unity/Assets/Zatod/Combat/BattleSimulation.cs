@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Zatod.Combat
 {
     // Pure C#. No Unity frames, physics, animation callbacks, networking, or wall clock.
     // Both Arena modes can step this same engine; only their command source differs.
-    public sealed class BattleSimulation
+    public sealed partial class BattleSimulation
     {
         public const int TickRate = 20;
         public const int MaxTicks = TickRate * 90;
@@ -17,13 +18,17 @@ namespace Zatod.Combat
         uint random;
         int tick;
         bool finished;
+        readonly int maximumTicks;
 
-        public BattleSimulation(string battleId, string opponentId, uint seed, List<FighterState> initial)
+        public BattleSimulation(string battleId, string opponentId, uint seed, List<FighterState> initial, List<FighterLoadout> loadouts = null, int maximumTicks = MaxTicks)
         {
+            if (maximumTicks < 1 || maximumTicks > MaxTicks) throw new ArgumentOutOfRangeException(nameof(maximumTicks));
+            this.maximumTicks = maximumTicks;
             random = seed == 0 ? 1u : seed;
             record = new BattleRecord { battleId = battleId, opponentId = opponentId, seed = random, tickRate = TickRate };
             foreach (var fighter in initial) { fighters.Add(fighter.Copy()); record.initial.Add(fighter.Copy()); }
             fighters.Sort((a, b) => a.id.CompareTo(b.id));
+            Configure(loadouts);
             Snapshot();
         }
 
@@ -37,12 +42,18 @@ namespace Zatod.Combat
         {
             if (finished) return false;
             tick++;
+            AdvanceResurrections();
+            AdvanceDamageBuffs();
+            AdvanceSequences();
+            AdvanceScheduledEffects();
+            AdvanceProjectiles();
             // Stable ID order is an explicit prototype tie-break; never dictionary iteration order.
             foreach (var fighter in fighters)
             {
                 if (!fighter.Alive || fighter.stunUntil > tick) continue;
                 var target = AcquireTarget(fighter);
                 if (target == null) break;
+                if (TryConfiguredAction(fighter, target)) continue;
                 if (fighter.action == BattleAction.Attack || fighter.action == BattleAction.Ultimate)
                 {
                     var committedTarget = Find(fighter.actionTargetId);
@@ -94,7 +105,7 @@ namespace Zatod.Combat
                     if (CombatGeometry.CenterDistance(fighter, target) <= CombatGeometry.ArrivalDistance(fighter)) StopMoving(fighter);
                 }
             }
-            if (HasWinner() || tick >= MaxTicks) Finish();
+            if (HasWinner() || tick >= maximumTicks) Finish();
             else if (tick % SnapshotInterval == 0) Snapshot();
             return !finished;
         }
@@ -153,6 +164,9 @@ namespace Zatod.Combat
                 if (actor.role == FighterRole.Vanguard && target.Alive)
                 {
                     target.stunUntil = tick + 28;
+                    target.controlStartTick = tick;
+                    target.controlKind = ControlKind.Stun;
+                    target.animationEndTick = tick;
                     if (target.action == BattleAction.Attack || target.action == BattleAction.Ultimate)
                     {
                         target.action = BattleAction.Idle;
@@ -204,9 +218,10 @@ namespace Zatod.Combat
             Emit(BattleEventKind.Action, actor, actor, 0, "In position");
         }
 
-        void Damage(FighterState actor, FighterState target, int baseDamage, string ability)
+        int Damage(FighterState actor, FighterState target, int baseDamage, string ability, bool allowCritical = true)
         {
-            bool critical = NextRandom() % 100 < 15;
+            baseDamage = (int)Math.Min(int.MaxValue / 200, (long)baseDamage * (10000 + actor.damageBonusBasisPoints) / 10000);
+            bool critical = allowCritical && NextRandom() % 100 < 15;
             int damage = Math.Max(1, baseDamage * 100 / (100 + target.armor));
             if (critical) damage = damage * 3 / 2;
             int actual = Math.Min(target.hp, damage);
@@ -215,10 +230,17 @@ namespace Zatod.Combat
             Emit(BattleEventKind.Damage, actor, target, actual, ability, critical);
             if (!target.Alive)
             {
+                CancelConfiguredVisuals(target);
                 target.action = BattleAction.Dead;
+                target.actionStartTick = tick;
+                target.animationState = "Death";
+                target.animationStartTick = tick;
                 target.energy = 0;
                 Emit(BattleEventKind.Death, actor, target, 0, ability);
+                ScheduleResurrection(target);
             }
+            StealLife(actor,target,actual,actor.lifestealUntil>tick?actor.lifestealBasisPoints:0,ability,null);
+            return actual;
         }
 
         void Finish()
@@ -227,6 +249,12 @@ namespace Zatod.Combat
             bool left = TeamAlive(0), right = TeamAlive(1);
             record.winner = left && !right ? 0 : right && !left ? 1 : -1;
             record.timedOut = left && right;
+            record.combatEndTick = tick;
+            RecordSequenceReturnsAfterCombat();
+            // Keep a recorded, outcome-free tail so the final hero's Death clip can finish.
+            // Timeline pause/seek still owns this time; no client-side timer changes the result.
+            if (!record.timedOut && fighters.Exists(f => !string.IsNullOrEmpty(f.animationSetResource)))
+                tick = Math.Max(tick, record.combatEndTick + Math.Max(30, fighters.Max(f => f.deathVisualTicks)));
             record.durationTicks = tick;
             Emit(BattleEventKind.Finished, null, null, 0, record.timedOut ? "Timeout draw" : "Battle finished");
             Snapshot();
@@ -239,18 +267,18 @@ namespace Zatod.Combat
             record.snapshots.Add(snapshot);
         }
 
-        void Emit(BattleEventKind kind, FighterState actor, FighterState target, int amount, string ability, bool critical = false)
+        void Emit(BattleEventKind kind, FighterState actor, FighterState target, int amount, string ability, bool critical = false, ControlKind control = ControlKind.None)
         {
             record.events.Add(new BattleEvent
             {
                 sequence = record.events.Count, tick = tick, kind = kind,
                 actorId = actor == null ? 0 : actor.id, targetId = target == null ? 0 : target.id,
-                amount = amount, ability = ability, critical = critical, hasState = target != null,
+                amount = amount, ability = ability, critical = critical, controlKind = control, hasState = target != null,
                 state = target == null ? new FighterState() : target.Copy()
             });
         }
 
-        bool TeamAlive(int team) { foreach (var f in fighters) if (f.team == team && f.Alive) return true; return false; }
+        bool TeamAlive(int team) { foreach (var f in fighters) if (f.team == team && (f.Alive || f.reviveAtTick>tick)) return true; return false; }
         bool HasWinner() { return !TeamAlive(0) || !TeamAlive(1); }
         FighterState Find(int id) { foreach (var f in fighters) if (f.id == id) return f; return null; }
         FighterState FrontEnemy(FighterState actor)

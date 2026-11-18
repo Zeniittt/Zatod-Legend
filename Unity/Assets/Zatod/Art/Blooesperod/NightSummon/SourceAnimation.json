@@ -1,0 +1,1285 @@
+{
+  "name": "Casted",
+  "category": "Effect / NightSummon",
+  "source_clip": "Assets/AnimationClip/Casted_1.anim",
+  "source_clip_guid": "87888b818c37cb840a58d26f9c55bf7b",
+  "source_controllers": [
+    "NightSummon"
+  ],
+  "animator_states": {
+    "NightSummon": [
+      {
+        "name": "Casted",
+        "speed": 1,
+        "speed_parameter": null,
+        "speed_parameter_active": 0
+      }
+    ]
+  },
+  "relationship_evidence": "Animator on GameObject NightSummon directly embedded in NightLord.prefab. Label is the original object/effect identity, not a skill assignment.",
+  "frame_count": 26,
+  "unique_sprite_count": 26,
+  "source_sample_rate": 10,
+  "duration_seconds": 2.6,
+  "loop": false,
+  "canvas": {
+    "width": 64,
+    "height": 32,
+    "anchor_bottom_left": [
+      32,
+      16
+    ]
+  },
+  "events": [],
+  "sequence_type": "one PNG per original sprite key, including repeated hold/end keys; use exact per-key durations, not a guessed fixed FPS",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.1,
+      "duration_seconds": 0.1,
+      "sprite_guid": "274e0c5cb67949745bc97c25ce8ff632",
+      "sprite_name": "SummonCircle1",
+      "source_asset": "Assets/Sprite/SummonCircle1.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle1.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0.076120496,
+        "y": 0.076120496,
+        "width": 62.847755,
+        "height": 13.878393
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        63,
+        14
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5079558,
+        "y": 1.1473864
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.000002165229,
+        15.9999998780552
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        63,
+        14
+      ],
+      "padding_left_top": [
+        0,
+        18
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.000002165229,
+        15.999999878055199
+      ],
+      "png_sha256": "986bf0102568c2823bb658c43edfc822e84807b01b35f2b05876baa7b0a7c586",
+      "raw_png_sha256": "2c4be27326bd978b7b3a98db2f3dd9681c15f8b93ba832973083f70f49bc7e5a"
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.1,
+      "end_seconds": 0.2,
+      "duration_seconds": 0.1,
+      "sprite_guid": "155a37819cfe77f46ae4fdac20bcb0fc",
+      "sprite_name": "SummonCircle2",
+      "source_asset": "Assets/Sprite/SummonCircle2.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle2.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 63.923878,
+        "height": 16.948683
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        64,
+        17
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5005954,
+        "y": 0.9440262
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.0000008074946
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        17
+      ],
+      "padding_left_top": [
+        0,
+        15
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.0000008074946
+      ],
+      "png_sha256": "6ca11eb85096593c9aa8d16123e1200c29cead1a9a51d736c9dc1414af10c840",
+      "raw_png_sha256": "5a3f72b562deeb858ad13c50e64158ac8017e1eda401c7d240ddbd5178d7ffca"
+    },
+    {
+      "index": 3,
+      "file": "0003.png",
+      "raw_crop": "Raw_Crops/0003.png",
+      "time_seconds": 0.2,
+      "end_seconds": 0.3,
+      "duration_seconds": 0.09999999999999998,
+      "sprite_guid": "6ebb06d1ab266974790091ba21fc6fb7",
+      "sprite_name": "SummonCircle3",
+      "source_asset": "Assets/Sprite/SummonCircle3.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle3.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0.076120496,
+        "y": 0.076120496,
+        "width": 62.847755,
+        "height": 15.910967
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        63,
+        16
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5079558,
+        "y": 1.0008116
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.0000008368172
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        63,
+        16
+      ],
+      "padding_left_top": [
+        0,
+        16
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.0000008368172
+      ],
+      "png_sha256": "a6f85d45d749923d47accbab2c2daf2e5d4b329a6d43cb2e8cd774e61f9ae832",
+      "raw_png_sha256": "bb22ff585ee2165e722f2dd08d46c92dd284f6bb9300917b885eb56f543573ee"
+    },
+    {
+      "index": 4,
+      "file": "0004.png",
+      "raw_crop": "Raw_Crops/0004.png",
+      "time_seconds": 0.3,
+      "end_seconds": 0.4,
+      "duration_seconds": 0.10000000000000003,
+      "sprite_guid": "a4fd58a15e052a845889e4394c243db1",
+      "sprite_name": "SummonCircle4",
+      "source_asset": "Assets/Sprite/SummonCircle4.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle4.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 63.923878,
+        "height": 12.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        64,
+        13
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5005954,
+        "y": 1.231993
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.000000274391
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        13
+      ],
+      "padding_left_top": [
+        0,
+        19
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.000000274391
+      ],
+      "png_sha256": "fb7e634b40ce7f6e2e3865dc600c77a76ddf75576b4d0fd139ddbf18c0b0ae39",
+      "raw_png_sha256": "0855b44d6815e441a7738b263c3c98b8f936e754b8ee8f090618d30b2cc5f466"
+    },
+    {
+      "index": 5,
+      "file": "0005.png",
+      "raw_crop": "Raw_Crops/0005.png",
+      "time_seconds": 0.4,
+      "end_seconds": 0.5,
+      "duration_seconds": 0.09999999999999998,
+      "sprite_guid": "221011cf938aed541870374d3cbd30bb",
+      "sprite_name": "SummonCircle5",
+      "source_asset": "Assets/Sprite/SummonCircle5.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle5.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0.076120496,
+        "y": 0.076120496,
+        "width": 62.847755,
+        "height": 10.847759
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        63,
+        11
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5079558,
+        "y": 1.4679419
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.0000004532021
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        63,
+        11
+      ],
+      "padding_left_top": [
+        0,
+        21
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.000000453202105
+      ],
+      "png_sha256": "46fe1d4a2d69dd8669e9365ad55dc1f350e3f10e8acafaaf3379bd763e0f693c",
+      "raw_png_sha256": "29f063c3dffafa760632dd522295013780be2966e43755d4cf7b0689763e14b0"
+    },
+    {
+      "index": 6,
+      "file": "0006.png",
+      "raw_crop": "Raw_Crops/0006.png",
+      "time_seconds": 0.5,
+      "end_seconds": 0.6,
+      "duration_seconds": 0.09999999999999998,
+      "sprite_guid": "8654ff310736a6a42ba44d15874ea3ff",
+      "sprite_name": "SummonCircle6",
+      "source_asset": "Assets/Sprite/SummonCircle6.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle6.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 63.923878,
+        "height": 11.92388
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        64,
+        12
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5005954,
+        "y": 1.3418452
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.000001143376
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        12
+      ],
+      "padding_left_top": [
+        0,
+        20
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.000001143375997
+      ],
+      "png_sha256": "387a32f8c324c4ef96f1754a7958d547f2f48b7938da55c396bbe43305cb4ef9",
+      "raw_png_sha256": "37e4a060e1b4b8630871e78c700b7ef1b18eb1b420d84e3c28c7d4bcfd354842"
+    },
+    {
+      "index": 7,
+      "file": "0007.png",
+      "raw_crop": "Raw_Crops/0007.png",
+      "time_seconds": 0.6,
+      "end_seconds": 0.7,
+      "duration_seconds": 0.09999999999999998,
+      "sprite_guid": "9e2206cc7601c5a4e9595dfe6a21b737",
+      "sprite_name": "SummonCircle7",
+      "source_asset": "Assets/Sprite/SummonCircle7.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle7.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0.076120496,
+        "y": 0.076120496,
+        "width": 62.847755,
+        "height": 10.847759
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        63,
+        11
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5079558,
+        "y": 1.4679419
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.0000004532021
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        63,
+        11
+      ],
+      "padding_left_top": [
+        0,
+        21
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.000000453202105
+      ],
+      "png_sha256": "46fe1d4a2d69dd8669e9365ad55dc1f350e3f10e8acafaaf3379bd763e0f693c",
+      "raw_png_sha256": "29f063c3dffafa760632dd522295013780be2966e43755d4cf7b0689763e14b0"
+    },
+    {
+      "index": 8,
+      "file": "0008.png",
+      "raw_crop": "Raw_Crops/0008.png",
+      "time_seconds": 0.7,
+      "end_seconds": 0.8,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "19a763eff5b000f49bf41560d09f93ca",
+      "sprite_name": "SummonCircle8",
+      "source_asset": "Assets/Sprite/SummonCircle8.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle8.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 63.923878,
+        "height": 24.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        64,
+        25
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5005954,
+        "y": 0.64033073
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        15.999999659283509
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        25
+      ],
+      "padding_left_top": [
+        0,
+        7
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        15.99999965928351
+      ],
+      "png_sha256": "3f1943f188ad0ff92966981f2bfad307b38813629d4f8f6e613e9dc875b7285a",
+      "raw_png_sha256": "044996d11567bcfa3881d39d8bb6988db4e3efdd1dbed0fac2ef9452b420c0d2"
+    },
+    {
+      "index": 9,
+      "file": "0009.png",
+      "raw_crop": "Raw_Crops/0009.png",
+      "time_seconds": 0.8,
+      "end_seconds": 0.9,
+      "duration_seconds": 0.09999999999999998,
+      "sprite_guid": "86f099b08ab3a524d8e8134b31c42ccb",
+      "sprite_name": "SummonCircle9",
+      "source_asset": "Assets/Sprite/SummonCircle9.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle9.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0.076120496,
+        "y": 0.076120496,
+        "width": 62.847755,
+        "height": 26.92388
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        63,
+        27
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5079558,
+        "y": 0.59144074
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.0000000068712
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        63,
+        27
+      ],
+      "padding_left_top": [
+        0,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.000000006871204
+      ],
+      "png_sha256": "c9aa3cf1cdec6cc6839637cd315d2dff4079e8cde6783df141b4074e3cad999d",
+      "raw_png_sha256": "ed2b3ffc8e2c92f7b508c9f8ab3a73b0028b00e9f2d5646ee9389be45ef13bb6"
+    },
+    {
+      "index": 10,
+      "file": "0010.png",
+      "raw_crop": "Raw_Crops/0010.png",
+      "time_seconds": 0.9,
+      "end_seconds": 1.0,
+      "duration_seconds": 0.09999999999999998,
+      "sprite_guid": "f72b7a7042cc4a441ba27ebbd3c14650",
+      "sprite_name": "SummonCircle10",
+      "source_asset": "Assets/Sprite/SummonCircle10.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle10.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 63.923878,
+        "height": 26.99596
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        64,
+        27
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5005954,
+        "y": 0.5926813
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.000000667548
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        27
+      ],
+      "padding_left_top": [
+        0,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.000000667548
+      ],
+      "png_sha256": "1b6282d9a1f0a41415052cdeb3e74e0723a4cb864f386bead191678cab5d2b32",
+      "raw_png_sha256": "ee78cca0230371a1bbbbb08d32349a4508efe67d13382cfebe87de6e473f16cd"
+    },
+    {
+      "index": 11,
+      "file": "0011.png",
+      "raw_crop": "Raw_Crops/0011.png",
+      "time_seconds": 1.0,
+      "end_seconds": 1.1,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "1f34939fcc556e24a9df609cca8eecb7",
+      "sprite_name": "SummonCircle11",
+      "source_asset": "Assets/Sprite/SummonCircle11.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle11.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0.076120496,
+        "y": 0.076120496,
+        "width": 62.847755,
+        "height": 23.84776
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        63,
+        24
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5079558,
+        "y": 0.6677306
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.000002165229,
+        15.999999589456
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        63,
+        24
+      ],
+      "padding_left_top": [
+        0,
+        8
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.000002165229,
+        15.999999589455996
+      ],
+      "png_sha256": "195fb4849b1456f7bba167a46d7e4df5dcb6472d5f27a8457acb8335a770cadb",
+      "raw_png_sha256": "7a4a444e475ff54190afdbceeca2d4663bee5264943e14942f5db13a626272b0"
+    },
+    {
+      "index": 12,
+      "file": "0012.png",
+      "raw_crop": "Raw_Crops/0012.png",
+      "time_seconds": 1.1,
+      "end_seconds": 1.2,
+      "duration_seconds": 0.09999999999999987,
+      "sprite_guid": "508b37e70f74cc24482b5de8601feb11",
+      "sprite_name": "SummonCircle12",
+      "source_asset": "Assets/Sprite/SummonCircle12.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle12.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 63.923878,
+        "height": 21.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        64,
+        22
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5005954,
+        "y": 0.7276998
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        15.9999988124826
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        22
+      ],
+      "padding_left_top": [
+        0,
+        10
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        15.999998812482602
+      ],
+      "png_sha256": "5e69743bdc329f07f346f85b5d174d1dd7a524a073ac24a571ba194c5f431317",
+      "raw_png_sha256": "83c47b1b5935a5da3016cd99024bf96b38ce365b56746947d4f80fda1f1c10e0"
+    },
+    {
+      "index": 13,
+      "file": "0013.png",
+      "raw_crop": "Raw_Crops/0013.png",
+      "time_seconds": 1.2,
+      "end_seconds": 1.3,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "2b1813cb23e5c224e8728d014c1eccb7",
+      "sprite_name": "SummonCircle13",
+      "source_asset": "Assets/Sprite/SummonCircle13.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle13.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0.076120496,
+        "y": 0.076120496,
+        "width": 62.847755,
+        "height": 21.89502
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        63,
+        22
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5079558,
+        "y": 0.7272832
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.000000705664
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        63,
+        22
+      ],
+      "padding_left_top": [
+        0,
+        10
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.000002165229,
+        16.000000705664
+      ],
+      "png_sha256": "e1b068c5370b6617308f681f1db0373e2a027149584f0ba87aed1bb900feab5e",
+      "raw_png_sha256": "bd82df905b52f2b1e33fafabde5d10c28e15b89400313faa8bb4889486f7f584"
+    },
+    {
+      "index": 14,
+      "file": "0014.png",
+      "raw_crop": "Raw_Crops/0014.png",
+      "time_seconds": 1.3,
+      "end_seconds": 1.4,
+      "duration_seconds": 0.09999999999999987,
+      "sprite_guid": "9ec9475a6a8735248bc55d64c53b8936",
+      "sprite_name": "SummonCircle14",
+      "source_asset": "Assets/Sprite/SummonCircle14.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle14.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 63.923878,
+        "height": 24.92388
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        64,
+        25
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5005954,
+        "y": 0.64195466
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.0000009112808
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        25
+      ],
+      "padding_left_top": [
+        0,
+        7
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999992769612,
+        16.0000009112808
+      ],
+      "png_sha256": "4d4145323b65cba11a171d14aecd50be5a7d5eed6e516c942862de242a158a4f",
+      "raw_png_sha256": "1db29bf4cd69ebda3b38dbe8324b9566c8c69f60559be882a2b72841fbd7fe54"
+    },
+    {
+      "index": 15,
+      "file": "0015.png",
+      "raw_crop": "Raw_Crops/0015.png",
+      "time_seconds": 1.4,
+      "end_seconds": 1.5,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "a57a810a8c6837a47b4cadc27cf76539",
+      "sprite_name": "SummonCircle15",
+      "source_asset": "Assets/Sprite/SummonCircle15.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle15.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1.0761205,
+        "y": 0,
+        "width": 60.847755,
+        "height": 27.957092
+      },
+      "source_pixel_crop_bottom_left": [
+        1,
+        0,
+        61,
+        28
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5082173,
+        "y": 0.57230556
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.000002257161498,
+        15.999999193031519
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        61,
+        28
+      ],
+      "padding_left_top": [
+        1,
+        4
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.0000022571615,
+        15.99999919303152
+      ],
+      "png_sha256": "330136c3105f834b9f046d5510480794f719927e58a71c11cf355763c459d26d",
+      "raw_png_sha256": "96edceb0c311ec0e2f3b106b27deb4cb94395eca94da9ffdc56efc50eae2b160"
+    },
+    {
+      "index": 16,
+      "file": "0016.png",
+      "raw_crop": "Raw_Crops/0016.png",
+      "time_seconds": 1.5,
+      "end_seconds": 1.6,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "fe6f99470d07c13418a2b8761b591d00",
+      "sprite_name": "SummonCircle16",
+      "source_asset": "Assets/Sprite/SummonCircle16.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle16.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1.0761205,
+        "y": 0,
+        "width": 60.847755,
+        "height": 30.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        1,
+        0,
+        61,
+        31
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5082173,
+        "y": 0.51634413
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.000002257161498,
+        16.00000047824931
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        61,
+        31
+      ],
+      "padding_left_top": [
+        1,
+        1
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.0000022571615,
+        16.000000478249305
+      ],
+      "png_sha256": "46a857276de72905aaf77b2f18d557feef7850bbd905ec2ba5ed6f7f46aeacfa",
+      "raw_png_sha256": "09b298c2dc5eac6e04250427579d15d9cd5ba645baf4165c2d79fc5d989fe834"
+    },
+    {
+      "index": 17,
+      "file": "0017.png",
+      "raw_crop": "Raw_Crops/0017.png",
+      "time_seconds": 1.6,
+      "end_seconds": 1.7,
+      "duration_seconds": 0.09999999999999987,
+      "sprite_guid": "c972ab1ea73f11746aa2479b77a8899b",
+      "sprite_name": "SummonCircle17",
+      "source_asset": "Assets/Sprite/SummonCircle17.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle17.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 50.847755,
+        "height": 31.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        51,
+        32
+      ],
+      "source_pivot_normalized": {
+        "x": 0.50983334,
+        "y": 0.5002018
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        26.0000011631517,
+        15.9999984941566
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        51,
+        32
+      ],
+      "padding_left_top": [
+        6,
+        0
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.0000011631517,
+        15.9999984941566
+      ],
+      "png_sha256": "35e9001e58374c89ec382025b6636596be784f9fe494e04ae9dc82b52a6329d4",
+      "raw_png_sha256": "db265f1e3fd33766d8fb9b2343d2db5dcddf5a430e53b287bb8a5aae5745127f"
+    },
+    {
+      "index": 18,
+      "file": "0018.png",
+      "raw_crop": "Raw_Crops/0018.png",
+      "time_seconds": 1.7,
+      "end_seconds": 1.8,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "35b6306ae13ca454aba1a4822ec8ad63",
+      "sprite_name": "SummonCircle18",
+      "source_asset": "Assets/Sprite/SummonCircle18.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle18.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 9.07612,
+        "y": 0,
+        "width": 44.847755,
+        "height": 29.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        9,
+        0,
+        45,
+        30
+      ],
+      "source_pivot_normalized": {
+        "x": 0.51114887,
+        "y": 0.533563
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        22.999999290286848,
+        16.000000100981
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        45,
+        30
+      ],
+      "padding_left_top": [
+        9,
+        2
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.999999290286848,
+        16.000000100980998
+      ],
+      "png_sha256": "98b101f1d0051c675bff4855b31bca7f62b1fc7f698c946b48f9c2a19860ead9",
+      "raw_png_sha256": "59f931bb11a2f68a7d1938ffe77cc2636c0792c832ad3d2d0273f277240f709a"
+    },
+    {
+      "index": 19,
+      "file": "0019.png",
+      "raw_crop": "Raw_Crops/0019.png",
+      "time_seconds": 1.8,
+      "end_seconds": 1.9,
+      "duration_seconds": 0.09999999999999987,
+      "sprite_guid": "18cb12e0a70be13469f62a8f81ecdb77",
+      "sprite_name": "SummonCircle19",
+      "source_asset": "Assets/Sprite/SummonCircle19.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle19.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 12.036285,
+        "y": 1.0761205,
+        "width": 36.9508,
+        "height": 25.910967
+      },
+      "source_pixel_crop_bottom_left": [
+        12,
+        1,
+        37,
+        26
+      ],
+      "source_pivot_normalized": {
+        "x": 0.54027826,
+        "y": 0.57596767
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.999998929608,
+        14.99999979043689
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        37,
+        26
+      ],
+      "padding_left_top": [
+        12,
+        5
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.999998929608,
+        15.999999790436888
+      ],
+      "png_sha256": "d5d055bb83193da32b8c024e9636f72297ca65af29a2a8ee0e70d465dd59877d",
+      "raw_png_sha256": "c250560bc7315ad47b25b09890c6d64b35c1695540f3cae5300c6a749390b6db"
+    },
+    {
+      "index": 20,
+      "file": "0020.png",
+      "raw_crop": "Raw_Crops/0020.png",
+      "time_seconds": 1.9,
+      "end_seconds": 2.0,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "a4d18b51f8574644497d10c616c6afa9",
+      "sprite_name": "SummonCircle20",
+      "source_asset": "Assets/Sprite/SummonCircle20.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle20.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 12.07612,
+        "y": 1.0761205,
+        "width": 34.847755,
+        "height": 17.910967
+      },
+      "source_pixel_crop_bottom_left": [
+        12,
+        1,
+        35,
+        18
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5717407,
+        "y": 0.8332258
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.9999998371285,
+        15.0000003073486
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        35,
+        18
+      ],
+      "padding_left_top": [
+        12,
+        13
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999998371285,
+        16.0000003073486
+      ],
+      "png_sha256": "e6092feaf59f438ab85530d31d628c442fe1d731eb2427025d006a0e48e11153",
+      "raw_png_sha256": "843653d742082727e974f8942e4f7e1c0c3c6f6c0f7c9ff119359d15190d994f"
+    },
+    {
+      "index": 21,
+      "file": "0021.png",
+      "raw_crop": "Raw_Crops/0021.png",
+      "time_seconds": 2.0,
+      "end_seconds": 2.1,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "584af51aae1193a4584c7a7613eaa11c",
+      "sprite_name": "SummonCircle21",
+      "source_asset": "Assets/Sprite/SummonCircle21.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle21.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 12.07612,
+        "y": 1.0761205,
+        "width": 34.847755,
+        "height": 11.92388
+      },
+      "source_pixel_crop_bottom_left": [
+        12,
+        1,
+        35,
+        12
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5717407,
+        "y": 1.251596
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.9999998371285,
+        15.000001012479999
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        35,
+        12
+      ],
+      "padding_left_top": [
+        12,
+        19
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999998371285,
+        16.00000101248
+      ],
+      "png_sha256": "02e6cde26ca7cf5ea2af882ccde11b3038c53e75cfeb486d75b6ab2a9d4b7b08",
+      "raw_png_sha256": "dd12cdee418b60972ab47cdc7f2d291eeb96b333da51563adb2b2ab549a1379b"
+    },
+    {
+      "index": 22,
+      "file": "0022.png",
+      "raw_crop": "Raw_Crops/0022.png",
+      "time_seconds": 2.1,
+      "end_seconds": 2.2,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "1d6406c69f5a25544aaeb22d5e95dd18",
+      "sprite_name": "SummonCircle22",
+      "source_asset": "Assets/Sprite/SummonCircle22.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle22.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 8.012913,
+        "y": 1.0761205,
+        "width": 38.910965,
+        "height": 11.910967
+      },
+      "source_pixel_crop_bottom_left": [
+        8,
+        1,
+        39,
+        12
+      ],
+      "source_pivot_normalized": {
+        "x": 0.61646086,
+        "y": 1.2529528
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        23.999999947329897,
+        14.9999999533576
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        39,
+        12
+      ],
+      "padding_left_top": [
+        8,
+        19
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.999999947329897,
+        15.999999953357602
+      ],
+      "png_sha256": "bc8f0d5e1e82f6c8f0833a29c803bda8a3ff5d72ed965d27a677da9af2121b3a",
+      "raw_png_sha256": "5357301a5598b1c99e944e023d66bc9967eb31641220a8940bbc48e2320d04a6"
+    },
+    {
+      "index": 23,
+      "file": "0023.png",
+      "raw_crop": "Raw_Crops/0023.png",
+      "time_seconds": 2.2,
+      "end_seconds": 2.3,
+      "duration_seconds": 0.09999999999999964,
+      "sprite_guid": "f4c5c355874cf6344a88a7310374f267",
+      "sprite_name": "SummonCircle23",
+      "source_asset": "Assets/Sprite/SummonCircle23.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle23.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 18.07612,
+        "y": 1.0761205,
+        "width": 28.847757,
+        "height": 6.910967
+      },
+      "source_pixel_crop_bottom_left": [
+        18,
+        1,
+        29,
+        7
+      ],
+      "source_pivot_normalized": {
+        "x": 0.48266765,
+        "y": 2.1594489
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        13.99999907896105,
+        15.000000586086301
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        29,
+        7
+      ],
+      "padding_left_top": [
+        18,
+        24
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.99999907896105,
+        16.0000005860863
+      ],
+      "png_sha256": "30069141b7fd75ee3030d3b889604f66df75cc7cff318fa03f00f374cf044c7a",
+      "raw_png_sha256": "a44e297ccb68b08dde9ac5ce0c0c5adf6f22e853758c44414b0274eb1f8aa6ca"
+    },
+    {
+      "index": 24,
+      "file": "0024.png",
+      "raw_crop": "Raw_Crops/0024.png",
+      "time_seconds": 2.3,
+      "end_seconds": 2.4,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "75fe9cea0d0a8aa4a976fa96b7e69ba5",
+      "sprite_name": "SummonCircle24",
+      "source_asset": "Assets/Sprite/SummonCircle24.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle24.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 20.012913,
+        "y": 1.0761205,
+        "width": 24.974174,
+        "height": 5.8477592
+      },
+      "source_pixel_crop_bottom_left": [
+        20,
+        1,
+        25,
+        6
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4799793,
+        "y": 2.552068
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        11.999999554598201,
+        14.999999626025598
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        25,
+        6
+      ],
+      "padding_left_top": [
+        20,
+        25
+      ],
+      "export_pivot_pixels_bottom_left": [
+        31.9999995545982,
+        15.999999626025598
+      ],
+      "png_sha256": "2f6be9ffc96bdefc837e21b03721bc26a61265c5d0371f4f8e086ff1e49c37ce",
+      "raw_png_sha256": "9d0be7070366f6467867c8e973fbcdbf162fe86d48f0ba8c8f9560a5217fbe2e"
+    },
+    {
+      "index": 25,
+      "file": "0025.png",
+      "raw_crop": "Raw_Crops/0025.png",
+      "time_seconds": 2.4,
+      "end_seconds": 2.5,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "439e4edc848aa3f4da0190060ad3b612",
+      "sprite_name": "SummonCircle25",
+      "source_asset": "Assets/Sprite/SummonCircle25.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle25.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 27.012913,
+        "y": 2.0761204,
+        "width": 8.9741745,
+        "height": 4.8477592
+      },
+      "source_pixel_crop_bottom_left": [
+        27,
+        2,
+        9,
+        5
+      ],
+      "source_pivot_normalized": {
+        "x": 0.55571544,
+        "y": 2.87223
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        5.000000330904278,
+        13.999999807016
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        9,
+        5
+      ],
+      "padding_left_top": [
+        27,
+        25
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.00000033090428,
+        15.999999807015996
+      ],
+      "png_sha256": "f10b2e06cdf3851776cf7026bed65c47a3ca4658908901c42718e53659664a2f",
+      "raw_png_sha256": "4da1260052d196331c362f6a25aa4e27fd3b6310bfd9c80b081b3189ce81db69"
+    },
+    {
+      "index": 26,
+      "file": "0026.png",
+      "raw_crop": "Raw_Crops/0026.png",
+      "time_seconds": 2.5,
+      "end_seconds": 2.6,
+      "duration_seconds": 0.10000000000000009,
+      "sprite_guid": "899f77dc580459344b6144685c141263",
+      "sprite_name": "SummonCircle26",
+      "source_asset": "Assets/Sprite/SummonCircle26.asset",
+      "source_texture": "Assets/Texture2D/SummonCircle26.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 64,
+        "height": 32
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        64,
+        32
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.0,
+        16.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        32
+      ],
+      "padding_left_top": [
+        0,
+        0
+      ],
+      "export_pivot_pixels_bottom_left": [
+        32.0,
+        16.0
+      ],
+      "png_sha256": "1b9383be2f6dda80636e7cd49f432b7ad4e7aa886a6a4f37cb8887124a659ea7",
+      "raw_png_sha256": "1b9383be2f6dda80636e7cd49f432b7ad4e7aa886a6a4f37cb8887124a659ea7"
+    }
+  ]
+}

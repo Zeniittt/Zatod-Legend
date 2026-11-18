@@ -1,0 +1,164 @@
+{
+  "SchemaVersion": 1,
+  "ConfigVersion": "campaign-prototype-1",
+  "StarterHeroIds": [
+    "leenald",
+    "kavern",
+    "enchantx",
+    "blooesperod",
+    "lilina"
+  ],
+  "Chapters": [
+    {
+      "Id": "chapter_1",
+      "Name": "Chương 1 · Hành trình mới",
+      "Stages": [
+        {
+          "Id": "chapter_1_stage_1",
+          "Name": "Bìa rừng",
+          "Description": "Ải 1-1. Dẫn đội hình vượt qua năm kẻ địch để tiếp tục hành trình.",
+          "MapX": 0.12,
+          "MapY": 0.69,
+          "Monsters": [
+            {
+              "MonsterId": "fighter_goblin",
+              "PowerBasisPoints": 7000
+            },
+            {
+              "MonsterId": "fighter_goblin",
+              "PowerBasisPoints": 7000
+            },
+            {
+              "MonsterId": "goblin_mage",
+              "PowerBasisPoints": 7000
+            },
+            {
+              "MonsterId": "archer",
+              "PowerBasisPoints": 7000
+            },
+            {
+              "MonsterId": "huntress",
+              "PowerBasisPoints": 7000
+            }
+          ]
+        },
+        {
+          "Id": "chapter_1_stage_2",
+          "Name": "Dấu chân lạ",
+          "Description": "Ải 1-2. Dẫn đội hình vượt qua năm kẻ địch để tiếp tục hành trình.",
+          "MapX": 0.32,
+          "MapY": 0.36,
+          "Monsters": [
+            {
+              "MonsterId": "guardian",
+              "PowerBasisPoints": 8000
+            },
+            {
+              "MonsterId": "fighter_goblin",
+              "PowerBasisPoints": 8000
+            },
+            {
+              "MonsterId": "archer",
+              "PowerBasisPoints": 8000
+            },
+            {
+              "MonsterId": "goblin_mage",
+              "PowerBasisPoints": 8000
+            },
+            {
+              "MonsterId": "huntress",
+              "PowerBasisPoints": 8000
+            }
+          ]
+        },
+        {
+          "Id": "chapter_1_stage_3",
+          "Name": "Trạm gác bỏ hoang",
+          "Description": "Ải 1-3. Dẫn đội hình vượt qua năm kẻ địch để tiếp tục hành trình.",
+          "MapX": 0.5,
+          "MapY": 0.64,
+          "Monsters": [
+            {
+              "MonsterId": "skeleton_knight",
+              "PowerBasisPoints": 9000
+            },
+            {
+              "MonsterId": "guardian",
+              "PowerBasisPoints": 9000
+            },
+            {
+              "MonsterId": "goblin_mage",
+              "PowerBasisPoints": 9000
+            },
+            {
+              "MonsterId": "evil_wizard",
+              "PowerBasisPoints": 9000
+            },
+            {
+              "MonsterId": "archer",
+              "PowerBasisPoints": 9000
+            }
+          ]
+        },
+        {
+          "Id": "chapter_1_stage_4",
+          "Name": "Đường qua thung lũng",
+          "Description": "Ải 1-4. Dẫn đội hình vượt qua năm kẻ địch để tiếp tục hành trình.",
+          "MapX": 0.7,
+          "MapY": 0.3,
+          "Monsters": [
+            {
+              "MonsterId": "guardian",
+              "PowerBasisPoints": 10000
+            },
+            {
+              "MonsterId": "skeleton_knight",
+              "PowerBasisPoints": 10000
+            },
+            {
+              "MonsterId": "huntress",
+              "PowerBasisPoints": 10000
+            },
+            {
+              "MonsterId": "evil_wizard",
+              "PowerBasisPoints": 10000
+            },
+            {
+              "MonsterId": "archer",
+              "PowerBasisPoints": 10000
+            }
+          ]
+        },
+        {
+          "Id": "chapter_1_stage_5",
+          "Name": "Pháo đài hắc ám",
+          "Description": "Ải 1-5. Dẫn đội hình vượt qua năm kẻ địch để tiếp tục hành trình.",
+          "MapX": 0.88,
+          "MapY": 0.6,
+          "Monsters": [
+            {
+              "MonsterId": "guardian",
+              "PowerBasisPoints": 11500
+            },
+            {
+              "MonsterId": "skeleton_knight",
+              "PowerBasisPoints": 11500
+            },
+            {
+              "MonsterId": "evil_wizard",
+              "PowerBasisPoints": 11500
+            },
+            {
+              "MonsterId": "evil_wizard",
+              "PowerBasisPoints": 11500
+            },
+            {
+              "MonsterId": "huntress",
+              "PowerBasisPoints": 11500
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

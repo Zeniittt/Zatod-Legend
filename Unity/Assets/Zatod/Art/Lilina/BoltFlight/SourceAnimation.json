@@ -1,0 +1,422 @@
+{
+  "name": "Triggered",
+  "category": "Projectile / ThunderBolt",
+  "source_clip": "Assets/AnimationClip/Triggered_13.anim",
+  "source_clip_guid": "720d399dd3be3d948bb669d3740333e0",
+  "source_controllers": [
+    "ThunderBoltCast1"
+  ],
+  "animator_states": {
+    "ThunderBoltCast1": [
+      {
+        "name": "Triggered",
+        "speed": 1,
+        "speed_parameter": null,
+        "speed_parameter_active": 0
+      }
+    ]
+  },
+  "relationship_evidence": "Animator on GameObject ThunderBolt directly embedded in SalamanderWitch.prefab. Source sprite track only; transform/material curves remain in source .anim.",
+  "frame_count": 8,
+  "unique_sprite_count": 8,
+  "source_sprite_track_path": "",
+  "source_sample_rate": 20,
+  "duration_seconds": 0.4,
+  "loop": true,
+  "canvas": {
+    "width": 168,
+    "height": 80,
+    "anchor_bottom_left": [
+      0,
+      40
+    ]
+  },
+  "events": [],
+  "sequence_type": "one PNG per original sprite key, including repeated hold/end keys; use exact per-key durations, not a guessed fixed FPS",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.05,
+      "duration_seconds": 0.05,
+      "sprite_guid": "a8cea2e766839bc4198d73c99099dc7e",
+      "sprite_name": "ThunderBoltCasting1",
+      "source_asset": "Assets/Sprite/ThunderBoltCasting1.asset",
+      "source_texture": "Assets/Texture2D/ThunderBoltCasting1.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 19.062115,
+        "y": 12.07612,
+        "width": 110.861755,
+        "height": 53.847763
+      },
+      "source_pixel_crop_bottom_left": [
+        19,
+        12,
+        111,
+        54
+      ],
+      "source_pivot_normalized": {
+        "x": -0.17194492,
+        "y": 0.51857084
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        -19.0000005945346,
+        27.999999691030922
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        111,
+        54
+      ],
+      "padding_left_top": [
+        19,
+        14
+      ],
+      "export_pivot_pixels_bottom_left": [
+        -5.945346011060337e-07,
+        39.99999969103092
+      ],
+      "png_sha256": "a1235e038b9b2c7deee0240d0b102c29084dc5d1285c84583d81dfac8731891f",
+      "raw_png_sha256": "c5353fe3ddeacb61603bd262d08e04f8d24d6c0200b7ac423bdcc55a145e15e3"
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.05,
+      "end_seconds": 0.1,
+      "duration_seconds": 0.05,
+      "sprite_guid": "c37ca785dc181ba4aa525de7f3c9f5dd",
+      "sprite_name": "ThunderBoltCasting2",
+      "source_asset": "Assets/Sprite/ThunderBoltCasting2.asset",
+      "source_texture": "Assets/Texture2D/ThunderBoltCasting2.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 15.026751,
+        "y": 8.026751,
+        "width": 114.897125,
+        "height": 58.946503
+      },
+      "source_pixel_crop_bottom_left": [
+        15,
+        8,
+        115,
+        59
+      ],
+      "source_pivot_normalized": {
+        "x": -0.13078439,
+        "y": 0.5424113
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        -14.99999940587875,
+        32.0000003226839
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        115,
+        59
+      ],
+      "padding_left_top": [
+        15,
+        13
+      ],
+      "export_pivot_pixels_bottom_left": [
+        5.941212499749327e-07,
+        40.0000003226839
+      ],
+      "png_sha256": "fb011c760b71ee570772cffa5c02fd8b0436072bcbaf160631b5d12f1cf59ab2",
+      "raw_png_sha256": "f2a938f30b37c17f97e5d74474468ca6f7d0ec90275a2b021f907c7ade3d82a1"
+    },
+    {
+      "index": 3,
+      "file": "0003.png",
+      "raw_crop": "Raw_Crops/0003.png",
+      "time_seconds": 0.1,
+      "end_seconds": 0.15,
+      "duration_seconds": 0.04999999999999999,
+      "sprite_guid": "45807faba0fbe0b4abd99e5684ab1910",
+      "sprite_name": "ThunderBoltCasting3",
+      "source_asset": "Assets/Sprite/ThunderBoltCasting3.asset",
+      "source_texture": "Assets/Texture2D/ThunderBoltCasting3.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 14.07612,
+        "y": 9.07612,
+        "width": 117.89713,
+        "height": 56.897133
+      },
+      "source_pixel_crop_bottom_left": [
+        14,
+        9,
+        118,
+        57
+      ],
+      "source_pivot_normalized": {
+        "x": -0.11939324,
+        "y": 0.5435051
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        -14.0000003374012,
+        31.000001960878294
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        118,
+        57
+      ],
+      "padding_left_top": [
+        14,
+        14
+      ],
+      "export_pivot_pixels_bottom_left": [
+        -3.374012003121152e-07,
+        40.00000196087829
+      ],
+      "png_sha256": "24eddc04cc705a460cc04137afe892deedac753335e2dc77d95c5fefba2ff3ae",
+      "raw_png_sha256": "811e2cdcff801310e7fd16c98f0a491b0cb4bcb33013cbb43535519b82317d65"
+    },
+    {
+      "index": 4,
+      "file": "0004.png",
+      "raw_crop": "Raw_Crops/0004.png",
+      "time_seconds": 0.15,
+      "end_seconds": 0.2,
+      "duration_seconds": 0.05000000000000002,
+      "sprite_guid": "a8061fc70055ad84b824acfbb5c3fcce",
+      "sprite_name": "ThunderBoltCasting4",
+      "source_asset": "Assets/Sprite/ThunderBoltCasting4.asset",
+      "source_texture": "Assets/Texture2D/ThunderBoltCasting4.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 29.02675,
+        "y": 9.07612,
+        "width": 101.9465,
+        "height": 57.872566
+      },
+      "source_pixel_crop_bottom_left": [
+        29,
+        9,
+        102,
+        58
+      ],
+      "source_pivot_normalized": {
+        "x": -0.2847253,
+        "y": 0.5343444
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        -28.999997796450003,
+        31.000001555730407
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        102,
+        58
+      ],
+      "padding_left_top": [
+        29,
+        13
+      ],
+      "export_pivot_pixels_bottom_left": [
+        2.203549996693255e-06,
+        40.00000155573041
+      ],
+      "png_sha256": "96db1a68e4815bb4198c6b98a1daca0a7fcbf584670bde18c1452e78a537b520",
+      "raw_png_sha256": "dba32138bcf7557ed46010d6bd48c7a30411f0c5604cd16725a40433331cad37"
+    },
+    {
+      "index": 5,
+      "file": "0005.png",
+      "raw_crop": "Raw_Crops/0005.png",
+      "time_seconds": 0.2,
+      "end_seconds": 0.25,
+      "duration_seconds": 0.04999999999999999,
+      "sprite_guid": "be12855827ef717429490f760a5fa9f6",
+      "sprite_name": "ThunderBoltCasting5",
+      "source_asset": "Assets/Sprite/ThunderBoltCasting5.asset",
+      "source_texture": "Assets/Texture2D/ThunderBoltCasting5.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 19.062115,
+        "y": 12.07612,
+        "width": 110.861755,
+        "height": 53.847763
+      },
+      "source_pixel_crop_bottom_left": [
+        19,
+        12,
+        111,
+        54
+      ],
+      "source_pivot_normalized": {
+        "x": -0.17194492,
+        "y": 0.51857084
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        -19.0000005945346,
+        27.999999691030922
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        111,
+        54
+      ],
+      "padding_left_top": [
+        19,
+        14
+      ],
+      "export_pivot_pixels_bottom_left": [
+        -5.945346011060337e-07,
+        39.99999969103092
+      ],
+      "png_sha256": "a1235e038b9b2c7deee0240d0b102c29084dc5d1285c84583d81dfac8731891f",
+      "raw_png_sha256": "c5353fe3ddeacb61603bd262d08e04f8d24d6c0200b7ac423bdcc55a145e15e3"
+    },
+    {
+      "index": 6,
+      "file": "0006.png",
+      "raw_crop": "Raw_Crops/0006.png",
+      "time_seconds": 0.25,
+      "end_seconds": 0.3,
+      "duration_seconds": 0.04999999999999999,
+      "sprite_guid": "3b82816493b8ab6458cb7af55a15c7be",
+      "sprite_name": "ThunderBoltCasting6",
+      "source_asset": "Assets/Sprite/ThunderBoltCasting6.asset",
+      "source_texture": "Assets/Texture2D/ThunderBoltCasting6.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 15.026751,
+        "y": 8.026751,
+        "width": 114.897125,
+        "height": 58.946503
+      },
+      "source_pixel_crop_bottom_left": [
+        15,
+        8,
+        115,
+        59
+      ],
+      "source_pivot_normalized": {
+        "x": -0.13078439,
+        "y": 0.5424113
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        -14.99999940587875,
+        32.0000003226839
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        115,
+        59
+      ],
+      "padding_left_top": [
+        15,
+        13
+      ],
+      "export_pivot_pixels_bottom_left": [
+        5.941212499749327e-07,
+        40.0000003226839
+      ],
+      "png_sha256": "fb011c760b71ee570772cffa5c02fd8b0436072bcbaf160631b5d12f1cf59ab2",
+      "raw_png_sha256": "f2a938f30b37c17f97e5d74474468ca6f7d0ec90275a2b021f907c7ade3d82a1"
+    },
+    {
+      "index": 7,
+      "file": "0007.png",
+      "raw_crop": "Raw_Crops/0007.png",
+      "time_seconds": 0.3,
+      "end_seconds": 0.35,
+      "duration_seconds": 0.04999999999999999,
+      "sprite_guid": "53b73b2591b77eb4c831c3f36c52e0f8",
+      "sprite_name": "ThunderBoltCasting7",
+      "source_asset": "Assets/Sprite/ThunderBoltCasting7.asset",
+      "source_texture": "Assets/Texture2D/ThunderBoltCasting7.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 14.07612,
+        "y": 9.07612,
+        "width": 117.89713,
+        "height": 56.897133
+      },
+      "source_pixel_crop_bottom_left": [
+        14,
+        9,
+        118,
+        57
+      ],
+      "source_pivot_normalized": {
+        "x": -0.11939324,
+        "y": 0.5435051
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        -14.0000003374012,
+        31.000001960878294
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        118,
+        57
+      ],
+      "padding_left_top": [
+        14,
+        14
+      ],
+      "export_pivot_pixels_bottom_left": [
+        -3.374012003121152e-07,
+        40.00000196087829
+      ],
+      "png_sha256": "24eddc04cc705a460cc04137afe892deedac753335e2dc77d95c5fefba2ff3ae",
+      "raw_png_sha256": "811e2cdcff801310e7fd16c98f0a491b0cb4bcb33013cbb43535519b82317d65"
+    },
+    {
+      "index": 8,
+      "file": "0008.png",
+      "raw_crop": "Raw_Crops/0008.png",
+      "time_seconds": 0.35,
+      "end_seconds": 0.4,
+      "duration_seconds": 0.050000000000000044,
+      "sprite_guid": "08eacfa4195b8d845a3e5464cc23743d",
+      "sprite_name": "ThunderBoltCasting8",
+      "source_asset": "Assets/Sprite/ThunderBoltCasting8.asset",
+      "source_texture": "Assets/Texture2D/ThunderBoltCasting8.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 29.02675,
+        "y": 9.07612,
+        "width": 101.9465,
+        "height": 57.872566
+      },
+      "source_pixel_crop_bottom_left": [
+        29,
+        9,
+        102,
+        58
+      ],
+      "source_pivot_normalized": {
+        "x": -0.2847253,
+        "y": 0.5343444
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        -28.999997796450003,
+        31.000001555730407
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        102,
+        58
+      ],
+      "padding_left_top": [
+        29,
+        13
+      ],
+      "export_pivot_pixels_bottom_left": [
+        2.203549996693255e-06,
+        40.00000155573041
+      ],
+      "png_sha256": "96db1a68e4815bb4198c6b98a1daca0a7fcbf584670bde18c1452e78a537b520",
+      "raw_png_sha256": "dba32138bcf7557ed46010d6bd48c7a30411f0c5604cd16725a40433331cad37"
+    }
+  ]
+}

@@ -72,21 +72,21 @@ namespace Zatod.Heroes
             };
             var health = battle.Stats.SingleOrDefault(s => s.StatId == "health");
             battle.CurrentHp = health == null ? 0 : health.Value;
+            var definition = catalog.Hero(hero.HeroDefinitionId);
+            if (!string.IsNullOrEmpty(definition.NormalAttackSkillId))
+            {
+                battle.HasNormalAttack = true;
+                battle.NormalAttack = catalog.Skill(definition.NormalAttackSkillId).Copy();
+            }
+            battle.SpawnPoints = definition.SpawnPoints.ConvertAll(point => point.Copy());
             foreach (var slot in HeroProgression.UnlockedSkills(hero, catalog))
             {
                 var source = catalog.Skill(slot.SkillId);
-                battle.Skills.Add(new HeroBattleSkillData
+                battle.Skills.Add(new BattleSkillData
                 {
                     SlotId = slot.Id, IsUltimate = slot.IsUltimate,
                     Level = hero.Skills.Single(s => s.SlotId == slot.Id).Level,
-                    Definition = new SkillDefinition
-                    {
-                        Id = source.Id, Name = source.Name, Kind = source.Kind, Activation = source.Activation, Target = source.Target,
-                        EnergyCost = source.EnergyCost, CooldownMilliseconds = source.CooldownMilliseconds,
-                        CastRange = source.CastRange, EffectRadius = source.EffectRadius,
-                        WindupMilliseconds = source.WindupMilliseconds, RecoveryMilliseconds = source.RecoveryMilliseconds,
-                        Effects = source.Effects.Select(e => e.Copy()).ToList()
-                    }
+                    Definition = source.Copy()
                 });
             }
             return battle;

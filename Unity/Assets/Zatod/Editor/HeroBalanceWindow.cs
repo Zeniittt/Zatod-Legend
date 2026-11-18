@@ -16,6 +16,7 @@ namespace Zatod.Editor
         [SerializeField] string draftJson, sourceJson, previewJson;
         [SerializeField] HeroConfigDocuments sourceDocuments;
         [SerializeField] HeroConfigSection activeTab;
+        [SerializeField] bool monsterWindow;
         HeroCatalogData draft;
         CharacterData preview;
         Label status;
@@ -26,10 +27,19 @@ namespace Zatod.Editor
         [MenuItem("Zatod/Heroes/Hero Balance")]
         public static void Open() { GetWindow<HeroBalanceWindow>("Hero Balance"); }
 
+        [MenuItem("Zatod/Monsters/Monster Balance")]
+        public static void OpenMonsters()
+        {
+            var window=Resources.FindObjectsOfTypeAll<HeroBalanceWindow>().FirstOrDefault(w=>w.monsterWindow);
+            if(window==null)window=CreateInstance<HeroBalanceWindow>();
+            window.monsterWindow=true;window.activeTab=HeroConfigSection.Monsters;
+            window.titleContent=new GUIContent("Monster Balance");window.Show();window.CreateGUI();
+        }
+
         public void CreateGUI()
         {
             minSize = new Vector2(920, 600);
-            saveChangesMessage = "Hero config has unsaved changes. Save the four JSON balance files?";
+            saveChangesMessage = "Combat config has unsaved changes. Save the JSON balance files?";
             string loadError = null;
             if (sourceDocuments == null && HeroConfigFileStore.AnyFileExists)
             {
@@ -304,7 +314,7 @@ namespace Zatod.Editor
             {
                 sourceDocuments = HeroConfigFileStore.Save(draft, sourceDocuments ?? new HeroConfigDocuments());
                 sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); hasUnsavedChanges = false;
-                SetStatus("SAVED / Stats.txt, Items.txt, Skills.txt, Heroes.txt / " + draft.ConfigVersion);
+                SetStatus("SAVED / "+string.Join(", ",HeroDataJson.Sections.Select(s=>s+".txt"))+" / " + draft.ConfigVersion);
             });
         }
 
@@ -330,6 +340,8 @@ namespace Zatod.Editor
                 BuildUi(); SetStatus("LOADED / " + draft.ConfigVersion);
             });
         }
+
+        public void ReloadIfClean() { if (!hasUnsavedChanges) ReloadFromFile(); }
 
         public static void CreateSampleFiles()
         {

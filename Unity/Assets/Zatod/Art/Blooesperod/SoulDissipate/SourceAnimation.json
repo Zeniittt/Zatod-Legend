@@ -1,0 +1,289 @@
+{
+  "name": "Dissipate",
+  "category": "Effect / TormentedSouls",
+  "source_clip": "Assets/AnimationClip/Dissipate_2.anim",
+  "source_clip_guid": "cd3408f18604a6640be0f75cc0f20c5a",
+  "source_controllers": [
+    "TormentedSouls"
+  ],
+  "animator_states": {
+    "TormentedSouls": [
+      {
+        "name": "Dissipate",
+        "speed": 1,
+        "speed_parameter": null,
+        "speed_parameter_active": 0
+      }
+    ]
+  },
+  "relationship_evidence": "Animator on GameObject TormentedSouls directly embedded in NightLord.prefab. Label is the original object/effect identity, not a skill assignment.",
+  "frame_count": 5,
+  "unique_sprite_count": 5,
+  "source_sample_rate": 12,
+  "duration_seconds": 0.4166667,
+  "loop": false,
+  "canvas": {
+    "width": 87,
+    "height": 64,
+    "anchor_bottom_left": [
+      44,
+      32
+    ]
+  },
+  "events": [
+    {
+      "time": 0.41666666,
+      "functionName": "SelfDestroy",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0
+    }
+  ],
+  "sequence_type": "one PNG per original sprite key, including repeated hold/end keys; use exact per-key durations, not a guessed fixed FPS",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.083333336,
+      "duration_seconds": 0.083333336,
+      "sprite_guid": "bcc3755e89d10b944acae29f3607ff56",
+      "sprite_name": "Dissipate1",
+      "source_asset": "Assets/Sprite/Dissipate1.asset",
+      "source_texture": "Assets/Texture2D/Dissipate1.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 22.07612,
+        "y": 9.07612,
+        "width": 46.86415,
+        "height": 29.876177
+      },
+      "source_pixel_crop_bottom_left": [
+        22,
+        9,
+        47,
+        30
+      ],
+      "source_pivot_normalized": {
+        "x": 0.38246462,
+        "y": 0.4995244
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        17.999999321372997,
+        14.999999390218797
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        30
+      ],
+      "padding_left_top": [
+        26,
+        17
+      ],
+      "export_pivot_pixels_bottom_left": [
+        43.999999321373,
+        31.99999939021879
+      ],
+      "png_sha256": "3dc298751201ff9e131ccd031dcb4b1f2cc963df6619472e6c3bc9ddb7273e67",
+      "raw_png_sha256": "ccd5f427d34938a1116216dce13927cee9518f945d47902b8fbed07d04d095f5"
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.083333336,
+      "end_seconds": 0.16666667,
+      "duration_seconds": 0.083333334,
+      "sprite_guid": "475d48a3dd492124b826bdfd10714dba",
+      "sprite_name": "Dissipate2",
+      "source_asset": "Assets/Sprite/Dissipate2.asset",
+      "source_texture": "Assets/Texture2D/Dissipate2.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 21.07612,
+        "y": 8.012913,
+        "width": 47.832397,
+        "height": 31.935772
+      },
+      "source_pixel_crop_bottom_left": [
+        21,
+        8,
+        48,
+        32
+      ],
+      "source_pivot_normalized": {
+        "x": 0.39562893,
+        "y": 0.50060123
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.00000004444521,
+        15.99999974419956
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        48,
+        32
+      ],
+      "padding_left_top": [
+        25,
+        16
+      ],
+      "export_pivot_pixels_bottom_left": [
+        44.00000004444521,
+        31.999999744199556
+      ],
+      "png_sha256": "6f5ea288d3947e974877a3bbe159168b5975c0c6ae5edf164906a62072b7a274",
+      "raw_png_sha256": "28430a2f777a1a07f5b698a07b09f7f5befc6d2f339bba55cbb8fa7f09b7de55"
+    },
+    {
+      "index": 3,
+      "file": "0003.png",
+      "raw_crop": "Raw_Crops/0003.png",
+      "time_seconds": 0.16666667,
+      "end_seconds": 0.25,
+      "duration_seconds": 0.08333333000000001,
+      "sprite_guid": "c80a3d7de9ad6864d8e2092cc3559e48",
+      "sprite_name": "Dissipate3",
+      "source_asset": "Assets/Sprite/Dissipate3.asset",
+      "source_texture": "Assets/Texture2D/Dissipate3.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 20.07612,
+        "y": 8.012913,
+        "width": 46.897133,
+        "height": 31.950802
+      },
+      "source_pixel_crop_bottom_left": [
+        20,
+        8,
+        47,
+        32
+      ],
+      "source_pivot_normalized": {
+        "x": 0.42484218,
+        "y": 0.50036573
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        20.00000021946994,
+        15.999999366815459
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        32
+      ],
+      "padding_left_top": [
+        24,
+        16
+      ],
+      "export_pivot_pixels_bottom_left": [
+        44.00000021946994,
+        31.99999936681546
+      ],
+      "png_sha256": "da58562547906315a61306a0a263958cf33d19922e0273d9cc2c253e2dd7281c",
+      "raw_png_sha256": "715056ce701e5b791e5c821c0207bfa1a35c4b62829ac0e08564a013020115b2"
+    },
+    {
+      "index": 4,
+      "file": "0004.png",
+      "raw_crop": "Raw_Crops/0004.png",
+      "time_seconds": 0.25,
+      "end_seconds": 0.33333334,
+      "duration_seconds": 0.08333333999999998,
+      "sprite_guid": "ec516c4294233184e97fe3dcb8125013",
+      "sprite_name": "Dissipate4",
+      "source_asset": "Assets/Sprite/Dissipate4.asset",
+      "source_texture": "Assets/Texture2D/Dissipate4.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 20,
+        "y": 8.051316,
+        "width": 46.92388,
+        "height": 31.872562
+      },
+      "source_pixel_crop_bottom_left": [
+        20,
+        8,
+        47,
+        32
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4262222,
+        "y": 0.5003891
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.999999366135995,
+        15.999998613874201
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        32
+      ],
+      "padding_left_top": [
+        24,
+        16
+      ],
+      "export_pivot_pixels_bottom_left": [
+        43.999999366135995,
+        31.999998613874197
+      ],
+      "png_sha256": "9d73fc420beac8187425f9597bb56097daa5a754471e62592b928ef323ee84a6",
+      "raw_png_sha256": "76e6cf11a9ee5cd95541437ae1f1a31c6f8517650c8c9218b090c5b015f0d35b"
+    },
+    {
+      "index": 5,
+      "file": "0005.png",
+      "raw_crop": "Raw_Crops/0005.png",
+      "time_seconds": 0.33333334,
+      "end_seconds": 0.4166667,
+      "duration_seconds": 0.08333336000000002,
+      "sprite_guid": "ed9232a2edcfa25419b8a8ffe19c087a",
+      "sprite_name": "Dissipate5",
+      "source_asset": "Assets/Sprite/Dissipate5.asset",
+      "source_texture": "Assets/Texture2D/Dissipate5.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 23.012913,
+        "y": 10.051316,
+        "width": 29.974174,
+        "height": 27.872562
+      },
+      "source_pixel_crop_bottom_left": [
+        23,
+        10,
+        30,
+        28
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5667241,
+        "y": 0.50044495
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        16.9999997833934,
+        13.9999988964619
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        30,
+        28
+      ],
+      "padding_left_top": [
+        27,
+        18
+      ],
+      "export_pivot_pixels_bottom_left": [
+        43.9999997833934,
+        31.999998896461904
+      ],
+      "png_sha256": "dc5f439cbe403a39eec984436c8da2a5c5d39d3f854897685a402f04f5366ca7",
+      "raw_png_sha256": "8d32d17e15cab3e7372b44fb03ac0dd69b1228ebf640934044b9cb83e401fe21"
+    }
+  ]
+}

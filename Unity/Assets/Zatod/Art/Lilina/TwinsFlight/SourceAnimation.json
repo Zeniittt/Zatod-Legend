@@ -1,0 +1,422 @@
+{
+  "name": "Triggered",
+  "category": "Projectile / ThunderTwins",
+  "source_clip": "Assets/AnimationClip/Triggered_15.anim",
+  "source_clip_guid": "5c6502bdc1ff0ba41a0cea7dd89054fd",
+  "source_controllers": [
+    "ThunderTwinsIdle1"
+  ],
+  "animator_states": {
+    "ThunderTwinsIdle1": [
+      {
+        "name": "Triggered",
+        "speed": 1,
+        "speed_parameter": null,
+        "speed_parameter_active": 0
+      }
+    ]
+  },
+  "relationship_evidence": "Animator on GameObject ThunderTwins directly embedded in SalamanderWitch.prefab. Source sprite track only; transform/material curves remain in source .anim.",
+  "frame_count": 8,
+  "unique_sprite_count": 4,
+  "source_sprite_track_path": "",
+  "source_sample_rate": 24,
+  "duration_seconds": 0.3333333,
+  "loop": true,
+  "canvas": {
+    "width": 131,
+    "height": 74,
+    "anchor_bottom_left": [
+      67,
+      37
+    ]
+  },
+  "events": [],
+  "sequence_type": "one PNG per original sprite key, including repeated hold/end keys; use exact per-key durations, not a guessed fixed FPS",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.041666668,
+      "duration_seconds": 0.041666668,
+      "sprite_guid": "d8e494d77dd26f648851cd2c4eba409e",
+      "sprite_name": "ThunderTwinsTriggered1",
+      "source_asset": "Assets/Sprite/ThunderTwinsTriggered1.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsTriggered1.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 2.026751,
+        "y": 1.042908,
+        "width": 93.9465,
+        "height": 60.914185
+      },
+      "source_pixel_crop_bottom_left": [
+        2,
+        1,
+        94,
+        61
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4893556,
+        "y": 0.5082083
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        45.9999968754,
+        31.000002404735497
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        94,
+        61
+      ],
+      "padding_left_top": [
+        21,
+        7
+      ],
+      "export_pivot_pixels_bottom_left": [
+        66.9999968754,
+        37.0000024047355
+      ],
+      "png_sha256": "994c33fc38d28e58c7722189810cbcb49beeffa1bbe81e1ac296f610d7092115",
+      "raw_png_sha256": "321636736c9205acf718cbfa665fce92af9025b50d25111447573135ba52f8ee"
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.041666668,
+      "end_seconds": 0.083333336,
+      "duration_seconds": 0.041666668,
+      "sprite_guid": "612bb68365cdebf4cad68d5103d18611",
+      "sprite_name": "ThunderTwinsTriggered2",
+      "source_asset": "Assets/Sprite/ThunderTwinsTriggered2.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsTriggered2.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 3.0761204,
+        "width": 96,
+        "height": 59.897125
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        3,
+        96,
+        60
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5,
+        "y": 0.48289263
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        48.0,
+        29.000000620688752
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        96,
+        60
+      ],
+      "padding_left_top": [
+        19,
+        6
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.0,
+        37.00000062068875
+      ],
+      "png_sha256": "d3b6dcb24ea09330af59608abdf17d418eec08d86b3ffabfc33521d4b2b6ea60",
+      "raw_png_sha256": "2847a2e538f41a5874ab0f423b41d5e290cd4bcaa6c5eef4c5c5bbb748f6397e"
+    },
+    {
+      "index": 3,
+      "file": "0003.png",
+      "raw_crop": "Raw_Crops/0003.png",
+      "time_seconds": 0.083333336,
+      "end_seconds": 0.125,
+      "duration_seconds": 0.041666664000000006,
+      "sprite_guid": "ffd6301c9121c1a43b917cd938796bb8",
+      "sprite_name": "ThunderTwinsTriggered3",
+      "source_asset": "Assets/Sprite/ThunderTwinsTriggered3.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsTriggered3.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 14.07612,
+        "y": 0.026750982,
+        "width": 69.87257,
+        "height": 62.897125
+      },
+      "source_pixel_crop_bottom_left": [
+        14,
+        0,
+        70,
+        63
+      ],
+      "source_pivot_normalized": {
+        "x": 0.48551074,
+        "y": 0.50834197
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.0000031664018,
+        31.999999411836253
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        70,
+        63
+      ],
+      "padding_left_top": [
+        33,
+        6
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.0000031664018,
+        36.99999941183626
+      ],
+      "png_sha256": "52c7cb2cab9018589e33ae9bc286951fa44826dd44fd9eebdaed7544b24c4c28",
+      "raw_png_sha256": "c5b8ebff2849fbf1613b9c7c1f633d28d6da4ac5e9b0553f5967e23662fe8d48"
+    },
+    {
+      "index": 4,
+      "file": "0004.png",
+      "raw_crop": "Raw_Crops/0004.png",
+      "time_seconds": 0.125,
+      "end_seconds": 0.16666667,
+      "duration_seconds": 0.04166666999999999,
+      "sprite_guid": "05dffc3edf5e1c643b15735c3dc51462",
+      "sprite_name": "ThunderTwinsTriggered4",
+      "source_asset": "Assets/Sprite/ThunderTwinsTriggered4.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsTriggered4.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 15.026751,
+        "y": 5.0761204,
+        "width": 56.897133,
+        "height": 56.847755
+      },
+      "source_pixel_crop_bottom_left": [
+        15,
+        5,
+        57,
+        57
+      ],
+      "source_pivot_normalized": {
+        "x": 0.579524,
+        "y": 0.47361377
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.00000510469201,
+        26.99999996158635
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        57,
+        57
+      ],
+      "padding_left_top": [
+        34,
+        7
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.00000510469201,
+        36.999999961586354
+      ],
+      "png_sha256": "138c9c554fd14f5a8829b321baeccda0c4e7201159216ac26594b3499782e026",
+      "raw_png_sha256": "8c6f9a07e0f1217e9fcc6bd1b674ba8f36dcff3bd07bd90de459fe5a9b9eb3c5"
+    },
+    {
+      "index": 5,
+      "file": "0005.png",
+      "raw_crop": "Raw_Crops/0005.png",
+      "time_seconds": 0.16666667,
+      "end_seconds": 0.20833333,
+      "duration_seconds": 0.04166666000000002,
+      "sprite_guid": "d8e494d77dd26f648851cd2c4eba409e",
+      "sprite_name": "ThunderTwinsTriggered1",
+      "source_asset": "Assets/Sprite/ThunderTwinsTriggered1.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsTriggered1.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 2.026751,
+        "y": 1.042908,
+        "width": 93.9465,
+        "height": 60.914185
+      },
+      "source_pixel_crop_bottom_left": [
+        2,
+        1,
+        94,
+        61
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4893556,
+        "y": 0.5082083
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        45.9999968754,
+        31.000002404735497
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        94,
+        61
+      ],
+      "padding_left_top": [
+        21,
+        7
+      ],
+      "export_pivot_pixels_bottom_left": [
+        66.9999968754,
+        37.0000024047355
+      ],
+      "png_sha256": "994c33fc38d28e58c7722189810cbcb49beeffa1bbe81e1ac296f610d7092115",
+      "raw_png_sha256": "321636736c9205acf718cbfa665fce92af9025b50d25111447573135ba52f8ee"
+    },
+    {
+      "index": 6,
+      "file": "0006.png",
+      "raw_crop": "Raw_Crops/0006.png",
+      "time_seconds": 0.20833333,
+      "end_seconds": 0.25,
+      "duration_seconds": 0.04166666999999999,
+      "sprite_guid": "612bb68365cdebf4cad68d5103d18611",
+      "sprite_name": "ThunderTwinsTriggered2",
+      "source_asset": "Assets/Sprite/ThunderTwinsTriggered2.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsTriggered2.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 3.0761204,
+        "width": 96,
+        "height": 59.897125
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        3,
+        96,
+        60
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5,
+        "y": 0.48289263
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        48.0,
+        29.000000620688752
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        96,
+        60
+      ],
+      "padding_left_top": [
+        19,
+        6
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.0,
+        37.00000062068875
+      ],
+      "png_sha256": "d3b6dcb24ea09330af59608abdf17d418eec08d86b3ffabfc33521d4b2b6ea60",
+      "raw_png_sha256": "2847a2e538f41a5874ab0f423b41d5e290cd4bcaa6c5eef4c5c5bbb748f6397e"
+    },
+    {
+      "index": 7,
+      "file": "0007.png",
+      "raw_crop": "Raw_Crops/0007.png",
+      "time_seconds": 0.25,
+      "end_seconds": 0.29166666,
+      "duration_seconds": 0.04166666000000002,
+      "sprite_guid": "ffd6301c9121c1a43b917cd938796bb8",
+      "sprite_name": "ThunderTwinsTriggered3",
+      "source_asset": "Assets/Sprite/ThunderTwinsTriggered3.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsTriggered3.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 14.07612,
+        "y": 0.026750982,
+        "width": 69.87257,
+        "height": 62.897125
+      },
+      "source_pixel_crop_bottom_left": [
+        14,
+        0,
+        70,
+        63
+      ],
+      "source_pivot_normalized": {
+        "x": 0.48551074,
+        "y": 0.50834197
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.0000031664018,
+        31.999999411836253
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        70,
+        63
+      ],
+      "padding_left_top": [
+        33,
+        6
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.0000031664018,
+        36.99999941183626
+      ],
+      "png_sha256": "52c7cb2cab9018589e33ae9bc286951fa44826dd44fd9eebdaed7544b24c4c28",
+      "raw_png_sha256": "c5b8ebff2849fbf1613b9c7c1f633d28d6da4ac5e9b0553f5967e23662fe8d48"
+    },
+    {
+      "index": 8,
+      "file": "0008.png",
+      "raw_crop": "Raw_Crops/0008.png",
+      "time_seconds": 0.29166666,
+      "end_seconds": 0.3333333,
+      "duration_seconds": 0.04166663999999998,
+      "sprite_guid": "05dffc3edf5e1c643b15735c3dc51462",
+      "sprite_name": "ThunderTwinsTriggered4",
+      "source_asset": "Assets/Sprite/ThunderTwinsTriggered4.asset",
+      "source_texture": "Assets/Texture2D/ThunderTwinsTriggered4.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 15.026751,
+        "y": 5.0761204,
+        "width": 56.897133,
+        "height": 56.847755
+      },
+      "source_pixel_crop_bottom_left": [
+        15,
+        5,
+        57,
+        57
+      ],
+      "source_pivot_normalized": {
+        "x": 0.579524,
+        "y": 0.47361377
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.00000510469201,
+        26.99999996158635
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        57,
+        57
+      ],
+      "padding_left_top": [
+        34,
+        7
+      ],
+      "export_pivot_pixels_bottom_left": [
+        67.00000510469201,
+        36.999999961586354
+      ],
+      "png_sha256": "138c9c554fd14f5a8829b321baeccda0c4e7201159216ac26594b3499782e026",
+      "raw_png_sha256": "8c6f9a07e0f1217e9fcc6bd1b674ba8f36dcff3bd07bd90de459fe5a9b9eb3c5"
+    }
+  ]
+}

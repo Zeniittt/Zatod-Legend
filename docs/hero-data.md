@@ -1,5 +1,13 @@
 # HeroDesk data, phase 1
 
+## Giao diện danh sách và chi tiết
+
+`HeroRosterView` và `FormationView` dùng cùng instance `CharacterData` và `HeroCatalog`. Không tạo HeroDesk riêng cho màn chi tiết. Row danh sách hiển thị bậc, tên, level/sao và sáu ô yêu cầu của recipe hiện tại; không lấy trang bị đã hấp thụ làm yêu cầu bậc hiện tại. Bậc cuối chưa có recipe thì ô tương ứng trống. Cả list và Stats dùng ScrollRect/RectMask2D.
+
+`HeroDetailView` hiện chỉ có Base; Skill/Skin/Awaken vô hiệu hóa. Khi mở, level/EXP/sao đọc từ `HeroData`, stats gọi bộ tính hiện hành, rồi hiển thị kết quả. Attack interval của prototype được đổi từ tick 20 Hz sang giây để hiển thị. Xem và đóng chi tiết không sửa dữ liệu tiến trình, currencies hay inventory. Nút đóng giữ vị trí cuộn và bộ lọc danh sách. Nguồn soul có thể cung cấp qua `HeroRosterView.SoulCountProvider`, mặc định 0; chưa có logic sở hữu/nâng sao bằng soul.
+
+Các số Gold/Diamond/Stamina và power là placeholder UI, không thêm vào CharacterData hoặc công thức stats. Khu vực giữa dành cho sáu trang bị/Quick Equip/model được giữ trống. Art đang dùng glyph vai trò của prototype; Sprite tùy chọn theo đường dẫn `HeroPortraits/<HeroDefinitionId>` trong Resources. Các field/config/gameplay Hero không bị thay đổi bởi việc thêm UI này.
+
 ## Cách sử dụng trong Editor
 
 Mở **Zatod > Heroes > Hero Balance**. Cửa sổ UI Toolkit có bốn tab, mỗi tab tương ứng một file JSON `.txt` tại `Unity/Assets/Zatod/Resources/Data/`:
@@ -24,7 +32,9 @@ Hero mẫu `training_warrior`: base damage 5, mỗi `axe_basic` +5 damage; Trắ
 ## Data và nguồn dữ liệu chính
 
 - `CharacterData.HeroDesk` là `List<HeroData>`, không có manager/model riêng bao bên ngoài danh sách.
+- `CharacterData.Formation.HeroInstanceIds` lưu tối đa năm ID Hero sở hữu, không sao chép HeroData. `HeroFormation` kiểm tra quyền sở hữu/ID trùng, chọn/bỏ chọn, lọc vị trí và xếp Trước → Giữa → Sau. Đây là logic đội hình local, chưa phải validation lệnh Arena trên server.
 - `HeroDefinition`: base stats, chuỗi rank và skill slots. `ItemDefinition`: stats của item. `SkillDefinition`: active/passive, trigger, target, timing, energy và danh sách effect. `HeroCatalogData` chứa các config và phiên bản.
+- `HeroDefinition.Position` có Front/Middle/Rear; `PortraitKey` chọn icon vai trò tạm. Editor balance chỉnh được các field này trong tab Heroes. Các Hero mẫu UI dùng chung bộ skill/recipe prototype, không đại diện cân bằng cuối cùng.
 - `HeroData`: HeroInstanceId, HeroDefinitionId, RankId; trang bị đang mặc, lịch sử hấp thụ, level của từng skill slot. Level/Exp/Stars/Awakened mới là field dự phòng, chưa có luật phát triển hoặc thưởng chỉ số từ các field này.
 - `HeroData.Definition` là tham chiếu dùng trong bộ nhớ, đánh dấu `[NonSerialized]`. `HeroDataJson.ReadCharacter` gọi `catalog.Bind` để resolve lại. File tiến trình không chứa bản sao config hoặc tổng stats.
 - `HeroBattleData`: bản sao stats và những skill đã mở, cùng HP/energy/cooldown runtime ban đầu. Skill definition và các effect cũng được copy; không chia sẻ object có thể sửa với config hoặc trận khác. Chưa có bộ xử lý skill, buff/debuff hoặc điều kiện phó bản.
@@ -92,7 +102,7 @@ JSON save/load helper kiểm tra schema và HeroDesk, resolve references và ghi
 .\scripts\Run-HeroChecks.ps1
 ```
 
-76 assertions .NET kiểm tra rank/gear, không cộng trùng, skill unlock, terminal rank, HeroInstanceId, ví dụ 20→33, recipe grandfathering, chèn bậc, battle snapshot tách biệt, config/owned data không hợp lệ và overflow.
+93 assertions .NET kiểm tra rank/gear, không cộng trùng, skill unlock, terminal rank, HeroInstanceId, ví dụ 20→33, recipe grandfathering, chèn bậc, battle snapshot tách biệt, config/owned data không hợp lệ, overflow và chọn/lọc/lưu đội hình bằng ID Hero sở hữu.
 
 `Unity/AgentScripts/VerifyHeroData.cs` có 81 assertions chạy bằng Unity Pipeline để kiểm chứng JsonUtility thật, bốn TextAsset, thiếu file/lệch version, reference giữa bảng, save/load disk và các nút/callback của từng tab. Script khôi phục cả bốn file ban đầu sau test save. Ảnh UI: `Artifacts/hero-balance-tabs.png`.
 

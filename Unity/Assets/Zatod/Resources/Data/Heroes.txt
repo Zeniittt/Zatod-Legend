@@ -1,11 +1,19 @@
 {
     "SchemaVersion": 1,
-    "ConfigVersion": "heroes-prototype-1-split-1",
+    "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1",
     "Heroes": [
         {
             "Id": "training_warrior",
             "Name": "Training Warrior",
             "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "shield",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
             "BaseStats": [
                 {
                     "StatId": "health",
@@ -168,6 +176,3982 @@
                 {
                     "Id": "skill_4",
                     "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "ember_blade",
+            "Name": "Ember Blade",
+            "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "blades",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "grove_warden",
+            "Name": "Grove Warden",
+            "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "shield",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "ironhide",
+            "Name": "Ironhide",
+            "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "shield",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "dawn_knight",
+            "Name": "Dawn Knight",
+            "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "blades",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "stone_guard",
+            "Name": "Stone Guard",
+            "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "shield",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "windrunner",
+            "Name": "Windrunner",
+            "StartingRankId": "white",
+            "Position": 1,
+            "PortraitKey": "bow",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "moon_huntress",
+            "Name": "Moon Huntress",
+            "StartingRankId": "white",
+            "Position": 1,
+            "PortraitKey": "bow",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "shadow_dancer",
+            "Name": "Shadow Dancer",
+            "StartingRankId": "white",
+            "Position": 1,
+            "PortraitKey": "blades",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "frost_archer",
+            "Name": "Frost Archer",
+            "StartingRankId": "white",
+            "Position": 1,
+            "PortraitKey": "bow",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "stormcaller",
+            "Name": "Stormcaller",
+            "StartingRankId": "white",
+            "Position": 1,
+            "PortraitKey": "star",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "sunweaver",
+            "Name": "Sunweaver",
+            "StartingRankId": "white",
+            "Position": 1,
+            "PortraitKey": "star",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "star_sage",
+            "Name": "Star Sage",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "star",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "dawn_priestess",
+            "Name": "Dawn Priestess",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "cross",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "night_oracle",
+            "Name": "Night Oracle",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "star",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "grove_keeper",
+            "Name": "Grove Keeper",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "cross",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "tide_healer",
+            "Name": "Tide Healer",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "cross",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "void_scholar",
+            "Name": "Void Scholar",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "star",
+            "BodyPrefabResource": "",
+            "AnimationSetResource": "",
+            "NormalAttackSkillId": "",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 5
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 10
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 27
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "warrior_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "warrior_strike",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "warrior_guard",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "warrior_heal",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "leenald",
+            "Name": "Leenald",
+            "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "leenald",
+            "BodyPrefabResource": "Heroes/Leenald/Leenald",
+            "AnimationSetResource": "Heroes/Leenald/AnimationSet",
+            "NormalAttackSkillId": "leenald_normal_attack",
+            "ProjectileHurtboxHeight": 100,
+            "DeathAnimationMilliseconds": 1500,
+            "SpawnPoints": [
+                {
+                    "Id": "feet",
+                    "Forward": 0,
+                    "Height": 0
+                }
+            ],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 4800
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 220
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 60
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 26
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "leenald_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "leenald_skill2",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "leenald_skill3",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "leenald_skill4",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "kavern",
+            "Name": "Kavern",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "kavern",
+            "BodyPrefabResource": "Heroes/Kavern/Kavern",
+            "AnimationSetResource": "Heroes/Kavern/AnimationSet",
+            "NormalAttackSkillId": "kavern_normal_attack",
+            "ProjectileHurtboxHeight": 172,
+            "DeathAnimationMilliseconds": 1584,
+            "SpawnPoints": [
+                {
+                    "Id": "feet",
+                    "Forward": 0,
+                    "Height": 0
+                },
+                {
+                    "Id": "bow",
+                    "Forward": 128,
+                    "Height": 124
+                },
+                {
+                    "Id": "air_bow",
+                    "Forward": 124,
+                    "Height": 360
+                },
+                {
+                    "Id": "beam",
+                    "Forward": 0,
+                    "Height": 108
+                }
+            ],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 3000
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 240
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 25
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 3000
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 28
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "kavern_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "kavern_skill2",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "kavern_skill3",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "kavern_skill4",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "enchantx",
+            "Name": "Enchantx",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "enchantx",
+            "BodyPrefabResource": "Heroes/Enchantx/Enchantx",
+            "AnimationSetResource": "Heroes/Enchantx/AnimationSet",
+            "NormalAttackSkillId": "enchantx_normal_attack",
+            "ProjectileHurtboxHeight": 200,
+            "DeathAnimationMilliseconds": 1200,
+            "SpawnPoints": [
+                {
+                    "Id": "feet",
+                    "Forward": 0,
+                    "Height": 0
+                },
+                {
+                    "Id": "bow",
+                    "Forward": 114,
+                    "Height": 128
+                },
+                {
+                    "Id": "wind",
+                    "Forward": 70,
+                    "Height": 152
+                }
+            ],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 2800
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 225
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 20
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 3200
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1600
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 26
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "enchantx_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "enchantx_skill2",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "enchantx_skill3",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "enchantx_skill4",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "blooesperod",
+            "Name": "Blooesperod",
+            "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "blooesperod",
+            "BodyPrefabResource": "Heroes/Blooesperod/Blooesperod",
+            "AnimationSetResource": "Heroes/Blooesperod/AnimationSet",
+            "NormalAttackSkillId": "blooesperod_normal_attack",
+            "ProjectileHurtboxHeight": 236,
+            "DeathAnimationMilliseconds": 5201,
+            "SpawnPoints": [
+                {
+                    "Id": "soul",
+                    "Forward": 40,
+                    "Height": 200
+                }
+            ],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 4800
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 200
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 45
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 150
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1100
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 24
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "blooesperod_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "blooesperod_skill2",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "blooesperod_skill3",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "blooesperod_skill4",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "lilina",
+            "Name": "Lilina",
+            "StartingRankId": "white",
+            "Position": 2,
+            "PortraitKey": "lilina",
+            "BodyPrefabResource": "Heroes/Lilina/Lilina",
+            "AnimationSetResource": "Heroes/Lilina/AnimationSet",
+            "NormalAttackSkillId": "lilina_normal_attack",
+            "ProjectileHurtboxHeight": 256,
+            "DeathAnimationMilliseconds": 3080,
+            "SpawnPoints": [
+                {
+                    "Id": "hand",
+                    "Forward": 120,
+                    "Height": 120
+                },
+                {
+                    "Id": "dragon",
+                    "Forward": 180,
+                    "Height": 116
+                }
+            ],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 2600
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 230
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 15
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 3000
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1300
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 24
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "lilina_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "lilina_skill2",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "lilina_skill3",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "lilina_skill4",
                     "IsUltimate": false
                 }
             ]

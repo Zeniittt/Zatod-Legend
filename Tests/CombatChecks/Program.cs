@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using Zatod.Combat;
+using Zatod.Heroes;
 
 static class Program
 {
@@ -15,6 +16,7 @@ static class Program
     static void Main()
     {
         MovementScenarios();
+        ProjectileOrigins();
         foreach (string opponent in PrototypeTeams.OpponentIds)
         for (uint seed = 1; seed <= 12; seed++)
         {
@@ -84,6 +86,48 @@ static class Program
         try { new ReplayTimeline(new BattleRecord { schemaVersion = 999 }); } catch (ArgumentException) { rejected = true; }
         Check(rejected, "Unknown replay version rejected");
         Console.WriteLine($"ALL PASS: {assertions:N0} assertions across 36 matches plus movement scenarios, every replay tick, snapshots, persistence round trips and timeout.");
+    }
+
+    static void ProjectileOrigins()
+    {
+        BattleRecord Fire(int direction, int height, int extraForward = 0)
+        {
+            int casterId = direction > 0 ? 1 : 101, victimId = direction > 0 ? 101 : 1;
+            var skill = new SkillDefinition { Id = "test-shot", Name = "Test shot", Target = SkillTarget.NearestEnemy,
+                Activation = SkillActivation.Automatic, CastRange = 1000, Delivery = SkillDelivery.Projectile,
+                ProjectileResource = "Test/Shot", ProjectileSpawnPointId = "muzzle", ProjectileSpawnOffsetForward = 10,
+                ProjectileSpeed = 1000, ProjectileHitRadius = 5, ProjectileLifetimeMilliseconds = 1000,
+                Effects = new List<SkillEffectDefinition> { new SkillEffectDefinition { Kind = SkillEffectKind.Damage, Amount = 100 } } };
+            var data = new HeroBattleData { HeroDefinitionId = "another-hero", SpawnPoints = new List<HeroSpawnPointDefinition>
+                { new HeroSpawnPointDefinition { Id = "muzzle", Forward = 70 + extraForward, Height = height } },
+                Skills = new List<BattleSkillData> { new BattleSkillData { SlotId = "shot", Definition = skill } } };
+            var initial = new List<FighterState>
+            {
+                new FighterState { id = casterId, team = direction > 0 ? 0 : 1, hp = 500, maxHp = 500, attackInterval = 20 },
+                new FighterState { id = victimId, team = direction > 0 ? 1 : 0, x = direction * 300, hp = 500, maxHp = 500, projectileHurtboxHeight = 100 }
+            };
+            var loadouts = new List<FighterLoadout> {
+                new FighterLoadout { fighterId = casterId, hero = data, disableBasicAttacks = true, skillCastLimit = 1 },
+                new FighterLoadout { fighterId = victimId, hero = new HeroBattleData(), disableBasicAttacks = true } };
+            var simulation = new BattleSimulation("origin-test", "test", 123, initial, loadouts, 60);
+            data.SpawnPoints[0].Forward = 999; // A later balance edit must not move this shot.
+            return simulation.RunToCompletion();
+        }
+        foreach (int direction in new[] { 1, -1 })
+        {
+            var record = Fire(direction, 40); var shot = record.projectiles.Single();
+            Check(shot.hasSpawnPoint && shot.spawnPointId == "muzzle", "Generic spawn point missing");
+            Check(shot.startX == direction * 80 && shot.spawnHeight == 40, "Mirrored/frozen spawn position wrong");
+            Check(shot.hit && record.events.Any(e => e.kind == BattleEventKind.Damage), "Shot from muzzle did not damage");
+            Check(shot.endX == direction * 295, "Contact point not calculated from swept hit shape");
+            var forward = Fire(direction, 40, 100).projectiles.Single();
+            Check(forward.startX == direction * 180 && forward.endTick < shot.endTick, "Collision ignored projectile origin offset");
+            var high = Fire(direction, 200);
+            Check(!high.projectiles.Single().hit && !high.events.Any(e => e.kind == BattleEventKind.Damage), "High muzzle hit a lower hurtbox");
+            var timeline = new ReplayTimeline(record); timeline.Seek(record.durationTicks);
+            Check(timeline.States.Values.Any(f => f.hp < 500), "Origin shot outcome lost from replay");
+        }
+        Console.WriteLine("PASS generic projectile spawn points, facing, frozen config, swept contact and height-aware damage");
     }
 
     static FighterState Unit(int id, int team, int slot, int x, int range)

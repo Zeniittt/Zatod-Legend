@@ -1,0 +1,6 @@
+Monk ORIGINAL pixel (frame 288x128, khong sua gi, giu nguyen 7 mau cua goi goc). Chi tach anim va projectile.
+Idle 6, Run 8, Death 18 (frame 18 rong nhu nguon), TakeHit 6, Attack = 2_atk 12, Skill3 = meditate 16, Skill4 = air_atk 7
+Ultimate = sp_atk 25 (hero, da tach projectile) + Ultimate_Projectile (ban tay dat, frame 4-24)
+Skill2 = 3_atk frame 12-23 (hero, da tach) + Skill2_Projectile (dat troi len, frame 17-22)
+Hero va projectile cung goc toa do (canvas 288x128). projectile_bboxes.json: khung bao projectile.
+Frame sp_atk 6, 7: hero lay tu frame 8 (cung tu the); frame 4-7 projectile co phan tu dien khuyet nhung mau van thuoc 7 mau goc.

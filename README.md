@@ -2,7 +2,73 @@
 
 Unity **6000.6.2f1**, Universal 2D (URP), giao diện ngang 16:9. Mirror **v96.11.5**, TCP/Telepathy.
 
-Prototype gồm **combat + bản ghi Arena offline** và nền **data HeroDesk / công cụ balance Hero**. Arena vẫn dùng hai đội giả lập 5v5; data Hero chưa nối vào tài khoản hoặc đội hình Arena.
+**Campaign chương 1:** 5 ải, mỗi ải 5 Monster chiến đấu thật; map → preview địch → chọn 1–5 Hero → Battle → kết quả/replay/ải tiếp theo. Chạy `scripts/Start-Server.ps1`, mở scene ArenaPrototype hoặc bản Windows, bấm **KẾT NỐI** để lấy tiến độ. Campaign dùng server riêng và giữ tiến độ qua replay đã lưu. Hướng dẫn/config: [docs/campaign.md](docs/campaign.md).
+
+**Lilina** là Hero có art thứ năm, lấy từ SalamanderWitch HeroKit v3. Đã kiểm tra bốn chiêu trước khi tiếp tục Campaign: rồng phun lửa, tia sét xuyên hàng, hai cầu sét truy đuổi và hơi lửa gây Burn. **Combat Sandbox → Lilina → TEST ALL SKILLS / highest rank**. Mapping, thông số và nguồn art: [docs/lilina.md](docs/lilina.md).
+
+**Blooesperod** đã được dựng từ NightLord HeroKit v3: cận chiến hàng trước, đánh thường hai nhát, Ultimate oan hồn hút máu, Huyết Trảo bắt địch xa nhất, nhát chém địch yếu máu/phía sau và hồi sinh sau 2 giây. Test đủ kit tại **Combat Sandbox → Blooesperod → TEST ALL SKILLS / highest rank**. Riêng Skill4: chọn Purple, Hero HP 1%, cho quái đánh chết để kích hoạt. Thông số prototype và hướng dẫn: [docs/blooesperod.md](docs/blooesperod.md).
+
+**Monster trong Combat Sandbox:** giữ một Hero, chọn 1–5 quái có thể trùng loại bằng **Monster to add / Add Monster**. Đã có Fighter Goblin, Goblin Mage bắn cầu lửa và Skeleton Knight; quái di chuyển, đánh trả, chịu khống chế và chết trong mọi chế độ test. **Monster HP override = 0** dùng HP từ config. Balance tại **Zatod > Monsters > Monster Balance**. Chi tiết: [docs/monsters.md](docs/monsters.md).
+
+Danh sách Monster hiện có thêm **Guardian**, **Archer** bắn tên, **Huntress** ném lao và **Evil Wizard** bắn cầu phép có hiệu ứng nổ. Chọn trong dropdown của từng slot hoặc **Monster to add** rồi tạo trận mới để thử.
+
+**Enchantx** đã có trong roster/đội hình và Combat Sandbox. Skill3 thi triển ngay đầu trận khi đã mở khóa: lần đầu nhảy/chạy nhập trận rồi triệu hồi FlameWings; lần sau đứng tại chỗ triệu hồi. Để xem cả hai: chọn Enchantx/Purple, **Single-skill casts = 2**, **Duration = 25**, bấm Skill3. **TEST ALL SKILLS / highest rank** thử toàn bộ kit. Chi tiết cơ chế và chỉ số prototype: [docs/enchantx.md](docs/enchantx.md).
+
+Hero thứ hai **Kavern** đã có trong danh sách/đội hình và Combat Sandbox. Chọn Kavern rồi **TEST ALL SKILLS / highest rank** để thử đủ bốn chiêu; Skill 3 chỉ chọn hai địch, mỗi địch có một ArrowShower ở chân; Skill 4 choáng 1 giây khi trúng. Config/timing/chỉ số mẫu: [docs/kavern.md](docs/kavern.md).
+
+Thử Leenald: build **Zatod > Build Leenald Battle Preview**, chạy `./scripts/Start-Server.ps1 -BuildFolder LeenaldBattle`, mở `Builds/LeenaldBattle/ZatodArena.exe`. Từ danh sách Hero bấm Back, chọn Leenald và tối đa 4 đồng đội, rồi **Battle**. White mở đánh thường + Ulti; chưa tự mở các skill khóa bậc. Có thể chơi client trong Unity Play Mode với cùng server.
+
+Test nhanh mọi Hero trong Editor: mở scene ArenaPrototype, vào **Zatod > Heroes > Combat Sandbox**, chọn Hero rồi **TEST ALL SKILLS / highest rank**. Công cụ tự vào Play Mode, tạo Hero tạm ở bậc cao nhất và đội Monster đánh trả. Có nút riêng từng chiêu, đánh thường, tùy chỉnh HP/energy/khoảng cách/số mục tiêu/seed; **-1 tick / +1 tick** để quan sát tiếp xúc chính xác. Save balance rồi **Reload saved config** để thử lại, không cần build Windows/server. Đây là preview dùng cùng combat core; không khởi tạo host, ghi HeroDesk hoặc lưu kết quả Arena. Xem [docs/combat-sandbox.md](docs/combat-sandbox.md).
+
+Prototype gồm **combat + bản ghi Arena offline** và nền **data HeroDesk / công cụ balance Hero**. Arena nhận đội hình đã chọn từ HeroDesk sandbox; server tự lấy config và tính stats, client chỉ gửi HeroInstanceId. Chưa có đăng nhập hoặc tài khoản production.
+
+## Danh sách và chi tiết Hero
+
+Hero thật đầu tiên: **Leenald**, hàng trước/cận chiến, đã có icon, prefab, chín animation nhân vật và hai projectile. Mở Leenald trong danh sách để thấy model Idle; vào **Zatod > Heroes > Leenald Animation Preview** khi Play để thử các clip. Đã vào Arena: chạy, đánh thường, Ulti projectile gây choáng; skill mở thêm theo bậc. Animation chạy theo thời gian replay. Chi tiết mapping, stats và timing: [docs/leenald.md](docs/leenald.md).
+
+Play scene `Unity/Assets/Zatod/Scenes/ArenaPrototype.unity` mở Campaign trước; bấm Back để vào **Danh sách Hero**. Danh sách hai cột đọc cùng `HeroDesk` với màn đội hình: icon/khung bậc, tên, level/sao và sáu ô trang bị yêu cầu của bậc hiện tại. Bậc Tím mẫu đang là bậc cuối nên sáu ô yêu cầu để trống. Bộ lọc chỉ có **All / Trước / Giữa / Sau**.
+
+Click một Hero để mở **HeroDetailView**. Tab **Base** hiển thị level, EXP, sao và toàn bộ stats từ `HeroStatCalculator`; stats cuộn được. Skill/Skin/Awaken mới là tab chờ. Vùng trang bị/Quick Equip vẫn để trống; Hero đã có prefab như Leenald sẽ hiện model. Đóng chi tiết giữ bộ lọc và vị trí cuộn danh sách.
+
+Gold/Diamond/Stamina và power dùng số mẫu. Soul mặc định 0, có `SoulCountProvider` để nối nguồn mảnh hồn sau. UI không tiêu item, tăng level/sao, hoặc ghi đè stats đã tính vào HeroData. Chân dung dùng icon vai trò tạm; có thể đặt Sprite tại `Resources/HeroPortraits/<HeroDefinitionId>` để thay bằng hình Hero.
+
+Back ở danh sách mở màn đội hình; nút **HEROES** ở màn đội hình quay lại danh sách. Đây là đường đi tạm khi chưa có màn chính. Build bằng **Zatod > Build Hero Preview**, executable ở `Builds/HeroPreview/ZatodArena.exe`.
+
+## Danh sách và chi tiết Hero
+
+Play scene `Unity/Assets/Zatod/Scenes/ArenaPrototype.unity` mở Campaign trước; bấm Back để vào **Danh sách Hero**. Danh sách hai cột đọc cùng `HeroDesk` với màn đội hình: icon/khung bậc, tên, level/sao và sáu ô trang bị yêu cầu của bậc hiện tại. Bậc Tím mẫu đang là bậc cuối nên sáu ô yêu cầu để trống. Bộ lọc chỉ có **All / Trước / Giữa / Sau**.
+
+Click một Hero để mở **HeroDetailView**. Tab **Base** hiển thị level, EXP, sao và toàn bộ stats từ `HeroStatCalculator`; stats cuộn được. Skill/Skin/Awaken mới là tab chờ. Vùng trang bị/Quick Equip/model ở giữa để trống như yêu cầu. Đóng chi tiết giữ bộ lọc và vị trí cuộn danh sách.
+
+Gold/Diamond/Stamina và power dùng số mẫu. Soul mặc định 0, có `SoulCountProvider` để nối nguồn mảnh hồn sau. UI không tiêu item, tăng level/sao, hoặc ghi đè stats đã tính vào HeroData. Chân dung dùng icon vai trò tạm; có thể đặt Sprite tại `Resources/HeroPortraits/<HeroDefinitionId>` để thay bằng hình Hero.
+
+Back ở danh sách mở màn đội hình; nút **HEROES** ở màn đội hình quay lại danh sách. Đây là đường đi tạm khi chưa có màn chính. Build bằng **Zatod > Build Hero Preview**, executable ở `Builds/HeroPreview/ZatodArena.exe`.
+
+## Chọn đội hình
+
+Từ danh sách Hero, bấm Back để mở màn chọn đội hình.
+
+- Click Hero để chọn/bỏ chọn, tối đa 5. Click một ô Hero đã chọn cũng bỏ chọn được. Ô đội hình tự xếp Trước → Giữa → Sau.
+- Bộ lọc **All / Trước / Giữa / Sau**, danh sách cuộn, và một tab **Hero** hiển thị toàn bộ Hero đang có. `FormationView.Tabs` cho phép khai báo thêm tab về sau.
+- Hai vùng gợi ý phía trên và thông tin bên phải để trống. Back tạm vô hiệu hóa; không có STR/INT/AGI hoặc preset.
+- **Battle** mở Arena hiện tại và tự kết nối server riêng, tạo trận mới khi kết nối thành công. Cần server chạy trước. Nút **SQUAD** trong Arena quay lại đội hình và giữ lựa chọn.
+
+Hiện có **Leenald và 18 Hero mẫu**, khởi tạo `CharacterData.HeroDesk` sandbox từ config. Đội hình lưu HeroInstanceId trong `CharacterData.Formation`; server kiểm tra ID thuộc profile thử nghiệm, xếp Trước → Giữa → Sau rồi dựng trận bằng stats và skill snapshot riêng. Đội phòng thủ vẫn dùng mẫu.
+
+Build UI mới bằng **Zatod > Build Formation Preview**. Executable nằm ở `Builds/FormationPreview/ZatodArena.exe`, tách khỏi bản Windows/server đang chạy. Chạy cùng server trên cổng 7777/TCP. **Zatod > Setup Formation Selector** dùng để cài lại component UI/font/Hero mẫu vào scene hiện tại nếu cần; không dựng lại toàn bộ scene.
+
+## Chọn đội hình
+
+Từ danh sách Hero, bấm Back để mở màn chọn đội hình.
+
+- Click Hero để chọn/bỏ chọn, tối đa 5. Click một ô Hero đã chọn cũng bỏ chọn được. Ô đội hình tự xếp Trước → Giữa → Sau.
+- Bộ lọc **All / Trước / Giữa / Sau**, danh sách cuộn, và một tab **Hero** hiển thị toàn bộ Hero đang có. `FormationView.Tabs` cho phép khai báo thêm tab về sau.
+- Hai vùng gợi ý phía trên và thông tin bên phải để trống. Back tạm vô hiệu hóa; không có STR/INT/AGI hoặc preset.
+- **Battle** mở Arena hiện tại và tự kết nối server riêng, tạo trận mới khi kết nối thành công. Cần server chạy trước. Nút **SQUAD** trong Arena quay lại đội hình và giữ lựa chọn.
+
+Hiện có **Leenald và 18 Hero mẫu**, khởi tạo `CharacterData.HeroDesk` sandbox từ config. Đội hình lưu HeroInstanceId trong `CharacterData.Formation`; server kiểm tra ID thuộc profile thử nghiệm, xếp Trước → Giữa → Sau rồi dựng trận bằng stats và skill snapshot riêng. Đội phòng thủ vẫn dùng mẫu.
+
+Build UI mới bằng **Zatod > Build Formation Preview**. Executable nằm ở `Builds/FormationPreview/ZatodArena.exe`, tách khỏi bản Windows/server đang chạy. Chạy cùng server trên cổng 7777/TCP. **Zatod > Setup Formation Selector** dùng để cài lại component UI/font/Hero mẫu vào scene hiện tại nếu cần; không dựng lại toàn bộ scene.
 
 ## HeroDesk và balance Hero
 
@@ -13,7 +79,7 @@ Mở **Zatod > Heroes > Hero Balance** trong Unity. Config JSON được tách t
 - **Save + reload preview HeroDesk** ghi tiến trình sandbox ở `Artifacts/HeroDeskPreview.json`, rồi load lại để kiểm tra.
 - **Validate** kiểm tra liên kết giữa bốn bảng. Khi cân bằng, đổi `ConfigVersion` rồi **Save all config**; thay đổi draft chưa tự ghi xuống file. Chuyển tab giữ nguyên các chỉnh sửa đang có.
 
-`CharacterData.HeroDesk` là `List<HeroData>`. File lưu chỉ giữ ID và tiến trình; `HeroDefinition` được resolve khi load, stats được tính theo config đang áp dụng. Level, sao, Currencies và các phần dữ liệu nhân vật khác hiện chỉ có khai báo. Kỹ năng hiện có config/unlock và snapshot; chưa chạy effect trong combat.
+`CharacterData.HeroDesk` là `List<HeroData>`. File lưu chỉ giữ ID và tiến trình; `HeroDefinition` được resolve khi load, stats được tính theo config đang áp dụng. Level, sao, Currencies và các phần dữ liệu nhân vật khác hiện chỉ có khai báo. Arena thực thi các active effect Damage/Heal/Stun/KnockUp/Knockback được dùng cho Leenald. Passive/StatBonus và tăng trưởng level/sao chưa được mở rộng trong combat.
 
 Hợp đồng data, ví dụ code và giới hạn phase này: [docs/hero-data.md](docs/hero-data.md).
 

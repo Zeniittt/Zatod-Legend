@@ -38,6 +38,7 @@ namespace Zatod.Heroes
         public long Revision, Exp;
         public int Level = 1;
         public List<HeroData> HeroDesk = new List<HeroData>();
+        public HeroFormationData Formation = new HeroFormationData();
         public List<Currency> Currencies = new List<Currency>();
         public List<ItemStackData> Inventory = new List<ItemStackData>();
         public CampaignProgressData MainCampaignProgress = new CampaignProgressData();
@@ -50,16 +51,34 @@ namespace Zatod.Heroes
     [Serializable] public sealed class QuestProgressData { public string Id, PeriodId; public long Progress; public bool Claimed; }
 
     [Serializable]
-    public sealed class HeroBattleData
+    public class CombatantBattleData
     {
-        public string ConfigVersion, HeroInstanceId, HeroDefinitionId;
+        public string ConfigVersion;
+        public bool HasNormalAttack;
+        public SkillDefinition NormalAttack;
         public List<StatValue> Stats = new List<StatValue>();
-        public List<HeroBattleSkillData> Skills = new List<HeroBattleSkillData>();
+        public List<HeroSpawnPointDefinition> SpawnPoints = new List<HeroSpawnPointDefinition>();
+        public List<BattleSkillData> Skills = new List<BattleSkillData>();
         public int CurrentHp, Energy;
+        public CombatantBattleData Copy()
+        {
+            var copy=(CombatantBattleData)MemberwiseClone();
+            copy.NormalAttack=HasNormalAttack?NormalAttack.Copy():null;
+            copy.Stats=Stats.ConvertAll(s=>s.Copy());copy.SpawnPoints=SpawnPoints.ConvertAll(p=>p.Copy());
+            copy.Skills=Skills.ConvertAll(s=>new BattleSkillData{SlotId=s.SlotId,Level=s.Level,IsUltimate=s.IsUltimate,
+                CooldownRemainingMilliseconds=s.CooldownRemainingMilliseconds,Definition=s.Definition.Copy()});
+            return copy;
+        }
     }
 
     [Serializable]
-    public sealed class HeroBattleSkillData
+    public sealed class HeroBattleData : CombatantBattleData
+    {
+        public string HeroInstanceId, HeroDefinitionId;
+    }
+
+    [Serializable]
+    public sealed class BattleSkillData
     {
         public string SlotId;
         public int Level, CooldownRemainingMilliseconds;

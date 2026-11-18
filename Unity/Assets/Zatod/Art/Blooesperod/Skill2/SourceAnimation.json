@@ -1,0 +1,2504 @@
+{
+  "state": "Skill2",
+  "name": "Huyết Trảo",
+  "clips": [
+    "GrabAtk",
+    "GrabAtkPull",
+    "GrabAtkEnd"
+  ],
+  "phases": [
+    {
+      "phase": "BlinkAndGrab",
+      "source_clip": "GrabAtk",
+      "start_seconds": 0,
+      "duration_seconds": 1.2999994,
+      "frame_count": 17,
+      "source_frame_count": 17,
+      "source_loop": false,
+      "source_range": [
+        1,
+        17
+      ],
+      "reversed": false,
+      "duration_scale": 1.0
+    },
+    {
+      "phase": "Pull",
+      "source_clip": "GrabAtkPull",
+      "start_seconds": 1.2999994,
+      "duration_seconds": 1.3700005,
+      "frame_count": 15,
+      "source_frame_count": 15,
+      "source_loop": false,
+      "source_range": [
+        1,
+        15
+      ],
+      "reversed": false,
+      "duration_scale": 1.0
+    },
+    {
+      "phase": "Throw",
+      "source_clip": "GrabAtkEnd",
+      "start_seconds": 2.6699998999999996,
+      "duration_seconds": 0.76999915,
+      "frame_count": 9,
+      "source_frame_count": 9,
+      "source_loop": false,
+      "source_range": [
+        1,
+        9
+      ],
+      "reversed": false,
+      "duration_scale": 1.0
+    }
+  ],
+  "loop": false,
+  "target_policy": "farthest_enemy",
+  "movement_policy": "teleport_into_melee_range",
+  "description": "Huyết Trảo cũ: dịch chuyển sát đối thủ xa nhất → tóm → kéo giữ → hất bằng đủ ba clip GrabAtk / GrabAtkPull / GrabAtkEnd.",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0,
+      "end_seconds": 0.09999943,
+      "duration_seconds": 0.09999943,
+      "sprite_guid": "2cc71e107e698e24da43ba8a2e7941da",
+      "sprite_name": "Frame_207",
+      "source_asset": "Assets/Sprite/Frame_207.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1084,
+        "y": 262,
+        "width": 71,
+        "height": 65
+      },
+      "source_pixel_crop_bottom_left": [
+        1084,
+        262,
+        71,
+        65
+      ],
+      "source_pivot_normalized": {
+        "x": 0.6197183,
+        "y": 0.5076923
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        43.9999992999999,
+        32.9999995
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        71,
+        65
+      ],
+      "padding_left_top": [
+        56,
+        13
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.9999992999999,
+        51.9999995
+      ],
+      "png_sha256": "cef0f966c5e85b7449fdbfa534a24bd3e51162d76e98960bc682ef789bfec621",
+      "raw_png_sha256": "efa8a719289e9975082d2a3a9e62680706ea6dcbd5c823dc25ae6810e87149d4",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 1,
+      "source_time_seconds": 0.0,
+      "source_duration_seconds": 0.09999943,
+      "reverse_source_order": false
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.09999943,
+      "end_seconds": 0.19999981,
+      "duration_seconds": 0.10000038,
+      "sprite_guid": "1865c321ca363a341ac6dbcf4e57cff7",
+      "sprite_name": "Frame_208",
+      "source_asset": "Assets/Sprite/Frame_208_0.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 242,
+        "y": 262,
+        "width": 72,
+        "height": 67
+      },
+      "source_pixel_crop_bottom_left": [
+        242,
+        262,
+        72,
+        67
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5833333,
+        "y": 0.49253732
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        41.99999760000003,
+        33.00000044000001
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        72,
+        67
+      ],
+      "padding_left_top": [
+        58,
+        11
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999760000003,
+        52.00000044000001
+      ],
+      "png_sha256": "74ade02408315bd6a3393ab0e4b30006437721e5c897c7f4f216313acd35b69c",
+      "raw_png_sha256": "adeae4025d6817d4e85f534cf29c6ccf0ecf235b82ce368fc1b96862b1bb8399",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 2,
+      "source_time_seconds": 0.09999943,
+      "source_duration_seconds": 0.10000038,
+      "reverse_source_order": false
+    },
+    {
+      "index": 3,
+      "file": "0003.png",
+      "raw_crop": "Raw_Crops/0003.png",
+      "time_seconds": 0.19999981,
+      "end_seconds": 0.23999977,
+      "duration_seconds": 0.03999996,
+      "sprite_guid": "73e971eb71ca0d34ba43995643661c0b",
+      "sprite_name": "Frame_209",
+      "source_asset": "Assets/Sprite/Frame_209_2.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1833,
+        "y": 262,
+        "width": 74,
+        "height": 58
+      },
+      "source_pixel_crop_bottom_left": [
+        1833,
+        262,
+        74,
+        58
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5675676,
+        "y": 0.5689655
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        42.000002400000085,
+        32.999999
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        74,
+        58
+      ],
+      "padding_left_top": [
+        58,
+        20
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000240000008,
+        51.999999
+      ],
+      "png_sha256": "2c4154ba82bfec99a232f6de732657feb038df072e6023f9b3465c1df6a46eb0",
+      "raw_png_sha256": "5ad923ab57ac3e79615a7f7d2e73353cd50780af10d504df70d76b470d0ec36a",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 3,
+      "source_time_seconds": 0.19999981,
+      "source_duration_seconds": 0.03999996,
+      "reverse_source_order": false
+    },
+    {
+      "index": 4,
+      "file": "0004.png",
+      "raw_crop": "Raw_Crops/0004.png",
+      "time_seconds": 0.23999977,
+      "end_seconds": 0.27999973,
+      "duration_seconds": 0.03999996,
+      "sprite_guid": "1f14084fef245c143ac9694c164dede9",
+      "sprite_name": "Frame_210",
+      "source_asset": "Assets/Sprite/Frame_210_0.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 1996,
+        "width": 73,
+        "height": 48
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        1996,
+        73,
+        48
+      ],
+      "source_pivot_normalized": {
+        "x": 0.56164384,
+        "y": 0.6875
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        41.00000032,
+        33.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        73,
+        48
+      ],
+      "padding_left_top": [
+        59,
+        30
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000032,
+        52.0
+      ],
+      "png_sha256": "0a8e361fdae6cabc359569417161b1e4323987b9d89f338d74df16a10314f62e",
+      "raw_png_sha256": "d81bc5d3da66e2d65f797cb3f4cc304bec36e03f3ef8c8aba4e66e947877b504",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 4,
+      "source_time_seconds": 0.23999977,
+      "source_duration_seconds": 0.03999996,
+      "reverse_source_order": false
+    },
+    {
+      "index": 5,
+      "file": "0005.png",
+      "raw_crop": "Raw_Crops/0005.png",
+      "time_seconds": 0.27999973,
+      "end_seconds": 0.3199997,
+      "duration_seconds": 0.039999969999999996,
+      "sprite_guid": "444694eb88618b54fa260fd1bef0f1f7",
+      "sprite_name": "Frame_211",
+      "source_asset": "Assets/Sprite/Frame_211_0.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1805,
+        "y": 199,
+        "width": 73,
+        "height": 45
+      },
+      "source_pixel_crop_bottom_left": [
+        1805,
+        199,
+        73,
+        45
+      ],
+      "source_pivot_normalized": {
+        "x": 0.56164384,
+        "y": 0.73333323
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        41.00000032000003,
+        32.999995350000006
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        73,
+        45
+      ],
+      "padding_left_top": [
+        59,
+        33
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000032000003,
+        51.999995350000006
+      ],
+      "png_sha256": "8921f4aabcc0f86d9d11945255b619c36c8a238bb73243cb46293f23797dbe44",
+      "raw_png_sha256": "0d780149d4ed4d53fc089d6863bd0b5b5cdc4c2d25befca8e0f0ad44088289b1",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 5,
+      "source_time_seconds": 0.27999973,
+      "source_duration_seconds": 0.039999969999999996,
+      "reverse_source_order": false
+    },
+    {
+      "index": 6,
+      "file": "0006.png",
+      "raw_crop": "Raw_Crops/0006.png",
+      "time_seconds": 0.3199997,
+      "end_seconds": 0.42000008,
+      "duration_seconds": 0.10000038,
+      "sprite_guid": "3f5d8b768e87ba54b8319d2f0bc4c55a",
+      "sprite_name": "Frame_213",
+      "source_asset": "Assets/Sprite/Frame_213_3.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1604,
+        "y": 465,
+        "width": 57,
+        "height": 48
+      },
+      "source_pixel_crop_bottom_left": [
+        1604,
+        465,
+        57,
+        48
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4385965,
+        "y": 0.6875
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        25.000000499999942,
+        33.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        57,
+        48
+      ],
+      "padding_left_top": [
+        75,
+        30
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000049999994,
+        52.0
+      ],
+      "png_sha256": "540cb1858e07af1b685799436142b817b833b8b199e6caf859353f43e002df36",
+      "raw_png_sha256": "4438320003ab32bb1b9821679d747ac54d6543fff3668c30e54f08894b64d9f8",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 6,
+      "source_time_seconds": 0.3199997,
+      "source_duration_seconds": 0.10000038,
+      "reverse_source_order": false
+    },
+    {
+      "index": 7,
+      "file": "0007.png",
+      "raw_crop": "Raw_Crops/0007.png",
+      "time_seconds": 0.42000008,
+      "end_seconds": 0.4699993,
+      "duration_seconds": 0.04999922000000001,
+      "sprite_guid": "0453131dbba99264597f53cd63819365",
+      "sprite_name": "Frame_214",
+      "source_asset": "Assets/Sprite/Frame_214_0.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 759,
+        "y": 94,
+        "width": 52,
+        "height": 42
+      },
+      "source_pixel_crop_bottom_left": [
+        759,
+        94,
+        52,
+        42
+      ],
+      "source_pivot_normalized": {
+        "x": 0.3846154,
+        "y": 0.78571427
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        20.000000799999953,
+        32.99999934
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        52,
+        42
+      ],
+      "padding_left_top": [
+        80,
+        36
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000079999995,
+        51.99999933999999
+      ],
+      "png_sha256": "f8f97c5fa0562ea1f31f08403ba293173af6d457d99f76d0dd7dcad2d78b20d1",
+      "raw_png_sha256": "f1aba672f5e405cd5731d0be76735c4906f84c26633b90cd0b25f9c311bef35c",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 7,
+      "source_time_seconds": 0.42000008,
+      "source_duration_seconds": 0.04999922000000001,
+      "reverse_source_order": false
+    },
+    {
+      "index": 8,
+      "file": "0008.png",
+      "raw_crop": "Raw_Crops/0008.png",
+      "time_seconds": 0.4699993,
+      "end_seconds": 0.5699997,
+      "duration_seconds": 0.10000039999999999,
+      "sprite_guid": "7df9f9d1ff967f242927fb2b4fbb787f",
+      "sprite_name": "Frame_215",
+      "source_asset": "Assets/Sprite/Frame_215_2.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 2025,
+        "y": 767,
+        "width": 17,
+        "height": 24
+      },
+      "source_pixel_crop_bottom_left": [
+        2025,
+        767,
+        17,
+        24
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4117647,
+        "y": 1.25
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        6.999999899999921,
+        30.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        17,
+        24
+      ],
+      "padding_left_top": [
+        93,
+        51
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999989999992,
+        52.0
+      ],
+      "png_sha256": "01e083b808dda619fe018688900dda9477fbddba39bd2d61af6e3c5179095ec8",
+      "raw_png_sha256": "89236f2d90051315871c3cadc1e7ea5a25f6fb94185f77980c550f3f317a949e",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 8,
+      "source_time_seconds": 0.4699993,
+      "source_duration_seconds": 0.10000039999999999,
+      "reverse_source_order": false
+    },
+    {
+      "index": 9,
+      "file": "0009.png",
+      "raw_crop": "Raw_Crops/0009.png",
+      "time_seconds": 0.5699997,
+      "end_seconds": 0.6199999,
+      "duration_seconds": 0.05000020000000005,
+      "sprite_guid": "400932c88e5ec73409557c6fd7531896",
+      "sprite_name": "Frame_216",
+      "source_asset": "Assets/Sprite/Frame_216_2.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 929,
+        "y": 4,
+        "width": 132,
+        "height": 44
+      },
+      "source_pixel_crop_bottom_left": [
+        929,
+        4,
+        132,
+        44
+      ],
+      "source_pivot_normalized": {
+        "x": 0.75757575,
+        "y": 0.77272725
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        99.99999900000012,
+        33.999999
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        132,
+        44
+      ],
+      "padding_left_top": [
+        0,
+        35
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999900000012,
+        51.999999
+      ],
+      "png_sha256": "ab63a7c3fe22379e378e8b2aa3bfec64ba41a45f190c29704376f43b188e41b8",
+      "raw_png_sha256": "51a36559e917bdb72d6cbcd34c572f6d86c09cf344d4cbecf7714b0d9ec02471",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 9,
+      "source_time_seconds": 0.5699997,
+      "source_duration_seconds": 0.05000020000000005,
+      "reverse_source_order": false
+    },
+    {
+      "index": 10,
+      "file": "0010.png",
+      "raw_crop": "Raw_Crops/0010.png",
+      "time_seconds": 0.6199999,
+      "end_seconds": 0.6499996,
+      "duration_seconds": 0.029999699999999963,
+      "sprite_guid": "a1176297d0a5b344090f24d37d7ab285",
+      "sprite_name": "Frame_217",
+      "source_asset": "Assets/Sprite/Frame_217_2.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 162,
+        "y": 94,
+        "width": 118,
+        "height": 44
+      },
+      "source_pixel_crop_bottom_left": [
+        162,
+        94,
+        118,
+        44
+      ],
+      "source_pivot_normalized": {
+        "x": 0.7288136,
+        "y": 0.75
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        86.0000048,
+        33.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        118,
+        44
+      ],
+      "padding_left_top": [
+        14,
+        34
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.0000048,
+        52.0
+      ],
+      "png_sha256": "e34858c4d88b08682a1a48be8d05cb0bedebc3e0b39c21615899d004519e6703",
+      "raw_png_sha256": "13787b12885e2fc22a907e13e71813f010b7e01b2f956131970bce669bac2d24",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 10,
+      "source_time_seconds": 0.6199999,
+      "source_duration_seconds": 0.029999699999999963,
+      "reverse_source_order": false
+    },
+    {
+      "index": 11,
+      "file": "0011.png",
+      "raw_crop": "Raw_Crops/0011.png",
+      "time_seconds": 0.6499996,
+      "end_seconds": 0.6999998,
+      "duration_seconds": 0.05000019999999994,
+      "sprite_guid": "7a45e8de59c18f24fa6e0ef410c63624",
+      "sprite_name": "Frame_218",
+      "source_asset": "Assets/Sprite/Frame_218_2.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1727,
+        "y": 199,
+        "width": 70,
+        "height": 47
+      },
+      "source_pixel_crop_bottom_left": [
+        1727,
+        199,
+        70,
+        47
+      ],
+      "source_pivot_normalized": {
+        "x": 0.54285717,
+        "y": 0.7446808
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        38.000001899999916,
+        34.9999976
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        70,
+        47
+      ],
+      "padding_left_top": [
+        62,
+        33
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000189999992,
+        51.9999976
+      ],
+      "png_sha256": "1be7f4a9e5cc9a7a416860106ad2f21b55c86da16e572efaef67f10e5bcc5501",
+      "raw_png_sha256": "bf1b4457ac06560716d033ec44d76ef7a32fd9186b0fbcac409f04b4eeb4e67f",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 11,
+      "source_time_seconds": 0.6499996,
+      "source_duration_seconds": 0.05000019999999994,
+      "reverse_source_order": false
+    },
+    {
+      "index": 12,
+      "file": "0012.png",
+      "raw_crop": "Raw_Crops/0012.png",
+      "time_seconds": 0.6999998,
+      "end_seconds": 0.8199997,
+      "duration_seconds": 0.11999990000000005,
+      "sprite_guid": "ae7350fa42e801e4696f9b9fa9f9f0da",
+      "sprite_name": "Frame_219",
+      "source_asset": "Assets/Sprite/Frame_219_1.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1303,
+        "y": 767,
+        "width": 44,
+        "height": 45
+      },
+      "source_pixel_crop_bottom_left": [
+        1303,
+        767,
+        44,
+        45
+      ],
+      "source_pivot_normalized": {
+        "x": 0.20454548,
+        "y": 0.73333323
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        9.000001119999979,
+        32.99999534999995
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        44,
+        45
+      ],
+      "padding_left_top": [
+        91,
+        33
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000111999998,
+        51.99999534999995
+      ],
+      "png_sha256": "8dd0bfb8bcf1a7be8e178c15821b265a50f4ad7474cbb19e301dc8263fbce75d",
+      "raw_png_sha256": "5888fa63b243ab34ad8cbddd7736a1a3791a6c27e5052209de438636bcece69f",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 12,
+      "source_time_seconds": 0.6999998,
+      "source_duration_seconds": 0.11999990000000005,
+      "reverse_source_order": false
+    },
+    {
+      "index": 13,
+      "file": "0013.png",
+      "raw_crop": "Raw_Crops/0013.png",
+      "time_seconds": 0.8199997,
+      "end_seconds": 0.9399996,
+      "duration_seconds": 0.11999990000000005,
+      "sprite_guid": "7e2f64e8269eb8c408a31048f2b2d010",
+      "sprite_name": "Frame_220",
+      "source_asset": "Assets/Sprite/Frame_220.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1815,
+        "y": 767,
+        "width": 43,
+        "height": 45
+      },
+      "source_pixel_crop_bottom_left": [
+        1815,
+        767,
+        43,
+        45
+      ],
+      "source_pivot_normalized": {
+        "x": 0.18604651,
+        "y": 0.73333323
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        7.999999930000058,
+        32.99999534999995
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        43,
+        45
+      ],
+      "padding_left_top": [
+        92,
+        33
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999993000006,
+        51.99999534999995
+      ],
+      "png_sha256": "f6605537d4e706f1bcc5a22625136a3844713707e6c84abd2ecf095c9a1a589c",
+      "raw_png_sha256": "581707c96f91f4fb8e98239ac92ae42f1060b6027fe3075ced3fdf92fd5ec4be",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 13,
+      "source_time_seconds": 0.8199997,
+      "source_duration_seconds": 0.11999990000000005,
+      "reverse_source_order": false
+    },
+    {
+      "index": 14,
+      "file": "0014.png",
+      "raw_crop": "Raw_Crops/0014.png",
+      "time_seconds": 0.9399996,
+      "end_seconds": 1.0599995,
+      "duration_seconds": 0.11999989999999994,
+      "sprite_guid": "6334158951a2dce43b5ed34f7b565cfd",
+      "sprite_name": "Frame_221",
+      "source_asset": "Assets/Sprite/Frame_221_1.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 670,
+        "y": 876,
+        "width": 42,
+        "height": 45
+      },
+      "source_pixel_crop_bottom_left": [
+        670,
+        876,
+        42,
+        45
+      ],
+      "source_pivot_normalized": {
+        "x": 0.1904762,
+        "y": 0.73333323
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        8.000000399999976,
+        32.99999534999995
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        42,
+        45
+      ],
+      "padding_left_top": [
+        92,
+        33
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000039999998,
+        51.99999534999995
+      ],
+      "png_sha256": "994baefd69ecf3d1890fb189b6c521c6b39ead8259f0da3d2db2f53bffa22c92",
+      "raw_png_sha256": "db81762758677301c72d6665e05f149de1cb44874e4f4b61de28b4705e48ea08",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 14,
+      "source_time_seconds": 0.9399996,
+      "source_duration_seconds": 0.11999989999999994,
+      "reverse_source_order": false
+    },
+    {
+      "index": 15,
+      "file": "0015.png",
+      "raw_crop": "Raw_Crops/0015.png",
+      "time_seconds": 1.0599995,
+      "end_seconds": 1.1799994,
+      "duration_seconds": 0.11999990000000005,
+      "sprite_guid": "a43115ec3ac1bbf4687da419da0a9d99",
+      "sprite_name": "Frame_222",
+      "source_asset": "Assets/Sprite/Frame_222.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1070,
+        "y": 639,
+        "width": 50,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1070,
+        639,
+        50,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.39999998,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.99999899999989,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        50,
+        46
+      ],
+      "padding_left_top": [
+        80,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999899999989,
+        51.999999799999955
+      ],
+      "png_sha256": "9ee33f90dd3569ca94802a922a7bf0a9d9ba6f46066f2f59eb6a3d5b5f037d07",
+      "raw_png_sha256": "2b2d971ff89977ea5693aaad89c013fca35fa7ec4f669d22e5b926c98c2cddca",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 15,
+      "source_time_seconds": 1.0599995,
+      "source_duration_seconds": 0.11999990000000005,
+      "reverse_source_order": false
+    },
+    {
+      "index": 16,
+      "file": "0016.png",
+      "raw_crop": "Raw_Crops/0016.png",
+      "time_seconds": 1.1799994,
+      "end_seconds": 1.2899994,
+      "duration_seconds": 0.10999999999999988,
+      "sprite_guid": "68573dd27dd56054e97525608bc57df6",
+      "sprite_name": "Frame_223",
+      "source_asset": "Assets/Sprite/Frame_223.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 981,
+        "y": 767,
+        "width": 44,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        981,
+        767,
+        44,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5909091,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        26.000000399999976,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        44,
+        46
+      ],
+      "padding_left_top": [
+        74,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000039999998,
+        51.999999799999955
+      ],
+      "png_sha256": "c7b5f9591df3fb7e4900f0c03153e199c44b7e6af97a36f75b7a5543c5c5757b",
+      "raw_png_sha256": "acbaecb374c394aad1816c98693290d4925589649eaa88ccacdae9226c6bcfa8",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 16,
+      "source_time_seconds": 1.1799994,
+      "source_duration_seconds": 0.10999999999999988,
+      "reverse_source_order": false
+    },
+    {
+      "index": 17,
+      "file": "0017.png",
+      "raw_crop": "Raw_Crops/0017.png",
+      "time_seconds": 1.2899994,
+      "end_seconds": 1.2999994,
+      "duration_seconds": 0.010000000000000009,
+      "sprite_guid": "68573dd27dd56054e97525608bc57df6",
+      "sprite_name": "Frame_223",
+      "source_asset": "Assets/Sprite/Frame_223.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 981,
+        "y": 767,
+        "width": 44,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        981,
+        767,
+        44,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5909091,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        26.000000399999976,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        44,
+        46
+      ],
+      "padding_left_top": [
+        74,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000039999998,
+        51.999999799999955
+      ],
+      "png_sha256": "c7b5f9591df3fb7e4900f0c03153e199c44b7e6af97a36f75b7a5543c5c5757b",
+      "raw_png_sha256": "acbaecb374c394aad1816c98693290d4925589649eaa88ccacdae9226c6bcfa8",
+      "source_clip": "GrabAtk",
+      "phase": "BlinkAndGrab",
+      "source_frame_index": 17,
+      "source_time_seconds": 1.2899994,
+      "source_duration_seconds": 0.010000000000000009,
+      "reverse_source_order": false
+    },
+    {
+      "index": 18,
+      "file": "0018.png",
+      "raw_crop": "Raw_Crops/0018.png",
+      "time_seconds": 1.2999994,
+      "end_seconds": 1.3700000499999998,
+      "duration_seconds": 0.07000065,
+      "sprite_guid": "89d4d7f221171af439a004dc1feec67a",
+      "sprite_name": "Frame_224",
+      "source_asset": "Assets/Sprite/Frame_224_0.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 348,
+        "y": 581,
+        "width": 57,
+        "height": 47
+      },
+      "source_pixel_crop_bottom_left": [
+        348,
+        581,
+        57,
+        47
+      ],
+      "source_pivot_normalized": {
+        "x": 0.49122807,
+        "y": 0.70212764
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        27.999999989999992,
+        32.99999907999995
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        57,
+        47
+      ],
+      "padding_left_top": [
+        72,
+        31
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999998999999,
+        51.99999907999995
+      ],
+      "png_sha256": "d0714c94c1df713b3863f36c2f3bba0414739ab2537ae79f6a39bd19d6efa606",
+      "raw_png_sha256": "12735b754e631843a0afc47d1090103fda3450b65dd9dc93876a243d279d154c",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 1,
+      "source_time_seconds": 0.0,
+      "source_duration_seconds": 0.07000065,
+      "reverse_source_order": false
+    },
+    {
+      "index": 19,
+      "file": "0019.png",
+      "raw_crop": "Raw_Crops/0019.png",
+      "time_seconds": 1.3700000499999998,
+      "end_seconds": 1.4699994799999998,
+      "duration_seconds": 0.09999943,
+      "sprite_guid": "d46f1d10f7b87dc4a87603d795fa7e83",
+      "sprite_name": "Frame_225",
+      "source_asset": "Assets/Sprite/Frame_225_2.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1783,
+        "y": 581,
+        "width": 55,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1783,
+        581,
+        55,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5090909,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        27.999999500000058,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        55,
+        46
+      ],
+      "padding_left_top": [
+        72,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999950000006,
+        51.999999799999955
+      ],
+      "png_sha256": "eb7b038cbd150825f369a91c74db8cc1acfa24c7f58f0eb24000ab6fde473c75",
+      "raw_png_sha256": "db3d9d3e77ed606a85451d5ed5d3ab912d82da042e777cb5c35415d91cf8d721",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 2,
+      "source_time_seconds": 0.07000065,
+      "source_duration_seconds": 0.09999943,
+      "reverse_source_order": false
+    },
+    {
+      "index": 20,
+      "file": "0020.png",
+      "raw_crop": "Raw_Crops/0020.png",
+      "time_seconds": 1.4699994799999998,
+      "end_seconds": 1.5699998599999998,
+      "duration_seconds": 0.10000038,
+      "sprite_guid": "532ef6f9d76eb04419fe9052400d24b6",
+      "sprite_name": "Frame_226",
+      "source_asset": "Assets/Sprite/Frame_226_0.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 669,
+        "y": 581,
+        "width": 57,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        669,
+        581,
+        57,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5263158,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        30.00000060000002,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        57,
+        46
+      ],
+      "padding_left_top": [
+        70,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000060000002,
+        51.999999799999955
+      ],
+      "png_sha256": "f14902f2b2f443836715f1f06debf66158b926380293939e11f4993bf62f4e0d",
+      "raw_png_sha256": "0cf3949c97a22cbebd6702faefd299e74232f24aac8d9dafe83d1813a1db06a3",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 3,
+      "source_time_seconds": 0.17000008,
+      "source_duration_seconds": 0.10000038,
+      "reverse_source_order": false
+    },
+    {
+      "index": 21,
+      "file": "0021.png",
+      "raw_crop": "Raw_Crops/0021.png",
+      "time_seconds": 1.5699998599999998,
+      "end_seconds": 1.6700002399999998,
+      "duration_seconds": 0.10000038,
+      "sprite_guid": "ca905a7f16bbb2747b204f9f5b4f4c89",
+      "sprite_name": "Frame_93",
+      "source_asset": "Assets/Sprite/Frame_93_1.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 162,
+        "y": 527,
+        "width": 59,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        162,
+        527,
+        59,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5423729,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.00000110000002,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        59,
+        46
+      ],
+      "padding_left_top": [
+        68,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000110000002,
+        51.999999799999955
+      ],
+      "png_sha256": "2cfe075b3e311321a0d52ef871ce4bba7a99a63c86f2c3b1bbe7d8fabd85087d",
+      "raw_png_sha256": "88d8f9d8b0f092b506aef661ca14da34a854bdd93189f23b23eab7d1d417f3b9",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 4,
+      "source_time_seconds": 0.27000046,
+      "source_duration_seconds": 0.10000038,
+      "reverse_source_order": false
+    },
+    {
+      "index": 22,
+      "file": "0022.png",
+      "raw_crop": "Raw_Crops/0022.png",
+      "time_seconds": 1.6700002399999998,
+      "end_seconds": 1.7699996699999998,
+      "duration_seconds": 0.09999943,
+      "sprite_guid": "06584338a2931cb41a9c5a11995f2449",
+      "sprite_name": "Frame_94",
+      "source_asset": "Assets/Sprite/Frame_94_5.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1019,
+        "y": 465,
+        "width": 60,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1019,
+        465,
+        60,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.55,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.0,
+        32.99999980000001
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        60,
+        46
+      ],
+      "padding_left_top": [
+        67,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.0,
+        51.99999980000001
+      ],
+      "png_sha256": "68a6037470a63569279a513999ad324180daa20434d24eb4e05a6e256ba5acd1",
+      "raw_png_sha256": "3bd63713126d6c8aca96fcad819eb000cd2a9066b4641707b0230cfe875891d7",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 5,
+      "source_time_seconds": 0.37000084,
+      "source_duration_seconds": 0.09999943,
+      "reverse_source_order": false
+    },
+    {
+      "index": 23,
+      "file": "0023.png",
+      "raw_crop": "Raw_Crops/0023.png",
+      "time_seconds": 1.7699996699999998,
+      "end_seconds": 1.8700000499999998,
+      "duration_seconds": 0.10000038,
+      "sprite_guid": "d0be02af543bcd2429e454ba0cebaec6",
+      "sprite_name": "Frame_95",
+      "source_asset": "Assets/Sprite/Frame_95_21.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1087,
+        "y": 465,
+        "width": 60,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1087,
+        465,
+        60,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.55,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.0,
+        32.99999980000001
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        60,
+        46
+      ],
+      "padding_left_top": [
+        67,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.0,
+        51.99999980000001
+      ],
+      "png_sha256": "d7da583929342846cefdd53d76f95435708630b83ec84110c443fbb980568cf3",
+      "raw_png_sha256": "7e4dfe7bbc49365aa13691826147fb43e6d196e5062e2aaf9421a41b9373ef58",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 6,
+      "source_time_seconds": 0.47000027,
+      "source_duration_seconds": 0.10000038,
+      "reverse_source_order": false
+    },
+    {
+      "index": 24,
+      "file": "0024.png",
+      "raw_crop": "Raw_Crops/0024.png",
+      "time_seconds": 1.8700000499999998,
+      "end_seconds": 1.9699994999999997,
+      "duration_seconds": 0.09999944999999999,
+      "sprite_guid": "8b9baadb72668824e9c4bf6750f83455",
+      "sprite_name": "Frame_96",
+      "source_asset": "Assets/Sprite/Frame_96_26.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 498,
+        "y": 767,
+        "width": 47,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        498,
+        767,
+        47,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5106383,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        24.000000099999966,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        46
+      ],
+      "padding_left_top": [
+        76,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000009999997,
+        51.999999799999955
+      ],
+      "png_sha256": "c7b8796a4f3bffadf44ce26785f5dca880bc3fc33ef205083654150bfd44d6da",
+      "raw_png_sha256": "6ff1a09cf8d1b3ccca35342828364ca3abb2de5b208ad2de3d128baa978dfed2",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 7,
+      "source_time_seconds": 0.57000065,
+      "source_duration_seconds": 0.09999944999999999,
+      "reverse_source_order": false
+    },
+    {
+      "index": 25,
+      "file": "0025.png",
+      "raw_crop": "Raw_Crops/0025.png",
+      "time_seconds": 1.9699995,
+      "end_seconds": 2.06999986,
+      "duration_seconds": 0.10000036000000001,
+      "sprite_guid": "923b30b08f7d20d418c467c471e87299",
+      "sprite_name": "Frame_97",
+      "source_asset": "Assets/Sprite/Frame_97_16.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1509,
+        "y": 767,
+        "width": 43,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1509,
+        767,
+        43,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4651163,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        20.000000900000032,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        43,
+        46
+      ],
+      "padding_left_top": [
+        80,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000090000003,
+        51.999999799999955
+      ],
+      "png_sha256": "27214c3dbe47d41c81e1955cb346b17103380655e1ab06afa80068a5f39d5fbd",
+      "raw_png_sha256": "c0baa7dc74277bf33b0516d08fe801020f05bb06b8d32ab6dd962761482cc353",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 8,
+      "source_time_seconds": 0.6700001,
+      "source_duration_seconds": 0.10000036000000001,
+      "reverse_source_order": false
+    },
+    {
+      "index": 26,
+      "file": "0026.png",
+      "raw_crop": "Raw_Crops/0026.png",
+      "time_seconds": 2.06999986,
+      "end_seconds": 2.17000024,
+      "duration_seconds": 0.10000038,
+      "sprite_guid": "ab89123898369a0419a601395c013a5d",
+      "sprite_name": "Frame_108",
+      "source_asset": "Assets/Sprite/Frame_108_5.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 470,
+        "y": 876,
+        "width": 42,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        470,
+        876,
+        42,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.45238096,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.000000320000026,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        42,
+        46
+      ],
+      "padding_left_top": [
+        81,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000032000003,
+        51.999999799999955
+      ],
+      "png_sha256": "ca75abb56db582baed3eae6560c79ef59bcc210d0cabbc7bef0198d8e78598db",
+      "raw_png_sha256": "1aa7a398cc532860222c7264fe89b618a95785f848c01e384fa8455444a86e2e",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 9,
+      "source_time_seconds": 0.77000046,
+      "source_duration_seconds": 0.10000038,
+      "reverse_source_order": false
+    },
+    {
+      "index": 27,
+      "file": "0027.png",
+      "raw_crop": "Raw_Crops/0027.png",
+      "time_seconds": 2.17000024,
+      "end_seconds": 2.26999967,
+      "duration_seconds": 0.09999943,
+      "sprite_guid": "937c9ed30198abc468bde0d4711b12e3",
+      "sprite_name": "Frame_109",
+      "source_asset": "Assets/Sprite/Frame_109_8.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 520,
+        "y": 876,
+        "width": 42,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        520,
+        876,
+        42,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.45238096,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.000000320000026,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        42,
+        46
+      ],
+      "padding_left_top": [
+        81,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000032000003,
+        51.999999799999955
+      ],
+      "png_sha256": "4085db16ab2b36e1156bc1df5825b606409f79755d5f9c1c95adcd1aaf6e53aa",
+      "raw_png_sha256": "9e0654a6e747ebd8f3122c4ab5c6bc436539ee130bdbe372d529095c893faff9",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 10,
+      "source_time_seconds": 0.87000084,
+      "source_duration_seconds": 0.09999943,
+      "reverse_source_order": false
+    },
+    {
+      "index": 28,
+      "file": "0028.png",
+      "raw_crop": "Raw_Crops/0028.png",
+      "time_seconds": 2.26999967,
+      "end_seconds": 2.3699999999999997,
+      "duration_seconds": 0.10000032999999997,
+      "sprite_guid": "12256fffa367e324aa35691b6337075b",
+      "sprite_name": "Frame_110",
+      "source_asset": "Assets/Sprite/Frame_110_13.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 553,
+        "y": 767,
+        "width": 47,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        553,
+        767,
+        47,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5106383,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        24.000000099999966,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        46
+      ],
+      "padding_left_top": [
+        76,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000009999997,
+        51.999999799999955
+      ],
+      "png_sha256": "3b5886ad077782a3cf7fa82f289337241052bb62c904553408c1ba23b0a97a73",
+      "raw_png_sha256": "ae9cdd513ac267d055739e54b0f57abe21a8bdd0f3c99cdbc1c0306ff9791951",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 11,
+      "source_time_seconds": 0.97000027,
+      "source_duration_seconds": 0.10000032999999997,
+      "reverse_source_order": false
+    },
+    {
+      "index": 29,
+      "file": "0029.png",
+      "raw_crop": "Raw_Crops/0029.png",
+      "time_seconds": 2.37,
+      "end_seconds": 2.4699995,
+      "duration_seconds": 0.09999950000000002,
+      "sprite_guid": "76e9f84cfa5e9ba43996b288b2cfea0d",
+      "sprite_name": "Frame_111",
+      "source_asset": "Assets/Sprite/Frame_111_3.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1560,
+        "y": 767,
+        "width": 43,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1560,
+        767,
+        43,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4651163,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        20.000000900000032,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        43,
+        46
+      ],
+      "padding_left_top": [
+        80,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000090000003,
+        51.999999799999955
+      ],
+      "png_sha256": "3ab61a35de8f86da11f0bd332bfc69ad0a6e699e0f00bb969250cdc59f885b53",
+      "raw_png_sha256": "24d461475471a1937a24fa3dd0af2790cddcc2ba203a452a80713cb52b4d2852",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 12,
+      "source_time_seconds": 1.0700006,
+      "source_duration_seconds": 0.09999950000000002,
+      "reverse_source_order": false
+    },
+    {
+      "index": 30,
+      "file": "0030.png",
+      "raw_crop": "Raw_Crops/0030.png",
+      "time_seconds": 2.4699995,
+      "end_seconds": 2.5699999,
+      "duration_seconds": 0.1000004000000001,
+      "sprite_guid": "26b58ba39bc0e62408a9560f3b613bbe",
+      "sprite_name": "Frame_112",
+      "source_asset": "Assets/Sprite/Frame_112_22.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 570,
+        "y": 876,
+        "width": 42,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        570,
+        876,
+        42,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.45238096,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.000000320000026,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        42,
+        46
+      ],
+      "padding_left_top": [
+        81,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000032000003,
+        51.999999799999955
+      ],
+      "png_sha256": "104cdda88f2b3c69d09a26dbcd39d000145e89cd45510d55b8a5bf9d7aff84f6",
+      "raw_png_sha256": "399cfa6853a870c60fec440128e18994a7991267be6c176097de2c5c92b186bf",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 13,
+      "source_time_seconds": 1.1700001,
+      "source_duration_seconds": 0.1000004000000001,
+      "reverse_source_order": false
+    },
+    {
+      "index": 31,
+      "file": "0031.png",
+      "raw_crop": "Raw_Crops/0031.png",
+      "time_seconds": 2.5699999,
+      "end_seconds": 2.6599999,
+      "duration_seconds": 0.08999999999999986,
+      "sprite_guid": "bed3bd2cc44dfde47bb9948fd720a318",
+      "sprite_name": "Frame_119",
+      "source_asset": "Assets/Sprite/Frame_119_23.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 620,
+        "y": 876,
+        "width": 42,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        620,
+        876,
+        42,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.45238096,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.000000320000026,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        42,
+        46
+      ],
+      "padding_left_top": [
+        81,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000032000003,
+        51.999999799999955
+      ],
+      "png_sha256": "d219e5d51c872fb83215d0c21f0f09763b7196e7e6c32a6761e2f8c957cdb472",
+      "raw_png_sha256": "cd38a60d84079c922ac2cccbf4a2b2105f2f86d50bd0c6be648ad124950e5c68",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 14,
+      "source_time_seconds": 1.2700005,
+      "source_duration_seconds": 0.08999999999999986,
+      "reverse_source_order": false
+    },
+    {
+      "index": 32,
+      "file": "0032.png",
+      "raw_crop": "Raw_Crops/0032.png",
+      "time_seconds": 2.6599999,
+      "end_seconds": 2.6699998999999996,
+      "duration_seconds": 0.010000000000000009,
+      "sprite_guid": "bed3bd2cc44dfde47bb9948fd720a318",
+      "sprite_name": "Frame_119",
+      "source_asset": "Assets/Sprite/Frame_119_23.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 620,
+        "y": 876,
+        "width": 42,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        620,
+        876,
+        42,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.45238096,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.000000320000026,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        42,
+        46
+      ],
+      "padding_left_top": [
+        81,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000032000003,
+        51.999999799999955
+      ],
+      "png_sha256": "d219e5d51c872fb83215d0c21f0f09763b7196e7e6c32a6761e2f8c957cdb472",
+      "raw_png_sha256": "cd38a60d84079c922ac2cccbf4a2b2105f2f86d50bd0c6be648ad124950e5c68",
+      "source_clip": "GrabAtkPull",
+      "phase": "Pull",
+      "source_frame_index": 15,
+      "source_time_seconds": 1.3600005,
+      "source_duration_seconds": 0.010000000000000009,
+      "reverse_source_order": false
+    },
+    {
+      "index": 33,
+      "file": "0033.png",
+      "raw_crop": "Raw_Crops/0033.png",
+      "time_seconds": 2.6699998999999996,
+      "end_seconds": 2.7699993299999996,
+      "duration_seconds": 0.09999943,
+      "sprite_guid": "84b8ec34c34e68d45a147a404bf33e5f",
+      "sprite_name": "Frame_120",
+      "source_asset": "Assets/Sprite/Frame_120_16.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 914,
+        "y": 876,
+        "width": 39,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        914,
+        876,
+        39,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4871795,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        19.000000499999942,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        39,
+        46
+      ],
+      "padding_left_top": [
+        81,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000049999994,
+        51.999999799999955
+      ],
+      "png_sha256": "c92d2820011ed22ae04d023675246afa18f3d36d3c2a1d19e7017c90af78e476",
+      "raw_png_sha256": "7ff8c1eac45000d0b05bf5cb9d65a8b324711372efc7a6bc44aad8c1dbb6cfe0",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 1,
+      "source_time_seconds": 0.0,
+      "source_duration_seconds": 0.09999943,
+      "reverse_source_order": false
+    },
+    {
+      "index": 34,
+      "file": "0034.png",
+      "raw_crop": "Raw_Crops/0034.png",
+      "time_seconds": 2.7699993299999996,
+      "end_seconds": 2.8699997099999996,
+      "duration_seconds": 0.10000038,
+      "sprite_guid": "dccc4a9463b940944a48124b92479e47",
+      "sprite_name": "Frame_121",
+      "source_asset": "Assets/Sprite/Frame_121_1.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 820,
+        "y": 876,
+        "width": 40,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        820,
+        876,
+        40,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.52500004,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        21.00000160000002,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        40,
+        46
+      ],
+      "padding_left_top": [
+        79,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000160000002,
+        51.999999799999955
+      ],
+      "png_sha256": "0a6319f0bacd7c6e7a8fa0522cf9abb9f0f7ad892d014e8142663eb408a9c7c6",
+      "raw_png_sha256": "d3d55e5d9a69d3fb1be861d8bc8a573a08be4a7d694c4e24481a9218e687c693",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 2,
+      "source_time_seconds": 0.09999943,
+      "source_duration_seconds": 0.10000038,
+      "reverse_source_order": false
+    },
+    {
+      "index": 35,
+      "file": "0035.png",
+      "raw_crop": "Raw_Crops/0035.png",
+      "time_seconds": 2.8699997099999996,
+      "end_seconds": 2.9699991399999996,
+      "duration_seconds": 0.09999943,
+      "sprite_guid": "928905affd11f99428dd3caaadcff90c",
+      "sprite_name": "Frame_122",
+      "source_asset": "Assets/Sprite/Frame_122.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1611,
+        "y": 767,
+        "width": 43,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1611,
+        767,
+        43,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5116279,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        21.99999969999999,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        43,
+        46
+      ],
+      "padding_left_top": [
+        78,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999969999999,
+        51.999999799999955
+      ],
+      "png_sha256": "06b916d7da4c8a07df06c5248e35fd7df582f090f0f263b0383600cab5bb44b5",
+      "raw_png_sha256": "84188a601cf955af02aacf69dbcf1b7ee36de63689b194ee528b2f446f1c21e4",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 3,
+      "source_time_seconds": 0.19999981,
+      "source_duration_seconds": 0.09999943,
+      "reverse_source_order": false
+    },
+    {
+      "index": 36,
+      "file": "0036.png",
+      "raw_crop": "Raw_Crops/0036.png",
+      "time_seconds": 2.9699991399999996,
+      "end_seconds": 3.0399997999999995,
+      "duration_seconds": 0.07000065999999999,
+      "sprite_guid": "ba01139a255de904f8961c84600ffce9",
+      "sprite_name": "Frame_123",
+      "source_asset": "Assets/Sprite/Frame_123_5.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 589,
+        "y": 527,
+        "width": 52,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        589,
+        527,
+        52,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.63461536,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.99999872000001,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        52,
+        46
+      ],
+      "padding_left_top": [
+        67,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999872000001,
+        51.999999799999955
+      ],
+      "png_sha256": "833533a77321908750cb36104eda63148c76a9d3c7db403782fd740e98eeebf3",
+      "raw_png_sha256": "926cbe3baddbacbe271e1032387ebfefc928f820fafccb597148d4c7979ea32b",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 4,
+      "source_time_seconds": 0.29999924,
+      "source_duration_seconds": 0.07000065999999999,
+      "reverse_source_order": false
+    },
+    {
+      "index": 37,
+      "file": "0037.png",
+      "raw_crop": "Raw_Crops/0037.png",
+      "time_seconds": 3.0399997999999995,
+      "end_seconds": 3.1400001699999995,
+      "duration_seconds": 0.10000037,
+      "sprite_guid": "4dd39059ebcaca64a89162d7f2c92bb5",
+      "sprite_name": "Frame_124",
+      "source_asset": "Assets/Sprite/Frame_124_3.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1454,
+        "y": 527,
+        "width": 51,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1454,
+        527,
+        51,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.60784316,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.00000116000001,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        51,
+        46
+      ],
+      "padding_left_top": [
+        69,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000116000001,
+        51.999999799999955
+      ],
+      "png_sha256": "81c747541cf52357cb301f75ee9ebc9aaba3abb11f0dd40c0ed727aef2ef74cf",
+      "raw_png_sha256": "c107777f46b24351b3150060700cb6b35754e5bdd34b369365cd52fffb27b449",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 5,
+      "source_time_seconds": 0.3699999,
+      "source_duration_seconds": 0.10000037,
+      "reverse_source_order": false
+    },
+    {
+      "index": 38,
+      "file": "0038.png",
+      "raw_crop": "Raw_Crops/0038.png",
+      "time_seconds": 3.1400001699999995,
+      "end_seconds": 3.2399986399999996,
+      "duration_seconds": 0.09999846999999995,
+      "sprite_guid": "946b77f136ddbc0498f90d9ff97b8aea",
+      "sprite_name": "Frame_125",
+      "source_asset": "Assets/Sprite/Frame_125_12.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1664,
+        "y": 639,
+        "width": 49,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1664,
+        639,
+        49,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.63265306,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        30.999999939999952,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        49,
+        46
+      ],
+      "padding_left_top": [
+        69,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        99.99999993999995,
+        51.999999799999955
+      ],
+      "png_sha256": "595d4b60e729cadff2040fe6866055d8b6017ab664156767bd2ccad854449bf4",
+      "raw_png_sha256": "486623d79788b613f501799547227e6f133855cd8c771dbd8941622d68251db6",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 6,
+      "source_time_seconds": 0.47000027,
+      "source_duration_seconds": 0.09999846999999995,
+      "reverse_source_order": false
+    },
+    {
+      "index": 39,
+      "file": "0039.png",
+      "raw_crop": "Raw_Crops/0039.png",
+      "time_seconds": 3.2399986399999996,
+      "end_seconds": 3.3399989999999997,
+      "duration_seconds": 0.10000036000000001,
+      "sprite_guid": "bbaa1f9de7d7e3f49aea83b58a4a994e",
+      "sprite_name": "Frame_126",
+      "source_asset": "Assets/Sprite/Frame_126_7.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1128,
+        "y": 639,
+        "width": 50,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1128,
+        639,
+        50,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.64,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.0,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        50,
+        46
+      ],
+      "padding_left_top": [
+        68,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.0,
+        51.999999799999955
+      ],
+      "png_sha256": "9e673c74d4c2b9a36f1a142b6beff0e68492e123df5a09147ce0e2ca83b3b980",
+      "raw_png_sha256": "cf168fcbedc4c98f538ae7b67681330ff53e560064d1cecdc4ccb364bb0836e0",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 7,
+      "source_time_seconds": 0.56999874,
+      "source_duration_seconds": 0.10000036000000001,
+      "reverse_source_order": false
+    },
+    {
+      "index": 40,
+      "file": "0040.png",
+      "raw_crop": "Raw_Crops/0040.png",
+      "time_seconds": 3.3399989999999997,
+      "end_seconds": 3.4299990599999997,
+      "duration_seconds": 0.09000006000000005,
+      "sprite_guid": "c44f808bcdd408248af54cee46caa999",
+      "sprite_name": "Frame_127",
+      "source_asset": "Assets/Sprite/Frame_127_16.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1513,
+        "y": 527,
+        "width": 51,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1513,
+        527,
+        51,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.64705884,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.000000839999984,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        51,
+        46
+      ],
+      "padding_left_top": [
+        67,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000083999998,
+        51.999999799999955
+      ],
+      "png_sha256": "65a9e42573d7cf6f8eafacb9d3832143f33bf6f87b7c67652e5a90f4eef27777",
+      "raw_png_sha256": "35a6bda500bb7db31df1a03002b95636f229f1b48e762929eacd9c6e81c0fecc",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 8,
+      "source_time_seconds": 0.6699991,
+      "source_duration_seconds": 0.09000006000000005,
+      "reverse_source_order": false
+    },
+    {
+      "index": 41,
+      "file": "0041.png",
+      "raw_crop": "Raw_Crops/0041.png",
+      "time_seconds": 3.4299990599999997,
+      "end_seconds": 3.4399990499999995,
+      "duration_seconds": 0.009999989999999959,
+      "sprite_guid": "c44f808bcdd408248af54cee46caa999",
+      "sprite_name": "Frame_127",
+      "source_asset": "Assets/Sprite/Frame_127_16.asset",
+      "source_texture": "Assets/Texture2D/NightLord.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1513,
+        "y": 527,
+        "width": 51,
+        "height": 46
+      },
+      "source_pixel_crop_bottom_left": [
+        1513,
+        527,
+        51,
+        46
+      ],
+      "source_pivot_normalized": {
+        "x": 0.64705884,
+        "y": 0.7173913
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.000000839999984,
+        32.999999799999955
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        51,
+        46
+      ],
+      "padding_left_top": [
+        67,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        100.00000083999998,
+        51.999999799999955
+      ],
+      "png_sha256": "65a9e42573d7cf6f8eafacb9d3832143f33bf6f87b7c67652e5a90f4eef27777",
+      "raw_png_sha256": "35a6bda500bb7db31df1a03002b95636f229f1b48e762929eacd9c6e81c0fecc",
+      "source_clip": "GrabAtkEnd",
+      "phase": "Throw",
+      "source_frame_index": 9,
+      "source_time_seconds": 0.75999916,
+      "source_duration_seconds": 0.009999989999999959,
+      "reverse_source_order": false
+    }
+  ],
+  "frame_count": 41,
+  "duration_seconds": 3.4399990499999995,
+  "source_events": [
+    {
+      "time": 0.0,
+      "functionName": "OnBreak",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 0.4699993,
+      "functionName": "OnStrongDash",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 0.6199999,
+      "functionName": "OnResetVelocity",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 0.6499996,
+      "functionName": "CheckDefaultCombo",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 0.6499996,
+      "functionName": "OnGrab",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 1.7699996699999998,
+      "functionName": "CheckDefaultCombo",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "Pull",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 2.5699999,
+      "functionName": "CheckDefaultCombo",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "Pull",
+      "origin": "source_animation_event"
+    }
+  ],
+  "effective_source_events": [
+    {
+      "time": 0.0,
+      "functionName": "OnBreak",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 0.4699993,
+      "functionName": "OnStrongDash",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 0.6199999,
+      "functionName": "OnResetVelocity",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 0.6499996,
+      "functionName": "CheckDefaultCombo",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 0.6499996,
+      "functionName": "OnGrab",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "BlinkAndGrab",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 1.7699996699999998,
+      "functionName": "CheckDefaultCombo",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "Pull",
+      "origin": "source_animation_event"
+    },
+    {
+      "time": 2.5699999,
+      "functionName": "CheckDefaultCombo",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "Pull",
+      "origin": "source_animation_event"
+    }
+  ],
+  "proposed_events": [
+    {
+      "time": 0.4699993,
+      "type": "teleport_to_farthest",
+      "origin": "source_OnStrongDash"
+    },
+    {
+      "time": 0.6499996,
+      "type": "grab_selected_target",
+      "origin": "source_OnGrab"
+    },
+    {
+      "time": 2.8499999,
+      "type": "damage_selected_targets",
+      "origin": "proposed_hero_design"
+    }
+  ],
+  "canvas": {
+    "width": 178,
+    "height": 97,
+    "pivot_pixels_bottom_left": [
+      100,
+      52
+    ]
+  },
+  "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts.",
+  "demo": {
+    "state": "Skill2",
+    "fps": 60,
+    "gif_preview_fps": 20,
+    "frame_count": 246,
+    "duration_seconds": 4.1,
+    "canvas_size": [
+      1000,
+      450
+    ],
+    "hero_role": "frontline_melee",
+    "kind": "proposed composited action preview; source sprite pixels are unmodified",
+    "death_trigger_demo_seconds": null
+  }
+}

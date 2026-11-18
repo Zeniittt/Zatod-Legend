@@ -26,8 +26,31 @@ static class Program
 
     static void Main()
     {
-        Progression(); BalanceAndBattle(); FlexibleRanks(); Validation();
-        Console.WriteLine("[HeroChecks] PASS / " + checks + " assertions: rank/gear/absorption, 20->33 rebalance, recipe history, unlocks, detached battle data, validation.");
+        Progression(); BalanceAndBattle(); FlexibleRanks(); Validation(); Formation(); ProjectileConfig(); SpawnPoints();
+        Console.WriteLine("[HeroChecks] PASS / " + checks + " assertions: rank/gear/absorption, 20->33 rebalance, recipe history, unlocks, detached battle data, validation, owned formation/position filters.");
+    }
+
+    static void SpawnPoints()
+    {
+        var data = HeroCatalogSample.Create();
+        data.Heroes[0].SpawnPoints.Add(new HeroSpawnPointDefinition { Id = "hand", Forward = 70, Height = 50 });
+        var skill = data.Skills[0]; skill.Delivery = SkillDelivery.Projectile;
+        skill.ProjectileResource = "Test/Shot"; skill.ProjectileSpeed = 1000; skill.ProjectileHitRadius = 5; skill.ProjectileLifetimeMilliseconds = 1000;
+        skill.ProjectileSpawnPointId = "hand"; skill.ProjectileSpawnOffsetForward = 10;
+        var catalog = new HeroCatalog(data); var hero = catalog.CreateHero(data.Heroes[0].Id, "test-points");
+        var battle = HeroBattleFactory.Create(hero, catalog);
+        var resolved = HeroProjectileOrigin.Resolve(battle.SpawnPoints, battle.Skills[0].Definition);
+        Check(resolved.Forward == 80 && resolved.Height == 50, "Shared point resolution");
+        data.Heroes[0].SpawnPoints[0].Forward = 999;
+        Check(battle.SpawnPoints[0].Forward == 70, "Battle spawn points share source config");
+        var bad = Copy(data); bad.Skills[0].ProjectileSpawnPointId = "missing";
+        Reject(() => new HeroCatalog(bad), "Unknown spawn point accepted");
+        bad = Copy(data); bad.Heroes[0].SpawnPoints.Add(bad.Heroes[0].SpawnPoints[0].Copy());
+        Reject(() => new HeroCatalog(bad), "Duplicate spawn point accepted");
+        bad = Copy(data); bad.Heroes[0].SpawnPoints[0].Height = -1;
+        Reject(() => new HeroCatalog(bad), "Below-ground spawn point accepted");
+        bad = Copy(data); bad.Heroes[0].ProjectileHurtboxHeight = 0;
+        Reject(() => new HeroCatalog(bad), "Invalid hurtbox height accepted");
     }
 
     static void Progression()
@@ -72,6 +95,68 @@ static class Program
         character.HeroDesk[1].RankId = "missing";
         Reject(() => catalog.Bind(character), "Invalid desk accepted");
         Check(hero.Definition == null, "Failed bind partially updated desk");
+    }
+
+    static void ProjectileConfig()
+    {
+        Check((int)SkillTarget.AllAllies == 5 && (int)SkillEffectKind.StatBonus == 3, "Existing serialized skill enum values changed");
+        var data = HeroCatalogSample.Create();
+        var skill = data.Skills[0];
+        skill.Target = SkillTarget.NearestEnemy; skill.AnimationState = "Ultimate"; skill.Delivery = SkillDelivery.Projectile;
+        skill.ProjectileResource = "Heroes/Test/Projectile"; skill.ProjectileAim = ProjectileAim.Forward;
+        skill.ProjectileSpawnMilliseconds = 250; skill.ProjectileSpeed = 1200; skill.ProjectileHitRadius = 60;
+        skill.ProjectileLifetimeMilliseconds = 1750; skill.ProjectileMaxHits = 1;
+        skill.Effects = new List<SkillEffectDefinition> { new SkillEffectDefinition { Kind = SkillEffectKind.KnockUp, KnockUpHeight = 100, DurationMilliseconds = 800 } };
+        data.Heroes[0].NormalAttackSkillId = skill.Id;
+        var catalog = new HeroCatalog(data); var hero = catalog.CreateHero("training_warrior", "projectile-copy");
+        var battleData = HeroBattleFactory.Create(hero, catalog);
+        Check(battleData.HasNormalAttack && battleData.NormalAttack.Id == skill.Id, "Battle copy lost configured normal attack");
+        battleData.NormalAttack.Effects[0].KnockUpHeight = 999;
+        Check(skill.Effects[0].KnockUpHeight == 100, "Normal attack snapshot shared with config");
+        var copy = battleData.Skills.Single().Definition;
+        Check(copy.AnimationState == "Ultimate" && copy.Delivery == SkillDelivery.Projectile && copy.Target == SkillTarget.NearestEnemy, "Battle snapshot lost skill delivery/animation");
+        Check(copy.ProjectileResource == skill.ProjectileResource && copy.ProjectileAim == ProjectileAim.Forward
+            && copy.ProjectileSpawnMilliseconds == 250 && copy.ProjectileSpeed == 1200 && copy.ProjectileHitRadius == 60
+            && copy.ProjectileLifetimeMilliseconds == 1750 && copy.ProjectileMaxHits == 1, "Battle snapshot lost projectile parameters");
+        copy.Effects[0].KnockUpHeight = 999;
+        Check(skill.Effects[0].KnockUpHeight == 100, "Runtime control effect shared with config");
+        skill.ProjectileSpeed = 0; Reject(() => new HeroCatalog(data), "Zero projectile speed accepted"); skill.ProjectileSpeed = 1200;
+        skill.ProjectileMaxHits = 0; Reject(() => new HeroCatalog(data), "Unbounded/zero hit limit accepted"); skill.ProjectileMaxHits = 1;
+        skill.ProjectileSpawnMilliseconds = -1; Reject(() => new HeroCatalog(data), "Negative projectile spawn time accepted"); skill.ProjectileSpawnMilliseconds = 250;
+        skill.Effects[0].KnockUpHeight = 0; Reject(() => new HeroCatalog(data), "KnockUp without height accepted"); skill.Effects[0].KnockUpHeight = 100;
+        skill.Effects[0].DurationMilliseconds = 0; Reject(() => new HeroCatalog(data), "KnockUp without duration accepted"); skill.Effects[0].DurationMilliseconds = 800;
+        skill.Effects = new List<SkillEffectDefinition> { new SkillEffectDefinition { Kind = SkillEffectKind.Knockback, DisplacementDistance = 0 } };
+        Reject(() => new HeroCatalog(data), "Knockback without distance accepted"); skill.Effects[0].DisplacementDistance = 100;
+        _ = new HeroCatalog(data);
+        data.Heroes[0].NormalAttackSkillId = "missing"; Reject(() => new HeroCatalog(data), "Missing normal attack reference accepted");
+    }
+
+    static void Formation()
+    {
+        var data = HeroCatalogSample.Create();
+        var second = Copy(data).Heroes[0]; second.Id = "middle"; second.Position = HeroPosition.Middle; data.Heroes.Add(second);
+        var third = Copy(data).Heroes[0]; third.Id = "rear"; third.Position = HeroPosition.Rear; data.Heroes.Add(third);
+        var catalog = new HeroCatalog(data);
+        var character = new CharacterData { CharacterId = "formation-test" };
+        for (int i = 0; i < 8; i++) character.HeroDesk.Add(catalog.CreateHero(i % 3 == 0 ? "training_warrior" : i % 3 == 1 ? "middle" : "rear", "owned-" + i));
+        var selection = new HeroFormation(character, catalog);
+        Check(!selection.CanBattle && selection.Selected.Count == 0, "Empty formation can battle");
+        Check(selection.Filter(null).Count() == 8 && selection.Filter(HeroPosition.Front).Count() == 3
+            && selection.Filter(HeroPosition.Middle).Count() == 3 && selection.Filter(HeroPosition.Rear).Count() == 2, "Position filters");
+        foreach (int i in new[] { 2, 1, 0, 4, 3 }) Check(selection.Toggle("owned-" + i), "Owned hero could not be selected");
+        Check(selection.CanBattle && selection.Selected.Count == 5, "Formation count/battle gate");
+        Check(!selection.Toggle("owned-5") && selection.Selected.Count == 5, "Sixth hero accepted");
+        Check(string.Join(",", selection.Selected.Select(h => h.HeroInstanceId)) == "owned-0,owned-3,owned-1,owned-4,owned-2", "Front-to-back stable ordering");
+        Check(selection.Toggle("owned-1") && !selection.Contains("owned-1") && selection.Selected.Count == 4, "Deselect failed");
+        Check(selection.Toggle("owned-5") && selection.Selected.Count == 5, "Freed slot not reusable");
+        Reject(() => selection.Toggle("not-owned"), "Non-owned hero accepted");
+        var reloaded = new HeroFormation(character, catalog);
+        Check(reloaded.Selected.Select(h => h.HeroInstanceId).SequenceEqual(selection.Selected.Select(h => h.HeroInstanceId)), "Rebinding lost selection");
+        character.Formation.HeroInstanceIds.Add("owned-7"); Reject(() => new HeroFormation(character, catalog), "Oversized saved formation accepted");
+        character.Formation.HeroInstanceIds = new List<string> { "owned-1", "owned-1" };
+        Reject(() => new HeroFormation(character, catalog), "Duplicate saved formation accepted");
+        character.Formation.HeroInstanceIds = new List<string> { "missing" };
+        Reject(() => new HeroFormation(character, catalog), "Unknown saved formation accepted");
     }
 
     static void BalanceAndBattle()

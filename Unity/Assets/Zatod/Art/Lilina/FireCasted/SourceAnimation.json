@@ -1,0 +1,146 @@
+{
+  "name": "Casted",
+  "category": "Projectile / FireBall",
+  "source_clip": "Assets/AnimationClip/Casted_9.anim",
+  "source_clip_guid": "18479dc6fb49f6749b3623ace4bf9121",
+  "source_controllers": [
+    "Cultist-Attack_FireBall_1"
+  ],
+  "animator_states": {
+    "Cultist-Attack_FireBall_1": [
+      {
+        "name": "Casted",
+        "speed": 1,
+        "speed_parameter": null,
+        "speed_parameter_active": 0
+      }
+    ]
+  },
+  "relationship_evidence": "Animator on GameObject FireBall directly embedded in SalamanderWitch.prefab. Source sprite track only; transform/material curves remain in source .anim.",
+  "frame_count": 2,
+  "unique_sprite_count": 2,
+  "source_sprite_track_path": "",
+  "source_sample_rate": 12,
+  "duration_seconds": 0.16666667,
+  "loop": true,
+  "canvas": {
+    "width": 85,
+    "height": 80,
+    "anchor_bottom_left": [
+      43,
+      41
+    ]
+  },
+  "events": [
+    {
+      "time": 0.16666667,
+      "functionName": "Trigger",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0
+    }
+  ],
+  "sequence_type": "one PNG per original sprite key, including repeated hold/end keys; use exact per-key durations, not a guessed fixed FPS",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.083333336,
+      "duration_seconds": 0.083333336,
+      "sprite_guid": "3357accd51b988a45988cd779843e72a",
+      "sprite_name": "Fireball(Light)1",
+      "source_asset": "Assets/Sprite/Fireball(Light)1.asset",
+      "source_texture": "Assets/Texture2D/Fireball(Light)1.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 36.026752,
+        "y": 49.026752,
+        "width": 46.9465,
+        "height": 35.89713
+      },
+      "source_pixel_crop_bottom_left": [
+        36,
+        49,
+        47,
+        36
+      ],
+      "source_pivot_normalized": {
+        "x": 0.59585375,
+        "y": 0.41711545
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        28.000000074374995,
+        14.999999533658503
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        36
+      ],
+      "padding_left_top": [
+        15,
+        18
+      ],
+      "export_pivot_pixels_bottom_left": [
+        43.000000074374995,
+        40.999999533658496
+      ],
+      "png_sha256": "e4d89f3f5841c9d8675be1ce3c6b1e092cbf9697256eb484847e6daf24c0b304",
+      "raw_png_sha256": "c5625c1ff19c7cbeab47bd97e6873a4e5d6ad3623b36c9a88bbd750fa071b821"
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.083333336,
+      "end_seconds": 0.16666667,
+      "duration_seconds": 0.083333334,
+      "sprite_guid": "80418381e2ee54344b267c98b987c91a",
+      "sprite_name": "Fireball(Light)2",
+      "source_asset": "Assets/Sprite/Fireball(Light)2.asset",
+      "source_texture": "Assets/Texture2D/Fireball(Light)2.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 32.026752,
+        "y": 47.026752,
+        "width": 56.89713,
+        "height": 38.9465
+      },
+      "source_pixel_crop_bottom_left": [
+        32,
+        47,
+        57,
+        39
+      ],
+      "source_pivot_normalized": {
+        "x": 0.56194836,
+        "y": 0.4358093
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        32.0000008922068,
+        16.999998902450002
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        57,
+        39
+      ],
+      "padding_left_top": [
+        11,
+        17
+      ],
+      "export_pivot_pixels_bottom_left": [
+        43.0000008922068,
+        40.99999890245
+      ],
+      "png_sha256": "bd9f1fa656b8b3dd3539a1284752304e7d114b089d86afaeeacf2175d001ce7e",
+      "raw_png_sha256": "e0ec087cb9a1e5038c84ad9091e664f69410e76244c766ab36f3121c712f70ad"
+    }
+  ]
+}

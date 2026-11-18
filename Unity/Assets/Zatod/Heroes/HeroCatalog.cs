@@ -12,6 +12,7 @@ namespace Zatod.Heroes
         readonly Dictionary<string, ItemDefinition> items;
         readonly Dictionary<string, SkillDefinition> skills;
         readonly Dictionary<string, HeroDefinition> heroes;
+        readonly Dictionary<string, MonsterDefinition> monsters;
 
         public HeroCatalog(HeroCatalogData data)
         {
@@ -22,6 +23,7 @@ namespace Zatod.Heroes
             items = Index(data.Items, s => s.Id, "Items");
             skills = Index(data.Skills, s => s.Id, "Skills");
             heroes = Index(data.Heroes, s => s.Id, "Heroes");
+            monsters = Index(data.Monsters, s => s.Id, "Monsters");
             Require(stats.Count > 0 && heroes.Count > 0, "Config needs stats and heroes.");
             foreach (var stat in data.Stats) Require(stat.Minimum >= 0, "Negative minimum: " + stat.Id);
             foreach (var item in data.Items) ValidateStats(item.Stats, "Item " + item.Id);
@@ -33,23 +35,104 @@ namespace Zatod.Heroes
                     && skill.EffectRadius >= 0 && skill.WindupMilliseconds >= 0 && skill.RecoveryMilliseconds >= 0,
                     "Negative skill timing/cost/range: " + skill.Id);
                 Require(skill.Kind != SkillKind.Passive || skill.Activation == SkillActivation.BattleStart
-                    || skill.Activation == SkillActivation.AfterBasicAttack, "Passive needs an event trigger: " + skill.Id);
+                    || skill.Activation == SkillActivation.AfterBasicAttack || skill.Activation == SkillActivation.OnDeath, "Passive needs an event trigger: " + skill.Id);
+                Require(skill.LifestealBasisPoints >= 0 && skill.LifestealBasisPoints <= 10000, "Invalid lifesteal: " + skill.Id);
                 Require(skill.Effects != null && skill.Effects.Count > 0, "Missing effects: " + skill.Id);
+                Require(Enum.IsDefined(typeof(SkillDelivery), skill.Delivery) && Enum.IsDefined(typeof(ProjectileAim), skill.ProjectileAim), "Invalid delivery/aim: " + skill.Id);
+                Require(skill.ProjectileSpawnMilliseconds >= 0, "Negative projectile spawn time: " + skill.Id);
+                Require(!skill.ProjectileTracksTarget || (skill.Delivery==SkillDelivery.Projectile && skill.ProjectileTargetOnly), "Tracking requires a target-only projectile: "+skill.Id);
+                Require(skill.MaxTargets >= 0 && skill.AnimationDurationMilliseconds >= 0 && skill.TargetEffectDelayMilliseconds >= 0
+                    && skill.TargetEffectImpactMilliseconds >= 0 && skill.ProjectileTargetHeight >= 0
+                    && skill.ProjectileImpactDurationMilliseconds >= 0, "Invalid skill target/timing: " + skill.Id);
+                Require(skill.CasterVisuals != null, "Missing caster visuals: " + skill.Id);
+                Require(skill.CastSequences != null, "Missing cast sequences: " + skill.Id);
+                if (skill.CastSequences.Count > 0)
+                {
+                    Require(skill.CastSequences.All(s => s != null), "Null cast sequence: " + skill.Id);
+                    Require(skill.CastSequences.Count(s => !s.Opening) == 1 && skill.CastSequences.Count(s => s.Opening) <= 1,
+                        "Need one repeat sequence and at most one opening: " + skill.Id);
+                    Require(!skill.CastAtBattleStart || skill.CastSequences.Any(s => s.Opening), "Missing opening sequence: " + skill.Id);
+                    foreach (var sequence in skill.CastSequences)
+                    {
+                        Require(sequence != null && !string.IsNullOrWhiteSpace(sequence.AnimationState) && sequence.DurationMilliseconds > 0
+                            && sequence.DurationMilliseconds <= 600000 && sequence.ReleaseMilliseconds >= 0 && sequence.ReleaseMilliseconds <= sequence.DurationMilliseconds,
+                            "Invalid sequence timing: " + skill.Id);
+                        Require(sequence.Actions != null && sequence.Visuals != null && sequence.Motion != null, "Missing sequence lists: " + skill.Id);
+                        foreach (var action in sequence.Actions) Require(action != null && Enum.IsDefined(typeof(SkillSequenceAction),action.Action)
+                            && action.DelayMilliseconds >= 0 && action.DelayMilliseconds <= 600000 && action.Distance>=0 && action.DurationMilliseconds>=0 && action.Height>=0 && action.TargetIndex>=0
+                            && Enum.IsDefined(typeof(SequenceTargetOrder),action.TargetOrder), "Invalid sequence action: " + skill.Id);
+                        foreach (var cue in sequence.Visuals) Require(cue != null && !string.IsNullOrWhiteSpace(cue.State) && cue.DelayMilliseconds >= 0
+                            && cue.DelayMilliseconds <= 600000 && cue.DurationMilliseconds > 0 && cue.DurationMilliseconds <= 600000 && cue.GrowMilliseconds >= 0,
+                            "Invalid sequence visual: " + skill.Id);
+                        int previousTime = -1;
+                        foreach (var key in sequence.Motion)
+                        {
+                            Require(key != null && key.TimeMilliseconds > previousTime && key.TimeMilliseconds <= sequence.DurationMilliseconds
+                                && key.Height >= 0, "Invalid sequence motion: " + skill.Id);
+                            previousTime = key.TimeMilliseconds;
+                        }
+                    }
+                }
+                foreach (var cue in skill.CasterVisuals)
+                    Require(cue != null && !string.IsNullOrWhiteSpace(cue.State) && cue.DelayMilliseconds >= 0 && cue.DurationMilliseconds > 0, "Invalid visual cue: " + skill.Id);
+                if (skill.Delivery == SkillDelivery.TargetedEffect)
+                    Require(skill.Target == SkillTarget.NearestEnemies && skill.MaxTargets > 0 && !string.IsNullOrWhiteSpace(skill.TargetEffectState)
+                        && skill.TargetEffectDurationMilliseconds > 0, "Invalid targeted effect: " + skill.Id);
+                Require(skill.ProjectileVisualScaleBasisPoints >= 0 && skill.ProjectileVisualScaleBasisPoints <= 100000,
+                    "Invalid projectile visual scale: " + skill.Id);
+                if (skill.Delivery == SkillDelivery.Projectile)
+                    Require(!string.IsNullOrWhiteSpace(skill.ProjectileResource) && skill.ProjectileSpeed > 0 && skill.ProjectileHitRadius > 0
+                        && skill.ProjectileLifetimeMilliseconds > 0 && skill.ProjectileMaxHits >= 1, "Invalid projectile config: " + skill.Id);
                 foreach (var effect in skill.Effects)
                 {
                     Require(effect != null && Enum.IsDefined(typeof(SkillEffectKind), effect.Kind), "Invalid effect: " + skill.Id);
                     Require(effect.DurationMilliseconds >= 0 && effect.DamageScaleBasisPoints >= 0, "Invalid effect duration/scale: " + skill.Id);
+                    Require(effect.DisplacementDistance >= 0 && effect.KnockUpHeight >= 0, "Invalid displacement: " + skill.Id);
+                    if (effect.Kind == SkillEffectKind.KnockUp) Require(effect.DurationMilliseconds > 0 && effect.KnockUpHeight > 0, "KnockUp needs duration and height: " + skill.Id);
+                    if (effect.Kind == SkillEffectKind.Knockback) Require(effect.DisplacementDistance > 0, "Knockback needs distance: " + skill.Id);
+                    if (effect.Kind == SkillEffectKind.Poison || effect.Kind==SkillEffectKind.Burn) Require(effect.DurationMilliseconds > 0 && effect.TickIntervalMilliseconds > 0
+                        && effect.TickIntervalMilliseconds <= effect.DurationMilliseconds, "Poison needs duration/tick interval: " + skill.Id);
+                    Require(effect.FirstTickDelayMilliseconds>=0 && effect.FirstTickDelayMilliseconds<=effect.DurationMilliseconds,"Invalid first tick delay: "+skill.Id);
+                    if (effect.Kind == SkillEffectKind.DamageBuff) Require(effect.DurationMilliseconds > 0 && effect.ModifierBasisPoints > 0
+                        && effect.ModifierBasisPoints <= 100000, "Damage buff needs duration and modifier: " + skill.Id);
                     if (effect.Kind == SkillEffectKind.StatBonus) Stat(effect.StatId);
                     else Require(effect.Amount >= 0, "Negative damage/heal amount: " + skill.Id);
+                    if (effect.Kind == SkillEffectKind.Resurrect) Require(skill.Kind==SkillKind.Passive && skill.Activation==SkillActivation.OnDeath
+                        && skill.Target==SkillTarget.Self && effect.ReviveDelayMilliseconds>0 && effect.ReviveHealthBasisPoints>0 && effect.ReviveHealthBasisPoints<=10000
+                        && effect.MaxTriggersPerBattle>0 && effect.ModifierBasisPoints>=0 && effect.ModifierBasisPoints<=10000
+                        && skill.AnimationDurationMilliseconds>=effect.ReviveDelayMilliseconds, "Invalid resurrection: "+skill.Id);
                 }
             }
             foreach (var hero in data.Heroes) ValidateDefinition(hero);
+            foreach (var monster in data.Monsters) ValidateMonster(monster);
         }
 
         public StatDefinition Stat(string id) { return Find(stats, id, "stat"); }
         public ItemDefinition Item(string id) { return Find(items, id, "item"); }
         public SkillDefinition Skill(string id) { return Find(skills, id, "skill"); }
         public HeroDefinition Hero(string id) { return Find(heroes, id, "hero"); }
+        public MonsterDefinition Monster(string id) { return Find(monsters, id, "monster"); }
+
+        void ValidateMonster(MonsterDefinition monster)
+        {
+            Require(!string.IsNullOrWhiteSpace(monster.Name) && Enum.IsDefined(typeof(HeroPosition),monster.Position),"Invalid monster identity/position: "+monster.Id);
+            ValidateStats(monster.BaseStats,"Monster "+monster.Id);
+            foreach(string id in new[]{"health","damage","defense","attack_range","move_speed","attack_interval"})
+                Require(monster.BaseStats.Any(s=>s.StatId==id),"Missing monster stat "+id+": "+monster.Id);
+            foreach(string id in new[]{"health","attack_range","move_speed","attack_interval"})
+                Require(monster.BaseStats.Single(s=>s.StatId==id).Value>0,"Monster stat must be positive: "+id);
+            Require(monster.ProjectileHurtboxHeight>0 && monster.DeathAnimationMilliseconds>0,"Invalid monster body: "+monster.Id);
+            var points=Index(monster.SpawnPoints,p=>p.Id,"Monster spawn points");
+            foreach(var point in points.Values)Require(point.Height>=0,"Monster point below ground: "+point.Id);
+            var normal=Skill(monster.NormalAttackSkillId);
+            Require(normal.Kind==SkillKind.Active && normal.Activation==SkillActivation.Automatic && normal.EnergyCost==0,
+                "Monster normal attack must be automatic and free: "+monster.Id);
+            Require(monster.SkillIds!=null && monster.SkillIds.Distinct(StringComparer.Ordinal).Count()==monster.SkillIds.Count,"Invalid monster skill IDs: "+monster.Id);
+            foreach(var skill in monster.SkillIds.Select(Skill).Concat(new[]{normal}))
+                if(!string.IsNullOrEmpty(skill.ProjectileSpawnPointId))
+                    Require(points.ContainsKey(skill.ProjectileSpawnPointId) && points[skill.ProjectileSpawnPointId].Height+skill.ProjectileSpawnOffsetHeight>=0,
+                        "Unknown/below-ground monster spawn point: "+monster.Id+" / "+skill.Id);
+        }
 
         public List<HeroRankDefinition> RankPath(HeroDefinition hero, string throughRankId)
         {
@@ -131,6 +214,22 @@ namespace Zatod.Heroes
 
         void ValidateDefinition(HeroDefinition hero)
         {
+            Require(hero.ProjectileHurtboxHeight > 0, "Hero needs a positive projectile hurtbox height: " + hero.Id);
+            Require(hero.DeathAnimationMilliseconds > 0, "Hero needs a positive death animation duration: " + hero.Id);
+            var spawnPoints = Index(hero.SpawnPoints, p => p.Id, "Spawn points of " + hero.Id);
+            foreach (var point in spawnPoints.Values) Require(point.Height >= 0, "Spawn point below ground: " + point.Id);
+            var usedSkills = hero.SkillSlots.Select(s => Skill(s.SkillId)).ToList();
+            if (!string.IsNullOrEmpty(hero.NormalAttackSkillId)) usedSkills.Add(Skill(hero.NormalAttackSkillId));
+            foreach (var skill in usedSkills.Where(s => !string.IsNullOrEmpty(s.ProjectileSpawnPointId)))
+            {
+                Require(skill.Delivery == SkillDelivery.Projectile || skill.Delivery == SkillDelivery.Beam, "Spawn point belongs to a non-projectile skill: " + skill.Id);
+                Require(spawnPoints.ContainsKey(skill.ProjectileSpawnPointId), "Unknown projectile spawn point on " + hero.Id + ": " + skill.ProjectileSpawnPointId);
+                Require(spawnPoints[skill.ProjectileSpawnPointId].Height + skill.ProjectileSpawnOffsetHeight >= 0, "Projectile spawns below ground: " + skill.Id);
+            }
+            foreach (var skill in usedSkills.Where(s => string.IsNullOrEmpty(s.ProjectileSpawnPointId)))
+                Require(skill.ProjectileSpawnOffsetHeight >= 0, "Root projectile spawns below ground: " + skill.Id);
+            Require(Enum.IsDefined(typeof(HeroPosition), hero.Position), "Invalid formation position: " + hero.Id);
+            if (!string.IsNullOrEmpty(hero.NormalAttackSkillId)) Skill(hero.NormalAttackSkillId);
             ValidateStats(hero.BaseStats, "Hero " + hero.Id);
             var slots = Index(hero.SkillSlots, s => s.Id, "Skill slots of " + hero.Id);
             Require(slots.Count > 0 && slots.Values.Count(s => s.IsUltimate) == 1, "Hero needs exactly one ultimate slot: " + hero.Id);

@@ -23,6 +23,14 @@ public static class VerifyUi
         Action<bool, string> check = (ok, reason) => { checks++; if (!ok) throw new Exception(reason); };
         var connection = UnityEngine.Object.FindAnyObjectByType<ArenaConnection>();
         var view = UnityEngine.Object.FindAnyObjectByType<ArenaView>();
+        UnityEngine.Object.FindAnyObjectByType<HeroRosterView>()?.Hide();
+        var formation = UnityEngine.Object.FindAnyObjectByType<FormationView>();
+        if (formation != null && formation.IsVisible)
+        {
+            var formationCanvas = GameObject.Find("FormationCanvas");
+            if (formationCanvas != null) formationCanvas.SetActive(false);
+        }
+        view.SetVisible(true);
         check(view != null && !Mirror.NetworkServer.active, "UI must be a client only");
         if (!connection.Connected) Button("Connect").onClick.Invoke();
         await Wait(() => connection.Connected && !connection.Busy);

@@ -6,11 +6,17 @@ namespace Zatod.Presentation
     [RequireComponent(typeof(CanvasRenderer))]
     public class ArenaGraphic : UnityEngine.UI.MaskableGraphic
     {
-        public int shape; // 0 arena floor, 1 shield, 2 blades, 3 bow, 4 star, 5 cross
+        public int shape; // 0 floor, 1 shield, 2 blades, 3 bow, 4 star, 5 cross, 6 back, 7 check
         protected override void OnPopulateMesh(UnityEngine.UI.VertexHelper vh)
         {
             vh.Clear();
             var r = rectTransform.rect;
+            if (shape == 8)
+            {
+                Ellipse(vh, r.center, new Vector2(r.width*.5f,r.height*.5f), 3, color);
+                Ellipse(vh, r.center, new Vector2(r.width*.43f,r.height*.43f), 1, color);
+                return;
+            }
             if (shape == 0)
             {
                 Color grid = new Color(.25f, .43f, .53f, .11f);
@@ -44,6 +50,17 @@ namespace Zatod.Presentation
             else if (shape == 4)
             {
                 Polygon(vh, new[] { new Vector2(0, s), new Vector2(s * .3f, s * .3f), new Vector2(s, 0), new Vector2(s * .3f, -s * .3f), new Vector2(0, -s), new Vector2(-s * .3f, -s * .3f), new Vector2(-s, 0), new Vector2(-s * .3f, s * .3f) }, c);
+            }
+            else if (shape == 6)
+            {
+                Line(vh, new Vector2(s * .8f, 0), new Vector2(-s * .8f, 0), s * .35f, c);
+                Line(vh, new Vector2(-s * .8f, 0), new Vector2(0, s * .8f), s * .35f, c);
+                Line(vh, new Vector2(-s * .8f, 0), new Vector2(0, -s * .8f), s * .35f, c);
+            }
+            else if (shape == 7)
+            {
+                Line(vh, new Vector2(-s * .8f, 0), new Vector2(-s * .2f, -s * .5f), s * .3f, c);
+                Line(vh, new Vector2(-s * .2f, -s * .5f), new Vector2(s * .9f, s * .7f), s * .3f, c);
             }
             else
             {

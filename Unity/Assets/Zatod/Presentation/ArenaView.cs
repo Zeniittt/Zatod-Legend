@@ -17,10 +17,17 @@ namespace Zatod.Presentation
         public float Speed { get; private set; } = 1;
         public ReplayTimeline Timeline { get; private set; }
         public BattleRecord Record { get; private set; }
+        public bool SandboxMode { get; private set; }
+        public bool Ready { get { return root != null; } }
+        public Transform ViewRoot=>root;
+        public void SetCampaignTitle(string title)
+        {if(modeTitle!=null)modeTitle.text="CAMPAIGN";if(modeNote!=null)modeNote.text=title;}
         static readonly Color Background = Hex("0B111B"), Panel = Hex("111D2A"), Border = Hex("243647"), Muted = Hex("8C9DAE"), White = Hex("EDF2F6"), Gold = Hex("E7BB73"), Blue = Hex("66C8E8"), Red = Hex("EF8D83");
         ArenaConnection connection;
         RectTransform root, stage, actors, effects, history;
         TextMeshProUGUI status, clock, result, info, feed, pauseLabel, addressState, leftCount, rightCount;
+        TextMeshProUGUI modeTitle, authorityLabel;
+        TextMeshProUGUI modeNote;
         UnityEngine.UI.Button challenge, connect;
         TMP_InputField address;
         UnityEngine.UI.Slider progress;
@@ -29,9 +36,12 @@ namespace Zatod.Presentation
         readonly List<FloatingEffect> floaters = new List<FloatingEffect>();
         readonly List<FighterState> drawStates = new List<FighterState>();
         float cameraCenterX, pixelsPerUnit = .078f;
+        float recordCameraCenterX, recordPixelsPerUnit;
         string opponent = "balanced";
         bool seeking;
         float previousRealtime;
+        bool beginWhenConnected;
+        public bool IsVisible { get { return root != null && root.gameObject.activeInHierarchy; } }
 
         sealed class FighterVisual
         {
@@ -39,15 +49,19 @@ namespace Zatod.Presentation
             public CanvasGroup group;
             public TextMeshProUGUI value, action;
             public ArenaGraphic icon;
+            public ReplaySprite sprite;
             public Vector2 iconOrigin;
             public float flashUntil;
         }
         sealed class FloatingEffect { public RectTransform rect; public CanvasGroup group; public Vector2 origin; public float born, lifetime; }
+        readonly Dictionary<BattleProjectile, ReplaySprite> projectileVisuals = new Dictionary<BattleProjectile, ReplaySprite>();
+        readonly Dictionary<BattleVisualEffect, ReplaySprite> skillVisuals = new Dictionary<BattleVisualEffect, ReplaySprite>();
+        readonly Dictionary<BattleVisualEffect, ArenaGraphic> shockwaves = new Dictionary<BattleVisualEffect, ArenaGraphic>();
 
         void Start()
         {
             connection = GetComponent<ArenaConnection>();
-            if (connection.IsServer || Array.IndexOf(Environment.GetCommandLineArgs(), "--arena-smoke") >= 0) { enabled = false; return; }
+            if (connection.IsServer || (Array.IndexOf(Environment.GetCommandLineArgs(), "--arena-smoke") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "--campaign-smoke") >= 0)) { enabled = false; return; }
             BuildInterface();
             connection.ReplayReceived += Load;
             connection.CatalogChanged += DrawHistory;
@@ -55,6 +69,23 @@ namespace Zatod.Presentation
             PreviewTeams();
             UpdateConnection();
             previousRealtime = Time.realtimeSinceStartup;
+            if (GetComponent<FormationView>() != null) SetVisible(false);
+        }
+
+        public void SetVisible(bool visible)
+        {
+            if (root != null) root.parent.gameObject.SetActive(visible);
+            if (!visible) { Playing = false; beginWhenConnected = false; }
+            previousRealtime = Time.realtimeSinceStartup;
+        }
+
+        public void OpenBattle()
+        {
+            SetSandboxMode(false);
+            SetVisible(true);
+            if (connection.Busy) return;
+            if (connection.Connected) connection.Challenge(opponent);
+            else { beginWhenConnected = true; connection.Connect(); }
         }
 
         void BuildInterface()
@@ -72,8 +103,10 @@ namespace Zatod.Presentation
 
             Label(root, "Z A T O D", 28, 20, 360, 42, 29, White, FontStyles.Bold);
             Label(root, "COMBAT PROTOTYPE  /  02", 30, 68, 470, 24, 13, Muted);
-            Label(root, "OFFLINE ARENA", 1000, 28, 280, 30, 18, Gold, FontStyles.Bold);
-            Label(root, "SERVER-RECORDED BATTLE", 1000, 61, 360, 22, 12, Muted);
+            var formationView = GetComponent<FormationView>();
+            if (formationView != null) Button(root, "SQUAD", 760, 28, 180, 40, formationView.Show, Gold);
+            modeTitle = Label(root, "OFFLINE ARENA", 1000, 28, 280, 30, 18, Gold, FontStyles.Bold);
+            authorityLabel = Label(root, "SERVER-RECORDED BATTLE", 1000, 61, 360, 22, 12, Muted);
             Box(root, "HeaderRule", 28, 106, 1544, 1, Border);
 
             stage = Box(root, "BattleStage", 28, 128, 1140, 600, Panel);
@@ -101,7 +134,7 @@ namespace Zatod.Presentation
             Button(side, "Fortress", 136, 204, 106, 38, () => SelectOpponent("fortress"), Border);
             Button(side, "Burst", 250, 204, 108, 38, () => SelectOpponent("burst"), Border);
             challenge = Button(side, "START CHALLENGE", 22, 260, 336, 48, () => connection.Challenge(opponent), Gold);
-            Label(side, "Auto ultimates. Result saved before playback.", 22, 316, 336, 34, 12, Muted);
+            modeNote = Label(side, "Auto ultimates. Result saved before playback.", 22, 316, 336, 34, 12, Muted);
             Box(side, "RuleHistory", 22, 362, 336, 1, Border);
             Label(side, "SERVER HISTORY", 22, 382, 228, 24, 13, White, FontStyles.Bold);
             Button(side, "Refresh", 270, 378, 88, 30, () => connection.RefreshCatalog(), Border);
@@ -142,16 +175,71 @@ namespace Zatod.Presentation
 
         public void Load(BattleRecord record)
         {
+            SetSandboxMode(false);
             Record = record;
             Timeline = new ReplayTimeline(record);
             Timeline.EventApplied += OnBattleEvent;
             Playhead = 0; Playing = true;
             logs.Clear(); ClearEffects();
+            // A new match can contain different heroes and fewer than five allies.
+            foreach (var visual in visuals.Values) Destroy(visual.root.gameObject);
+            visuals.Clear();
+            foreach (var visual in projectileVisuals.Values) Destroy(visual.gameObject);
+            projectileVisuals.Clear();
+            foreach (var visual in skillVisuals.Values) Destroy(visual.gameObject);
+            skillVisuals.Clear();
+            foreach (var visual in shockwaves.Values) Destroy(visual.gameObject);
+            shockwaves.Clear();
             result.text = "";
             info.text = "REPLAY  " + record.battleId.Substring(0, 8).ToUpperInvariant() + "   /   " + record.opponentId.ToUpperInvariant() + "   /   RESULT COMMITTED";
             foreach (var f in record.initial) if (!visuals.ContainsKey(f.id)) visuals.Add(f.id, MakeFighter(f));
+            if (record.projectiles != null) foreach (var projectile in record.projectiles)
+            {
+                var owner = record.initial.Find(f => f.id == projectile.actorId);
+                if (owner == null || string.IsNullOrEmpty(owner.animationSetResource)) continue;
+                var rect = Rect(effects, "Projectile_" + projectile.actorId, 0, 0, 1, 1);
+                rect.anchorMin = rect.anchorMax = new Vector2(.5f, .5f);
+                var visual = rect.gameObject.AddComponent<ReplaySprite>(); visual.Initialize(owner.animationSetResource);
+                projectileVisuals.Add(projectile, visual);
+            }
+            if (record.visualEffects != null) foreach (var effect in record.visualEffects)
+            {
+                if (effect.shockwave)
+                {
+                    var ringRect = Rect(effects,"BurstRing_"+effect.startTick,0,0,1,1);
+                    ringRect.anchorMin = ringRect.anchorMax = ringRect.pivot = new Vector2(.5f,.5f);
+                    var ring = ringRect.gameObject.AddComponent<ArenaGraphic>(); ring.shape=8;ring.raycastTarget=false;
+                    shockwaves.Add(effect,ring);continue;
+                }
+                var owner = record.initial.Find(f => f.id == effect.actorId);
+                if (owner == null || string.IsNullOrEmpty(owner.animationSetResource)) continue;
+                var rect = Rect(effects, "FX_" + effect.state + "_" + effect.targetId + "_" + skillVisuals.Count, 0, 0, 1, 1);
+                rect.anchorMin = rect.anchorMax = new Vector2(.5f,.5f);
+                var visual = rect.gameObject.AddComponent<ReplaySprite>(); visual.Initialize(owner.animationSetResource);
+                skillVisuals.Add(effect,visual);
+            }
+            FitRecordCamera();
             RenderStates(Timeline.States.Values, 0, true);
             UpdatePlaybackLabels();
+        }
+
+#if UNITY_EDITOR
+        public void LoadSandbox(BattleRecord record)
+        {
+            if (connection.Busy) throw new InvalidOperationException("Wait for the pending Arena request before opening a sandbox preview.");
+            GetComponent<CampaignView>()?.Hide();
+            GetComponent<HeroRosterView>()?.Hide();
+            GetComponent<FormationView>()?.Hide();
+            Load(record); SetSandboxMode(true); FitRecordCamera(); SetVisible(true); Speed = 1; Seek(0);
+        }
+#endif
+        void SetSandboxMode(bool enabled)
+        {
+            SandboxMode = enabled;
+            if (modeTitle != null) modeTitle.text = enabled ? "COMBAT SANDBOX" : "OFFLINE ARENA";
+            if (authorityLabel != null) authorityLabel.text = enabled ? "EDITOR / LOCAL COMBAT CORE" : "SERVER-RECORDED BATTLE";
+            if (modeNote != null) modeNote.text = enabled ? "Temporary preview. No server archive is written." : "Auto ultimates. Result saved before playback.";
+            UpdateConnection();
         }
 
         public void TogglePlayback()
@@ -203,17 +291,23 @@ namespace Zatod.Presentation
                 f.rect.anchoredPosition = f.origin + Vector2.up * age * 55;
                 f.group.alpha = 1 - age * age;
             }
-            challenge.interactable = connection.Connected && !connection.Busy;
-            address.interactable = !connection.Connected && !connection.Busy;
+            challenge.interactable = !SandboxMode && connection.Connected && !connection.Busy;
+            connect.interactable = !SandboxMode;
+            address.interactable = !SandboxMode && !connection.Connected && !connection.Busy;
         }
 
         void UpdateConnection()
         {
             if (status == null) return;
-            status.text = connection.Status;
+            status.text = SandboxMode ? "Editor sandbox: temporary Hero, same combat core. No server request, account write or archive commit." : connection.Status;
             connect.GetComponentInChildren<TextMeshProUGUI>().text = connection.Connected ? "Disconnect" : "Connect";
-            addressState.text = connection.Connected ? "CONNECTED  /  dedicated server :" + connection.Port : "Dedicated server / TCP " + connection.Port;
+            addressState.text = SandboxMode ? "SANDBOX / no network required" : connection.Connected ? "CONNECTED  /  dedicated server :" + connection.Port : "Dedicated server / TCP " + connection.Port;
             addressState.color = connection.Connected ? Blue : Muted;
+            if (beginWhenConnected && connection.Connected && !connection.Busy)
+            {
+                beginWhenConnected = false;
+                connection.Challenge(opponent);
+            }
         }
 
         void UpdatePlaybackLabels()
@@ -223,8 +317,9 @@ namespace Zatod.Presentation
             pauseLabel.text = Playing ? "PAUSE" : "PLAY";
             seeking = true; progress.SetValueWithoutNotify(Playhead / Record.DurationSeconds); seeking = false;
             bool ended = Playhead >= Record.DurationSeconds;
-            result.text = ended ? Record.winner == 0 ? "VICTORY" : Record.winner == 1 ? "DEFEAT" : "DRAW" : "";
-            if (ended) info.text = (Record.timedOut ? "TIME LIMIT  /  " : "BATTLE COMPLETE  /  ") + "Replay saved on server. Restart or select it from history.";
+            result.text = ended ? SandboxMode ? "SANDBOX COMPLETE" : Record.winner == 0 ? "VICTORY" : Record.winner == 1 ? "DEFEAT" : "DRAW" : "";
+            if (SandboxMode) info.text = "SANDBOX  /  " + Record.opponentId + "  /  " + Speed.ToString("0.#") + "x  /  temporary data, no Arena result";
+            else if (ended) info.text = (Record.timedOut ? "TIME LIMIT  /  " : "BATTLE COMPLETE  /  ") + "Replay saved on server. Restart or select it from history.";
             else info.text = (LegacyLayout ? "LEGACY REPLAY  " : "REPLAY  ") + Record.battleId.Substring(0, 8).ToUpperInvariant() + "   /   " + Record.opponentId.ToUpperInvariant() + "   /   " + Speed.ToString("0.#") + "x   /   " + TimeText(Record.DurationSeconds);
         }
 
@@ -249,14 +344,22 @@ namespace Zatod.Presentation
             Box(rect, "Shadow", 20, 76, 48, 5, new Color(0, 0, 0, .3f));
             var iconRect = Rect(rect, "RoleIcon", 18, 20, 52, 52);
             var icon = iconRect.gameObject.AddComponent<ArenaGraphic>(); icon.shape = (int)state.role + 1; icon.color = state.team == 0 ? Blue : Red; icon.raycastTarget = false;
-            Label(rect, state.role.ToString().ToUpperInvariant(), 0, 0, 88, 18, 10, Muted, FontStyles.Bold, TextAlignmentOptions.Center);
-            Box(rect, "HpTrack", 6, 84, 76, 5, Background);
-            var hp = Box(rect, "Hp", 6, 84, 76, 5, state.team == 0 ? Blue : Red); hp.pivot = new Vector2(0, 1);
-            Box(rect, "EnergyTrack", 6, 93, 76, 3, Background);
-            var energy = Box(rect, "Energy", 6, 93, 76, 3, Gold); energy.pivot = new Vector2(0, 1);
-            var value = Label(rect, "", 0, 99, 88, 16, 9, Muted, FontStyles.Normal, TextAlignmentOptions.Center);
+            ReplaySprite sprite = null;
+            if (!string.IsNullOrEmpty(state.animationSetResource))
+            {
+                var spriteRect = Rect(rect, "HeroSprite", 44, 76, 1, 1);
+                sprite = spriteRect.gameObject.AddComponent<ReplaySprite>(); sprite.Initialize(state.animationSetResource);
+                icon.gameObject.SetActive(false);
+            }
+            Label(rect, (state.name ?? state.role.ToString()).ToUpperInvariant(), -16, sprite == null ? 0 : -58, 120, 18, 10, Muted, FontStyles.Bold, TextAlignmentOptions.Center);
+            float barOffset = sprite == null ? 0 : 36;
+            Box(rect, "HpTrack", 6, 84 + barOffset, 76, 5, Background);
+            var hp = Box(rect, "Hp", 6, 84 + barOffset, 76, 5, state.team == 0 ? Blue : Red); hp.pivot = new Vector2(0, 1);
+            Box(rect, "EnergyTrack", 6, 93 + barOffset, 76, 3, Background);
+            var energy = Box(rect, "Energy", 6, 93 + barOffset, 76, 3, Gold); energy.pivot = new Vector2(0, 1);
+            var value = Label(rect, "", 0, 99 + barOffset, 88, 16, 9, Muted, FontStyles.Normal, TextAlignmentOptions.Center);
             var action = Label(rect, "", -4, 64, 96, 18, 9, Gold, FontStyles.Bold, TextAlignmentOptions.Center);
-            return new FighterVisual { root = rect, hp = hp, energy = energy, group = group, icon = icon, iconOrigin = iconRect.anchoredPosition, value = value, action = action };
+            return new FighterVisual { root = rect, hp = hp, energy = energy, group = group, icon = icon, sprite = sprite, iconOrigin = iconRect.anchoredPosition, value = value, action = action };
         }
 
         void RenderStates(IEnumerable<FighterState> states, float tick, bool snap)
@@ -273,6 +376,9 @@ namespace Zatod.Presentation
                 var v = visuals[s.id];
                 v.root.SetAsLastSibling();
                 Vector2 point = Position(s);
+                point.y += s.presentationHeight * .9f;
+                if (s.knockUpUntil > tick)
+                    point.y += Mathf.Sin(Mathf.PI * (tick - s.controlStartTick) / Mathf.Max(1, s.knockUpUntil - s.controlStartTick)) * s.knockUpHeight * pixelsPerUnit;
                 float phase = Mathf.Clamp01((tick - s.actionStartTick) / Mathf.Max(1, s.actionEndTick - s.actionStartTick));
                 bool stunned = s.stunUntil > tick && s.Alive;
                 Vector2 iconOffset = Vector2.zero;
@@ -292,24 +398,107 @@ namespace Zatod.Presentation
                 v.root.anchoredPosition = snap ? point : Vector2.Lerp(v.root.anchoredPosition, point, 1 - Mathf.Exp(-24 * Time.unscaledDeltaTime));
                 v.hp.localScale = new Vector3((float)s.hp / s.maxHp, 1, 1);
                 v.energy.localScale = new Vector3(s.energy / 100f, 1, 1);
-                v.group.alpha = s.Alive ? 1 : LegacyLayout ? .18f : 0;
+                bool resurrecting=s.reviveAtTick>tick;
+                v.group.alpha = s.Alive || resurrecting || (v.sprite != null && tick - s.actionStartTick < (s.deathVisualTicks > 0 ? s.deathVisualTicks : 30)) ? 1 : LegacyLayout ? .18f : 0;
+                if (v.sprite != null)
+                {
+                    string state = resurrecting ? s.animationState : !s.Alive ? "Death" : stunned ? "Stun" : tick < s.animationEndTick ? s.animationState : s.action == BattleAction.Moving ? "Run" : "Idle";
+                    int start = resurrecting ? s.animationStartTick : !s.Alive ? s.actionStartTick : stunned ? s.controlStartTick : tick < s.animationEndTick ? s.animationStartTick : s.actionStartTick;
+                    v.sprite.Sample(state, (tick - start) / (Record == null ? 20 : Record.tickRate), s.facingDirection==0?s.team==0:s.facingDirection>0, .9f);
+                    v.sprite.GetComponent<RectTransform>().anchoredPosition = new Vector2(44,-76+v.sprite.PresentationHeight*.9f);
+                }
                 v.value.text = s.Alive ? s.hp + " / " + s.maxHp : "";
-                v.action.text = !s.Alive ? "DEFEATED" : stunned ? "STUNNED" : s.action == BattleAction.Ultimate ? "ULTIMATE" : s.action == BattleAction.Moving ? "MOVING" : "";
+                v.action.text = resurrecting ? "RESURRECTING" : !s.Alive ? "DEFEATED" : stunned ? ControlText(s.controlKind).ToUpperInvariant() : s.burnUntil > tick ? "BURNING" : s.poisonUntil > tick ? "POISONED" : s.lifestealBasisPoints>0 ? "+ LIFESTEAL" : s.damageBonusBasisPoints > 0 ? "+ DAMAGE" : s.action == BattleAction.Ultimate ? "ULTIMATE" : s.action == BattleAction.Moving ? "MOVING" : "";
                 v.icon.color = Time.realtimeSinceStartup < v.flashUntil ? White : stunned ? Gold : s.team == 0 ? Blue : Red;
             }
-            leftCount.text = leftAlive + "  /  5";
-            rightCount.text = rightAlive + " / 5  |  AUTO SKILLS";
+            int leftTotal = 0, rightTotal = 0;
+            foreach (var s in drawStates) { if (s.team == 0) leftTotal++; else rightTotal++; }
+            leftCount.text = leftAlive + "  /  " + leftTotal;
+            bool monsterTeam=Record!=null && Record.initial.Exists(f=>f.team==1 && !string.IsNullOrEmpty(f.monsterDefinitionId));
+            rightCount.text = rightAlive + " / " + rightTotal + (monsterTeam?"  |  MONSTERS":"  |  AUTO SKILLS");
+            foreach (var entry in projectileVisuals)
+            {
+                var p = entry.Key; var visual = entry.Value;
+                string state = !string.IsNullOrEmpty(p.flightState) ? p.flightState : p.resource.Substring(p.resource.LastIndexOf('/') + 1);
+                // A close hit can resolve in one server tick. Finish the effect animation at the
+                // recorded contact point without changing its hit time, damage or crowd control.
+                float visualEnd = p.hasFlightPath ? p.endTick : p.hit ? Mathf.Max(p.endTick, p.startTick + visual.ClipDuration(state) * Record.tickRate) : p.endTick;
+                bool visible = tick >= p.startTick && tick < visualEnd;
+                visual.gameObject.SetActive(visible);
+                if (!visible) continue;
+                float x = Mathf.Lerp(p.startX, p.endX, (tick - p.startTick) / Mathf.Max(1, p.endTick - p.startTick));
+                float height = p.hasFlightPath ? Mathf.Lerp(p.spawnHeight,p.endHeight,(tick-p.startTick)/Mathf.Max(1,p.endTick-p.startTick)) : p.spawnHeight;
+                float depth = p.hasFlightPath ? Mathf.Lerp(p.y,p.endY,(tick-p.startTick)/Mathf.Max(1,p.endTick-p.startTick)) : p.y;
+                int direction=p.direction;
+                if(p.path!=null && p.path.Count>1)
+                {
+                    var a=p.path[0];var b=p.path[p.path.Count-1];
+                    for(int i=1;i<p.path.Count;i++)if(tick<=p.path[i].tick){a=p.path[i-1];b=p.path[i];break;}
+                    float progress=Mathf.Clamp01((tick-a.tick)/Mathf.Max(1,b.tick-a.tick));
+                    x=Mathf.Lerp(a.x,b.x,progress);height=Mathf.Lerp(a.height,b.height,progress);depth=Mathf.Lerp(a.y,b.y,progress);
+                    if(b.x!=a.x)direction=b.x>a.x?1:-1;
+                }
+                ((RectTransform)visual.transform).anchoredPosition = new Vector2((x - cameraCenterX) * pixelsPerUnit, depth * .2f - 45 + height * .9f);
+                float scale = p.visualScaleBasisPoints > 0 ? .9f * p.visualScaleBasisPoints / 10000f : .65f;
+                visual.Sample(state, (tick - p.startTick) / Record.tickRate, direction > 0, scale, true);
+            }
+            foreach (var entry in skillVisuals)
+            {
+                var effect = entry.Key; var visual = entry.Value;
+                bool visible = tick >= effect.startTick && tick < effect.endTick;
+                visual.gameObject.SetActive(visible); if (!visible) continue;
+                float x = effect.x, y = effect.y;
+                if (effect.followId != 0 && Timeline.States.TryGetValue(effect.followId,out var owner)) { x=owner.x; y=owner.y; }
+                x += effect.direction * effect.forward;
+                float travel = Mathf.Clamp01((tick-effect.startTick)/Mathf.Max(1,effect.endTick-effect.startTick));
+                x += effect.direction * effect.moveForward * travel;
+                var rect = (RectTransform)visual.transform;
+                rect.anchoredPosition = new Vector2((x-cameraCenterX)*pixelsPerUnit,y*.2f-45+(effect.height+effect.moveHeight*travel)*.9f);
+                visual.Sample(effect.state,(tick-effect.startTick)/Record.tickRate,effect.direction>=0,.9f);
+                if (effect.stretchToRange)
+                {
+                    float grow = effect.growTicks > 0 ? Mathf.Clamp01((tick-effect.startTick)/effect.growTicks) : 1;
+                    visual.StretchWidth(Mathf.Abs(effect.endX-x)*pixelsPerUnit*grow);
+                }
+            }
+            foreach (var entry in shockwaves)
+            {
+                var effect=entry.Key;var ring=entry.Value;
+                bool visible=tick>=effect.startTick && tick<effect.endTick;
+                ring.gameObject.SetActive(visible);if(!visible)continue;
+                float age=Mathf.Clamp01((tick-effect.startTick)/Mathf.Max(1,effect.endTick-effect.startTick));
+                ring.rectTransform.anchoredPosition=new Vector2((effect.x+effect.direction*effect.forward-cameraCenterX)*pixelsPerUnit,
+                    effect.y*.2f-45+effect.height*.9f);
+                ring.rectTransform.sizeDelta=new Vector2(35+465*age,15+185*age);
+                ring.color=new Color(1,.6f,.22f,1-age);
+            }
         }
 
         bool LegacyLayout { get { return Record != null && Record.rulesVersion == "combat-prototype-1"; } }
+        void FitRecordCamera()
+        {
+            if (Record == null || actors == null) return;
+            float min = float.MaxValue, max = float.MinValue;
+            void Include(int x) { min = Mathf.Min(min, x); max = Mathf.Max(max, x); }
+            foreach (var fighter in Record.initial) Include(fighter.x);
+            foreach (var e in Record.events) if (e.hasState) Include(e.state.x);
+            if (Record.projectiles != null) foreach (var p in Record.projectiles)
+            { Include(p.startX); Include(p.endX); }
+            recordCameraCenterX = (min + max) * .5f;
+            recordPixelsPerUnit = Mathf.Min(SandboxMode ? .9f : .09f, (actors.rect.width - 160) / Mathf.Max(1, max - min));
+        }
         void UpdateBattleCamera(bool snap)
         {
             if (LegacyLayout) return;
+            // Offline Arena is a complete recorded fight: one fixed frame avoids apparent self-knockback
+            // and gives the same camera at a tick whether played forward or reached by seeking.
+            if (Record != null)
+            { cameraCenterX = recordCameraCenterX; pixelsPerUnit = recordPixelsPerUnit; return; }
             float min = float.MaxValue, max = float.MinValue;
             foreach (var s in drawStates) if (s.Alive) { min = Mathf.Min(min, s.x); max = Mathf.Max(max, s.x); }
             if (min == float.MaxValue) return;
             float center = (min + max) * .5f;
-            float scale = Mathf.Min(.09f, (actors.rect.width - 160) / Mathf.Max(1, max - min));
+            float scale = Mathf.Min(SandboxMode ? .9f : .09f, (actors.rect.width - 160) / Mathf.Max(1, max - min));
             float blend = snap ? 1 : 1 - Mathf.Exp(-6 * Time.unscaledDeltaTime);
             cameraCenterX = Mathf.Lerp(cameraCenterX, center, blend);
             pixelsPerUnit = Mathf.Lerp(pixelsPerUnit, scale, blend);
@@ -347,12 +536,13 @@ namespace Zatod.Presentation
                 floaters.Add(new FloatingEffect { rect = rect, group = group, origin = rect.anchoredPosition, born = Time.realtimeSinceStartup, lifetime = .85f });
             }
         }
-        static bool Interesting(BattleEvent e) { return e.kind == BattleEventKind.Death || e.kind == BattleEventKind.Stun || e.kind == BattleEventKind.Cancel || e.kind == BattleEventKind.Target || e.kind == BattleEventKind.Miss || (e.kind == BattleEventKind.Action && e.state.action == BattleAction.Ultimate); }
+        static string ControlText(ControlKind kind) { return kind == ControlKind.KnockUp ? "airborne" : kind == ControlKind.Knockback ? "knockback" : "stunned"; }
+        static bool Interesting(BattleEvent e) { return e.kind == BattleEventKind.ResurrectionPending || e.kind == BattleEventKind.Revive || e.kind == BattleEventKind.Buff || e.kind == BattleEventKind.Heal || e.kind == BattleEventKind.Death || e.kind == BattleEventKind.Stun || e.kind == BattleEventKind.Cancel || e.kind == BattleEventKind.Target || e.kind == BattleEventKind.Miss || (e.kind == BattleEventKind.Action && e.state.action == BattleAction.Ultimate); }
         string Describe(BattleEvent e)
         {
             int id = e.kind == BattleEventKind.Action || e.kind == BattleEventKind.Target || e.kind == BattleEventKind.Miss ? e.actorId : e.targetId;
             string who = (id < 100 ? "A" : "B") + ((id - 1) % 100 + 1);
-            string action = e.kind == BattleEventKind.Death ? "defeated" : e.kind == BattleEventKind.Stun ? "stunned" : e.ability;
+            string action = e.kind == BattleEventKind.Revive ? "revived +"+e.amount+" HP" : e.kind == BattleEventKind.ResurrectionPending ? "resurrection pending" : e.kind == BattleEventKind.Death ? "defeated" : e.kind == BattleEventKind.Stun ? ControlText(e.controlKind) : e.kind == BattleEventKind.Heal ? "heal +" + e.amount : e.ability;
             if (e.kind == BattleEventKind.Target) action = "targets " + (e.state.targetId < 100 ? "A" : "B") + ((e.state.targetId - 1) % 100 + 1);
             return (e.tick / (float)(Record == null ? 20 : Record.tickRate)).ToString("00.0") + "  " + who + "  " + action;
         }

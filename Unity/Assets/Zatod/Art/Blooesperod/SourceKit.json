@@ -1,0 +1,1517 @@
+{
+  "character": "NightLord",
+  "version": 3,
+  "role": "frontline_melee",
+  "arrival_policy": [
+    "Run",
+    "Run[Out]",
+    "Idle"
+  ],
+  "death_policy": "If resurrection can trigger, use Skill4 sequence at HP=0; raw Death clip remains for terminal death.",
+  "body_keys": 271,
+  "demo_frames": 1008,
+  "states": [
+    {
+      "state": "Idle",
+      "name": "Đứng chờ",
+      "clips": [
+        "Idle"
+      ],
+      "phases": [
+        {
+          "phase": "Idle",
+          "source_clip": "Idle",
+          "start_seconds": 0,
+          "duration_seconds": 1.7199999,
+          "frame_count": 15,
+          "source_frame_count": 15,
+          "source_loop": true,
+          "source_range": [
+            1,
+            15
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "loop": true,
+      "frame_count": 15,
+      "duration_seconds": 1.7199999,
+      "effective_source_events": [],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts."
+    },
+    {
+      "state": "Run",
+      "name": "Di chuyển",
+      "clips": [
+        "Run"
+      ],
+      "phases": [
+        {
+          "phase": "Run",
+          "source_clip": "Run",
+          "start_seconds": 0,
+          "duration_seconds": 0.59999996,
+          "frame_count": 11,
+          "source_frame_count": 11,
+          "source_loop": true,
+          "source_range": [
+            1,
+            11
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "loop": true,
+      "frame_count": 11,
+      "duration_seconds": 0.59999996,
+      "effective_source_events": [],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts."
+    },
+    {
+      "state": "Death",
+      "name": "Tử trận",
+      "clips": [
+        "Death"
+      ],
+      "phases": [
+        {
+          "phase": "Death",
+          "source_clip": "Death",
+          "start_seconds": 0,
+          "duration_seconds": 5.2000003,
+          "frame_count": 84,
+          "source_frame_count": 84,
+          "source_loop": false,
+          "source_range": [
+            1,
+            84
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "loop": false,
+      "frame_count": 84,
+      "duration_seconds": 5.2000003,
+      "effective_source_events": [
+        {
+          "time": 0.43999863,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.5,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.55999947,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.61999893,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.6799984,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.7399998,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.79999924,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.8599987,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.9200001,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.97999954,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.0099983,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.039999,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.0699997,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.1599998,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.2199993,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.2799988,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.3399982,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.3999996,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.4599991,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.5199986,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.5799999,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.6399994,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.6999989,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.7699986,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.8399982,
+          "functionName": "OnShakeCamHeavy",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.9099998,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.08,
+          "functionName": "OnShakeCam",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Death",
+          "origin": "source_animation_event"
+        }
+      ],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts."
+    },
+    {
+      "state": "Takehit",
+      "name": "Trúng đòn",
+      "clips": [
+        "Hited"
+      ],
+      "phases": [
+        {
+          "phase": "Hited",
+          "source_clip": "Hited",
+          "start_seconds": 0,
+          "duration_seconds": 0.49000007,
+          "frame_count": 8,
+          "source_frame_count": 8,
+          "source_loop": false,
+          "source_range": [
+            1,
+            8
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "loop": false,
+      "frame_count": 8,
+      "duration_seconds": 0.49000007,
+      "effective_source_events": [],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts."
+    },
+    {
+      "state": "NormalAttack",
+      "name": "Huyết Liên Trảm",
+      "clips": [
+        "LightAtk",
+        "LightAtk2"
+      ],
+      "phases": [
+        {
+          "phase": "Slash1",
+          "source_clip": "LightAtk",
+          "start_seconds": 0,
+          "duration_seconds": 0.69000083,
+          "frame_count": 10,
+          "source_frame_count": 10,
+          "source_loop": false,
+          "source_range": [
+            1,
+            10
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        },
+        {
+          "phase": "Slash2",
+          "source_clip": "LightAtk2",
+          "start_seconds": 0.69000083,
+          "duration_seconds": 0.6399997,
+          "frame_count": 9,
+          "source_frame_count": 9,
+          "source_loop": false,
+          "source_range": [
+            1,
+            9
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "loop": false,
+      "suppressed_source_events": [
+        "OnBlink"
+      ],
+      "movement_policy": "stand_in_melee_range",
+      "description": "Đứng tại tuyến đầu đánh cận chiến bằng hai nhát LightAtk / LightAtk2; chỉ BloodSlash 1/2, không lướt tới và không có nhát thứ ba.",
+      "frame_count": 19,
+      "duration_seconds": 1.33000053,
+      "effective_source_events": [
+        {
+          "time": 0.31000137,
+          "functionName": "OnCastAtkSpell",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Slash1",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.48000145,
+          "functionName": "OnCheckCombo",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Slash1",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.8800013600000001,
+          "functionName": "OnCastAtkSpell",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Slash2",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.12000113,
+          "functionName": "OnCheckCombo",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Slash2",
+          "origin": "source_animation_event"
+        }
+      ],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts.",
+      "demo": {
+        "state": "NormalAttack",
+        "fps": 60,
+        "gif_preview_fps": 20,
+        "frame_count": 120,
+        "duration_seconds": 2.0,
+        "canvas_size": [
+          1000,
+          450
+        ],
+        "hero_role": "frontline_melee",
+        "kind": "proposed composited action preview; source sprite pixels are unmodified",
+        "death_trigger_demo_seconds": null
+      }
+    },
+    {
+      "state": "Ultimate",
+      "name": "Dạ Yến Linh Hồn",
+      "clips": [
+        "[C]HeavyCharge",
+        "[C]HeavyCharge[Loop]",
+        "[C]HeavyChargeCast"
+      ],
+      "phases": [
+        {
+          "phase": "RiseAndCharge",
+          "source_clip": "[C]HeavyCharge",
+          "start_seconds": 0,
+          "duration_seconds": 0.62999946,
+          "frame_count": 10,
+          "source_frame_count": 10,
+          "source_loop": false,
+          "source_range": [
+            1,
+            10
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        },
+        {
+          "phase": "ChargeLoop",
+          "source_clip": "[C]HeavyCharge[Loop]",
+          "start_seconds": 0.62999946,
+          "duration_seconds": 0.39999923,
+          "frame_count": 5,
+          "source_frame_count": 5,
+          "source_loop": true,
+          "source_range": [
+            1,
+            5
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        },
+        {
+          "phase": "ReleaseSouls",
+          "source_clip": "[C]HeavyChargeCast",
+          "start_seconds": 1.02999869,
+          "duration_seconds": 2.1000006,
+          "frame_count": 31,
+          "source_frame_count": 31,
+          "source_loop": false,
+          "source_range": [
+            1,
+            31
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "loop": false,
+      "description": "Bay lên tụ lực, phóng năm oan hồn truy các mục tiêu; luồng hồn hồi về minh họa hút máu.",
+      "frame_count": 46,
+      "duration_seconds": 3.1299992899999998,
+      "effective_source_events": [
+        {
+          "time": 0.13999939,
+          "functionName": "OnJump",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "RiseAndCharge",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.34999847,
+          "functionName": "OnBreak",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "RiseAndCharge",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.41999817,
+          "functionName": "OnBreak",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "RiseAndCharge",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.48999977,
+          "functionName": "OnBreak",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "RiseAndCharge",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.55999947,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "RiseAndCharge",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.02999869,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.099998385,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.16999808,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.23999968,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.30999939,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.37999907,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.44999877,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.51999846,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.58999816,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.58999816,
+          "functionName": "OnCast",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.65999976,
+          "functionName": "OnBackDashEcho",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.72999945,
+          "functionName": "OnResetYVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.79999915,
+          "functionName": "OnResetYVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.86999884,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.93999854,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.00999823,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.07999979,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.14999949,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.2199991900000002,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.2899988899999997,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.35999859,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.42999829,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.49999989,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.56999959,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.63999929,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.70999899,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ReleaseSouls",
+          "origin": "source_animation_event"
+        }
+      ],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts.",
+      "demo": {
+        "state": "Ultimate",
+        "fps": 60,
+        "gif_preview_fps": 20,
+        "frame_count": 270,
+        "duration_seconds": 4.5,
+        "canvas_size": [
+          1000,
+          450
+        ],
+        "hero_role": "frontline_melee",
+        "kind": "proposed composited action preview; source sprite pixels are unmodified",
+        "death_trigger_demo_seconds": null
+      }
+    },
+    {
+      "state": "Skill2",
+      "name": "Huyết Trảo",
+      "clips": [
+        "GrabAtk",
+        "GrabAtkPull",
+        "GrabAtkEnd"
+      ],
+      "phases": [
+        {
+          "phase": "BlinkAndGrab",
+          "source_clip": "GrabAtk",
+          "start_seconds": 0,
+          "duration_seconds": 1.2999994,
+          "frame_count": 17,
+          "source_frame_count": 17,
+          "source_loop": false,
+          "source_range": [
+            1,
+            17
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        },
+        {
+          "phase": "Pull",
+          "source_clip": "GrabAtkPull",
+          "start_seconds": 1.2999994,
+          "duration_seconds": 1.3700005,
+          "frame_count": 15,
+          "source_frame_count": 15,
+          "source_loop": false,
+          "source_range": [
+            1,
+            15
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        },
+        {
+          "phase": "Throw",
+          "source_clip": "GrabAtkEnd",
+          "start_seconds": 2.6699998999999996,
+          "duration_seconds": 0.76999915,
+          "frame_count": 9,
+          "source_frame_count": 9,
+          "source_loop": false,
+          "source_range": [
+            1,
+            9
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "loop": false,
+      "target_policy": "farthest_enemy",
+      "movement_policy": "teleport_into_melee_range",
+      "description": "Huyết Trảo cũ: dịch chuyển sát đối thủ xa nhất → tóm → kéo giữ → hất bằng đủ ba clip GrabAtk / GrabAtkPull / GrabAtkEnd.",
+      "frame_count": 41,
+      "duration_seconds": 3.4399990499999995,
+      "effective_source_events": [
+        {
+          "time": 0.0,
+          "functionName": "OnBreak",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "BlinkAndGrab",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.4699993,
+          "functionName": "OnStrongDash",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "BlinkAndGrab",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.6199999,
+          "functionName": "OnResetVelocity",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "BlinkAndGrab",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.6499996,
+          "functionName": "CheckDefaultCombo",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "BlinkAndGrab",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 0.6499996,
+          "functionName": "OnGrab",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "BlinkAndGrab",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 1.7699996699999998,
+          "functionName": "CheckDefaultCombo",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Pull",
+          "origin": "source_animation_event"
+        },
+        {
+          "time": 2.5699999,
+          "functionName": "CheckDefaultCombo",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "Pull",
+          "origin": "source_animation_event"
+        }
+      ],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts.",
+      "demo": {
+        "state": "Skill2",
+        "fps": 60,
+        "gif_preview_fps": 20,
+        "frame_count": 246,
+        "duration_seconds": 4.1,
+        "canvas_size": [
+          1000,
+          450
+        ],
+        "hero_role": "frontline_melee",
+        "kind": "proposed composited action preview; source sprite pixels are unmodified",
+        "death_trigger_demo_seconds": null
+      }
+    },
+    {
+      "state": "Skill3",
+      "name": "Huyết Ảnh Xuyên Trận",
+      "clips": [
+        "LightAtk3"
+      ],
+      "phases": [
+        {
+          "phase": "ThirdSlash",
+          "source_clip": "LightAtk3",
+          "start_seconds": 0,
+          "duration_seconds": 0.86999923,
+          "frame_count": 12,
+          "source_frame_count": 12,
+          "source_loop": false,
+          "source_range": [
+            1,
+            12
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "loop": false,
+      "suppressed_source_events": [
+        "OnBlink",
+        "OnBlinkOnTarget",
+        "OnFlipToTarget"
+      ],
+      "target_policy": "lowest_current_hp_enemy",
+      "secondary_target_policy": "enemies_behind_primary",
+      "movement_policy": "stand_in_place",
+      "description": "Đứng tại chỗ, dùng ngay nhát 3 của combo cũ + BloodSlash3 đánh địch yếu máu và địch đứng sau mục tiêu đó.",
+      "frame_count": 12,
+      "duration_seconds": 0.86999923,
+      "effective_source_events": [
+        {
+          "time": 0.11999893,
+          "functionName": "OnCastAtkSpell",
+          "data": null,
+          "objectReferenceParameter": {
+            "fileID": 0
+          },
+          "floatParameter": 0,
+          "intParameter": 0,
+          "messageOptions": 0,
+          "phase": "ThirdSlash",
+          "origin": "source_animation_event"
+        }
+      ],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts.",
+      "demo": {
+        "state": "Skill3",
+        "fps": 60,
+        "gif_preview_fps": 20,
+        "frame_count": 102,
+        "duration_seconds": 1.7,
+        "canvas_size": [
+          1000,
+          450
+        ],
+        "hero_role": "frontline_melee",
+        "kind": "proposed composited action preview; source sprite pixels are unmodified",
+        "death_trigger_demo_seconds": null
+      }
+    },
+    {
+      "state": "Skill4",
+      "name": "Tái Sinh Hắc Ảnh",
+      "clips": [
+        "Emerge[Out]",
+        "Emerge[In]",
+        "Emerge[In]",
+        "Emerge[In]",
+        "Emerge[Out]"
+      ],
+      "phases": [
+        {
+          "phase": "DeathFold",
+          "source_clip": "Emerge[Out]",
+          "start_seconds": 0,
+          "duration_seconds": 0.4,
+          "frame_count": 11,
+          "source_frame_count": 11,
+          "source_loop": false,
+          "source_range": [
+            1,
+            11
+          ],
+          "reversed": true,
+          "duration_scale": 0.33898305084745767
+        },
+        {
+          "phase": "SinkToShadow",
+          "source_clip": "Emerge[In]",
+          "start_seconds": 0.4,
+          "duration_seconds": 0.35,
+          "frame_count": 6,
+          "source_frame_count": 6,
+          "source_loop": false,
+          "source_range": [
+            1,
+            6
+          ],
+          "reversed": true,
+          "duration_scale": 0.7
+        },
+        {
+          "phase": "ShadowHold",
+          "source_clip": "Emerge[In]",
+          "start_seconds": 0.75,
+          "duration_seconds": 1.25,
+          "frame_count": 1,
+          "source_frame_count": 6,
+          "source_loop": false,
+          "source_range": [
+            1,
+            1
+          ],
+          "reversed": false,
+          "duration_scale": 12.5
+        },
+        {
+          "phase": "RiseFromShadow",
+          "source_clip": "Emerge[In]",
+          "start_seconds": 2.0,
+          "duration_seconds": 0.5,
+          "frame_count": 6,
+          "source_frame_count": 6,
+          "source_loop": false,
+          "source_range": [
+            1,
+            6
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        },
+        {
+          "phase": "StandUp",
+          "source_clip": "Emerge[Out]",
+          "start_seconds": 2.5,
+          "duration_seconds": 1.18,
+          "frame_count": 11,
+          "source_frame_count": 11,
+          "source_loop": false,
+          "source_range": [
+            1,
+            11
+          ],
+          "reversed": false,
+          "duration_scale": 1.0
+        }
+      ],
+      "reverse_phases": [
+        "DeathFold",
+        "SinkToShadow"
+      ],
+      "frame_ranges": {
+        "ShadowHold": [
+          1,
+          1
+        ]
+      },
+      "phase_durations": {
+        "DeathFold": 0.4,
+        "SinkToShadow": 0.35,
+        "ShadowHold": 1.25
+      },
+      "loop": false,
+      "trigger": "on_death",
+      "max_triggers_per_battle": null,
+      "revive_delay_seconds": 2.0,
+      "revive_hp_fraction": 0.5,
+      "lifesteal_increase": null,
+      "source_event_policy": "reference_only_use_designed_resurrection_events",
+      "description": "Skill4 mới (đổi từ Skill3): HP về 0 → chìm xuống và giữ bóng đen → đúng 2 giây bắt đầu trồi lên, hồi 50% HP tối đa và tăng nhẹ hút máu. Chưa chốt mức tăng/số lần hồi sinh mỗi trận.",
+      "frame_count": 35,
+      "duration_seconds": 3.6799999999999997,
+      "effective_source_events": [],
+      "canvas": {
+        "width": 178,
+        "height": 97,
+        "pivot_pixels_bottom_left": [
+          100,
+          52
+        ]
+      },
+      "note": "Original sprite-key PNG bytes and key durations are preserved. Movement, targeting, damage and healing in demos are proposed behavior, not recovered game scripts.",
+      "demo": {
+        "state": "Skill4",
+        "fps": 60,
+        "gif_preview_fps": 20,
+        "frame_count": 270,
+        "duration_seconds": 4.5,
+        "canvas_size": [
+          1000,
+          450
+        ],
+        "hero_role": "frontline_melee",
+        "kind": "proposed composited action preview; source sprite pixels are unmodified",
+        "death_trigger_demo_seconds": 0.35
+      }
+    }
+  ]
+}

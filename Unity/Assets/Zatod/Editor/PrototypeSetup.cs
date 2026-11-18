@@ -30,8 +30,9 @@ namespace Zatod.Editor
             var cam = camera.GetComponent<Camera>();
             cam.orthographic = true; cam.clearFlags = CameraClearFlags.SolidColor;
             cam.backgroundColor = new Color(.043f, .067f, .106f);
-            var bootstrap = new GameObject("ArenaBootstrap", typeof(TelepathyTransport), typeof(ArenaConnection), typeof(ArenaView));
+            var bootstrap = new GameObject("ArenaBootstrap", typeof(TelepathyTransport), typeof(ArenaConnection), typeof(ArenaView), typeof(FormationView), typeof(HeroRosterView),typeof(CampaignView));
             bootstrap.GetComponent<ArenaView>().Font = font;
+            bootstrap.GetComponent<FormationView>().Font = FormationSetup.EnsureFont();
             EditorSceneManager.SaveScene(scene, ScenePath);
             EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
             PlayerSettings.companyName = "Zatod";
