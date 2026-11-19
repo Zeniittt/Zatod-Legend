@@ -4,6 +4,12 @@ Unity **6000.6.2f1**, Universal 2D (URP), giao diện ngang 16:9. Mirror **v96.1
 
 **Campaign chương 1:** 5 ải, mỗi ải 5 Monster chiến đấu thật; map → preview địch → chọn 1–5 Hero → Battle → kết quả/replay/ải tiếp theo. Chạy `scripts/Start-Server.ps1`, mở scene ArenaPrototype hoặc bản Windows, bấm **KẾT NỐI** để lấy tiến độ. Campaign dùng server riêng và giữ tiến độ qua replay đã lưu. Hướng dẫn/config: [docs/campaign.md](docs/campaign.md).
 
+**Combat Campaign:** trận chạy runtime trên dedicated server. Thanh chân dung dưới trận có đúng số Hero đã chọn, HP và nộ; **đầy nộ thì bấm chân dung để dùng Ultimate**. Sau trận có replay đầy đủ. Arena offline vẫn tự dùng Ulti và phát kết quả đã tính trước. Unit đầu phe địch đứng ở độ sâu trên, cùng với Leenald; bố cục trước–sau được giữ nguyên.
+
+**Đội hình Campaign demo hiện ở bậc Tím**, mở đủ 4 kỹ năng để test. Skill2–4 tự dùng theo điều kiện; Ulti vẫn bấm tay. Chỉnh bậc demo bằng `StarterHeroRankId` trong `Campaigns.txt`. Hero mới ở các luồng khác vẫn bắt đầu bậc Trắng. Đội đủ 5 Hero Tím có thể thắng ải đầu trước khi đầy nộ; chọn ít Hero hơn nếu muốn thử bấm Ulti lâu hơn.
+
+**Đội hình Campaign demo hiện ở bậc Tím**, mở đủ 4 kỹ năng để test. Skill2–4 tự dùng theo điều kiện; Ulti vẫn bấm tay. Chỉnh bậc demo bằng `StarterHeroRankId` trong `Campaigns.txt`. Hero mới ở các luồng khác vẫn bắt đầu bậc Trắng. Đội đủ 5 Hero Tím có thể thắng ải đầu trước khi đầy nộ; chọn ít Hero hơn nếu muốn thử bấm Ulti lâu hơn.
+
 **Lilina** là Hero có art thứ năm, lấy từ SalamanderWitch HeroKit v3. Đã kiểm tra bốn chiêu trước khi tiếp tục Campaign: rồng phun lửa, tia sét xuyên hàng, hai cầu sét truy đuổi và hơi lửa gây Burn. **Combat Sandbox → Lilina → TEST ALL SKILLS / highest rank**. Mapping, thông số và nguồn art: [docs/lilina.md](docs/lilina.md).
 
 **Blooesperod** đã được dựng từ NightLord HeroKit v3: cận chiến hàng trước, đánh thường hai nhát, Ultimate oan hồn hút máu, Huyết Trảo bắt địch xa nhất, nhát chém địch yếu máu/phía sau và hồi sinh sau 2 giây. Test đủ kit tại **Combat Sandbox → Blooesperod → TEST ALL SKILLS / highest rank**. Riêng Skill4: chọn Purple, Hero HP 1%, cho quái đánh chết để kích hoạt. Thông số prototype và hướng dẫn: [docs/blooesperod.md](docs/blooesperod.md).
@@ -178,3 +184,8 @@ Thử client headless với server đang chạy:
 ```
 
 Client smoke tạo trận thật qua Mirror, kiểm tra phát replay, tải lại và gửi lại cùng request ID. Dùng `--replay-id <ID>` để kiểm tra tải bản ghi sau khi restart server. Exit code 0 và `[ArenaSmoke] PASS` là thành công.
+
+
+## Crystal Legends reference
+
+Nguồn APK, script và asset đã khôi phục nằm nguyên bộ trong `Crystal Legend/`, ngoài `Unity/Assets`. Đọc [ghi chú tham chiếu và context hai chat](docs/crystal-legends-reference.txt) trước khi tiếp tục chuyển đổi Campaign, Arena hoặc PvP RealTime. Thư mục nguồn được giữ local và bỏ qua bởi Git; chỉ import asset cần dùng vào Unity theo từng bước.

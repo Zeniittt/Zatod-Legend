@@ -15,6 +15,7 @@ namespace Zatod.Animation
     [Serializable]
     public sealed class HeroAnimationClipData
     {
+        public bool StabilizeHorizontalAnchor;
         public string State, SourceFolder, ClipResource;
         public int FramesPerSecond = 12;
         public bool Loop, Projectile;

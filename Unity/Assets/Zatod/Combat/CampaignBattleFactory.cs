@@ -37,7 +37,7 @@ namespace Zatod.Combat
                 foreach(var stat in data.Stats.Where(s=>s.StatId=="health" || s.StatId=="damage" || s.StatId=="defense"))
                     stat.Value=Math.Max(stat.StatId=="defense"?0:1,(int)((long)stat.Value*entry.slot.PowerBasisPoints/10000));
                 data.CurrentHp=data.Stats.Single(s=>s.StatId=="health").Value;
-                var fighter=MonsterBattleFactory.CreateFighter(def,data,1,slot);fighter.x=2300+slot*850;fighter.y=slot%2==0?-120:140;fighter.formationSpacing=650;slot++;
+                var fighter=MonsterBattleFactory.CreateFighter(def,data,1,slot);slot++;
                 setup.Fighters.Add(fighter);setup.Loadouts.Add(new FighterLoadout{fighterId=fighter.id,kind=CombatantKind.Monster,monster=data});
             }
             return setup;

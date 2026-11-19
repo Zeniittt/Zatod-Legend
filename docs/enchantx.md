@@ -22,7 +22,7 @@ The demo account owns Enchantx at White, so normal Arena initially unlocks norma
 | Skill3 / Hieu Lenh Xung Tran | First cast starts immediately on entering battle, before ordinary attacks/skills. Jump → shortened landing → run → SummonUp. Later casts only use SummonUp/loop/cast at the current position. FlameWings Entry → flying Walk → Dissipate, with a recorded orange burst ring. Burst grants all living allies, including the caster, **+20% outgoing damage for 8s**. Cooldown 10s, beginning with the opening cast. |
 | Skill4 / Lien Tien | Three separate Arrows at 0.10/0.67/1.24s, 80% damage each, body duration 1.71s. Keep the target while alive; unfired arrows select the next enemy if it dies. Stun cancels unfired shots, while released arrows continue. Cooldown 7s. |
 
-Base values are provisional: HP 2,800; damage 225; defense 20; attack range 3,200; movement 1,600; attack interval 26 ticks. Rank/absorbed placeholder gear bonuses still contribute to the calculated Hero stats. No portrait was supplied, so the icon is a Sprite Editor crop of an unchanged Idle PNG.
+Base values are provisional: HP 2,800; damage 225; defense 20; attack range 4,000; movement 1,600; attack interval 26 ticks. Rank/absorbed placeholder gear bonuses still contribute to the calculated Hero stats. No portrait was supplied, so the icon is a Sprite Editor crop of an unchanged Idle PNG.
 
 ## Opening, interruption and modifiers
 

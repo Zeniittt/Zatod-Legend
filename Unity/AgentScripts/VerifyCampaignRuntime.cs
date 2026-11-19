@@ -13,6 +13,7 @@ public static class VerifyCampaignRuntime
     {
         int checks=0;void Check(bool ok,string why){checks++;if(!ok)throw new Exception(why);}
         var view=UnityEngine.Object.FindAnyObjectByType<CampaignView>();var formation=view.GetComponent<FormationView>();var arena=view.GetComponent<ArenaView>();var connection=view.GetComponent<ArenaConnection>();
+        bool manual=view.ManualUltimates;view.ManualUltimates=false; // Fast prerecorded navigation check; live input is checked separately.
         async Task Wait(Func<bool> condition,string why)
         {var end=DateTime.UtcNow.AddSeconds(25);while(!condition() && DateTime.UtcNow<end)await Task.Delay(40);Check(condition(),why+" / "+connection.Status);}
         Button Button(string name)=>UnityEngine.Object.FindObjectsByType<Button>(FindObjectsInactive.Include).Single(b=>b.name==name);
@@ -60,6 +61,6 @@ public static class VerifyCampaignRuntime
         connection.Disconnect();await Wait(()=>!connection.Connected && !connection.Busy,"Disconnect failed");await Click("CampaignConnect");
         await Wait(()=>connection.Connected && connection.CampaignProgressReady && view.ClearedCount==5,"Reconnect lost progress");
         Check(!Mirror.NetworkServer.active,"Client authority changed");
-        return new{passed=true,checks,stages=5,heroes=5,monsters=5,network="dedicated",frames=Time.frameCount};
+        view.ManualUltimates=manual;return new{passed=true,checks,stages=5,heroes=5,monsters=5,network="dedicated",frames=Time.frameCount};
     }
 }

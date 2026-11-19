@@ -123,13 +123,13 @@ namespace Zatod.Combat
                 {
                     // A ground area stays where it was cast; depth is presentation, just as normal targeting.
                     foreach (var target in fighters.Where(f => f.Alive && f.team != actor.team &&
-                        Math.Abs((long)f.x - cast.targetX) <= cast.skill.EffectRadius).ToList()) ApplyEffects(actor, target, cast.skill);
+                        Math.Abs((long)f.x - cast.targetX) <= cast.skill.EffectRadius).ToList()) ApplyEffects(actor, target, cast.skill, cue.DamageMultiplierBasisPoints>0?cue.DamageMultiplierBasisPoints:10000);
                 }
                 else
                 {
                     var target = Find(cast.targetId) ?? actor;
                     if(cue.RequireAttackRange && (!target.Alive || !CombatGeometry.InAttackRange(actor,target)))continue;
-                    foreach (var victim in EffectTargets(actor, target, cast.skill).Where(f => f.Alive)) ApplyEffects(actor, victim, cast.skill);
+                    foreach (var victim in EffectTargets(actor, target, cast.skill).Where(f => f.Alive)) ApplyEffects(actor, victim, cast.skill, cue.DamageMultiplierBasisPoints>0?cue.DamageMultiplierBasisPoints:10000);
                 }
             }
             if (!cast.bodyEnded && age >= Ticks(cast.definition.DurationMilliseconds))

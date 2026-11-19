@@ -63,7 +63,7 @@ namespace Zatod.Combat
                 bool targeted = runtime.pending.Delivery == SkillDelivery.TargetedEffect;
                 bool hasVictim = targeted ? runtime.pendingTargets.Any(id => Find(id) != null && Find(id).Alive) : target != null && (target.Alive || runtime.pending.Delivery == SkillDelivery.Beam);
                 if (!hasVictim)
-                { CancelConfiguredVisuals(actor); runtime.pending = null; CancelAction(actor); actor.animationEndTick = tick; return true; }
+                { CancelConfiguredVisuals(actor); runtime.pending = null; actor.animationEndTick = tick; CancelAction(actor); return true; }
                 if (tick < actor.actionEndTick) return true;
                 var skill = runtime.pending; runtime.pending = null;
                 runtime.castVisuals.Clear();
@@ -96,6 +96,7 @@ namespace Zatod.Combat
                 {
                     if (runtime.skillCastLimit > 0 && runtime.casts >= runtime.skillCastLimit) break;
                     var skill = entry.Definition;
+                    if(entry.IsUltimate && (record.manualUltimateTeams & (1<<actor.team))!=0 && !actor.ultimateQueued)continue;
                     if (skill.Kind != SkillKind.Active || (skill.Activation != SkillActivation.Automatic && skill.Activation != SkillActivation.UltimateIntent) ||
                         actor.energy < skill.EnergyCost || (runtime.ready.TryGetValue(skill.Id, out int ready) && tick < ready)) continue;
                     var target = SelectSkillTarget(actor, enemy, skill);
@@ -112,6 +113,7 @@ namespace Zatod.Combat
             }
             if (selected != null)
             {
+                if(selected.Activation==SkillActivation.UltimateIntent)actor.ultimateQueued=false;
                 actor.energy -= selected.EnergyCost;
                 if (!runtime.basic) runtime.casts++;
                 runtime.pending = selected;
@@ -160,7 +162,7 @@ namespace Zatod.Combat
             foreach (var ally in fighters)
             {
                 if (!ally.Alive || ally.team != actor.team || ally.slot >= actor.slot) continue;
-                int gap = Math.Max(ally.formationSpacing, actor.formationSpacing);
+                int gap = BattleFormationLayout.WalkingGap(mover, ally);
                 if (actor.team == 0 && nextX > actor.x) nextX = Math.Min(nextX, Math.Max(actor.x, ally.x - gap));
                 if (actor.team == 1 && nextX < actor.x) nextX = Math.Max(nextX, Math.Min(actor.x, ally.x + gap));
             }
@@ -218,14 +220,15 @@ namespace Zatod.Combat
             if (skill.Target == SkillTarget.EnemiesInRange) return fighters.Where(f => f.Alive && f.team != actor.team && CombatGeometry.CenterDistance(actor, f) <= skill.EffectRadius).ToList();
             return new List<FighterState> { target };
         }
-        void ApplyEffects(FighterState actor, FighterState target, SkillDefinition skill)
+        void ApplyEffects(FighterState actor, FighterState target, SkillDefinition skill, int damageMultiplierBasisPoints=10000)
         {
             foreach (var effect in skill.Effects)
             {
                 if (!target.Alive) break;
                 if (effect.Kind == SkillEffectKind.Damage)
                 {
-                    int dealt=Damage(actor, target, Math.Max(0, effect.Amount + actor.attack * effect.DamageScaleBasisPoints / 10000), skill.Name);
+                    int raw=Math.Max(0, effect.Amount + actor.attack * effect.DamageScaleBasisPoints / 10000);
+                    int dealt=Damage(actor, target, (int)Math.Min(int.MaxValue,(long)raw*damageMultiplierBasisPoints/10000), skill.Name);
                     StealLife(actor,target,dealt,skill.LifestealBasisPoints,skill.Name,skill.LifestealReturnState);
                 }
                 else if (effect.Kind == SkillEffectKind.Poison || effect.Kind==SkillEffectKind.Burn) ApplyPoison(actor, target, skill, effect);

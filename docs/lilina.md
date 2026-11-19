@@ -8,7 +8,7 @@ Lilina is the fifth illustrated Hero: rear offensive mage, imported from the app
 - Skill3 / Song Lôi Truy Mệnh: two seeking orbs, released at 920/1,020 ms, choose two lowest-current-HP enemies. With one living enemy both hit it. 140% damage each; cooldown 8 seconds. Paths are recorded for replay.
 - Skill4 / Hỏa Tức Thiêu Đốt: four direct 70% damage pulses on the nearest locked target, followed by four 25% Burn ticks at 400 ms intervals. Refreshing the delayed first tick prevents it occurring during the uninterrupted breath. The residual burn can continue if the caster is interrupted after a successful pulse. Cooldown 10 seconds.
 
-Values are provisional. Base stats: 2,600 HP / 230 damage / 15 defense / range 3,000 / speed 1,300 / attack interval 24 ticks. White/Green/Blue/Purple unlock Ultimate/Skill2/Skill3/Skill4 respectively. Use **Combat Sandbox → Lilina → TEST ALL SKILLS / highest rank**.
+Values are provisional. Base stats: 2,600 HP / 230 damage / 15 defense / range 5,000 / speed 1,300 / attack interval 24 ticks. Skill2 and Skill3 cast range is 8,000 to reach rear/lowest-HP targets from a five-Hero formation. White/Green/Blue/Purple unlock Ultimate/Skill2/Skill3/Skill4 respectively. The Campaign demo uses Purple; newly received Heroes elsewhere still start at White. Use **Combat Sandbox → Lilina → TEST ALL SKILLS / highest rank**.
 
 The v3 dragon/Flamer layers were reconstructed in the source chat from GIF references; they are sketch assets rather than recovered original Addon#2 PNGs. Original Ultimate/Skill4 body frames are kept as `UltimateOriginal`/`Skill4Original`, separately from the reconstructed actor clips used for playback. Source bytes, metadata and provenance are retained in `Assets/Zatod/Art/Lilina`.
 

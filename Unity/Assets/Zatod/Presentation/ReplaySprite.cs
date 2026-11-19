@@ -43,7 +43,7 @@ namespace Zatod.Presentation
             graph.Play();
         }
 
-        public void Sample(string state, float seconds, bool facingRight, float scale, bool projectile = false)
+        public void Sample(string state, float seconds, bool facingRight, float scale, bool projectile = false, bool stabilizeRoot = false)
         {
             if (image == null || !clips.TryGetValue(state, out var clip)) return;
             var definition = definitions[state];
@@ -64,6 +64,17 @@ namespace Zatod.Presentation
             // Respect source PPU: original-resolution art and enlarged art keep the same world size.
             rect.sizeDelta = sprite.rect.size * (100f / sprite.pixelsPerUnit) * scale;
             rect.pivot = new Vector2(sprite.pivot.x / sprite.rect.width, sprite.pivot.y / sprite.rect.height);
+            if (stabilizeRoot && definition.StabilizeHorizontalAnchor && !projectile)
+            {
+                int frame = definition.FrameIndex(SampleSeconds);
+                if (definition.ContentBounds != null && definition.ContentBounds.Count == definition.Frames.Count && frame < definition.ContentBounds.Count)
+                {
+                    var content = definition.ContentBounds[frame]; var crop = definition.Frames[frame];
+                    // Remove baked horizontal actor travel from stationary attack poses.
+                    // Server movement remains the only source of the actor's world displacement.
+                    rect.pivot = new Vector2((content.X + content.Width * .5f - crop.X) / crop.Width, rect.pivot.y);
+                }
+            }
             if (projectile && !definition.PreserveSpritePivot)
             {
                 int frame = definition.FrameIndex(SampleSeconds);

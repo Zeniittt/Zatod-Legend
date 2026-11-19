@@ -14,7 +14,7 @@ namespace Zatod.Networking
 {
     [DefaultExecutionOrder(-200)]
     [RequireComponent(typeof(TelepathyTransport))]
-    public sealed class ArenaConnection : MonoBehaviour
+    public sealed partial class ArenaConnection : MonoBehaviour
     {
         public const int ChunkSize = 8192;
         public string Address = "127.0.0.1";
@@ -83,6 +83,7 @@ namespace Zatod.Networking
             campaignState=new CampaignServerState(CampaignDataJson.Load(serverCatalog),serverCatalog,repository);
             NetworkServer.RegisterHandler<ChallengeRequest>(OnChallenge, false);
             NetworkServer.RegisterHandler<CampaignChallengeRequest>(OnCampaignChallenge,false);
+            NetworkServer.RegisterHandler<UltimateRequest>(OnUltimateRequest,false);
             NetworkServer.RegisterHandler<ReplayRequest>(OnReplayRequest, false);
             NetworkServer.RegisterHandler<CatalogRequest>((conn, _) => SendCatalog(conn), false);
             NetworkServer.OnDisconnectedEvent += conn => lastRequest.Remove(conn.connectionId);
@@ -100,6 +101,7 @@ namespace Zatod.Networking
             NetworkClient.OnDisconnectedEvent += OnDisconnected;
             NetworkClient.OnErrorEvent += OnClientError;
             NetworkClient.RegisterHandler<ArenaFailure>(OnFailure, false);
+            NetworkClient.RegisterHandler<UltimateResponse>(message=>UltimateResponded?.Invoke(message),false);
             NetworkClient.RegisterHandler<CampaignProgressResponse>(message=>{CampaignClearedStageIds=message.clearedStageIds??Array.Empty<string>();CampaignProgressReady=true;CampaignProgressChanged?.Invoke();},false);
             NetworkClient.RegisterHandler<CatalogResponse>(message => { Catalog = message.replays ?? Array.Empty<ReplaySummary>(); CatalogChanged?.Invoke(); }, false);
             NetworkClient.RegisterHandler<ReplayBegin>(OnReplayBegin, false);
@@ -129,12 +131,12 @@ namespace Zatod.Networking
             NetworkClient.Send(new ReplayRequest { battleId = id });
         }
 
-        public string ChallengeCampaign(string stageId,string[] selected,string requestId=null)
+        public string ChallengeCampaign(string stageId,string[] selected,string requestId=null,bool manualUltimates=false)
         {
             if(!Connected || Busy)return null;
             pendingRequestId=requestId??Guid.NewGuid().ToString("N");Busy=true;deadline=Time.realtimeSinceStartup+30;
             SetStatus("Đang chuẩn bị trận Campaign...");
-            NetworkClient.Send(new CampaignChallengeRequest{requestId=pendingRequestId,stageId=stageId,heroInstanceIds=selected});return pendingRequestId;
+            NetworkClient.Send(new CampaignChallengeRequest{requestId=pendingRequestId,stageId=stageId,heroInstanceIds=selected,manualUltimates=manualUltimates});return pendingRequestId;
         }
 
         public void RefreshCatalog() { if (Connected) NetworkClient.Send(new CatalogRequest()); }
@@ -142,7 +144,7 @@ namespace Zatod.Networking
         void OnDisconnected()
         {
             if(shuttingDownClient)return;
-            Busy=false;incoming=null;shuttingDownClient=true;
+            Busy=false;incoming=null;LiveBattleId=null;shuttingDownClient=true;
             try{NetworkClient.Shutdown();}finally{shuttingDownClient=false;}
             SetStatus("Disconnected. Loaded replay can still be viewed.");
         }
@@ -153,6 +155,7 @@ namespace Zatod.Networking
         {
             try
             {
+                if(liveCampaigns.ContainsKey(conn.connectionId))throw new ArgumentException("Finish the current Campaign battle first.");
                 string id = ReplayArchive.CanonicalId(request.requestId);
                 if (Array.IndexOf(PrototypeTeams.OpponentIds, request.opponentId) < 0) throw new ArgumentException("Unknown opponent.");
                 if (repository.Contains(id))
@@ -181,13 +184,14 @@ namespace Zatod.Networking
         {
             try
             {
+                if(liveCampaigns.ContainsKey(conn.connectionId))throw new ArgumentException("A Campaign battle is already running.");
                 string id=ReplayArchive.CanonicalId(request.requestId);
                 if(repository.Contains(id))
                 {
                     byte[] existing=repository.Read(id);var record=ReplayArchive.Decode(existing);
                     var requested=request.heroInstanceIds??Array.Empty<string>();
                     var recorded=record.loadouts.Where(l=>l.kind==CombatantKind.Hero).Select(l=>l.hero.HeroInstanceId).OrderBy(x=>x,StringComparer.Ordinal);
-                    if(record.campaignStageId!=request.stageId || !recorded.SequenceEqual(requested.OrderBy(x=>x,StringComparer.Ordinal)))throw new ArgumentException("Request ID belongs to another Campaign battle.");
+                    if(record.campaignStageId!=request.stageId || (record.manualUltimateTeams!=0)!=request.manualUltimates || !recorded.SequenceEqual(requested.OrderBy(x=>x,StringComparer.Ordinal)))throw new ArgumentException("Request ID belongs to another Campaign battle.");
                     SendReplay(conn,id,existing);SendCatalog(conn);return;
                 }
                 if(inFlight.Contains(id))throw new ArgumentException("This battle is still being resolved.");
@@ -195,7 +199,8 @@ namespace Zatod.Networking
                 double now=Time.realtimeSinceStartupAsDouble;
                 if(lastRequest.TryGetValue(conn.connectionId,out double previous) && now-previous<1)throw new ArgumentException("Please wait before another challenge.");
                 var setup=campaignState.Prepare(request.stageId,request.heroInstanceIds);lastRequest[conn.connectionId]=now;inFlight.Add(id);
-                StartCoroutine(ResolveBattle(conn,id,"campaign:"+request.stageId,setup.Fighters,setup.Loadouts,setup));
+                if(request.manualUltimates)StartCoroutine(RunLiveCampaign(conn,id,setup));
+                else StartCoroutine(ResolveBattle(conn,id,"campaign:"+request.stageId,setup.Fighters,setup.Loadouts,setup));
             }
             catch(Exception e){Fail(conn,e);}
         }
@@ -223,7 +228,7 @@ namespace Zatod.Networking
 
         void OnReplayRequest(NetworkConnectionToClient conn, ReplayRequest request)
         {
-            try { string id = ReplayArchive.CanonicalId(request.battleId); SendReplay(conn, id, repository.Read(id)); }
+            try { if(liveCampaigns.ContainsKey(conn.connectionId))throw new ArgumentException("Finish the current Campaign battle first.");string id = ReplayArchive.CanonicalId(request.battleId); SendReplay(conn, id, repository.Read(id)); }
             catch (Exception e) { Fail(conn, e); }
         }
 
@@ -240,10 +245,10 @@ namespace Zatod.Networking
             conn.Send(new ArenaFailure { message = message });
         }
 
-        static void SendReplay(NetworkConnectionToClient conn, string id, byte[] bytes)
+        static void SendReplay(NetworkConnectionToClient conn, string id, byte[] bytes, bool live = false)
         {
             int chunks = (bytes.Length + ChunkSize - 1) / ChunkSize;
-            conn.Send(new ReplayBegin { battleId = id, length = bytes.Length, chunks = chunks, sha256 = ReplayArchive.Hash(bytes) });
+            conn.Send(new ReplayBegin { battleId = id, length = bytes.Length, chunks = chunks, sha256 = ReplayArchive.Hash(bytes), live=live });
             for (int i = 0; i < chunks; i++)
             {
                 int count = Math.Min(ChunkSize, bytes.Length - i * ChunkSize);
@@ -278,12 +283,22 @@ namespace Zatod.Networking
                 if (nextChunk < transfer.chunks) return;
                 byte[] complete = incoming; incoming = null;
                 if (ReplayArchive.Hash(complete) != transfer.sha256) throw new InvalidDataException("Replay checksum mismatch.");
-                BattleRecord record = ReplayArchive.Decode(complete);
+                BattleRecord record = transfer.live?LiveBattleCodec.Decode(complete,LiveBattleId==transfer.battleId?LastRecord:null):ReplayArchive.Decode(complete);
                 if (record.battleId != transfer.battleId) throw new InvalidDataException("Replay ID mismatch.");
+                if(transfer.live)
+                {
+                    if(!record.battleInProgress)throw new InvalidDataException("Invalid live battle frame.");
+                    bool first=LiveBattleId!=record.battleId;
+                    LastRecord=record;LastBattleId=record.battleId;LiveBattleId=record.battleId;Busy=true;
+                    if(first){SetStatus("Campaign đang diễn ra · bấm chân dung khi đầy nộ.");ReplayReceived?.Invoke(record);}
+                    else LiveFrameReceived?.Invoke(record);
+                    return;
+                }
+                bool finishedLive=LiveBattleId==record.battleId;LiveBattleId=null;
                 LastRecord = record; LastBattleId = record.battleId; Busy = false;
                 SetStatus("Server result committed. Playing recorded outcomes.");
                 Debug.Log("[ArenaClient] REPLAY id=" + record.battleId + " sha=" + transfer.sha256 + " events=" + record.events.Count);
-                ReplayReceived?.Invoke(record);
+                if(finishedLive)LiveBattleFinished?.Invoke(record);else ReplayReceived?.Invoke(record);
             }
             catch (Exception e) { OnFailure(new ArenaFailure { message = "Replay rejected: " + e.Message }); }
         }

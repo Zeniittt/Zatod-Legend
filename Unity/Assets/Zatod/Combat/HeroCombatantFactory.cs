@@ -9,11 +9,13 @@ namespace Zatod.Combat
         public static FighterState Create(HeroDefinition definition,HeroBattleData data,int team,int slot)
         {
             int Stat(string id,int fallback)=>data.Stats.FirstOrDefault(s=>s.StatId==id)?.Value??fallback;
-            return new FighterState{id=team*100+slot+1,team=team,slot=slot,name=definition.Name,role=(FighterRole)Math.Min(4,(int)definition.Position*2),
+            var fighter = new FighterState{id=team*100+slot+1,team=team,slot=slot,name=definition.Name,role=(FighterRole)Math.Min(4,(int)definition.Position*2),
                 maxHp=Stat("health",data.CurrentHp),hp=data.CurrentHp,energy=data.Energy,attack=Stat("damage",100),armor=Stat("defense",0),range=Stat("attack_range",1100),
-                attackInterval=Stat("attack_interval",26),moveSpeed=Stat("move_speed",1600),formationSpacing=850,x=(team==0?-1:1)*(2300+slot*1000),y=slot%2==0?120:-140,
+                attackInterval=Stat("attack_interval",26),moveSpeed=Stat("move_speed",1600),
                 heroDefinitionId=definition.Id,animationSetResource=definition.AnimationSetResource,projectileHurtboxHeight=definition.ProjectileHurtboxHeight,
                 deathVisualTicks=Math.Max(1,(definition.DeathAnimationMilliseconds*BattleSimulation.TickRate+999)/1000)};
+            BattleFormationLayout.Place(fighter);
+            return fighter;
         }
     }
 }

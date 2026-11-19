@@ -8,6 +8,7 @@ namespace Zatod.Heroes
     {
         public int SchemaVersion=1;
         public string ConfigVersion="campaign-prototype-1";
+        public string StarterHeroRankId="white";
         public List<string> StarterHeroIds=new List<string>();
         public List<CampaignChapterDefinition> Chapters=new List<CampaignChapterDefinition>();
     }
@@ -34,12 +35,12 @@ namespace Zatod.Heroes
         readonly Dictionary<string,string> prerequisites=new Dictionary<string,string>();
         public CampaignCatalog(CampaignDefinition data,HeroCatalog heroes)
         {
-            if(data==null || data.SchemaVersion!=1 || string.IsNullOrWhiteSpace(data.ConfigVersion) || data.Chapters==null || data.Chapters.Count==0)
+            if(data==null || data.SchemaVersion!=1 || string.IsNullOrWhiteSpace(data.ConfigVersion) || string.IsNullOrWhiteSpace(data.StarterHeroRankId) || data.Chapters==null || data.Chapters.Count==0)
                 throw new ArgumentException("Invalid Campaign config.");
             Data=data;stages=new Dictionary<string,CampaignStageDefinition>(StringComparer.Ordinal);
-            if(data.StarterHeroIds==null || data.StarterHeroIds.Count==0 || data.StarterHeroIds.Count>5 || data.StarterHeroIds.Distinct().Count()!=data.StarterHeroIds.Count)
-                throw new ArgumentException("Campaign starter roster needs 1–5 unique Hero IDs.");
-            foreach(string id in data.StarterHeroIds)heroes.Hero(id);
+            if(data.StarterHeroIds==null || data.StarterHeroIds.Count==0 || data.StarterHeroIds.Distinct().Count()!=data.StarterHeroIds.Count)
+                throw new ArgumentException("Campaign starter roster needs unique Hero IDs.");
+            foreach(string id in data.StarterHeroIds)heroes.RankPath(heroes.Hero(id),data.StarterHeroRankId);
             var chapters=new HashSet<string>();string previous=null;
             foreach(var chapter in data.Chapters)
             {
@@ -67,7 +68,18 @@ namespace Zatod.Heroes
         public CharacterData CreateDemoCharacter(HeroCatalog heroes)
         {
             var account=new CharacterData{CharacterId="campaign-demo",Name="Campaign"};
-            foreach(string id in Data.StarterHeroIds)account.HeroDesk.Add(heroes.CreateHero(id,"campaign-"+id));
+            foreach(string id in Data.StarterHeroIds)
+            {
+                var hero=heroes.CreateHero(id,"campaign-"+id);
+                // The prototype roster uses normal promotion so absorbed gear and unlocks agree.
+                while(hero.RankId!=Data.StarterHeroRankId)
+                {
+                    foreach(var slot in HeroProgression.CurrentRank(hero,heroes).EquipmentSlots)
+                        HeroProgression.Equip(hero,heroes,slot.Id,slot.RequiredItemId);
+                    HeroProgression.Promote(hero,heroes);
+                }
+                account.HeroDesk.Add(hero);
+            }
             return account;
         }
     }

@@ -1,0 +1,68 @@
+CRYSTAL LEGENDS REFERENCE FOR ZATOD LEGEND
+Date: 2026-11-19 (Asia/Saigon)
+
+WORKSPACE AND CHAT CONTEXT
+Main project: E:/viec/Zatod Legend
+Reference folder: E:/viec/Zatod Legend/Crystal Legend
+Original source preserved: C:/Users/tinnq/OneDrive/Desktop/Crystal+Legends_1.1.100312_APKPurez
+The separately named C:/Users/tinnq/OneDrive/Desktop/Crystal Legend was empty at transfer time.
+The reference is a full physical copy, outside Unity/Assets. Import selected assets into Unity gradually; do not move/delete the whole reference as an import step.
+
+Relevant Codex chats (read their history when needed):
+- Khan sat cach reverse Crystal Legend / title: Khảo sát cách reverse Crystal Legend
+  threadId: 01a1ef46-7db9-7831-bdd8-311c39164a14
+- Tim hieu game Dota Truyen Ky / title: Tìm hiểu game Dota Truyền Kỳ
+  threadId: 01a1e254-9c33-7e93-b597-02c51cf3ebda
+Destination projectId: 6827b244-55b4-4cb1-ad8a-db3c91aeaf4d
+Both chats are confirmed in the Zatod Legend project (projectId above). The user completed the sidebar move after the API requested source-folder consent. Grouping does not concatenate histories or automatically load all prior messages. The reverse chat retains its original working-directory metadata on C:, so use the main project and copied reference paths on E: explicitly for subsequent work. No other chat was messaged or started by this transfer.
+
+CURRENT AUTHORIZED SCOPE
+Steps 1 (group the chats in Zatod Legend) and 2 (keep this complete reference as a subfolder) are complete. All 95,361 files and 4,293 directories were copied; all file contents match the original by SHA-256 (8,183,818,922 bytes). This transfer does not implement steps 3 or 4.
+Future direction already requested, but implementation remains a separate next step:
+3. Change Campaign, automatic Arena and realtime PvP to the recovered Crystal Legends concepts using Mirror.
+4. Integrate Crystal Legends Hero assets and review Hero/config systems.
+Preserve existing Zatod work and pixel Hero assets until a deliberate integration replaces them.
+
+REFERENCE CONTENTS (paths below are relative to Crystal Legend/)
+- Original APKs: root; all four APKs retained.
+- recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/
+  4,299 decompiled Lua chunks, including configs, combat, Hero hooks, UI and checker scripts.
+- recovered/scripts/protobuf_utf8/com.farlightgames.dgame.gp.apac/assets/remake/data/
+  18 readable protocol definition files.
+- recovered/scripts/custom_bytecode/ and lua51_bytecode/: intermediate code retained.
+- recovered/heroes/: 314 character/skin/NPC containers, not 314 distinct playable Heroes.
+  326 atlas PNGs, 27,278 sprite parts and 3,049 actions; animation.json preserves affine transforms, alpha and events. Read HOW_TO_USE.txt.
+- recovered/heroes/Lina/: all nine actions also have full PNG frame exports.
+- recovered/assets/, recovered/assets_unpacked/: APK assets and unpacked effects.
+- recovered/downloads/aab_1.1.100312.zip: official CDN supplementary asset package.
+- recovered/lina_preview/: standalone Lina skill/animation sketch and extracted related effects/audio. This sketch is not a full damage simulation.
+- recovery_tools/ and .recovery-deps/: complete extraction/rendering tools and dependencies retained.
+- recovered/reports/ and recovered/RECOVERY_REPORT.txt: recovery/validation evidence.
+Decompiled Lua is not verbatim original source. Syntax checks passed, but whole-game behavior has not been validated against a running original game. Native and Android code were only partially reverse engineered. The full backend is not available.
+
+CONFIRMED CRYSTAL LEGENDS FLOWS
+Campaign: client simulates combat from a server seed and local/synced data. Manual skill intent is recorded by tick. On a winning ordinary stage, exit_stage includes claimed result, stars, Heroes and packed operations (_oprations on this client protocol). Checker stage logic recreates the battle and applies those operations.
+Automatic Arena (ladder): start returns both teams, seed and bonuses. Its _result is request success/failure, not battle victory/defeat. Client enters Arena and simulates it; checker can independently simulate both teams. Exact backend scheduling before/during/after presentation is unknown.
+Realtime PvP (real_pvp / KingsPvp / WCA): match/room flow uses TCP; combat inputs are synchronized over UDP with ACK/resend. Clients receive their own and opponent operations by tick, wait for server-provided tick data after startup, and catch up when behind. This is input/frame synchronization; continuous full server combat simulation and server late-input rules are not proven from available code.
+Replay: showReplay seeds RNG, restores teams/operations and calls enterRelay to re-simulate. Replay mode exits before the new-battle settlement path.
+Key scripts: battle/battle_engine.lua; battle/battle_tick.lua; battle/battle_check.lua; hello_server.lua; helloserver/job_handler.lua; network/network_udp.lua; ui_new/modules/kingsPvp/.
+A replay checker tests whether submitted inputs produce a valid result. Final-log checking alone does not prove those inputs were the original human history; additional backend constraints are unknown.
+
+ZATOD STATE AT REVIEW
+Unity 6000.6.2f1; Mirror with Telepathy/TCP. Campaign currently runs authoritative dedicated-server combat at 20 ticks/sec and streams resolved events/state. Client sends UltimateRequest. Automatic Arena computes a full result on server before playback. Current ReplayTimeline applies recorded outcomes rather than re-simulating combat. Do not confuse this existing architecture with the approved future migration.
+BattleSimulation is pure C# and can be reused as the basis of a shared simulator. Do not couple damage timing to animation callbacks. When migrating to input-based replay, freeze/version initial data, combat rules and skill configs; new balance must not silently change an existing battle or old replay. Preserve legacy resolved-outcome replays or define an explicit compatibility plan.
+
+HERO AND ITEM BALANCE REQUIREMENTS FROM THE ZATOD CHAT
+Keep JSON .txt configs with an Editor, separate Stats/Items/Skills/Heroes files/tabs, and stable IDs. No change to ScriptableObject authoring was requested.
+CharacterData.HeroDesk is List<HeroData>. Save progression and actual item IDs, not computed final stats. HeroData stores EquippedItems and AbsorbedItems; absorbed entries retain RankId, SlotId, ItemId and Quantity.
+HeroStatCalculator currently sums BaseStats + rank bonuses + current-config stats of absorbed items + current-config stats of equipped items. Level/star growth are not yet part of that calculator.
+User example: base 5 + one absorbed axe at 5 + two equipped axes at 5 = 20. Balance base to 3 and axe to 10 gives 33 on recalculation.
+Changing axe stats affects existing references. Changing a rank recipe from axe to sword does not rewrite previously absorbed axes or equipped-item history. Converting existing items needs an explicit data migration; that policy was left for a concrete case.
+Create detached HeroBattleData at battle entry. Stage buffs/debuffs modify runtime data, not saved progression or definitions.
+Crystal runtime tables include Unit, UnitRank, hero_equip, equip, Skill and Buff plus Hero-specific hooks. Its stat path uses rank-table values and current equipment, not the same AbsorbedItems ledger. Do not blindly add imported rank totals and the same absorbed equipment twice. The original config-authoring/export tooling was not recovered.
+
+TRANSFER AUDIT
+Artifacts/CrystalLegendReferenceMerge/20261119/copy.log
+Artifacts/CrystalLegendReferenceMerge/20261119/verification.json
+Artifacts/CrystalLegendReferenceMerge/20261119/verification-files.json
+The complete local reference is ignored by Git to avoid accidentally adding APKs, caches and large generated data. This does not remove files. The shared reference note and README pointer remain normal project files.

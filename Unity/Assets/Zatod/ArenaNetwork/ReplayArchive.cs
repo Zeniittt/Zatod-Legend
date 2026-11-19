@@ -16,8 +16,11 @@ namespace Zatod.Networking
         public const int MaxJsonBytes = 16 * 1024 * 1024;
 
         public static byte[] Encode(BattleRecord record)
+        { return EncodePayload(record); }
+
+        internal static byte[] EncodePayload(object payload)
         {
-            byte[] json = Encoding.UTF8.GetBytes(JsonUtility.ToJson(record));
+            byte[] json = Encoding.UTF8.GetBytes(JsonUtility.ToJson(payload));
             if (json.Length > MaxJsonBytes) throw new InvalidDataException("Replay exceeds JSON limit.");
             using (var output = new MemoryStream())
             {
@@ -28,7 +31,23 @@ namespace Zatod.Networking
             }
         }
 
-        public static BattleRecord Decode(byte[] bytes)
+        public static BattleRecord Decode(byte[] bytes, bool allowInProgress = false)
+        {
+            var record=DecodePayload<BattleRecord>(bytes);NormalizeLoadouts(record);Validate(record,allowInProgress);return record;
+        }
+
+        internal static void NormalizeLoadouts(BattleRecord record)
+        {
+            // Unity inline classes serialize an unused null payload as a default value.
+            if(record?.loadouts!=null)foreach(var loadout in record.loadouts)
+            {
+                if(loadout==null)continue;
+                if(loadout.kind==CombatantKind.Monster)loadout.hero=null;
+                else if(loadout.kind==CombatantKind.Hero)loadout.monster=null;
+            }
+        }
+
+        internal static T DecodePayload<T>(byte[] bytes)
         {
             if (bytes == null || bytes.Length == 0 || bytes.Length > MaxCompressedBytes)
                 throw new InvalidDataException("Invalid replay size.");
@@ -43,24 +62,16 @@ namespace Zatod.Networking
                     if (output.Length + count > MaxJsonBytes) throw new InvalidDataException("Replay decompression limit exceeded.");
                     output.Write(buffer, 0, count);
                 }
-                var record = JsonUtility.FromJson<BattleRecord>(Encoding.UTF8.GetString(output.ToArray()));
-                // Unity serializes inline class fields as values, including an unused null payload.
-                // The explicit kind also defaults to Hero for old archives.
-                if(record?.loadouts!=null)foreach(var loadout in record.loadouts)
-                {
-                    if(loadout==null)continue;
-                    if(loadout.kind==CombatantKind.Monster)loadout.hero=null;
-                    else if(loadout.kind==CombatantKind.Hero)loadout.monster=null;
-                }
-                Validate(record);
-                return record;
+                return JsonUtility.FromJson<T>(Encoding.UTF8.GetString(output.ToArray()));
             }
         }
 
-        public static void Validate(BattleRecord r)
+        public static void Validate(BattleRecord r, bool allowInProgress = false)
         {
             if (r == null || r.schemaVersion != BattleRecord.CurrentSchema)
                 throw new InvalidDataException("Unsupported replay version.");
+            if(r.manualUltimateTeams<0 || r.manualUltimateTeams>3 || r.battleInProgress && !allowInProgress)
+                throw new InvalidDataException("An unfinished battle is not a saved replay.");
             if (!Guid.TryParseExact(r.battleId, "N", out _) || r.tickRate <= 0 || r.tickRate > 240 ||
                 r.durationTicks <= 0 || r.durationTicks > 240 * 600 || r.winner < -1 || r.winner > 1 ||
                 r.initial == null || r.initial.Count < 2 || r.initial.Count > 10 || r.events == null || r.events.Count == 0 || r.events.Count > 200000 ||
@@ -82,7 +93,7 @@ namespace Zatod.Networking
             }
             if (r.projectiles != null) foreach (var p in r.projectiles)
                 if (p == null || !ids.Contains(p.actorId) || !ids.Contains(p.targetId) || p.startTick < 0 ||
-                    p.endTick < p.startTick || p.endTick > r.durationTicks || string.IsNullOrEmpty(p.resource) || Math.Abs(p.direction) != 1 ||
+                    p.endTick < p.startTick || (!allowInProgress && p.endTick > r.durationTicks) || string.IsNullOrEmpty(p.resource) || Math.Abs(p.direction) != 1 ||
                     (p.hasSpawnPoint && (string.IsNullOrEmpty(p.spawnPointId) || p.spawnHeight < 0)) ||
                     p.visualScaleBasisPoints < 0 || p.visualScaleBasisPoints > 100000)
                     throw new InvalidDataException("Invalid recorded projectile.");
@@ -131,7 +142,7 @@ namespace Zatod.Networking
                 previousSnapshotTick = s.tick;
             }
             if (r.snapshots[0].tick != 0 || r.snapshots[0].nextEventIndex != 0 ||
-                r.events[r.events.Count - 1].kind != BattleEventKind.Finished)
+                (!allowInProgress && r.events[r.events.Count - 1].kind != BattleEventKind.Finished))
                 throw new InvalidDataException("Replay is incomplete.");
         }
 

@@ -1,0 +1,2866 @@
+{
+  "state": "Skill3",
+  "name": "Thiên Phủ Giáng Địa",
+  "clips": [
+    "ChargedUpHeavyAtk",
+    "ChargedUpHeavyAtk[Loop]",
+    "ChargedUpHeavyAtkRelease",
+    "ChargedUpHeavyAtkRelease[Loop]",
+    "ChargedUpHeavyAtkRelease[Land]"
+  ],
+  "loop": false,
+  "description": "Gồng → nhảy bổ về phía cụm địch → giữ pha rơi → nện rìu, nổ đất và hất tung ngắn. Địch xa ngoài vùng nổ không bị trúng.",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.10000229,
+      "duration_seconds": 0.10000229,
+      "sprite_guid": "9261e09ecac99cb4abdabe6512548df4",
+      "sprite_name": "Frame_30",
+      "source_asset": "Assets/Sprite/Frame_30_15.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 1932,
+        "width": 74,
+        "height": 48
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        1932,
+        74,
+        48
+      ],
+      "source_pivot_normalized": {
+        "x": 0.6081081,
+        "y": 1.1874999
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        44.99999939999998,
+        56.99999520000006
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        74,
+        48
+      ],
+      "padding_left_top": [
+        79,
+        85
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999939999998,
+        97.99999520000006
+      ],
+      "png_sha256": "01a5372b41372f1d8b98c8cac7404984af3512ef828565ec35c24944556617cd",
+      "raw_png_sha256": "cfe0c29a134da7a56ec69ad7714783662ec310042ecefbdce90f0c8dfb922263",
+      "phase": "ChargedUpHeavyAtk",
+      "source_clip": "ChargedUpHeavyAtk",
+      "source_frame_index": 1,
+      "source_time_seconds": 0.0
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.10000229,
+      "end_seconds": 0.20000076,
+      "duration_seconds": 0.09999847,
+      "sprite_guid": "fe09beba8b990eb41ba0d573c6e16309",
+      "sprite_name": "Frame_31",
+      "source_asset": "Assets/Sprite/Frame_31_14.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 2044,
+        "width": 71,
+        "height": 47
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        2044,
+        71,
+        47
+      ],
+      "source_pivot_normalized": {
+        "x": 0.6056338,
+        "y": 1.2127659
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        42.99999980000007,
+        56.999997299999904
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        71,
+        47
+      ],
+      "padding_left_top": [
+        81,
+        86
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999980000007,
+        97.9999972999999
+      ],
+      "png_sha256": "046667e669fc37f65fa70aff98f29cdd563f66ff88b75b2a394b950f6d7ed5dc",
+      "raw_png_sha256": "c42139aa2f32e0d841c34b0d36cca888f27f6a7a313fc79b282f8c6c28c63cd2",
+      "phase": "ChargedUpHeavyAtk",
+      "source_clip": "ChargedUpHeavyAtk",
+      "source_frame_index": 2,
+      "source_time_seconds": 0.10000229
+    },
+    {
+      "index": 3,
+      "file": "0003.png",
+      "raw_crop": "Raw_Crops/0003.png",
+      "time_seconds": 0.20000076,
+      "end_seconds": 0.29000077,
+      "duration_seconds": 0.09000001000000002,
+      "sprite_guid": "ed243f182495b0843b2c2f8988676f8c",
+      "sprite_name": "Frame_32",
+      "source_asset": "Assets/Sprite/Frame_32_21.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 1753,
+        "width": 82,
+        "height": 44
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        1753,
+        82,
+        44
+      ],
+      "source_pivot_normalized": {
+        "x": 0.53658533,
+        "y": 1.2954545
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        43.99999705999994,
+        56.999998000000005
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        82,
+        44
+      ],
+      "padding_left_top": [
+        80,
+        89
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999705999994,
+        97.999998
+      ],
+      "png_sha256": "60394a7b87396cd24051bd5c899b4c1d68f2baec722ae739e4ea185652ae9295",
+      "raw_png_sha256": "1ad14083ee3c023bc7c7ef3cff67ad147b4b7cdfa3438a647d83177354df8406",
+      "phase": "ChargedUpHeavyAtk",
+      "source_clip": "ChargedUpHeavyAtk",
+      "source_frame_index": 3,
+      "source_time_seconds": 0.20000076
+    },
+    {
+      "index": 4,
+      "file": "0004.png",
+      "raw_crop": "Raw_Crops/0004.png",
+      "time_seconds": 0.29000077,
+      "end_seconds": 0.30000076,
+      "duration_seconds": 0.009999989999999959,
+      "sprite_guid": "ed243f182495b0843b2c2f8988676f8c",
+      "sprite_name": "Frame_32",
+      "source_asset": "Assets/Sprite/Frame_32_21.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 1753,
+        "width": 82,
+        "height": 44
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        1753,
+        82,
+        44
+      ],
+      "source_pivot_normalized": {
+        "x": 0.53658533,
+        "y": 1.2954545
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        43.99999705999994,
+        56.999998000000005
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        82,
+        44
+      ],
+      "padding_left_top": [
+        80,
+        89
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999705999994,
+        97.999998
+      ],
+      "png_sha256": "60394a7b87396cd24051bd5c899b4c1d68f2baec722ae739e4ea185652ae9295",
+      "raw_png_sha256": "1ad14083ee3c023bc7c7ef3cff67ad147b4b7cdfa3438a647d83177354df8406",
+      "phase": "ChargedUpHeavyAtk",
+      "source_clip": "ChargedUpHeavyAtk",
+      "source_frame_index": 4,
+      "source_time_seconds": 0.29000077
+    },
+    {
+      "index": 5,
+      "file": "0005.png",
+      "raw_crop": "Raw_Crops/0005.png",
+      "time_seconds": 0.30000076,
+      "end_seconds": 0.370000455,
+      "duration_seconds": 0.069999695,
+      "sprite_guid": "6cb538fe34a8a634f86b52cc4397f90d",
+      "sprite_name": "Frame_43",
+      "source_asset": "Assets/Sprite/Frame_43_21.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 1988,
+        "width": 71,
+        "height": 48
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        1988,
+        71,
+        48
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5915493,
+        "y": 1.1874999
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        42.00000030000001,
+        56.99999520000006
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        71,
+        48
+      ],
+      "padding_left_top": [
+        82,
+        85
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000030000001,
+        97.99999520000006
+      ],
+      "png_sha256": "3f744d4d0ba78327e7b80533a04c8a87b91f5f76b7a3a1f997067b345b0afe6e",
+      "raw_png_sha256": "8143308763456aabe5e3f82414005da8ce52b50a411a61fcf3217f094df60f94",
+      "phase": "ChargedUpHeavyAtk[Loop]",
+      "source_clip": "ChargedUpHeavyAtk[Loop]",
+      "source_frame_index": 1,
+      "source_time_seconds": 0.0
+    },
+    {
+      "index": 6,
+      "file": "0006.png",
+      "raw_crop": "Raw_Crops/0006.png",
+      "time_seconds": 0.370000455,
+      "end_seconds": 0.44000395999999997,
+      "duration_seconds": 0.070003505,
+      "sprite_guid": "b7a89adf0d2ef724cae39d797e8fe974",
+      "sprite_name": "Frame_44",
+      "source_asset": "Assets/Sprite/Frame_44_34.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 1324,
+        "width": 75,
+        "height": 55
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        1324,
+        75,
+        55
+      ],
+      "source_pivot_normalized": {
+        "x": 0.56,
+        "y": 1.0363636
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        42.0,
+        56.999998000000005
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        75,
+        55
+      ],
+      "padding_left_top": [
+        82,
+        78
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.0,
+        97.999998
+      ],
+      "png_sha256": "f706d1517172fc10bc00ee06e06223eb01d38a618afb3680fdef6cc8c028e4d9",
+      "raw_png_sha256": "2baedefe27e915ed5f3590329fc21a24700fe9f647c27539fac7d9ecc933a400",
+      "phase": "ChargedUpHeavyAtk[Loop]",
+      "source_clip": "ChargedUpHeavyAtk[Loop]",
+      "source_frame_index": 2,
+      "source_time_seconds": 0.069999695
+    },
+    {
+      "index": 7,
+      "file": "0007.png",
+      "raw_crop": "Raw_Crops/0007.png",
+      "time_seconds": 0.44000395999999997,
+      "end_seconds": 0.51000366,
+      "duration_seconds": 0.0699997,
+      "sprite_guid": "8995df9904f626749aa0b1e9b56780de",
+      "sprite_name": "Frame_45",
+      "source_asset": "Assets/Sprite/Frame_45_5.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 1387,
+        "width": 75,
+        "height": 55
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        1387,
+        75,
+        55
+      ],
+      "source_pivot_normalized": {
+        "x": 0.56,
+        "y": 1.0363636
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        42.0,
+        56.999998000000005
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        75,
+        55
+      ],
+      "padding_left_top": [
+        82,
+        78
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.0,
+        97.999998
+      ],
+      "png_sha256": "1d3c9dfd42fca0ee0441750bec0f6a93fada866d3bbf1cb600147245d3f0fbe1",
+      "raw_png_sha256": "56c2905681eaa12b836df287fd69ee31ddd55f2e1443fa399e14f7c06561fe62",
+      "phase": "ChargedUpHeavyAtk[Loop]",
+      "source_clip": "ChargedUpHeavyAtk[Loop]",
+      "source_frame_index": 3,
+      "source_time_seconds": 0.1400032
+    },
+    {
+      "index": 8,
+      "file": "0008.png",
+      "raw_crop": "Raw_Crops/0008.png",
+      "time_seconds": 0.51000366,
+      "end_seconds": 0.57000366,
+      "duration_seconds": 0.06,
+      "sprite_guid": "19017f6ad38e8cf419e6f8265a83f89f",
+      "sprite_name": "Frame_67",
+      "source_asset": "Assets/Sprite/Frame_67_16.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 1450,
+        "width": 75,
+        "height": 55
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        1450,
+        75,
+        55
+      ],
+      "source_pivot_normalized": {
+        "x": 0.56,
+        "y": 1.0363636
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        42.0,
+        56.999998000000005
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        75,
+        55
+      ],
+      "padding_left_top": [
+        82,
+        78
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.0,
+        97.999998
+      ],
+      "png_sha256": "7f2d016b0426fa55af7303773034a6b7bb66bd8b54d21ebf2768a308d13fe74a",
+      "raw_png_sha256": "c7e94b5a62deaa975016fc31a8a54d5fd41855e487397ef29fc374a911dce9bf",
+      "phase": "ChargedUpHeavyAtk[Loop]",
+      "source_clip": "ChargedUpHeavyAtk[Loop]",
+      "source_frame_index": 4,
+      "source_time_seconds": 0.2100029
+    },
+    {
+      "index": 9,
+      "file": "0009.png",
+      "raw_crop": "Raw_Crops/0009.png",
+      "time_seconds": 0.57000366,
+      "end_seconds": 0.58000366,
+      "duration_seconds": 0.010000000000000009,
+      "sprite_guid": "19017f6ad38e8cf419e6f8265a83f89f",
+      "sprite_name": "Frame_67",
+      "source_asset": "Assets/Sprite/Frame_67_16.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1230,
+        "y": 1450,
+        "width": 75,
+        "height": 55
+      },
+      "source_pixel_crop_bottom_left": [
+        1230,
+        1450,
+        75,
+        55
+      ],
+      "source_pivot_normalized": {
+        "x": 0.56,
+        "y": 1.0363636
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        42.0,
+        56.999998000000005
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        75,
+        55
+      ],
+      "padding_left_top": [
+        82,
+        78
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.0,
+        97.999998
+      ],
+      "png_sha256": "7f2d016b0426fa55af7303773034a6b7bb66bd8b54d21ebf2768a308d13fe74a",
+      "raw_png_sha256": "c7e94b5a62deaa975016fc31a8a54d5fd41855e487397ef29fc374a911dce9bf",
+      "phase": "ChargedUpHeavyAtk[Loop]",
+      "source_clip": "ChargedUpHeavyAtk[Loop]",
+      "source_frame_index": 5,
+      "source_time_seconds": 0.2700029
+    },
+    {
+      "index": 10,
+      "file": "0010.png",
+      "raw_crop": "Raw_Crops/0010.png",
+      "time_seconds": 0.58000366,
+      "end_seconds": 0.5900019815,
+      "duration_seconds": 0.0099983215,
+      "sprite_guid": "daf26142aa2578e4488c55f30133945d",
+      "sprite_name": "Frame_379",
+      "source_asset": "Assets/Sprite/Frame_379_1.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 866,
+        "y": 2322,
+        "width": 61,
+        "height": 137
+      },
+      "source_pixel_crop_bottom_left": [
+        866,
+        2322,
+        61,
+        137
+      ],
+      "source_pivot_normalized": {
+        "x": 0.52459013,
+        "y": 0.71532845
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.99999792999995,
+        97.99999764999984
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        61,
+        137
+      ],
+      "padding_left_top": [
+        92,
+        37
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999792999995,
+        97.99999764999984
+      ],
+      "png_sha256": "1155cd886f809cb4c2b1c910a7d0e8a098718d6f45bcc1245f57ce4e67c22175",
+      "raw_png_sha256": "8ad71384246ca136e811d8886d05a67baddd272a1d292ddef4791e5d8979a6e8",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 1,
+      "source_time_seconds": 0.0
+    },
+    {
+      "index": 11,
+      "file": "0011.png",
+      "raw_crop": "Raw_Crops/0011.png",
+      "time_seconds": 0.5900019815,
+      "end_seconds": 0.61000244,
+      "duration_seconds": 0.0200004585,
+      "sprite_guid": "57c7f99a81251cc40851f4c8bea73d81",
+      "sprite_name": "Frame_417",
+      "source_asset": "Assets/Sprite/Frame_417.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 866,
+        "y": 2467,
+        "width": 61,
+        "height": 137
+      },
+      "source_pixel_crop_bottom_left": [
+        866,
+        2467,
+        61,
+        137
+      ],
+      "source_pivot_normalized": {
+        "x": 0.52459013,
+        "y": 0.71532845
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.99999792999995,
+        97.99999764999984
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        61,
+        137
+      ],
+      "padding_left_top": [
+        92,
+        37
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999792999995,
+        97.99999764999984
+      ],
+      "png_sha256": "9ff8504ad8a1e3dbe770473fadfac519255c606682ffb0f83f38a54cf9b2b39d",
+      "raw_png_sha256": "927ecd3e79f790b38eb7b831992e43043bd99da6687e3ae654304cc5b1a501e1",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 2,
+      "source_time_seconds": 0.0099983215
+    },
+    {
+      "index": 12,
+      "file": "0012.png",
+      "raw_crop": "Raw_Crops/0012.png",
+      "time_seconds": 0.61000244,
+      "end_seconds": 0.680002134,
+      "duration_seconds": 0.069999694,
+      "sprite_guid": "19d8168d76dadb945938ac19bd48931c",
+      "sprite_name": "Frame_391",
+      "source_asset": "Assets/Sprite/Frame_391_1.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 352,
+        "y": 2637,
+        "width": 60,
+        "height": 82
+      },
+      "source_pixel_crop_bottom_left": [
+        352,
+        2637,
+        60,
+        82
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5166667,
+        "y": 0.50000006
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        31.000001999999995,
+        41.00000491999981
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        60,
+        82
+      ],
+      "padding_left_top": [
+        93,
+        35
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.000002,
+        98.00000491999981
+      ],
+      "png_sha256": "677eeee52c3b479e4a0da38b2bb7b4d4d322a8d7e41d794e4c5bdb98a93addbc",
+      "raw_png_sha256": "92a245a79989b598a1465a10795a29405f9d0f7c4b93727dc2c152111eb81be4",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 3,
+      "source_time_seconds": 0.02999878
+    },
+    {
+      "index": 13,
+      "file": "0013.png",
+      "raw_crop": "Raw_Crops/0013.png",
+      "time_seconds": 0.680002134,
+      "end_seconds": 0.7300013700000001,
+      "duration_seconds": 0.049999236,
+      "sprite_guid": "2b0d05e386c75f74783cc8f42bc76081",
+      "sprite_name": "Frame_358",
+      "source_asset": "Assets/Sprite/Frame_358_0.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 996,
+        "y": 3781,
+        "width": 67,
+        "height": 79
+      },
+      "source_pixel_crop_bottom_left": [
+        996,
+        3781,
+        67,
+        79
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5671642,
+        "y": 0.48101267
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        38.000001399999974,
+        38.00000093000017
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        67,
+        79
+      ],
+      "padding_left_top": [
+        86,
+        35
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000139999997,
+        98.00000093000017
+      ],
+      "png_sha256": "05ee5b0cacfd737c72ab1caa419ec3e7f751aa172c4314609aa6e2481bf99801",
+      "raw_png_sha256": "fd19e9c4818690a245d96769c7fd4153d310d04536750e15f14328f9bbadcbee",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 4,
+      "source_time_seconds": 0.099998474
+    },
+    {
+      "index": 14,
+      "file": "0014.png",
+      "raw_crop": "Raw_Crops/0014.png",
+      "time_seconds": 0.7300013700000001,
+      "end_seconds": 0.83000366,
+      "duration_seconds": 0.10000229,
+      "sprite_guid": "07358db2558ba4a44bd8a551db9c8f99",
+      "sprite_name": "Frame_392",
+      "source_asset": "Assets/Sprite/Frame_392.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 563,
+        "y": 1340,
+        "width": 65,
+        "height": 64
+      },
+      "source_pixel_crop_bottom_left": [
+        563,
+        1340,
+        65,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5692308,
+        "y": 0.35937503
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        37.000001999999995,
+        23.00000191999993
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        65,
+        64
+      ],
+      "padding_left_top": [
+        87,
+        35
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.000002,
+        98.00000191999993
+      ],
+      "png_sha256": "0e762a1c7c98050ecb668db07dbe08c11d9a42facb39a8249071c720d39e9035",
+      "raw_png_sha256": "3a98ddbd9a9181ae6a970fb68357b284a6037175631988e453820a1871c098c1",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 5,
+      "source_time_seconds": 0.14999771
+    },
+    {
+      "index": 15,
+      "file": "0015.png",
+      "raw_crop": "Raw_Crops/0015.png",
+      "time_seconds": 0.83000366,
+      "end_seconds": 0.9300021300000001,
+      "duration_seconds": 0.09999847,
+      "sprite_guid": "717679e4ce7eabc4b89fd532b1543f35",
+      "sprite_name": "Frame_393",
+      "source_asset": "Assets/Sprite/Frame_393.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 564,
+        "y": 1892,
+        "width": 61,
+        "height": 61
+      },
+      "source_pixel_crop_bottom_left": [
+        564,
+        1892,
+        61,
+        61
+      ],
+      "source_pivot_normalized": {
+        "x": 0.6393442,
+        "y": 0.3114754
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        38.99999619999994,
+        18.99999939999998
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        61,
+        61
+      ],
+      "padding_left_top": [
+        85,
+        34
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999619999994,
+        97.99999939999998
+      ],
+      "png_sha256": "b4c80906439d540250e8b6d7624159d0542b14b90588515747d738aa261b64ee",
+      "raw_png_sha256": "e9d18b8cd203905aed785b53380fc9cf813e255212cdfd9f36d58df18f26f92e",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 6,
+      "source_time_seconds": 0.25
+    },
+    {
+      "index": 16,
+      "file": "0016.png",
+      "raw_crop": "Raw_Crops/0016.png",
+      "time_seconds": 0.9300021300000001,
+      "end_seconds": 1.03000061,
+      "duration_seconds": 0.09999848,
+      "sprite_guid": "77567462e55020048ae478e8ceadaa00",
+      "sprite_name": "Frame_66",
+      "source_asset": "Assets/Sprite/Frame_66_5.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 557,
+        "y": 2512,
+        "width": 57,
+        "height": 64
+      },
+      "source_pixel_crop_bottom_left": [
+        557,
+        2512,
+        57,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.6666667,
+        "y": 0.28125
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        38.00000190000003,
+        18.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        57,
+        64
+      ],
+      "padding_left_top": [
+        86,
+        30
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000190000003,
+        98.0
+      ],
+      "png_sha256": "1b52499e4e44606db3abe95010c61c2196853e74ef03408510efd0ae9b273344",
+      "raw_png_sha256": "5b52ab3ffbba902a439a11bede9e03e4d49de42ee72d542a80ae76b4bbd38acd",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 7,
+      "source_time_seconds": 0.34999847
+    },
+    {
+      "index": 17,
+      "file": "0017.png",
+      "raw_crop": "Raw_Crops/0017.png",
+      "time_seconds": 1.03000061,
+      "end_seconds": 1.1300029,
+      "duration_seconds": 0.10000229,
+      "sprite_guid": "fb3cb3f25ce2d9c4fbe0d3c0fb1bbd3f",
+      "sprite_name": "Frame_78",
+      "source_asset": "Assets/Sprite/Frame_78_2.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 561,
+        "y": 1190,
+        "width": 58,
+        "height": 64
+      },
+      "source_pixel_crop_bottom_left": [
+        561,
+        1190,
+        58,
+        64
+      ],
+      "source_pivot_normalized": {
+        "x": 0.7241379,
+        "y": 0.26562503
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        41.99999820000005,
+        17.00000191999993
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        58,
+        64
+      ],
+      "padding_left_top": [
+        82,
+        29
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999820000005,
+        98.00000191999993
+      ],
+      "png_sha256": "79700bb4c3b3a1d57dd3031641e85b9d6a366599dac5bf2a88ae1f92d0a3ce1a",
+      "raw_png_sha256": "66a5f36b82858a7740a8c2f31f6734757a9f24245333120617f4b44b29b2dec1",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 8,
+      "source_time_seconds": 0.44999695
+    },
+    {
+      "index": 18,
+      "file": "0018.png",
+      "raw_crop": "Raw_Crops/0018.png",
+      "time_seconds": 1.1300029,
+      "end_seconds": 1.2300013600000002,
+      "duration_seconds": 0.09999846000000001,
+      "sprite_guid": "9975e9c037d27de42aa72722878ffafb",
+      "sprite_name": "Frame_101",
+      "source_asset": "Assets/Sprite/Frame_101_21.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1296,
+        "y": 1805,
+        "width": 58,
+        "height": 58
+      },
+      "source_pixel_crop_bottom_left": [
+        1296,
+        1805,
+        58,
+        58
+      ],
+      "source_pivot_normalized": {
+        "x": 0.70689654,
+        "y": 0.25862065
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        40.999999319999915,
+        14.999997699999994
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        58,
+        58
+      ],
+      "padding_left_top": [
+        83,
+        33
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999931999992,
+        97.9999977
+      ],
+      "png_sha256": "8ecf17859848e86fcaa04ee42a72c0d5280b481fd5fe65dea5f48e3b52b63541",
+      "raw_png_sha256": "7022c0c9a6b7a6b88536f9ce59202ed67b14eaa3cd2dcc643650a57060c77f11",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 9,
+      "source_time_seconds": 0.54999924
+    },
+    {
+      "index": 19,
+      "file": "0019.png",
+      "raw_crop": "Raw_Crops/0019.png",
+      "time_seconds": 1.2300013600000002,
+      "end_seconds": 1.33000366,
+      "duration_seconds": 0.10000229999999999,
+      "sprite_guid": "85b4996e18c5e864a935f11601b69637",
+      "sprite_name": "Frame_176",
+      "source_asset": "Assets/Sprite/Frame_176_4.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 564,
+        "y": 2584,
+        "width": 65,
+        "height": 57
+      },
+      "source_pixel_crop_bottom_left": [
+        564,
+        2584,
+        65,
+        57
+      ],
+      "source_pivot_normalized": {
+        "x": 0.6769231,
+        "y": 0.245614
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        44.00000150000005,
+        13.999997999999778
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        65,
+        57
+      ],
+      "padding_left_top": [
+        80,
+        33
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000150000005,
+        97.99999799999978
+      ],
+      "png_sha256": "83d840daec0e5ef9f4b030bdec815eb7a88b565255d4a2d84da12a321d206bb4",
+      "raw_png_sha256": "742bd0cfd1e703c93c1e8bbb79061f64fcef8b380bcda22680debba94c30ae44",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 10,
+      "source_time_seconds": 0.6499977
+    },
+    {
+      "index": 20,
+      "file": "0020.png",
+      "raw_crop": "Raw_Crops/0020.png",
+      "time_seconds": 1.33000366,
+      "end_seconds": 1.37000366,
+      "duration_seconds": 0.040000000000000036,
+      "sprite_guid": "2ec75f4846d2a34448fb7f6cedfa902e",
+      "sprite_name": "Frame_33",
+      "source_asset": "Assets/Sprite/Frame_33_14.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 425,
+        "y": 3537,
+        "width": 86,
+        "height": 88
+      },
+      "source_pixel_crop_bottom_left": [
+        425,
+        3537,
+        86,
+        88
+      ],
+      "source_pivot_normalized": {
+        "x": 0.30232558,
+        "y": 0.625
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        25.99999988000002,
+        55.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        86,
+        88
+      ],
+      "padding_left_top": [
+        98,
+        43
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999988000002,
+        98.0
+      ],
+      "png_sha256": "a4ff0f03fee81e50fd9f3d821922a2c25a6ab4ae0c05b84562b67a05630fded7",
+      "raw_png_sha256": "9d206145fa1ae9fc63791dd30f926720e6b5870b2c009766dc8b28af78337da9",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 11,
+      "source_time_seconds": 0.75
+    },
+    {
+      "index": 21,
+      "file": "0021.png",
+      "raw_crop": "Raw_Crops/0021.png",
+      "time_seconds": 1.37000366,
+      "end_seconds": 1.38000366,
+      "duration_seconds": 0.010000000000000009,
+      "sprite_guid": "2ec75f4846d2a34448fb7f6cedfa902e",
+      "sprite_name": "Frame_33",
+      "source_asset": "Assets/Sprite/Frame_33_14.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 425,
+        "y": 3537,
+        "width": 86,
+        "height": 88
+      },
+      "source_pixel_crop_bottom_left": [
+        425,
+        3537,
+        86,
+        88
+      ],
+      "source_pivot_normalized": {
+        "x": 0.30232558,
+        "y": 0.625
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        25.99999988000002,
+        55.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        86,
+        88
+      ],
+      "padding_left_top": [
+        98,
+        43
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999988000002,
+        98.0
+      ],
+      "png_sha256": "a4ff0f03fee81e50fd9f3d821922a2c25a6ab4ae0c05b84562b67a05630fded7",
+      "raw_png_sha256": "9d206145fa1ae9fc63791dd30f926720e6b5870b2c009766dc8b28af78337da9",
+      "phase": "ChargedUpHeavyAtkRelease",
+      "source_clip": "ChargedUpHeavyAtkRelease",
+      "source_frame_index": 12,
+      "source_time_seconds": 0.79
+    },
+    {
+      "index": 22,
+      "file": "0022.png",
+      "raw_crop": "Raw_Crops/0022.png",
+      "time_seconds": 1.38000366,
+      "end_seconds": 1.41000244,
+      "duration_seconds": 0.02999878,
+      "sprite_guid": "44e271c3827c9c246827861fdef6b8cf",
+      "sprite_name": "Frame_34",
+      "source_asset": "Assets/Sprite/Frame_34_8.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 996,
+        "y": 650,
+        "width": 89,
+        "height": 76
+      },
+      "source_pixel_crop_bottom_left": [
+        996,
+        650,
+        89,
+        76
+      ],
+      "source_pivot_normalized": {
+        "x": 0.28089887,
+        "y": 0.7368421
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        24.999999430000003,
+        55.999999600000024
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        89,
+        76
+      ],
+      "padding_left_top": [
+        99,
+        56
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999943,
+        97.99999960000002
+      ],
+      "png_sha256": "664d28317a699d68653c56d6b1036594122e006c88746e13cbcc16d023c3fb41",
+      "raw_png_sha256": "66ae4950e8c2bd16d35e712c94e09dde3e806794425418b6d6181595d9144966",
+      "phase": "ChargedUpHeavyAtkRelease[Loop]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Loop]",
+      "source_frame_index": 1,
+      "source_time_seconds": 0.0
+    },
+    {
+      "index": 23,
+      "file": "0023.png",
+      "raw_crop": "Raw_Crops/0023.png",
+      "time_seconds": 1.41000244,
+      "end_seconds": 1.44000122,
+      "duration_seconds": 0.02999878,
+      "sprite_guid": "705dbf146ebbfbd46bb2caf757c7b34a",
+      "sprite_name": "Frame_35",
+      "source_asset": "Assets/Sprite/Frame_35_34.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 996,
+        "y": 474,
+        "width": 89,
+        "height": 78
+      },
+      "source_pixel_crop_bottom_left": [
+        996,
+        474,
+        89,
+        78
+      ],
+      "source_pivot_normalized": {
+        "x": 0.28089887,
+        "y": 0.71794873
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        24.999999430000003,
+        56.00000093999995
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        89,
+        78
+      ],
+      "padding_left_top": [
+        99,
+        54
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999943,
+        98.00000093999995
+      ],
+      "png_sha256": "9c8b71d77622684b49d0b3cd47a7953e690c88dbe8103f04cd31f22f38c1f7ec",
+      "raw_png_sha256": "b9a419a621bba801bb641591ced06adf33b4beb21ef9ebafa09ceca597e8ed03",
+      "phase": "ChargedUpHeavyAtkRelease[Loop]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Loop]",
+      "source_frame_index": 2,
+      "source_time_seconds": 0.02999878
+    },
+    {
+      "index": 24,
+      "file": "0024.png",
+      "raw_crop": "Raw_Crops/0024.png",
+      "time_seconds": 1.44000122,
+      "end_seconds": 1.46000122,
+      "duration_seconds": 0.019999999999999997,
+      "sprite_guid": "b08af78644bbe0c46bb5f969fba41df9",
+      "sprite_name": "Frame_36",
+      "source_asset": "Assets/Sprite/Frame_36_20.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 996,
+        "y": 562,
+        "width": 89,
+        "height": 77
+      },
+      "source_pixel_crop_bottom_left": [
+        996,
+        562,
+        89,
+        77
+      ],
+      "source_pivot_normalized": {
+        "x": 0.28089887,
+        "y": 0.72727275
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        24.999999430000003,
+        56.000001750000024
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        89,
+        77
+      ],
+      "padding_left_top": [
+        99,
+        55
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999943,
+        98.00000175000002
+      ],
+      "png_sha256": "b9e9a629e0ce5d1517e0b70e4fb978cf291bd0280aff0db45e64a873de3c04a2",
+      "raw_png_sha256": "411581725ece1ad0d6cae82544eb16facbd44567e617816f8cfe2c1b8d9f4150",
+      "phase": "ChargedUpHeavyAtkRelease[Loop]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Loop]",
+      "source_frame_index": 3,
+      "source_time_seconds": 0.05999756
+    },
+    {
+      "index": 25,
+      "file": "0025.png",
+      "raw_crop": "Raw_Crops/0025.png",
+      "time_seconds": 1.46000122,
+      "end_seconds": 1.47000122,
+      "duration_seconds": 0.010000000000000009,
+      "sprite_guid": "b08af78644bbe0c46bb5f969fba41df9",
+      "sprite_name": "Frame_36",
+      "source_asset": "Assets/Sprite/Frame_36_20.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 996,
+        "y": 562,
+        "width": 89,
+        "height": 77
+      },
+      "source_pixel_crop_bottom_left": [
+        996,
+        562,
+        89,
+        77
+      ],
+      "source_pivot_normalized": {
+        "x": 0.28089887,
+        "y": 0.72727275
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        24.999999430000003,
+        56.000001750000024
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        89,
+        77
+      ],
+      "padding_left_top": [
+        99,
+        55
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999943,
+        98.00000175000002
+      ],
+      "png_sha256": "b9e9a629e0ce5d1517e0b70e4fb978cf291bd0280aff0db45e64a873de3c04a2",
+      "raw_png_sha256": "411581725ece1ad0d6cae82544eb16facbd44567e617816f8cfe2c1b8d9f4150",
+      "phase": "ChargedUpHeavyAtkRelease[Loop]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Loop]",
+      "source_frame_index": 4,
+      "source_time_seconds": 0.07999756
+    },
+    {
+      "index": 26,
+      "file": "0026.png",
+      "raw_crop": "Raw_Crops/0026.png",
+      "time_seconds": 1.47000122,
+      "end_seconds": 1.520000457,
+      "duration_seconds": 0.049999237,
+      "sprite_guid": "90fe5c2a9bc6e824fa732724dd8b2aa0",
+      "sprite_name": "Frame_88",
+      "source_asset": "Assets/Sprite/Frame_88_8.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 794,
+        "width": 163,
+        "height": 120
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        794,
+        163,
+        120
+      ],
+      "source_pivot_normalized": {
+        "x": 0.21472393,
+        "y": 0.475
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        35.00000059,
+        57.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        163,
+        120
+      ],
+      "padding_left_top": [
+        89,
+        13
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000059,
+        98.0
+      ],
+      "png_sha256": "23ea3d2aa6f5831c3a813911516b3347025dc28cebbf8b1f3f1c463485d5f7ea",
+      "raw_png_sha256": "7bfeee75b40b6ecd1ecee7278600238984717716649e7cd397af74948bca12cb",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 1,
+      "source_time_seconds": 0.0
+    },
+    {
+      "index": 27,
+      "file": "0027.png",
+      "raw_crop": "Raw_Crops/0027.png",
+      "time_seconds": 1.520000457,
+      "end_seconds": 1.569999694,
+      "duration_seconds": 0.049999237,
+      "sprite_guid": "a84863e23ec457f40b70a30ae2452e70",
+      "sprite_name": "Frame_89",
+      "source_asset": "Assets/Sprite/Frame_89_11.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 292,
+        "width": 178,
+        "height": 135
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        292,
+        178,
+        135
+      ],
+      "source_pivot_normalized": {
+        "x": 0.18539326,
+        "y": 0.44444445
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.00000028,
+        60.00000075000003
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        178,
+        135
+      ],
+      "padding_left_top": [
+        91,
+        1
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000028,
+        98.00000075000003
+      ],
+      "png_sha256": "e69118d5a3c477195475fde2947919431bf906b44290ba1a8c33663b08a59584",
+      "raw_png_sha256": "cb42b31a35c18bd0bb0b7089a5f2cf51eb76afe6c110d8892077929c44703098",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 2,
+      "source_time_seconds": 0.049999237
+    },
+    {
+      "index": 28,
+      "file": "0028.png",
+      "raw_crop": "Raw_Crops/0028.png",
+      "time_seconds": 1.569999694,
+      "end_seconds": 1.6699981700000002,
+      "duration_seconds": 0.099998476,
+      "sprite_guid": "b5fa792d41635c644ba03e39b1a1b763",
+      "sprite_name": "Frame_90",
+      "source_asset": "Assets/Sprite/Frame_90_8.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 148,
+        "width": 197,
+        "height": 136
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        148,
+        197,
+        136
+      ],
+      "source_pivot_normalized": {
+        "x": 0.18274109,
+        "y": 0.44117647
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        35.99999473,
+        59.99999991999999
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        197,
+        136
+      ],
+      "padding_left_top": [
+        88,
+        0
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999473,
+        97.99999992
+      ],
+      "png_sha256": "71ccbbbe5acbe06436d4ce71d9d9c78327902bb6cdf2f9067ced917334b25970",
+      "raw_png_sha256": "8fbdb59f6b067533aa55dd9ff4b54f2c47055dc18b73ddb328bc65401bcbbb66",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 3,
+      "source_time_seconds": 0.099998474
+    },
+    {
+      "index": 29,
+      "file": "0029.png",
+      "raw_crop": "Raw_Crops/0029.png",
+      "time_seconds": 1.6699981700000002,
+      "end_seconds": 1.77000046,
+      "duration_seconds": 0.10000229,
+      "sprite_guid": "0a999e872ae46854bb9d742a34015046",
+      "sprite_name": "Frame_91",
+      "source_asset": "Assets/Sprite/Frame_91_7.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 4,
+        "width": 202,
+        "height": 136
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        4,
+        202,
+        136
+      ],
+      "source_pivot_normalized": {
+        "x": 0.18316829,
+        "y": 0.44117647
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        36.99999458,
+        59.99999992
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        202,
+        136
+      ],
+      "padding_left_top": [
+        87,
+        0
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999457999999,
+        97.99999992
+      ],
+      "png_sha256": "0f8aec1d2166788046d642983756eb7f2ec444cf3399570fe4972cbd040ea54d",
+      "raw_png_sha256": "6acbcab5686b0f006f76f11f33ccfee00d3b7269276fee96af096ad29f9b8c20",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 4,
+      "source_time_seconds": 0.19999695
+    },
+    {
+      "index": 30,
+      "file": "0030.png",
+      "raw_crop": "Raw_Crops/0030.png",
+      "time_seconds": 1.77000046,
+      "end_seconds": 1.86999892,
+      "duration_seconds": 0.09999846000000001,
+      "sprite_guid": "d3fe13358d0d6a4428bc875e0c503ca0",
+      "sprite_name": "Frame_92",
+      "source_asset": "Assets/Sprite/Frame_92_19.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 214,
+        "y": 4,
+        "width": 203,
+        "height": 78
+      },
+      "source_pixel_crop_bottom_left": [
+        214,
+        4,
+        203,
+        78
+      ],
+      "source_pivot_normalized": {
+        "x": 0.18719211,
+        "y": 0.76923084
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        37.99999832999998,
+        60.00000552
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        203,
+        78
+      ],
+      "padding_left_top": [
+        86,
+        58
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999832999998,
+        98.00000552
+      ],
+      "png_sha256": "7498f1f227134935531ef97295478e506a95d6171ffaa79c4da0754622bc325e",
+      "raw_png_sha256": "98bf59616a7b66ae22d921a3d0a960085ec45c294eeae1955012e55347cfd0f7",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 5,
+      "source_time_seconds": 0.29999924
+    },
+    {
+      "index": 31,
+      "file": "0031.png",
+      "raw_crop": "Raw_Crops/0031.png",
+      "time_seconds": 1.86999892,
+      "end_seconds": 1.97000122,
+      "duration_seconds": 0.10000229999999999,
+      "sprite_guid": "dc613d96451f3fb419f0058014c10114",
+      "sprite_name": "Frame_37",
+      "source_asset": "Assets/Sprite/Frame_37_18.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 214,
+        "y": 1906,
+        "width": 164,
+        "height": 79
+      },
+      "source_pixel_crop_bottom_left": [
+        214,
+        1906,
+        164,
+        79
+      ],
+      "source_pivot_normalized": {
+        "x": 0.24390244,
+        "y": 0.7594937
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        40.00000016000001,
+        60.000002300000006
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        164,
+        79
+      ],
+      "padding_left_top": [
+        84,
+        57
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000016000001,
+        98.0000023
+      ],
+      "png_sha256": "bf7ed245a767e6d523f4a1ca567dca8374bbfe370aaee9dca5882c8e08906b40",
+      "raw_png_sha256": "acb75bae0c65e1b3672add37d1242f7cbf2f749507c3453598e2b4130b2652d1",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 6,
+      "source_time_seconds": 0.3999977
+    },
+    {
+      "index": 32,
+      "file": "0032.png",
+      "raw_crop": "Raw_Crops/0032.png",
+      "time_seconds": 1.97000122,
+      "end_seconds": 2.06999972,
+      "duration_seconds": 0.09999849999999999,
+      "sprite_guid": "d7e2af235f4977f47b2da8028b5db0f6",
+      "sprite_name": "Frame_38",
+      "source_asset": "Assets/Sprite/Frame_38_25.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 214,
+        "y": 997,
+        "width": 171,
+        "height": 80
+      },
+      "source_pixel_crop_bottom_left": [
+        214,
+        997,
+        171,
+        80
+      ],
+      "source_pivot_normalized": {
+        "x": 0.2631579,
+        "y": 0.75
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        45.00000090000003,
+        60.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        171,
+        80
+      ],
+      "padding_left_top": [
+        79,
+        56
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000090000003,
+        98.0
+      ],
+      "png_sha256": "2d7419f3078a2d41b479407376c8be7e89bafa0b02ab3ced37ef800f27759dab",
+      "raw_png_sha256": "d9dd8cc4852d5ea9bc3fd66a66679b5d306fa199460d9ca88749eec8bfcb64d1",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 7,
+      "source_time_seconds": 0.5
+    },
+    {
+      "index": 33,
+      "file": "0033.png",
+      "raw_crop": "Raw_Crops/0033.png",
+      "time_seconds": 2.06999972,
+      "end_seconds": 2.16999817,
+      "duration_seconds": 0.09999844999999996,
+      "sprite_guid": "fe24c46150815e346a8b2ddb1cba3a9f",
+      "sprite_name": "Frame_137",
+      "source_asset": "Assets/Sprite/Frame_137_9.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 214,
+        "y": 1340,
+        "width": 167,
+        "height": 80
+      },
+      "source_pixel_crop_bottom_left": [
+        214,
+        1340,
+        167,
+        80
+      ],
+      "source_pivot_normalized": {
+        "x": 0.23952095,
+        "y": 0.75
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        39.99999865000001,
+        60.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        167,
+        80
+      ],
+      "padding_left_top": [
+        84,
+        56
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999865000001,
+        98.0
+      ],
+      "png_sha256": "e3ea92c1bac7e7b9e54fa605c66131b6323746e7e9d7c2ffbc55b3821c40a3b3",
+      "raw_png_sha256": "8a26611714d62e8a94d0c3fd97a3b72da7477b3de8817e14d684d55b4aa2943e",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 8,
+      "source_time_seconds": 0.5999985
+    },
+    {
+      "index": 34,
+      "file": "0034.png",
+      "raw_crop": "Raw_Crops/0034.png",
+      "time_seconds": 2.16999817,
+      "end_seconds": 2.2700004600000003,
+      "duration_seconds": 0.10000229000000005,
+      "sprite_guid": "8d69819168b00b54f8d2c6e48ce1f8fa",
+      "sprite_name": "Frame_177",
+      "source_asset": "Assets/Sprite/Frame_177_3.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 214,
+        "y": 1993,
+        "width": 164,
+        "height": 78
+      },
+      "source_pixel_crop_bottom_left": [
+        214,
+        1993,
+        164,
+        78
+      ],
+      "source_pivot_normalized": {
+        "x": 0.2195122,
+        "y": 0.76923084
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        36.00000080000001,
+        60.00000551999983
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        164,
+        78
+      ],
+      "padding_left_top": [
+        88,
+        58
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000080000001,
+        98.00000551999983
+      ],
+      "png_sha256": "3f64dcb5597d349f8c34079b3f74e984aa6046b0e025a8ea351bcbb14d7982ae",
+      "raw_png_sha256": "c178547c7ca796f8ec12722670ed8944bc157c295ced4260d2a3827f8ae6368c",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 9,
+      "source_time_seconds": 0.69999695
+    },
+    {
+      "index": 35,
+      "file": "0035.png",
+      "raw_crop": "Raw_Crops/0035.png",
+      "time_seconds": 2.2700004600000003,
+      "end_seconds": 2.36999892,
+      "duration_seconds": 0.09999846000000001,
+      "sprite_guid": "25e571bbf05ec29498317eac355a9a5e",
+      "sprite_name": "Frame_178",
+      "source_asset": "Assets/Sprite/Frame_178_0.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 214,
+        "y": 2486,
+        "width": 172,
+        "height": 71
+      },
+      "source_pixel_crop_bottom_left": [
+        214,
+        2486,
+        172,
+        71
+      ],
+      "source_pivot_normalized": {
+        "x": 0.25581396,
+        "y": 0.8450705
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        44.00000111999998,
+        60.00000550000004
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        172,
+        71
+      ],
+      "padding_left_top": [
+        80,
+        65
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000111999998,
+        98.00000550000004
+      ],
+      "png_sha256": "2e570972457e7f540e6f794d9881770c264d61cc90089ba6872b14ed23e4d855",
+      "raw_png_sha256": "338bc57f5da8f4df86fc2ec77dee14f2999032bc394a7064e263492eb4857042",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 10,
+      "source_time_seconds": 0.79999924
+    },
+    {
+      "index": 36,
+      "file": "0036.png",
+      "raw_crop": "Raw_Crops/0036.png",
+      "time_seconds": 2.36999892,
+      "end_seconds": 2.41999817,
+      "duration_seconds": 0.04999924999999994,
+      "sprite_guid": "446a895dc60d1b84baa9a80aa0d0ff34",
+      "sprite_name": "Frame_40",
+      "source_asset": "Assets/Sprite/Frame_40_20.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 2777,
+        "width": 172,
+        "height": 87
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        2777,
+        172,
+        87
+      ],
+      "source_pivot_normalized": {
+        "x": 0.25581396,
+        "y": 0.6896552
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        44.00000112,
+        60.000002400000085
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        172,
+        87
+      ],
+      "padding_left_top": [
+        80,
+        49
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000112000001,
+        98.00000240000008
+      ],
+      "png_sha256": "df62f75b097e93453daaa34b2572f0cfca1b684f11b6f1002b89e876b4b80377",
+      "raw_png_sha256": "a51d41281abbefbe65587183ab4c5e89c6298ba82d9683c885dce28f6787ab81",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 11,
+      "source_time_seconds": 0.8999977
+    },
+    {
+      "index": 37,
+      "file": "0037.png",
+      "raw_crop": "Raw_Crops/0037.png",
+      "time_seconds": 2.41999817,
+      "end_seconds": 2.54000092,
+      "duration_seconds": 0.12000275000000016,
+      "sprite_guid": "04f593b0dc830f94cbfcfca142107b87",
+      "sprite_name": "Frame_41",
+      "source_asset": "Assets/Sprite/Frame_41_20.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 1625,
+        "width": 180,
+        "height": 104
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        1625,
+        180,
+        104
+      ],
+      "source_pivot_normalized": {
+        "x": 0.29444444,
+        "y": 0.5769231
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        52.9999992,
+        60.000002400000085
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        180,
+        104
+      ],
+      "padding_left_top": [
+        71,
+        32
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999919999999,
+        98.00000240000008
+      ],
+      "png_sha256": "268f35fc5376d2d9adc2f81a463bacbcb312ba9792be6dafa40b4f639503a3ba",
+      "raw_png_sha256": "14906c0f83c9d20540816d3f142964bcbbe4f82e77bcb59b0a21d35f6cbc4990",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 12,
+      "source_time_seconds": 0.94999695
+    },
+    {
+      "index": 38,
+      "file": "0038.png",
+      "raw_crop": "Raw_Crops/0038.png",
+      "time_seconds": 2.54000092,
+      "end_seconds": 2.6599998200000003,
+      "duration_seconds": 0.11999889999999991,
+      "sprite_guid": "5071ad4858cd56644990f7d931f04e51",
+      "sprite_name": "Frame_93",
+      "source_asset": "Assets/Sprite/Frame_93_9.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 922,
+        "width": 180,
+        "height": 108
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        922,
+        180,
+        108
+      ],
+      "source_pivot_normalized": {
+        "x": 0.29444444,
+        "y": 0.5555556
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        52.9999992,
+        60.000004800000056
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        180,
+        108
+      ],
+      "padding_left_top": [
+        71,
+        28
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999919999999,
+        98.00000480000006
+      ],
+      "png_sha256": "bec8b5cb3866ec95e8c1b8491a21974b4569c5b7eec69dec7670fcf9d49d26f5",
+      "raw_png_sha256": "e862f00488a86ab00080aa8d48622e62c9dee1300ea7b18d87c32a4ad5966214",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 13,
+      "source_time_seconds": 1.0699997
+    },
+    {
+      "index": 39,
+      "file": "0039.png",
+      "raw_crop": "Raw_Crops/0039.png",
+      "time_seconds": 2.6599998200000003,
+      "end_seconds": 2.7799988200000003,
+      "duration_seconds": 0.11999899999999997,
+      "sprite_guid": "f5aebaf7245710d4b812133f951a17d6",
+      "sprite_name": "Frame_42",
+      "source_asset": "Assets/Sprite/Frame_42_23.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 2186,
+        "width": 170,
+        "height": 96
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        2186,
+        170,
+        96
+      ],
+      "source_pivot_normalized": {
+        "x": 0.2529412,
+        "y": 0.625
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        43.000004,
+        60.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        170,
+        96
+      ],
+      "padding_left_top": [
+        81,
+        40
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000399999999,
+        98.0
+      ],
+      "png_sha256": "e4dde35d2f1d072c9feb7923fdafa4162f294f5f6e40260b8fef3b00cd0ac4a4",
+      "raw_png_sha256": "73fb39034e94a2804a33144f8373092119be3e64de268c46e840590252e558e2",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 14,
+      "source_time_seconds": 1.1899986
+    },
+    {
+      "index": 40,
+      "file": "0040.png",
+      "raw_crop": "Raw_Crops/0040.png",
+      "time_seconds": 2.7799988200000003,
+      "end_seconds": 2.90000152,
+      "duration_seconds": 0.1200026999999999,
+      "sprite_guid": "4dcc62de764822d41b1f0f791ae09d96",
+      "sprite_name": "Frame_179",
+      "source_asset": "Assets/Sprite/Frame_179_1.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 1512,
+        "width": 179,
+        "height": 105
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        1512,
+        179,
+        105
+      ],
+      "source_pivot_normalized": {
+        "x": 0.2905028,
+        "y": 0.5714286
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        52.0000012,
+        60.000003000000106
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        179,
+        105
+      ],
+      "padding_left_top": [
+        72,
+        31
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.0000012,
+        98.0000030000001
+      ],
+      "png_sha256": "a5c367f9924c6cfe44beac5b5efeef26aaf581de85630169ce2e7bb2ad575796",
+      "raw_png_sha256": "a298f08db94a612eceedf0983d47d6b4e0e045242673c265b5f7075805c09ce7",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 15,
+      "source_time_seconds": 1.3099976
+    },
+    {
+      "index": 41,
+      "file": "0041.png",
+      "raw_crop": "Raw_Crops/0041.png",
+      "time_seconds": 2.90000152,
+      "end_seconds": 3.00000002,
+      "duration_seconds": 0.0999985000000001,
+      "sprite_guid": "dea829351a21a404093d82ff4b50ffd9",
+      "sprite_name": "Frame_180",
+      "source_asset": "Assets/Sprite/Frame_180_0.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4,
+        "y": 1967,
+        "width": 176,
+        "height": 100
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        1967,
+        176,
+        100
+      ],
+      "source_pivot_normalized": {
+        "x": 0.2784091,
+        "y": 0.6
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        49.000001600000004,
+        60.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        176,
+        100
+      ],
+      "padding_left_top": [
+        75,
+        36
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.0000016,
+        98.0
+      ],
+      "png_sha256": "69c4a077201446cc91dc173283f43b228e4242b044a55046765483f0ce33d8ad",
+      "raw_png_sha256": "290827b75a1b687a9b5ffe192cf39444640370799f525d1aeaaf522bd1fed53f",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 16,
+      "source_time_seconds": 1.4300003
+    },
+    {
+      "index": 42,
+      "file": "0042.png",
+      "raw_crop": "Raw_Crops/0042.png",
+      "time_seconds": 3.00000002,
+      "end_seconds": 3.04999922,
+      "duration_seconds": 0.04999920000000002,
+      "sprite_guid": "9974e8c02d88fd44cbd834d85abeafcd",
+      "sprite_name": "Frame_181",
+      "source_asset": "Assets/Sprite/Frame_181_2.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 214,
+        "y": 2407,
+        "width": 175,
+        "height": 71
+      },
+      "source_pixel_crop_bottom_left": [
+        214,
+        2407,
+        175,
+        71
+      ],
+      "source_pivot_normalized": {
+        "x": 0.2742857,
+        "y": 0.8450705
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        47.999997500000006,
+        60.00000550000004
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        175,
+        71
+      ],
+      "padding_left_top": [
+        76,
+        65
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.9999975,
+        98.00000550000004
+      ],
+      "png_sha256": "73c6aaf255297d4d83bfc13d87ef4a5188707880f3965618f2afe88570be353f",
+      "raw_png_sha256": "c1b92b75cecb6ad2804b2be59a3a68e45d43d3df2eb449945ad6b47d22a97069",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 17,
+      "source_time_seconds": 1.5299988
+    },
+    {
+      "index": 43,
+      "file": "0043.png",
+      "raw_crop": "Raw_Crops/0043.png",
+      "time_seconds": 3.04999922,
+      "end_seconds": 3.15000152,
+      "duration_seconds": 0.10000229999999988,
+      "sprite_guid": "8d2ff57c7b91fe44985af7bf65e87345",
+      "sprite_name": "Frame_8",
+      "source_asset": "Assets/Sprite/Frame_8_23.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 637,
+        "y": 341,
+        "width": 126,
+        "height": 60
+      },
+      "source_pixel_crop_bottom_left": [
+        637,
+        341,
+        126,
+        60
+      ],
+      "source_pivot_normalized": {
+        "x": 0.53968257,
+        "y": 0.96666664
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        68.00000381999996,
+        57.99999839999998
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        126,
+        60
+      ],
+      "padding_left_top": [
+        56,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000381999996,
+        97.99999839999998
+      ],
+      "png_sha256": "24d1471619ea2e42f5d2e27894da84f1384a5d8c6efc6a12711fd47df29d4cbb",
+      "raw_png_sha256": "5390fb6102d90194d2cf5204b184357022c881e880b156faa3c91ac6d4777f51",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 18,
+      "source_time_seconds": 1.579998
+    },
+    {
+      "index": 44,
+      "file": "0044.png",
+      "raw_crop": "Raw_Crops/0044.png",
+      "time_seconds": 3.15000152,
+      "end_seconds": 3.25000002,
+      "duration_seconds": 0.0999985000000001,
+      "sprite_guid": "76988f5e27e059b438246fb6cba43091",
+      "sprite_name": "Frame_9",
+      "source_asset": "Assets/Sprite/Frame_9_35.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 425,
+        "y": 1627,
+        "width": 139,
+        "height": 60
+      },
+      "source_pixel_crop_bottom_left": [
+        425,
+        1627,
+        139,
+        60
+      ],
+      "source_pivot_normalized": {
+        "x": 0.53956836,
+        "y": 0.96666664
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        75.00000204000003,
+        57.999998400000095
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        139,
+        60
+      ],
+      "padding_left_top": [
+        49,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000204000003,
+        97.9999984000001
+      ],
+      "png_sha256": "a59b755ed6cfd051327a03d6ffcb64014ed8f16efbaee8d9d9871e2ace936226",
+      "raw_png_sha256": "2a7a1142ee00567cbc007f1512a584c4158e3b153c532995203dcfaf5f82267c",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 19,
+      "source_time_seconds": 1.6800003
+    },
+    {
+      "index": 45,
+      "file": "0045.png",
+      "raw_crop": "Raw_Crops/0045.png",
+      "time_seconds": 3.25000002,
+      "end_seconds": 3.34999852,
+      "duration_seconds": 0.0999985000000001,
+      "sprite_guid": "c028d0006745cc1439d6107c27af6e66",
+      "sprite_name": "Frame_10",
+      "source_asset": "Assets/Sprite/Frame_10_15.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 425,
+        "y": 904,
+        "width": 145,
+        "height": 60
+      },
+      "source_pixel_crop_bottom_left": [
+        425,
+        904,
+        145,
+        60
+      ],
+      "source_pivot_normalized": {
+        "x": 0.53103447,
+        "y": 0.96666664
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        76.99999815000001,
+        57.99999839999998
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        145,
+        60
+      ],
+      "padding_left_top": [
+        47,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999815000001,
+        97.99999839999998
+      ],
+      "png_sha256": "80588234412ed32b504c8659e901d29823c0f013df79cab55f1ccdbc80b866d3",
+      "raw_png_sha256": "731f0f7bf3f0bae111f8e5f3790514136b916ffd9b707527e8bceff4bdc2e8a9",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 20,
+      "source_time_seconds": 1.7799988
+    },
+    {
+      "index": 46,
+      "file": "0046.png",
+      "raw_crop": "Raw_Crops/0046.png",
+      "time_seconds": 3.34999852,
+      "end_seconds": 3.4500007200000002,
+      "duration_seconds": 0.10000219999999982,
+      "sprite_guid": "a9508d1c71bdb0c449908a4d105cb646",
+      "sprite_name": "Frame_11",
+      "source_asset": "Assets/Sprite/Frame_11_9.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 425,
+        "y": 972,
+        "width": 145,
+        "height": 60
+      },
+      "source_pixel_crop_bottom_left": [
+        425,
+        972,
+        145,
+        60
+      ],
+      "source_pivot_normalized": {
+        "x": 0.537931,
+        "y": 0.96666664
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        77.99999500000001,
+        57.999998400000095
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        145,
+        60
+      ],
+      "padding_left_top": [
+        46,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999500000001,
+        97.9999984000001
+      ],
+      "png_sha256": "7e79729fbe5980400a2d78d3a5621fb15d6aa65c2932b38aab6d2ea6849ba015",
+      "raw_png_sha256": "88f2593249e2a09f39bd8ad32c65b0f2aef6cf134e4a84154f55275a974b9bdf",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 21,
+      "source_time_seconds": 1.8799973
+    },
+    {
+      "index": 47,
+      "file": "0047.png",
+      "raw_crop": "Raw_Crops/0047.png",
+      "time_seconds": 3.4500007200000002,
+      "end_seconds": 3.54999922,
+      "duration_seconds": 0.09999849999999988,
+      "sprite_guid": "21aeade8e4f36f548aa85e4c51dc8c9a",
+      "sprite_name": "Frame_113",
+      "source_asset": "Assets/Sprite/Frame_113_2.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 425,
+        "y": 2029,
+        "width": 133,
+        "height": 60
+      },
+      "source_pixel_crop_bottom_left": [
+        425,
+        2029,
+        133,
+        60
+      ],
+      "source_pivot_normalized": {
+        "x": 0.48872182,
+        "y": 0.96666664
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        65.00000205999999,
+        57.999998400000095
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        133,
+        60
+      ],
+      "padding_left_top": [
+        59,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000205999999,
+        97.9999984000001
+      ],
+      "png_sha256": "556bd94dad3d2ca73d7821f51139fb28d06d85606811a8eee4088c4471964c2d",
+      "raw_png_sha256": "1681a4193dc930aaf9beaf3f2ac401895e06dea71c5347ab5542a63907f0d7af",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 22,
+      "source_time_seconds": 1.9799995
+    },
+    {
+      "index": 48,
+      "file": "0048.png",
+      "raw_crop": "Raw_Crops/0048.png",
+      "time_seconds": 3.54999922,
+      "end_seconds": 3.65000152,
+      "duration_seconds": 0.10000230000000032,
+      "sprite_guid": "b7782e94c22621c46b6a3cef8c8d1e7f",
+      "sprite_name": "Frame_114",
+      "source_asset": "Assets/Sprite/Frame_114_12.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 425,
+        "y": 2229,
+        "width": 135,
+        "height": 59
+      },
+      "source_pixel_crop_bottom_left": [
+        425,
+        2229,
+        135,
+        59
+      ],
+      "source_pivot_normalized": {
+        "x": 0.4888889,
+        "y": 0.9661017
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        66.0000015,
+        57.00000030000001
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        135,
+        59
+      ],
+      "padding_left_top": [
+        58,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.0000015,
+        98.00000030000001
+      ],
+      "png_sha256": "2c492bfb85d82735bff2f830559789a8e59e42ba1f3d7b20530935bf8ef7f767",
+      "raw_png_sha256": "435557c4d3239de7d745ae97ae801257cdfbb37a38321756b5ced82cf1b3c3ef",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 23,
+      "source_time_seconds": 2.079998
+    },
+    {
+      "index": 49,
+      "file": "0049.png",
+      "raw_crop": "Raw_Crops/0049.png",
+      "time_seconds": 3.65000152,
+      "end_seconds": 3.75000002,
+      "duration_seconds": 0.09999849999999988,
+      "sprite_guid": "dd0c91acc59001f4fa1c24b53ec1b654",
+      "sprite_name": "Frame_182",
+      "source_asset": "Assets/Sprite/Frame_182_2.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1097,
+        "y": 2797,
+        "width": 79,
+        "height": 59
+      },
+      "source_pixel_crop_bottom_left": [
+        1097,
+        2797,
+        79,
+        59
+      ],
+      "source_pivot_normalized": {
+        "x": 0.6329114,
+        "y": 0.9661017
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        50.00000060000002,
+        57.00000030000001
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        79,
+        59
+      ],
+      "padding_left_top": [
+        74,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        124.00000060000002,
+        98.00000030000001
+      ],
+      "png_sha256": "e8e124766f5e6fb7737bc6e6dd47321cf2f3847cce36169b801693d2b54a649f",
+      "raw_png_sha256": "546713eadd7511207f32e214bb0fa7ce6e9f7b840a5e6c9a62534ad36742b03d",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 24,
+      "source_time_seconds": 2.1800003
+    },
+    {
+      "index": 50,
+      "file": "0050.png",
+      "raw_crop": "Raw_Crops/0050.png",
+      "time_seconds": 3.75000002,
+      "end_seconds": 3.8399999200000003,
+      "duration_seconds": 0.08999990000000002,
+      "sprite_guid": "7ed6724f7b7ff5949ad77d99555dba7e",
+      "sprite_name": "Frame_183",
+      "source_asset": "Assets/Sprite/Frame_183_6.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1097,
+        "y": 3136,
+        "width": 77,
+        "height": 59
+      },
+      "source_pixel_crop_bottom_left": [
+        1097,
+        3136,
+        77,
+        59
+      ],
+      "source_pivot_normalized": {
+        "x": 0.64935064,
+        "y": 0.9661017
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        49.999999279999884,
+        57.00000030000001
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        77,
+        59
+      ],
+      "padding_left_top": [
+        74,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999927999988,
+        98.00000030000001
+      ],
+      "png_sha256": "8200963fdab0070431a477b83382eb13df72fb4aca13e88c18f883a050b34c36",
+      "raw_png_sha256": "ae5164ec6dc90825e9de2c3a586e4ac98e4048279b13c9c599aa4595649b7330",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 25,
+      "source_time_seconds": 2.2799988
+    },
+    {
+      "index": 51,
+      "file": "0051.png",
+      "raw_crop": "Raw_Crops/0051.png",
+      "time_seconds": 3.8399999200000003,
+      "end_seconds": 3.84999992,
+      "duration_seconds": 0.009999999999999787,
+      "sprite_guid": "7ed6724f7b7ff5949ad77d99555dba7e",
+      "sprite_name": "Frame_183",
+      "source_asset": "Assets/Sprite/Frame_183_6.asset",
+      "source_texture": "Assets/Texture2D/Bertha.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 1097,
+        "y": 3136,
+        "width": 77,
+        "height": 59
+      },
+      "source_pixel_crop_bottom_left": [
+        1097,
+        3136,
+        77,
+        59
+      ],
+      "source_pivot_normalized": {
+        "x": 0.64935064,
+        "y": 0.9661017
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        49.999999279999884,
+        57.00000030000001
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        77,
+        59
+      ],
+      "padding_left_top": [
+        74,
+        74
+      ],
+      "export_pivot_pixels_bottom_left": [
+        123.99999927999988,
+        98.00000030000001
+      ],
+      "png_sha256": "8200963fdab0070431a477b83382eb13df72fb4aca13e88c18f883a050b34c36",
+      "raw_png_sha256": "ae5164ec6dc90825e9de2c3a586e4ac98e4048279b13c9c599aa4595649b7330",
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "source_clip": "ChargedUpHeavyAtkRelease[Land]",
+      "source_frame_index": 26,
+      "source_time_seconds": 2.3699987
+    }
+  ],
+  "frame_count": 51,
+  "duration_seconds": 3.84999992,
+  "phases": [
+    {
+      "phase": "ChargedUpHeavyAtk",
+      "start_seconds": 0,
+      "duration_seconds": 0.30000076,
+      "frame_count": 4
+    },
+    {
+      "phase": "ChargedUpHeavyAtk[Loop]",
+      "start_seconds": 0.30000076,
+      "duration_seconds": 0.2800029,
+      "frame_count": 5
+    },
+    {
+      "phase": "ChargedUpHeavyAtkRelease",
+      "start_seconds": 0.58000366,
+      "duration_seconds": 0.8,
+      "frame_count": 12
+    },
+    {
+      "phase": "ChargedUpHeavyAtkRelease[Loop]",
+      "start_seconds": 1.38000366,
+      "duration_seconds": 0.08999756,
+      "frame_count": 4
+    },
+    {
+      "phase": "ChargedUpHeavyAtkRelease[Land]",
+      "start_seconds": 1.47000122,
+      "duration_seconds": 2.3799987,
+      "frame_count": 26
+    }
+  ],
+  "source_events": [
+    {
+      "time": 0.58000366,
+      "functionName": "OnChargedJump",
+      "data": 2,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease"
+    },
+    {
+      "time": 0.83000366,
+      "functionName": "OnBreakVelocity",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease"
+    },
+    {
+      "time": 1.03000061,
+      "functionName": "OnBreakVelocity",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease"
+    },
+    {
+      "time": 1.2300013600000002,
+      "functionName": "OnBreakVelocity",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease"
+    },
+    {
+      "time": 1.33000366,
+      "functionName": "OnDashOnTargetDir",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease"
+    },
+    {
+      "time": 1.47000122,
+      "functionName": "OnCastAtkSpell",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease[Land]"
+    },
+    {
+      "time": 1.47000122,
+      "functionName": "OnResetVelocity",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease[Land]"
+    },
+    {
+      "time": 1.47000122,
+      "functionName": "OnShakeCamHeavy",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease[Land]"
+    },
+    {
+      "time": 1.520000457,
+      "functionName": "OnShakeCam",
+      "data": null,
+      "objectReferenceParameter": {
+        "fileID": 0
+      },
+      "floatParameter": 0,
+      "intParameter": 0,
+      "messageOptions": 0,
+      "phase": "ChargedUpHeavyAtkRelease[Land]"
+    }
+  ],
+  "canvas": {
+    "width": 289,
+    "height": 174,
+    "pivot_pixels_bottom_left": [
+      124,
+      98
+    ]
+  },
+  "source_timing_preserved": true,
+  "proposed_events": [
+    {
+      "time": 0.58000366,
+      "type": "jump_start",
+      "targets": [],
+      "origin": "proposed_hero_design"
+    },
+    {
+      "time": 1.47000122,
+      "type": "slam_land",
+      "targets": [
+        0,
+        1
+      ],
+      "origin": "proposed_hero_design",
+      "source_marker": "OnCastAtkSpell",
+      "knockup_seconds": 0.5
+    }
+  ],
+  "demo": {
+    "state": "Skill3",
+    "fps": 60,
+    "gif_fps": 20,
+    "frame_count": 270,
+    "duration_seconds": 4.5,
+    "proposed_events": [
+      {
+        "time": 0.58000366,
+        "type": "jump_start",
+        "targets": [],
+        "origin": "proposed_hero_design"
+      },
+      {
+        "time": 1.47000122,
+        "type": "slam_land",
+        "targets": [
+          0,
+          1
+        ],
+        "origin": "proposed_hero_design",
+        "source_marker": "OnCastAtkSpell",
+        "knockup_seconds": 0.5
+      }
+    ],
+    "kind": "source-sprite composited design sketch, not recovered gameplay"
+  }
+}

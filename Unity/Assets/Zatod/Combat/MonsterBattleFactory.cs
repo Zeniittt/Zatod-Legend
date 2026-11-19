@@ -19,11 +19,13 @@ namespace Zatod.Combat
         public static FighterState CreateFighter(MonsterDefinition definition,MonsterBattleData data,int team,int slot)
         {
             int Stat(string id){return data.Stats.Single(s=>s.StatId==id).Value;}
-            return new FighterState{id=team*100+slot+1,team=team,slot=slot,name=definition.Name,
+            var fighter = new FighterState{id=team*100+slot+1,team=team,slot=slot,name=definition.Name,
                 monsterDefinitionId=definition.Id,monsterInstanceId=data.MonsterInstanceId,animationSetResource=definition.AnimationSetResource,
                 role=(FighterRole)Math.Min(4,(int)definition.Position*2),maxHp=Stat("health"),hp=data.CurrentHp,energy=data.Energy,
                 attack=Stat("damage"),armor=Stat("defense"),range=Stat("attack_range"),moveSpeed=Stat("move_speed"),attackInterval=Stat("attack_interval"),
                 projectileHurtboxHeight=definition.ProjectileHurtboxHeight,deathVisualTicks=Math.Max(1,(definition.DeathAnimationMilliseconds*BattleSimulation.TickRate+999)/1000)};
+            BattleFormationLayout.Place(fighter);
+            return fighter;
         }
     }
 }

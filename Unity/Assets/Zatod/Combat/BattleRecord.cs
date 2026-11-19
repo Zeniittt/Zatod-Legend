@@ -7,7 +7,7 @@ namespace Zatod.Combat
     public enum FighterRole { Vanguard, Striker, Ranger, Arcanist, Medic }
     // Append values to preserve the numeric values used by existing replay archives.
     public enum BattleAction { Idle, Attack, Ultimate, Dead, Moving }
-    public enum BattleEventKind { Move, Action, Damage, Heal, Energy, Stun, Death, Cancel, Finished, Target, Miss, Poison, Buff, ResurrectionPending, Revive, Burn }
+    public enum BattleEventKind { Move, Action, Damage, Heal, Energy, Stun, Death, Cancel, Finished, Target, Miss, Poison, Buff, ResurrectionPending, Revive, Burn, UltimateQueued }
     public enum ControlKind { None, Stun, KnockUp, Knockback }
     public enum CombatantKind { Hero, Monster }
 
@@ -31,6 +31,8 @@ namespace Zatod.Combat
         public int presentationHeight, damageBonusBasisPoints, damageBuffUntil;
         public int reviveAtTick, revivesUsed, lifestealBasisPoints, lifestealUntil, facingDirection;
         public int burnUntil;
+        public bool flexibleFormationSpacing;
+        public bool ultimateQueued;
         public bool Alive { get { return hp > 0; } }
         public FighterState Copy() { return (FighterState)MemberwiseClone(); }
     }
@@ -105,9 +107,12 @@ namespace Zatod.Combat
     {
         public const int CurrentSchema = 1;
         public int schemaVersion = CurrentSchema;
-        public const string CurrentRules = "combat-prototype-10";
+        public const string CurrentRules = "combat-prototype-14";
         public string rulesVersion = CurrentRules;
         public string campaignStageId,campaignConfigVersion;
+        public int formationLayoutVersion;
+        public int manualUltimateTeams;
+        public bool battleInProgress;
         public string battleId, createdUtc, opponentId;
         public uint seed;
         public int tickRate = 20, durationTicks, winner = -1;

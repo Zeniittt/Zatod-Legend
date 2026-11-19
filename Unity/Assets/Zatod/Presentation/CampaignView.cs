@@ -13,6 +13,7 @@ namespace Zatod.Presentation
     [RequireComponent(typeof(FormationView))]
     public sealed class CampaignView : MonoBehaviour
     {
+        public bool ManualUltimates = true;
         public CampaignCatalog Catalog{get;private set;}
         public CharacterData Character{get;private set;}
         public string SelectedStageId{get;private set;}
@@ -128,7 +129,7 @@ namespace Zatod.Presentation
         void SendPending()
         {
             if(!waiting || sent || !connection.Connected || connection.Busy)return;
-            sent=true;if(connection.ChallengeCampaign(pendingStage,pendingHeroes,pendingId)==null)sent=false;
+            sent=true;if(connection.ChallengeCampaign(pendingStage,pendingHeroes,pendingId,manualUltimates:ManualUltimates)==null)sent=false;
         }
         void ConnectionChanged()
         {
@@ -151,7 +152,7 @@ namespace Zatod.Presentation
         }
         void Update()
         {
-            if(!activeBattle || arena.Record==null || arena.Playhead<arena.Record.DurationSeconds || resultBattleId==arena.Record.battleId)return;
+            if(!activeBattle || arena.Record==null || arena.Record.battleInProgress || arena.Playhead<arena.Record.DurationSeconds || resultBattleId==arena.Record.battleId)return;
             resultBattleId=arena.Record.battleId;canvas.SetActive(true);mapPanel.SetActive(false);preview.SetActive(false);loading.SetActive(false);resultPanel.SetActive(true);
             bool won=arena.Record.winner==0;resultTitle.text=won?"CHIẾN THẮNG":"CHƯA VƯỢT QUA";
             resultSubtitle.text=Catalog.Stage(arena.Record.campaignStageId).Name+(won?(NextId(arena.Record.campaignStageId)==null?"\nĐã hoàn thành chương 1!":"\nẢi đã được hoàn thành."):"\nĐiều chỉnh đội hình và thử lại.");

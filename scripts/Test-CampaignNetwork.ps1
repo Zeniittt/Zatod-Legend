@@ -1,4 +1,4 @@
-param([UInt16]$Port = 17977)
+param([UInt16]$Port = 17977, [switch]$UseBerthaxe)
 $ErrorActionPreference = 'Stop'
 $prototypeRoot = Split-Path -Parent $PSScriptRoot
 $arenaExecutable = Join-Path $prototypeRoot 'Builds\Windows\ZatodArena.exe'
@@ -22,6 +22,7 @@ function Start-TestServer([string]$LogName) {
 function Invoke-TestClient([string]$LogName,[bool]$Resume) {
     $clientLog = Join-Path $testDirectory $LogName
     $clientArgs = @('-batchmode','-nographics','--campaign-smoke','--server','127.0.0.1','--port',"$Port",'-logFile',('"'+$clientLog+'"'))
+    if ($UseBerthaxe) { $clientArgs += '--campaign-berthaxe-smoke' }
     if ($Resume) { $clientArgs += '--campaign-resume' }
     $process = Start-Process -FilePath $arenaExecutable -ArgumentList $clientArgs -WorkingDirectory $prototypeRoot -WindowStyle Hidden -PassThru
     try {

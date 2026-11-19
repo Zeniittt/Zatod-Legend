@@ -20,7 +20,7 @@ Kavern is also available in the Hero roster and formation. The demo account rece
 
 Skill 3 showers start seven source frames after the 12-frame body animation ends. Damage occurs six shower frames after the effect begins. Source timing is rounded up to the fixed 20 Hz simulation clock. Projectiles use shared configurable spawn points and collision offsets, with no Kavern-specific branch in combat.
 
-Provisional base values: HP 3,000; damage 240; defense 25; attack range 3,000; move speed 1,600; attack interval 28 ticks. Skill 2/3/4 cooldowns: 6/9/7 seconds. The absorbed equipment/rank bonuses still contribute to final stats, so a temporary Purple Hero deals more damage than White. Recipes currently reuse placeholder equipment; these are balance scaffolding.
+Provisional base values: HP 3,000; damage 240; defense 25; attack range 3,100; move speed 1,600; attack interval 28 ticks. Skill 2/3/4 cooldowns: 6/9/7 seconds. The absorbed equipment/rank bonuses still contribute to final stats, so a temporary Purple Hero deals more damage than White. Recipes currently reuse placeholder equipment; these are balance scaffolding.
 
 ## Data and replay
 

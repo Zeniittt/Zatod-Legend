@@ -16,13 +16,13 @@ Sandbox uses the same pure-C# combat engine as the dedicated server, without sta
 
 | ID | Role | HP | Damage | Defense | Range |
 | --- | --- | ---: | ---: | ---: | ---: |
-| fighter_goblin | Front melee | 900 | 60 | 10 | 100 |
-| skeleton_knight | Front durable melee | 1,800 | 90 | 35 | 120 |
-| goblin_mage | Rear ranged; normal fireball | 700 | 45 | 5 | 1,300 |
-| guardian | Front melee; sword attack | 1,600 | 100 | 25 | 160 |
-| archer | Rear ranged; arrow | 750 | 65 | 5 | 1,400 |
-| huntress | Middle ranged; thrown spear | 1,000 | 85 | 15 | 950 |
-| evil_wizard | Rear ranged; spell projectile | 900 | 110 | 10 | 1,200 |
+| fighter_goblin | Front melee | 900 | 60 | 10 | 1,400 |
+| skeleton_knight | Front durable melee | 1,800 | 90 | 35 | 1,400 |
+| goblin_mage | Rear ranged; normal fireball | 700 | 45 | 5 | 2,000 |
+| guardian | Front melee; sword attack | 1,600 | 100 | 25 | 1,400 |
+| archer | Rear ranged; arrow | 750 | 65 | 5 | 2,800 |
+| huntress | Middle ranged; thrown spear | 1,000 | 85 | 15 | 2,400 |
+| evil_wizard | Rear ranged; spell projectile | 900 | 110 | 10 | 2,600 |
 
 These are provisional values. Definitions include normal-attack timing, move speed/attack interval, position, projectile points/hurtbox, portrait, body prefab and animation manifest. `SkillIds` is empty for all seven starters. Normal attacks reuse shared attack/effect configuration; monsters do not gain role ultimates, even at 100 energy.
 

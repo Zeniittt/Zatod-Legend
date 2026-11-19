@@ -9,7 +9,7 @@ using Zatod.Networking;
 
 namespace Zatod.Presentation
 {
-    public sealed class ArenaView : MonoBehaviour
+    public sealed partial class ArenaView : MonoBehaviour
     {
         public TMP_FontAsset Font;
         public float Playhead { get; private set; }
@@ -37,6 +37,9 @@ namespace Zatod.Presentation
         readonly List<FighterState> drawStates = new List<FighterState>();
         float cameraCenterX, pixelsPerUnit = .078f;
         float recordCameraCenterX, recordPixelsPerUnit;
+        bool ExpandedFormation => Record != null && Record.formationLayoutVersion >= 1;
+        float DepthScale => Record != null && Record.formationLayoutVersion == 1 ? .3f : .2f;
+        float ArtScale => .9f * (ExpandedFormation ? Mathf.Min(1, pixelsPerUnit / .09f) : 1);
         string opponent = "balanced";
         bool seeking;
         float previousRealtime;
@@ -64,6 +67,9 @@ namespace Zatod.Presentation
             if (connection.IsServer || (Array.IndexOf(Environment.GetCommandLineArgs(), "--arena-smoke") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "--campaign-smoke") >= 0)) { enabled = false; return; }
             BuildInterface();
             connection.ReplayReceived += Load;
+            connection.LiveFrameReceived += ApplyLiveFrame;
+            connection.LiveBattleFinished += ApplyLiveFrame;
+            connection.UltimateResponded += UltimateResponse;
             connection.CatalogChanged += DrawHistory;
             connection.StatusChanged += UpdateConnection;
             PreviewTeams();
@@ -157,6 +163,7 @@ namespace Zatod.Presentation
             progress = Slider(footer, 20, 16, 1098, 16);
             progress.onValueChanged.AddListener(value => { if (!seeking && Record != null) Seek(value * Record.DurationSeconds); });
             status = Label(root, "", 30, 869, 1540, 24, 12, Muted);
+            BuildHeroHud();
         }
 
         void PreviewTeams()
@@ -193,31 +200,9 @@ namespace Zatod.Presentation
             result.text = "";
             info.text = "REPLAY  " + record.battleId.Substring(0, 8).ToUpperInvariant() + "   /   " + record.opponentId.ToUpperInvariant() + "   /   RESULT COMMITTED";
             foreach (var f in record.initial) if (!visuals.ContainsKey(f.id)) visuals.Add(f.id, MakeFighter(f));
-            if (record.projectiles != null) foreach (var projectile in record.projectiles)
-            {
-                var owner = record.initial.Find(f => f.id == projectile.actorId);
-                if (owner == null || string.IsNullOrEmpty(owner.animationSetResource)) continue;
-                var rect = Rect(effects, "Projectile_" + projectile.actorId, 0, 0, 1, 1);
-                rect.anchorMin = rect.anchorMax = new Vector2(.5f, .5f);
-                var visual = rect.gameObject.AddComponent<ReplaySprite>(); visual.Initialize(owner.animationSetResource);
-                projectileVisuals.Add(projectile, visual);
-            }
-            if (record.visualEffects != null) foreach (var effect in record.visualEffects)
-            {
-                if (effect.shockwave)
-                {
-                    var ringRect = Rect(effects,"BurstRing_"+effect.startTick,0,0,1,1);
-                    ringRect.anchorMin = ringRect.anchorMax = ringRect.pivot = new Vector2(.5f,.5f);
-                    var ring = ringRect.gameObject.AddComponent<ArenaGraphic>(); ring.shape=8;ring.raycastTarget=false;
-                    shockwaves.Add(effect,ring);continue;
-                }
-                var owner = record.initial.Find(f => f.id == effect.actorId);
-                if (owner == null || string.IsNullOrEmpty(owner.animationSetResource)) continue;
-                var rect = Rect(effects, "FX_" + effect.state + "_" + effect.targetId + "_" + skillVisuals.Count, 0, 0, 1, 1);
-                rect.anchorMin = rect.anchorMax = new Vector2(.5f,.5f);
-                var visual = rect.gameObject.AddComponent<ReplaySprite>(); visual.Initialize(owner.animationSetResource);
-                skillVisuals.Add(effect,visual);
-            }
+            if(record.projectiles!=null)foreach(var projectile in record.projectiles)CreateProjectileVisual(projectile);
+            if(record.visualEffects!=null)foreach(var effect in record.visualEffects)CreateEffectVisual(effect);
+            heroHud?.Bind(record);
             FitRecordCamera();
             RenderStates(Timeline.States.Values, 0, true);
             UpdatePlaybackLabels();
@@ -244,7 +229,7 @@ namespace Zatod.Presentation
 
         public void TogglePlayback()
         {
-            if (Record == null) return;
+            if (Record == null || LiveMode) return;
             if (Playhead >= Record.DurationSeconds) Seek(0);
             Playing = !Playing;
             UpdatePlaybackLabels();
@@ -252,7 +237,7 @@ namespace Zatod.Presentation
 
         public void Seek(float seconds)
         {
-            if (Record == null) return;
+            if (Record == null || LiveMode) return;
             Playhead = Mathf.Clamp(seconds, 0, Record.DurationSeconds);
             Timeline.Seek(Mathf.FloorToInt(Playhead * Record.tickRate + .001f));
             ClearEffects(); logs.Clear();
@@ -278,10 +263,11 @@ namespace Zatod.Presentation
                 {
                     Playhead = Mathf.Min(Record.DurationSeconds, Playhead + delta * Speed);
                     Timeline.AdvanceTo(Mathf.FloorToInt(Playhead * Record.tickRate + .001f));
-                    if (Playhead >= Record.DurationSeconds) Playing = false;
+                    if (Playhead >= Record.DurationSeconds && !LiveMode) Playing = false;
                 }
                 RenderStates(Timeline.States.Values, Playhead * Record.tickRate, false);
                 UpdatePlaybackLabels();
+                UpdateLiveControls();
             }
             for (int i = floaters.Count - 1; i >= 0; i--)
             {
@@ -316,6 +302,13 @@ namespace Zatod.Presentation
             clock.text = TimeText(Playhead);
             pauseLabel.text = Playing ? "PAUSE" : "PLAY";
             seeking = true; progress.SetValueWithoutNotify(Playhead / Record.DurationSeconds); seeking = false;
+            if(LiveMode)
+            {
+                pauseLabel.text="LIVE";result.text="";info.text="CHIẾN ĐẤU · Bấm chân dung khi đầy nộ để dùng Ultimate";
+                authorityLabel.text="SERVER LIVE BATTLE";
+                modeNote.text="Bấm chân dung khi đầy nộ. Trận đấu đang diễn ra.";
+                return;
+            }
             bool ended = Playhead >= Record.DurationSeconds;
             result.text = ended ? SandboxMode ? "SANDBOX COMPLETE" : Record.winner == 0 ? "VICTORY" : Record.winner == 1 ? "DEFEAT" : "DRAW" : "";
             if (SandboxMode) info.text = "SANDBOX  /  " + Record.opponentId + "  /  " + Speed.ToString("0.#") + "x  /  temporary data, no Arena result";
@@ -376,7 +369,7 @@ namespace Zatod.Presentation
                 var v = visuals[s.id];
                 v.root.SetAsLastSibling();
                 Vector2 point = Position(s);
-                point.y += s.presentationHeight * .9f;
+                point.y += s.presentationHeight * ArtScale;
                 if (s.knockUpUntil > tick)
                     point.y += Mathf.Sin(Mathf.PI * (tick - s.controlStartTick) / Mathf.Max(1, s.knockUpUntil - s.controlStartTick)) * s.knockUpHeight * pixelsPerUnit;
                 float phase = Mathf.Clamp01((tick - s.actionStartTick) / Mathf.Max(1, s.actionEndTick - s.actionStartTick));
@@ -404,8 +397,8 @@ namespace Zatod.Presentation
                 {
                     string state = resurrecting ? s.animationState : !s.Alive ? "Death" : stunned ? "Stun" : tick < s.animationEndTick ? s.animationState : s.action == BattleAction.Moving ? "Run" : "Idle";
                     int start = resurrecting ? s.animationStartTick : !s.Alive ? s.actionStartTick : stunned ? s.controlStartTick : tick < s.animationEndTick ? s.animationStartTick : s.actionStartTick;
-                    v.sprite.Sample(state, (tick - start) / (Record == null ? 20 : Record.tickRate), s.facingDirection==0?s.team==0:s.facingDirection>0, .9f);
-                    v.sprite.GetComponent<RectTransform>().anchoredPosition = new Vector2(44,-76+v.sprite.PresentationHeight*.9f);
+                    v.sprite.Sample(state, (tick - start) / (Record == null ? 20 : Record.tickRate), s.facingDirection==0?s.team==0:s.facingDirection>0, ArtScale, stabilizeRoot: ExpandedFormation);
+                    v.sprite.GetComponent<RectTransform>().anchoredPosition = new Vector2(44,-76+v.sprite.PresentationHeight*ArtScale);
                 }
                 v.value.text = s.Alive ? s.hp + " / " + s.maxHp : "";
                 v.action.text = resurrecting ? "RESURRECTING" : !s.Alive ? "DEFEATED" : stunned ? ControlText(s.controlKind).ToUpperInvariant() : s.burnUntil > tick ? "BURNING" : s.poisonUntil > tick ? "POISONED" : s.lifestealBasisPoints>0 ? "+ LIFESTEAL" : s.damageBonusBasisPoints > 0 ? "+ DAMAGE" : s.action == BattleAction.Ultimate ? "ULTIMATE" : s.action == BattleAction.Moving ? "MOVING" : "";
@@ -438,8 +431,8 @@ namespace Zatod.Presentation
                     x=Mathf.Lerp(a.x,b.x,progress);height=Mathf.Lerp(a.height,b.height,progress);depth=Mathf.Lerp(a.y,b.y,progress);
                     if(b.x!=a.x)direction=b.x>a.x?1:-1;
                 }
-                ((RectTransform)visual.transform).anchoredPosition = new Vector2((x - cameraCenterX) * pixelsPerUnit, depth * .2f - 45 + height * .9f);
-                float scale = p.visualScaleBasisPoints > 0 ? .9f * p.visualScaleBasisPoints / 10000f : .65f;
+                ((RectTransform)visual.transform).anchoredPosition = new Vector2((x - cameraCenterX) * pixelsPerUnit, depth * DepthScale - 45 + height * ArtScale);
+                float scale = p.visualScaleBasisPoints > 0 ? ArtScale * p.visualScaleBasisPoints / 10000f : ArtScale * (.65f / .9f);
                 visual.Sample(state, (tick - p.startTick) / Record.tickRate, direction > 0, scale, true);
             }
             foreach (var entry in skillVisuals)
@@ -453,8 +446,8 @@ namespace Zatod.Presentation
                 float travel = Mathf.Clamp01((tick-effect.startTick)/Mathf.Max(1,effect.endTick-effect.startTick));
                 x += effect.direction * effect.moveForward * travel;
                 var rect = (RectTransform)visual.transform;
-                rect.anchoredPosition = new Vector2((x-cameraCenterX)*pixelsPerUnit,y*.2f-45+(effect.height+effect.moveHeight*travel)*.9f);
-                visual.Sample(effect.state,(tick-effect.startTick)/Record.tickRate,effect.direction>=0,.9f);
+                rect.anchoredPosition = new Vector2((x-cameraCenterX)*pixelsPerUnit,y*DepthScale-45+(effect.height+effect.moveHeight*travel)*ArtScale);
+                visual.Sample(effect.state,(tick-effect.startTick)/Record.tickRate,effect.direction>=0,ArtScale);
                 if (effect.stretchToRange)
                 {
                     float grow = effect.growTicks > 0 ? Mathf.Clamp01((tick-effect.startTick)/effect.growTicks) : 1;
@@ -468,7 +461,7 @@ namespace Zatod.Presentation
                 ring.gameObject.SetActive(visible);if(!visible)continue;
                 float age=Mathf.Clamp01((tick-effect.startTick)/Mathf.Max(1,effect.endTick-effect.startTick));
                 ring.rectTransform.anchoredPosition=new Vector2((effect.x+effect.direction*effect.forward-cameraCenterX)*pixelsPerUnit,
-                    effect.y*.2f-45+effect.height*.9f);
+                    effect.y*DepthScale-45+effect.height*ArtScale);
                 ring.rectTransform.sizeDelta=new Vector2(35+465*age,15+185*age);
                 ring.color=new Color(1,.6f,.22f,1-age);
             }
@@ -512,7 +505,7 @@ namespace Zatod.Presentation
                 return new Vector2(s.team == 0 ? Mathf.Min(-90, x) : Mathf.Max(90, x), oldLane[s.slot] + s.y * .02f - 20);
             }
             // One camera transform for the entire battlefield; no per-unit side/center clamping.
-            return new Vector2((s.x - cameraCenterX) * pixelsPerUnit, s.y * .2f - 25);
+            return new Vector2((s.x - cameraCenterX) * pixelsPerUnit, s.y * DepthScale - 25);
         }
         void OnBattleEvent(BattleEvent e)
         {
@@ -595,7 +588,7 @@ namespace Zatod.Presentation
         static Color Hex(string value) { ColorUtility.TryParseHtmlString("#" + value, out Color c); return c; }
         void OnDestroy()
         {
-            if (connection != null) { connection.ReplayReceived -= Load; connection.CatalogChanged -= DrawHistory; connection.StatusChanged -= UpdateConnection; }
+            if (connection != null) { connection.ReplayReceived -= Load; connection.LiveFrameReceived -= ApplyLiveFrame; connection.LiveBattleFinished -= ApplyLiveFrame; connection.UltimateResponded -= UltimateResponse; connection.CatalogChanged -= DrawHistory; connection.StatusChanged -= UpdateConnection; }
         }
     }
 }

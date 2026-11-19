@@ -1,0 +1,806 @@
+{
+  "name": "Cast",
+  "category": "Effect / EarthEruption",
+  "source_clip": "Assets/AnimationClip/Cast.anim",
+  "source_clip_guid": "635c4a885870ed945a5de9c74c995674",
+  "source_controllers": [
+    "EarthEruption1"
+  ],
+  "animator_states": {
+    "EarthEruption1": [
+      {
+        "name": "Cast",
+        "speed": 1,
+        "speed_parameter": null,
+        "speed_parameter_active": 0
+      }
+    ]
+  },
+  "relationship_evidence": "Animator on EarthEruption directly embedded in Bertha.prefab; groups use original object identities, not invented skill assignments.",
+  "frame_count": 16,
+  "unique_sprite_count": 16,
+  "source_sprite_track_path": "",
+  "source_sample_rate": 16,
+  "duration_seconds": 1,
+  "loop": false,
+  "canvas": {
+    "width": 80,
+    "height": 80,
+    "anchor_bottom_left": [
+      40,
+      40
+    ]
+  },
+  "events": [],
+  "sequence_type": "one PNG per original sprite key, including repeated hold/end keys; use exact per-key durations, not a guessed fixed FPS",
+  "frames": [
+    {
+      "index": 1,
+      "file": "0001.png",
+      "raw_crop": "Raw_Crops/0001.png",
+      "time_seconds": 0.0,
+      "end_seconds": 0.0625,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "2096b0f1ef259fb4988339ecb9628e10",
+      "sprite_name": "EarthEruption1",
+      "source_asset": "Assets/Sprite/EarthEruption1.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption1.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 2.0761204,
+        "y": 0,
+        "width": 35.872566,
+        "height": 32.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        2,
+        0,
+        36,
+        33
+      ],
+      "source_pivot_normalized": {
+        "x": 1.0571834,
+        "y": 1.2125957
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        38.0000016906044,
+        39.9999998517259
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        36,
+        33
+      ],
+      "padding_left_top": [
+        2,
+        47
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.0000016906044,
+        39.9999998517259
+      ],
+      "png_sha256": "efc99f2ff2e040dca3c477a60acf68190577328259911fb84cfba710dd58b3ad",
+      "raw_png_sha256": "ae37fe6047eba4b4a79c00adfc0dbc0e46f00b9ec212fb9d64c6718a6c0f65ba"
+    },
+    {
+      "index": 2,
+      "file": "0002.png",
+      "raw_crop": "Raw_Crops/0002.png",
+      "time_seconds": 0.0625,
+      "end_seconds": 0.125,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "8e7f365fcc9f75e43a7428a1e801ff6b",
+      "sprite_name": "EarthEruption2",
+      "source_asset": "Assets/Sprite/EarthEruption2.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption2.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 4.149349,
+        "y": 0,
+        "width": 64.774536,
+        "height": 56.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        4,
+        0,
+        65,
+        57
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5534683,
+        "y": 0.7019134
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        36.0000013232088,
+        39.999999992265806
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        65,
+        57
+      ],
+      "padding_left_top": [
+        4,
+        23
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.0000013232088,
+        39.9999999922658
+      ],
+      "png_sha256": "2f1fb0da8d4750e7f68ada7a2fdb1e95060df9204a6a2f0cc96aa19d04dd6e1b",
+      "raw_png_sha256": "720d19db8ac60067b27be7a21d5aae40e662a551288cf7fd8745fb0461d18506"
+    },
+    {
+      "index": 3,
+      "file": "0003.png",
+      "raw_crop": "Raw_Crops/0003.png",
+      "time_seconds": 0.125,
+      "end_seconds": 0.1875,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "e4d8a1d7200dbf84789c1704ac2a5de9",
+      "sprite_name": "EarthEruption3",
+      "source_asset": "Assets/Sprite/EarthEruption3.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption3.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 61.847763,
+        "height": 73.98709
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        62,
+        74
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5485062,
+        "y": 0.5406349
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.0000018616306,
+        40.000003003441
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        62,
+        74
+      ],
+      "padding_left_top": [
+        6,
+        6
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.0000018616306,
+        40.00000300344101
+      ],
+      "png_sha256": "459eb47317ebefd76fd0b81ff2d30f0c92c5065e8f325b2d2896f58f2768636c",
+      "raw_png_sha256": "2a75e7a16720a9558950bc383bc368bb98879bcf153e2b1ad8da0881a4b52fbb"
+    },
+    {
+      "index": 4,
+      "file": "0004.png",
+      "raw_crop": "Raw_Crops/0004.png",
+      "time_seconds": 0.1875,
+      "end_seconds": 0.25,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "cc14225b05e08814fac0a1f02fbc08fa",
+      "sprite_name": "EarthEruption4",
+      "source_asset": "Assets/Sprite/EarthEruption4.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption4.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 63.847763,
+        "height": 73.92388
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        64,
+        74
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5313245,
+        "y": 0.5410971
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.000001152093496,
+        39.999997088747996
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        64,
+        74
+      ],
+      "padding_left_top": [
+        6,
+        6
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.000001152093496,
+        39.99999708874799
+      ],
+      "png_sha256": "e2a20fb6dd5889071dcc8837fad8d49d1cd314a0a3bde2a76f554075b9fae6eb",
+      "raw_png_sha256": "44ae77a5493fb634dd83e1de4fdc530071eeb363c907889123b1b42a375c2048"
+    },
+    {
+      "index": 5,
+      "file": "0005.png",
+      "raw_crop": "Raw_Crops/0005.png",
+      "time_seconds": 0.25,
+      "end_seconds": 0.3125,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "01a68b3f14aff3f40b660fd1f9db2169",
+      "sprite_name": "EarthEruption5",
+      "source_asset": "Assets/Sprite/EarthEruption5.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption5.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 69.84776,
+        "height": 73.98709
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        70,
+        74
+      ],
+      "source_pivot_normalized": {
+        "x": 0.48568314,
+        "y": 0.5406349
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.999999798766396,
+        40.000003003441
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        70,
+        74
+      ],
+      "padding_left_top": [
+        6,
+        6
+      ],
+      "export_pivot_pixels_bottom_left": [
+        39.999999798766396,
+        40.00000300344101
+      ],
+      "png_sha256": "173679999e39f734dec79718cf8d43074fed102e6e3dfeafddf45995edeb6e5f",
+      "raw_png_sha256": "41585142324b74a462d47fc4a379910838a00975d53b71ca3805bee825d54200"
+    },
+    {
+      "index": 6,
+      "file": "0006.png",
+      "raw_crop": "Raw_Crops/0006.png",
+      "time_seconds": 0.3125,
+      "end_seconds": 0.375,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "23f08f7f81662de41b37cade5d6b1ad6",
+      "sprite_name": "EarthEruption6",
+      "source_asset": "Assets/Sprite/EarthEruption6.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption6.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 70.84776,
+        "height": 58.948685
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        71,
+        59
+      ],
+      "source_pivot_normalized": {
+        "x": 0.47882783,
+        "y": 0.67855626
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.9999995811608,
+        39.9999992255181
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        71,
+        59
+      ],
+      "padding_left_top": [
+        6,
+        21
+      ],
+      "export_pivot_pixels_bottom_left": [
+        39.9999995811608,
+        39.99999922551811
+      ],
+      "png_sha256": "5b0d878e534d8d15dfff3a1751e2380947c4b5058ac2a52dc9c6df7635186542",
+      "raw_png_sha256": "069703e0ffd4a3a4abb338c0a2adeb34f46fd8f35640c0818ff1b68c5c917ee9"
+    },
+    {
+      "index": 7,
+      "file": "0007.png",
+      "raw_crop": "Raw_Crops/0007.png",
+      "time_seconds": 0.375,
+      "end_seconds": 0.4375,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "46afd01bfbae636499df1f8332de3bfc",
+      "sprite_name": "EarthEruption7",
+      "source_asset": "Assets/Sprite/EarthEruption7.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption7.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 70.84776,
+        "height": 53.948685
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        71,
+        54
+      ],
+      "source_pivot_normalized": {
+        "x": 0.47882783,
+        "y": 0.7414453
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        33.9999995811608,
+        39.999998934430494
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        71,
+        54
+      ],
+      "padding_left_top": [
+        6,
+        26
+      ],
+      "export_pivot_pixels_bottom_left": [
+        39.9999995811608,
+        39.999998934430494
+      ],
+      "png_sha256": "9c9c813d262c9207f068ba5222751c4675b18745056dba3980825ceb74b588ae",
+      "raw_png_sha256": "b17ac7da113d3b453a85874ce31f38ae5a72122a5606464006cc0da589ac31da"
+    },
+    {
+      "index": 8,
+      "file": "0008.png",
+      "raw_crop": "Raw_Crops/0008.png",
+      "time_seconds": 0.4375,
+      "end_seconds": 0.5,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "30b9c9e420bff904bbb2f6a8840f4013",
+      "sprite_name": "EarthEruption8",
+      "source_asset": "Assets/Sprite/EarthEruption8.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption8.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 70.77453,
+        "height": 49.987087
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        71,
+        50
+      ],
+      "source_pivot_normalized": {
+        "x": 0.47932333,
+        "y": 0.80020666
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.0000037987849,
+        39.99999993139942
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        71,
+        50
+      ],
+      "padding_left_top": [
+        6,
+        30
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.0000037987849,
+        39.99999993139943
+      ],
+      "png_sha256": "6f2bdfa78063aae858b503ad6d34c1f7037411fab11c86590c579765a1bc1d35",
+      "raw_png_sha256": "d53a2d741831268a35af36afbe3e20525a6170d2eee9f02108386d07cd55ccfa"
+    },
+    {
+      "index": 9,
+      "file": "0009.png",
+      "raw_crop": "Raw_Crops/0009.png",
+      "time_seconds": 0.5,
+      "end_seconds": 0.5625,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "d15592f4e165f5a4c8dee364ba50008c",
+      "sprite_name": "EarthEruption9",
+      "source_asset": "Assets/Sprite/EarthEruption9.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption9.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 46.880974,
+        "height": 13.968028
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        47,
+        14
+      ],
+      "source_pivot_normalized": {
+        "x": 0.72361726,
+        "y": 2.8636827
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.00000235201124,
+        40.0000001367156
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        14
+      ],
+      "padding_left_top": [
+        6,
+        66
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.00000235201124,
+        40.0000001367156
+      ],
+      "png_sha256": "9831e026d6c156f080a68eacdc46ce7e983f81a25f67a0c6328e3bc469abe724",
+      "raw_png_sha256": "3f737d6506099e60335fcfd7f46bd7aebff7b1829293e79bcb0bbb0b0648e69b"
+    },
+    {
+      "index": 10,
+      "file": "0010.png",
+      "raw_crop": "Raw_Crops/0010.png",
+      "time_seconds": 0.5625,
+      "end_seconds": 0.625,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "df6a3722731cffd41a043e1900e8622e",
+      "sprite_name": "EarthEruption10",
+      "source_asset": "Assets/Sprite/EarthEruption10.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption10.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 46.880974,
+        "height": 13.968028
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        47,
+        14
+      ],
+      "source_pivot_normalized": {
+        "x": 0.72361726,
+        "y": 2.8636827
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.00000235201124,
+        40.0000001367156
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        14
+      ],
+      "padding_left_top": [
+        6,
+        66
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.00000235201124,
+        40.0000001367156
+      ],
+      "png_sha256": "9831e026d6c156f080a68eacdc46ce7e983f81a25f67a0c6328e3bc469abe724",
+      "raw_png_sha256": "3f737d6506099e60335fcfd7f46bd7aebff7b1829293e79bcb0bbb0b0648e69b"
+    },
+    {
+      "index": 11,
+      "file": "0011.png",
+      "raw_crop": "Raw_Crops/0011.png",
+      "time_seconds": 0.625,
+      "end_seconds": 0.6875,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "75e85c8ddfb679743b6bbf01df571141",
+      "sprite_name": "EarthEruption11",
+      "source_asset": "Assets/Sprite/EarthEruption11.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption11.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 46.880974,
+        "height": 13.968028
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        47,
+        14
+      ],
+      "source_pivot_normalized": {
+        "x": 0.72361726,
+        "y": 2.8636827
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.00000235201124,
+        40.0000001367156
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        14
+      ],
+      "padding_left_top": [
+        6,
+        66
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.00000235201124,
+        40.0000001367156
+      ],
+      "png_sha256": "9831e026d6c156f080a68eacdc46ce7e983f81a25f67a0c6328e3bc469abe724",
+      "raw_png_sha256": "3f737d6506099e60335fcfd7f46bd7aebff7b1829293e79bcb0bbb0b0648e69b"
+    },
+    {
+      "index": 12,
+      "file": "0012.png",
+      "raw_crop": "Raw_Crops/0012.png",
+      "time_seconds": 0.6875,
+      "end_seconds": 0.75,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "e0e29aa5279453943b2edf12efbb702e",
+      "sprite_name": "EarthEruption12",
+      "source_asset": "Assets/Sprite/EarthEruption12.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption12.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 46.880974,
+        "height": 13.968028
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        47,
+        14
+      ],
+      "source_pivot_normalized": {
+        "x": 0.72361726,
+        "y": 2.8636827
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.00000235201124,
+        40.0000001367156
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        14
+      ],
+      "padding_left_top": [
+        6,
+        66
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.00000235201124,
+        40.0000001367156
+      ],
+      "png_sha256": "6491ecf6fe137f5b3dccece42573698b0aa9a56f5341f663610e845d4b55ca21",
+      "raw_png_sha256": "0e9cd03847910fffaa83efd00681ed9346e2ca9dacb7d2c200bfe82f9c42132c"
+    },
+    {
+      "index": 13,
+      "file": "0013.png",
+      "raw_crop": "Raw_Crops/0013.png",
+      "time_seconds": 0.75,
+      "end_seconds": 0.8125,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "bd55916287aaa6c4f8ab56cb9cdd4a7c",
+      "sprite_name": "EarthEruption13",
+      "source_asset": "Assets/Sprite/EarthEruption13.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption13.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 46.880974,
+        "height": 13.968028
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        47,
+        14
+      ],
+      "source_pivot_normalized": {
+        "x": 0.72361726,
+        "y": 2.8636827
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.00000235201124,
+        40.0000001367156
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        14
+      ],
+      "padding_left_top": [
+        6,
+        66
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.00000235201124,
+        40.0000001367156
+      ],
+      "png_sha256": "24cacb8762b2777c4fb6ef14b96a2a4aa3a66a4515445d39d92d09c68a5339ed",
+      "raw_png_sha256": "94232359bfbde840fd0ee5d28342db331a8b4d793ad2811353db133336d0c01b"
+    },
+    {
+      "index": 14,
+      "file": "0014.png",
+      "raw_crop": "Raw_Crops/0014.png",
+      "time_seconds": 0.8125,
+      "end_seconds": 0.875,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "815cc0ce603cb91409488a055c21bcc9",
+      "sprite_name": "EarthEruption14",
+      "source_asset": "Assets/Sprite/EarthEruption14.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption14.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 6.0761204,
+        "y": 0,
+        "width": 46.880974,
+        "height": 13.968028
+      },
+      "source_pixel_crop_bottom_left": [
+        6,
+        0,
+        47,
+        14
+      ],
+      "source_pivot_normalized": {
+        "x": 0.72361726,
+        "y": 2.8636827
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        34.00000235201124,
+        40.0000001367156
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        47,
+        14
+      ],
+      "padding_left_top": [
+        6,
+        66
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.00000235201124,
+        40.0000001367156
+      ],
+      "png_sha256": "ead61adf3061e6f58480698768d463a4984c7722645e3a9f1047b2b00c326896",
+      "raw_png_sha256": "e118d38a9fb850f8d86766b7743d41f93f26c9d5be8cc3407d6b8530734ae79a"
+    },
+    {
+      "index": 15,
+      "file": "0015.png",
+      "raw_crop": "Raw_Crops/0015.png",
+      "time_seconds": 0.875,
+      "end_seconds": 0.9375,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "f703fb10316d1ca4d96e1117138d69ab",
+      "sprite_name": "EarthEruption15",
+      "source_asset": "Assets/Sprite/EarthEruption15.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption15.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 80
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        40.0,
+        40.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        80,
+        80
+      ],
+      "padding_left_top": [
+        0,
+        0
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.0,
+        40.0
+      ],
+      "png_sha256": "42b05b580eb261db1e764fa682f51ad416220fb09515490aa4b82f607e53d2aa",
+      "raw_png_sha256": "42b05b580eb261db1e764fa682f51ad416220fb09515490aa4b82f607e53d2aa"
+    },
+    {
+      "index": 16,
+      "file": "0016.png",
+      "raw_crop": "Raw_Crops/0016.png",
+      "time_seconds": 0.9375,
+      "end_seconds": 1.0,
+      "duration_seconds": 0.0625,
+      "sprite_guid": "e7d84ac266752bf4eb8d71952088683c",
+      "sprite_name": "EarthEruption16",
+      "source_asset": "Assets/Sprite/EarthEruption16.asset",
+      "source_texture": "Assets/Texture2D/EarthEruption16.png",
+      "source_rect_unity_bottom_left": {
+        "serializedVersion": 2,
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 80
+      },
+      "source_pixel_crop_bottom_left": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "source_pivot_normalized": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "raw_crop_pivot_pixels_bottom_left": [
+        40.0,
+        40.0
+      ],
+      "pixels_per_unit": 16,
+      "raw_crop_size": [
+        80,
+        80
+      ],
+      "padding_left_top": [
+        0,
+        0
+      ],
+      "export_pivot_pixels_bottom_left": [
+        40.0,
+        40.0
+      ],
+      "png_sha256": "42b05b580eb261db1e764fa682f51ad416220fb09515490aa4b82f607e53d2aa",
+      "raw_png_sha256": "42b05b580eb261db1e764fa682f51ad416220fb09515490aa4b82f607e53d2aa"
+    }
+  ]
+}

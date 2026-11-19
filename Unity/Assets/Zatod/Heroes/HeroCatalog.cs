@@ -59,6 +59,7 @@ namespace Zatod.Heroes
                             "Invalid sequence timing: " + skill.Id);
                         Require(sequence.Actions != null && sequence.Visuals != null && sequence.Motion != null, "Missing sequence lists: " + skill.Id);
                         foreach (var action in sequence.Actions) Require(action != null && Enum.IsDefined(typeof(SkillSequenceAction),action.Action)
+                            && action.DamageMultiplierBasisPoints>=0 && action.DamageMultiplierBasisPoints<=100000
                             && action.DelayMilliseconds >= 0 && action.DelayMilliseconds <= 600000 && action.Distance>=0 && action.DurationMilliseconds>=0 && action.Height>=0 && action.TargetIndex>=0
                             && Enum.IsDefined(typeof(SequenceTargetOrder),action.TargetOrder), "Invalid sequence action: " + skill.Id);
                         foreach (var cue in sequence.Visuals) Require(cue != null && !string.IsNullOrWhiteSpace(cue.State) && cue.DelayMilliseconds >= 0

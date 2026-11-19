@@ -19,13 +19,17 @@ namespace Zatod.Combat
         int tick;
         bool finished;
         readonly int maximumTicks;
+        readonly HashSet<int> newUltimateRequests = new HashSet<int>();
+        public BattleRecord CurrentRecord => record;
+        public int CurrentTick => tick;
+        public bool Finished => finished;
 
-        public BattleSimulation(string battleId, string opponentId, uint seed, List<FighterState> initial, List<FighterLoadout> loadouts = null, int maximumTicks = MaxTicks)
+        public BattleSimulation(string battleId, string opponentId, uint seed, List<FighterState> initial, List<FighterLoadout> loadouts = null, int maximumTicks = MaxTicks, int manualUltimateTeams = 0)
         {
             if (maximumTicks < 1 || maximumTicks > MaxTicks) throw new ArgumentOutOfRangeException(nameof(maximumTicks));
             this.maximumTicks = maximumTicks;
             random = seed == 0 ? 1u : seed;
-            record = new BattleRecord { battleId = battleId, opponentId = opponentId, seed = random, tickRate = TickRate };
+            record = new BattleRecord { battleId = battleId, opponentId = opponentId, seed = random, tickRate = TickRate, formationLayoutVersion = BattleFormationLayout.Version, manualUltimateTeams = manualUltimateTeams, battleInProgress = true };
             foreach (var fighter in initial) { fighters.Add(fighter.Copy()); record.initial.Add(fighter.Copy()); }
             fighters.Sort((a, b) => a.id.CompareTo(b.id));
             Configure(loadouts);
@@ -42,6 +46,12 @@ namespace Zatod.Combat
         {
             if (finished) return false;
             tick++;
+            foreach(int id in newUltimateRequests.OrderBy(id=>id))
+            {
+                var actor=Find(id);
+                if(actor!=null && actor.Alive && actor.ultimateQueued)Emit(BattleEventKind.UltimateQueued,actor,actor,0,"Ultimate queued");
+            }
+            newUltimateRequests.Clear();
             AdvanceResurrections();
             AdvanceDamageBuffs();
             AdvanceSequences();
@@ -83,12 +93,11 @@ namespace Zatod.Combat
                 else
                 {
                     int nextX = CombatGeometry.ApproachAttackRange(fighter, target, TickRate);
-                    // Normal walking preserves friendly front-to-back order using explicit spacing.
-                    // No physics or body-radius assumptions are needed before hero assets exist.
+                    // Preserve the original friendly front-to-back walking order.
                     foreach (var ally in fighters)
                     {
                         if (!ally.Alive || ally.team != fighter.team || ally.slot >= fighter.slot) continue;
-                        int gap = Math.Max(ally.formationSpacing, fighter.formationSpacing);
+                        int gap = BattleFormationLayout.WalkingGap(fighter, ally);
                         if (fighter.team == 0 && nextX > fighter.x) nextX = Math.Min(nextX, Math.Max(fighter.x, ally.x - gap));
                         if (fighter.team == 1 && nextX < fighter.x) nextX = Math.Max(nextX, Math.Min(fighter.x, ally.x + gap));
                     }
@@ -107,7 +116,18 @@ namespace Zatod.Combat
             }
             if (HasWinner() || tick >= maximumTicks) Finish();
             else if (tick % SnapshotInterval == 0) Snapshot();
+            if(!finished)record.durationTicks=tick;
             return !finished;
+        }
+
+        public bool RequestUltimate(int fighterId)
+        {
+            var actor=Find(fighterId);
+            if(finished || actor==null || !actor.Alive || actor.ultimateQueued || actor.stunUntil>tick ||
+                (record.manualUltimateTeams & (1<<actor.team))==0 || !configured.TryGetValue(fighterId,out var runtime))return false;
+            var ultimate=runtime.data.Skills.Find(s=>s.IsUltimate);
+            if(ultimate==null || ultimate.Definition.Kind!=Zatod.Heroes.SkillKind.Active || actor.energy<ultimate.Definition.EnergyCost)return false;
+            actor.ultimateQueued=true;newUltimateRequests.Add(fighterId);return true;
         }
 
         void BeginAction(FighterState actor, FighterState target, bool ultimate)
@@ -230,6 +250,7 @@ namespace Zatod.Combat
             Emit(BattleEventKind.Damage, actor, target, actual, ability, critical);
             if (!target.Alive)
             {
+                target.ultimateQueued=false;
                 CancelConfiguredVisuals(target);
                 target.action = BattleAction.Dead;
                 target.actionStartTick = tick;
@@ -246,6 +267,7 @@ namespace Zatod.Combat
         void Finish()
         {
             finished = true;
+            record.battleInProgress=false;
             bool left = TeamAlive(0), right = TeamAlive(1);
             record.winner = left && !right ? 0 : right && !left ? 1 : -1;
             record.timedOut = left && right;

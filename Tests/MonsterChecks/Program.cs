@@ -40,7 +40,8 @@ static class Program
             for(int i=0;i<ids.Length;i++)
             {
                 var d=catalog.Monster(ids[i]);var b=MonsterBattleFactory.Create(d.Id,"monster-"+i,catalog);var f=MonsterBattleFactory.CreateFighter(d,b,1,i);
-                f.x=1600+i*220;f.y=(i-1)*300;f.formationSpacing=220;f.energy=100;
+                // Start beyond the configured bow/spell reach so this scenario still tests chasing.
+                f.x=3600+i*220;f.y=(i-1)*300;f.formationSpacing=220;f.energy=100;
                 fighters.Add(f);loadouts.Add(new FighterLoadout{fighterId=f.id,kind=CombatantKind.Monster,monster=b});
             }
             return (fighters,loadouts);

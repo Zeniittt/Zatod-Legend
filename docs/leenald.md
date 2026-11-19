@@ -27,6 +27,10 @@ Enter Play Mode, open Leenald in Hero detail, then use **Zatod > Heroes > Leenal
 
 The initial import script is `Unity/AgentScripts/SetupLeenald.cs`, run through Unity Pipeline. It refuses to overwrite an existing balanced Leenald definition. It uses Sprite Editor data providers with mandatory capability checks; no `.meta` editing. Config before installation is backed up under `Artifacts/LeenaldBefore/20261116-112552/`.
 
+## Rules 12: original formation restored
+
+The original front-to-back formation and shallow alternating depths are restored. Melee reach is now 1,300 center units; Ultimate reaches 1,800, Skill2 1,600 (logic lifetime 1.5 s), and Skill4 radius 1,400. Damage, stun/airborne duration and knockback distance are unchanged. New battle layouts also enable the generic per-clip `StabilizeHorizontalAnchor` option for NormalAttack, removing baked horizontal actor travel from that stationary pose. Native source frames, Sprite pivots and animation clips are unchanged. Old replay layouts keep their former mapping. See `docs/verification.md` for measured body visibility.
+
 ## Animation mapping
 
 All clips currently sample at **12 FPS**, in numeric order rather than lexical filename order. There are **137 frames / 11 clips**. Current PNGs have a common 288×128 source canvas. The shared foot/origin is pixel `(144, 7)` in Unity's bottom-left coordinates, equivalent to `(144, 121)` from the top. Cropped rectangles retain this anchor. Import uses **25 PPU**, point filtering and no PNG resampling; SpriteRenderers and replay UI retain the earlier display/world size. Body frames are not recentered.
@@ -62,7 +66,7 @@ Definitions are added to the existing split `Heroes.txt` and `Skills.txt`, not t
 | Health | 4800 |
 | Damage | 220 |
 | Defense | 60 |
-| Attack range | 100 |
+| Attack range | 1300 |
 | Move speed | 1600 |
 | Attack interval | 26 combat ticks (1.3 s) |
 
@@ -70,11 +74,11 @@ These are initial balance values. Account/Hero level/star growth remains outside
 
 | Skill | Unlock | Configured behaviour | Initial values |
 |---|---|---|---|
-| Normal attack | Basic action | Nearest enemy, 100% Damage | Range 100; impact windup 417 ms |
+| Normal attack | Basic action | Nearest enemy, 100% Damage | Range 1300; impact windup 417 ms |
 | Ultimate / Earth Seal | White | Projectile toward nearest enemy; Stun on contact | 100 energy, 1500 ms stun; spawn at source frame 4 = 250 ms |
 | Skill2 / Rising Stone | Green | Forward projectile; KnockUp on contact | 6 s cooldown; 800 ms airborne, height 100; spawn at source frame 17 = 417 ms into selected clip |
 | Skill3 / Meditation | Blue | Automatic self Heal | 8 s cooldown; heal 600 |
-| Skill4 / Repelling Palm | Purple | All enemies in range; Knockback | Radius 100, distance 100, 250 ms; 7 s cooldown |
+| Skill4 / Repelling Palm | Purple | All enemies in range; Knockback | Radius 1400, distance 100, 250 ms; 7 s cooldown |
 
 The two projectiles initially have `ProjectileMaxHits = 1`. Projectile speed/hit radius/lifetime, spawn timing, effects and durations are editable in the Skills tab of Hero Balance. Targets/effects enums were appended so earlier numeric enum values remain unchanged. Native clip timing and spawn timing need to stay aligned if animation playback speed is changed later.
 
@@ -86,17 +90,17 @@ The two projectiles initially have `ProjectileMaxHits = 1`. Projectile speed/hit
 
 | Hành động | Mở ở bậc | Kích hoạt / mục tiêu | Effect hiện tại |
 |---|---|---|---|
-| Đánh thường | Có sẵn | Tự động; mục tiêu chiến đấu đang khóa, tầm 100 | 100% Damage trước defense/crit; không có projectile |
-| Ultimate / Earth Seal | Trắng | Tự động khi đủ 100 energy trong Arena offline; chọn kẻ địch gần nhất trong tầm 1000 | Projectile chạm kẻ địch đầu tiên thì Stun 1,5 s; không gây damage |
-| Skill2 / Rising Stone | Xanh Lá | Tự động; chọn kẻ địch gần nhất trong tầm 700; cooldown 6 s, không tốn energy | Projectile bay thẳng, chạm kẻ địch đầu tiên thì KnockUp 0,8 s, độ cao hiển thị 100; không gây damage |
+| Đánh thường | Có sẵn | Tự động; mục tiêu chiến đấu đang khóa, tầm 1300 | 100% Damage trước defense/crit; không có projectile |
+| Ultimate / Earth Seal | Trắng | Tự động khi đủ 100 energy trong Arena offline; chọn kẻ địch gần nhất trong tầm 1800 | Projectile chạm kẻ địch đầu tiên thì Stun 1,5 s; không gây damage |
+| Skill2 / Rising Stone | Xanh Lá | Tự động; chọn kẻ địch gần nhất trong tầm 1600; cooldown 6 s, không tốn energy | Projectile bay thẳng, chạm kẻ địch đầu tiên thì KnockUp 0,8 s, độ cao hiển thị 100; không gây damage |
 | Skill3 / Meditation | Xanh Dương | Chiêu active tự động khi HP chưa đầy; chỉ bản thân; cooldown 8 s, không tốn energy | Hồi một lần 600 HP, giới hạn bởi Max HP |
-| Skill4 / Repelling Palm | Tím | Tự động khi có địch trong tầm 100; cooldown 7 s, không tốn energy | Đẩy mọi địch còn sống trong khoảng cách tâm 100 ra xa Leenald 100 đơn vị; khóa hành động 0,25 s; không gây damage |
+| Skill4 / Repelling Palm | Tím | Tự động khi có địch trong tầm 1400; cooldown 7 s, không tốn energy | Đẩy mọi địch còn sống trong khoảng cách tâm 1400 ra xa Leenald 100 đơn vị; khóa hành động 0,25 s; không gây damage |
 
 **Animation:** Đánh thường dùng `Attack`; Ulti dùng `Ultimate` và `Ultimate_Projectile`; Skill2 dùng `Skill2` và `Skill2_Projectile`; Skill3 dùng `Skill3`; Skill4 dùng `Skill4`. Idle/Run/Stun/Death lần lượt là `Idle`/`Run`/`TakeHit`/`Death`. Tất cả 12 FPS, dùng art original, icon giữ nguyên.
 
 **Projectile Ulti:** chọn đối thủ lúc bắt đầu cast, chốt vị trí lúc phóng sau 250 ms; bay đến vị trí đã chốt, không tự bẻ hướng theo mục tiêu. Tốc độ 1200 đơn vị/s, hit radius 60, thời gian tồn tại logic tối đa 1,75 s. Kẻ địch đầu tiên va chạm nhận Stun; một projectile chỉ trúng một mục tiêu.
 
-**Projectile Skill2:** phóng theo hướng mục tiêu sau 417 ms trong config, thực tế 450 ms do làm tròn tick. Tốc độ 1400 đơn vị/s, hit radius 60, lifetime 0,5 s. Hiện chỉ trúng một kẻ địch rồi kết thúc, chưa xuyên qua nhiều kẻ địch. KnockUp khóa hành động trong 0,8 s và hiển thị đường cong nhấc lên/hạ xuống; mục tiêu vẫn có thể nhận damage trong thời gian này.
+**Projectile Skill2:** phóng theo hướng mục tiêu sau 417 ms trong config, thực tế 450 ms do làm tròn tick. Tốc độ 1400 đơn vị/s, hit radius 60, lifetime 1,5 s. Hiện chỉ trúng một kẻ địch rồi kết thúc, chưa xuyên qua nhiều kẻ địch. KnockUp khóa hành động trong 0,8 s và hiển thị đường cong nhấc lên/hạ xuống; mục tiêu vẫn có thể nhận damage trong thời gian này.
 
 **Heal:** bắt đầu được chọn khi HP < Max HP, hồi một nhịp sau 667 ms trong config (thực tế 700 ms). HP không cần xuống dưới ngưỡng phần trăm nào khác. Cooldown tính từ lúc bắt đầu cast.
 
@@ -112,7 +116,7 @@ The two projectiles initially have `ProjectileMaxHits = 1`. Projectile speed/hit
 
 Battle snapshots also copy the normal-attack definition when configured. Use `HasNormalAttack` to distinguish the optional entry when reading Unity JSON, whose inline object deserialization can create a default object for a null field.
 
-Arena rules version 3 accepts selected owned instance IDs, validates against a server-owned sandbox profile, and freezes stats/unlocked skills before resolving the fight. The opponent still uses sample fighters. White Leenald has basic attack and Ultimate; the other skills remain locked until progression unlocks them. Replay schema 1 is extended additively; old records remain outcome playback and are never rerolled. Radius 100 is the requested logical centre-distance value, independent of padded sprite bounds. Production accounts, passive triggers, live player Ulti commands and final art/coordinate scale tuning remain outside this pass.
+Arena rules version 3 accepts selected owned instance IDs, validates against a server-owned sandbox profile, and freezes stats/unlocked skills before resolving the fight. The opponent still uses sample fighters. White Leenald has basic attack and Ultimate; the other skills remain locked until progression unlocks them. Replay schema 1 is extended additively; old records remain outcome playback and are never rerolled. The initial centre-distance radius was 100; rules 11 raises it to 1400 to match readable melee separation, independently of padded sprite bounds. Production accounts, passive triggers, live player Ulti commands and final art/coordinate scale tuning remain outside this pass.
 
 To try: build **Zatod > Build Leenald Battle Preview**, start `./scripts/Start-Server.ps1 -BuildFolder LeenaldBattle`, then open `Builds/LeenaldBattle/ZatodArena.exe` (or Play the Unity scene). Back from the Hero list opens formation; choose Leenald and optional teammates, then Battle. New records include frozen loadouts and projectile paths. `VerifyLeenaldBattle.cs` checks data/effects/seek; `VerifyLeenaldRuntime.cs` checks the Formation-to-server UI path. Network smoke accepts `-BuildFolder LeenaldBattle -Leenald`.
 

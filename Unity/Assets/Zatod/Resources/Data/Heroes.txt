@@ -1,6 +1,6 @@
 {
     "SchemaVersion": 1,
-    "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1",
+    "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1-formation-layout-1-order-2-team-reach-1-skill-reach-1-berthaxe-1-six-hero-reach-1",
     "Heroes": [
         {
             "Id": "training_warrior",
@@ -3239,7 +3239,7 @@
                 },
                 {
                     "StatId": "attack_range",
-                    "Value": 100
+                    "Value": 1300
                 },
                 {
                     "StatId": "move_speed",
@@ -3438,7 +3438,7 @@
                 },
                 {
                     "StatId": "attack_range",
-                    "Value": 3000
+                    "Value": 4000
                 },
                 {
                     "StatId": "move_speed",
@@ -3632,7 +3632,7 @@
                 },
                 {
                     "StatId": "attack_range",
-                    "Value": 3200
+                    "Value": 5000
                 },
                 {
                     "StatId": "move_speed",
@@ -3816,7 +3816,7 @@
                 },
                 {
                     "StatId": "attack_range",
-                    "Value": 150
+                    "Value": 2200
                 },
                 {
                     "StatId": "move_speed",
@@ -4005,7 +4005,7 @@
                 },
                 {
                     "StatId": "attack_range",
-                    "Value": 3000
+                    "Value": 6000
                 },
                 {
                     "StatId": "move_speed",
@@ -4152,6 +4152,190 @@
                 {
                     "Id": "skill_4",
                     "SkillId": "lilina_skill4",
+                    "IsUltimate": false
+                }
+            ]
+        },
+        {
+            "Id": "berthaxe",
+            "Name": "Berthaxe",
+            "StartingRankId": "white",
+            "Position": 0,
+            "PortraitKey": "berthaxe",
+            "BodyPrefabResource": "Heroes/Berthaxe/Berthaxe",
+            "AnimationSetResource": "Heroes/Berthaxe/AnimationSet",
+            "NormalAttackSkillId": "berthaxe_normal_attack",
+            "ProjectileHurtboxHeight": 230,
+            "DeathAnimationMilliseconds": 2010,
+            "SpawnPoints": [
+                {
+                    "Id": "ground",
+                    "Forward": 200,
+                    "Height": 0
+                }
+            ],
+            "BaseStats": [
+                {
+                    "StatId": "health",
+                    "Value": 5200
+                },
+                {
+                    "StatId": "damage",
+                    "Value": 240
+                },
+                {
+                    "StatId": "defense",
+                    "Value": 50
+                },
+                {
+                    "StatId": "attack_range",
+                    "Value": 3100
+                },
+                {
+                    "StatId": "move_speed",
+                    "Value": 1300
+                },
+                {
+                    "StatId": "attack_interval",
+                    "Value": 24
+                }
+            ],
+            "Ranks": [
+                {
+                    "Id": "white",
+                    "Name": "Trắng",
+                    "NextRankId": "green",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "ultimate"
+                    ]
+                },
+                {
+                    "Id": "green",
+                    "Name": "Xanh Lá",
+                    "NextRankId": "blue",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_2"
+                    ]
+                },
+                {
+                    "Id": "blue",
+                    "Name": "Xanh Dương",
+                    "NextRankId": "purple",
+                    "BonusStats": [],
+                    "EquipmentSlots": [
+                        {
+                            "Id": "gear_1",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_2",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_3",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_4",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_5",
+                            "RequiredItemId": "axe_basic"
+                        },
+                        {
+                            "Id": "gear_6",
+                            "RequiredItemId": "axe_basic"
+                        }
+                    ],
+                    "UnlockSkillSlotIds": [
+                        "skill_3"
+                    ]
+                },
+                {
+                    "Id": "purple",
+                    "Name": "Tím",
+                    "NextRankId": "",
+                    "BonusStats": [],
+                    "EquipmentSlots": [],
+                    "UnlockSkillSlotIds": [
+                        "skill_4"
+                    ]
+                }
+            ],
+            "SkillSlots": [
+                {
+                    "Id": "ultimate",
+                    "SkillId": "berthaxe_ultimate",
+                    "IsUltimate": true
+                },
+                {
+                    "Id": "skill_2",
+                    "SkillId": "berthaxe_skill2",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_3",
+                    "SkillId": "berthaxe_skill3",
+                    "IsUltimate": false
+                },
+                {
+                    "Id": "skill_4",
+                    "SkillId": "berthaxe_skill4",
                     "IsUltimate": false
                 }
             ]

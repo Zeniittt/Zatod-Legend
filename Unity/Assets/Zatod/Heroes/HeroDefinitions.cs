@@ -142,6 +142,8 @@ namespace Zatod.Heroes
     [Serializable]
     public sealed class SkillSequenceCue
     {
+        // Zero preserves existing cues; a positive value scales this cue's direct damage only.
+        public int DamageMultiplierBasisPoints;
         public int DelayMilliseconds;
         public SkillSequenceAction Action;
         public int Distance, DurationMilliseconds, Height, TargetIndex;
