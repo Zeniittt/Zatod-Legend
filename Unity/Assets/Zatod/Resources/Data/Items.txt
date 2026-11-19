@@ -1,26 +1,5548 @@
 {
-    "SchemaVersion": 1,
-    "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1-formation-layout-1-order-2-team-reach-1-skill-reach-1-berthaxe-1-six-hero-reach-1",
-    "Items": [
+  "SchemaVersion": 1,
+  "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1-formation-layout-1-order-2-team-reach-1-skill-reach-1-berthaxe-1-six-hero-reach-1-crystal-p1",
+  "Items": [
+    {
+      "Id": "axe_basic",
+      "Name": "Training axe",
+      "Stats": [
         {
-            "Id": "axe_basic",
-            "Name": "Training axe",
-            "Stats": [
-                {
-                    "StatId": "damage",
-                    "Value": 5
-                }
-            ]
+          "StatId": "damage",
+          "Value": 5
+        }
+      ]
+    },
+    {
+      "Id": "sword_basic",
+      "Name": "Training sword",
+      "Stats": [
+        {
+          "StatId": "damage",
+          "Value": 7
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_102",
+      "Name": "力量拳套",
+      "IconResource": "UI/DOTA-ITEM/104.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "defense",
+          "Value": 0.45
         },
         {
-            "Id": "sword_basic",
-            "Name": "Training sword",
-            "Stats": [
-                {
-                    "StatId": "damage",
-                    "Value": 7
-                }
-            ]
+          "StatId": "health",
+          "Value": 54.0
         }
-    ]
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_111",
+      "Name": "回复戒指",
+      "IconResource": "UI/DOTA-ITEM/126.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "wave_health_regen",
+          "Value": 80.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_107",
+      "Name": "小魔棒",
+      "IconResource": "UI/DOTA-ITEM/507.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 5.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 15.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_109",
+      "Name": "小圆盾",
+      "IconResource": "UI/DOTA-ITEM/120.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "defense",
+          "Value": 1.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_108",
+      "Name": "补刀斧",
+      "IconResource": "UI/DOTA-ITEM/518.jpg",
+      "LevelRequirement": 1,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 6.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_181",
+      "Name": "武士头盔",
+      "IconResource": "UI/DOTA-ITEM/123.jpg",
+      "LevelRequirement": 10,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "defense",
+          "Value": 5.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 90.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_121",
+      "Name": "力量护腕",
+      "IconResource": "UI/DOTA-ITEM/246.jpg",
+      "LevelRequirement": 9,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 7.2
+        },
+        {
+          "StatId": "damage",
+          "Value": 4.2
+        },
+        {
+          "StatId": "defense",
+          "Value": 1.14
+        },
+        {
+          "StatId": "health",
+          "Value": 108.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.3
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 1.2
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_106",
+      "Name": "贵族头环",
+      "IconResource": "UI/DOTA-ITEM/102.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 4.8
+        },
+        {
+          "StatId": "damage",
+          "Value": 0.8
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.46
+        },
+        {
+          "StatId": "health",
+          "Value": 36.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.2
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 0.8
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_101",
+      "Name": "树枝",
+      "IconResource": "UI/DOTA-ITEM/101.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 2.4
+        },
+        {
+          "StatId": "damage",
+          "Value": 0.4
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.23
+        },
+        {
+          "StatId": "health",
+          "Value": 18.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.1
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 0.4
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_112",
+      "Name": "鞋",
+      "IconResource": "UI/DOTA-ITEM/143.jpg",
+      "LevelRequirement": 8,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 12.0
+        },
+        {
+          "StatId": "damage",
+          "Value": 2.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 1.15
+        },
+        {
+          "StatId": "health",
+          "Value": 90.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.5
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 2.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_223",
+      "Name": "大剑",
+      "IconResource": "UI/DOTA-ITEM/116.jpg",
+      "LevelRequirement": 22,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 21.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_215",
+      "Name": "冲锋盾",
+      "IconResource": "UI/DOTA-ITEM/227.jpg",
+      "LevelRequirement": 19,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "defense",
+          "Value": 4.0
+        },
+        {
+          "StatId": "health",
+          "Value": 280.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 240.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_113",
+      "Name": "攻击利爪",
+      "IconResource": "UI/DOTA-ITEM/113.jpg",
+      "LevelRequirement": 10,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 9.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_123",
+      "Name": "回复之巾",
+      "IconResource": "UI/DOTA-ITEM/241.jpg",
+      "LevelRequirement": 10,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 4.8
+        },
+        {
+          "StatId": "damage",
+          "Value": 0.8
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.46
+        },
+        {
+          "StatId": "health",
+          "Value": 36.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.2
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 0.8
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 120.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_200",
+      "Name": "绿鞋",
+      "IconResource": "UI/DOTA-ITEM/187.jpg",
+      "LevelRequirement": 16,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 16.8
+        },
+        {
+          "StatId": "damage",
+          "Value": 2.8
+        },
+        {
+          "StatId": "defense",
+          "Value": 2.61
+        },
+        {
+          "StatId": "health",
+          "Value": 126.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.7
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 2.8
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 90.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_242",
+      "Name": "散华",
+      "IconResource": "UI/DOTA-ITEM/203.jpg",
+      "LevelRequirement": 26,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 8.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 2.4
+        },
+        {
+          "StatId": "heal_ratio",
+          "Value": 4.0
+        },
+        {
+          "StatId": "health",
+          "Value": 288.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_214",
+      "Name": "魔抗头巾",
+      "IconResource": "UI/DOTA-ITEM/232.jpg",
+      "LevelRequirement": 18,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "magic_resistance",
+          "Value": 12.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 180.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_209",
+      "Name": "坚韧法球",
+      "IconResource": "UI/DOTA-ITEM/244.jpg",
+      "LevelRequirement": 18,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 10.0
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 45.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 200.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_199",
+      "Name": "命匣",
+      "IconResource": "UI/DOTA-ITEM/251.jpg",
+      "LevelRequirement": 16,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "defense",
+          "Value": 0.9
+        },
+        {
+          "StatId": "health",
+          "Value": 108.0
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 15.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 70.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_120",
+      "Name": "圣殿指环",
+      "IconResource": "UI/DOTA-ITEM/240.jpg",
+      "LevelRequirement": 9,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "defense",
+          "Value": 2.0
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 15.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_204",
+      "Name": "力量假腿",
+      "IconResource": "UI/DOTA-ITEM/188.jpg",
+      "LevelRequirement": 18,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 14.4
+        },
+        {
+          "StatId": "damage",
+          "Value": 2.4
+        },
+        {
+          "StatId": "defense",
+          "Value": 2.58
+        },
+        {
+          "StatId": "health",
+          "Value": 252.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.6
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 17.4
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_103",
+      "Name": "敏捷丝袜",
+      "IconResource": "UI/DOTA-ITEM/105.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 1.2
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.24
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 1.2
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_119",
+      "Name": "敏捷系带",
+      "IconResource": "UI/DOTA-ITEM/247.jpg",
+      "LevelRequirement": 9,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 7.2
+        },
+        {
+          "StatId": "damage",
+          "Value": 5.4
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.93
+        },
+        {
+          "StatId": "health",
+          "Value": 54.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.3
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 2.4
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_122",
+      "Name": "穷鬼盾",
+      "IconResource": "UI/DOTA-ITEM/245.jpg",
+      "LevelRequirement": 10,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 2.4
+        },
+        {
+          "StatId": "defense",
+          "Value": 2.48
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 2.4
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_243",
+      "Name": "夜叉",
+      "IconResource": "UI/DOTA-ITEM/204.jpg",
+      "LevelRequirement": 26,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 6.4
+        },
+        {
+          "StatId": "defense",
+          "Value": 1.28
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 12.4
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_211",
+      "Name": "支配",
+      "IconResource": "UI/DOTA-ITEM/194.jpg",
+      "LevelRequirement": 19,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 20.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 5.0
+        },
+        {
+          "StatId": "lifesteal",
+          "Value": 15.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_201",
+      "Name": "天鹰之戒",
+      "IconResource": "UI/DOTA-ITEM/250.jpg",
+      "LevelRequirement": 15,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 7.2
+        },
+        {
+          "StatId": "damage",
+          "Value": 4.2
+        },
+        {
+          "StatId": "defense",
+          "Value": 3.69
+        },
+        {
+          "StatId": "health",
+          "Value": 54.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.3
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 1.2
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 15.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_180",
+      "Name": "短棍",
+      "IconResource": "UI/DOTA-ITEM/115.jpg",
+      "LevelRequirement": 10,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 10.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 5.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_260",
+      "Name": "双刀",
+      "IconResource": "UI/DOTA-ITEM/202.jpg",
+      "LevelRequirement": 35,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 18.4
+        },
+        {
+          "StatId": "defense",
+          "Value": 3.68
+        },
+        {
+          "StatId": "heal_ratio",
+          "Value": 6.0
+        },
+        {
+          "StatId": "health",
+          "Value": 288.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 18.4
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 16.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_212",
+      "Name": "疯脸",
+      "IconResource": "UI/DOTA-ITEM/197.jpg",
+      "LevelRequirement": 19,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 5.0
+        },
+        {
+          "StatId": "lifesteal",
+          "Value": 17.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 20.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_172",
+      "Name": "敏捷皮靴",
+      "IconResource": "UI/DOTA-ITEM/108.jpg",
+      "LevelRequirement": 10,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 2.4
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.48
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 2.4
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_205",
+      "Name": "敏捷假腿",
+      "IconResource": "UI/DOTA-ITEM/189.jpg",
+      "LevelRequirement": 18,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 14.4
+        },
+        {
+          "StatId": "damage",
+          "Value": 5.6
+        },
+        {
+          "StatId": "defense",
+          "Value": 2.02
+        },
+        {
+          "StatId": "health",
+          "Value": 108.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.6
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 20.6
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_104",
+      "Name": "智力之篷",
+      "IconResource": "UI/DOTA-ITEM/106.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 7.2
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.3
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_182",
+      "Name": "法力之球",
+      "IconResource": "UI/DOTA-ITEM/139.jpg",
+      "LevelRequirement": 11,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 30.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_173",
+      "Name": "智力长袍",
+      "IconResource": "UI/DOTA-ITEM/109.jpg",
+      "LevelRequirement": 10,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 14.4
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.6
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_118",
+      "Name": "智力挂件",
+      "IconResource": "UI/DOTA-ITEM/248.jpg",
+      "LevelRequirement": 9,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 14.4
+        },
+        {
+          "StatId": "damage",
+          "Value": 4.2
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.69
+        },
+        {
+          "StatId": "health",
+          "Value": 54.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.6
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 1.2
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_228",
+      "Name": "绿杖",
+      "IconResource": "UI/DOTA-ITEM/519.jpg",
+      "LevelRequirement": 24,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 16.8
+        },
+        {
+          "StatId": "damage",
+          "Value": 2.8
+        },
+        {
+          "StatId": "defense",
+          "Value": 1.61
+        },
+        {
+          "StatId": "health",
+          "Value": 126.0
+        },
+        {
+          "StatId": "magic_crit",
+          "Value": 5.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.7
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 2.8
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_208",
+      "Name": "空明禅杖",
+      "IconResource": "UI/DOTA-ITEM/226.jpg",
+      "LevelRequirement": 18,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 24.4
+        },
+        {
+          "StatId": "damage",
+          "Value": 15.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.6
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 5.0
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 20.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_110",
+      "Name": "艺人面罩",
+      "IconResource": "UI/DOTA-ITEM/127.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 10.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_251",
+      "Name": "红杖",
+      "IconResource": "UI/DOTA-ITEM/217.jpg",
+      "LevelRequirement": 33,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 66.0
+        },
+        {
+          "StatId": "magic_crit",
+          "Value": 5.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.5
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 15.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_261",
+      "Name": "蓝杖",
+      "IconResource": "UI/DOTA-ITEM/216.jpg",
+      "LevelRequirement": 35,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 24.0
+        },
+        {
+          "StatId": "damage",
+          "Value": 4.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 2.3
+        },
+        {
+          "StatId": "health",
+          "Value": 380.0
+        },
+        {
+          "StatId": "magic_crit",
+          "Value": 10.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 4.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_178",
+      "Name": "虚空宝石",
+      "IconResource": "UI/DOTA-ITEM/137.jpg",
+      "LevelRequirement": 11,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 30.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_221",
+      "Name": "智力法杖",
+      "IconResource": "UI/DOTA-ITEM/112.jpg",
+      "LevelRequirement": 20,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 24.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_196",
+      "Name": "大魔杖",
+      "IconResource": "UI/DOTA-ITEM/508.jpg",
+      "LevelRequirement": 10,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 7.2
+        },
+        {
+          "StatId": "damage",
+          "Value": 1.2
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.69
+        },
+        {
+          "StatId": "health",
+          "Value": 54.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.3
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 1.2
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 10.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 15.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_197",
+      "Name": "魂戒",
+      "IconResource": "UI/DOTA-ITEM/243.jpg",
+      "LevelRequirement": 10,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 12.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 0.6
+        },
+        {
+          "StatId": "health",
+          "Value": 72.0
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 15.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 4.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 4.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 4.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_246",
+      "Name": "推推棒",
+      "IconResource": "UI/DOTA-ITEM/509.jpg",
+      "LevelRequirement": 30,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 24.0
+        },
+        {
+          "StatId": "dodge",
+          "Value": 5.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 120.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_207",
+      "Name": "秘法鞋",
+      "IconResource": "UI/DOTA-ITEM/192.jpg",
+      "LevelRequirement": 17,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 54.4
+        },
+        {
+          "StatId": "damage",
+          "Value": 2.4
+        },
+        {
+          "StatId": "defense",
+          "Value": 1.38
+        },
+        {
+          "StatId": "health",
+          "Value": 108.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.6
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 2.4
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 45.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_210",
+      "Name": "古之耐歌",
+      "IconResource": "UI/DOTA-ITEM/242.jpg",
+      "LevelRequirement": 20,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 21.6
+        },
+        {
+          "StatId": "damage",
+          "Value": 6.6
+        },
+        {
+          "StatId": "defense",
+          "Value": 2.07
+        },
+        {
+          "StatId": "health",
+          "Value": 162.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.9
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 3.6
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_252",
+      "Name": "风杖",
+      "IconResource": "UI/DOTA-ITEM/222.jpg",
+      "LevelRequirement": 34,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 24.0
+        },
+        {
+          "StatId": "magic_penetration",
+          "Value": 5.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.0
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 50.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_216",
+      "Name": "梅肯",
+      "IconResource": "UI/DOTA-ITEM/236.jpg",
+      "LevelRequirement": 20,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 12.0
+        },
+        {
+          "StatId": "damage",
+          "Value": 2.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 1.15
+        },
+        {
+          "StatId": "heal_ratio",
+          "Value": 2.0
+        },
+        {
+          "StatId": "healing_bonus",
+          "Value": 10.0
+        },
+        {
+          "StatId": "health",
+          "Value": 90.0
+        },
+        {
+          "StatId": "magic_penetration",
+          "Value": 3.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.5
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 2.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_257",
+      "Name": "振魂玫瑰",
+      "IconResource": "UI/DOTA-ITEM/253.jpg",
+      "LevelRequirement": 35,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 40.0
+        },
+        {
+          "StatId": "health",
+          "Value": 350.0
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 30.0
+        },
+        {
+          "StatId": "wave_health_regen",
+          "Value": 100.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_202",
+      "Name": "勇气勋章",
+      "IconResource": "UI/DOTA-ITEM/252.jpg",
+      "LevelRequirement": 18,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "armor_penetration",
+          "Value": 6.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 3.0
+        },
+        {
+          "StatId": "wave_energy_regen",
+          "Value": 20.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_184",
+      "Name": "元气之球",
+      "IconResource": "UI/DOTA-ITEM/141.jpg",
+      "LevelRequirement": 13,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 18.0
+        },
+        {
+          "StatId": "health",
+          "Value": 200.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_247",
+      "Name": "飞鞋",
+      "IconResource": "UI/DOTA-ITEM/193.jpg",
+      "LevelRequirement": 31,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 60.0
+        },
+        {
+          "StatId": "damage",
+          "Value": 10.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 5.75
+        },
+        {
+          "StatId": "health",
+          "Value": 450.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 2.5
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 10.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_226",
+      "Name": "秘银锤",
+      "IconResource": "UI/DOTA-ITEM/118.jpg",
+      "LevelRequirement": 24,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 24.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_254",
+      "Name": "洛萨",
+      "IconResource": "UI/DOTA-ITEM/215.jpg",
+      "LevelRequirement": 34,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 30.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 15.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_244",
+      "Name": "水晶剑",
+      "IconResource": "UI/DOTA-ITEM/200.jpg",
+      "LevelRequirement": 37,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 30.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 30.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_203",
+      "Name": "相位鞋",
+      "IconResource": "UI/DOTA-ITEM/191.jpg",
+      "LevelRequirement": 19,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 21.6
+        },
+        {
+          "StatId": "damage",
+          "Value": 27.6
+        },
+        {
+          "StatId": "defense",
+          "Value": 2.07
+        },
+        {
+          "StatId": "health",
+          "Value": 162.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.9
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 3.6
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_225",
+      "Name": "标枪",
+      "IconResource": "UI/DOTA-ITEM/117.jpg",
+      "LevelRequirement": 23,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 14.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 10.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_198",
+      "Name": "玄铁盾牌",
+      "IconResource": "UI/DOTA-ITEM/249.jpg",
+      "LevelRequirement": 10,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 4.8
+        },
+        {
+          "StatId": "damage",
+          "Value": 0.8
+        },
+        {
+          "StatId": "defense",
+          "Value": 5.46
+        },
+        {
+          "StatId": "health",
+          "Value": 36.0
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 0.2
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 0.8
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_2",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_3",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_4",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_6",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_7",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_9",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_10",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_17",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_18",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_20",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_37",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_45",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_174",
+      "Name": "加速手套",
+      "IconResource": "UI/DOTA-ITEM/124.jpg",
+      "LevelRequirement": 10,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "physical_crit",
+          "Value": 7.5
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_248",
+      "Name": "鬼手",
+      "IconResource": "UI/DOTA-ITEM/214.jpg",
+      "LevelRequirement": 32,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 9.0
+        },
+        {
+          "StatId": "defense",
+          "Value": 8.75
+        },
+        {
+          "StatId": "health",
+          "Value": 450.0
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 10.0
+        }
+      ],
+      "HeroStats": [
+        {
+          "HeroId": "crystal_1",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_8",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_19",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        },
+        {
+          "HeroId": "crystal_29",
+          "Stats": [
+            {
+              "StatId": "damage",
+              "Value": 25.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ItemId": "crystal_item_179",
+      "Name": "吸血面具",
+      "IconResource": "UI/DOTA-ITEM/125.jpg",
+      "LevelRequirement": 11,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "lifesteal",
+          "Value": 12.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_105",
+      "Name": "防御指环",
+      "IconResource": "UI/DOTA-ITEM/119.jpg",
+      "LevelRequirement": 2,
+      "Quality": 1,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "defense",
+          "Value": 2.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_176",
+      "Name": "魔抗斗篷",
+      "IconResource": "UI/DOTA-ITEM/128.jpg",
+      "LevelRequirement": 15,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "magic_resistance",
+          "Value": 5.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_183",
+      "Name": "生命之球",
+      "IconResource": "UI/DOTA-ITEM/140.jpg",
+      "LevelRequirement": 12,
+      "Quality": 2,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "health",
+          "Value": 250.0
+        }
+      ],
+      "HeroStats": []
+    },
+    {
+      "ItemId": "crystal_item_222",
+      "Name": "阔剑",
+      "IconResource": "UI/DOTA-ITEM/114.jpg",
+      "LevelRequirement": 21,
+      "Quality": 3,
+      "Stats": [],
+      "PreciseStats": [
+        {
+          "StatId": "damage",
+          "Value": 18.0
+        }
+      ],
+      "HeroStats": []
+    }
+  ]
 }

@@ -1,0 +1,723 @@
+{
+  "SchemaVersion": 1,
+  "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1-formation-layout-1-order-2-team-reach-1-skill-reach-1-berthaxe-1-six-hero-reach-1-crystal-p1",
+  "Buffs": [
+    {
+      "SourceId": 1415,
+      "Name": "SNK_warschool1_immune",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": "eff_buff_OK_ult.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 1,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "magic_immunity",
+          "Value": 88.0
+        },
+        {
+          "StatId": "physical_immunity",
+          "Value": 88.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10000101,
+      "Name": "Coco_ult_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000102,
+      "Name": "Coco_atk2_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000201,
+      "Name": "DR_atk2_slow",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 5,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "action_speed",
+          "Value": -60.0
+        },
+        {
+          "StatId": "haste",
+          "Value": -10.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10000202,
+      "Name": "DR_atk3_silence",
+      "Control": "silence",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_silence.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000302,
+      "Name": "Lina_atk3_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000401,
+      "Name": "Zeus_atk3_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 0.3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000402,
+      "Name": "Zeus_antistealth",
+      "Control": "antistealth",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 5,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000601,
+      "Name": "Lion_atk2_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 0.8,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000602,
+      "Name": "Lion_atk3",
+      "Control": "stun,polymorph",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3.025,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000701,
+      "Name": "QOP_atk3",
+      "Control": "uncontrollable,untargetable,invulnerable",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000702,
+      "Name": "QOP_atk2",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 6,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "ability_power",
+          "Ratio": -0.2
+        }
+      ],
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": -20.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10000801,
+      "Name": "OK_ult",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_OK_ult.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 10,
+      "ShieldValue": 300,
+      "ShieldType": "AD",
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000802,
+      "Name": "OK_atk3",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_OK_atk3.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 7,
+      "ShieldValue": 50,
+      "ShieldType": "AP",
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10000902,
+      "Name": "TK_atk2",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_blind.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 6,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "accuracy",
+          "Value": -10.5
+        }
+      ]
+    },
+    {
+      "SourceId": 10001001,
+      "Name": "Sniper_atk2_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 0.3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10001002,
+      "Name": "Sniper_atk3",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_SM_atk3.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 6,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "action_speed",
+          "Value": -80.0
+        },
+        {
+          "StatId": "haste",
+          "Value": -15.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10001003,
+      "Name": "Sniper_ult_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10001004,
+      "Name": "Sniper_ult",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10001006,
+      "Name": "Sniper_shard_3",
+      "Control": "disarm",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_disarm_2.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10001701,
+      "Name": "Bone_ult",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": "eff_buff_Bone_ult.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 600,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "damage",
+          "Value": 0.5
+        }
+      ]
+    },
+    {
+      "SourceId": 10001702,
+      "Name": "Bone_atk3",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_Bone_atk3.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 7,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "action_speed",
+          "Value": 50.0
+        },
+        {
+          "StatId": "haste",
+          "Value": 100.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10001802,
+      "Name": "Pugna_atk3",
+      "Control": "disarm",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 6,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "action_speed",
+          "Value": -50.0
+        },
+        {
+          "StatId": "magic_immunity",
+          "Value": -10.0
+        },
+        {
+          "StatId": "physical_immunity",
+          "Value": 100.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10001901,
+      "Name": "SNK_ult_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10002001,
+      "Name": "NEC_ult",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 1.5,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10002002,
+      "Name": "NEC_ult_stun",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10002003,
+      "Name": "NEC_atk3",
+      "Control": "disarm",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 5,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "ability_power",
+          "Ratio": 0.1
+        }
+      ],
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": 5.0
+        },
+        {
+          "StatId": "magic_immunity",
+          "Value": -69.5
+        },
+        {
+          "StatId": "physical_immunity",
+          "Value": 100.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10002901,
+      "Name": "Tiny_ult",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10002902,
+      "Name": "Tiny_atk3",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 10003701,
+      "Name": "Viper_ult",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": "eff_buff_Viper_ult.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 5,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "damage",
+          "Ratio": -0.5
+        }
+      ],
+      "Stats": [
+        {
+          "StatId": "action_speed",
+          "Value": -25.0
+        },
+        {
+          "StatId": "haste",
+          "Value": -25.0
+        },
+        {
+          "StatId": "health_regen",
+          "Value": -80.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10003702,
+      "Name": "Viper_atk2",
+      "Control": "",
+      "StackRule": "True",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 8,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 3,
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "damage",
+          "Ratio": -0.3
+        }
+      ],
+      "Stats": [
+        {
+          "StatId": "defense",
+          "Value": -0.75
+        },
+        {
+          "StatId": "health_regen",
+          "Value": -7.0
+        }
+      ]
+    },
+    {
+      "SourceId": 10004501,
+      "Name": "Ench_atk3",
+      "Control": "enchanted,silence",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_Ench_atk3.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    },
+    {
+      "SourceId": 64000016,
+      "Name": "rougueCharmBuff_16",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 1,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": false,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": []
+    }
+  ]
+}

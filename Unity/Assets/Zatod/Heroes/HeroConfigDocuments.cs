@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Zatod.Heroes
 {
-    public enum HeroConfigSection { Stats, Items, Skills, Heroes, Monsters }
+    public enum HeroConfigSection { Stats, Items, Skills, Heroes, Monsters, Buffs }
 
     [Serializable]
     public abstract class HeroConfigTable
@@ -17,11 +17,12 @@ namespace Zatod.Heroes
     [Serializable] public sealed class SkillsConfigData : HeroConfigTable { public List<SkillDefinition> Skills; }
     [Serializable] public sealed class HeroesConfigData : HeroConfigTable { public List<HeroDefinition> Heroes; }
     [Serializable] public sealed class MonstersConfigData : HeroConfigTable { public List<MonsterDefinition> Monsters; }
+    [Serializable] public sealed class BuffsConfigData : HeroConfigTable { public List<CrystalBuffDefinition> Buffs; }
 
     [Serializable]
     public sealed class HeroConfigDocuments
     {
-        public string Stats, Items, Skills, Heroes, Monsters;
+        public string Stats, Items, Skills, Heroes, Monsters, Buffs;
 
         public string Get(HeroConfigSection section)
         {
@@ -32,6 +33,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Skills: return Skills;
                 case HeroConfigSection.Heroes: return Heroes;
                 case HeroConfigSection.Monsters: return Monsters;
+                case HeroConfigSection.Buffs: return Buffs;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }
@@ -45,6 +47,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Skills: Skills = json; break;
                 case HeroConfigSection.Heroes: Heroes = json; break;
                 case HeroConfigSection.Monsters: Monsters = json; break;
+                case HeroConfigSection.Buffs: Buffs = json; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }

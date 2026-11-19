@@ -1,0 +1,66 @@
+{
+  "UnitId": "effect_eff_tile_Bone_atk",
+  "Resource": "eff_tile_Bone_atk",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_tile_Bone_atk/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Bone_atk_Start_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 120,
+          "Height": 26,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_tile_Bone_atk/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Bone_atk_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 120,
+          "Height": 26,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Bone_atk/Start_0.png",
+          "Name": "eff_tile_Bone_atk_Start_0000"
+        }
+      ],
+      "Loop": false,
+      "Width": 120,
+      "Height": 26,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Bone_atk/Loop_0.png",
+          "Name": "eff_tile_Bone_atk_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 120,
+      "Height": 26,
+      "AudioCues": []
+    }
+  ]
+}

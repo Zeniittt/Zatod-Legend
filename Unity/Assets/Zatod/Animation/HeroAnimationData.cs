@@ -12,6 +12,8 @@ namespace Zatod.Animation
         public List<HeroAnimationClipData> Clips = new List<HeroAnimationClipData>();
     }
 
+    [Serializable] public sealed class HeroAudioCue { public float Time; public string Resource; }
+
     [Serializable]
     public sealed class HeroAnimationClipData
     {
@@ -30,6 +32,7 @@ namespace Zatod.Animation
         public float SourceDurationSeconds;
         public int VisualReferenceWidthPixels;
         public List<float> FrameTimes = new List<float>();
+        public List<HeroAudioCue> AudioCues = new List<HeroAudioCue>();
         public float DurationSeconds { get { return SourceDurationSeconds > 0 ? SourceDurationSeconds : (float)SourceFrames.Count / FramesPerSecond; } }
         public int FrameIndex(float seconds)
         {

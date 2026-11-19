@@ -1,0 +1,196 @@
+{
+  "UnitId": "effect_eff_buff_blind",
+  "Resource": "eff_buff_blind",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_buff_blind/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_buff_blind_Start_0000",
+          "X": 0,
+          "Y": 73,
+          "Width": 80,
+          "Height": 73,
+          "PivotX": 0.5,
+          "PivotY": -2.863013698630137
+        },
+        {
+          "Name": "eff_buff_blind_Start_0001",
+          "X": 80,
+          "Y": 73,
+          "Width": 80,
+          "Height": 73,
+          "PivotX": 0.5,
+          "PivotY": -2.863013698630137
+        },
+        {
+          "Name": "eff_buff_blind_Start_0002",
+          "X": 160,
+          "Y": 73,
+          "Width": 80,
+          "Height": 73,
+          "PivotX": 0.5,
+          "PivotY": -2.863013698630137
+        },
+        {
+          "Name": "eff_buff_blind_Start_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 80,
+          "Height": 73,
+          "PivotX": 0.5,
+          "PivotY": -2.863013698630137
+        },
+        {
+          "Name": "eff_buff_blind_Start_0004",
+          "X": 80,
+          "Y": 0,
+          "Width": 80,
+          "Height": 73,
+          "PivotX": 0.5,
+          "PivotY": -2.863013698630137
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_buff_blind/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_buff_blind_Loop_0000",
+          "X": 0,
+          "Y": 100,
+          "Width": 62,
+          "Height": 50,
+          "PivotX": 0.4838709677419355,
+          "PivotY": -4.26
+        },
+        {
+          "Name": "eff_buff_blind_Loop_0001",
+          "X": 62,
+          "Y": 100,
+          "Width": 62,
+          "Height": 50,
+          "PivotX": 0.4838709677419355,
+          "PivotY": -4.26
+        },
+        {
+          "Name": "eff_buff_blind_Loop_0002",
+          "X": 124,
+          "Y": 100,
+          "Width": 62,
+          "Height": 50,
+          "PivotX": 0.4838709677419355,
+          "PivotY": -4.26
+        },
+        {
+          "Name": "eff_buff_blind_Loop_0003",
+          "X": 0,
+          "Y": 50,
+          "Width": 62,
+          "Height": 50,
+          "PivotX": 0.4838709677419355,
+          "PivotY": -4.26
+        },
+        {
+          "Name": "eff_buff_blind_Loop_0004",
+          "X": 62,
+          "Y": 50,
+          "Width": 62,
+          "Height": 50,
+          "PivotX": 0.4838709677419355,
+          "PivotY": -4.26
+        },
+        {
+          "Name": "eff_buff_blind_Loop_0005",
+          "X": 124,
+          "Y": 50,
+          "Width": 62,
+          "Height": 50,
+          "PivotX": 0.4838709677419355,
+          "PivotY": -4.26
+        },
+        {
+          "Name": "eff_buff_blind_Loop_0006",
+          "X": 0,
+          "Y": 0,
+          "Width": 62,
+          "Height": 50,
+          "PivotX": 0.4838709677419355,
+          "PivotY": -4.26
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.20833333333333334,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Start_0.png",
+          "Name": "eff_buff_blind_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Start_0.png",
+          "Name": "eff_buff_blind_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Start_0.png",
+          "Name": "eff_buff_blind_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Start_0.png",
+          "Name": "eff_buff_blind_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Start_0.png",
+          "Name": "eff_buff_blind_Start_0004"
+        }
+      ],
+      "Loop": false,
+      "Width": 80,
+      "Height": 73,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.2916666666666667,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Loop_0.png",
+          "Name": "eff_buff_blind_Loop_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Loop_0.png",
+          "Name": "eff_buff_blind_Loop_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Loop_0.png",
+          "Name": "eff_buff_blind_Loop_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Loop_0.png",
+          "Name": "eff_buff_blind_Loop_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Loop_0.png",
+          "Name": "eff_buff_blind_Loop_0004"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Loop_0.png",
+          "Name": "eff_buff_blind_Loop_0005"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_buff_blind/Loop_0.png",
+          "Name": "eff_buff_blind_Loop_0006"
+        }
+      ],
+      "Loop": true,
+      "Width": 62,
+      "Height": 50,
+      "AudioCues": []
+    }
+  ]
+}

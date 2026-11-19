@@ -4,14 +4,9 @@ using System.Collections.Generic;
 namespace Zatod.Heroes
 {
     [Serializable]
-    public sealed class MonsterDefinition
+    public sealed class MonsterDefinition : CombatantDefinition
     {
-        public string Id,Name,PortraitKey,BodyPrefabResource,AnimationSetResource,NormalAttackSkillId;
-        public HeroPosition Position;
-        public int ProjectileHurtboxHeight=100,DeathAnimationMilliseconds=1500;
-        public List<StatValue> BaseStats=new List<StatValue>();
-        public List<HeroSpawnPointDefinition> SpawnPoints=new List<HeroSpawnPointDefinition>();
-        public List<string> SkillIds=new List<string>();
+        public List<string> SkillIds = new List<string>();
     }
 
     [Serializable]

@@ -184,6 +184,16 @@ namespace Zatod.Editor
                     var input = new IntegerField(label) { value = (int)value, isDelayed = true };
                     input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
                 }
+                else if (type == typeof(double))
+                {
+                    var input = new DoubleField(label) { value = (double)value, isDelayed = true };
+                    input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
+                }
+                else if (type == typeof(float))
+                {
+                    var input = new FloatField(label) { value = (float)value, isDelayed = true };
+                    input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
+                }
                 else if (type == typeof(bool))
                 {
                     var input = new Toggle(label) { value = (bool)value };
@@ -199,6 +209,11 @@ namespace Zatod.Editor
                     var list = (IList)value;
                     if (list == null) { list = (IList)Activator.CreateInstance(type); field.SetValue(target, list); }
                     DrawList(parent, label, list, type.GetGenericArguments()[0]);
+                }
+                else if (type.IsClass && type.Namespace == "Zatod.Heroes" && value != null)
+                {
+                    var nested = new Foldout { text = label, value = false };
+                    parent.Add(nested);DrawObject(nested,value);
                 }
             }
         }
@@ -216,6 +231,11 @@ namespace Zatod.Editor
                     var input = new TextField("ID") { value = (string)list[i] ?? "", isDelayed = true };
                     input.RegisterValueChangedCallback(e => { list[index] = e.newValue; Edited(); }); entry.Add(input);
                 }
+                else if (elementType == typeof(double))
+                {
+                    var input = new DoubleField("Value") { value = (double)list[i], isDelayed = true };
+                    input.RegisterValueChangedCallback(e => { list[index] = e.newValue; Edited(); }); entry.Add(input);
+                }
                 else if (list[i] != null) DrawObject(entry, list[i]);
                 else entry.Add(new Label("Null entry: remove and add a replacement."));
             }
@@ -230,10 +250,10 @@ namespace Zatod.Editor
         {
             if (entry == null) return "null";
             if (entry is string text) return text;
-            foreach (string name in new[] { "Id", "StatId", "Kind" })
+            foreach (string name in new[] { "ItemId", "Id", "StatId", "Name", "SourceId", "Kind" })
             {
                 var field = entry.GetType().GetField(name);
-                if (field != null) return Convert.ToString(field.GetValue(entry));
+                if (field != null && !string.IsNullOrEmpty(Convert.ToString(field.GetValue(entry)))) return Convert.ToString(field.GetValue(entry));
             }
             return entry.GetType().Name;
         }

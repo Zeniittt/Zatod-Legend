@@ -16,7 +16,8 @@ namespace Zatod.Heroes
             HeroCatalog.Require(slot != null && slot.RequiredItemId == itemId, "Item does not match the current slot requirement.");
             HeroCatalog.Require(!hero.EquippedItems.Any(i => i.SlotId == slotId), "Slot is already equipped.");
             catalog.Item(itemId);
-            hero.EquippedItems.Add(new EquippedItemData { SlotId = slotId, ItemId = itemId });
+            HeroCatalog.Require(hero.Level >= catalog.Item(itemId).LevelRequirement, "Hero level is below the equipment requirement.");
+            hero.EquippedItems.Add(new EquippedItemData { SlotId = slotId, ItemId = itemId, Id = Guid.NewGuid().ToString("D") });
         }
 
         public static HeroRankDefinition CurrentRank(HeroData hero, HeroCatalog catalog)
@@ -39,7 +40,7 @@ namespace Zatod.Heroes
             var rank = CurrentRank(hero, catalog);
             var absorbed = new List<AbsorbedItemData>(hero.AbsorbedItems);
             foreach (var item in hero.EquippedItems)
-                absorbed.Add(new AbsorbedItemData { RankId = rank.Id, SlotId = item.SlotId, ItemId = item.ItemId, Quantity = 1 });
+                absorbed.Add(new AbsorbedItemData { RankId = rank.Id, SlotId = item.SlotId, ItemId = item.ItemId, Id = item.Id, Quantity = 1 });
             // Prepare before mutating; callers persist the completed operation as one save transaction.
             var emptySlots = new List<EquippedItemData>();
             hero.AbsorbedItems = absorbed;

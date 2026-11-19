@@ -20,7 +20,7 @@ namespace Zatod.Heroes
             Require(!string.IsNullOrWhiteSpace(data.ConfigVersion), "ConfigVersion is required.");
             Data = data;
             stats = Index(data.Stats, s => s.Id, "Stats");
-            items = Index(data.Items, s => s.Id, "Items");
+            items = Index(data.Items, s => s.DefinitionId, "Items");
             skills = Index(data.Skills, s => s.Id, "Skills");
             heroes = Index(data.Heroes, s => s.Id, "Heroes");
             monsters = Index(data.Monsters, s => s.Id, "Monsters");
@@ -29,6 +29,13 @@ namespace Zatod.Heroes
             foreach (var item in data.Items) ValidateStats(item.Stats, "Item " + item.Id);
             foreach (var skill in data.Skills)
             {
+                if (skill.Crystal != null && skill.Crystal.SourceId > 0)
+                {
+                    Require(skill.Crystal.SourceId > 0 && skill.Crystal.Cooldown >= 0 && skill.Crystal.Phases != null, "Invalid Crystal skill: " + skill.Id);
+                    foreach (var phase in skill.Crystal.Phases)
+                        Require(!string.IsNullOrWhiteSpace(phase.Action) && phase.Duration > 0 && phase.AttackTimes.All(t => t >= 0 && t <= phase.Duration + .00001), "Invalid Crystal phase: " + skill.Id);
+                    continue;
+                }
                 Require(Enum.IsDefined(typeof(SkillKind), skill.Kind) && Enum.IsDefined(typeof(SkillActivation), skill.Activation)
                     && Enum.IsDefined(typeof(SkillTarget), skill.Target), "Invalid skill enum: " + skill.Id);
                 Require(skill.EnergyCost >= 0 && skill.CooldownMilliseconds >= 0 && skill.CastRange >= 0
@@ -104,6 +111,7 @@ namespace Zatod.Heroes
                         && skill.AnimationDurationMilliseconds>=effect.ReviveDelayMilliseconds, "Invalid resurrection: "+skill.Id);
                 }
             }
+            ValidateCrystalData(data);
             foreach (var hero in data.Heroes) ValidateDefinition(hero);
             foreach (var monster in data.Monsters) ValidateMonster(monster);
         }
@@ -257,6 +265,40 @@ namespace Zatod.Heroes
             Require(unlocked.Count == slots.Count, "Every configured skill slot needs an unlock rank.");
         }
 
+        void ValidatePrecise(IEnumerable<StatAmount> values,string context)
+        {
+            Require(values!=null,context+" is missing.");var names=new HashSet<string>(StringComparer.Ordinal);
+            foreach(var value in values)
+            {Require(value!=null && names.Add(value.StatId) && !double.IsNaN(value.Value) && !double.IsInfinity(value.Value),"Invalid precise stat: "+context);Stat(value.StatId);}
+        }
+        void ValidateCrystalData(HeroCatalogData data)
+        {
+            var buffIds=new HashSet<int>();
+            foreach(var buff in data.Buffs)
+            {
+                Require(buff!=null && buff.SourceId>0 && buffIds.Add(buff.SourceId) && !double.IsNaN(buff.Duration) && !double.IsInfinity(buff.Duration) && buff.Duration>=0,"Invalid Crystal buff.");
+                ValidatePrecise(buff.Stats,"Buff "+buff.SourceId);
+                foreach(var scaling in buff.Scaling){Stat(scaling.StatId);Stat(scaling.Attribute);Require(!double.IsNaN(scaling.Ratio) && !double.IsInfinity(scaling.Ratio),"Invalid buff scaling.");}
+            }
+            foreach(var skill in data.Skills.Where(x=>x.Crystal!=null && x.Crystal.SourceId>0))
+            {
+                var info=skill.Crystal;
+                foreach(var field in typeof(CrystalSkillDefinition).GetFields())
+                    if(field.FieldType==typeof(double)){double value=(double)field.GetValue(info);Require(!double.IsNaN(value) && !double.IsInfinity(value),"Nonfinite Crystal skill: "+skill.Id+"/"+field.Name);}
+                Require(info.BuffId==0 || buffIds.Contains(info.BuffId),"Unknown Crystal buff: "+skill.Id);
+                Require(info.CostEnergy>=0 && info.InitialCooldown>=0 && info.GlobalCooldown>=0 && info.MinRange>=0 && info.MaxRange>=info.MinRange,"Invalid Crystal range/cost: "+skill.Id);
+                Require(string.IsNullOrEmpty(info.TrackType) || new[]{"projectile","chain","region"}.Contains(info.TrackType),"Unsupported Crystal delivery: "+skill.Id);
+                foreach(var phase in info.Phases)
+                    Require(!double.IsNaN(phase.Duration) && !double.IsInfinity(phase.Duration) && phase.AttackTimes.SequenceEqual(phase.AttackTimes.OrderBy(t=>t)),"Invalid Crystal event order: "+skill.Id);
+            }
+            foreach(var item in data.Items){ValidatePrecise(item.PreciseStats,"Item "+item.DefinitionId);foreach(var value in item.HeroStats){Hero(value.HeroId);ValidatePrecise(value.Stats,"Item Hero "+value.HeroId);}}
+            foreach(var unit in data.Heroes.Cast<CombatantDefinition>().Concat(data.Monsters))
+            {
+                ValidatePrecise(unit.PreciseBaseStats,"Unit "+unit.Id);
+                foreach(var growth in unit.Growth)ValidatePrecise(growth.PerLevel,"Growth "+unit.Id);
+                foreach(var rank in unit.RankStats){ValidatePrecise(rank.Stats,"Rank "+unit.Id);ValidatePrecise(rank.EstimatedStats,"Estimated rank "+unit.Id);}
+            }
+        }
         void ValidateStats(List<StatValue> values, string context)
         {
             var unique = Index(values, s => s.StatId, context + " stats");

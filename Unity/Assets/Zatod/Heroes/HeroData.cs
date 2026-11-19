@@ -18,12 +18,12 @@ namespace Zatod.Heroes
         [NonSerialized] public HeroDefinition Definition;
     }
 
-    [Serializable] public sealed class EquippedItemData { public string SlotId, ItemId; }
+    [Serializable] public sealed class EquippedItemData { public string SlotId, ItemId, Id; }
 
     [Serializable]
     public sealed class AbsorbedItemData
     {
-        public string RankId, SlotId, ItemId;
+        public string RankId, SlotId, ItemId, Id;
         public int Quantity = 1;
     }
 
@@ -40,13 +40,17 @@ namespace Zatod.Heroes
         public List<HeroData> HeroDesk = new List<HeroData>();
         public HeroFormationData Formation = new HeroFormationData();
         public List<Currency> Currencies = new List<Currency>();
-        public List<ItemStackData> Inventory = new List<ItemStackData>();
+        public List<ItemData> Inventory = new List<ItemData>();
         public CampaignProgressData MainCampaignProgress = new CampaignProgressData();
         public List<QuestProgressData> Quests = new List<QuestProgressData>();
     }
 
     [Serializable] public sealed class Currency { public string Id; public long Amount; }
-    [Serializable] public sealed class ItemStackData { public string ItemId; public long Quantity; }
+    [Serializable]
+    public sealed class ItemData
+    {
+        public string Id, ItemId;
+    }
     [Serializable] public sealed class CampaignProgressData { public List<string> ClearedStageIds = new List<string>(); }
     [Serializable] public sealed class QuestProgressData { public string Id, PeriodId; public long Progress; public bool Claimed; }
 
@@ -57,6 +61,7 @@ namespace Zatod.Heroes
         public bool HasNormalAttack;
         public SkillDefinition NormalAttack;
         public List<StatValue> Stats = new List<StatValue>();
+        public List<StatAmount> PreciseStats = new List<StatAmount>();
         public List<HeroSpawnPointDefinition> SpawnPoints = new List<HeroSpawnPointDefinition>();
         public List<BattleSkillData> Skills = new List<BattleSkillData>();
         public int CurrentHp, Energy;
@@ -64,6 +69,7 @@ namespace Zatod.Heroes
         {
             var copy=(CombatantBattleData)MemberwiseClone();
             copy.NormalAttack=HasNormalAttack?NormalAttack.Copy():null;
+            copy.PreciseStats=PreciseStats.ConvertAll(s=>s.Copy());
             copy.Stats=Stats.ConvertAll(s=>s.Copy());copy.SpawnPoints=SpawnPoints.ConvertAll(p=>p.Copy());
             copy.Skills=Skills.ConvertAll(s=>new BattleSkillData{SlotId=s.SlotId,Level=s.Level,IsUltimate=s.IsUltimate,
                 CooldownRemainingMilliseconds=s.CooldownRemainingMilliseconds,Definition=s.Definition.Copy()});

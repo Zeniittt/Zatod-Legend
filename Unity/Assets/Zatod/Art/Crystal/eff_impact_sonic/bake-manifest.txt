@@ -1,0 +1,89 @@
+{
+  "UnitId": "effect_eff_impact_sonic",
+  "Resource": "eff_impact_sonic",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_impact_sonic/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_impact_sonic_Start_0000",
+          "X": 0,
+          "Y": 200,
+          "Width": 201,
+          "Height": 200,
+          "PivotX": 0.5223880597014925,
+          "PivotY": 0.1
+        },
+        {
+          "Name": "eff_impact_sonic_Start_0001",
+          "X": 201,
+          "Y": 200,
+          "Width": 201,
+          "Height": 200,
+          "PivotX": 0.5223880597014925,
+          "PivotY": 0.1
+        },
+        {
+          "Name": "eff_impact_sonic_Start_0002",
+          "X": 402,
+          "Y": 200,
+          "Width": 201,
+          "Height": 200,
+          "PivotX": 0.5223880597014925,
+          "PivotY": 0.1
+        },
+        {
+          "Name": "eff_impact_sonic_Start_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 201,
+          "Height": 200,
+          "PivotX": 0.5223880597014925,
+          "PivotY": 0.1
+        },
+        {
+          "Name": "eff_impact_sonic_Start_0004",
+          "X": 201,
+          "Y": 0,
+          "Width": 201,
+          "Height": 200,
+          "PivotX": 0.5223880597014925,
+          "PivotY": 0.1
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.20833333333333334,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_sonic/Start_0.png",
+          "Name": "eff_impact_sonic_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_sonic/Start_0.png",
+          "Name": "eff_impact_sonic_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_sonic/Start_0.png",
+          "Name": "eff_impact_sonic_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_sonic/Start_0.png",
+          "Name": "eff_impact_sonic_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_sonic/Start_0.png",
+          "Name": "eff_impact_sonic_Start_0004"
+        }
+      ],
+      "Loop": false,
+      "Width": 201,
+      "Height": 200,
+      "AudioCues": []
+    }
+  ]
+}

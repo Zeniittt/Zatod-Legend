@@ -1,0 +1,66 @@
+{
+  "UnitId": "effect_eff_tile_Necromancer_atk",
+  "Resource": "eff_tile_Necromancer_atk",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_tile_Necromancer_atk/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Necromancer_atk_Start_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 165,
+          "Height": 88,
+          "PivotX": 0.3515151515151515,
+          "PivotY": 0.6022727272727273
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_tile_Necromancer_atk/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Necromancer_atk_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 165,
+          "Height": 88,
+          "PivotX": 0.3515151515151515,
+          "PivotY": 0.6022727272727273
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Necromancer_atk/Start_0.png",
+          "Name": "eff_tile_Necromancer_atk_Start_0000"
+        }
+      ],
+      "Loop": false,
+      "Width": 165,
+      "Height": 88,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Necromancer_atk/Loop_0.png",
+          "Name": "eff_tile_Necromancer_atk_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 165,
+      "Height": 88,
+      "AudioCues": []
+    }
+  ]
+}

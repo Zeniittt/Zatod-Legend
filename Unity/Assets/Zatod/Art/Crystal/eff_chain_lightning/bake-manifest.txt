@@ -1,0 +1,89 @@
+{
+  "UnitId": "effect_eff_chain_lightning",
+  "Resource": "eff_chain_lightning",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_chain_lightning/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_chain_lightning_Start_0000",
+          "X": 0,
+          "Y": 212,
+          "Width": 1730,
+          "Height": 106,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_chain_lightning_Start_0001",
+          "X": 1730,
+          "Y": 212,
+          "Width": 1730,
+          "Height": 106,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_chain_lightning_Start_0002",
+          "X": 0,
+          "Y": 106,
+          "Width": 1730,
+          "Height": 106,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_chain_lightning_Start_0003",
+          "X": 1730,
+          "Y": 106,
+          "Width": 1730,
+          "Height": 106,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_chain_lightning_Start_0004",
+          "X": 0,
+          "Y": 0,
+          "Width": 1730,
+          "Height": 106,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.20833333333333334,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_chain_lightning/Start_0.png",
+          "Name": "eff_chain_lightning_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_chain_lightning/Start_0.png",
+          "Name": "eff_chain_lightning_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_chain_lightning/Start_0.png",
+          "Name": "eff_chain_lightning_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_chain_lightning/Start_0.png",
+          "Name": "eff_chain_lightning_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_chain_lightning/Start_0.png",
+          "Name": "eff_chain_lightning_Start_0004"
+        }
+      ],
+      "Loop": false,
+      "Width": 1730,
+      "Height": 106,
+      "AudioCues": []
+    }
+  ]
+}

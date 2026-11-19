@@ -1,4 +1,20 @@
+# Zatod Legend — Crystal prototype
+
+Đọc [Design.md](Design.md) và [AGENTS.md](AGENTS.md) trước khi làm việc. Phase mới dùng scene `Unity/Assets/Zatod/Scenes/CrystalPrototype.unity`, Mirror TCP cổng 7788, core combat 8 Hz.
+
+**Chơi thử / server / hai client / cấp đồ:** [hướng dẫn Crystal prototype](docs/crystal-prototype-play.md). **Trạng thái kiểm chứng:** [implementation checkpoint](docs/crystal-phase-implementation.md).
+
+Bộ dữ liệu phase: 16 Hero, 10 quái, chương 1 Thường 18 ải/54 wave, 67 loại trang bị tới Xanh Dương. Client Phó bản gửi nhật ký cuối trận để validate; Arena dùng input replay; PvP đồng bộ input hai phía. Tiến trình ải reset mỗi lần mở ứng dụng; Hero/item/GUID được giữ riêng theo development profile.
+
+---
+
+Các mục bên dưới mô tả nhánh pixel/scene ArenaPrototype cũ, được giữ để tham chiếu và tương thích. Các lệnh/cổng/luồng cũ không thay thế hướng dẫn Crystal ở trên.
+
 # Zatod Legend — Arena combat prototype
+
+**Trước khi làm việc:** đọc [Design.md](Design.md) và [AGENTS.md](AGENTS.md). Quyết định đã chốt được duy trì trong Design.md; nếu một thay đổi sẽ phá quyết định thì cần báo lại để brainstorm trước.
+
+**Trước khi làm việc:** đọc [Design.md](Design.md) và [AGENTS.md](AGENTS.md). Quyết định đã chốt được duy trì trong Design.md; nếu một thay đổi sẽ phá quyết định thì cần báo lại để brainstorm trước.
 
 Unity **6000.6.2f1**, Universal 2D (URP), giao diện ngang 16:9. Mirror **v96.11.5**, TCP/Telepathy.
 

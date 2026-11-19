@@ -20,6 +20,10 @@ namespace Zatod.Heroes
     [Serializable] public sealed class CampaignStageDefinition
     {
         public string Id,Name,Description;
+        public int SourceStageId, Difficulty = 1;
+        public string RequiredStageId;
+        public double EnergyGainMultiplier = 1, EnergySupplyPercent;
+        public List<WaveDefinition> Waves = new List<WaveDefinition>();
         public float MapX,MapY;
         public List<CampaignMonsterSlot> Monsters=new List<CampaignMonsterSlot>();
     }
@@ -50,13 +54,24 @@ namespace Zatod.Heroes
                 {
                     if(stage==null || string.IsNullOrWhiteSpace(stage.Id) || stages.ContainsKey(stage.Id) || string.IsNullOrWhiteSpace(stage.Name)
                         || float.IsNaN(stage.MapX) || float.IsNaN(stage.MapY) || stage.MapX<0 || stage.MapX>1 || stage.MapY<0 || stage.MapY>1
-                        || stage.Monsters==null || stage.Monsters.Count<1 || stage.Monsters.Count>5)throw new ArgumentException("Invalid Campaign stage.");
+                        || stage.Monsters==null || ((stage.Waves==null || stage.Waves.Count==0) && (stage.Monsters.Count<1 || stage.Monsters.Count>5)))throw new ArgumentException("Invalid Campaign stage.");
+                    if (stage.Waves!=null && stage.Waves.Count>0) WaveValidation.Validate(stage,heroes);
                     foreach(var slot in stage.Monsters)
                     {
                         if(slot==null || slot.PowerBasisPoints<1000 || slot.PowerBasisPoints>100000)throw new ArgumentException("Invalid encounter power.");
                         heroes.Monster(slot.MonsterId);
                     }
-                    stages.Add(stage.Id,stage);prerequisites.Add(stage.Id,previous);previous=stage.Id;
+                    stages.Add(stage.Id,stage);prerequisites.Add(stage.Id,stage.Waves!=null && stage.Waves.Count>0 ? (string.IsNullOrEmpty(stage.RequiredStageId) ? null : stage.RequiredStageId) : previous);previous=stage.Id;
+                }
+            }
+            foreach (var id in stages.Keys)
+            {
+                var seen = new HashSet<string>(StringComparer.Ordinal);
+                string current = id;
+                while (current != null)
+                {
+                    if (!stages.ContainsKey(current) || !seen.Add(current)) throw new ArgumentException("Missing/cyclic Campaign prerequisite.");
+                    current = prerequisites[current];
                 }
             }
         }

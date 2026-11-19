@@ -1,0 +1,66 @@
+{
+  "UnitId": "effect_eff_tile_DR_atk",
+  "Resource": "eff_tile_DR_atk",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_tile_DR_atk/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_DR_atk_Start_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 120,
+          "Height": 27,
+          "PivotX": 0.5,
+          "PivotY": 0.48148148148148145
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_tile_DR_atk/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_DR_atk_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 120,
+          "Height": 27,
+          "PivotX": 0.5,
+          "PivotY": 0.48148148148148145
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_DR_atk/Start_0.png",
+          "Name": "eff_tile_DR_atk_Start_0000"
+        }
+      ],
+      "Loop": false,
+      "Width": 120,
+      "Height": 27,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_DR_atk/Loop_0.png",
+          "Name": "eff_tile_DR_atk_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 120,
+      "Height": 27,
+      "AudioCues": []
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "UnitId": "effect_eff_impact_slash",
+  "Resource": "eff_impact_slash",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_impact_slash/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_impact_slash_Start_0000",
+          "X": 0,
+          "Y": 306,
+          "Width": 173,
+          "Height": 153,
+          "PivotX": 0.5202312138728323,
+          "PivotY": -0.0915032679738562
+        },
+        {
+          "Name": "eff_impact_slash_Start_0001",
+          "X": 173,
+          "Y": 306,
+          "Width": 173,
+          "Height": 153,
+          "PivotX": 0.5202312138728323,
+          "PivotY": -0.0915032679738562
+        },
+        {
+          "Name": "eff_impact_slash_Start_0002",
+          "X": 346,
+          "Y": 306,
+          "Width": 173,
+          "Height": 153,
+          "PivotX": 0.5202312138728323,
+          "PivotY": -0.0915032679738562
+        },
+        {
+          "Name": "eff_impact_slash_Start_0003",
+          "X": 0,
+          "Y": 153,
+          "Width": 173,
+          "Height": 153,
+          "PivotX": 0.5202312138728323,
+          "PivotY": -0.0915032679738562
+        },
+        {
+          "Name": "eff_impact_slash_Start_0004",
+          "X": 173,
+          "Y": 153,
+          "Width": 173,
+          "Height": 153,
+          "PivotX": 0.5202312138728323,
+          "PivotY": -0.0915032679738562
+        },
+        {
+          "Name": "eff_impact_slash_Start_0005",
+          "X": 346,
+          "Y": 153,
+          "Width": 173,
+          "Height": 153,
+          "PivotX": 0.5202312138728323,
+          "PivotY": -0.0915032679738562
+        },
+        {
+          "Name": "eff_impact_slash_Start_0006",
+          "X": 0,
+          "Y": 0,
+          "Width": 173,
+          "Height": 153,
+          "PivotX": 0.5202312138728323,
+          "PivotY": -0.0915032679738562
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.2916666666666667,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_slash/Start_0.png",
+          "Name": "eff_impact_slash_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_slash/Start_0.png",
+          "Name": "eff_impact_slash_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_slash/Start_0.png",
+          "Name": "eff_impact_slash_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_slash/Start_0.png",
+          "Name": "eff_impact_slash_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_slash/Start_0.png",
+          "Name": "eff_impact_slash_Start_0004"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_slash/Start_0.png",
+          "Name": "eff_impact_slash_Start_0005"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_impact_slash/Start_0.png",
+          "Name": "eff_impact_slash_Start_0006"
+        }
+      ],
+      "Loop": false,
+      "Width": 173,
+      "Height": 153,
+      "AudioCues": [
+        {
+          "Time": 0.0,
+          "Resource": "Crystal/Audio/sound_eff_impact_slash"
+        }
+      ]
+    }
+  ]
+}

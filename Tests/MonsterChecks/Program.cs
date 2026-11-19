@@ -19,9 +19,9 @@ static class Program
         string dataPath=Path.Combine(root.FullName,"Unity/Assets/Zatod/Resources/Data");
         T Read<T>(string name)=>JsonSerializer.Deserialize<T>(File.ReadAllText(Path.Combine(dataPath,name+".txt")),Json);
         var stats=Read<StatsConfigData>("Stats");var items=Read<ItemsConfigData>("Items");var skills=Read<SkillsConfigData>("Skills");
-        var heroes=Read<HeroesConfigData>("Heroes");var monsters=Read<MonstersConfigData>("Monsters");
-        Check(new[]{items.ConfigVersion,skills.ConfigVersion,heroes.ConfigVersion,monsters.ConfigVersion}.All(v=>v==stats.ConfigVersion),"Config version mismatch");
-        var catalog=new HeroCatalog(new HeroCatalogData{ConfigVersion=stats.ConfigVersion,Stats=stats.Stats,Items=items.Items,Skills=skills.Skills,Heroes=heroes.Heroes,Monsters=monsters.Monsters});
+        var heroes=Read<HeroesConfigData>("Heroes");var monsters=Read<MonstersConfigData>("Monsters");var buffs=Read<BuffsConfigData>("Buffs");
+        Check(new[]{items.ConfigVersion,skills.ConfigVersion,heroes.ConfigVersion,monsters.ConfigVersion,buffs.ConfigVersion}.All(v=>v==stats.ConfigVersion),"Config version mismatch");
+        var catalog=new HeroCatalog(new HeroCatalogData{ConfigVersion=stats.ConfigVersion,Stats=stats.Stats,Items=items.Items,Skills=skills.Skills,Heroes=heroes.Heroes,Monsters=monsters.Monsters,Buffs=buffs.Buffs});
         string original=Encode(catalog.Data);
         Check(new[]{"fighter_goblin","skeleton_knight","goblin_mage","guardian","archer","huntress","evil_wizard"}.All(id=>catalog.Monster(id).SkillIds.Count==0),"Missing normal-attack-only starter monster");
         var first=MonsterBattleFactory.Create("fighter_goblin","first",catalog);var second=MonsterBattleFactory.Create("fighter_goblin","second",catalog);

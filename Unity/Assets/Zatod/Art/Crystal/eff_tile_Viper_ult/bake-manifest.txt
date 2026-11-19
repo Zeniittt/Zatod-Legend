@@ -1,0 +1,170 @@
+{
+  "UnitId": "effect_eff_tile_Viper_ult",
+  "Resource": "eff_tile_Viper_ult",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Viper_ult_Start_0000",
+          "X": 0,
+          "Y": 152,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        },
+        {
+          "Name": "eff_tile_Viper_ult_Start_0001",
+          "X": 270,
+          "Y": 152,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        },
+        {
+          "Name": "eff_tile_Viper_ult_Start_0002",
+          "X": 540,
+          "Y": 152,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        },
+        {
+          "Name": "eff_tile_Viper_ult_Start_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        },
+        {
+          "Name": "eff_tile_Viper_ult_Start_0004",
+          "X": 270,
+          "Y": 0,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Viper_ult_Loop_0000",
+          "X": 0,
+          "Y": 152,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        },
+        {
+          "Name": "eff_tile_Viper_ult_Loop_0001",
+          "X": 270,
+          "Y": 152,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        },
+        {
+          "Name": "eff_tile_Viper_ult_Loop_0002",
+          "X": 540,
+          "Y": 152,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        },
+        {
+          "Name": "eff_tile_Viper_ult_Loop_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        },
+        {
+          "Name": "eff_tile_Viper_ult_Loop_0004",
+          "X": 270,
+          "Y": 0,
+          "Width": 270,
+          "Height": 152,
+          "PivotX": 0.5481481481481482,
+          "PivotY": 0.5131578947368421
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.20833333333333334,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Start_0.png",
+          "Name": "eff_tile_Viper_ult_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Start_0.png",
+          "Name": "eff_tile_Viper_ult_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Start_0.png",
+          "Name": "eff_tile_Viper_ult_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Start_0.png",
+          "Name": "eff_tile_Viper_ult_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Start_0.png",
+          "Name": "eff_tile_Viper_ult_Start_0004"
+        }
+      ],
+      "Loop": false,
+      "Width": 270,
+      "Height": 152,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.20833333333333334,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Loop_0.png",
+          "Name": "eff_tile_Viper_ult_Loop_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Loop_0.png",
+          "Name": "eff_tile_Viper_ult_Loop_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Loop_0.png",
+          "Name": "eff_tile_Viper_ult_Loop_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Loop_0.png",
+          "Name": "eff_tile_Viper_ult_Loop_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Crystal/eff_tile_Viper_ult/Loop_0.png",
+          "Name": "eff_tile_Viper_ult_Loop_0004"
+        }
+      ],
+      "Loop": true,
+      "Width": 270,
+      "Height": 152,
+      "AudioCues": []
+    }
+  ]
+}

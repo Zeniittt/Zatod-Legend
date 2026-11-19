@@ -13,6 +13,7 @@ namespace Zatod.Heroes
         public List<SkillDefinition> Skills = new List<SkillDefinition>();
         public List<HeroDefinition> Heroes = new List<HeroDefinition>();
         public List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
+        public List<CrystalBuffDefinition> Buffs = new List<CrystalBuffDefinition>();
     }
 
     [Serializable] public sealed class StatDefinition { public string Id, Name; public int Minimum; }
@@ -30,16 +31,29 @@ namespace Zatod.Heroes
     [Serializable]
     public sealed class ItemDefinition
     {
-        public string Id, Name;
+        // ItemId identifies a definition; instance GUIDs belong to ItemData.
+        public string ItemId;
+        public string Id, Name; // Id reads existing prototype configs during migration.
+        public string DefinitionId => string.IsNullOrEmpty(ItemId) ? Id : ItemId;
+        public string IconResource;
+        public int LevelRequirement = 1, Quality;
+        public List<StatAmount> PreciseStats = new List<StatAmount>();
+        public List<HeroItemStats> HeroStats = new List<HeroItemStats>();
         public List<StatValue> Stats = new List<StatValue>();
     }
 
     public enum HeroPosition { Front, Middle, Rear }
 
     [Serializable]
-    public sealed class HeroDefinition
+    public abstract class CombatantDefinition
     {
-        public string Id, Name, StartingRankId;
+        public string Id, Name;
+        public int SourceUnitId;
+        public string SourcePuppet, SourceResource;
+        public double ArtScale = 1, CollideRadius;
+        public List<StatAmount> PreciseBaseStats = new List<StatAmount>();
+        public List<HeroGrowthDefinition> Growth = new List<HeroGrowthDefinition>();
+        public List<UnitRankStats> RankStats = new List<UnitRankStats>();
         public HeroPosition Position;
         public string PortraitKey;
         public string BodyPrefabResource, AnimationSetResource, NormalAttackSkillId;
@@ -47,6 +61,12 @@ namespace Zatod.Heroes
         public int DeathAnimationMilliseconds = 1500;
         public List<HeroSpawnPointDefinition> SpawnPoints = new List<HeroSpawnPointDefinition>();
         public List<StatValue> BaseStats = new List<StatValue>();
+    }
+
+    [Serializable]
+    public sealed class HeroDefinition : CombatantDefinition
+    {
+        public string StartingRankId;
         public List<HeroRankDefinition> Ranks = new List<HeroRankDefinition>();
         public List<HeroSkillSlotDefinition> SkillSlots = new List<HeroSkillSlotDefinition>();
     }
@@ -66,6 +86,7 @@ namespace Zatod.Heroes
         public string Id, Name, NextRankId;
         // Incremental bonuses: every reached rank contributes once.
         public List<StatValue> BonusStats = new List<StatValue>();
+        public List<StatAmount> PreciseBonusStats = new List<StatAmount>();
         public List<EquipmentSlotDefinition> EquipmentSlots = new List<EquipmentSlotDefinition>();
         public List<string> UnlockSkillSlotIds = new List<string>();
     }
@@ -83,6 +104,7 @@ namespace Zatod.Heroes
     public sealed class SkillDefinition
     {
         public string Id, Name;
+        public CrystalSkillDefinition Crystal;
         public SkillKind Kind;
         // UltimateIntent is supplied by offline AI or a live player's accepted command.
         public SkillActivation Activation;
@@ -117,6 +139,7 @@ namespace Zatod.Heroes
         public SkillDefinition Copy()
         {
             var copy = (SkillDefinition)MemberwiseClone();
+            copy.Crystal = Crystal?.Copy();
             copy.Effects = Effects.ConvertAll(effect => effect.Copy());
             copy.CasterVisuals = CasterVisuals.ConvertAll(cue => cue.Copy());
             copy.CastSequences = CastSequences.ConvertAll(sequence => sequence.Copy());

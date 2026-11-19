@@ -9,7 +9,7 @@ namespace Zatod.Heroes
     {
         public const string ConfigAssetDirectory = "Assets/Zatod/Resources/Data";
         public static readonly HeroConfigSection[] Sections =
-            { HeroConfigSection.Stats, HeroConfigSection.Items, HeroConfigSection.Skills, HeroConfigSection.Heroes, HeroConfigSection.Monsters };
+            { HeroConfigSection.Stats, HeroConfigSection.Items, HeroConfigSection.Skills, HeroConfigSection.Heroes, HeroConfigSection.Monsters, HeroConfigSection.Buffs };
 
         public static string AssetPath(HeroConfigSection section) { return ConfigAssetDirectory + "/" + section + ".txt"; }
 
@@ -19,7 +19,7 @@ namespace Zatod.Heroes
             foreach (var section in Sections)
             {
                 var asset = Resources.Load<TextAsset>("Data/" + section);
-                if (asset == null && section==HeroConfigSection.Monsters) continue;
+                if (asset == null && (section==HeroConfigSection.Monsters || section==HeroConfigSection.Buffs)) continue;
                 if (asset == null) throw new FileNotFoundException("Missing hero JSON config: " + AssetPath(section));
                 documents.Set(section, asset.text);
             }
@@ -32,7 +32,7 @@ namespace Zatod.Heroes
             HeroCatalogData data = null;
             foreach (var section in Sections)
             {
-                if(section==HeroConfigSection.Monsters && string.IsNullOrWhiteSpace(documents.Get(section))) continue;
+                if((section==HeroConfigSection.Monsters || section==HeroConfigSection.Buffs) && string.IsNullOrWhiteSpace(documents.Get(section))) continue;
                 var table = ReadTable(section, documents.Get(section));
                 if (data == null) data = new HeroCatalogData { SchemaVersion = table.SchemaVersion, ConfigVersion = table.ConfigVersion };
                 if (table.SchemaVersion != data.SchemaVersion || table.ConfigVersion != data.ConfigVersion)
@@ -60,6 +60,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Skills: table = new SkillsConfigData { Skills = data.Skills }; break;
                 case HeroConfigSection.Heroes: table = new HeroesConfigData { Heroes = data.Heroes }; break;
                 case HeroConfigSection.Monsters: table = new MonstersConfigData { Monsters = data.Monsters }; break;
+                case HeroConfigSection.Buffs: table = new BuffsConfigData { Buffs = data.Buffs }; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
             table.SchemaVersion = data.SchemaVersion; table.ConfigVersion = data.ConfigVersion;
@@ -89,6 +90,8 @@ namespace Zatod.Heroes
                     var skills = JsonUtility.FromJson<SkillsConfigData>(json); table = skills; hasEntries = skills != null && skills.Skills != null; break;
                 case HeroConfigSection.Heroes:
                     var heroes = JsonUtility.FromJson<HeroesConfigData>(json); table = heroes; hasEntries = heroes != null && heroes.Heroes != null; break;
+                case HeroConfigSection.Buffs:
+                    var buffs = JsonUtility.FromJson<BuffsConfigData>(json); table = buffs; hasEntries = buffs != null && buffs.Buffs != null; break;
                 case HeroConfigSection.Monsters:
                     var monsters = JsonUtility.FromJson<MonstersConfigData>(json); table = monsters; hasEntries = monsters != null && monsters.Monsters != null; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
@@ -107,6 +110,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Skills: data.Skills = ((SkillsConfigData)table).Skills; break;
                 case HeroConfigSection.Heroes: data.Heroes = ((HeroesConfigData)table).Heroes; break;
                 case HeroConfigSection.Monsters: data.Monsters = ((MonstersConfigData)table).Monsters; break;
+                case HeroConfigSection.Buffs: data.Buffs = ((BuffsConfigData)table).Buffs; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }
