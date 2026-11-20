@@ -106,7 +106,7 @@ public static class SetupEnchantx
         File.Copy(Source+"/README.txt",Art+"/SourceNotes.txt",false);File.Copy(Source+"/hero_kit.json",Art+"/SourceKit.json",false);
         AssetDatabase.Refresh();Configure(data);HeroConfigFileStore.Save(data,source);FinishPresentation();
         LeenaldAtlasBuild.Ensure(Art,Art+"/Enchantx.spriteatlasv2");AssetDatabase.SaveAssets();
-        foreach(var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>())window.ReloadIfClean();
+        foreach(var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>())window.ReloadIfClean();
         return new{hero="enchantx",frames=sprites.Count,clips=clips.Count,data.ConfigVersion};
     }
     static (int width,int height,HeroFrameBounds bounds) Bounds(string path)

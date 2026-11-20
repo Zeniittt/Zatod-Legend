@@ -87,7 +87,7 @@ public static class VerifyHeroData
         Check(HeroDataJson.WriteCharacter(HeroDataJson.ReadCharacter(File.ReadAllText(path), catalog), catalog) == saved, "Disk save/load changed data");
         Check(Directory.GetFiles(Path.GetDirectoryName(path), "*.tmp").Length == 0, "Temporary files leaked");
 
-        var window = ScriptableObject.CreateInstance<HeroBalanceWindow>();
+        var window = ScriptableObject.CreateInstance<GameEditorWindow>();
         try
         {
             window.titleContent = new GUIContent("Hero Balance QA"); window.position = new Rect(120, 70, 1120, 760);
@@ -130,7 +130,7 @@ public static class VerifyHeroData
             foreach (var section in HeroDataJson.Sections) HeroDataJson.WriteFileAtomically(HeroDataJson.AssetPath(section), originals.Get(section));
             HeroConfigFileStore.ImportFiles(); window.DiscardChanges(); window.Close();
         }
-        HeroBalanceWindow.Open(); var visible = EditorWindow.GetWindow<HeroBalanceWindow>(); visible.position = new Rect(100, 70, 1120, 760);
+        GameEditorWindow.Open(); var visible = EditorWindow.GetWindow<GameEditorWindow>(); visible.position = new Rect(100, 70, 1120, 760);
         return new { status = "PASS", checks, save = path, config = HeroDataJson.ConfigAssetDirectory };
     }
 }

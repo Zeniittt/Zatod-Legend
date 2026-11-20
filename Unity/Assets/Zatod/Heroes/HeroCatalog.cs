@@ -179,6 +179,7 @@ namespace Zatod.Heroes
             Require(character != null && character.SchemaVersion == 1, "Unsupported character save schema.");
             Require(!string.IsNullOrWhiteSpace(character.CharacterId), "CharacterId is required.");
             Require(character.HeroDesk != null, "HeroDesk is missing.");
+            ZatodSaveMigration.Apply(character,this);
             var ids = new HashSet<string>(StringComparer.Ordinal);
             foreach (var hero in character.HeroDesk)
             {
@@ -283,7 +284,7 @@ namespace Zatod.Heroes
             foreach(var skill in data.Skills.Where(x=>x.Crystal!=null && x.Crystal.SourceId>0))
             {
                 var info=skill.Crystal;
-                foreach(var field in typeof(CrystalSkillDefinition).GetFields())
+                foreach(var field in typeof(ZatodSkillDefinition).GetFields())
                     if(field.FieldType==typeof(double)){double value=(double)field.GetValue(info);Require(!double.IsNaN(value) && !double.IsInfinity(value),"Nonfinite Crystal skill: "+skill.Id+"/"+field.Name);}
                 Require(info.BuffId==0 || buffIds.Contains(info.BuffId),"Unknown Crystal buff: "+skill.Id);
                 Require(info.CostEnergy>=0 && info.InitialCooldown>=0 && info.GlobalCooldown>=0 && info.MinRange>=0 && info.MaxRange>=info.MinRange,"Invalid Crystal range/cost: "+skill.Id);
@@ -322,7 +323,7 @@ namespace Zatod.Heroes
 
         static T Find<T>(Dictionary<string, T> values, string id, string kind)
         {
-            if (id != null && values.TryGetValue(id, out var value)) return value;
+            if (id != null && (values.TryGetValue(id, out var value) || values.TryGetValue(ZatodContentIds.Canonical(id),out value))) return value;
             throw new ArgumentException("Unknown " + kind + " ID: " + id);
         }
 

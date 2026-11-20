@@ -72,7 +72,7 @@ public static class SetupLilina
         Apply(portrait,new SpriteRect{name="lilina",spriteID=GUID.Generate(),rect=new Rect(56,23,58,65),alignment=SpriteAlignment.Center,pivot=new Vector2(.5f,.5f)});
         File.Copy(Source+"/hero_kit.json",Art+"/SourceKit.json",false);File.Copy(Source+"/README.txt",Art+"/SourceNotes.txt",false);
         Configure(data);HeroConfigFileStore.Save(data,before);AssetDatabase.Refresh();LeenaldAtlasBuild.Ensure(Art,Art+"/Lilina.spriteatlasv2");AssetDatabase.SaveAssets();
-        foreach(var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>())window.ReloadIfClean();foreach(var window in Resources.FindObjectsOfTypeAll<HeroCombatSandboxWindow>())window.CreateGUI();
+        foreach(var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>())window.ReloadIfClean();foreach(var window in Resources.FindObjectsOfTypeAll<HeroCombatSandboxWindow>())window.CreateGUI();
         return new{hero="lilina",frames,clips=clips.Count,data.ConfigVersion};
     }
     static void Apply(TextureImporter importer,SpriteRect rect)

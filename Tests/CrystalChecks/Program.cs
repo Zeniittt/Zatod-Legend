@@ -15,7 +15,7 @@ static class Program
     static void Reject(Action action,string why){bool rejected=false;try{action();}catch(ArgumentException){rejected=true;}Check(rejected,why);}
     static void Main()
     {
-        try { Inventory(); ImportedData(); CrystalBattles(); Sessions(); SourceCombatRules(); PresentationMotion(); Console.WriteLine("[CrystalChecks] PASS / "+checks+" assertions"); }
+        try { Inventory(); ImportedData(); CampaignDropConfig(); ZatodBattles(); Sessions(); SourceCombatRules(); PresentationMotion(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); }
         catch(Exception error) { Console.Error.WriteLine(error.ToString());Environment.ExitCode=1; }
     }
     sealed class Oracle { public List<OracleRow> Rows; }
@@ -36,7 +36,7 @@ static class Program
         var catalog=ImportedCatalog();
         Check(catalog.Data.Heroes.Count(x=>x.SourceUnitId>0)==16,"Crystal Hero coverage");
         Check(catalog.Data.Monsters.Count(x=>x.SourceUnitId>0)==10,"Crystal Monster coverage");
-        Check(catalog.Data.Items.Count(x=>x.DefinitionId.StartsWith("crystal_"))==67,"Crystal equipment coverage");
+        Check(catalog.Data.Items.Count==67,"Crystal equipment coverage");
         var oracle=Read<Oracle>("Artifacts/CrystalPhaseChecks/stat-oracle.json");
         foreach(var expected in oracle.Rows)
         {
@@ -52,20 +52,60 @@ static class Program
             double time=original.Phases[0].AttackTimes[0];battle.NormalAttack.Crystal.Phases[0].AttackTimes[0]+=1;
             Check(original.Phases[0].AttackTimes[0]==time,"Crystal timing snapshot shares mutable config");
         }
-        var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/CrystalCampaigns.txt"),catalog);
+        var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),catalog);
         Check(campaign.Data.Chapters.Single().Stages.Count==18 && campaign.Data.Chapters.Single().Stages.Sum(x=>x.Waves.Count)==54,"Chapter wave coverage");
-        var run=new CampaignRun(campaign);Check(run.IsUnlocked("crystal_stage_1")&&!run.IsUnlocked("crystal_stage_2"),"New run unlock state");
-        run.AcceptValidated("crystal_stage_1",true,3);Check(run.IsUnlocked("crystal_stage_2"),"Validated clear did not unlock next stage");
-        Check(!new CampaignRun(campaign).IsUnlocked("crystal_stage_2"),"New run restored old progress");
+        var run=new CampaignRun(campaign);Check(run.IsUnlocked("chapter_one_stage_1")&&!run.IsUnlocked("chapter_one_stage_2"),"New run unlock state");
+        run.AcceptValidated("chapter_one_stage_1",true,3);Check(run.IsUnlocked("chapter_one_stage_2"),"Validated clear did not unlock next stage");
+        Check(!new CampaignRun(campaign).IsUnlocked("chapter_one_stage_2"),"New run restored old progress");
     }
-    static void CrystalBattles()
+    static void CampaignDropConfig()
     {
-        var catalog=ImportedCatalog();var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/CrystalCampaigns.txt"),catalog);
+        var heroes=ImportedCatalog();
+        CampaignDefinition Load()=>Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt");
+        var data=Load();var campaign=new CampaignCatalog(data,heroes);
+        var stages=data.Chapters.SelectMany(c=>c.Stages).ToArray();
+        Check(stages.Length==18 && stages.All(s=>s.DropItems.Count>0),"Imported stages need drop preview metadata");
+        foreach(var stage in stages)
+        {
+            Check(stage.DropItems.All(d=>d.DropChancePercent==100),"Prototype drop rates must be 100 percent");
+            Check(stage.DropItems.All(d=>heroes.Item(d.ItemId)!=null),"Drop references missing item");
+        }
+        Check(stages.SelectMany(s=>s.DropItems).Select(d=>d.ItemId).Distinct().Count()==10,"Chapter one imported drop item scope");
+        Check(campaign.Stage("chapter_one_stage_3").DropItems.Select(d=>d.ItemId).SequenceEqual(new[]{"iron_axe","small_stout_shield"}),"Stage 3 preview differs from source");
+        foreach(double chance in new[]{-1d,100.01d,double.NaN,double.PositiveInfinity,double.NegativeInfinity})
+        {
+            var invalid=Load();invalid.Chapters[0].Stages[0].DropItems[0].DropChancePercent=chance;
+            Reject(()=>new CampaignCatalog(invalid,heroes),"Invalid drop chance accepted: "+chance);
+        }
+        foreach(double chance in new[]{0d,12.5d,100d})
+        {
+            var editable=Load();editable.Chapters[0].Stages[0].DropItems[0].DropChancePercent=chance;
+            editable.Chapters[0].Stages[0].VitalityCost=7;
+            var roundtrip=JsonSerializer.Deserialize<CampaignDefinition>(JsonSerializer.Serialize(editable,Json),Json);
+            var restored=new CampaignCatalog(roundtrip,heroes);
+            Check(restored.Data.Chapters[0].Stages[0].DropItems[0].DropChancePercent==chance && restored.Data.Chapters[0].Stages[0].VitalityCost==7,"Stage metadata lost in authoring round trip");
+        }
+        void Invalid(Action<CampaignStageDefinition> edit,string why)
+        {var invalid=Load();edit(invalid.Chapters[0].Stages[0]);Reject(()=>new CampaignCatalog(invalid,heroes),why);}
+        Invalid(s=>s.DropItems[0].ItemId="missing_item","Unknown drop item accepted");
+        Invalid(s=>s.DropItems.Add(new CampaignDropItemDefinition{ItemId=s.DropItems[0].ItemId}),"Duplicate drop item accepted");
+        Invalid(s=>s.DropItems[0]=null,"Null drop entry accepted");
+        Invalid(s=>s.DropItems=null,"Null drop list accepted");
+        Invalid(s=>s.VitalityCost=-1,"Negative stage vitality cost accepted");
+        var free=Load();free.Chapters[0].Stages[0].VitalityCost=0;
+        Check(new CampaignCatalog(free,heroes).Data.Chapters[0].Stages[0].VitalityCost==0,"Free stage cost rejected");
+        var legacy=Load();foreach(var stage in legacy.Chapters.SelectMany(c=>c.Stages))stage.DropItems.Clear();
+        new CampaignCatalog(legacy,heroes);
+        Check(new CampaignStageDefinition().DropItems.Count==0,"Old stages must default to an empty drop list");
+    }
+    static void ZatodBattles()
+    {
+        var catalog=ImportedCatalog();var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),catalog);
         var account=campaign.CreateDemoCharacter(catalog);foreach(var hero in account.HeroDesk)hero.Level=40;
         foreach(var stage in campaign.Data.Chapters[0].Stages)
         {
-            var match=CrystalMatchFactory.Campaign(campaign,catalog,account,stage.Id,account.HeroDesk.Select(h=>h.HeroInstanceId),17,stage.Id);
-            var battle=new CrystalBattleSimulation(match);
+            var match=ZatodMatchFactory.Campaign(campaign,catalog,account,stage.Id,account.HeroDesk.Select(h=>h.HeroInstanceId),17,stage.Id);
+            var battle=new ZatodBattleSimulation(match);
             int budget=3000;
             while(!battle.Finished && budget-->0)
             {
@@ -75,10 +115,10 @@ static class Program
             Check(battle.Finished,"Crystal battle never terminated");
             var replay=battle.Replay();
             Check(replay.Winner==0 && battle.WaveIndex==3,"High-level test team did not clear all 3 waves: "+stage.Id);
-            var repeated=CrystalBattleSimulation.Resimulate(replay);
+            var repeated=ZatodBattleSimulation.Resimulate(replay);
             Check(repeated.Digest==replay.Digest && repeated.Winner==replay.Winner && repeated.EndTick==replay.EndTick,"Crystal replay diverged");
-            Check(CrystalBattleSimulation.Validate(match,replay.Inputs,replay.EndTick,replay.Winner,replay.Stars,replay.Digest),"Legitimate battle rejected");
-            Check(!CrystalBattleSimulation.Validate(match,replay.Inputs,replay.EndTick,1-replay.Winner,replay.Stars,replay.Digest),"Tampered result accepted");
+            Check(ZatodBattleSimulation.Validate(match,replay.Inputs,replay.EndTick,replay.Winner,replay.Stars,replay.Digest),"Legitimate battle rejected");
+            Check(!ZatodBattleSimulation.Validate(match,replay.Inputs,replay.EndTick,1-replay.Winner,replay.Stars,replay.Digest),"Tampered result accepted");
         }
         foreach(var definition in catalog.Data.Heroes.Where(h=>h.SourceUnitId>0))
         {
@@ -86,104 +126,104 @@ static class Program
             while(hero.RankId!="blue")
             {foreach(var slot in HeroProgression.CurrentRank(hero,catalog).EquipmentSlots)HeroProgression.Equip(hero,catalog,slot.Id,slot.RequiredItemId);HeroProgression.Promote(hero,catalog);}
             foreach(var slot in HeroProgression.CurrentRank(hero,catalog).EquipmentSlots)HeroProgression.Equip(hero,catalog,slot.Id,slot.RequiredItemId);
-            var blueMatch=CrystalMatchFactory.Versus(catalog,new[]{hero},account.HeroDesk,87,"blue-"+definition.Id,false);
-            var blue=new CrystalBattleSimulation(blueMatch).RunToCompletion();
+            var blueMatch=ZatodMatchFactory.Versus(catalog,new[]{hero},account.HeroDesk,87,"blue-"+definition.Id,false);
+            var blue=new ZatodBattleSimulation(blueMatch).RunToCompletion();
             Check(blue.Completed,"Imported blue Hero battle did not terminate: "+definition.Id);
-            Check(CrystalBattleSimulation.Resimulate(blue).Digest==blue.Digest,"Imported blue Hero replay diverged: "+definition.Id);
+            Check(ZatodBattleSimulation.Resimulate(blue).Digest==blue.Digest,"Imported blue Hero replay diverged: "+definition.Id);
         }
-        var match1=CrystalMatchFactory.Versus(catalog,account.HeroDesk,account.HeroDesk,42,"arena",false);
-        var auto=new CrystalBattleSimulation(match1).RunToCompletion();
-        Check(CrystalBattleSimulation.Resimulate(auto).Digest==auto.Digest,"Automatic Arena replay changed");
-        var partial=new CrystalBattleSimulation(match1);partial.Step();var frame=partial.Frame();
-        Check(!CrystalBattleSimulation.Validate(match1,Array.Empty<CrystalInput>(),1,frame.Winner,frame.Stars,frame.Digest),"Incomplete match accepted as finished");
+        var match1=ZatodMatchFactory.Versus(catalog,account.HeroDesk,account.HeroDesk,42,"arena",false);
+        var auto=new ZatodBattleSimulation(match1).RunToCompletion();
+        Check(ZatodBattleSimulation.Resimulate(auto).Digest==auto.Digest,"Automatic Arena replay changed");
+        var partial=new ZatodBattleSimulation(match1);partial.Step();var frame=partial.Frame();
+        Check(!ZatodBattleSimulation.Validate(match1,Array.Empty<ZatodInput>(),1,frame.Winner,frame.Stars,frame.Digest),"Incomplete match accepted as finished");
     }
     static void Sessions()
     {
-        var catalog=ImportedCatalog();var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/CrystalCampaigns.txt"),catalog);
-        var session=new CrystalPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"));
-        Reject(()=>session.BeginCampaign("crystal_stage_2",null,3,"locked"),"Locked stage was issued");
+        var catalog=ImportedCatalog();var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),catalog);
+        var session=new ZatodPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"));
+        Reject(()=>session.BeginCampaign("chapter_one_stage_2",null,3,"locked"),"Locked stage was issued");
         foreach(var hero in session.Account.HeroDesk)session.DevLevel(hero.HeroInstanceId,40);
-        var match=session.BeginCampaign("crystal_stage_1",null,5,"issued");
-        Reject(()=>session.DevItem("crystal_item_108",1),"Item changed during an issued battle");
-        var battle=new CrystalBattleSimulation(match);
+        var match=session.BeginCampaign("chapter_one_stage_1",null,5,"issued");
+        Reject(()=>session.DevItem("iron_axe",1),"Item changed during an issued battle");
+        var battle=new ZatodBattleSimulation(match);
         while(!battle.Finished){foreach(var actor in battle.Frame().Units.Where(u=>u.Team==0 && u.Alive))battle.RequestUltimate(actor.EntityId);battle.Step();}
         var claim=battle.Replay();int stars=claim.Stars;claim.Stars=3-stars;
         Reject(()=>session.ValidateCampaign(claim),"Tampered claim was accepted");claim.Stars=stars;
         var accepted=session.ValidateCampaign(claim);
-        Check(accepted.Digest==claim.Digest && session.Run.IsUnlocked("crystal_stage_2"),"Valid claim did not unlock next stage");
+        Check(accepted.Digest==claim.Digest && session.Run.IsUnlocked("chapter_one_stage_2"),"Valid claim did not unlock next stage");
         Reject(()=>session.ValidateCampaign(claim),"Consumed battle was accepted a second time");
-        var nextLaunch=new CrystalPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"));
-        Check(!nextLaunch.Run.IsUnlocked("crystal_stage_2"),"A new launch retained campaign progress");
-        session.DevItem("crystal_item_108",2);string retainedGuid=session.Account.Inventory[0].Id;
-        var ownedAgain=new CrystalPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"),session.Account);
+        var nextLaunch=new ZatodPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"));
+        Check(!nextLaunch.Run.IsUnlocked("chapter_one_stage_2"),"A new launch retained campaign progress");
+        session.DevItem("iron_axe",2);string retainedGuid=session.Account.Inventory[0].Id;
+        var ownedAgain=new ZatodPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"),session.Account);
         Check(ownedAgain.Account.Inventory.Any(x=>x.Id==retainedGuid) && ownedAgain.Account.HeroDesk.All(h=>h.Level==40),"New launch reset owned Hero/items");
-        Check(!ownedAgain.Run.IsUnlocked("crystal_stage_2"),"Owned save restored campaign progress");
+        Check(!ownedAgain.Run.IsUnlocked("chapter_one_stage_2"),"Owned save restored campaign progress");
 
     }
-    static CrystalMatchDefinition Fixture(string type="AD",double amount=100,double defense=0,double speed=0,double haste=0,int enemies=1)
+    static ZatodMatchDefinition Fixture(string type="AD",double amount=100,double defense=0,double speed=0,double haste=0,int enemies=1)
     {
-        CrystalUnitData Unit(int id,int team)
+        ZatodUnitData Unit(int id,int team)
         {
-            var info=new CrystalSkillDefinition{SourceId=id+10,ActiveType="active",TargetType="target",AffectedCamp=-1,TargetCamp=-1,DamageType=type,BasicAmount=amount,MaxRange=9999,Cooldown=1000,GlobalCooldown=1000,CritPercent=100,Phases=new List<CrystalActionPhase>{new CrystalActionPhase{Action="Attack",Duration=.5,AttackTimes=new List<double>{.25}}}};
-            var data=new CrystalUnitData{EntityId=id,Team=team,Level=1,DefinitionId="fixture",Battle=new CombatantBattleData{HasNormalAttack=team==0,NormalAttack=team==0?new SkillDefinition{Id="fixture_skill",Crystal=info}:null,PreciseStats=new List<StatAmount>{new StatAmount{StatId="health",Value=10000},new StatAmount{StatId="defense",Value=defense},new StatAmount{StatId="magic_resistance",Value=defense},new StatAmount{StatId="action_speed",Value=speed},new StatAmount{StatId="haste",Value=haste}}}};
+            var info=new ZatodSkillDefinition{SourceId=id+10,ActiveType="active",TargetType="target",AffectedCamp=-1,TargetCamp=-1,DamageType=type,BasicAmount=amount,MaxRange=9999,Cooldown=1000,GlobalCooldown=1000,CritPercent=100,Phases=new List<ZatodActionPhase>{new ZatodActionPhase{Action="Attack",Duration=.5,AttackTimes=new List<double>{.25}}}};
+            var data=new ZatodUnitData{EntityId=id,Team=team,Level=1,DefinitionId="fixture",Battle=new CombatantBattleData{HasNormalAttack=team==0,NormalAttack=team==0?new SkillDefinition{Id="fixture_skill",Crystal=info}:null,PreciseStats=new List<StatAmount>{new StatAmount{StatId="health",Value=10000},new StatAmount{StatId="defense",Value=defense},new StatAmount{StatId="magic_resistance",Value=defense},new StatAmount{StatId="action_speed",Value=speed},new StatAmount{StatId="haste",Value=haste}}}};
             return data;
         }
-        return new CrystalMatchDefinition{BattleId="fixture",Mode=CrystalMode.Arena,Seed=7,Players=new List<CrystalUnitData>{Unit(1,0)},Waves=new List<CrystalWaveData>{new CrystalWaveData{Enemies=Enumerable.Range(101,enemies).Select(id=>Unit(id,1)).ToList()}}};
+        return new ZatodMatchDefinition{BattleId="fixture",Mode=ZatodMode.Arena,Seed=7,Players=new List<ZatodUnitData>{Unit(1,0)},Waves=new List<ZatodWaveData>{new ZatodWaveData{Enemies=Enumerable.Range(101,enemies).Select(id=>Unit(id,1)).ToList()}}};
     }
     static void SourceCombatRules()
     {
         foreach(var pair in new[]{("AD",12.5,50d),("AP",25d,25d),("Holy",999d,100d)})
         {
-            var battle=new CrystalBattleSimulation(Fixture(pair.Item1,100,pair.Item2));battle.Step();battle.Step();
+            var battle=new ZatodBattleSimulation(Fixture(pair.Item1,100,pair.Item2));battle.Step();battle.Step();
             Check(battle.Frame().Units.Single(x=>x.Team==1).Hp==10000,"Damage happened before the .25s release marker");battle.Step();
             Check(Math.Abs(battle.Frame().Units.Single(x=>x.Team==1).Hp-(10000-pair.Item3))<1e-8,"Source damage formula changed: "+pair.Item1);
         }
         var energy=Fixture("Holy");energy.EnergyGainMultiplier=1.5;energy.Waves[0].Enemies[0].Battle.PreciseStats.Add(new StatAmount{StatId="damage_energy_rate",Value=1200});
-        var charged=new CrystalBattleSimulation(energy);for(int i=0;i<3;i++)charged.Step();
+        var charged=new ZatodBattleSimulation(energy);for(int i=0;i<3;i++)charged.Step();
         Check(Math.Abs(charged.Frame().Units.Single(u=>u.Team==1).Energy-18)<1e-8,"Per-unit damage energy rate/stage multiplier changed");
         foreach(int resistance in new[]{0,100})
         {
             var kill=Fixture("Holy",20000);kill.Players[0].Hero=true;kill.Waves[0].Enemies[0].Battle.PreciseStats.Add(new StatAmount{StatId="kill_energy",Value=resistance});
-            var killer=new CrystalBattleSimulation(kill);for(int i=0;i<3;i++)killer.Step();
+            var killer=new ZatodBattleSimulation(kill);for(int i=0;i<3;i++)killer.Step();
             Check(killer.Frame().Units.Single(u=>u.Team==0).Energy==(resistance==0?300:150),"Kill energy/KMPR rule changed");
         }
         var movement=Fixture();var mover=movement.Players[0].Copy();mover.EntityId=2;mover.Battle.HasNormalAttack=false;mover.Battle.NormalAttack=null;mover.Battle.PreciseStats.Add(new StatAmount{StatId="move_speed",Value=1000});movement.Players.Add(mover);
-        var ground=new CrystalBattleSimulation(movement);ground.Step();
+        var ground=new ZatodBattleSimulation(movement);ground.Step();
         Check(ground.Frame().Units.Single(u=>u.EntityId==2).Y> -40,"Ground movement ignored depth direction");
         var contact=Fixture("Holy",100,0,0,0,2);contact.Waves[0].Enemies[0].Battle.PreciseStats.Add(new StatAmount{StatId="attack_range",Value=10000});
         var bolt=contact.Players[0].Battle.NormalAttack.Crystal;bolt.TrackType="projectile";bolt.ProjectileSpeed=8000;bolt.AimTarget=true;
-        var swept=new CrystalBattleSimulation(contact);for(int i=0;i<4;i++)swept.Step();
+        var swept=new ZatodBattleSimulation(contact);for(int i=0;i<4;i++)swept.Step();
         Check(swept.Frame().Units.Single(u=>u.EntityId==102).Hp==9900 && swept.Frame().Units.Single(u=>u.EntityId==101).Hp==10000,"Projectile picked entity ID before first swept contact");
         var heal=Fixture("Heal");heal.Players[0].InitialHealth=5000;var healInfo=heal.Players[0].Battle.NormalAttack.Crystal;healInfo.TargetType="self";healInfo.TargetCamp=1;healInfo.AffectedCamp=1;
         heal.Players[0].Battle.PreciseStats.AddRange(new[]{new StatAmount{StatId="healing_bonus",Value=25},new StatAmount{StatId="heal_ratio",Value=20},new StatAmount{StatId="pdm",Value=1.2}});
-        var healed=new CrystalBattleSimulation(heal);for(int i=0;i<3;i++)healed.Step();Check(Math.Abs(healed.Frame().Units.Single(u=>u.Team==0).Hp-5180)<1e-8,"Source caster HEAL/PDM and receiver HealRatio were not composed exactly once");
-        var scaled=Fixture("Holy");scaled.Players[0].DamageMultiplier=1.5;var scaledBattle=new CrystalBattleSimulation(scaled);for(int i=0;i<3;i++)scaledBattle.Step();Check(scaledBattle.Frame().Units.Single(u=>u.Team==1).Hp==9850,"Encounter DPS multiplier did not include the flat skill amount");
-        var quick=new CrystalBattleSimulation(Fixture("Holy",100,0,100));quick.Step();quick.Step();
+        var healed=new ZatodBattleSimulation(heal);for(int i=0;i<3;i++)healed.Step();Check(Math.Abs(healed.Frame().Units.Single(u=>u.Team==0).Hp-5180)<1e-8,"Source caster HEAL/PDM and receiver HealRatio were not composed exactly once");
+        var scaled=Fixture("Holy");scaled.Players[0].DamageMultiplier=1.5;var scaledBattle=new ZatodBattleSimulation(scaled);for(int i=0;i<3;i++)scaledBattle.Step();Check(scaledBattle.Frame().Units.Single(u=>u.Team==1).Hp==9850,"Encounter DPS multiplier did not include the flat skill amount");
+        var quick=new ZatodBattleSimulation(Fixture("Holy",100,0,100));quick.Step();quick.Step();
         Check(quick.Frame().Units.Single(x=>x.Team==1).Hp==9900,"MSPD did not speed the release marker with animation");
-        var haste=new CrystalBattleSimulation(Fixture("Holy",100,0,0,100));haste.Step();haste.Step();
+        var haste=new ZatodBattleSimulation(Fixture("Holy",100,0,0,100));haste.Step();haste.Step();
         Check(haste.Frame().Units.Single(x=>x.Team==1).Hp==10000,"HAST incorrectly sped up the cast marker");
         var metadata=Fixture("Holy",100,0,0,0,3);metadata.Players[0].Battle.NormalAttack.Crystal.TrackType="chain";metadata.Players[0].Battle.NormalAttack.Crystal.ChainJumps=2;metadata.Players[0].Battle.NormalAttack.Crystal.ChainGap=.5;
-        var chain=new CrystalBattleSimulation(metadata);for(int i=0;i<3;i++)chain.Step();
+        var chain=new ZatodBattleSimulation(metadata);for(int i=0;i<3;i++)chain.Step();
         Check(chain.Frame().Units.Count(x=>x.Team==1 && x.Hp<10000)==1,"Chain applied later jumps at release");
         for(int i=0;i<3;i++)chain.Step();Check(chain.Frame().Units.Count(x=>x.Team==1 && x.Hp<10000)==1,"Chain ignored its .5s gap");chain.Step();
         Check(chain.Frame().Units.Count(x=>x.Team==1 && x.Hp<10000)==2,"Chain did not jump after source gap");
         Check(ImportedCatalog().Data.Buffs.Where(b=>b.SourceId==10000101).Single().Control=="stun","Lua control list was serialized as a dictionary string");
         var slow=Fixture("Holy");slow.Buffs=ImportedCatalog().Data.Buffs;var slowInfo=slow.Players[0].Battle.NormalAttack.Crystal;slowInfo.SourceId=103;slowInfo.BuffId=10001002;
         slow.Players[0].Battle.PreciseStats.Add(new StatAmount{StatId="damage",Value=200});slow.Waves[0].Enemies[0].Battle.PreciseStats.Add(new StatAmount{StatId="damage",Value=100});
-        var slowed=new CrystalBattleSimulation(slow);for(int i=0;i<3;i++)slowed.Step();double slowedSpeed=slowed.Frame().Units.Single(x=>x.Team==1).ActionSpeed;
+        var slowed=new ZatodBattleSimulation(slow);for(int i=0;i<3;i++)slowed.Step();double slowedSpeed=slowed.Frame().Units.Single(x=>x.Team==1).ActionSpeed;
         Check(Math.Abs(slowedSpeed-100d/276)<1e-8,"Agreed Sniper AD ratio coefficient was not applied");slowed.Step();
         Check(slowed.Frame().Units.Single(x=>x.Team==1).ActionSpeed>slowedSpeed,"Sniper slow did not decay over time");
         var barrage=Fixture();var arrows=barrage.Players[0].Battle.NormalAttack.Crystal;arrows.SourceId=20;arrows.TrackType="projectile";arrows.ProjectileSpeed=300;arrows.ProjectileZSpeed=600;arrows.Gravity=-1350;arrows.ScriptArgs=new List<double>{1,25};
-        var rain=new CrystalBattleSimulation(barrage);for(int i=0;i<3;i++)rain.Step();Check(rain.Frame().Visuals.Count(x=>x.Kind=="projectile")==5,"DR source barrage did not emit its capped arrow count");
+        var rain=new ZatodBattleSimulation(barrage);for(int i=0;i<3;i++)rain.Step();Check(rain.Frame().Visuals.Count(x=>x.Kind=="projectile")==5,"DR source barrage did not emit its capped arrow count");
         var blink=Fixture("Holy");blink.Buffs=ImportedCatalog().Data.Buffs;var blinkInfo=blink.Players[0].Battle.NormalAttack.Crystal;blinkInfo.SourceId=73;blinkInfo.AoeOrigin="self";blinkInfo.AoeShape="circle";blinkInfo.ShapeArg1=130;blinkInfo.Phases[0].AttackTimes=new List<double>{.125,.25,.375};
-        var queen=new CrystalBattleSimulation(blink);queen.Step();queen.Step();
+        var queen=new ZatodBattleSimulation(blink);queen.Step();queen.Step();
         Check(queen.Frame().Units.Single(x=>x.Team==0).X>500 && queen.Frame().Units.Single(x=>x.Team==1).Hp==10000,"QOP first marker did not blink without damage");queen.Step();
         Check(queen.Frame().Units.Single(x=>x.Team==1).Hp==9900,"QOP middle marker did not deal its AoE");queen.Step();
         Check(queen.Frame().Units.Single(x=>x.Team==0).X==0,"QOP last marker did not return to original position");
         var pulse=Fixture("AP");var pulseInfo=pulse.Players[0].Battle.NormalAttack.Crystal;pulseInfo.SourceId=202;pulseInfo.TrackType="projectile";pulseInfo.AffectedCamp=0;pulseInfo.ProjectileSpeed=8000;pulseInfo.AimTarget=true;
         pulse.Players[0].InitialHealth=5000;var friend=pulse.Players[0].Copy();friend.EntityId=2;friend.Battle.HasNormalAttack=false;friend.Battle.NormalAttack=null;pulse.Players.Add(friend);
         pulse.Players[0].Battle.PreciseStats.Add(new StatAmount{StatId="healing_bonus",Value=25});
-        var necro=new CrystalBattleSimulation(pulse);for(int i=0;i<3;i++)necro.Step();Check(necro.Frame().Units.Single(x=>x.EntityId==1).Hp==5125,"NEC pulse did not heal its caster immediately");necro.Step();
+        var necro=new ZatodBattleSimulation(pulse);for(int i=0;i<3;i++)necro.Step();Check(necro.Frame().Units.Single(x=>x.EntityId==1).Hp==5125,"NEC pulse did not heal its caster immediately");necro.Step();
         Check(necro.Frame().Units.Single(x=>x.EntityId==2).Hp==5125,"NEC pulse did not heal a nearby ally through its own projectile");
 
     }
@@ -191,7 +231,7 @@ static class Program
     {
         var definition=Fixture();var mover=definition.Players[0];mover.Battle.HasNormalAttack=false;mover.Battle.NormalAttack=null;
         mover.Battle.PreciseStats.Add(new StatAmount{StatId="move_speed",Value=1000});
-        var walked=new CrystalBattleSimulation(definition);var untouched=new CrystalBattleSimulation(definition);
+        var walked=new ZatodBattleSimulation(definition);var untouched=new ZatodBattleSimulation(definition);
         walked.Step();untouched.Step();var frame=walked.Frame();var actor=frame.Units.Single(u=>u.Team==0);
         actor.Motion.Project(actor.X,actor.Y,actor.Height,.02,out double x1,out _,out _);
         actor.Motion.Project(actor.X,actor.Y,actor.Height,.08,out double x2,out _,out _);
@@ -210,26 +250,66 @@ static class Program
         }
         var projectile=Fixture();var info=projectile.Players[0].Battle.NormalAttack.Crystal;
         info.TrackType="projectile";info.ProjectileSpeed=300;info.ProjectileZSpeed=200;info.Gravity=-100;
-        var flying=new CrystalBattleSimulation(projectile);for(int i=0;i<3;i++)flying.Step();
+        var flying=new ZatodBattleSimulation(projectile);for(int i=0;i<3;i++)flying.Step();
         var shot=flying.Frame().Visuals.Single(v=>v.Kind=="projectile");
         shot.Motion.Project(shot.X,shot.Y,shot.Height,.02,out x1,out _,out double h1);
         shot.Motion.Project(shot.X,shot.Y,shot.Height,.08,out x2,out _,out double h2);
         Check(Math.Abs(x2-x1-18)<1e-8 && h2>h1,"Projectile position/height did not advance between ticks");
         ulong digest=flying.Frame().Digest;shot.X=-999;shot.Motion.VX=0;
         Check(flying.Frame().Digest==digest,"Projectile presentation mutated combat");
-        var frozen=Fixture();var basic=frozen.Players[0].Battle.NormalAttack;frozen.Players[0].Hero=true;frozen.Mode=CrystalMode.Campaign;
+        var frozen=Fixture();var basic=frozen.Players[0].Battle.NormalAttack;frozen.Players[0].Hero=true;frozen.Mode=ZatodMode.Campaign;
         frozen.Players[0].Battle.Skills.Add(new BattleSkillData{SlotId="ultimate",IsUltimate=true,Level=1,Definition=basic.Copy()});
         frozen.Players[0].InitialEnergy=1000;frozen.Players[0].Battle.Skills[0].Definition.Crystal.CostEnergy=1000;
-        var freezing=new CrystalBattleSimulation(frozen);Check(freezing.RequestUltimate(1),"Freeze motion fixture could not request ultimate");freezing.Step();
+        var freezing=new ZatodBattleSimulation(frozen);Check(freezing.RequestUltimate(1),"Freeze motion fixture could not request ultimate");freezing.Step();
         Check(freezing.Frame().Units.Single(u=>u.Team==1).Motion.VX==0 && freezing.Frame().Units.Single(u=>u.Team==1).ActionSpeed==0,"Manual ultimate freeze did not stop enemy presentation");
         // Fixed pre-change recordings verify that added render metadata does not change combat.
         const string archiveRoot="Artifacts/CrystalPhaseChecks/network-20261119-185731/Server";
         foreach(string path in Directory.GetFiles(archiveRoot,"*.crystal.gz"))
         {
             using var input=File.OpenRead(path);using var gzip=new System.IO.Compression.GZipStream(input,System.IO.Compression.CompressionMode.Decompress);
-            var old=JsonSerializer.Deserialize<CrystalReplay>(gzip,Json);var repeated=CrystalBattleSimulation.Resimulate(old);
+            var old=JsonSerializer.Deserialize<ZatodReplay>(gzip,Json);var repeated=ZatodBattleSimulation.Resimulate(old);
             Check(old.Digest==repeated.Digest && old.Winner==repeated.Winner && old.EndTick==repeated.EndTick,"Presentation change altered a pre-change archive: "+Path.GetFileName(path));
         }
+    }
+    static void CanonicalContent()
+    {
+        var catalog=ImportedCatalog();
+        Check(catalog.Data.Heroes.Count==16 && catalog.Data.Monsters.Count==10 && catalog.Data.Items.Count==67 && catalog.Data.Skills.Count==86,"Retired content remains active");
+        foreach(var row in catalog.Data.Heroes.Select(h=>(h.Id,h.Name)).Concat(catalog.Data.Monsters.Select(h=>(h.Id,h.Name))).Concat(catalog.Data.Items.Select(h=>(h.DefinitionId,h.Name))).Concat(catalog.Data.Skills.Select(h=>(h.Id,h.Name))))
+        {
+            Check(System.Text.RegularExpressions.Regex.IsMatch(row.Item1,"^[a-z][a-z0-9_]*$") && !System.Text.RegularExpressions.Regex.IsMatch(row.Item1,"^crystal_(?:item_|skill_)?[0-9]+$"),"Noncanonical object ID "+row.Item1);
+            Check(!System.Text.RegularExpressions.Regex.IsMatch(row.Item2,"[\\u4e00-\\u9fff]"),"Unlocalized object Name "+row.Item1);
+        }
+        Check(catalog.Item("small_stout_shield").Name=="Small Stout Shield" && catalog.Skill("lina_deity_slash").Name=="Deity Slash","Native English name changed");
+        var account=new CharacterData{CharacterId="old-save"};var hero=catalog.CreateHero("lina","owned-lina");hero.Level=40;account.HeroDesk.Add(hero);
+        var inventory=new ItemInventory(account,catalog);
+        while(hero.RankId!="blue")
+        {
+            foreach(var slot in HeroProgression.CurrentRank(hero,catalog).EquipmentSlots){var item=inventory.AddItemByItemId(slot.RequiredItemId).Single();inventory.Equip(hero.HeroInstanceId,slot.Id,item.Id);}
+            inventory.Promote(hero.HeroInstanceId);
+        }
+        foreach(var slot in HeroProgression.CurrentRank(hero,catalog).EquipmentSlots){var item=inventory.AddItemByItemId(slot.RequiredItemId).Single();inventory.Equip(hero.HeroInstanceId,slot.Id,item.Id);}
+        var originalGuids=hero.EquippedItems.Select(i=>i.Id).Concat(hero.AbsorbedItems.Select(i=>i.Id)).OrderBy(id=>id).ToArray();
+        var aliases=JsonDocument.Parse(File.ReadAllText("Artifacts/CrystalPhaseChecks/zatod-id-mapping.json")).RootElement.GetProperty("Aliases").EnumerateObject().ToDictionary(p=>p.Value.GetString(),p=>p.Name);
+        hero.HeroDefinitionId="crystal_3";foreach(var i in hero.EquippedItems)i.ItemId=aliases[i.ItemId];foreach(var i in hero.AbsorbedItems)i.ItemId=aliases[i.ItemId];
+        account.HeroDesk.Add(new HeroData{HeroDefinitionId="training_warrior",HeroInstanceId="retired-hero",RankId="white"});account.Inventory.Add(new ItemData{Id="retired-guid",ItemId="axe_basic"});account.Formation.HeroInstanceIds.Add("retired-hero");
+        catalog.Bind(account);inventory.Validate();
+        Check(hero.HeroDefinitionId=="lina" && hero.RankId=="blue" && hero.Level==40,"Existing imported Hero progress was reset during migration");
+        Check(originalGuids.SequenceEqual(hero.EquippedItems.Select(i=>i.Id).Concat(hero.AbsorbedItems.Select(i=>i.Id)).OrderBy(id=>id)),"Migration replaced equipped/absorbed GUIDs");
+        Check(account.RetiredHeroDesk.Single().HeroInstanceId=="retired-hero" && account.RetiredInventory.Single().Id=="retired-guid" && account.RetiredFormationIds.Contains("retired-hero"),"Retired owned history was erased");
+        catalog.Bind(account);Check(account.RetiredHeroDesk.Count==1 && account.RetiredInventory.Count==1,"Migration duplicated retired history on reload");
+    }
+    static void CombatPresentationEvents()
+    {
+        var damage=new ZatodBattleSimulation(Fixture("Holy"));for(int i=0;i<3;i++)damage.Step();
+        var frame=damage.Frame();Check(frame.CombatEvents.Where(e=>e.Kind=="damage").Sum(e=>e.Amount)==100,"Damage popup used a value other than resolved HP loss");
+        ulong before=frame.Digest;frame.CombatEvents.First().Amount=999999;Check(damage.Frame().Digest==before,"Presentation event modified combat");
+        var healed=Fixture("Heal");healed.Players[0].InitialHealth=9990;healed.Players[0].Battle.NormalAttack.Crystal.TargetType="self";
+        var healing=new ZatodBattleSimulation(healed);for(int i=0;i<3;i++)healing.Step();
+        Check(healing.Frame().CombatEvents.Single(e=>e.Kind=="heal").Amount==10,"Heal popup did not respect overheal cap");
+        var kill=Fixture("Holy",20000);kill.Players[0].Hero=true;kill.Players[0].InitialEnergy=900;
+        var killing=new ZatodBattleSimulation(kill);for(int i=0;i<3;i++)killing.Step();
+        Check(killing.Frame().CombatEvents.Single(e=>e.Kind=="last_hit").Amount==100,"Last-hit energy popup ignored the actual energy cap");
     }
     static void Inventory()
     {

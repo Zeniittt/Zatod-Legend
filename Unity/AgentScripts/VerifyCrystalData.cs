@@ -7,9 +7,9 @@ public static class VerifyCrystalData
     public static object Run()
     {
         var catalog=HeroDataJson.LoadBundledCatalog();
-        var text=UnityEngine.Resources.Load<UnityEngine.TextAsset>("Data/CrystalCampaigns");
+        var text=UnityEngine.Resources.Load<UnityEngine.TextAsset>("Data/Campaigns");
         var campaign=new CampaignCatalog(UnityEngine.JsonUtility.FromJson<CampaignDefinition>(text.text),catalog);
-        var data=catalog.CreateHero("crystal_3","unity-crystal-lina");data.Level=40;
+        var data=catalog.CreateHero("lina","unity-crystal-lina");data.Level=40;
         var account=new CharacterData{CharacterId="unity-test"};account.HeroDesk.Add(data);
         var inventory=new ItemInventory(account,catalog);
         while(data.RankId!="blue")

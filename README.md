@@ -1,14 +1,18 @@
-# Zatod Legend — Crystal prototype
+# Zatod Legend — prototype
 
-Đọc [Design.md](Design.md) và [AGENTS.md](AGENTS.md) trước khi làm việc. Phase mới dùng scene `Unity/Assets/Zatod/Scenes/CrystalPrototype.unity`, Mirror TCP cổng 7788, core combat 8 Hz.
+Đọc [Design.md](Design.md) và [AGENTS.md](AGENTS.md) trước khi làm việc. Phase mới dùng scene `Unity/Assets/Zatod/Scenes/ZatodPrototype.unity`, Mirror TCP cổng 7788, core combat 8 Hz.
 
-**Chơi thử / server / hai client / cấp đồ:** [hướng dẫn Crystal prototype](docs/crystal-prototype-play.md). **Trạng thái kiểm chứng:** [implementation checkpoint](docs/crystal-phase-implementation.md).
+**Chơi thử / server / hai client / cấp đồ:** [hướng dẫn Zatod prototype](docs/zatod-prototype-play.md). **Trạng thái kiểm chứng:** [GameEditor / HUD / migration](docs/zatod-ui-implementation-progress.md).
 
 Bộ dữ liệu phase: 16 Hero, 10 quái, chương 1 Thường 18 ải/54 wave, 67 loại trang bị tới Xanh Dương. Client Phó bản gửi nhật ký cuối trận để validate; Arena dùng input replay; PvP đồng bộ input hai phía. Tiến trình ải reset mỗi lần mở ứng dụng; Hero/item/GUID được giữ riêng theo development profile.
 
+**Chọn đội Phó bản:** bấm ải → View native asset → chọn 1–5 Hero / xem wave → Battle. [Chi tiết View chọn đội](docs/zatod-formation-view-review.md).
+
+**Config:** menu **GameEditor > Open**; bảy tab Heroes, Monsters, Items, Stats, Skills, Buffs, Campaign. HUD dùng asset hiện có, Auto và số combat thật; vàng/rương 0. Build: **Zatod > Tools > Build Windows Prototype**.
+
 ---
 
-Các mục bên dưới mô tả nhánh pixel/scene ArenaPrototype cũ, được giữ để tham chiếu và tương thích. Các lệnh/cổng/luồng cũ không thay thế hướng dẫn Crystal ở trên.
+Các mục bên dưới mô tả nhánh pixel/scene ArenaPrototype cũ, được giữ để tham chiếu và tương thích. Các lệnh/cổng/luồng cũ không thay thế hướng dẫn Zatod ở trên.
 
 # Zatod Legend — Arena combat prototype
 

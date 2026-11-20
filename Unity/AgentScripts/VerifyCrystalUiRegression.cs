@@ -7,7 +7,7 @@ using UnityEngine;
 using Zatod.Presentation;
 using Zatod.Networking;
 using Zatod.Combat;
-var c=UnityEngine.Object.FindAnyObjectByType<CrystalConnection>();var v=UnityEngine.Object.FindAnyObjectByType<CrystalPrototypeView>();
+var c=UnityEngine.Object.FindAnyObjectByType<ZatodConnection>();var v=UnityEngine.Object.FindAnyObjectByType<ZatodPrototypeView>();
 if(c.Snapshot==null)throw new Exception("UI test profile not connected.");
 UnityEngine.UI.Button Button(string name)=>UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Button>().Single(b=>b.name==name);
 var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
@@ -29,7 +29,7 @@ callback=()=>
         {
             if(!Visible())throw new Exception("History replay did not open");
             Button("Tạm dừng").onClick.Invoke();var slider=UnityEngine.Object.FindAnyObjectByType<UnityEngine.UI.Slider>();slider.value=.5f;
-            var replay=(CrystalBattleSimulation)v.GetType().GetField("replay",flags).GetValue(v);
+            var replay=(ZatodBattleSimulation)v.GetType().GetField("replay",flags).GetValue(v);
             if(replay.CurrentTick!=Mathf.RoundToInt(c.LastReplay.EndTick*.5f))throw new Exception("Replay seek mismatch");
             Button("Tốc độ").onClick.Invoke();Button("Tốc độ").onClick.Invoke();
             if((float)v.GetType().GetField("speed",flags).GetValue(v)!=4)throw new Exception("Speed control failed");

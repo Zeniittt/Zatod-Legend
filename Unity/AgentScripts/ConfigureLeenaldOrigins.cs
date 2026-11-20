@@ -34,7 +34,7 @@ public static class ConfigureLeenaldOrigins
             HeroConfigFileStore.Save(catalog.Data, source);
         }
         File.WriteAllText(path, JsonUtility.ToJson(manifest, true)); AssetDatabase.ImportAsset(path); AssetDatabase.SaveAssets();
-        foreach (var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>()) window.ReloadIfClean();
+        foreach (var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>()) window.ReloadIfClean();
         return new { catalog.Data.ConfigVersion, skill.ProjectileSpawnPointId, skill.ProjectileHitOffsetForward,
             clip.ProjectileOriginPixelX, clip.ProjectileOriginPixelY, skill.ProjectileVisualScaleBasisPoints };
     }

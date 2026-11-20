@@ -21,11 +21,19 @@ namespace Zatod.Heroes
     {
         public string Id,Name,Description;
         public int SourceStageId, Difficulty = 1;
+        public int VitalityCost;
         public string RequiredStageId;
         public double EnergyGainMultiplier = 1, EnergySupplyPercent;
+        public List<CampaignDropItemDefinition> DropItems = new List<CampaignDropItemDefinition>();
         public List<WaveDefinition> Waves = new List<WaveDefinition>();
         public float MapX,MapY;
         public List<CampaignMonsterSlot> Monsters=new List<CampaignMonsterSlot>();
+    }
+    // Authoring metadata only; granting/rolling loot is not implemented by the Campaign catalog.
+    [Serializable] public sealed class CampaignDropItemDefinition
+    {
+        public string ItemId;
+        public double DropChancePercent = 100;
     }
     [Serializable] public sealed class CampaignMonsterSlot
     {
@@ -54,8 +62,18 @@ namespace Zatod.Heroes
                 {
                     if(stage==null || string.IsNullOrWhiteSpace(stage.Id) || stages.ContainsKey(stage.Id) || string.IsNullOrWhiteSpace(stage.Name)
                         || float.IsNaN(stage.MapX) || float.IsNaN(stage.MapY) || stage.MapX<0 || stage.MapX>1 || stage.MapY<0 || stage.MapY>1
-                        || stage.Monsters==null || ((stage.Waves==null || stage.Waves.Count==0) && (stage.Monsters.Count<1 || stage.Monsters.Count>5)))throw new ArgumentException("Invalid Campaign stage.");
+                        || stage.VitalityCost<0 || stage.Monsters==null || ((stage.Waves==null || stage.Waves.Count==0) && (stage.Monsters.Count<1 || stage.Monsters.Count>5)))throw new ArgumentException("Invalid Campaign stage.");
                     if (stage.Waves!=null && stage.Waves.Count>0) WaveValidation.Validate(stage,heroes);
+                    if(stage.DropItems==null)throw new ArgumentException("Missing drop item list: "+stage.Id);
+                    var dropIds=new HashSet<string>(StringComparer.Ordinal);
+                    foreach(var drop in stage.DropItems)
+                    {
+                        if(drop==null || string.IsNullOrWhiteSpace(drop.ItemId) || !dropIds.Add(drop.ItemId)
+                            || double.IsNaN(drop.DropChancePercent) || double.IsInfinity(drop.DropChancePercent)
+                            || drop.DropChancePercent<0 || drop.DropChancePercent>100)
+                            throw new ArgumentException("Invalid drop item/chance: "+stage.Id);
+                        heroes.Item(drop.ItemId);
+                    }
                     foreach(var slot in stage.Monsters)
                     {
                         if(slot==null || slot.PowerBasisPoints<1000 || slot.PowerBasisPoints>100000)throw new ArgumentException("Invalid encounter power.");

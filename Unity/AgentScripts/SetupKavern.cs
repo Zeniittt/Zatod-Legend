@@ -105,7 +105,7 @@ public static class SetupKavern
         File.WriteAllText(Root+"/AnimationSet.txt",JsonUtility.ToJson(manifest,true));AssetDatabase.Refresh();
         Configure(data);HeroConfigFileStore.Save(data,source);
         LeenaldAtlasBuild.Ensure(Art,Art+"/Kavern.spriteatlasv2");AssetDatabase.SaveAssets();
-        foreach(var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>())window.ReloadIfClean();
+        foreach(var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>())window.ReloadIfClean();
         return new{hero="kavern",frames=imported.Count,clips=clips.Count,data.ConfigVersion};
     }
     static string[] Files(Group group){return Directory.GetFiles(Source+"/"+group.folder,"*.png").Where(p=>Number(p)>=group.first&&Number(p)<=group.last).OrderBy(Number).ToArray();}

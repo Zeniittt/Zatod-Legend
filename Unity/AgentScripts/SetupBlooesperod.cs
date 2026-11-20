@@ -72,7 +72,7 @@ public static class SetupBlooesperod
         Apply(portrait,new SpriteRect{name="blooesperod",spriteID=GUID.Generate(),rect=new Rect(72,16,58,60),alignment=SpriteAlignment.Center,pivot=new Vector2(.5f,.5f)});
         File.Copy(Source+"/README.txt",Art+"/SourceNotes.txt",false);File.Copy(Source+"/hero_kit.json",Art+"/SourceKit.json",false);
         Configure(data);HeroConfigFileStore.Save(data,before);AssetDatabase.Refresh();LeenaldAtlasBuild.Ensure(Art,Art+"/Blooesperod.spriteatlasv2");AssetDatabase.SaveAssets();
-        foreach(var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>())window.ReloadIfClean();
+        foreach(var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>())window.ReloadIfClean();
         foreach(var window in Resources.FindObjectsOfTypeAll<HeroCombatSandboxWindow>())window.CreateGUI();
         return new{hero="blooesperod",frames,clips=clips.Count,data.ConfigVersion};
     }

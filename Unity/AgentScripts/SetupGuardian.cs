@@ -95,7 +95,7 @@ public static class SetupGuardian
             Effects=new List<SkillEffectDefinition>{new SkillEffectDefinition{Kind=SkillEffectKind.Damage,DamageScaleBasisPoints=10000}}};
         data.Monsters.Add(definition);data.Skills.Add(attack);data.ConfigVersion+="-guardian-1";
         HeroConfigFileStore.Save(data,before);LeenaldAtlasBuild.Ensure("Assets/Zatod/Art/Monsters","Assets/Zatod/Art/Monsters/Monsters.spriteatlasv2");AssetDatabase.SaveAssets();
-        foreach(var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>())window.ReloadIfClean();
+        foreach(var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>())window.ReloadIfClean();
         foreach(var window in Resources.FindObjectsOfTypeAll<HeroCombatSandboxWindow>())window.CreateGUI();
         return new{monster=definition.Id,frames,clips=5,states=manifest.Clips.Count,data.ConfigVersion};
     }

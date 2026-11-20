@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Zatod.Networking;
 using Zatod.Combat;
-var c=UnityEngine.Object.FindAnyObjectByType<CrystalConnection>();
+var c=UnityEngine.Object.FindAnyObjectByType<ZatodConnection>();
 if(c.Snapshot==null)throw new Exception("Connect the UI PvP profile first.");
 int phase=0,clicks=0,maxSprites=0;double started=EditorApplication.timeSinceStartup;
 foreach(var hero in c.Snapshot.Account.HeroDesk)c.DevLevel(hero.HeroInstanceId,40);
@@ -20,15 +20,15 @@ callback=()=>
             UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Button>().Single(b=>b.name=="PvP online").onClick.Invoke();phase=1;return;
         }
         if(phase==1){UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Button>().Single(b=>b.name=="Tìm trận").onClick.Invoke();phase=2;return;}
-        if(c.Battle!=null && c.Battle.Mode==CrystalMode.RealtimePvp && !c.Battle.Finished)
+        if(c.Battle!=null && c.Battle.Mode==ZatodMode.RealtimePvp && !c.Battle.Finished)
         {
             maxSprites=Math.Max(maxSprites,UnityEngine.Object.FindObjectsByType<Zatod.Presentation.ReplaySprite>().Length);
             foreach(var button in UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Button>().Where(b=>b.name.StartsWith("Actor ") && b.interactable)){button.onClick.Invoke();clicks++;}
         }
-        if(phase==2 && c.LastReplay!=null && c.LastReplay.Initial.Mode==CrystalMode.RealtimePvp)
+        if(phase==2 && c.LastReplay!=null && c.LastReplay.Initial.Mode==ZatodMode.RealtimePvp)
         {
             var replay=c.LastReplay;
-            if(CrystalBattleSimulation.Resimulate(replay).Digest!=replay.Digest || !replay.Inputs.Any(i=>i.Team==c.Team) || !replay.Inputs.Any(i=>i.Team!=c.Team) || maxSprites<10)throw new Exception("Rendered PvP/replay/input coverage incomplete");
+            if(ZatodBattleSimulation.Resimulate(replay).Digest!=replay.Digest || !replay.Inputs.Any(i=>i.Team==c.Team) || !replay.Inputs.Any(i=>i.Team!=c.Team) || maxSprites<10)throw new Exception("Rendered PvP/replay/input coverage incomplete");
             File.WriteAllText("../Artifacts/CrystalPhaseChecks/ui-pvp-final/ui.result","PASS digest="+replay.Digest+" team="+c.Team+" inputClicks="+clicks+" committed="+replay.Inputs.Count+" maxSprites="+maxSprites);
             EditorApplication.update-=callback;
         }

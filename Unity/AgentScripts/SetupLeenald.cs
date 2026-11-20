@@ -80,7 +80,7 @@ public static class SetupLeenald
         Configure(data);
         HeroConfigFileStore.Save(data, oldDocuments);
         AssetDatabase.Refresh(); LeenaldAtlasBuild.Ensure(); AssetDatabase.SaveAssets();
-        foreach (var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>()) window.ReloadIfClean();
+        foreach (var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>()) window.ReloadIfClean();
         return new { status = "PASS", frames = total, animations = library.Clips.Count, hero = "leenald", data.ConfigVersion, backup, packer = EditorSettings.spritePackerMode.ToString() };
     }
 

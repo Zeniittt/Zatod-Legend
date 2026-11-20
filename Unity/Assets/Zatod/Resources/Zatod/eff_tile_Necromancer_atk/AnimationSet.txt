@@ -1,0 +1,76 @@
+{
+    "HeroId": "effect_eff_tile_Necromancer_atk",
+    "CanvasWidth": 165,
+    "CanvasHeight": 88,
+    "PixelsPerUnit": 100,
+    "AnchorPixelX": 576.0,
+    "AnchorPixelY": 28.0,
+    "Clips": [
+        {
+            "StabilizeHorizontalAnchor": false,
+            "State": "Start",
+            "SourceFolder": "Zatod/eff_tile_Necromancer_atk",
+            "ClipResource": "Zatod/eff_tile_Necromancer_atk/Animations/Start",
+            "FramesPerSecond": 24,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "Assets/Zatod/Art/Zatod/eff_tile_Necromancer_atk/Start_0.png#eff_tile_Necromancer_atk_Start_0000"
+            ],
+            "Frames": [
+                {
+                    "X": 0,
+                    "Y": 0,
+                    "Width": 165,
+                    "Height": 88,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [],
+            "UseProjectileOrigin": false,
+            "PreserveSpritePivot": true,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0,
+            "PresentationHeight": 0,
+            "SourceDurationSeconds": 0.0416666679084301,
+            "VisualReferenceWidthPixels": 0,
+            "FrameTimes": [
+                0.0
+            ],
+            "AudioCues": []
+        },
+        {
+            "StabilizeHorizontalAnchor": false,
+            "State": "Loop",
+            "SourceFolder": "Zatod/eff_tile_Necromancer_atk",
+            "ClipResource": "Zatod/eff_tile_Necromancer_atk/Animations/Loop",
+            "FramesPerSecond": 24,
+            "Loop": true,
+            "Projectile": false,
+            "SourceFrames": [
+                "Assets/Zatod/Art/Zatod/eff_tile_Necromancer_atk/Loop_0.png#eff_tile_Necromancer_atk_Loop_0000"
+            ],
+            "Frames": [
+                {
+                    "X": 0,
+                    "Y": 0,
+                    "Width": 165,
+                    "Height": 88,
+                    "Empty": false
+                }
+            ],
+            "ContentBounds": [],
+            "UseProjectileOrigin": false,
+            "PreserveSpritePivot": true,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0,
+            "PresentationHeight": 0,
+            "SourceDurationSeconds": 0.0416666679084301,
+            "VisualReferenceWidthPixels": 0,
+            "FrameTimes": [
+                0.0
+            ],
+            "AudioCues": []
+        }
+    ]
+}

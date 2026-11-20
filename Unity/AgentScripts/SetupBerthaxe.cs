@@ -87,7 +87,7 @@ public static class SetupBerthaxe
         var campaign=JsonUtility.FromJson<CampaignDefinition>(campaignBefore);campaign.StarterHeroIds.Add("berthaxe");campaign.ConfigVersion+="-berthaxe-1";
         _=new CampaignCatalog(campaign,new HeroCatalog(data));HeroDataJson.WriteFileAtomically(CampaignDataJson.AssetPath,JsonUtility.ToJson(campaign,true));
         AssetDatabase.Refresh();LeenaldAtlasBuild.Ensure(Art,Art+"/Berthaxe.spriteatlasv2");AssetDatabase.SaveAssets();
-        foreach(var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>())window.ReloadIfClean();foreach(var window in Resources.FindObjectsOfTypeAll<HeroCombatSandboxWindow>())window.CreateGUI();
+        foreach(var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>())window.ReloadIfClean();foreach(var window in Resources.FindObjectsOfTypeAll<HeroCombatSandboxWindow>())window.CreateGUI();
         return new{hero="berthaxe",frames,clips=clips.Count,data.ConfigVersion};
     }
     static void Apply(TextureImporter importer,SpriteRect rect)

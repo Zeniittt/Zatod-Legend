@@ -17,7 +17,6 @@ namespace Zatod.Editor
         const string ScenePath = "Assets/Zatod/Scenes/ArenaPrototype.unity";
         const string FontPath = "Assets/Zatod/Resources/UI/FormationFont.asset";
 
-        [MenuItem("Zatod/Setup Formation Selector")]
         public static void Install()
         {
             if (EditorApplication.isPlaying) throw new InvalidOperationException("Stop Play Mode before installing formation UI.");
@@ -57,25 +56,21 @@ namespace Zatod.Editor
             EditorUtility.SetDirty(font); AssetDatabase.SaveAssets(); return font;
         }
 
-        [MenuItem("Zatod/Build Formation Preview")]
         public static string BuildWindowsPreview()
         {
             return BuildPreview("FormationPreview");
         }
 
-        [MenuItem("Zatod/Build Hero Preview")]
         public static string BuildHeroPreview()
         {
             return BuildPreview("HeroPreview");
         }
 
-        [MenuItem("Zatod/Build Leenald Preview")]
         public static string BuildLeenaldPreview()
         {
             return BuildPreview("LeenaldPreview");
         }
 
-        [MenuItem("Zatod/Build Leenald Battle Preview")]
         public static string BuildLeenaldBattlePreview() { return BuildPreview("LeenaldBattle"); }
 
         static string BuildPreview(string folder)

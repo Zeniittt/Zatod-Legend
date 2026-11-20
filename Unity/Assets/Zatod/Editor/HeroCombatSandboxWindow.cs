@@ -41,14 +41,13 @@ namespace Zatod.Editor
             if (state == PlayModeStateChange.EnteredEditMode) SessionState.EraseString(PendingKey);
         }
 
-        [MenuItem("Zatod/Heroes/Combat Sandbox")]
         public static void Open() { GetWindow<HeroCombatSandboxWindow>("Combat Sandbox"); }
 
         public void CreateGUI()
         {
             minSize = new Vector2(400, 660);
             rootVisualElement.Clear();
-            var style = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Zatod/Editor/HeroBalanceWindow.uss");
+            var style = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Zatod/Editor/GameEditorWindow.uss");
             if (style != null) rootVisualElement.styleSheets.Add(style);
             rootVisualElement.AddToClassList("hero-balance");
             var scroll = new ScrollView(); rootVisualElement.Add(scroll);

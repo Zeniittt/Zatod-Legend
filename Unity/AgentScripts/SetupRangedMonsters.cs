@@ -50,7 +50,7 @@ public static class SetupRangedMonsters
         Zatod.Editor.LeenaldAtlasBuild.Ensure("Assets/Zatod/Art/Monsters","Assets/Zatod/Art/Monsters/Monsters.spriteatlasv2");
         AssetDatabase.SaveAssets();
         if(!Directory.EnumerateFileSystemEntries(Staging).Any())AssetDatabase.DeleteAsset(Staging);
-        foreach(var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>())window.ReloadIfClean();
+        foreach(var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>())window.ReloadIfClean();
         foreach(var window in Resources.FindObjectsOfTypeAll<HeroCombatSandboxWindow>())window.CreateGUI();
         return new{monsters=specs.Select(s=>s.id).ToArray(),frames,data.ConfigVersion};
     }

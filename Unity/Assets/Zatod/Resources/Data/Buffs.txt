@@ -1,10 +1,10 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1-formation-layout-1-order-2-team-reach-1-skill-reach-1-berthaxe-1-six-hero-reach-1-crystal-p1",
+  "ConfigVersion": "zatod-prototype-2",
   "Buffs": [
     {
       "SourceId": 1415,
-      "Name": "SNK_warschool1_immune",
+      "Name": "Snk Warschool1 Immune",
       "Control": "",
       "StackRule": "",
       "Dispel": "",
@@ -27,11 +27,12 @@
           "StatId": "physical_immunity",
           "Value": 88.0
         }
-      ]
+      ],
+      "Id": "snk_warschool1_immune"
     },
     {
       "SourceId": 10000101,
-      "Name": "Coco_ult_stun",
+      "Name": "Coco Ult Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -45,11 +46,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "coco_ult_stun"
     },
     {
       "SourceId": 10000102,
-      "Name": "Coco_atk2_stun",
+      "Name": "Coco Atk2 Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -63,11 +65,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "coco_atk2_stun"
     },
     {
       "SourceId": 10000201,
-      "Name": "DR_atk2_slow",
+      "Name": "Dr Atk2 Slow",
       "Control": "",
       "StackRule": "",
       "Dispel": "YES",
@@ -90,11 +93,12 @@
           "StatId": "haste",
           "Value": -10.0
         }
-      ]
+      ],
+      "Id": "dr_atk2_slow"
     },
     {
       "SourceId": 10000202,
-      "Name": "DR_atk3_silence",
+      "Name": "Dr Atk3 Silence",
       "Control": "silence",
       "StackRule": "",
       "Dispel": "YES",
@@ -108,11 +112,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "dr_atk3_silence"
     },
     {
       "SourceId": 10000302,
-      "Name": "Lina_atk3_stun",
+      "Name": "Lina Atk3 Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -126,11 +131,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "lina_atk3_stun"
     },
     {
       "SourceId": 10000401,
-      "Name": "Zeus_atk3_stun",
+      "Name": "Zeus Atk3 Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "",
@@ -144,11 +150,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "zeus_atk3_stun"
     },
     {
       "SourceId": 10000402,
-      "Name": "Zeus_antistealth",
+      "Name": "Zeus Antistealth",
       "Control": "antistealth",
       "StackRule": "",
       "Dispel": "YES",
@@ -162,11 +169,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "zeus_antistealth"
     },
     {
       "SourceId": 10000601,
-      "Name": "Lion_atk2_stun",
+      "Name": "Lion Atk2 Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -180,11 +188,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "lion_atk2_stun"
     },
     {
       "SourceId": 10000602,
-      "Name": "Lion_atk3",
+      "Name": "Lion Atk3",
       "Control": "stun,polymorph",
       "StackRule": "",
       "Dispel": "YES",
@@ -198,11 +207,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "lion_atk3"
     },
     {
       "SourceId": 10000701,
-      "Name": "QOP_atk3",
+      "Name": "Qop Atk3",
       "Control": "uncontrollable,untargetable,invulnerable",
       "StackRule": "",
       "Dispel": "",
@@ -216,11 +226,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "qop_atk3"
     },
     {
       "SourceId": 10000702,
-      "Name": "QOP_atk2",
+      "Name": "Qop Atk2",
       "Control": "",
       "StackRule": "",
       "Dispel": "YES",
@@ -245,11 +256,12 @@
           "StatId": "health_regen",
           "Value": -20.0
         }
-      ]
+      ],
+      "Id": "qop_atk2"
     },
     {
       "SourceId": 10000801,
-      "Name": "OK_ult",
+      "Name": "Ok Ult",
       "Control": "",
       "StackRule": "",
       "Dispel": "YES",
@@ -263,11 +275,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "ok_ult"
     },
     {
       "SourceId": 10000802,
-      "Name": "OK_atk3",
+      "Name": "Ok Atk3",
       "Control": "",
       "StackRule": "",
       "Dispel": "YES",
@@ -281,11 +294,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "ok_atk3"
     },
     {
       "SourceId": 10000902,
-      "Name": "TK_atk2",
+      "Name": "Tk Atk2",
       "Control": "",
       "StackRule": "",
       "Dispel": "YES",
@@ -304,11 +318,12 @@
           "StatId": "accuracy",
           "Value": -10.5
         }
-      ]
+      ],
+      "Id": "tk_atk2"
     },
     {
       "SourceId": 10001001,
-      "Name": "Sniper_atk2_stun",
+      "Name": "Sniper Atk2 Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -322,11 +337,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "sniper_atk2_stun"
     },
     {
       "SourceId": 10001002,
-      "Name": "Sniper_atk3",
+      "Name": "Sniper Atk3",
       "Control": "",
       "StackRule": "",
       "Dispel": "YES",
@@ -349,11 +365,12 @@
           "StatId": "haste",
           "Value": -15.0
         }
-      ]
+      ],
+      "Id": "sniper_atk3"
     },
     {
       "SourceId": 10001003,
-      "Name": "Sniper_ult_stun",
+      "Name": "Sniper Ult Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -367,11 +384,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "sniper_ult_stun"
     },
     {
       "SourceId": 10001004,
-      "Name": "Sniper_ult",
+      "Name": "Sniper Ult",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -385,11 +403,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "sniper_ult"
     },
     {
       "SourceId": 10001006,
-      "Name": "Sniper_shard_3",
+      "Name": "Sniper Shard 3",
       "Control": "disarm",
       "StackRule": "",
       "Dispel": "YES",
@@ -403,11 +422,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "sniper_shard_3"
     },
     {
       "SourceId": 10001701,
-      "Name": "Bone_ult",
+      "Name": "Bone Ult",
       "Control": "",
       "StackRule": "",
       "Dispel": "",
@@ -426,11 +446,12 @@
           "StatId": "damage",
           "Value": 0.5
         }
-      ]
+      ],
+      "Id": "bone_ult"
     },
     {
       "SourceId": 10001702,
-      "Name": "Bone_atk3",
+      "Name": "Bone Atk3",
       "Control": "",
       "StackRule": "",
       "Dispel": "YES",
@@ -453,11 +474,12 @@
           "StatId": "haste",
           "Value": 100.0
         }
-      ]
+      ],
+      "Id": "bone_atk3"
     },
     {
       "SourceId": 10001802,
-      "Name": "Pugna_atk3",
+      "Name": "Pugna Atk3",
       "Control": "disarm",
       "StackRule": "",
       "Dispel": "YES",
@@ -484,11 +506,12 @@
           "StatId": "physical_immunity",
           "Value": 100.0
         }
-      ]
+      ],
+      "Id": "pugna_atk3"
     },
     {
       "SourceId": 10001901,
-      "Name": "SNK_ult_stun",
+      "Name": "Snk Ult Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -502,11 +525,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "snk_ult_stun"
     },
     {
       "SourceId": 10002001,
-      "Name": "NEC_ult",
+      "Name": "Nec Ult",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -520,11 +544,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "nec_ult"
     },
     {
       "SourceId": 10002002,
-      "Name": "NEC_ult_stun",
+      "Name": "Nec Ult Stun",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -538,11 +563,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "nec_ult_stun"
     },
     {
       "SourceId": 10002003,
-      "Name": "NEC_atk3",
+      "Name": "Nec Atk3",
       "Control": "disarm",
       "StackRule": "",
       "Dispel": "YES",
@@ -575,11 +601,12 @@
           "StatId": "physical_immunity",
           "Value": 100.0
         }
-      ]
+      ],
+      "Id": "nec_atk3"
     },
     {
       "SourceId": 10002901,
-      "Name": "Tiny_ult",
+      "Name": "Tiny Ult",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -593,11 +620,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "tiny_ult"
     },
     {
       "SourceId": 10002902,
-      "Name": "Tiny_atk3",
+      "Name": "Tiny Atk3",
       "Control": "stun",
       "StackRule": "",
       "Dispel": "YES",
@@ -611,11 +639,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "tiny_atk3"
     },
     {
       "SourceId": 10003701,
-      "Name": "Viper_ult",
+      "Name": "Viper Ult",
       "Control": "",
       "StackRule": "",
       "Dispel": "",
@@ -648,11 +677,12 @@
           "StatId": "health_regen",
           "Value": -80.0
         }
-      ]
+      ],
+      "Id": "viper_ult"
     },
     {
       "SourceId": 10003702,
-      "Name": "Viper_atk2",
+      "Name": "Viper Atk2",
       "Control": "",
       "StackRule": "True",
       "Dispel": "YES",
@@ -681,11 +711,12 @@
           "StatId": "health_regen",
           "Value": -7.0
         }
-      ]
+      ],
+      "Id": "viper_atk2"
     },
     {
       "SourceId": 10004501,
-      "Name": "Ench_atk3",
+      "Name": "Ench Atk3",
       "Control": "enchanted,silence",
       "StackRule": "",
       "Dispel": "YES",
@@ -699,11 +730,12 @@
       "ClearOnDeath": true,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "ench_atk3"
     },
     {
       "SourceId": 64000016,
-      "Name": "rougueCharmBuff_16",
+      "Name": "Rougue Charm Buff 16",
       "Control": "",
       "StackRule": "",
       "Dispel": "",
@@ -717,7 +749,8 @@
       "ClearOnDeath": false,
       "MaximumStacks": 0,
       "Scaling": [],
-      "Stats": []
+      "Stats": [],
+      "Id": "rougue_charm_buff_16"
     }
   ]
 }

@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-var paths=Directory.GetFiles("Assets/Zatod/Art/Crystal","*.png",SearchOption.AllDirectories).Select(p=>p.Replace('\\','/')).ToArray();
+var paths=Directory.GetFiles("Assets/Zatod/Art/Imported","*.png",SearchOption.AllDirectories).Select(p=>p.Replace('\\','/')).ToArray();
 int changed=0;
 AssetDatabase.StartAssetEditing();
 try

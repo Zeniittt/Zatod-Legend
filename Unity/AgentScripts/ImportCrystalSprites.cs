@@ -11,7 +11,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using UnityEditor.U2D.Sprites;
 using Zatod.Animation;
-using Manifest = Zatod.Editor.CrystalBakeManifest;
+using Manifest = Zatod.Editor.ZatodBakeManifest;
 
 public static class ImportCrystalSprites
 {
@@ -28,7 +28,7 @@ public static class ImportCrystalSprites
     public static object RunNext()
     {
         Directory.CreateDirectory(Evidence);
-        var paths=Directory.GetFiles("Assets/Zatod/Art/Crystal","bake-manifest.txt",SearchOption.AllDirectories).OrderBy(x=>x,StringComparer.Ordinal).ToArray();
+        var paths=Directory.GetFiles("Assets/Zatod/Art/Imported","bake-manifest.txt",SearchOption.AllDirectories).OrderBy(x=>x,StringComparer.Ordinal).ToArray();
         foreach(var path in paths)
         {
             var manifest=JsonUtility.FromJson<Manifest>(File.ReadAllText(path));
@@ -68,7 +68,7 @@ public static class ImportCrystalSprites
             if(actual!=sheet.Frames.Length)throw new Exception("Sprite count mismatch: "+sheet.Path+" "+actual+"/"+sheet.Frames.Length);
             sprites+=actual;
         }
-        string directory="Assets/Zatod/Resources/Crystal/"+manifest.Resource;
+        string directory="Assets/Zatod/Resources/Zatod/"+manifest.Resource;
         Folder(directory);Folder(directory+"/Animations");
         var set=new HeroAnimationSetData{HeroId=manifest.UnitId,PixelsPerUnit=100,CanvasWidth=manifest.Actions.Max(a=>a.Width),CanvasHeight=manifest.Actions.Max(a=>a.Height)};
         var bySheet=manifest.Sheets.ToDictionary(s=>s.Path,s=>AssetDatabase.LoadAllAssetsAtPath(s.Path).OfType<Sprite>().ToDictionary(x=>x.name,StringComparer.Ordinal));
@@ -85,7 +85,7 @@ public static class ImportCrystalSprites
             AnimationUtility.SetObjectReferenceCurve(clip,EditorCurveBinding.PPtrCurve("",typeof(SpriteRenderer),"m_Sprite"),keys);
             var settings=AnimationUtility.GetAnimationClipSettings(clip);settings.loopTime=action.Loop;AnimationUtility.SetAnimationClipSettings(clip,settings);
             EditorUtility.SetDirty(clip);clips.Add(action.Name,clip);
-            var data=new HeroAnimationClipData{State=action.Name,FramesPerSecond=Mathf.RoundToInt(action.Fps),SourceDurationSeconds=action.Duration,Loop=action.Loop,SourceFolder="Crystal/"+manifest.Resource,ClipResource="Crystal/"+manifest.Resource+"/Animations/"+action.Name,PreserveSpritePivot=true};
+            var data=new HeroAnimationClipData{State=action.Name,FramesPerSecond=Mathf.RoundToInt(action.Fps),SourceDurationSeconds=action.Duration,Loop=action.Loop,SourceFolder="Zatod/"+manifest.Resource,ClipResource="Zatod/"+manifest.Resource+"/Animations/"+action.Name,PreserveSpritePivot=true};
             for(int i=0;i<action.Frames.Length;i++){data.SourceFrames.Add(action.Frames[i].Sheet+"#"+action.Frames[i].Name);data.FrameTimes.Add(i/action.Fps);data.Frames.Add(new HeroFrameBounds{X=0,Y=0,Width=action.Width,Height=action.Height});}
             if(action.AudioCues!=null)data.AudioCues.AddRange(action.AudioCues);
             set.Clips.Add(data);

@@ -13,7 +13,7 @@ namespace Zatod.Heroes
         public List<SkillDefinition> Skills = new List<SkillDefinition>();
         public List<HeroDefinition> Heroes = new List<HeroDefinition>();
         public List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
-        public List<CrystalBuffDefinition> Buffs = new List<CrystalBuffDefinition>();
+        public List<ZatodBuffDefinition> Buffs = new List<ZatodBuffDefinition>();
     }
 
     [Serializable] public sealed class StatDefinition { public string Id, Name; public int Minimum; }
@@ -104,7 +104,7 @@ namespace Zatod.Heroes
     public sealed class SkillDefinition
     {
         public string Id, Name;
-        public CrystalSkillDefinition Crystal;
+        public ZatodSkillDefinition Crystal;
         public SkillKind Kind;
         // UltimateIntent is supplied by offline AI or a live player's accepted command.
         public SkillActivation Activation;

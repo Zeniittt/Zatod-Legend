@@ -4,10 +4,10 @@ import json,shutil,zipfile,sys,hashlib
 ROOT=Path(__file__).resolve().parent.parent
 REF=ROOT/'Crystal Legend/recovered'
 DATA=ROOT/'Unity/Assets/Zatod/Resources/Data'
-DEST=ROOT/'Unity/Assets/Zatod/Resources/Crystal'
+DEST=ROOT/'Unity/Assets/Zatod/Resources/Zatod'
 apply='--apply' in sys.argv
 report={'Applied':apply,'Backgrounds':[],'Audio':[],'MissingOriginalAudio':[]}
-campaign=json.loads((DATA/'CrystalCampaigns.txt').read_text(encoding='utf8'))
+campaign=json.loads((DATA/'Campaigns.txt').read_text(encoding='utf8'))
 for background in sorted({w['BackgroundResource'] for s in campaign['Chapters'][0]['Stages'] for w in s['Waves']}):
  source=REF/'assets/install_time_pack/remake/UI/alpha/1080P'/background
  if not source.exists():raise FileNotFoundError(source)
@@ -15,7 +15,7 @@ for background in sorted({w['BackgroundResource'] for s in campaign['Chapters'][
  if apply:target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
  report['Backgrounds'].append({'Resource':background,'Sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
 resources={u['SourceResource'] for section in ['Heroes','Monsters'] for u in json.loads((DATA/(section+'.txt')).read_text(encoding='utf8'))[section] if u.get('SourceUnitId')}
-resources.update(p.parent.name for p in (ROOT/'Unity/Assets/Zatod/Art/Crystal').glob('eff_*/bake-manifest.txt'))
+resources.update(p.parent.name for p in (ROOT/'Unity/Assets/Zatod/Art/Imported').glob('eff_*/bake-manifest.txt'))
 wanted=set()
 for resource in resources:
  animation=json.loads((REF/'heroes'/resource/'animation.json').read_text(encoding='utf8'))

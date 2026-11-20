@@ -17,7 +17,7 @@ namespace Zatod.Heroes
     [Serializable] public sealed class SkillsConfigData : HeroConfigTable { public List<SkillDefinition> Skills; }
     [Serializable] public sealed class HeroesConfigData : HeroConfigTable { public List<HeroDefinition> Heroes; }
     [Serializable] public sealed class MonstersConfigData : HeroConfigTable { public List<MonsterDefinition> Monsters; }
-    [Serializable] public sealed class BuffsConfigData : HeroConfigTable { public List<CrystalBuffDefinition> Buffs; }
+    [Serializable] public sealed class BuffsConfigData : HeroConfigTable { public List<ZatodBuffDefinition> Buffs; }
 
     [Serializable]
     public sealed class HeroConfigDocuments

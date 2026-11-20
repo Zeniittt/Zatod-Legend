@@ -30,7 +30,7 @@ public static class SetupMonsters
         foreach(var result in results){data.Monsters.Add(result.definition);data.Skills.Add(result.attack);}
         data.ConfigVersion+="-monsters-1";HeroConfigFileStore.Save(data,source);
         LeenaldAtlasBuild.Ensure(Art,Art+"/Monsters.spriteatlasv2");AssetDatabase.SaveAssets();
-        foreach(var window in Resources.FindObjectsOfTypeAll<HeroBalanceWindow>())window.ReloadIfClean();
+        foreach(var window in Resources.FindObjectsOfTypeAll<GameEditorWindow>())window.ReloadIfClean();
         foreach(var window in Resources.FindObjectsOfTypeAll<HeroCombatSandboxWindow>())window.CreateGUI();
         return new{monsters=results.Select(r=>r.definition.Id).ToArray(),sprites=results.Sum(r=>r.sprites),data.ConfigVersion};
     }

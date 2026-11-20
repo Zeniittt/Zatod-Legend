@@ -176,8 +176,8 @@ for st in normal_stages:
         if stage_id==1 and wave_id==3:hooks.append({'Id':'boss_manual_ultimate','Action':2,'BossOnly':True,'Amount':0})
         if stage_id in [6,7] and wave_id==3:hooks.append({'Id':'boss_initial_energy','Action':1,'BossOnly':True,'Amount':800 if stage_id==6 else 950})
         waves.append({'Id':'wave_'+str(wave_id),'Index':wave_id,'TimeLimitSeconds':90,'BackgroundResource':info['Background Pic'],'FlipBackground':info['H Flip'],'Enemies':spawns,'Hooks':hooks})
-    stages.append({'Id':'crystal_stage_'+str(stage_id),'Name':st['Stage Name'],'Description':st['description'],'SourceStageId':stage_id,'Difficulty':1,'RequiredStageId':'crystal_stage_'+str(st['Require Stage']) if st['Require Stage'] else None,'EnergyGainMultiplier':st['MP Bonus'],'EnergySupplyPercent':st['Mps Restraint'],'MapX':round(.08+((stage_id-1)%6)*.168,6),'MapY':round(.2+((stage_id-1)//6)*.3,6),'Monsters':[],'Waves':waves})
-write(DATA/'CrystalCampaigns.txt',{'SchemaVersion':1,'ConfigVersion':'crystal-chapter1-1','StarterHeroRankId':'white','StarterHeroIds':[uid(i) for i in starter],'Chapters':[{'Id':'crystal_chapter_1','Name':'Chương 1','Stages':stages}]})
+    stages.append({'Id':'crystal_stage_'+str(stage_id),'Name':st['Stage Name'],'Description':st['description'],'SourceStageId':stage_id,'Difficulty':1,'VitalityCost':st['Vitality Cost'],'RequiredStageId':'crystal_stage_'+str(st['Require Stage']) if st['Require Stage'] else None,'EnergyGainMultiplier':st['MP Bonus'],'EnergySupplyPercent':st['Mps Restraint'],'MapX':round(.08+((stage_id-1)%6)*.168,6),'MapY':round(.2+((stage_id-1)//6)*.3,6),'Monsters':[],'Waves':waves})
+write(DATA/'Campaigns.txt',{'SchemaVersion':1,'ConfigVersion':'crystal-chapter1-1','StarterHeroRankId':'white','StarterHeroIds':[uid(i) for i in starter],'Chapters':[{'Id':'crystal_chapter_1','Name':'Chương 1','Stages':stages}]})
 oracle=[]
 for hid in hero_ids:
     unit=units[hid]
@@ -194,3 +194,8 @@ for hid in hero_ids:
                 oracle.append({'HeroId':uid(hid),'Stars':stars,'Level':40,'RankId':ranks[rank-1],'Equipped':full,'Expected':amounts(expected)})
 write(ROOT/'Artifacts/CrystalPhaseChecks/stat-oracle.json',{'Rows':oracle})
 print('Chapter: 18 stages / 54 waves; stat oracle:',len(oracle),'cases')
+
+# Keep active Zatod config canonical after importing source metadata.
+import runpy
+runpy.run_path(str(ROOT / "scripts/Prepare-ZatodData.py"), run_name="__main__")
+runpy.run_path(str(ROOT / "scripts/Import-ZatodStageDrops.py"), run_name="__main__")

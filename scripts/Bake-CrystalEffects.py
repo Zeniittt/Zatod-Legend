@@ -26,7 +26,7 @@ def work(resource):
  if not (REF/'recovered/heroes'/resource/'animation.json').exists():
   record=recover_effect(containers[resource])
   if record['status']!='recovered':raise ValueError(str(record))
- if (ROOT/'Unity/Assets/Zatod/Art/Crystal'/resource/'bake-manifest.txt').exists():return {'Resource':resource,'Status':'already baked'}
+ if (ROOT/'Unity/Assets/Zatod/Art/Imported'/resource/'bake-manifest.txt').exists():return {'Resource':resource,'Status':'already baked'}
  result=bake({'Id':'effect_'+resource,'SourceResource':resource});print(json.dumps(result),flush=True);return result
 if __name__=='__main__':
  with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:results=list(pool.map(work,sorted(wanted)))

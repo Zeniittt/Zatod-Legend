@@ -31,8 +31,8 @@ public static class VerifyMonstersRuntime
                 for(int i=0;i<keys.Length;i++)Check(Mathf.Abs(keys[i].time-entry.FrameTimes[i])<.0001f && ((Sprite)keys[i].value).pixelsPerUnit==25,"Monster timing/PPU");
             }
         }
-        HeroBalanceWindow.OpenMonsters();
-        var balance=Resources.FindObjectsOfTypeAll<HeroBalanceWindow>().Single(w=>w.titleContent.text=="Monster Balance");
+        GameEditorWindow.OpenMonsters();
+        var balance=Resources.FindObjectsOfTypeAll<GameEditorWindow>().Single(w=>w.titleContent.text=="Monster Balance");
         var tab=balance.rootVisualElement.Query<UnityEngine.UIElements.Button>().ToList().Single(b=>b.text=="Monsters");
         using(var e=NavigationSubmitEvent.GetPooled()){e.target=tab;tab.SendEvent(e);}
         Check(balance.rootVisualElement.Q<TextField>("section-json-input").value.Contains("fighter_goblin"),"Monster balance tab missing data");

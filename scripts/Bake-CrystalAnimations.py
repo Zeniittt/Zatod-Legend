@@ -7,7 +7,7 @@ sys.path.insert(0,str(REF/'recovery_tools'))
 sys.path.insert(0,str(REF/'.recovery-deps'))
 from PIL import Image
 from hero_animation import load_hero,action_bounds,render_frame
-ART=ROOT/'Unity/Assets/Zatod/Art/Crystal'
+ART=ROOT/'Unity/Assets/Zatod/Art/Imported'
 DATA=ROOT/'Unity/Assets/Zatod/Resources/Data'
 units=[]
 for section in ['Heroes','Monsters']:
@@ -27,7 +27,7 @@ def bake(unit):
   for page,start in enumerate(range(0,len(action['frames']),per)):
    count=min(per,len(action['frames'])-start);actual_rows=math.ceil(count/cols)
    sheet=Image.new('RGBA',(width*cols,height*actual_rows))
-   rel=f'Assets/Zatod/Art/Crystal/{resource}/{name}_{page}.png'
+   rel=f'Assets/Zatod/Art/Imported/{resource}/{name}_{page}.png'
    definitions=[]
    for local in range(count):
     index=start+local;frame=render_frame(action['frames'][index],sprites,bounds,scale)

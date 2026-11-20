@@ -1,6 +1,6 @@
 # Zatod Legend — Thiết kế đã thống nhất
 
-Cập nhật: **19/11/2026, Asia/Saigon**.
+Cập nhật: **20/11/2026, Asia/Saigon**.
 
 Đây là nguồn quyết định chung của project. Mỗi chat cần đọc file này trước khi làm việc và cập nhật khi người dùng chốt thêm. Đồng ý về thiết kế không đồng nghĩa thay đổi đó đã được triển khai hoặc được yêu cầu triển khai ngay.
 
@@ -38,7 +38,7 @@ Không khẳng định backend Crystal tính xong Arena trước phản hồi St
 ### D04 — Nguồn Crystal Legends và asset
 
 - Giữ nguyên bộ nguồn tham chiếu tại `Crystal Legend/`, ngoài `Unity/Assets`. Bản gốc trên ổ C: được giữ lại.
-- Chuyển/import từng phần cần dùng vào project Unity theo từng bước; không tự xóa Hero pixel hoặc tài nguyên hiện có.
+- Chuyển/import từng phần cần dùng vào project Unity theo từng bước; không tự xóa Hero pixel hoặc tài nguyên hiện có. Bổ sung 19/11/2026: D16 cho phép loại định nghĩa cũ khỏi các bảng config hoạt động khi triển khai dọn dữ liệu; không suy rộng thành xóa asset/reference hoặc viết lại lịch sử sở hữu.
 - Tận dụng asset Crystal cho assignment. 314 container đã xuất bao gồm Hero, skin và NPC, không phải 314 Hero độc lập.
 - Giữ source raw, dấu vết reverse và báo cáo để đối chiếu. Chưa có toàn bộ backend hay công cụ authoring gốc của Crystal.
 
@@ -133,6 +133,90 @@ Chốt ngày 19/11/2026, thay cho đề xuất kho kiểu ItemId + Quantity:
 - Khi bắt đầu trận, dùng cùng dữ liệu/rules đã chốt cho toàn bộ trận và replay đó; chỉnh balance không thay đổi âm thầm dữ liệu của trận đang chạy.
 - Hook có handler/selector/amount trong WaveDefinition và Editor authoring; snapshot rules/config/wave/hook được giữ trong input archive của từng trận.
 
+### D14 — Tên sản phẩm và thành phần project là Zatod
+
+Chốt ngày 19/11/2026: các thành phần do project xây dựng phải mang tên Zatod, dù lấy nguồn tham chiếu Crystal. Áp dụng cho nhãn UI/menu, cửa sổ Editor, scene/prefab, code/công cụ/build và tên tài liệu phục vụ sử dụng project. Crystal chỉ dùng khi nói rõ nguồn tham chiếu, nguồn reverse hoặc mô tả hành vi gốc.
+
+- **Trạng thái 19/11/2026:** đã triển khai theo yêu cầu thực thi sau khảo sát. UI/menu, class/file/scene/resource/build và công cụ hoạt động dùng Zatod; giữ dấu vết nguồn và lớp tương thích save/rules/archive/launch flag cũ. Scene `ZatodPrototype.unity`, executable `Builds/ZatodPrototype/ZatodLegend.exe`.
+- Giữ nguyên bộ reference `Crystal Legend/` theo D04 và dấu vết nguồn; đổi tên thành phần Zatod không tự xóa/viết lại source tham chiếu.
+- Những tên đang là ID lưu trữ/reference/resource/rules/replay cần rà soát migration hoặc lớp tương thích trước khi đổi, giữ Hero/item GUID và archive cũ theo D08/D12/D13. Không replace toàn repo làm hỏng dữ liệu sở hữu/replay. Kế hoạch cụ thể và từng thay đổi sẽ được thực hiện ở lượt triển khai được yêu cầu.
+
+Khảo sát UI ban đầu: [zatod-campaign-ui-review.md](docs/zatod-campaign-ui-review.md). Phạm vi sau đó đã chốt tại D15 và được yêu cầu thực thi cùng D14–D16; ý tưởng ngoài phạm vi ấy vẫn là brainstorm.
+
+### D15 — Phạm vi HUD Phó bản và GameEditor
+
+Chốt ngày 19/11/2026 sau khảo sát UI:
+
+- HUD dùng asset hiện có theo bố cục tham chiếu. **Chưa thêm pause/tăng tốc cho Phó bản** ở lượt UI sắp tới; không xóa chức năng điều khiển replay đã có.
+- Auto dùng thao tác ultimate hợp lệ và nhật ký/checker thật; số damage/heal/energy nổi lấy từ kết quả combat thật, không dùng số minh họa hay tính từ animation.
+- Vàng/rương **vẫn dựng UI**, hiển thị cố định **0**, chưa nối reward/economy. Quyết định này thay đề xuất ẩn nhóm vàng/rương trước đó.
+- Người dùng chọn điểm vào/cửa sổ tên **GameEditor**, có từng tab riêng cho Heroes, Monsters, Items, Stats, Skills, Buffs và Campaign (chương/ải/wave/hook), thay đề xuất menu Config trước đó. Các thành phần project tiếp tục theo tên Zatod tại D14.
+- **Trạng thái 19/11/2026:** đã triển khai HUD prefab `Resources/Zatod/UI/ZatodBattleHUD.prefab`, Auto và số combat thật, vàng/rương 0. Menu **GameEditor > Open**, bảy tab, refresh sạch và bảo vệ draft/stale save. Kiểm tra Editor 13 PASS; trận Auto thật được server xác nhận, replay pause/seek/x4 đạt. Chi tiết: `docs/zatod-ui-implementation-progress.md`.
+- Kiểm tra Editor hiện tại xác nhận draft/cache cũ 24 Hero/7 Monster/2 Item trong khi file trên đĩa có 40/17/69. Đây là lỗi đồng bộ cửa sổ authoring (BUG-012), không phải thiếu import. Khi triển khai GameEditor cần xử lý phát hiện file thay đổi và bảo vệ draft chưa lưu, không âm thầm bỏ chỉnh sửa hoặc ghi đè file mới.
+- **Phản hồi sau nghiệm thu chức năng 19/11/2026:** người dùng chỉ ra UI còn giống control tạm dù có asset. Kiểm tra xác nhận HUD runtime là uGUI, GameEditor là UI Toolkit; HUD mới dùng một phần art, còn helper button/digit/highlight/menu tạm. D15 đã triển khai chức năng nhưng chưa nên coi hình thức UI là hoàn thiện theo ảnh tham chiếu. Theo dõi BUG-018; lượt hỏi này chỉ giải thích, chưa đổi runtime.
+
+
+### D16 — Config chỉ giữ bộ mới, ID snake_case và tên tiếng Anh
+
+Chốt hướng ngày 19/11/2026; ban đầu kiểm tra trước, sau đó người dùng đã yêu cầu **thực thi**:
+
+- Các `.txt` config hoạt động chỉ giữ dữ liệu thuộc bộ mới đã import và các phụ thuộc thật của nó. Loại định nghĩa Hero/item/monster/skill cũ không thuộc bộ mới; điều này thay chủ trương trộn định nghĩa cũ và mới trước đây. Không tự xóa art/reference/archive hay reset lịch sử Hero/item.
+- Đặt ID dạng tên object viết thường, phân cách từ bằng `_` (snake_case), ví dụ Axe Titan → axe_titan, Zeus → zeus; bỏ dạng crystal_1/crystal_item_*/crystal_skill_* khỏi ID authoring mới.
+- Dùng tên tiếng Anh có sẵn của đúng bản game cho item/skill thay chuỗi tiếng Trung. Kiểm tra bảng bản địa hóa gốc trước khi tự dịch; không lấy tên Dota/game khác làm tên chính thức nếu client này dùng tên khác.
+- **Trạng thái 19/11/2026:** đã dọn và chuyển tham chiếu: 40→16 Hero, 17→10 Monster, 69→67 Item, 127→86 Skill; giữ 33 buff, 27 stat phụ thuộc, 18 ải/54 wave. ID snake_case; item/skill dùng English gốc theo độ phủ bên dưới. Importer có postprocess idempotent; mapping tương thích nằm trong `ZatodContentIds.cs`. Save remap ID, giữ GUID/equipped/absorbed; sở hữu pixel đã nghỉ được giữ ở RetiredHeroDesk/RetiredInventory/RetiredFormationIds, không xóa lịch sử hay art.
+- Skill có tên hiển thị trùng (26 Basic Attack, hai Headshot trong bộ mới). Đã đối chiếu 26 Basic Attack tương ứng một-một với 16 Hero + 10 Monster, ID riêng và Basic Skill trong Unit nguồn khớp toàn bộ; không phải import trùng. Khi thực thi đã dùng prefix owner cho skill ID để phân biệt nhãn trùng, ví dụ `lina_basic_attack`; giữ SourceId để trace đúng cơ chế.
+- Khảo sát tên: 67/67 item có bản English trực tiếp; 74/74 skill không ẩn có bản English. Tổng 86 skill có 75 tên trực tiếp, 11 dòng tên `&...` đều bị ẩn; 4 dòng có thể tra tên gốc khi bỏ `&`, 7 dòng chưa tìm thấy nhãn English tương ứng trong bảng đã kiểm tra. Không đánh dấu mọi dòng kỹ thuật ẩn là đã có tên dịch chính thức.
+
+Khảo sát chi tiết: `docs/zatod-data-cleanup-review.md`; bảng tên trích nguồn tại `Artifacts/CrystalPhaseChecks/english-name-audit-20261119.json`.
+
+### D17 — Art của mọi UI/View mới dùng đúng asset Crystal
+
+Chốt ngày 19/11/2026 sau phản hồi BUG-018. **Trạng thái:** đã áp dụng cho View chọn đội D18, dùng 77 file art/font nguồn được đối chiếu SHA256; HUD cũ vẫn giữ theo chấp nhận tạm của người dùng.
+
+- Người dùng tạm chấp nhận HUD hiện tại; không tự mở một đợt sửa lại toàn bộ HUD cũ trong lượt khảo sát chọn đội.
+- Từ đây, mọi UI/View mới dùng đúng asset Crystal đã khôi phục: background, panel/frame, button và các trạng thái, portrait, rank, star, selected mark; đối chiếu ảnh/source, không vẽ nền màu/control tạm hoặc dùng một nền nút cho mọi chức năng như trước.
+- Giữ nguyên nguồn trong `Crystal Legend/`, import phần cần dùng và đặt tên thành phần Zatod theo D04/D14. Không coi việc đã tìm thấy file là đã kiểm định đủ mọi biến thể giống screenshot.
+- Làm rõ và duyệt 19/11/2026: tiếp tục dùng **uGUI/Canvas để ghép đúng asset nguồn**; người dùng sửa cách diễn đạt trước đó, không cấm framework. Không dùng control/nền màu tạm thay art game.
+
+### D18 — View chọn đội Phó bản theo ảnh tham chiếu
+
+Chốt yêu cầu ngày 19/11/2026; người dùng đã duyệt toàn bộ khảo sát còn lại và yêu cầu thực thi. **Trạng thái:** đã hoàn thành và kiểm tra. Editor/server 365 checks PASS, 54 wave; Windows build cuối Succeeded/0 errors/0 warnings; client executable kết nối và mở View hiển thị art/font CN thành công. Hộp thoại Save đã gỡ và guard chống tái diễn đã kiểm tra (BUG-022).
+
+- Flow D18 ban đầu được thay bằng D20 ngày20/11: chọn ải → popup preview → Challenge → chọn đội → Battle → vào trận. Back ở chọn đội về popup, X về map; không tự bắt đầu trận.
+- Hàng địch trên cùng hiển thị encounter của từng wave, có nút trái/phải và chỉ số wave; đổi preview không thay wave bắt đầu hay thành phần trận thật.
+- Hai tab Squad/Tutorial theo ảnh; Tutorial hiện chỉ có hình thức, bấm chưa xử lý/nạp nội dung.
+- Danh sách Hero sở hữu là grid scroll dọc, lấy `CharacterData.HeroDesk`, không tự cấp toàn bộ 16 định nghĩa đã import. Ô Hero hiển thị portrait, level, sao và bậc thật.
+- Chỉ filter **All / Ago / Middle / Rear**. Ago chỉ hàng trước, ánh xạ Front hiện có; bỏ STR/INT/AGI và Preset. Không tạo stat mới từ các tên filter.
+- Tổng lực chiến đặt `?` nếu chưa có hệ thống. Dải đội hình có 5 ô; ô thiếu khuyết từ trái, các Hero được chọn nằm về phải theo ảnh 4 Hero. Không tự thêm drag/reorder hoặc đổi combat placement để khớp hình.
+- Khu phải: tên/mô tả ải, thể lực, item drop và nút Battle. Phần chưa implement để trống, không giả dữ liệu. Chốt bổ sung: dùng nguyên Name/Description tiếng Trung hiện có, dịch/bản địa hóa để sau. Ngày 20/11 đã thêm drop fields theo D19; Cost và icon drop đã được nối vào View chọn đội/popup theo D20.
+- Battle gửi đội Hero instance đã chọn vào flow Campaign/checker hiện có; chưa yêu cầu sửa luật trận, kho/tiến trình hoặc xây hệ thống stamina/reward/power.
+- Khảo sát và tương tác đã được duyệt khi yêu cầu thực thi: `docs/zatod-formation-view-review.md`; các giới hạn không tự mở rộng vẫn giữ nguyên.
+
+### D19 — Danh sách item rơi theo ải, giai đoạn config
+
+Chốt và yêu cầu triển khai ngày 20/11/2026. **Trạng thái:** đã triển khai model/config/validation và nối pipeline import; 18 ải, 36 dòng/10 loại item, 100%. Core 4.429 assertions PASS, re-import byte-identical và đối chiếu giữ nguyên dữ liệu ải/wave cũ. GameEditor dùng reflection đã có để chỉnh các field mới; không có Editor chạy để kiểm tra live lượt này. UI drop đã nối theo D20; chưa triển khai roll/cấp thưởng.
+
+- Mỗi `CampaignStageDefinition` có `DropItems`; mỗi dòng chứa `ItemId` (ID loại item) và `DropChancePercent` (0–100). Đây không phải GUID của một item instance.
+- Lấy danh sách từ `Stage.UI reward` của Crystal cho các ải đã import, chỉ tham chiếu các item có định nghĩa trong Zatod. Hiện đặt mọi tỷ lệ là **100%** theo yêu cầu prototype của người dùng, không coi đó là tỷ lệ Crystal đã reverse.
+- Phạm vi hiện tại giữ bộ 67 trang bị; ID20555 là vật phẩm ngoài bộ đã nhập, có điều kiện level81 trong nguồn, được ghi vào báo cáo bỏ qua thay vì tạo reference hỏng.
+- Chỉ làm config/model/validation và khả năng chỉnh qua GameEditor Chapter/Stage/Wave; chuẩn bị nguồn dữ liệu cho UI. Chưa xử lý quái chết rơi đồ, random, cấp item vào kho hay thưởng cuối trận. Hiển thị icon drop trong hai View đã được hoàn tất theo D20, không thêm logic trao đồ.
+- Bổ sung này thay trạng thái “chưa có drop fields” của D18; phần stamina, economy, power và luật combat vẫn giữ nguyên phạm vi đã chốt.
+
+### D20 — Popup preview ải và hiển thị item reward
+
+Yêu cầu ngày 20/11/2026; người dùng đã duyệt toàn bộ phạm vi và yêu cầu thực thi. **Trạng thái:** đã hoàn thành và kiểm tra. Core4.431 assertions PASS, UI766 checks PASS/18 ải; build Windows Succeeded/0 errors/2 warnings có sẵn. Client Editor + server executable test thắng3 sao, snapshot và popup cùng3; phiên mới cùng tài khoản về0 sao và giữ5 Hero/level. Editor đã dừng Play, auto-tick=false; server thường PID5580 READY7788, dữ liệu Artifacts/ZatodServer. Bổ sung Cost được người dùng yêu cầu thực thi riêng cùng ngày: đã thêm model/config/import/validation `VitalityCost`, 18/18 ải bằng6 theo Crystal, ConfigVersion=`zatod-chapter-one-4`, core4.431 assertions PASS.
+
+- Flow đích mới: chọn ải → popup preview đội địch → View chọn đội → bấm Battle → vào trận. Đã nối vào runtime, thay flow cũ của D18.
+- View chọn đội: khu reward hiển thị nhãn `Reward` và icon các item trong `stage.DropItems`, không ghi tỷ lệ. Popup preview dùng cùng nguồn DropItems; chưa cấp thưởng/roll đồ.
+- Popup lấy đúng asset Crystal, có nền tối chặn tương tác map phía sau và nút X đóng về màn chọn ải; bảng tên lấy Stage.Name, mô tả giữ tiếng Trung như D18.
+- Ba sao đọc số sao thật đã đạt trong phiên chơi: chưa đánh 0/3 sao xám; có sao thì sao đạt vàng, sao thiếu dùng biến thể nâu. Không suy cleared=true thành3 sao; giữ reset tiến trình theo launch của D11.
+- Enemies chỉ hiển thị các spawn trong **wave cuối** (hiện wave3), gồm cả Hero phía địch và Monster; giữ các ô trùng loại, không gộp. Boss đọc cờ Boss của spawn và dùng badge nguồn tiếng Anh.
+- Cost dùng `CampaignStageDefinition.VitalityCost` kiểu int không âm, lấy nguyên `Stage.Vitality Cost` từ Crystal. Đã điền6 cho cả18 ải và cập nhật importer; GameEditor reflection có sẵn hiển thị field. Đã hiển thị Cost trong popup và View chọn đội; không trừ thể lực hoặc chặn Challenge vì hệ thống thể lực chưa làm. Giá trị0 hợp lệ cho ải miễn phí và config cũ thiếu field.
+- Có khu Raid Voucher, nút Raid/Raid x3 và Challenge. Raid chỉ là UI ở phase này, chưa request/thưởng/càn quét; điều kiện3 sao là điều kiện thể hiện trạng thái. Daily Attempts hiển thị `?`. Challenge mở View chọn đội và chưa bắt đầu trận.
+- Đã bổ sung StageStars trong account snapshot từ CampaignRun; dùng dữ liệu server thật để render sao. Đã import42 file art/icon nguồn byte-for-byte và dùng icon/frame theo Quality. Không khôi phục tiến trình từ archive cũ.
+- **Đã chốt bổ sung ngày 20/11/2026:** dùng số sao thật; Raid dưới3 sao hiện xám, đủ3 sao đổi trạng thái sáng nhưng chưa có xử lý; Raid Voucher hiển thị `?`. Back ở View chọn đội trở lại popup preview của cùng ải, giữ draft đội; X đóng về map. Quyết định Back này đã được triển khai, thay hành vi cũ của D18. Giữ nút Tutorial theo ref, chưa nối code. Daily Attempts vẫn `?`. Sau bước Cost, người dùng đã yêu cầu thực thi UI/protocol sao trong phạm vi D20.
+- Bàn giao: `docs/zatod-stage-preview-implementation.md`; asset mapping khảo sát: `docs/zatod-stage-preview-review.md`. Kiểm tra/ảnh/build/network/reset: `Artifacts/ZatodStagePreviewChecks/`; trạng thái cuối `handoff.json`.
+
 ## Bản tổng hợp phase đã được duyệt
 
 Người dùng đã duyệt toàn bộ bản tổng hợp cùng hai lưu ý về chuyển stats và giới hạn source backend, rồi yêu cầu thực thi ngày 19/11/2026. [phase-crystal-prototype-scope.md](docs/phase-crystal-prototype-scope.md) là checklist triển khai. Không yêu cầu xác nhận lại các bước trong phạm vi; chỉ báo xung đột thiết kế hoặc khoảng trống source cần quyết định mới. Trạng thái thực tế được cập nhật tại [crystal-phase-implementation.md](docs/crystal-phase-implementation.md).
@@ -168,3 +252,9 @@ Gốc Lua: `Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac
 - `battle/buff.lua`, `battle/battle_tick.lua`, `battle/battle_check.lua`: lifecycle buff, đồng bộ input và kiểm chứng.
 
 Tham khảo thêm: [ghi chú reverse và hai chat](docs/crystal-legends-reference.txt), [Hero data](docs/hero-data.md), [Campaign hiện tại](docs/campaign.md). Tài liệu lịch sử có thể mô tả prototype cũ; đối chiếu trạng thái trong code và file này.
+
+## Lượt triển khai GameEditor/HUD/dọn config — 19/11/2026
+
+Người dùng đã yêu cầu thực thi các phần D14–D16 sau khi xác nhận 26 Basic Attack là 16 Hero + 10 Monster. Đã triển khai config chỉ bộ mới, ID snake_case/tên English, GameEditor và HUD Phó bản với Auto/số combat thật, vàng/rương 0; chưa thêm pause/tăng tốc Phó bản. Giữ GUID/save/replay qua chuyển ID. Core 4.377 PASS; GameEditor 13 PASS; HUD live server validate + replay pause/seek/x4 PASS. Build/network cuối và bằng chứng bàn giao được ghi tại `docs/zatod-ui-implementation-progress.md`; hướng dẫn hiện hành `docs/zatod-prototype-play.md`.
+
+Khảo sát nguồn 20/11/2026 (chưa chốt/triển khai loot Zatod): Crystal Stage có UI reward1..10 để preview, loot lượt đánh do enter_stage_reply._loots cấp riêng. Đối chiếu sâu tìm thấy Chest.lua có Loot N ID/Yield theo Chest ID, Hero ID và Rank (3.085 dòng); APK có chứa hệ số loot, nhưng chưa có code backend để xác nhận cách dùng/chuyển thành xác suất cuối của Campaign. Tỷ lệ random ordinary chưa được khôi phục đầy đủ. Xem [crystal-stage-drops-review.md](docs/crystal-stage-drops-review.md); không biến raw preview thành danh sách vật phẩm được bảo đảm nhận.

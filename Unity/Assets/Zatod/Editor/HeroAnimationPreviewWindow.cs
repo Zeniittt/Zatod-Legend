@@ -11,12 +11,12 @@ namespace Zatod.Editor
     public sealed class HeroAnimationPreviewWindow : EditorWindow
     {
         Label status;
-        [MenuItem("Zatod/Heroes/Leenald Animation Preview")]
+
         public static void Open() { GetWindow<HeroAnimationPreviewWindow>("Leenald Animations"); }
         public void CreateGUI()
         {
             minSize = new Vector2(360, 480);
-            var style = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Zatod/Editor/HeroBalanceWindow.uss");
+            var style = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Zatod/Editor/GameEditorWindow.uss");
             if (style != null) rootVisualElement.styleSheets.Add(style);
             rootVisualElement.AddToClassList("hero-balance");
             rootVisualElement.Add(new Label("LEENALD / ANIMATION PREVIEW") { name = "hero-title" });

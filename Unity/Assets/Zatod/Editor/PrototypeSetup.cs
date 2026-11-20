@@ -16,7 +16,6 @@ namespace Zatod.Editor
     {
         const string ScenePath = "Assets/Zatod/Scenes/ArenaPrototype.unity";
 
-        [MenuItem("Zatod/Setup Arena Prototype")]
         public static void Setup()
         {
             if (EditorApplication.isPlaying) throw new InvalidOperationException("Stop Play Mode before setup.");
@@ -51,10 +50,8 @@ namespace Zatod.Editor
             Debug.Log("[PrototypeSetup] Scene, landscape client and server bootstrap ready.");
         }
 
-        [MenuItem("Zatod/Import Text Resources")]
         public static void ImportTextResources() { TMP_PackageResourceImporter.ImportResources(true, false, false); }
 
-        [MenuItem("Zatod/Build Windows Prototype")]
         public static string BuildWindows()
         {
             string directory = Path.GetFullPath(Path.Combine(Application.dataPath, "../../Builds/Windows"));
@@ -70,7 +67,6 @@ namespace Zatod.Editor
             return directory;
         }
 
-        [MenuItem("Zatod/Build Linux Dedicated Server")]
         public static string BuildLinuxServer()
         {
             string directory = Path.GetFullPath(Path.Combine(Application.dataPath, "../../Builds/LinuxServer"));

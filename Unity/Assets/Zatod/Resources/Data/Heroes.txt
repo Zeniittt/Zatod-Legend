@@ -1,4360 +1,22 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1-formation-layout-1-order-2-team-reach-1-skill-reach-1-berthaxe-1-six-hero-reach-1-crystal-p1",
+  "ConfigVersion": "zatod-prototype-2",
   "Heroes": [
     {
-      "Id": "training_warrior",
-      "Name": "Training Warrior",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "shield",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "ember_blade",
-      "Name": "Ember Blade",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "blades",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "grove_warden",
-      "Name": "Grove Warden",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "shield",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "ironhide",
-      "Name": "Ironhide",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "shield",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "dawn_knight",
-      "Name": "Dawn Knight",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "blades",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "stone_guard",
-      "Name": "Stone Guard",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "shield",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "windrunner",
-      "Name": "Windrunner",
-      "StartingRankId": "white",
-      "Position": 1,
-      "PortraitKey": "bow",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "moon_huntress",
-      "Name": "Moon Huntress",
-      "StartingRankId": "white",
-      "Position": 1,
-      "PortraitKey": "bow",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "shadow_dancer",
-      "Name": "Shadow Dancer",
-      "StartingRankId": "white",
-      "Position": 1,
-      "PortraitKey": "blades",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "frost_archer",
-      "Name": "Frost Archer",
-      "StartingRankId": "white",
-      "Position": 1,
-      "PortraitKey": "bow",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "stormcaller",
-      "Name": "Stormcaller",
-      "StartingRankId": "white",
-      "Position": 1,
-      "PortraitKey": "star",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "sunweaver",
-      "Name": "Sunweaver",
-      "StartingRankId": "white",
-      "Position": 1,
-      "PortraitKey": "star",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "star_sage",
-      "Name": "Star Sage",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "star",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "dawn_priestess",
-      "Name": "Dawn Priestess",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "cross",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "night_oracle",
-      "Name": "Night Oracle",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "star",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "grove_keeper",
-      "Name": "Grove Keeper",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "cross",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "tide_healer",
-      "Name": "Tide Healer",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "cross",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "void_scholar",
-      "Name": "Void Scholar",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "star",
-      "BodyPrefabResource": "",
-      "AnimationSetResource": "",
-      "NormalAttackSkillId": "",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 600
-        },
-        {
-          "StatId": "damage",
-          "Value": 5
-        },
-        {
-          "StatId": "defense",
-          "Value": 10
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 27
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "warrior_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "warrior_strike",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "warrior_guard",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "warrior_heal",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "leenald",
-      "Name": "Leenald",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "leenald",
-      "BodyPrefabResource": "Heroes/Leenald/Leenald",
-      "AnimationSetResource": "Heroes/Leenald/AnimationSet",
-      "NormalAttackSkillId": "leenald_normal_attack",
-      "ProjectileHurtboxHeight": 100,
-      "DeathAnimationMilliseconds": 1500,
-      "SpawnPoints": [
-        {
-          "Id": "feet",
-          "Forward": 0,
-          "Height": 0
-        }
-      ],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 4800
-        },
-        {
-          "StatId": "damage",
-          "Value": 220
-        },
-        {
-          "StatId": "defense",
-          "Value": 60
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 1300
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 26
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "leenald_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "leenald_skill2",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "leenald_skill3",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "leenald_skill4",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "kavern",
-      "Name": "Kavern",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "kavern",
-      "BodyPrefabResource": "Heroes/Kavern/Kavern",
-      "AnimationSetResource": "Heroes/Kavern/AnimationSet",
-      "NormalAttackSkillId": "kavern_normal_attack",
-      "ProjectileHurtboxHeight": 172,
-      "DeathAnimationMilliseconds": 1584,
-      "SpawnPoints": [
-        {
-          "Id": "feet",
-          "Forward": 0,
-          "Height": 0
-        },
-        {
-          "Id": "bow",
-          "Forward": 128,
-          "Height": 124
-        },
-        {
-          "Id": "air_bow",
-          "Forward": 124,
-          "Height": 360
-        },
-        {
-          "Id": "beam",
-          "Forward": 0,
-          "Height": 108
-        }
-      ],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 3000
-        },
-        {
-          "StatId": "damage",
-          "Value": 240
-        },
-        {
-          "StatId": "defense",
-          "Value": 25
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 4000
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 28
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "kavern_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "kavern_skill2",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "kavern_skill3",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "kavern_skill4",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "enchantx",
-      "Name": "Enchantx",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "enchantx",
-      "BodyPrefabResource": "Heroes/Enchantx/Enchantx",
-      "AnimationSetResource": "Heroes/Enchantx/AnimationSet",
-      "NormalAttackSkillId": "enchantx_normal_attack",
-      "ProjectileHurtboxHeight": 200,
-      "DeathAnimationMilliseconds": 1200,
-      "SpawnPoints": [
-        {
-          "Id": "feet",
-          "Forward": 0,
-          "Height": 0
-        },
-        {
-          "Id": "bow",
-          "Forward": 114,
-          "Height": 128
-        },
-        {
-          "Id": "wind",
-          "Forward": 70,
-          "Height": 152
-        }
-      ],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 2800
-        },
-        {
-          "StatId": "damage",
-          "Value": 225
-        },
-        {
-          "StatId": "defense",
-          "Value": 20
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 5000
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1600
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 26
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "enchantx_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "enchantx_skill2",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "enchantx_skill3",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "enchantx_skill4",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "blooesperod",
-      "Name": "Blooesperod",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "blooesperod",
-      "BodyPrefabResource": "Heroes/Blooesperod/Blooesperod",
-      "AnimationSetResource": "Heroes/Blooesperod/AnimationSet",
-      "NormalAttackSkillId": "blooesperod_normal_attack",
-      "ProjectileHurtboxHeight": 236,
-      "DeathAnimationMilliseconds": 5201,
-      "SpawnPoints": [
-        {
-          "Id": "soul",
-          "Forward": 40,
-          "Height": 200
-        }
-      ],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 4800
-        },
-        {
-          "StatId": "damage",
-          "Value": 200
-        },
-        {
-          "StatId": "defense",
-          "Value": 45
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 2200
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1100
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 24
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "blooesperod_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "blooesperod_skill2",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "blooesperod_skill3",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "blooesperod_skill4",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "lilina",
-      "Name": "Lilina",
-      "StartingRankId": "white",
-      "Position": 2,
-      "PortraitKey": "lilina",
-      "BodyPrefabResource": "Heroes/Lilina/Lilina",
-      "AnimationSetResource": "Heroes/Lilina/AnimationSet",
-      "NormalAttackSkillId": "lilina_normal_attack",
-      "ProjectileHurtboxHeight": 256,
-      "DeathAnimationMilliseconds": 3080,
-      "SpawnPoints": [
-        {
-          "Id": "hand",
-          "Forward": 120,
-          "Height": 120
-        },
-        {
-          "Id": "dragon",
-          "Forward": 180,
-          "Height": 116
-        }
-      ],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 2600
-        },
-        {
-          "StatId": "damage",
-          "Value": 230
-        },
-        {
-          "StatId": "defense",
-          "Value": 15
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 6000
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1300
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 24
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "lilina_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "lilina_skill2",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "lilina_skill3",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "lilina_skill4",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "berthaxe",
-      "Name": "Berthaxe",
-      "StartingRankId": "white",
-      "Position": 0,
-      "PortraitKey": "berthaxe",
-      "BodyPrefabResource": "Heroes/Berthaxe/Berthaxe",
-      "AnimationSetResource": "Heroes/Berthaxe/AnimationSet",
-      "NormalAttackSkillId": "berthaxe_normal_attack",
-      "ProjectileHurtboxHeight": 230,
-      "DeathAnimationMilliseconds": 2010,
-      "SpawnPoints": [
-        {
-          "Id": "ground",
-          "Forward": 200,
-          "Height": 0
-        }
-      ],
-      "BaseStats": [
-        {
-          "StatId": "health",
-          "Value": 5200
-        },
-        {
-          "StatId": "damage",
-          "Value": 240
-        },
-        {
-          "StatId": "defense",
-          "Value": 50
-        },
-        {
-          "StatId": "attack_range",
-          "Value": 3100
-        },
-        {
-          "StatId": "move_speed",
-          "Value": 1300
-        },
-        {
-          "StatId": "attack_interval",
-          "Value": 24
-        }
-      ],
-      "Ranks": [
-        {
-          "Id": "white",
-          "Name": "Trắng",
-          "NextRankId": "green",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "ultimate"
-          ]
-        },
-        {
-          "Id": "green",
-          "Name": "Xanh Lá",
-          "NextRankId": "blue",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_2"
-          ]
-        },
-        {
-          "Id": "blue",
-          "Name": "Xanh Dương",
-          "NextRankId": "purple",
-          "BonusStats": [],
-          "EquipmentSlots": [
-            {
-              "Id": "gear_1",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_2",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_3",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_4",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_5",
-              "RequiredItemId": "axe_basic"
-            },
-            {
-              "Id": "gear_6",
-              "RequiredItemId": "axe_basic"
-            }
-          ],
-          "UnlockSkillSlotIds": [
-            "skill_3"
-          ]
-        },
-        {
-          "Id": "purple",
-          "Name": "Tím",
-          "NextRankId": "",
-          "BonusStats": [],
-          "EquipmentSlots": [],
-          "UnlockSkillSlotIds": [
-            "skill_4"
-          ]
-        }
-      ],
-      "SkillSlots": [
-        {
-          "Id": "ultimate",
-          "SkillId": "berthaxe_ultimate",
-          "IsUltimate": true
-        },
-        {
-          "Id": "skill_2",
-          "SkillId": "berthaxe_skill2",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_3",
-          "SkillId": "berthaxe_skill3",
-          "IsUltimate": false
-        },
-        {
-          "Id": "skill_4",
-          "SkillId": "berthaxe_skill4",
-          "IsUltimate": false
-        }
-      ]
-    },
-    {
-      "Id": "crystal_1",
+      "Id": "coco",
       "Name": "Coco",
       "SourceUnitId": 1,
       "Position": 0,
-      "PortraitKey": "crystal_1",
-      "BodyPrefabResource": "Crystal/Coco_HD/Coco_HD",
-      "AnimationSetResource": "Crystal/Coco_HD/AnimationSet",
+      "PortraitKey": "coco",
+      "BodyPrefabResource": "Zatod/Coco_HD/Coco_HD",
+      "AnimationSetResource": "Zatod/Coco_HD/AnimationSet",
       "SourcePuppet": "Coco.cha",
       "SourceResource": "Coco_HD",
       "ArtScale": 0.9,
       "CollideRadius": 18,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_11",
+      "NormalAttackSkillId": "coco_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -4817,27 +479,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_111"
+              "RequiredItemId": "ring_of_regen"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_107"
+              "RequiredItemId": "simple_staff"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_109"
+              "RequiredItemId": "small_stout_shield"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_108"
+              "RequiredItemId": "iron_axe"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -4878,27 +540,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_181"
+              "RequiredItemId": "helm_of_warrior"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -4939,27 +601,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_223"
+              "RequiredItemId": "claymore"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_215"
+              "RequiredItemId": "charge_shield"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_113"
+              "RequiredItemId": "claw_of_assassin"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_123"
+              "RequiredItemId": "scarf_of_regeneration"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_200"
+              "RequiredItemId": "green_boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -4998,27 +660,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_242"
+              "RequiredItemId": "aurora"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_214"
+              "RequiredItemId": "magic_resis_scarf"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_209"
+              "RequiredItemId": "orb_of_perseverance"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_199"
+              "RequiredItemId": "life_vessel"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_204"
+              "RequiredItemId": "pegleg_of_strength"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -5029,36 +691,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_10",
+          "SkillId": "coco_spectral_ship",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_13",
+          "SkillId": "coco_flood_surge",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_12",
+          "SkillId": "coco_aquatic_blade",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_2",
+      "Id": "dr",
       "Name": "DR",
       "SourceUnitId": 2,
       "Position": 2,
-      "PortraitKey": "crystal_2",
-      "BodyPrefabResource": "Crystal/DR/DR",
-      "AnimationSetResource": "Crystal/DR/AnimationSet",
+      "PortraitKey": "dr",
+      "BodyPrefabResource": "Zatod/DR/DR",
+      "AnimationSetResource": "Zatod/DR/AnimationSet",
       "SourcePuppet": "DR.cha",
       "SourceResource": "DR",
       "ArtScale": 0.9,
       "CollideRadius": 16,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_21",
+      "NormalAttackSkillId": "dr_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -5497,27 +1159,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -5558,27 +1220,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_122"
+              "RequiredItemId": "vital_shield"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -5619,27 +1281,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_243"
+              "RequiredItemId": "noir"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_211"
+              "RequiredItemId": "domination"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_201"
+              "RequiredItemId": "ring_of_aquila"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_200"
+              "RequiredItemId": "green_boots"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_180"
+              "RequiredItemId": "short_staff"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -5678,27 +1340,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_260"
+              "RequiredItemId": "crossblade"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_212"
+              "RequiredItemId": "crazy_face"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_201"
+              "RequiredItemId": "ring_of_aquila"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_172"
+              "RequiredItemId": "boots_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_205"
+              "RequiredItemId": "pegleg_of_agility"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -5709,36 +1371,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_20",
+          "SkillId": "dr_arrow_volley",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_22",
+          "SkillId": "dr_frost_arrow",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_23",
+          "SkillId": "dr_silencer",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_3",
+      "Id": "lina",
       "Name": "Lina",
       "SourceUnitId": 3,
       "Position": 1,
-      "PortraitKey": "crystal_3",
-      "BodyPrefabResource": "Crystal/Lina/Lina",
-      "AnimationSetResource": "Crystal/Lina/AnimationSet",
+      "PortraitKey": "lina",
+      "BodyPrefabResource": "Zatod/Lina/Lina",
+      "AnimationSetResource": "Zatod/Lina/AnimationSet",
       "SourcePuppet": "Lina.cha",
       "SourceResource": "Lina",
       "ArtScale": 0.9,
       "CollideRadius": 16,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_31",
+      "NormalAttackSkillId": "lina_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -6169,27 +1831,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -6230,27 +1892,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_182"
+              "RequiredItemId": "orb_of_mana"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_173"
+              "RequiredItemId": "robe_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -6291,27 +1953,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_228"
+              "RequiredItemId": "verdant_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_208"
+              "RequiredItemId": "zen_staff"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_208"
+              "RequiredItemId": "zen_staff"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -6350,27 +2012,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_251"
+              "RequiredItemId": "crimson_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_261"
+              "RequiredItemId": "azul_scepter"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_182"
+              "RequiredItemId": "orb_of_mana"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_173"
+              "RequiredItemId": "robe_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_200"
+              "RequiredItemId": "green_boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -6381,36 +2043,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_30",
+          "SkillId": "lina_deity_slash",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_32",
+          "SkillId": "lina_draco_strike",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_33",
+          "SkillId": "lina_radiant_array",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_4",
+      "Id": "zeus",
       "Name": "Zeus",
       "SourceUnitId": 4,
       "Position": 1,
-      "PortraitKey": "crystal_4",
-      "BodyPrefabResource": "Crystal/Zeus/Zeus",
-      "AnimationSetResource": "Crystal/Zeus/AnimationSet",
+      "PortraitKey": "zeus",
+      "BodyPrefabResource": "Zatod/Zeus/Zeus",
+      "AnimationSetResource": "Zatod/Zeus/AnimationSet",
       "SourcePuppet": "Zeus.cha",
       "SourceResource": "Zeus",
       "ArtScale": 0.8,
       "CollideRadius": 17,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_41",
+      "NormalAttackSkillId": "zeus_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -6873,27 +2535,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_111"
+              "RequiredItemId": "ring_of_regen"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -6934,27 +2596,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_178"
+              "RequiredItemId": "void_gem"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_107"
+              "RequiredItemId": "simple_staff"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -6995,27 +2657,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_200"
+              "RequiredItemId": "green_boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -7054,27 +2716,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_261"
+              "RequiredItemId": "azul_scepter"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_246"
+              "RequiredItemId": "bar_of_hawk"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_209"
+              "RequiredItemId": "orb_of_perseverance"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_182"
+              "RequiredItemId": "orb_of_mana"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_207"
+              "RequiredItemId": "mythic_shoes"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -7085,36 +2747,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_40",
+          "SkillId": "zeus_celestial_wrath",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_42",
+          "SkillId": "zeus_lightning_chain",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_43",
+          "SkillId": "zeus_fallen_bolt",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_6",
+      "Id": "lion",
       "Name": "Lion",
       "SourceUnitId": 6,
       "Position": 1,
-      "PortraitKey": "crystal_6",
-      "BodyPrefabResource": "Crystal/Lion/Lion",
-      "AnimationSetResource": "Crystal/Lion/AnimationSet",
+      "PortraitKey": "lion",
+      "BodyPrefabResource": "Zatod/Lion/Lion",
+      "AnimationSetResource": "Zatod/Lion/AnimationSet",
       "SourcePuppet": "Lion.cha",
       "SourceResource": "Lion",
       "ArtScale": 0.9,
       "CollideRadius": 18,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_61",
+      "NormalAttackSkillId": "lion_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -7577,27 +3239,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_107"
+              "RequiredItemId": "simple_staff"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -7638,27 +3300,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_173"
+              "RequiredItemId": "robe_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -7699,27 +3361,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_210"
+              "RequiredItemId": "celestial_drum"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_199"
+              "RequiredItemId": "life_vessel"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_123"
+              "RequiredItemId": "scarf_of_regeneration"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -7758,27 +3420,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_251"
+              "RequiredItemId": "crimson_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_228"
+              "RequiredItemId": "verdant_staff"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_182"
+              "RequiredItemId": "orb_of_mana"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -7789,36 +3451,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_60",
+          "SkillId": "lion_mortal_touch",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_62",
+          "SkillId": "lion_piercing_strike",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_63",
+          "SkillId": "lion_wizardry",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_7",
+      "Id": "qop",
       "Name": "QOP",
       "SourceUnitId": 7,
       "Position": 1,
-      "PortraitKey": "crystal_7",
-      "BodyPrefabResource": "Crystal/QOP/QOP",
-      "AnimationSetResource": "Crystal/QOP/AnimationSet",
+      "PortraitKey": "qop",
+      "BodyPrefabResource": "Zatod/QOP/QOP",
+      "AnimationSetResource": "Zatod/QOP/AnimationSet",
       "SourcePuppet": "QOP.cha",
       "SourceResource": "QOP",
       "ArtScale": 0.83,
       "CollideRadius": 16,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_71",
+      "NormalAttackSkillId": "qop_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -8281,27 +3943,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_107"
+              "RequiredItemId": "simple_staff"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -8342,27 +4004,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_173"
+              "RequiredItemId": "robe_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -8403,27 +4065,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_210"
+              "RequiredItemId": "celestial_drum"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -8462,27 +4124,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_251"
+              "RequiredItemId": "crimson_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_252"
+              "RequiredItemId": "anemoi_s_scepter"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_181"
+              "RequiredItemId": "helm_of_warrior"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_178"
+              "RequiredItemId": "void_gem"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_207"
+              "RequiredItemId": "mythic_shoes"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -8493,36 +4155,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_70",
+          "SkillId": "qop_ultrasonic_wave",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_72",
+          "SkillId": "qop_poison_dart",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_73",
+          "SkillId": "qop_painful_howl",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_8",
+      "Id": "ok",
       "Name": "OK",
       "SourceUnitId": 8,
       "Position": 0,
-      "PortraitKey": "crystal_8",
-      "BodyPrefabResource": "Crystal/OK/OK",
-      "AnimationSetResource": "Crystal/OK/AnimationSet",
+      "PortraitKey": "ok",
+      "BodyPrefabResource": "Zatod/OK/OK",
+      "AnimationSetResource": "Zatod/OK/AnimationSet",
       "SourcePuppet": "OK.cha",
       "SourceResource": "OK",
       "ArtScale": 0.9,
       "CollideRadius": 18,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_81",
+      "NormalAttackSkillId": "ok_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -9009,27 +4671,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_111"
+              "RequiredItemId": "ring_of_regen"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -9070,27 +4732,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_123"
+              "RequiredItemId": "scarf_of_regeneration"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_109"
+              "RequiredItemId": "small_stout_shield"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -9131,27 +4793,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_216"
+              "RequiredItemId": "mekan"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_214"
+              "RequiredItemId": "magic_resis_scarf"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_215"
+              "RequiredItemId": "charge_shield"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_111"
+              "RequiredItemId": "ring_of_regen"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -9190,27 +4852,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_257"
+              "RequiredItemId": "rousing_rose"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_199"
+              "RequiredItemId": "life_vessel"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_202"
+              "RequiredItemId": "courage_medal"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_184"
+              "RequiredItemId": "orb_of_vigor"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_200"
+              "RequiredItemId": "green_boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -9221,36 +4883,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_80",
+          "SkillId": "ok_chivalry_guardian",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_82",
+          "SkillId": "ok_divine_glow",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_83",
+          "SkillId": "ok_dispel",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_9",
+      "Id": "tk",
       "Name": "TK",
       "SourceUnitId": 9,
       "Position": 1,
-      "PortraitKey": "crystal_9",
-      "BodyPrefabResource": "Crystal/TK/TK",
-      "AnimationSetResource": "Crystal/TK/AnimationSet",
+      "PortraitKey": "tk",
+      "BodyPrefabResource": "Zatod/TK/TK",
+      "AnimationSetResource": "Zatod/TK/AnimationSet",
       "SourcePuppet": "TK.cha",
       "SourceResource": "TK",
       "ArtScale": 0.9,
       "CollideRadius": 18,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_91",
+      "NormalAttackSkillId": "tk_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -9713,27 +5375,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_111"
+              "RequiredItemId": "ring_of_regen"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -9774,27 +5436,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -9835,27 +5497,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_173"
+              "RequiredItemId": "robe_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_173"
+              "RequiredItemId": "robe_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -9894,27 +5556,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_251"
+              "RequiredItemId": "crimson_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_246"
+              "RequiredItemId": "bar_of_hawk"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_178"
+              "RequiredItemId": "void_gem"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_184"
+              "RequiredItemId": "orb_of_vigor"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_247"
+              "RequiredItemId": "boots_of_adventure"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -9925,36 +5587,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_90",
+          "SkillId": "tk_extreme_charge",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_92",
+          "SkillId": "tk_optic_blast",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_93",
+          "SkillId": "tk_goblin_bomb",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_10",
+      "Id": "sniper",
       "Name": "Sniper",
       "SourceUnitId": 10,
       "Position": 2,
-      "PortraitKey": "crystal_10",
-      "BodyPrefabResource": "Crystal/Sniper/Sniper",
-      "AnimationSetResource": "Crystal/Sniper/AnimationSet",
+      "PortraitKey": "sniper",
+      "BodyPrefabResource": "Zatod/Sniper/Sniper",
+      "AnimationSetResource": "Zatod/Sniper/AnimationSet",
       "SourcePuppet": "Sniper.cha",
       "SourceResource": "Sniper",
       "ArtScale": 0.8,
       "CollideRadius": 16,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_101",
+      "NormalAttackSkillId": "sniper_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -10377,27 +6039,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_109"
+              "RequiredItemId": "small_stout_shield"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -10438,27 +6100,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_122"
+              "RequiredItemId": "vital_shield"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -10499,27 +6161,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_226"
+              "RequiredItemId": "hammer_of_mithril"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_211"
+              "RequiredItemId": "domination"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_212"
+              "RequiredItemId": "crazy_face"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_172"
+              "RequiredItemId": "boots_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_172"
+              "RequiredItemId": "boots_of_agility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_205"
+              "RequiredItemId": "pegleg_of_agility"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -10558,27 +6220,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_254"
+              "RequiredItemId": "rothar"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_244"
+              "RequiredItemId": "crystal_sword"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_180"
+              "RequiredItemId": "short_staff"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_172"
+              "RequiredItemId": "boots_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_203"
+              "RequiredItemId": "shoes_of_claw"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -10589,36 +6251,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_100",
+          "SkillId": "sniper_precision_shot",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_102",
+          "SkillId": "sniper_headshot",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_103",
+          "SkillId": "sniper_grenade",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_17",
+      "Id": "bone",
       "Name": "Bone",
       "SourceUnitId": 17,
       "Position": 2,
-      "PortraitKey": "crystal_17",
-      "BodyPrefabResource": "Crystal/Bone/Bone",
-      "AnimationSetResource": "Crystal/Bone/AnimationSet",
+      "PortraitKey": "bone",
+      "BodyPrefabResource": "Zatod/Bone/Bone",
+      "AnimationSetResource": "Zatod/Bone/AnimationSet",
       "SourcePuppet": "Bone.cha",
       "SourceResource": "Bone",
       "ArtScale": 0.66,
       "CollideRadius": 16,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_171",
+      "NormalAttackSkillId": "bone_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -11081,27 +6743,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_111"
+              "RequiredItemId": "ring_of_regen"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -11142,27 +6804,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_180"
+              "RequiredItemId": "short_staff"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_107"
+              "RequiredItemId": "simple_staff"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -11203,27 +6865,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_225"
+              "RequiredItemId": "lance"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_208"
+              "RequiredItemId": "zen_staff"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_180"
+              "RequiredItemId": "short_staff"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_205"
+              "RequiredItemId": "pegleg_of_agility"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -11262,27 +6924,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_244"
+              "RequiredItemId": "crystal_sword"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_208"
+              "RequiredItemId": "zen_staff"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_212"
+              "RequiredItemId": "crazy_face"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_180"
+              "RequiredItemId": "short_staff"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_205"
+              "RequiredItemId": "pegleg_of_agility"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -11293,36 +6955,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_170",
+          "SkillId": "bone_fatal_contract",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_172",
+          "SkillId": "bone_flame_arrow",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_173",
+          "SkillId": "bone_rapid_fire",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_18",
+      "Id": "pugna",
       "Name": "Pugna",
       "SourceUnitId": 18,
       "Position": 1,
-      "PortraitKey": "crystal_18",
-      "BodyPrefabResource": "Crystal/Pugna/Pugna",
-      "AnimationSetResource": "Crystal/Pugna/AnimationSet",
+      "PortraitKey": "pugna",
+      "BodyPrefabResource": "Zatod/Pugna/Pugna",
+      "AnimationSetResource": "Zatod/Pugna/AnimationSet",
       "SourcePuppet": "Pugna.cha",
       "SourceResource": "Pugna",
       "ArtScale": 0.66,
       "CollideRadius": 16,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_181",
+      "NormalAttackSkillId": "pugna_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -11817,27 +7479,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_111"
+              "RequiredItemId": "ring_of_regen"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -11878,27 +7540,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_198"
+              "RequiredItemId": "iron_buckler"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_123"
+              "RequiredItemId": "scarf_of_regeneration"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -11939,27 +7601,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_228"
+              "RequiredItemId": "verdant_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_216"
+              "RequiredItemId": "mekan"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_182"
+              "RequiredItemId": "orb_of_mana"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -11998,27 +7660,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_251"
+              "RequiredItemId": "crimson_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_216"
+              "RequiredItemId": "mekan"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_173"
+              "RequiredItemId": "robe_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -12029,36 +7691,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_180",
+          "SkillId": "pugna_vitality_drain",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_182",
+          "SkillId": "pugna_magic_burst",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_183",
+          "SkillId": "pugna_exile",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_19",
+      "Id": "snk",
       "Name": "SNK",
       "SourceUnitId": 19,
       "Position": 0,
-      "PortraitKey": "crystal_19",
-      "BodyPrefabResource": "Crystal/SNK/SNK",
-      "AnimationSetResource": "Crystal/SNK/AnimationSet",
+      "PortraitKey": "snk",
+      "BodyPrefabResource": "Zatod/SNK/SNK",
+      "AnimationSetResource": "Zatod/SNK/AnimationSet",
       "SourcePuppet": "SNK.cha",
       "SourceResource": "SNK",
       "ArtScale": 0.9,
       "CollideRadius": 18,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_191",
+      "NormalAttackSkillId": "snk_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -12489,27 +8151,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_108"
+              "RequiredItemId": "iron_axe"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_109"
+              "RequiredItemId": "small_stout_shield"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -12550,27 +8212,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_174"
+              "RequiredItemId": "gloves_of_speed"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_113"
+              "RequiredItemId": "claw_of_assassin"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_184"
+              "RequiredItemId": "orb_of_vigor"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -12611,27 +8273,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_209"
+              "RequiredItemId": "orb_of_perseverance"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_181"
+              "RequiredItemId": "helm_of_warrior"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_113"
+              "RequiredItemId": "claw_of_assassin"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -12670,27 +8332,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_248"
+              "RequiredItemId": "gloves_of_ghost"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_215"
+              "RequiredItemId": "charge_shield"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_242"
+              "RequiredItemId": "aurora"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_179"
+              "RequiredItemId": "mask_of_blood_thirty"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_204"
+              "RequiredItemId": "pegleg_of_strength"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -12701,36 +8363,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_190",
+          "SkillId": "snk_aerial_hammer",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_192",
+          "SkillId": "snk_crit",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_194",
+          "SkillId": "snk_vampire_aura",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_20",
+      "Id": "nec",
       "Name": "NEC",
       "SourceUnitId": 20,
       "Position": 0,
-      "PortraitKey": "crystal_20",
-      "BodyPrefabResource": "Crystal/NEC/NEC",
-      "AnimationSetResource": "Crystal/NEC/AnimationSet",
+      "PortraitKey": "nec",
+      "BodyPrefabResource": "Zatod/NEC/NEC",
+      "AnimationSetResource": "Zatod/NEC/AnimationSet",
       "SourcePuppet": "NEC.cha",
       "SourceResource": "NEC",
       "ArtScale": 0.9,
       "CollideRadius": 18,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_201",
+      "NormalAttackSkillId": "nec_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -13217,27 +8879,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_105"
+              "RequiredItemId": "ring_of_protection"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_111"
+              "RequiredItemId": "ring_of_regen"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_109"
+              "RequiredItemId": "small_stout_shield"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -13278,27 +8940,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_176"
+              "RequiredItemId": "cloak_of_wizardry"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -13339,27 +9001,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_216"
+              "RequiredItemId": "mekan"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_215"
+              "RequiredItemId": "charge_shield"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_214"
+              "RequiredItemId": "magic_resis_scarf"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -13398,27 +9060,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_261"
+              "RequiredItemId": "azul_scepter"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_228"
+              "RequiredItemId": "verdant_staff"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_178"
+              "RequiredItemId": "void_gem"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_176"
+              "RequiredItemId": "cloak_of_wizardry"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -13429,36 +9091,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_200",
+          "SkillId": "nec_reaper_summon",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_202",
+          "SkillId": "nec_vitality_pulse",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_203",
+          "SkillId": "nec_life_insight",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_29",
+      "Id": "tiny",
       "Name": "Tiny",
       "SourceUnitId": 29,
       "Position": 0,
-      "PortraitKey": "crystal_29",
-      "BodyPrefabResource": "Crystal/Tiny/Tiny",
-      "AnimationSetResource": "Crystal/Tiny/AnimationSet",
+      "PortraitKey": "tiny",
+      "BodyPrefabResource": "Zatod/Tiny/Tiny",
+      "AnimationSetResource": "Zatod/Tiny/AnimationSet",
       "SourcePuppet": "Tiny.cha",
       "SourceResource": "Tiny",
       "ArtScale": 0.9,
       "CollideRadius": 19,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_291",
+      "NormalAttackSkillId": "tiny_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -13921,27 +9583,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_104"
+              "RequiredItemId": "cloak_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_107"
+              "RequiredItemId": "simple_staff"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -13982,27 +9644,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_109"
+              "RequiredItemId": "small_stout_shield"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_113"
+              "RequiredItemId": "claw_of_assassin"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -14043,27 +9705,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_243"
+              "RequiredItemId": "noir"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_210"
+              "RequiredItemId": "celestial_drum"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_197"
+              "RequiredItemId": "ring_of_soul"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_109"
+              "RequiredItemId": "small_stout_shield"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_203"
+              "RequiredItemId": "shoes_of_claw"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -14102,27 +9764,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_261"
+              "RequiredItemId": "azul_scepter"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_251"
+              "RequiredItemId": "crimson_staff"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_257"
+              "RequiredItemId": "rousing_rose"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_102"
+              "RequiredItemId": "boxing_gloves_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_207"
+              "RequiredItemId": "mythic_shoes"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -14133,36 +9795,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_290",
+          "SkillId": "tiny_casual_toss",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_292",
+          "SkillId": "tiny_yank_tree",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_293",
+          "SkillId": "tiny_rockslide",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_37",
+      "Id": "viper",
       "Name": "Viper",
       "SourceUnitId": 37,
       "Position": 2,
-      "PortraitKey": "crystal_37",
-      "BodyPrefabResource": "Crystal/Viper/Viper",
-      "AnimationSetResource": "Crystal/Viper/AnimationSet",
+      "PortraitKey": "viper",
+      "BodyPrefabResource": "Zatod/Viper/Viper",
+      "AnimationSetResource": "Zatod/Viper/AnimationSet",
       "SourcePuppet": "Viper.cha",
       "SourceResource": "Viper",
       "ArtScale": 0.9,
       "CollideRadius": 19,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_371",
+      "NormalAttackSkillId": "viper_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -14593,27 +10255,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_103"
+              "RequiredItemId": "stockings_of_agility"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -14654,27 +10316,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_183"
+              "RequiredItemId": "orb_of_health"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_109"
+              "RequiredItemId": "small_stout_shield"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_172"
+              "RequiredItemId": "boots_of_agility"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -14715,27 +10377,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_223"
+              "RequiredItemId": "claymore"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_215"
+              "RequiredItemId": "charge_shield"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_199"
+              "RequiredItemId": "life_vessel"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_119"
+              "RequiredItemId": "mask_of_agility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_113"
+              "RequiredItemId": "claw_of_assassin"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -14774,27 +10436,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_260"
+              "RequiredItemId": "crossblade"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_246"
+              "RequiredItemId": "bar_of_hawk"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_222"
+              "RequiredItemId": "shortsword"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_176"
+              "RequiredItemId": "cloak_of_wizardry"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_113"
+              "RequiredItemId": "claw_of_assassin"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_203"
+              "RequiredItemId": "shoes_of_claw"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -14805,36 +10467,36 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_370",
+          "SkillId": "viper_toxic_bite",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_372",
+          "SkillId": "viper_venom_sphere",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_374",
+          "SkillId": "viper_venomous_skin",
           "IsUltimate": false
         }
       ]
     },
     {
-      "Id": "crystal_45",
+      "Id": "ench",
       "Name": "Ench",
       "SourceUnitId": 45,
       "Position": 2,
-      "PortraitKey": "crystal_45",
-      "BodyPrefabResource": "Crystal/Ench/Ench",
-      "AnimationSetResource": "Crystal/Ench/AnimationSet",
+      "PortraitKey": "ench",
+      "BodyPrefabResource": "Zatod/Ench/Ench",
+      "AnimationSetResource": "Zatod/Ench/AnimationSet",
       "SourcePuppet": "Ench.cha",
       "SourceResource": "Ench",
       "ArtScale": 0.9,
       "CollideRadius": 17,
       "ProjectileHurtboxHeight": 100,
       "DeathAnimationMilliseconds": 1500,
-      "NormalAttackSkillId": "crystal_skill_451",
+      "NormalAttackSkillId": "ench_basic_attack",
       "BaseStats": [
         {
           "StatId": "health",
@@ -15313,27 +10975,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_101"
+              "RequiredItemId": "branches"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_106"
+              "RequiredItemId": "circlet_of_nobility"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_105"
+              "RequiredItemId": "ring_of_protection"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -15374,27 +11036,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_182"
+              "RequiredItemId": "orb_of_mana"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_118"
+              "RequiredItemId": "accessory_of_intelligence"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_120"
+              "RequiredItemId": "ring_of_sanctum"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_123"
+              "RequiredItemId": "scarf_of_regeneration"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_121"
+              "RequiredItemId": "bracer_of_strength"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -15435,27 +11097,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_221"
+              "RequiredItemId": "staff_of_intelligence"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_216"
+              "RequiredItemId": "mekan"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_196"
+              "RequiredItemId": "starlight_staff"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_173"
+              "RequiredItemId": "robe_of_intelligence"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_110"
+              "RequiredItemId": "mask_of_celebrity"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_112"
+              "RequiredItemId": "boots"
             }
           ],
           "UnlockSkillSlotIds": []
@@ -15494,27 +11156,27 @@
           "EquipmentSlots": [
             {
               "Id": "gear_1",
-              "RequiredItemId": "crystal_item_261"
+              "RequiredItemId": "azul_scepter"
             },
             {
               "Id": "gear_2",
-              "RequiredItemId": "crystal_item_252"
+              "RequiredItemId": "anemoi_s_scepter"
             },
             {
               "Id": "gear_3",
-              "RequiredItemId": "crystal_item_210"
+              "RequiredItemId": "celestial_drum"
             },
             {
               "Id": "gear_4",
-              "RequiredItemId": "crystal_item_199"
+              "RequiredItemId": "life_vessel"
             },
             {
               "Id": "gear_5",
-              "RequiredItemId": "crystal_item_178"
+              "RequiredItemId": "void_gem"
             },
             {
               "Id": "gear_6",
-              "RequiredItemId": "crystal_item_207"
+              "RequiredItemId": "mythic_shoes"
             }
           ],
           "UnlockSkillSlotIds": [
@@ -15525,17 +11187,17 @@
       "SkillSlots": [
         {
           "Id": "skill_1",
-          "SkillId": "crystal_skill_450",
+          "SkillId": "ench_revival",
           "IsUltimate": true
         },
         {
           "Id": "skill_2",
-          "SkillId": "crystal_skill_452",
+          "SkillId": "ench_advance",
           "IsUltimate": false
         },
         {
           "Id": "skill_3",
-          "SkillId": "crystal_skill_453",
+          "SkillId": "ench_charm",
           "IsUltimate": false
         }
       ]

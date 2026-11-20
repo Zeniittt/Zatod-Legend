@@ -6,10 +6,10 @@ using UnityEngine;
 using Zatod.Animation;
 using Zatod.Editor;
 int resources=0,spriteCount=0,clipCount=0;
-var paths=Directory.GetFiles("Assets/Zatod/Art/Crystal","bake-manifest.txt",SearchOption.AllDirectories);
+var paths=Directory.GetFiles("Assets/Zatod/Art/Imported","bake-manifest.txt",SearchOption.AllDirectories);
 foreach(string path in paths)
 {
-    var manifest=JsonUtility.FromJson<CrystalBakeManifest>(File.ReadAllText(path));
+    var manifest=JsonUtility.FromJson<ZatodBakeManifest>(File.ReadAllText(path));
     foreach(var sheet in manifest.Sheets)
     {
         var sprites=AssetDatabase.LoadAllAssetsAtPath(sheet.Path).OfType<Sprite>().ToDictionary(s=>s.name);
@@ -21,8 +21,8 @@ foreach(string path in paths)
         }
         spriteCount+=sprites.Count;
     }
-    var set=JsonUtility.FromJson<HeroAnimationSetData>(Resources.Load<TextAsset>("Crystal/"+manifest.Resource+"/AnimationSet").text);
-    if(Resources.Load<GameObject>("Crystal/"+manifest.Resource+"/"+manifest.Resource)==null)throw new Exception("Missing prefab: "+manifest.Resource);
+    var set=JsonUtility.FromJson<HeroAnimationSetData>(Resources.Load<TextAsset>("Zatod/"+manifest.Resource+"/AnimationSet").text);
+    if(Resources.Load<GameObject>("Zatod/"+manifest.Resource+"/"+manifest.Resource)==null)throw new Exception("Missing prefab: "+manifest.Resource);
     foreach(var action in manifest.Actions)
     {
         var definition=set.Clips.Single(c=>c.State==action.Name);var clip=Resources.Load<AnimationClip>(definition.ClipResource);

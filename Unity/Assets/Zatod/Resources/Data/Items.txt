@@ -1,30 +1,10 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "heroes-prototype-1-split-1-formation-1-leenald-1-origins-1-kavern-1-enchantx-1-presentation-1-monsters-1-guardian-1-ranged-monsters-1-blooesperod-1-seeking-1-preview-1-tracking-1-skill2-return-1-lilina-1-formation-layout-1-order-2-team-reach-1-skill-reach-1-berthaxe-1-six-hero-reach-1-crystal-p1",
+  "ConfigVersion": "zatod-prototype-2",
   "Items": [
     {
-      "Id": "axe_basic",
-      "Name": "Training axe",
-      "Stats": [
-        {
-          "StatId": "damage",
-          "Value": 5
-        }
-      ]
-    },
-    {
-      "Id": "sword_basic",
-      "Name": "Training sword",
-      "Stats": [
-        {
-          "StatId": "damage",
-          "Value": 7
-        }
-      ]
-    },
-    {
-      "ItemId": "crystal_item_102",
-      "Name": "力量拳套",
+      "ItemId": "boxing_gloves_of_strength",
+      "Name": "Boxing Gloves of Strength",
       "IconResource": "UI/DOTA-ITEM/104.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -41,7 +21,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -50,7 +30,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -59,7 +39,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -68,7 +48,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -79,8 +59,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_111",
-      "Name": "回复戒指",
+      "ItemId": "ring_of_regen",
+      "Name": "Ring of Regen",
       "IconResource": "UI/DOTA-ITEM/126.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -94,8 +74,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_107",
-      "Name": "小魔棒",
+      "ItemId": "simple_staff",
+      "Name": "Simple Staff",
       "IconResource": "UI/DOTA-ITEM/507.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -113,8 +93,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_109",
-      "Name": "小圆盾",
+      "ItemId": "small_stout_shield",
+      "Name": "Small Stout Shield",
       "IconResource": "UI/DOTA-ITEM/120.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -132,8 +112,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_108",
-      "Name": "补刀斧",
+      "ItemId": "iron_axe",
+      "Name": "Iron Axe",
       "IconResource": "UI/DOTA-ITEM/518.jpg",
       "LevelRequirement": 1,
       "Quality": 1,
@@ -147,8 +127,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_181",
-      "Name": "武士头盔",
+      "ItemId": "helm_of_warrior",
+      "Name": "Helm of Warrior",
       "IconResource": "UI/DOTA-ITEM/123.jpg",
       "LevelRequirement": 10,
       "Quality": 2,
@@ -166,8 +146,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_121",
-      "Name": "力量护腕",
+      "ItemId": "bracer_of_strength",
+      "Name": "Bracer of Strength",
       "IconResource": "UI/DOTA-ITEM/246.jpg",
       "LevelRequirement": 9,
       "Quality": 1,
@@ -200,7 +180,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -209,7 +189,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -218,7 +198,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -227,7 +207,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -236,7 +216,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -245,7 +225,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -254,7 +234,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -263,7 +243,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -272,7 +252,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -281,7 +261,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -290,7 +270,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -299,7 +279,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -308,7 +288,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -317,7 +297,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -326,7 +306,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -335,7 +315,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -346,8 +326,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_106",
-      "Name": "贵族头环",
+      "ItemId": "circlet_of_nobility",
+      "Name": "Circlet of Nobility",
       "IconResource": "UI/DOTA-ITEM/102.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -380,7 +360,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -389,7 +369,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -398,7 +378,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -407,7 +387,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -416,7 +396,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -425,7 +405,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -434,7 +414,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -443,7 +423,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -452,7 +432,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -461,7 +441,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -470,7 +450,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -479,7 +459,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -488,7 +468,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -497,7 +477,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -506,7 +486,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -515,7 +495,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -526,8 +506,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_101",
-      "Name": "树枝",
+      "ItemId": "branches",
+      "Name": "Branches",
       "IconResource": "UI/DOTA-ITEM/101.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -560,7 +540,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -569,7 +549,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -578,7 +558,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -587,7 +567,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -596,7 +576,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -605,7 +585,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -614,7 +594,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -623,7 +603,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -632,7 +612,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -641,7 +621,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -650,7 +630,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -659,7 +639,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -668,7 +648,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -677,7 +657,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -686,7 +666,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -695,7 +675,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -706,8 +686,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_112",
-      "Name": "鞋",
+      "ItemId": "boots",
+      "Name": "Boots",
       "IconResource": "UI/DOTA-ITEM/143.jpg",
       "LevelRequirement": 8,
       "Quality": 1,
@@ -740,7 +720,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -749,7 +729,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -758,7 +738,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -767,7 +747,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -776,7 +756,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -785,7 +765,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -794,7 +774,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -803,7 +783,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -812,7 +792,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -821,7 +801,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -830,7 +810,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -839,7 +819,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -848,7 +828,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -857,7 +837,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -866,7 +846,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -875,7 +855,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -886,8 +866,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_223",
-      "Name": "大剑",
+      "ItemId": "claymore",
+      "Name": "Claymore",
       "IconResource": "UI/DOTA-ITEM/116.jpg",
       "LevelRequirement": 22,
       "Quality": 3,
@@ -901,8 +881,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_215",
-      "Name": "冲锋盾",
+      "ItemId": "charge_shield",
+      "Name": "Charge Shield",
       "IconResource": "UI/DOTA-ITEM/227.jpg",
       "LevelRequirement": 19,
       "Quality": 2,
@@ -924,8 +904,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_113",
-      "Name": "攻击利爪",
+      "ItemId": "claw_of_assassin",
+      "Name": "Claw of Assassin",
       "IconResource": "UI/DOTA-ITEM/113.jpg",
       "LevelRequirement": 10,
       "Quality": 1,
@@ -939,8 +919,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_123",
-      "Name": "回复之巾",
+      "ItemId": "scarf_of_regeneration",
+      "Name": "Scarf of Regeneration",
       "IconResource": "UI/DOTA-ITEM/241.jpg",
       "LevelRequirement": 10,
       "Quality": 1,
@@ -977,7 +957,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -986,7 +966,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -995,7 +975,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -1004,7 +984,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -1013,7 +993,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -1022,7 +1002,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -1031,7 +1011,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -1040,7 +1020,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1049,7 +1029,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1058,7 +1038,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -1067,7 +1047,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -1076,7 +1056,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1085,7 +1065,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -1094,7 +1074,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -1103,7 +1083,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1112,7 +1092,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -1123,8 +1103,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_200",
-      "Name": "绿鞋",
+      "ItemId": "green_boots",
+      "Name": "Green Boots",
       "IconResource": "UI/DOTA-ITEM/187.jpg",
       "LevelRequirement": 16,
       "Quality": 2,
@@ -1161,7 +1141,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -1170,7 +1150,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -1179,7 +1159,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -1188,7 +1168,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -1197,7 +1177,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -1206,7 +1186,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -1215,7 +1195,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -1224,7 +1204,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1233,7 +1213,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1242,7 +1222,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -1251,7 +1231,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -1260,7 +1240,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1269,7 +1249,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -1278,7 +1258,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -1287,7 +1267,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1296,7 +1276,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -1307,8 +1287,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_242",
-      "Name": "散华",
+      "ItemId": "aurora",
+      "Name": "Aurora",
       "IconResource": "UI/DOTA-ITEM/203.jpg",
       "LevelRequirement": 26,
       "Quality": 3,
@@ -1333,7 +1313,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -1342,7 +1322,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -1351,7 +1331,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1360,7 +1340,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -1371,8 +1351,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_214",
-      "Name": "魔抗头巾",
+      "ItemId": "magic_resis_scarf",
+      "Name": "Magic Resis Scarf",
       "IconResource": "UI/DOTA-ITEM/232.jpg",
       "LevelRequirement": 18,
       "Quality": 2,
@@ -1390,8 +1370,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_209",
-      "Name": "坚韧法球",
+      "ItemId": "orb_of_perseverance",
+      "Name": "Orb of Perseverance",
       "IconResource": "UI/DOTA-ITEM/244.jpg",
       "LevelRequirement": 18,
       "Quality": 2,
@@ -1413,8 +1393,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_199",
-      "Name": "命匣",
+      "ItemId": "life_vessel",
+      "Name": "Life Vessel",
       "IconResource": "UI/DOTA-ITEM/251.jpg",
       "LevelRequirement": 16,
       "Quality": 2,
@@ -1439,7 +1419,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -1448,7 +1428,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -1457,7 +1437,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1466,7 +1446,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -1477,8 +1457,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_120",
-      "Name": "圣殿指环",
+      "ItemId": "ring_of_sanctum",
+      "Name": "Ring of Sanctum",
       "IconResource": "UI/DOTA-ITEM/240.jpg",
       "LevelRequirement": 9,
       "Quality": 1,
@@ -1496,8 +1476,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_204",
-      "Name": "力量假腿",
+      "ItemId": "pegleg_of_strength",
+      "Name": "Pegleg of Strength",
       "IconResource": "UI/DOTA-ITEM/188.jpg",
       "LevelRequirement": 18,
       "Quality": 2,
@@ -1530,7 +1510,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -1539,7 +1519,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -1548,7 +1528,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -1557,7 +1537,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -1566,7 +1546,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -1575,7 +1555,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -1584,7 +1564,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -1593,7 +1573,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1602,7 +1582,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1611,7 +1591,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -1620,7 +1600,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -1629,7 +1609,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1638,7 +1618,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -1647,7 +1627,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -1656,7 +1636,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1665,7 +1645,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -1676,8 +1656,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_103",
-      "Name": "敏捷丝袜",
+      "ItemId": "stockings_of_agility",
+      "Name": "Stockings of Agility",
       "IconResource": "UI/DOTA-ITEM/105.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -1698,7 +1678,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -1707,7 +1687,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1716,7 +1696,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -1725,7 +1705,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1736,8 +1716,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_119",
-      "Name": "敏捷系带",
+      "ItemId": "mask_of_agility",
+      "Name": "Mask of Agility",
       "IconResource": "UI/DOTA-ITEM/247.jpg",
       "LevelRequirement": 9,
       "Quality": 1,
@@ -1770,7 +1750,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -1779,7 +1759,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -1788,7 +1768,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -1797,7 +1777,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -1806,7 +1786,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -1815,7 +1795,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -1824,7 +1804,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -1833,7 +1813,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1842,7 +1822,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1851,7 +1831,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -1860,7 +1840,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -1869,7 +1849,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -1878,7 +1858,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -1887,7 +1867,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -1896,7 +1876,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1905,7 +1885,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -1916,8 +1896,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_122",
-      "Name": "穷鬼盾",
+      "ItemId": "vital_shield",
+      "Name": "Vital Shield",
       "IconResource": "UI/DOTA-ITEM/245.jpg",
       "LevelRequirement": 10,
       "Quality": 1,
@@ -1942,7 +1922,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -1951,7 +1931,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1960,7 +1940,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -1969,7 +1949,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -1980,8 +1960,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_243",
-      "Name": "夜叉",
+      "ItemId": "noir",
+      "Name": "Noir",
       "IconResource": "UI/DOTA-ITEM/204.jpg",
       "LevelRequirement": 26,
       "Quality": 3,
@@ -2002,7 +1982,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -2011,7 +1991,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2020,7 +2000,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -2029,7 +2009,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2040,8 +2020,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_211",
-      "Name": "支配",
+      "ItemId": "domination",
+      "Name": "Domination",
       "IconResource": "UI/DOTA-ITEM/194.jpg",
       "LevelRequirement": 19,
       "Quality": 2,
@@ -2063,8 +2043,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_201",
-      "Name": "天鹰之戒",
+      "ItemId": "ring_of_aquila",
+      "Name": "Ring of Aquila",
       "IconResource": "UI/DOTA-ITEM/250.jpg",
       "LevelRequirement": 15,
       "Quality": 2,
@@ -2101,7 +2081,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -2110,7 +2090,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -2119,7 +2099,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -2128,7 +2108,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -2137,7 +2117,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -2146,7 +2126,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -2155,7 +2135,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -2164,7 +2144,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2173,7 +2153,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2182,7 +2162,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -2191,7 +2171,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -2200,7 +2180,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2209,7 +2189,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -2218,7 +2198,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -2227,7 +2207,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2236,7 +2216,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -2247,8 +2227,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_180",
-      "Name": "短棍",
+      "ItemId": "short_staff",
+      "Name": "Short Staff",
       "IconResource": "UI/DOTA-ITEM/115.jpg",
       "LevelRequirement": 10,
       "Quality": 2,
@@ -2266,8 +2246,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_260",
-      "Name": "双刀",
+      "ItemId": "crossblade",
+      "Name": "Crossblade",
       "IconResource": "UI/DOTA-ITEM/202.jpg",
       "LevelRequirement": 35,
       "Quality": 3,
@@ -2296,7 +2276,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -2305,7 +2285,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -2314,7 +2294,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -2323,7 +2303,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2332,7 +2312,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -2341,7 +2321,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2350,7 +2330,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -2359,7 +2339,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2370,8 +2350,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_212",
-      "Name": "疯脸",
+      "ItemId": "crazy_face",
+      "Name": "Crazy Face",
       "IconResource": "UI/DOTA-ITEM/197.jpg",
       "LevelRequirement": 19,
       "Quality": 2,
@@ -2393,8 +2373,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_172",
-      "Name": "敏捷皮靴",
+      "ItemId": "boots_of_agility",
+      "Name": "Boots of Agility",
       "IconResource": "UI/DOTA-ITEM/108.jpg",
       "LevelRequirement": 10,
       "Quality": 2,
@@ -2415,7 +2395,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -2424,7 +2404,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2433,7 +2413,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -2442,7 +2422,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2453,8 +2433,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_205",
-      "Name": "敏捷假腿",
+      "ItemId": "pegleg_of_agility",
+      "Name": "Pegleg of Agility",
       "IconResource": "UI/DOTA-ITEM/189.jpg",
       "LevelRequirement": 18,
       "Quality": 2,
@@ -2487,7 +2467,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -2496,7 +2476,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -2505,7 +2485,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -2514,7 +2494,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -2523,7 +2503,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -2532,7 +2512,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -2541,7 +2521,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -2550,7 +2530,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2559,7 +2539,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2568,7 +2548,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -2577,7 +2557,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -2586,7 +2566,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2595,7 +2575,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -2604,7 +2584,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -2613,7 +2593,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2622,7 +2602,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -2633,8 +2613,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_104",
-      "Name": "智力之篷",
+      "ItemId": "cloak_of_intelligence",
+      "Name": "Cloak of Intelligence",
       "IconResource": "UI/DOTA-ITEM/106.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -2651,7 +2631,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -2660,7 +2640,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -2669,7 +2649,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -2678,7 +2658,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -2687,7 +2667,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2696,7 +2676,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -2705,7 +2685,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -2714,7 +2694,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -2725,8 +2705,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_182",
-      "Name": "法力之球",
+      "ItemId": "orb_of_mana",
+      "Name": "Orb of Mana",
       "IconResource": "UI/DOTA-ITEM/139.jpg",
       "LevelRequirement": 11,
       "Quality": 2,
@@ -2740,8 +2720,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_173",
-      "Name": "智力长袍",
+      "ItemId": "robe_of_intelligence",
+      "Name": "Robe of Intelligence",
       "IconResource": "UI/DOTA-ITEM/109.jpg",
       "LevelRequirement": 10,
       "Quality": 2,
@@ -2758,7 +2738,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -2767,7 +2747,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -2776,7 +2756,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -2785,7 +2765,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -2794,7 +2774,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2803,7 +2783,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -2812,7 +2792,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -2821,7 +2801,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -2832,8 +2812,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_118",
-      "Name": "智力挂件",
+      "ItemId": "accessory_of_intelligence",
+      "Name": "Accessory of Intelligence",
       "IconResource": "UI/DOTA-ITEM/248.jpg",
       "LevelRequirement": 9,
       "Quality": 1,
@@ -2866,7 +2846,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -2875,7 +2855,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -2884,7 +2864,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -2893,7 +2873,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -2902,7 +2882,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -2911,7 +2891,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -2920,7 +2900,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -2929,7 +2909,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2938,7 +2918,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -2947,7 +2927,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -2956,7 +2936,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -2965,7 +2945,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -2974,7 +2954,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -2983,7 +2963,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -2992,7 +2972,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -3001,7 +2981,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -3012,8 +2992,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_228",
-      "Name": "绿杖",
+      "ItemId": "verdant_staff",
+      "Name": "Verdant Staff",
       "IconResource": "UI/DOTA-ITEM/519.jpg",
       "LevelRequirement": 24,
       "Quality": 3,
@@ -3050,7 +3030,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -3059,7 +3039,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -3068,7 +3048,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -3077,7 +3057,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -3086,7 +3066,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -3095,7 +3075,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -3104,7 +3084,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -3113,7 +3093,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3122,7 +3102,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -3131,7 +3111,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -3140,7 +3120,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -3149,7 +3129,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3158,7 +3138,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -3167,7 +3147,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -3176,7 +3156,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -3185,7 +3165,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -3196,8 +3176,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_208",
-      "Name": "空明禅杖",
+      "ItemId": "zen_staff",
+      "Name": "Zen Staff",
       "IconResource": "UI/DOTA-ITEM/226.jpg",
       "LevelRequirement": 18,
       "Quality": 2,
@@ -3226,7 +3206,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -3235,7 +3215,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -3244,7 +3224,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -3253,7 +3233,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -3262,7 +3242,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3271,7 +3251,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -3280,7 +3260,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -3289,7 +3269,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -3300,8 +3280,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_110",
-      "Name": "艺人面罩",
+      "ItemId": "mask_of_celebrity",
+      "Name": "Mask of Celebrity",
       "IconResource": "UI/DOTA-ITEM/127.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -3315,8 +3295,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_251",
-      "Name": "红杖",
+      "ItemId": "crimson_staff",
+      "Name": "Crimson Staff",
       "IconResource": "UI/DOTA-ITEM/217.jpg",
       "LevelRequirement": 33,
       "Quality": 3,
@@ -3337,7 +3317,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -3346,7 +3326,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -3355,7 +3335,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -3364,7 +3344,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -3373,7 +3353,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3382,7 +3362,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -3391,7 +3371,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -3400,7 +3380,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -3411,8 +3391,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_261",
-      "Name": "蓝杖",
+      "ItemId": "azul_scepter",
+      "Name": "Azul Scepter",
       "IconResource": "UI/DOTA-ITEM/216.jpg",
       "LevelRequirement": 35,
       "Quality": 3,
@@ -3449,7 +3429,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -3458,7 +3438,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -3467,7 +3447,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -3476,7 +3456,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -3485,7 +3465,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -3494,7 +3474,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -3503,7 +3483,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -3512,7 +3492,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3521,7 +3501,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -3530,7 +3510,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -3539,7 +3519,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -3548,7 +3528,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3557,7 +3537,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -3566,7 +3546,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -3575,7 +3555,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -3584,7 +3564,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -3595,8 +3575,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_178",
-      "Name": "虚空宝石",
+      "ItemId": "void_gem",
+      "Name": "Void Gem",
       "IconResource": "UI/DOTA-ITEM/137.jpg",
       "LevelRequirement": 11,
       "Quality": 2,
@@ -3610,8 +3590,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_221",
-      "Name": "智力法杖",
+      "ItemId": "staff_of_intelligence",
+      "Name": "Staff of Intelligence",
       "IconResource": "UI/DOTA-ITEM/112.jpg",
       "LevelRequirement": 20,
       "Quality": 3,
@@ -3628,7 +3608,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -3637,7 +3617,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -3646,7 +3626,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -3655,7 +3635,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -3664,7 +3644,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3673,7 +3653,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -3682,7 +3662,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -3691,7 +3671,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -3702,8 +3682,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_196",
-      "Name": "大魔杖",
+      "ItemId": "starlight_staff",
+      "Name": "Starlight Staff",
       "IconResource": "UI/DOTA-ITEM/508.jpg",
       "LevelRequirement": 10,
       "Quality": 2,
@@ -3744,7 +3724,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -3753,7 +3733,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -3762,7 +3742,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -3771,7 +3751,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -3780,7 +3760,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -3789,7 +3769,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -3798,7 +3778,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -3807,7 +3787,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3816,7 +3796,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -3825,7 +3805,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -3834,7 +3814,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -3843,7 +3823,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3852,7 +3832,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -3861,7 +3841,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -3870,7 +3850,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -3879,7 +3859,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -3890,8 +3870,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_197",
-      "Name": "魂戒",
+      "ItemId": "ring_of_soul",
+      "Name": "Ring of Soul",
       "IconResource": "UI/DOTA-ITEM/243.jpg",
       "LevelRequirement": 10,
       "Quality": 2,
@@ -3916,7 +3896,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -3925,7 +3905,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -3934,7 +3914,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -3943,7 +3923,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -3954,8 +3934,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_246",
-      "Name": "推推棒",
+      "ItemId": "bar_of_hawk",
+      "Name": "Bar of Hawk",
       "IconResource": "UI/DOTA-ITEM/509.jpg",
       "LevelRequirement": 30,
       "Quality": 3,
@@ -3980,7 +3960,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -3989,7 +3969,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -3998,7 +3978,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -4007,7 +3987,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -4016,7 +3996,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4025,7 +4005,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -4034,7 +4014,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -4043,7 +4023,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -4054,8 +4034,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_207",
-      "Name": "秘法鞋",
+      "ItemId": "mythic_shoes",
+      "Name": "Mythic Shoes",
       "IconResource": "UI/DOTA-ITEM/192.jpg",
       "LevelRequirement": 17,
       "Quality": 2,
@@ -4092,7 +4072,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -4101,7 +4081,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -4110,7 +4090,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -4119,7 +4099,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -4128,7 +4108,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -4137,7 +4117,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -4146,7 +4126,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -4155,7 +4135,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4164,7 +4144,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -4173,7 +4153,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -4182,7 +4162,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -4191,7 +4171,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4200,7 +4180,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -4209,7 +4189,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -4218,7 +4198,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -4227,7 +4207,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -4238,8 +4218,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_210",
-      "Name": "古之耐歌",
+      "ItemId": "celestial_drum",
+      "Name": "Celestial Drum",
       "IconResource": "UI/DOTA-ITEM/242.jpg",
       "LevelRequirement": 20,
       "Quality": 2,
@@ -4272,7 +4252,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -4281,7 +4261,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -4290,7 +4270,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -4299,7 +4279,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -4308,7 +4288,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -4317,7 +4297,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -4326,7 +4306,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -4335,7 +4315,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4344,7 +4324,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -4353,7 +4333,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -4362,7 +4342,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -4371,7 +4351,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4380,7 +4360,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -4389,7 +4369,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -4398,7 +4378,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -4407,7 +4387,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -4418,8 +4398,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_252",
-      "Name": "风杖",
+      "ItemId": "anemoi_s_scepter",
+      "Name": "Anemoi's Scepter",
       "IconResource": "UI/DOTA-ITEM/222.jpg",
       "LevelRequirement": 34,
       "Quality": 3,
@@ -4444,7 +4424,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -4453,7 +4433,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -4462,7 +4442,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -4471,7 +4451,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -4480,7 +4460,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4489,7 +4469,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -4498,7 +4478,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -4507,7 +4487,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -4518,8 +4498,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_216",
-      "Name": "梅肯",
+      "ItemId": "mekan",
+      "Name": "Mekan",
       "IconResource": "UI/DOTA-ITEM/236.jpg",
       "LevelRequirement": 20,
       "Quality": 2,
@@ -4564,7 +4544,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -4573,7 +4553,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -4582,7 +4562,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -4591,7 +4571,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -4600,7 +4580,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -4609,7 +4589,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -4618,7 +4598,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -4627,7 +4607,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4636,7 +4616,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -4645,7 +4625,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -4654,7 +4634,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -4663,7 +4643,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4672,7 +4652,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -4681,7 +4661,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -4690,7 +4670,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -4699,7 +4679,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -4710,8 +4690,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_257",
-      "Name": "振魂玫瑰",
+      "ItemId": "rousing_rose",
+      "Name": "Rousing Rose",
       "IconResource": "UI/DOTA-ITEM/253.jpg",
       "LevelRequirement": 35,
       "Quality": 3,
@@ -4737,8 +4717,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_202",
-      "Name": "勇气勋章",
+      "ItemId": "courage_medal",
+      "Name": "Courage Medal",
       "IconResource": "UI/DOTA-ITEM/252.jpg",
       "LevelRequirement": 18,
       "Quality": 2,
@@ -4760,8 +4740,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_184",
-      "Name": "元气之球",
+      "ItemId": "orb_of_vigor",
+      "Name": "Orb of Vigor",
       "IconResource": "UI/DOTA-ITEM/141.jpg",
       "LevelRequirement": 13,
       "Quality": 2,
@@ -4779,8 +4759,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_247",
-      "Name": "飞鞋",
+      "ItemId": "boots_of_adventure",
+      "Name": "Boots of Adventure",
       "IconResource": "UI/DOTA-ITEM/193.jpg",
       "LevelRequirement": 31,
       "Quality": 3,
@@ -4813,7 +4793,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -4822,7 +4802,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -4831,7 +4811,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -4840,7 +4820,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -4849,7 +4829,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -4858,7 +4838,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -4867,7 +4847,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -4876,7 +4856,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4885,7 +4865,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -4894,7 +4874,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -4903,7 +4883,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -4912,7 +4892,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -4921,7 +4901,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -4930,7 +4910,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -4939,7 +4919,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -4948,7 +4928,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -4959,8 +4939,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_226",
-      "Name": "秘银锤",
+      "ItemId": "hammer_of_mithril",
+      "Name": "Hammer of Mithril",
       "IconResource": "UI/DOTA-ITEM/118.jpg",
       "LevelRequirement": 24,
       "Quality": 3,
@@ -4974,8 +4954,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_254",
-      "Name": "洛萨",
+      "ItemId": "rothar",
+      "Name": "Rothar",
       "IconResource": "UI/DOTA-ITEM/215.jpg",
       "LevelRequirement": 34,
       "Quality": 3,
@@ -4993,8 +4973,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_244",
-      "Name": "水晶剑",
+      "ItemId": "crystal_sword",
+      "Name": "Crystal Sword",
       "IconResource": "UI/DOTA-ITEM/200.jpg",
       "LevelRequirement": 37,
       "Quality": 3,
@@ -5012,8 +4992,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_203",
-      "Name": "相位鞋",
+      "ItemId": "shoes_of_claw",
+      "Name": "Shoes of Claw",
       "IconResource": "UI/DOTA-ITEM/191.jpg",
       "LevelRequirement": 19,
       "Quality": 2,
@@ -5046,7 +5026,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -5055,7 +5035,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -5064,7 +5044,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -5073,7 +5053,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -5082,7 +5062,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -5091,7 +5071,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -5100,7 +5080,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -5109,7 +5089,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -5118,7 +5098,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -5127,7 +5107,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -5136,7 +5116,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -5145,7 +5125,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -5154,7 +5134,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -5163,7 +5143,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -5172,7 +5152,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -5181,7 +5161,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -5192,8 +5172,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_225",
-      "Name": "标枪",
+      "ItemId": "lance",
+      "Name": "Lance",
       "IconResource": "UI/DOTA-ITEM/117.jpg",
       "LevelRequirement": 23,
       "Quality": 3,
@@ -5211,8 +5191,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_198",
-      "Name": "玄铁盾牌",
+      "ItemId": "iron_buckler",
+      "Name": "Iron Buckler",
       "IconResource": "UI/DOTA-ITEM/249.jpg",
       "LevelRequirement": 10,
       "Quality": 2,
@@ -5245,7 +5225,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -5254,7 +5234,7 @@
           ]
         },
         {
-          "HeroId": "crystal_2",
+          "HeroId": "dr",
           "Stats": [
             {
               "StatId": "damage",
@@ -5263,7 +5243,7 @@
           ]
         },
         {
-          "HeroId": "crystal_3",
+          "HeroId": "lina",
           "Stats": [
             {
               "StatId": "damage",
@@ -5272,7 +5252,7 @@
           ]
         },
         {
-          "HeroId": "crystal_4",
+          "HeroId": "zeus",
           "Stats": [
             {
               "StatId": "damage",
@@ -5281,7 +5261,7 @@
           ]
         },
         {
-          "HeroId": "crystal_6",
+          "HeroId": "lion",
           "Stats": [
             {
               "StatId": "damage",
@@ -5290,7 +5270,7 @@
           ]
         },
         {
-          "HeroId": "crystal_7",
+          "HeroId": "qop",
           "Stats": [
             {
               "StatId": "damage",
@@ -5299,7 +5279,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -5308,7 +5288,7 @@
           ]
         },
         {
-          "HeroId": "crystal_9",
+          "HeroId": "tk",
           "Stats": [
             {
               "StatId": "damage",
@@ -5317,7 +5297,7 @@
           ]
         },
         {
-          "HeroId": "crystal_10",
+          "HeroId": "sniper",
           "Stats": [
             {
               "StatId": "damage",
@@ -5326,7 +5306,7 @@
           ]
         },
         {
-          "HeroId": "crystal_17",
+          "HeroId": "bone",
           "Stats": [
             {
               "StatId": "damage",
@@ -5335,7 +5315,7 @@
           ]
         },
         {
-          "HeroId": "crystal_18",
+          "HeroId": "pugna",
           "Stats": [
             {
               "StatId": "damage",
@@ -5344,7 +5324,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -5353,7 +5333,7 @@
           ]
         },
         {
-          "HeroId": "crystal_20",
+          "HeroId": "nec",
           "Stats": [
             {
               "StatId": "damage",
@@ -5362,7 +5342,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -5371,7 +5351,7 @@
           ]
         },
         {
-          "HeroId": "crystal_37",
+          "HeroId": "viper",
           "Stats": [
             {
               "StatId": "damage",
@@ -5380,7 +5360,7 @@
           ]
         },
         {
-          "HeroId": "crystal_45",
+          "HeroId": "ench",
           "Stats": [
             {
               "StatId": "damage",
@@ -5391,8 +5371,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_174",
-      "Name": "加速手套",
+      "ItemId": "gloves_of_speed",
+      "Name": "Gloves of Speed",
       "IconResource": "UI/DOTA-ITEM/124.jpg",
       "LevelRequirement": 10,
       "Quality": 2,
@@ -5406,8 +5386,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_248",
-      "Name": "鬼手",
+      "ItemId": "gloves_of_ghost",
+      "Name": "Gloves of Ghost",
       "IconResource": "UI/DOTA-ITEM/214.jpg",
       "LevelRequirement": 32,
       "Quality": 3,
@@ -5432,7 +5412,7 @@
       ],
       "HeroStats": [
         {
-          "HeroId": "crystal_1",
+          "HeroId": "coco",
           "Stats": [
             {
               "StatId": "damage",
@@ -5441,7 +5421,7 @@
           ]
         },
         {
-          "HeroId": "crystal_8",
+          "HeroId": "ok",
           "Stats": [
             {
               "StatId": "damage",
@@ -5450,7 +5430,7 @@
           ]
         },
         {
-          "HeroId": "crystal_19",
+          "HeroId": "snk",
           "Stats": [
             {
               "StatId": "damage",
@@ -5459,7 +5439,7 @@
           ]
         },
         {
-          "HeroId": "crystal_29",
+          "HeroId": "tiny",
           "Stats": [
             {
               "StatId": "damage",
@@ -5470,8 +5450,8 @@
       ]
     },
     {
-      "ItemId": "crystal_item_179",
-      "Name": "吸血面具",
+      "ItemId": "mask_of_blood_thirty",
+      "Name": "Mask of Blood-thirty",
       "IconResource": "UI/DOTA-ITEM/125.jpg",
       "LevelRequirement": 11,
       "Quality": 2,
@@ -5485,8 +5465,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_105",
-      "Name": "防御指环",
+      "ItemId": "ring_of_protection",
+      "Name": "Ring of Protection",
       "IconResource": "UI/DOTA-ITEM/119.jpg",
       "LevelRequirement": 2,
       "Quality": 1,
@@ -5500,8 +5480,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_176",
-      "Name": "魔抗斗篷",
+      "ItemId": "cloak_of_wizardry",
+      "Name": "Cloak of Wizardry",
       "IconResource": "UI/DOTA-ITEM/128.jpg",
       "LevelRequirement": 15,
       "Quality": 2,
@@ -5515,8 +5495,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_183",
-      "Name": "生命之球",
+      "ItemId": "orb_of_health",
+      "Name": "Orb of Health",
       "IconResource": "UI/DOTA-ITEM/140.jpg",
       "LevelRequirement": 12,
       "Quality": 2,
@@ -5530,8 +5510,8 @@
       "HeroStats": []
     },
     {
-      "ItemId": "crystal_item_222",
-      "Name": "阔剑",
+      "ItemId": "shortsword",
+      "Name": "Shortsword",
       "IconResource": "UI/DOTA-ITEM/114.jpg",
       "LevelRequirement": 21,
       "Quality": 3,
