@@ -1,0 +1,2 @@
+using UnityEngine;using UnityEngine.InputSystem;using Zatod.Networking;using Zatod.Presentation;
+public static class ProbeItemSourcesWorld {public static object Run(){var c=Object.FindAnyObjectByType<ZatodConnection>();var w=c.GetComponent<ZatodWorldView>();return new{c.Connected,c.Status,w.MapId,w.Position,Nearby=w.Nearby?.Id,Locked=w.InputLocked(),Frame=Time.frameCount,W=Keyboard.current?.wKey.isPressed,D=Keyboard.current?.dKey.isPressed};}}

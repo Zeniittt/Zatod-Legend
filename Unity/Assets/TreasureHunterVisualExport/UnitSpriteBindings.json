@@ -1,0 +1,100 @@
+{
+  "slots": [
+    {
+      "equipmentIndex": 0,
+      "equipmentType": "Hair",
+      "renderers": [
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Hair/7_Hair",
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Hair/PivotBack/Back",
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Hair/PivotFront/Front"
+      ]
+    },
+    {
+      "equipmentIndex": 1,
+      "equipmentType": "FaceHair",
+      "renderers": [
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Mustache/6_FaceHair"
+      ]
+    },
+    {
+      "equipmentIndex": 2,
+      "equipmentType": "Helmet",
+      "renderers": [
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Helmet/11_Helmet1",
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Helmet/12_Helmet2 "
+      ]
+    },
+    {
+      "equipmentIndex": 3,
+      "equipmentType": "Cloth",
+      "renderers": [
+        "Root/BodySet/P_Body/Body/P_ClothBody/ClothBody",
+        "Root/BodySet/P_Body/ArmSet/ArmL/P_LArm/P_Arm/20_L_Arm/P_LCArm/21_LCArm",
+        "Root/BodySet/P_Body/ArmSet/ArmR/P_RArm/P_Arm/-20_R_Arm/P_RCArm/-19_RCArm",
+        "Root/BodySet/P_Body/Body/P_ArmorBody/BodyArmor",
+        "Root/BodySet/P_Body/ArmSet/ArmL/P_LArm/P_Arm/20_L_Arm/P_Shoulder/25_L_Shoulder",
+        "Root/BodySet/P_Body/ArmSet/ArmR/P_RArm/P_Arm/-20_R_Arm/P_Shoulder/-15_R_Shoulder"
+      ]
+    },
+    {
+      "equipmentIndex": 4,
+      "equipmentType": "Boot",
+      "renderers": [
+        "Root/P_LFoot/P_LCloth/_2L_Cloth",
+        "Root/P_RFoot/P_RCloth/_11R_Cloth"
+      ]
+    },
+    {
+      "equipmentIndex": 5,
+      "equipmentType": "Back",
+      "renderers": [
+        "Root/BodySet/P_Body/P_Back/Back"
+      ]
+    },
+    {
+      "equipmentIndex": 6,
+      "equipmentType": "Weapons",
+      "renderers": [
+        "Root/BodySet/P_Body/ArmSet/ArmR/P_RArm/P_Weapon/R_Weapon",
+        "Root/BodySet/P_Body/ArmSet/ArmR/P_RArm/P_Shield/R_Shield",
+        "Root/BodySet/P_Body/ArmSet/ArmL/P_LArm/P_Weapon/L_Weapon",
+        "Root/BodySet/P_Body/ArmSet/ArmL/P_LArm/P_Shield/L_Shield"
+      ]
+    },
+    {
+      "equipmentIndex": 7,
+      "equipmentType": "Body",
+      "renderers": [
+        "Root/BodySet/P_Body/ArmSet/ArmL/P_LArm/P_Arm/20_L_Arm",
+        "Root/BodySet/P_Body/ArmSet/ArmR/P_RArm/P_Arm/-20_R_Arm",
+        "Root/BodySet/P_Body/Body",
+        "Root/P_LFoot/_3L_Foot",
+        "Root/P_RFoot/_12R_Foot",
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Head/5_Head"
+      ]
+    },
+    {
+      "equipmentIndex": 8,
+      "equipmentType": "Eye",
+      "renderers": [
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Eye/P_REye/PivotBack/Back",
+        "Root/BodySet/P_Body/HeadSet/P_Head/P_Eye/P_REye/PivotFront/Front"
+      ]
+    },
+    {
+      "equipmentIndex": 9,
+      "equipmentType": "Hair",
+      "renderers": []
+    }
+  ],
+  "copies": [
+    {
+      "path": "Root/BodySet/P_Body/HeadSet/P_Head/P_Eye/P_LEye/PivotBack/Back",
+      "target": "Root/BodySet/P_Body/HeadSet/P_Head/P_Eye/P_REye/PivotBack/Back"
+    },
+    {
+      "path": "Root/BodySet/P_Body/HeadSet/P_Head/P_Eye/P_LEye/PivotFront/Front",
+      "target": "Root/BodySet/P_Body/HeadSet/P_Head/P_Eye/P_REye/PivotFront/Front"
+    }
+  ]
+}

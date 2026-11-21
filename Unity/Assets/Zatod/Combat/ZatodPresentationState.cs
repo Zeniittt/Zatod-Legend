@@ -5,7 +5,7 @@ namespace Zatod.Combat
 {
     [Serializable] public sealed class ZatodCombatEvent
     {
-        public int Id,Tick,EntityId;
+        public int Id,Tick,EntityId,SourceActorId,Wave;
         public string Kind,DamageType;
         public double Amount,X,Y,Height;
         public bool Critical;
@@ -35,10 +35,10 @@ namespace Zatod.Combat
     {
         readonly List<ZatodCombatEvent> combatEvents=new List<ZatodCombatEvent>();
         int combatEventId;
-        void CombatEvent(Unit target,string kind,double amount,string damageType="",bool critical=false)
+        void CombatEvent(Unit target,string kind,double amount,string damageType="",bool critical=false,int sourceActorId=0)
         {
             if(amount<=.000001)return;
-            combatEvents.Add(new ZatodCombatEvent{Id=++combatEventId,Tick=tick,EntityId=target.State.EntityId,Kind=kind,Amount=amount,DamageType=damageType,Critical=critical,X=target.State.X,Y=target.State.Y,Height=target.State.Height});
+            combatEvents.Add(new ZatodCombatEvent{Id=++combatEventId,Tick=tick,EntityId=target.State.EntityId,SourceActorId=sourceActorId,Wave=wave+1,Kind=kind,Amount=amount,DamageType=damageType,Critical=critical,X=target.State.X,Y=target.State.Y,Height=target.State.Height});
         }
         void GainEnergy(Unit target,double amount,string kind="energy",bool clampMinimum=false)
         {

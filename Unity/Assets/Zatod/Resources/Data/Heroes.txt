@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-prototype-2",
+  "ConfigVersion": "zatod-prototype-crafting-1",
   "Heroes": [
     {
       "Id": "coco",
@@ -11198,6 +11198,6318 @@
         {
           "Id": "skill_3",
           "SkillId": "ench_charm",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "med",
+      "Name": "Med",
+      "SourceUnitId": 16,
+      "Position": 1,
+      "PortraitKey": "med",
+      "BodyPrefabResource": "Zatod/Med/Med",
+      "AnimationSetResource": "Zatod/Med/AnimationSet",
+      "SourcePuppet": "Med.cha",
+      "SourceResource": "Med",
+      "ArtScale": 0.81,
+      "CollideRadius": 18,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "med_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 389
+        },
+        {
+          "StatId": "damage",
+          "Value": 56
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2795
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 60.0
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2795
+        },
+        {
+          "StatId": "damage",
+          "Value": 56.5
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "defense",
+          "Value": 3.6525
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 389.3
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 2.5
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 9.0
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 6.24
+            },
+            {
+              "StatId": "damage",
+              "Value": 3.92
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.479
+            },
+            {
+              "StatId": "health",
+              "Value": 30.6
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.26
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.12
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.36
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.88
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.7185
+            },
+            {
+              "StatId": "health",
+              "Value": 45.9
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.39
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.68
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 12.48
+            },
+            {
+              "StatId": "damage",
+              "Value": 7.84
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.958
+            },
+            {
+              "StatId": "health",
+              "Value": 61.2
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.52
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.24
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 15.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 9.8
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.1975
+            },
+            {
+              "StatId": "health",
+              "Value": 76.5
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.65
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.8
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 18.72
+            },
+            {
+              "StatId": "damage",
+              "Value": 11.76
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.437
+            },
+            {
+              "StatId": "health",
+              "Value": 91.8
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.78
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 3.36
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 2.4
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 4.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 5.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 2.4
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 4.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 5.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 45.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 66.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 11.29
+            },
+            {
+              "StatId": "health",
+              "Value": 342.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 17.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 20.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 45.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 67.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 11.37
+            },
+            {
+              "StatId": "health",
+              "Value": 342.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 17.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 20.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 93.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 118.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 19.93
+            },
+            {
+              "StatId": "health",
+              "Value": 702.0
+            },
+            {
+              "StatId": "lifesteal",
+              "Value": 12.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 5.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 30.4
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 45.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 30.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 98.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 126.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 21.63
+            },
+            {
+              "StatId": "health",
+              "Value": 738.0
+            },
+            {
+              "StatId": "lifesteal",
+              "Value": 13.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 6.1
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 32.4
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 48.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 32.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "stockings_of_agility"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "stockings_of_agility"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "simple_staff"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "small_stout_shield"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.8000000000000007
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.45999999999999996
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.19999999999999996
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.7999999999999998
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "boots_of_agility"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "vital_shield"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.600000000000001
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.600000000000005
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.919999999999999
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.40000000000000013
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.5999999999999988
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "blade_of_agility"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_aquila"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "starlight_staff"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "mask_of_blood_thirty"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.39999999999998
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.399999999999991
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.3800000000000026
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.600000000000001
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.400000000000002
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "noir"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "crystal_sword"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "rousing_rose"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "helm_of_warrior"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "ring_of_aquila"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "med_petrifying_stare",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "med_split_arrow",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "med_arcane_serpent",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "sp",
+      "Name": "SP",
+      "SourceUnitId": 22,
+      "Position": 1,
+      "PortraitKey": "sp",
+      "BodyPrefabResource": "Zatod/SP/SP",
+      "AnimationSetResource": "Zatod/SP/AnimationSet",
+      "SourcePuppet": "SP.cha",
+      "SourceResource": "SP",
+      "ArtScale": 0.8,
+      "CollideRadius": 18,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "sp_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 420
+        },
+        {
+          "StatId": "damage",
+          "Value": 46
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2970
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 56.64
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2970
+        },
+        {
+          "StatId": "damage",
+          "Value": 45.92
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "defense",
+          "Value": 3.659
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 419.8
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 2.36
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 7.72
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 6.96
+            },
+            {
+              "StatId": "damage",
+              "Value": 3.58
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.391
+            },
+            {
+              "StatId": "health",
+              "Value": 30.6
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.29
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.68
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 10.44
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.37
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.5865
+            },
+            {
+              "StatId": "health",
+              "Value": 45.9
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.435
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.02
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 13.92
+            },
+            {
+              "StatId": "damage",
+              "Value": 7.16
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.782
+            },
+            {
+              "StatId": "health",
+              "Value": 61.2
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.58
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.36
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 17.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.95
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.9775
+            },
+            {
+              "StatId": "health",
+              "Value": 76.5
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.725
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.7
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 20.88
+            },
+            {
+              "StatId": "damage",
+              "Value": 10.74
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.173
+            },
+            {
+              "StatId": "health",
+              "Value": 91.8
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.87
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.04
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 2.92
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 15.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 95.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 2.92
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 15.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 95.0
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 87.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 34.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 8.59
+            },
+            {
+              "StatId": "health",
+              "Value": 378.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 2.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 7.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 30.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 215.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 93.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 35.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 8.59
+            },
+            {
+              "StatId": "health",
+              "Value": 378.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 2.5
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 7.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 30.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 215.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 159.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 72.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 14.94
+            },
+            {
+              "StatId": "heal_ratio",
+              "Value": 2.0
+            },
+            {
+              "StatId": "healing_bonus",
+              "Value": 10.0
+            },
+            {
+              "StatId": "health",
+              "Value": 900.0
+            },
+            {
+              "StatId": "magic_penetration",
+              "Value": 3.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 4.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 17.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 55.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 295.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 165.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 76.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 15.55
+            },
+            {
+              "StatId": "heal_ratio",
+              "Value": 3.0
+            },
+            {
+              "StatId": "healing_bonus",
+              "Value": 11.0
+            },
+            {
+              "StatId": "health",
+              "Value": 954.0
+            },
+            {
+              "StatId": "magic_penetration",
+              "Value": 4.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 5.1
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 18.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 57.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 295.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "ring_of_protection"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "simple_staff"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "mask_of_celebrity"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "ring_of_regen"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.8
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.45999999999999996
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.2
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.8
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "orb_of_mana"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "scarf_of_regeneration"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "robe_of_intelligence"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "bracer_of_strength"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.600000000000005
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.600000000000002
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.9200000000000008
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.39999999999999986
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6000000000000003
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "mekan"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_soul"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "celestial_drum"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "mask_of_celebrity"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "ring_of_regen"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.400000000000006
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.400000000000002
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.379999999999999
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.6000000000000008
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.3999999999999986
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "anemoi_s_scepter"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "courage_medal"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "starlight_staff"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "orb_of_mana"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "sp_shadow_wave",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "sp_toxic_grasp",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "sp_shallow_burial",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "om",
+      "Name": "OM",
+      "SourceUnitId": 24,
+      "Position": 0,
+      "PortraitKey": "om",
+      "BodyPrefabResource": "Zatod/OM/OM",
+      "AnimationSetResource": "Zatod/OM/AnimationSet",
+      "SourcePuppet": "OM.cha",
+      "SourceResource": "OM",
+      "ArtScale": 0.9,
+      "CollideRadius": 18,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "om_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 529
+        },
+        {
+          "StatId": "damage",
+          "Value": 62
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1400
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 43.68
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1400
+        },
+        {
+          "StatId": "damage",
+          "Value": 61.56
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "defense",
+          "Value": 3.962
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 529.4
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.82
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 4.96
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 5.76
+            },
+            {
+              "StatId": "damage",
+              "Value": 3.04
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.608
+            },
+            {
+              "StatId": "health",
+              "Value": 57.6
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.24
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.64
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 8.64
+            },
+            {
+              "StatId": "damage",
+              "Value": 4.56
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.912
+            },
+            {
+              "StatId": "health",
+              "Value": 86.4
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.36
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.96
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 11.52
+            },
+            {
+              "StatId": "damage",
+              "Value": 6.08
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.216
+            },
+            {
+              "StatId": "health",
+              "Value": 115.2
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.48
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.28
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 7.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.52
+            },
+            {
+              "StatId": "health",
+              "Value": 144.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.6
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 17.28
+            },
+            {
+              "StatId": "damage",
+              "Value": 9.12
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.824
+            },
+            {
+              "StatId": "health",
+              "Value": 172.8
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.72
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.92
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 24.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 11.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.92
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.0
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 15.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 24.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 11.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.92
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.0
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 15.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 88.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 56.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 6.2
+            },
+            {
+              "StatId": "health",
+              "Value": 504.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.7
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 10.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 25.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 110.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 91.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 57.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 6.43
+            },
+            {
+              "StatId": "health",
+              "Value": 522.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.8
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 10.4
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 26.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 112.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 187.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 107.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 12.09
+            },
+            {
+              "StatId": "health",
+              "Value": 990.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 7.3
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 19.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 50.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 110.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 197.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 112.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 12.47
+            },
+            {
+              "StatId": "health",
+              "Value": 1026.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 7.7
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 19.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 52.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 110.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "cloak_of_intelligence"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "cloak_of_intelligence"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "mask_of_celebrity"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "simple_staff"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.800000000000001
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.799999999999999
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.46
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.19999999999999996
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.8
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "starlight_staff"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_regen"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "accessory_of_intelligence"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "accessory_of_intelligence"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "bracer_of_strength"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.59999999999999
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.9199999999999999
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.40000000000000013
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.5999999999999994
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "staff_of_intelligence"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_soul"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "celestial_drum"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "accessory_of_intelligence"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "mask_of_celebrity"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.399999999999991
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.399999999999999
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.38
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.6000000000000001
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.3999999999999995
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "crimson_staff"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "rousing_rose"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "axe_of_strength"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "orb_of_vigor"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "robe_of_intelligence"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "green_boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "om_magic_burst",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "om_flame_vial",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "om_bloodthirst",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "sf",
+      "Name": "SF",
+      "SourceUnitId": 25,
+      "Position": 1,
+      "PortraitKey": "sf",
+      "BodyPrefabResource": "Zatod/SF/SF",
+      "AnimationSetResource": "Zatod/SF/AnimationSet",
+      "SourcePuppet": "SF.cha",
+      "SourceResource": "SF",
+      "ArtScale": 0.9,
+      "CollideRadius": 19,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "sf_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 471
+        },
+        {
+          "StatId": "damage",
+          "Value": 42
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2350
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 700
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 48.0
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2350
+        },
+        {
+          "StatId": "damage",
+          "Value": 42.2
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 700
+        },
+        {
+          "StatId": "defense",
+          "Value": 4.39
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 471.0
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 2.0
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 9.2
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.08
+            },
+            {
+              "StatId": "damage",
+              "Value": 3.64
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.508
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.17
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.04
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 6.12
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.46
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.762
+            },
+            {
+              "StatId": "health",
+              "Value": 54.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.255
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.56
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 8.16
+            },
+            {
+              "StatId": "damage",
+              "Value": 7.28
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.016
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.34
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.08
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 10.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 9.1
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.27
+            },
+            {
+              "StatId": "health",
+              "Value": 90.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.425
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.6
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 12.24
+            },
+            {
+              "StatId": "damage",
+              "Value": 10.92
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.524
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.51
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 3.12
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 19.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 19.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 2.32
+            },
+            {
+              "StatId": "health",
+              "Value": 144.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.8
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 5.6
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 19.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 19.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 2.32
+            },
+            {
+              "StatId": "health",
+              "Value": 144.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.8
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 5.6
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 55.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 63.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 8.73
+            },
+            {
+              "StatId": "health",
+              "Value": 414.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 2.3
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 23.9
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 55.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 64.8
+            },
+            {
+              "StatId": "defense",
+              "Value": 8.81
+            },
+            {
+              "StatId": "health",
+              "Value": 414.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 2.3
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 25.3
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 96.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 132.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 13.68
+            },
+            {
+              "StatId": "health",
+              "Value": 720.0
+            },
+            {
+              "StatId": "lifesteal",
+              "Value": 12.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 4.0
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 35.9
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 25.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 98.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 144.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 14.15
+            },
+            {
+              "StatId": "health",
+              "Value": 738.0
+            },
+            {
+              "StatId": "lifesteal",
+              "Value": 13.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 4.1
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 37.5
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 26.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 17.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "circlet_of_nobility"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "circlet_of_nobility"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "stockings_of_agility"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "stockings_of_agility"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.800000000000001
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.8000000000000043
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.45999999999999974
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.19999999999999996
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.7999999999999989
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "boots_of_agility"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "gloves_of_speed"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.600000000000005
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.600000000000001
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.920000000000001
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.3999999999999997
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.5999999999999996
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "hammer_of_mithril"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "blade_of_agility"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "starlight_staff"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "mask_of_blood_thirty"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.399999999999991
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.399999999999991
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.379999999999999
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.6000000000000005
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.400000000000002
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "rothar"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "shortsword"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "noir"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "domination"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "chainmail"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "pegleg_of_agility"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "sf_elegy_of_souls",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "sf_darkness_press",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "sf_undead_domination",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "jugg",
+      "Name": "JUGG",
+      "SourceUnitId": 27,
+      "Position": 0,
+      "PortraitKey": "jugg",
+      "BodyPrefabResource": "Zatod/JUGG/JUGG",
+      "AnimationSetResource": "Zatod/JUGG/AnimationSet",
+      "SourcePuppet": "JUGG.cha",
+      "SourceResource": "JUGG",
+      "ArtScale": 0.9,
+      "CollideRadius": 19,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "jugg_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 496
+        },
+        {
+          "StatId": "damage",
+          "Value": 46
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1510
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 50
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 800
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 30.24
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 50
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1510
+        },
+        {
+          "StatId": "damage",
+          "Value": 46.28
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 800
+        },
+        {
+          "StatId": "defense",
+          "Value": 4.331
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 495.8
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.26
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 8.08
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 3.36
+            },
+            {
+              "StatId": "damage",
+              "Value": 4.48
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.646
+            },
+            {
+              "StatId": "health",
+              "Value": 46.8
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.14
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.28
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 5.04
+            },
+            {
+              "StatId": "damage",
+              "Value": 6.72
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.969
+            },
+            {
+              "StatId": "health",
+              "Value": 70.2
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.21
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.92
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 6.72
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.96
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.292
+            },
+            {
+              "StatId": "health",
+              "Value": 93.6
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.28
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.56
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 8.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 11.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.615
+            },
+            {
+              "StatId": "health",
+              "Value": 117.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.35
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 3.2
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 10.08
+            },
+            {
+              "StatId": "damage",
+              "Value": 13.44
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.938
+            },
+            {
+              "StatId": "health",
+              "Value": 140.4
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.42
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 3.84
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 12.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 17.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 4.39
+            },
+            {
+              "StatId": "health",
+              "Value": 90.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.5
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 3.2
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 12.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 17.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 4.39
+            },
+            {
+              "StatId": "health",
+              "Value": 90.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.5
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 3.2
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 40.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 58.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 12.35
+            },
+            {
+              "StatId": "health",
+              "Value": 306.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.7
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 14.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 20.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 40.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 59.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 12.43
+            },
+            {
+              "StatId": "health",
+              "Value": 306.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.7
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 14.4
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 20.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 88.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 110.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 20.99
+            },
+            {
+              "StatId": "health",
+              "Value": 666.0
+            },
+            {
+              "StatId": "lifesteal",
+              "Value": 12.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 5.7
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 27.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 45.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 30.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 93.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 118.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 22.69
+            },
+            {
+              "StatId": "health",
+              "Value": 702.0
+            },
+            {
+              "StatId": "lifesteal",
+              "Value": 13.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 5.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 29.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 48.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 32.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "stockings_of_agility"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "circlet_of_nobility"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "iron_axe"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "small_stout_shield"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "ring_of_protection"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.800000000000001
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.8000000000000007
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.45999999999999996
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.19999999999999996
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.7999999999999998
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "boots_of_agility"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "vital_shield"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "simple_staff"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.599999999999998
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.600000000000005
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.919999999999999
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.4000000000000006
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.5999999999999988
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "blade_of_agility"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "starlight_staff"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "mask_of_blood_thirty"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "ring_of_aquila"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.399999999999991
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.399999999999991
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.379999999999999
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.6000000000000005
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.400000000000002
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "aurora"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "dispersant"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "charge_shield"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "hammer_of_mithril"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "shoes_of_claw"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "jugg_invincible_slash",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "jugg_blade_storm",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "jugg_healing_totem",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "axe",
+      "Name": "Axe",
+      "SourceUnitId": 28,
+      "Position": 0,
+      "PortraitKey": "axe",
+      "BodyPrefabResource": "Zatod/Axe/Axe",
+      "AnimationSetResource": "Zatod/Axe/AnimationSet",
+      "SourcePuppet": "Axe.cha",
+      "SourceResource": "Axe",
+      "ArtScale": 0.9,
+      "CollideRadius": 19,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "axe_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 580
+        },
+        {
+          "StatId": "damage",
+          "Value": 48
+        },
+        {
+          "StatId": "defense",
+          "Value": 5
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1110
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 800
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 39.36
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1110
+        },
+        {
+          "StatId": "damage",
+          "Value": 47.62
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 800
+        },
+        {
+          "StatId": "defense",
+          "Value": 4.799
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 580.0
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.64
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 7.12
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 3.36
+            },
+            {
+              "StatId": "damage",
+              "Value": 4.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.64
+            },
+            {
+              "StatId": "health",
+              "Value": 57.6
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.14
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.8
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 5.04
+            },
+            {
+              "StatId": "damage",
+              "Value": 6.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.96
+            },
+            {
+              "StatId": "health",
+              "Value": 86.4
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.21
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.2
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 6.72
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.28
+            },
+            {
+              "StatId": "health",
+              "Value": 115.2
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.28
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 8.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 10.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.6
+            },
+            {
+              "StatId": "health",
+              "Value": 144.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.35
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.0
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 10.08
+            },
+            {
+              "StatId": "damage",
+              "Value": 12.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.92
+            },
+            {
+              "StatId": "health",
+              "Value": 172.8
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.42
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.4
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 17.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 2.82
+            },
+            {
+              "StatId": "health",
+              "Value": 180.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 17.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 2.82
+            },
+            {
+              "StatId": "health",
+              "Value": 180.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 45.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 59.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 7.17
+            },
+            {
+              "StatId": "health",
+              "Value": 808.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 2.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 7.6
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 80.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 45.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 59.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 7.17
+            },
+            {
+              "StatId": "health",
+              "Value": 828.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 2.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 7.6
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 80.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 79.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 103.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 19.84
+            },
+            {
+              "StatId": "health",
+              "Value": 1394.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 16.3
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 13.2
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 500.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 79.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 109.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 21.84
+            },
+            {
+              "StatId": "health",
+              "Value": 1417.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 17.3
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 13.2
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 535.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "boxing_gloves_of_strength"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "boxing_gloves_of_strength"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "small_stout_shield"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "iron_axe"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.8000000000000007
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.4599999999999995
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.19999999999999996
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.8
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "orb_of_health"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_regen"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "bracer_of_strength"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "bracer_of_strength"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "claw_of_assassin"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.600000000000001
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.599999999999998
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.9200000000000013
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.40000000000000013
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.5999999999999994
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "charge_shield"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "shortsword"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "magic_resis_scarf"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "chainmail"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "bracer_of_strength"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.400000000000002
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.399999999999999
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.3800000000000008
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.5999999999999992
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.3999999999999995
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "thorny_mail"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "axe_of_strength"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "orb_of_health"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "orb_of_vigor"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "bracer_of_strength"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "green_boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "axe_axe_of_purge",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "axe_warlust",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "axe_counter_spiral",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "es",
+      "Name": "ES",
+      "SourceUnitId": 30,
+      "Position": 0,
+      "PortraitKey": "es",
+      "BodyPrefabResource": "Zatod/ES/ES",
+      "AnimationSetResource": "Zatod/ES/AnimationSet",
+      "SourcePuppet": "ES.cha",
+      "SourceResource": "ES",
+      "ArtScale": 0.9,
+      "CollideRadius": 19,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "es_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 559
+        },
+        {
+          "StatId": "damage",
+          "Value": 50
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1420
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 15
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 44.4
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1420
+        },
+        {
+          "StatId": "damage",
+          "Value": 49.94
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "defense",
+          "Value": 4.073
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 559.0
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 15
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 1.85
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 4.24
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 6.48
+            },
+            {
+              "StatId": "damage",
+              "Value": 3.26
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.517
+            },
+            {
+              "StatId": "health",
+              "Value": 48.6
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.27
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.56
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.72
+            },
+            {
+              "StatId": "damage",
+              "Value": 4.89
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.7755
+            },
+            {
+              "StatId": "health",
+              "Value": 72.9
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.405
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.84
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 12.96
+            },
+            {
+              "StatId": "damage",
+              "Value": 6.52
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.034
+            },
+            {
+              "StatId": "health",
+              "Value": 97.2
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.54
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.12
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 16.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.15
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.2925
+            },
+            {
+              "StatId": "health",
+              "Value": 121.5
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.675
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.4
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 19.44
+            },
+            {
+              "StatId": "damage",
+              "Value": 9.78
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.551
+            },
+            {
+              "StatId": "health",
+              "Value": 145.8
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.81
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.68
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 24.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.92
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.0
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 15.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 24.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.92
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.0
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 15.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 97.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 35.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 7.82
+            },
+            {
+              "StatId": "health",
+              "Value": 396.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.8
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 7.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 30.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 100.2
+            },
+            {
+              "StatId": "damage",
+              "Value": 35.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 7.82
+            },
+            {
+              "StatId": "health",
+              "Value": 396.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.8
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 7.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 30.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 150.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 79.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 14.28
+            },
+            {
+              "StatId": "health",
+              "Value": 1008.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 10.5
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 14.4
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 55.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 30.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 153.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 84.8
+            },
+            {
+              "StatId": "defense",
+              "Value": 15.11
+            },
+            {
+              "StatId": "health",
+              "Value": 1098.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 11.6
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 14.8
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 58.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 32.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "cloak_of_intelligence"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "cloak_of_intelligence"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "simple_staff"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "mask_of_celebrity"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.800000000000001
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.8
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.46
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.19999999999999996
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.8
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "orb_of_mana"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "bracer_of_strength"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "accessory_of_intelligence"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "small_stout_shield"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.59999999999999
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.600000000000002
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.9200000000000008
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.3999999999999997
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.5999999999999994
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "axe_of_strength"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "starlight_staff"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "ring_of_soul"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "bracer_of_strength"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "cloak_of_wizardry"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.399999999999991
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.399999999999995
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.379999999999999
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.5999999999999996
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.3999999999999995
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "azul_scepter"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "bar_of_hawk"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "orb_of_perseverance"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "short_staff"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "accessory_of_intelligence"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "mythic_shoes"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "es_gully",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "es_empowerment",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "es_echo_strike",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "av",
+      "Name": "AV",
+      "SourceUnitId": 36,
+      "Position": 2,
+      "PortraitKey": "av",
+      "BodyPrefabResource": "Zatod/AV/AV",
+      "AnimationSetResource": "Zatod/AV/AnimationSet",
+      "SourcePuppet": "AV.cha",
+      "SourceResource": "AV",
+      "ArtScale": 0.9,
+      "CollideRadius": 19,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "av_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 460
+        },
+        {
+          "StatId": "damage",
+          "Value": 42
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 3750
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 50.16
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 3750
+        },
+        {
+          "StatId": "damage",
+          "Value": 42.08
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "defense",
+          "Value": 4.126
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 459.6
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 2.09
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 8.48
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 5.04
+            },
+            {
+              "StatId": "damage",
+              "Value": 3.92
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.494
+            },
+            {
+              "StatId": "health",
+              "Value": 32.4
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.21
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.12
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 7.56
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.88
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.741
+            },
+            {
+              "StatId": "health",
+              "Value": 48.6
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.315
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.68
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 10.08
+            },
+            {
+              "StatId": "damage",
+              "Value": 7.84
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.988
+            },
+            {
+              "StatId": "health",
+              "Value": 64.8
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.42
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.24
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 12.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 9.8
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.235
+            },
+            {
+              "StatId": "health",
+              "Value": 81.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.525
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.8
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 15.12
+            },
+            {
+              "StatId": "damage",
+              "Value": 11.76
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.482
+            },
+            {
+              "StatId": "health",
+              "Value": 97.2
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.63
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 3.36
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 3.4
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 4.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 10.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 14.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 3.4
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.4
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 4.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 10.0
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 45.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 57.8
+            },
+            {
+              "StatId": "defense",
+              "Value": 9.81
+            },
+            {
+              "StatId": "health",
+              "Value": 342.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 14.8
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 30.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 45.6
+            },
+            {
+              "StatId": "damage",
+              "Value": 59.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 9.89
+            },
+            {
+              "StatId": "health",
+              "Value": 342.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.9
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 15.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 30.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 15.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 86.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 112.8
+            },
+            {
+              "StatId": "defense",
+              "Value": 17.96
+            },
+            {
+              "StatId": "health",
+              "Value": 928.0
+            },
+            {
+              "StatId": "lifesteal",
+              "Value": 12.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.6
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 22.8
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 40.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 270.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 88.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 120.2
+            },
+            {
+              "StatId": "defense",
+              "Value": 19.19
+            },
+            {
+              "StatId": "health",
+              "Value": 969.0
+            },
+            {
+              "StatId": "lifesteal",
+              "Value": 13.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.7
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 23.2
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 41.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 292.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "mask_of_celebrity"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "ring_of_protection"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "stockings_of_agility"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "stockings_of_agility"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.8
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.8000000000000007
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.4599999999999995
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.2
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.7999999999999998
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "boots_of_agility"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "simple_staff"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.600000000000001
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.599999999999998
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.9200000000000013
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.39999999999999986
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.6000000000000005
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "hammer_of_mithril"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "charge_shield"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "starlight_staff"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "mask_of_blood_thirty"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "mask_of_agility"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.400000000000002
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.399999999999984
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.3800000000000008
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.5999999999999999
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.4000000000000004
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "crystal_sword"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "axe_of_strength"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "noir"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "life_vessel"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "ring_of_aquila"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "pegleg_of_agility"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "av_atomic_hit",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "av_infernal_missile",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "av_gatling_gun",
+          "IsUltimate": false
+        }
+      ]
+    },
+    {
+      "Id": "thd",
+      "Name": "THD",
+      "SourceUnitId": 38,
+      "Position": 1,
+      "PortraitKey": "thd",
+      "BodyPrefabResource": "Zatod/THD/THD",
+      "AnimationSetResource": "Zatod/THD/AnimationSet",
+      "SourcePuppet": "THD.cha",
+      "SourceResource": "THD",
+      "ArtScale": 0.9,
+      "CollideRadius": 19,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "thd_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 565
+        },
+        {
+          "StatId": "damage",
+          "Value": 47
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2550
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "ability_power",
+          "Value": 60.48
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2550
+        },
+        {
+          "StatId": "damage",
+          "Value": 46.72
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "defense",
+          "Value": 3.959
+        },
+        {
+          "StatId": "energy_max",
+          "Value": 1000.0
+        },
+        {
+          "StatId": "health",
+          "Value": 564.6
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "magic_resistance",
+          "Value": 2.52
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "physical_crit",
+          "Value": 3.52
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 6.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.98
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.546
+            },
+            {
+              "StatId": "health",
+              "Value": 54.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.25
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.48
+            }
+          ]
+        },
+        {
+          "Stars": 2,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 4.47
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.819
+            },
+            {
+              "StatId": "health",
+              "Value": 81.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.375
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.72
+            }
+          ]
+        },
+        {
+          "Stars": 3,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 12.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.96
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.092
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.5
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.96
+            }
+          ]
+        },
+        {
+          "Stars": 4,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 15.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 7.45
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.365
+            },
+            {
+              "StatId": "health",
+              "Value": 135.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.625
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.2
+            }
+          ]
+        },
+        {
+          "Stars": 5,
+          "PerLevel": [
+            {
+              "StatId": "ability_power",
+              "Value": 18.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.94
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.638
+            },
+            {
+              "StatId": "health",
+              "Value": 162.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.75
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.44
+            }
+          ]
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [],
+          "EstimatedStats": []
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 3.38
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.6
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.4
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 10.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 80.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.4
+            },
+            {
+              "StatId": "defense",
+              "Value": 3.38
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.6
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.4
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 10.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 80.0
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 72.0
+            },
+            {
+              "StatId": "damage",
+              "Value": 45.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 9.52
+            },
+            {
+              "StatId": "health",
+              "Value": 432.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.0
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 9.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 40.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 110.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 74.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 47.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 9.75
+            },
+            {
+              "StatId": "health",
+              "Value": 450.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.1
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 10.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 41.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 112.0
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 188.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 92.6
+            },
+            {
+              "StatId": "defense",
+              "Value": 15.02
+            },
+            {
+              "StatId": "health",
+              "Value": 900.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 6.6
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 17.6
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 55.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 180.0
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 203.4
+            },
+            {
+              "StatId": "damage",
+              "Value": 99.0
+            },
+            {
+              "StatId": "defense",
+              "Value": 15.4
+            },
+            {
+              "StatId": "health",
+              "Value": 936.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 7.1
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 18.0
+            },
+            {
+              "StatId": "wave_energy_regen",
+              "Value": 57.0
+            },
+            {
+              "StatId": "wave_health_regen",
+              "Value": 186.0
+            }
+          ]
+        }
+      ],
+      "StartingRankId": "white",
+      "Ranks": [
+        {
+          "Id": "white",
+          "Name": "Trắng",
+          "NextRankId": "green",
+          "BonusStats": [],
+          "PreciseBonusStats": [],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "branches"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "circlet_of_nobility"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "ring_of_regen"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "mask_of_celebrity"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "ring_of_protection"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_1"
+          ]
+        },
+        {
+          "Id": "green",
+          "Name": "Xanh Lá",
+          "NextRankId": "green_plus_1",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 4.800000000000001
+            },
+            {
+              "StatId": "damage",
+              "Value": 2.8000000000000007
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.45999999999999996
+            },
+            {
+              "StatId": "health",
+              "Value": 36.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.19999999999999996
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 0.7999999999999998
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "starlight_staff"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "ring_of_sanctum"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "accessory_of_intelligence"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "accessory_of_intelligence"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "simple_staff"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_2"
+          ]
+        },
+        {
+          "Id": "green_plus_1",
+          "Name": "Xanh Lá+1",
+          "NextRankId": "blue",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 9.599999999999998
+            },
+            {
+              "StatId": "damage",
+              "Value": 5.599999999999998
+            },
+            {
+              "StatId": "defense",
+              "Value": 0.9200000000000008
+            },
+            {
+              "StatId": "health",
+              "Value": 72.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.40000000000000013
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 1.5999999999999996
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "staff_of_intelligence"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "life_vessel"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "celestial_drum"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "orb_of_mana"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "robe_of_intelligence"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "boots"
+            }
+          ],
+          "UnlockSkillSlotIds": []
+        },
+        {
+          "Id": "blue",
+          "Name": "Xanh Dương",
+          "NextRankId": "",
+          "BonusStats": [],
+          "PreciseBonusStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 14.400000000000013
+            },
+            {
+              "StatId": "damage",
+              "Value": 8.399999999999984
+            },
+            {
+              "StatId": "defense",
+              "Value": 1.379999999999999
+            },
+            {
+              "StatId": "health",
+              "Value": 108.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 0.6000000000000001
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 2.4000000000000012
+            }
+          ],
+          "EquipmentSlots": [
+            {
+              "Id": "gear_1",
+              "RequiredItemId": "anemoi_s_scepter"
+            },
+            {
+              "Id": "gear_2",
+              "RequiredItemId": "bar_of_hawk"
+            },
+            {
+              "Id": "gear_3",
+              "RequiredItemId": "cloak_of_wizardry"
+            },
+            {
+              "Id": "gear_4",
+              "RequiredItemId": "orb_of_vigor"
+            },
+            {
+              "Id": "gear_5",
+              "RequiredItemId": "orb_of_health"
+            },
+            {
+              "Id": "gear_6",
+              "RequiredItemId": "green_boots"
+            }
+          ],
+          "UnlockSkillSlotIds": [
+            "skill_3"
+          ]
+        }
+      ],
+      "SkillSlots": [
+        {
+          "Id": "skill_1",
+          "SkillId": "thd_glacier_trail",
+          "IsUltimate": true
+        },
+        {
+          "Id": "skill_2",
+          "SkillId": "thd_pyrofreeze",
+          "IsUltimate": false
+        },
+        {
+          "Id": "skill_3",
+          "SkillId": "thd_flame_storm",
           "IsUltimate": false
         }
       ]

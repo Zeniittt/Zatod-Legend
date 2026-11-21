@@ -1,0 +1,66 @@
+{
+  "UnitId": "effect_eff_tile_Tank_atk",
+  "Resource": "eff_tile_Tank_atk",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_Tank_atk/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Tank_atk_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 255,
+          "Height": 149,
+          "PivotX": 0.7450980392156863,
+          "PivotY": 0.610738255033557
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_Tank_atk/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Tank_atk_Start_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 255,
+          "Height": 149,
+          "PivotX": 0.7450980392156863,
+          "PivotY": 0.610738255033557
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Tank_atk/Loop_0.png",
+          "Name": "eff_tile_Tank_atk_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 255,
+      "Height": 149,
+      "AudioCues": []
+    },
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Tank_atk/Start_0.png",
+          "Name": "eff_tile_Tank_atk_Start_0000"
+        }
+      ],
+      "Loop": false,
+      "Width": 255,
+      "Height": 149,
+      "AudioCues": []
+    }
+  ]
+}

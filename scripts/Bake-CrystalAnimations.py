@@ -43,6 +43,7 @@ def bake(unit):
  (target/'bake-manifest.txt').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf8')
  return {'Resource':resource,'Actions':len(manifest['Actions']),'Frames':total,'Manifest':str(target/'bake-manifest.txt')}
 if __name__=='__main__':
+ if '--missing-only' in sys.argv:units=[u for u in units if not (ART/u['SourceResource']/'bake-manifest.txt').exists()]
  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
   results=[]
   for result in pool.map(bake,units):results.append(result);print(json.dumps(result),flush=True)

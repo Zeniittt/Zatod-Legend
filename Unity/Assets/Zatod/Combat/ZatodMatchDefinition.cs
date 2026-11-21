@@ -36,6 +36,7 @@ namespace Zatod.Combat
         public List<ZatodUnitData> Players=new List<ZatodUnitData>();
         public List<ZatodWaveData> Waves=new List<ZatodWaveData>();
         public List<ZatodBuffDefinition> Buffs=new List<ZatodBuffDefinition>();
+        public List<ZatodLootDrop> LootDrops=new List<ZatodLootDrop>();
     }
     [Serializable] public sealed class ZatodInput
     {
@@ -71,6 +72,7 @@ namespace Zatod.Combat
         public int EndTick, Winner=-1, Stars;
         public bool Completed;
         public ulong Digest;
+        public List<ZatodUnitStatistics> Statistics=new List<ZatodUnitStatistics>();
     }
     public static class ZatodMatchFactory
     {

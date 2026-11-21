@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-prototype-2",
+  "ConfigVersion": "zatod-prototype-crafting-1",
   "Skills": [
     {
       "Id": "coco_basic_attack",
@@ -7399,6 +7399,4055 @@
                 "Time": 0.75,
                 "X": 1325.8,
                 "Y": 168.65
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "med_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 2795,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ProjectileArt": "eff_tile_Med_atk.cha",
+        "ImpactEffect": "eff_impact_pierce.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 2,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 279.5,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 500,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 161,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.458333,
+            "AttackTimes": [
+              1.125
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.125,
+                "X": 516.925,
+                "Y": 481.75
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "med_petrifying_stare",
+      "Name": "Petrifying Stare",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 4000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "self",
+        "AoeShape": "quartercircle",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 10001601,
+        "ChainJumps": 0,
+        "BasicAmount": 35,
+        "PlusRatio": 0.4,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 400,
+        "ShapeArg1": 460,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 160,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 3,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 35
+          },
+          {
+            "Field": "Script Arg6",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 1.875,
+            "AttackTimes": [
+              1.416667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.416667,
+                "X": 921.925,
+                "Y": 782.5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "med_split_arrow",
+      "Name": "Split Arrow",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 0,
+      "CastRange": 2795,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ProjectileArt": "eff_tile_Med_atk.cha",
+        "ImpactEffect": "eff_impact_pierce.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1.2,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 0,
+        "InitialCooldown": 2,
+        "GlobalCooldown": 2.5,
+        "MinRange": 0,
+        "MaxRange": 279.5,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 600,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 50,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 162,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Script Arg2",
+            "Amount": 0.375
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          30.375,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 2,
+            "AttackTimes": [
+              1.458333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.458333,
+                "X": 539.425,
+                "Y": 485.7
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "med_arcane_serpent",
+      "Name": "Arcane Serpent",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 20000,
+      "CastRange": 2795,
+      "AnimationState": "atk3",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "nearest",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "ImpactEffect": "eff_impact_TitanFrog_atk.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "PointEffect": "eff_point_Med_atk3.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 1,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 0,
+        "Cooldown": 20,
+        "InitialCooldown": 8,
+        "GlobalCooldown": 1,
+        "MinRange": 0,
+        "MaxRange": 279.5,
+        "ShapeArg1": 150,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 163,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 2,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Script Arg2",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk3",
+            "Duration": 2,
+            "AttackTimes": [
+              1.458333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.458333,
+                "X": 539.425,
+                "Y": 485.7
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sp_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 2970,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ProjectileArt": "eff_tile_SP_atk.cha",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 0,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 297,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 550,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 221,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.375,
+            "AttackTimes": [
+              0.541667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.541667,
+                "X": 1042.975,
+                "Y": 362.35
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sp_shadow_wave",
+      "Name": "Shadow Wave",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 8000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "minhp",
+        "TrackType": "chain",
+        "DamageType": "Heal",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "ImpactEffect": "eff_impact_SP_ult.cha",
+        "ChainEffect": "eff_chain_SP_ult.cha",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "TargetCamp": 1,
+        "AffectedCamp": 1,
+        "BuffId": 0,
+        "ChainJumps": 3,
+        "BasicAmount": 175,
+        "PlusRatio": 0.9,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 800,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0.2,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 220,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 5,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 25
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 2.708333,
+            "AttackTimes": [
+              2.041667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 2.041667,
+                "X": 1379.475,
+                "Y": 397.05
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sp_toxic_grasp",
+      "Name": "Toxic Grasp",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 12000,
+      "CastRange": 3000,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "ProjectileArt": "eff_tile_SP_atk2.cha",
+        "ImpactEffect": "eff_impact_poison.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 10002201,
+        "ChainJumps": 0,
+        "BasicAmount": 250,
+        "PlusRatio": 0.5,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 12,
+        "InitialCooldown": 6,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 300,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 550,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 50,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 222,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 2,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 25
+          },
+          {
+            "Field": "HPR",
+            "Amount": -6
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 1.958333,
+            "AttackTimes": [
+              0.791667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.791667,
+                "X": 547.225,
+                "Y": 349.05
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sp_shallow_burial",
+      "Name": "Shallow Burial",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 24000,
+      "CastRange": 8000,
+      "AnimationState": "atk3",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "weakest",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": 1,
+        "AffectedCamp": 1,
+        "BuffId": 10002202,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 24,
+        "InitialCooldown": 12,
+        "GlobalCooldown": 0,
+        "MinRange": 0,
+        "MaxRange": 800,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 223,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Shield Value",
+            "Amount": 300
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk3",
+            "Duration": 1.666667,
+            "AttackTimes": [
+              0.583333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.583333,
+                "X": -26.625,
+                "Y": 1198.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "om_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 1400,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "halfcircle",
+        "ImpactEffect": "eff_impact_crush.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 0,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 140,
+        "ShapeArg1": 160,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 241,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 0.833333,
+            "AttackTimes": [
+              0.25
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.25,
+                "X": 122.55,
+                "Y": 367.65
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "om_magic_burst",
+      "Name": "Magic Burst",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 1500,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "random",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "ImpactEffect": "eff_impact_OM_ult.cha",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 10002401,
+        "ChainJumps": 0,
+        "BasicAmount": 100,
+        "PlusRatio": 0.9,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 150,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 240,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 4,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 25
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 1.25,
+            "AttackTimes": [
+              0.791667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.791667,
+                "X": 200.8,
+                "Y": 423.4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "om_flame_vial",
+      "Name": "Flame Vial",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 12000,
+      "CastRange": 5000,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "random",
+        "TrackType": "projectile",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "ProjectileArt": "eff_tile_OM_atk2.cha",
+        "ImpactEffect": "eff_impact_burn.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "PointEffect": "eff_point_fire.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 10002402,
+        "ChainJumps": 0,
+        "BasicAmount": 60,
+        "PlusRatio": 0.3,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 12,
+        "InitialCooldown": 6,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 500,
+        "ShapeArg1": 75,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 250,
+        "ProjectileZSpeed": 400,
+        "Gravity": -900,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 10,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 242,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 2,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 6.6
+          },
+          {
+            "Field": "HPR",
+            "Amount": -10
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 1.375,
+            "AttackTimes": [
+              0.708333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.708333,
+                "X": 445.8,
+                "Y": 735.4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "om_bloodthirst",
+      "Name": "Bloodthirst",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9000,
+      "CastRange": 8000,
+      "AnimationState": "atk3",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "random",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": 1,
+        "AffectedCamp": 1,
+        "BuffId": 10002403,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 9,
+        "InitialCooldown": 9,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 800,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 243,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "HAST",
+            "Amount": 0.6
+          },
+          {
+            "Field": "MSPD",
+            "Amount": 0.3
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk3",
+            "Duration": 1.416667,
+            "AttackTimes": [
+              0.583333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.583333,
+                "X": 22.3,
+                "Y": 568.4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sf_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 2350,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ProjectileArt": "eff_tile_SF_atk.cha",
+        "ImpactEffect": "eff_impact_crush.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 70,
+        "Cooldown": 3,
+        "InitialCooldown": 0,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 235,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 550,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 251,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 0.791667,
+            "AttackTimes": [
+              0.416667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.416667,
+                "X": 565.95,
+                "Y": 317.5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sf_elegy_of_souls",
+      "Name": "Elegy of Souls",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 5000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "circle",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "PointEffect": "eff_point_SF_ult.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 100,
+        "PlusRatio": 0.45,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 500,
+        "ShapeArg1": 555,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 33,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 250,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 6,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 24
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 3.541667,
+            "AttackTimes": [
+              2.208333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 2.208333,
+                "X": 185.95,
+                "Y": 1208.3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sf_darkness_press",
+      "Name": "Darkness Press",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 1000,
+      "CastRange": 2350,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "circle",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "PointEffect": "eff_point_SF_atk2.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 90,
+        "PlusRatio": 0.6,
+        "CostEnergy": 0,
+        "GainEnergy": 50,
+        "Cooldown": 1,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 1,
+        "MinRange": 0,
+        "MaxRange": 235,
+        "ShapeArg1": 120,
+        "ShapeArg2": 0,
+        "XShift": 100,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 33,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 252,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 5,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 9
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 1,
+            "AttackTimes": [
+              0.541667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.541667,
+                "X": 433.95,
+                "Y": 642.95
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sf_undead_domination",
+      "Name": "Undead Domination",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9999000,
+      "CastRange": 2350,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "self",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ImpactEffect": "eff_buff_sf_atk3.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": 1,
+        "BuffId": 10002501,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 0,
+        "Cooldown": 9999,
+        "InitialCooldown": 9999,
+        "GlobalCooldown": 0,
+        "MinRange": 0,
+        "MaxRange": 235,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 253,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "AD",
+            "Amount": 3
+          },
+          {
+            "Field": "Script Arg2",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          10,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 0.791667,
+            "AttackTimes": [
+              0.416667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.416667,
+                "X": 565.95,
+                "Y": 317.5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "sf_sf_atk3s",
+      "Name": "SF atk3s",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9999000,
+      "CastRange": 2350,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "self",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ImpactEffect": "eff_buff_sf_atk3.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": 1,
+        "BuffId": 10002502,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 0,
+        "Cooldown": 9999,
+        "InitialCooldown": 9999,
+        "GlobalCooldown": 0,
+        "MinRange": 0,
+        "MaxRange": 235,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 256,
+        "Slot": 101,
+        "UnlockRank": 4,
+        "Priority": 3,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "AD",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 0.791667,
+            "AttackTimes": [
+              0.416667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.416667,
+                "X": 565.95,
+                "Y": 317.5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "jugg_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 2500,
+      "CastRange": 1510,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "halfcircle",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 2.5,
+        "InitialCooldown": 0,
+        "GlobalCooldown": 2.5,
+        "MinRange": 0,
+        "MaxRange": 151,
+        "ShapeArg1": 151,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 271,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 0.916667,
+            "AttackTimes": [
+              0.166667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.166667,
+                "X": 1192.65,
+                "Y": 401.95
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "jugg_invincible_slash",
+      "Name": "Invincible Slash",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 8000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "random",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 20,
+        "PlusRatio": 0.65,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 800,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 113,
+        "LifestealPercent": 50,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 270,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 3,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 20
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 2.291667,
+            "AttackTimes": [
+              0.625,
+              0.875,
+              1.125,
+              1.375,
+              1.625,
+              1.875
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.625,
+                "X": -5.9,
+                "Y": 568.1
+              },
+              {
+                "Time": 0.875,
+                "X": -8.65,
+                "Y": 633.6
+              },
+              {
+                "Time": 1.125,
+                "X": 4.35,
+                "Y": 690.35
+              },
+              {
+                "Time": 1.375,
+                "X": -4.15,
+                "Y": 664.1
+              },
+              {
+                "Time": 1.625,
+                "X": -8.65,
+                "Y": 646.6
+              },
+              {
+                "Time": 1.875,
+                "X": -4.15,
+                "Y": 611.85
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "jugg_blade_storm",
+      "Name": "Blade Storm",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 18000,
+      "CastRange": 1510,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "circle",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 15,
+        "PlusRatio": 0.2,
+        "CostEnergy": 0,
+        "GainEnergy": 25,
+        "Cooldown": 18,
+        "InitialCooldown": 4,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 151,
+        "ShapeArg1": 100,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 113,
+        "LifestealPercent": 50,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 272,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 2,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 15
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 3.166667,
+            "AttackTimes": [
+              0.25,
+              0.625,
+              1,
+              1.375,
+              1.75,
+              2.125,
+              2.5,
+              2.875
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.25,
+                "X": -4.15,
+                "Y": 480.45
+              },
+              {
+                "Time": 0.625,
+                "X": -4.15,
+                "Y": 476.2
+              },
+              {
+                "Time": 1,
+                "X": -8.65,
+                "Y": 484.95
+              },
+              {
+                "Time": 1.375,
+                "X": -39.15,
+                "Y": 449.95
+              },
+              {
+                "Time": 1.75,
+                "X": -17.4,
+                "Y": 463.2
+              },
+              {
+                "Time": 2.125,
+                "X": 2.35,
+                "Y": 441.2
+              },
+              {
+                "Time": 2.5,
+                "X": -12.9,
+                "Y": 467.45
+              },
+              {
+                "Time": 2.875,
+                "X": 16.1,
+                "Y": 497.45
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "jugg_healing_totem",
+      "Name": "Healing Totem",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 16000,
+      "CastRange": 1510,
+      "AnimationState": "atk3",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "self",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "self",
+        "AoeShape": "circle",
+        "ImpactEffect": "eff_impact_heal.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "PointEffect": "eff_point_JUGG_atk3.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": 1,
+        "BuffId": 10002703,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 16,
+        "InitialCooldown": 8,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 151,
+        "ShapeArg1": 800,
+        "ShapeArg2": 0,
+        "XShift": -50,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 273,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "HPR",
+            "Amount": 10
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk3",
+            "Duration": 1.375,
+            "AttackTimes": [
+              0.833333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.833333,
+                "X": -640.8,
+                "Y": 256.9
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "axe_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 1110,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "halfcircle",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 6,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 111,
+        "ShapeArg1": 111,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 281,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.166667,
+            "AttackTimes": [
+              0.291667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.291667,
+                "X": 668.225,
+                "Y": 588.25
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "axe_axe_of_purge",
+      "Name": "Axe of Purge",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 1900,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "weakest",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 10,
+        "PlusRatio": 1.5,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 190,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 50,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 280,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 3,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 20
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 2.083333,
+            "AttackTimes": [
+              0.833333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.833333,
+                "X": 752.25,
+                "Y": 524.25
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "axe_warlust",
+      "Name": "Warlust",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 12000,
+      "CastRange": 1110,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "PlusAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "halfcircle",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 10002801,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 12,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 0,
+        "MinRange": 0,
+        "MaxRange": 111,
+        "ShapeArg1": 185,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 282,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 2,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "HPR",
+            "Amount": -5
+          },
+          {
+            "Field": "Script Arg6",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 1.5,
+            "AttackTimes": [
+              0.666667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.666667,
+                "X": 435.975,
+                "Y": 804.25
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "axe_counter_spiral",
+      "Name": "Counter Spiral",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 6000,
+      "CastRange": 1110,
+      "AnimationState": "atk3",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "Holy",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "circle",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 20,
+        "PlusRatio": 0.8,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 6,
+        "InitialCooldown": 9999,
+        "GlobalCooldown": 0,
+        "MinRange": 0,
+        "MaxRange": 111,
+        "ShapeArg1": 170,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 283,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 20
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk3",
+            "Duration": 0.458333,
+            "AttackTimes": [
+              0.083333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.083333,
+                "X": -27.975,
+                "Y": 708.15
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "es_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 1420,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "halfcircle",
+        "ImpactEffect": "eff_impact_crush.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 0,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 142,
+        "ShapeArg1": 152,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 301,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.708333,
+            "AttackTimes": [
+              0.75
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.75,
+                "X": 1341.375,
+                "Y": 413.45
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "es_gully",
+      "Name": "Gully",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 3000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "self",
+        "AoeShape": "rectangle",
+        "ImpactEffect": "eff_impact_crush.cha",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "PointEffect": "eff_point_ES_ult.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 10003001,
+        "ChainJumps": 0,
+        "BasicAmount": 112,
+        "PlusRatio": 1.2,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 300,
+        "ShapeArg1": 450,
+        "ShapeArg2": 200,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0.2,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 300,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 3,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 25
+          },
+          {
+            "Field": "Script Arg6",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 1.5,
+            "AttackTimes": [
+              0.875
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.875,
+                "X": 814.85,
+                "Y": 492.05
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "es_empowerment",
+      "Name": "Empowerment",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 12000,
+      "CastRange": 1420,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "self",
+        "AoeShape": "halfcircle",
+        "ImpactEffect": "eff_impact_crush.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 10003002,
+        "ChainJumps": 0,
+        "BasicAmount": 70,
+        "PlusRatio": 0.9,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 12,
+        "InitialCooldown": 6,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 142,
+        "ShapeArg1": 185,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 302,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 2,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 10
+          },
+          {
+            "Field": "Script Arg6",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 1.041667,
+            "AttackTimes": [
+              0.458333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.458333,
+                "X": 1327.875,
+                "Y": 220.2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "es_echo_strike",
+      "Name": "Echo Strike",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 12000,
+      "CastRange": 1420,
+      "AnimationState": "atk3",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "self",
+        "AoeShape": "circle",
+        "ImpactEffect": "eff_impact_crush.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "PointEffect": "eff_point_ES_atk3.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 10003003,
+        "ChainJumps": 0,
+        "BasicAmount": 8,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 12,
+        "InitialCooldown": 9,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 142,
+        "ShapeArg1": 190,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 303,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 15
+          },
+          {
+            "Field": "Script Arg6",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk3",
+            "Duration": 1.333333,
+            "AttackTimes": [
+              0.666667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.666667,
+                "X": 6.625,
+                "Y": 473.7
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "es_es_evo",
+      "Name": "ES evo",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9999000,
+      "CastRange": 0,
+      "AnimationState": "Idle",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 500,
+        "PlusRatio": 0.3,
+        "CostEnergy": 0,
+        "GainEnergy": 0,
+        "Cooldown": 9999,
+        "InitialCooldown": 9999,
+        "GlobalCooldown": 0,
+        "MinRange": 0,
+        "MaxRange": 0,
+        "ShapeArg1": 185,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 305,
+        "Slot": 101,
+        "UnlockRank": 1,
+        "Priority": 4,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": []
+      }
+    },
+    {
+      "Id": "av_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 3750,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ImpactEffect": "eff_impact_burst.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 0,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 375,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 361,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 0
+          }
+        ],
+        "ScriptArgs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.041667,
+            "AttackTimes": [
+              0.166667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.166667,
+                "X": 509.525,
+                "Y": 516.55
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "av_atomic_hit",
+      "Name": "Atomic Hit",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 5950,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "farthest",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "ProjectileArt": "eff_tile_AV_ult.cha",
+        "ImpactEffect": "eff_impact_burst.cha",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "PointEffect": "eff_point_AV_ult.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 20,
+        "PlusRatio": 1.5,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 595,
+        "ShapeArg1": 130,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": -1350,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 20,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 50,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 360,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 3,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 20
+          }
+        ],
+        "ScriptArgs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 2.125,
+            "AttackTimes": [
+              1.333333,
+              1.833333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.333333,
+                "X": -255.475,
+                "Y": 1410.55
+              },
+              {
+                "Time": 1.833333,
+                "X": -255.475,
+                "Y": 1410.55
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "av_infernal_missile",
+      "Name": "Infernal Missile",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9000,
+      "CastRange": 5950,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "farthest",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ProjectileArt": "eff_tile_AV_atk2.cha",
+        "ImpactEffect": "eff_impact_OM_ult.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 10003601,
+        "ChainJumps": 0,
+        "BasicAmount": 11,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 110,
+        "Cooldown": 9,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 100,
+        "MaxRange": 595,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 30,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 50,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 362,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 2,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 11
+          },
+          {
+            "Field": "Script Arg6",
+            "Amount": 1
+          }
+        ],
+        "ScriptArgs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 1.916667,
+            "AttackTimes": [
+              1.041667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.041667,
+                "X": 721.275,
+                "Y": 1315.55
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "av_gatling_gun",
+      "Name": "Gatling Gun",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9000,
+      "CastRange": 7500,
+      "AnimationState": "atk3",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "self",
+        "AoeShape": "circle",
+        "ImpactEffect": "eff_impact_burst.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "PointEffect": "eff_point_AV_atk3.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 5,
+        "PlusRatio": 0.1,
+        "CostEnergy": 0,
+        "GainEnergy": 11,
+        "Cooldown": 9,
+        "InitialCooldown": 6,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 750,
+        "ShapeArg1": 75,
+        "ShapeArg2": 0,
+        "XShift": 125,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 363,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 1,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 5
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk3",
+            "Duration": 4.083333,
+            "AttackTimes": [
+              0.916667,
+              1.125,
+              1.291667,
+              1.458333,
+              1.625,
+              1.791667,
+              1.958333,
+              2.125,
+              2.291667,
+              2.458333,
+              2.625,
+              3.166667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.916667,
+                "X": -158.725,
+                "Y": 1604.3
+              },
+              {
+                "Time": 1.125,
+                "X": 311.775,
+                "Y": 1315.3
+              },
+              {
+                "Time": 1.291667,
+                "X": 260.775,
+                "Y": 1355.05
+              },
+              {
+                "Time": 1.458333,
+                "X": 255.025,
+                "Y": 1372.05
+              },
+              {
+                "Time": 1.625,
+                "X": 226.775,
+                "Y": 1383.3
+              },
+              {
+                "Time": 1.791667,
+                "X": 266.525,
+                "Y": 1355.05
+              },
+              {
+                "Time": 1.958333,
+                "X": 255.025,
+                "Y": 1372.05
+              },
+              {
+                "Time": 2.125,
+                "X": 226.775,
+                "Y": 1383.3
+              },
+              {
+                "Time": 2.291667,
+                "X": 266.525,
+                "Y": 1355.05
+              },
+              {
+                "Time": 2.458333,
+                "X": 255.025,
+                "Y": 1372.05
+              },
+              {
+                "Time": 2.625,
+                "X": 226.775,
+                "Y": 1383.3
+              },
+              {
+                "Time": 3.166667,
+                "X": 565.775,
+                "Y": 2803.3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "av_av_evo2",
+      "Name": "AV evo2",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9999000,
+      "CastRange": 8000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "region",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 10003603,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 0,
+        "Cooldown": 9999,
+        "InitialCooldown": 9999,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 800,
+        "ShapeArg1": 150,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 369,
+        "Slot": 103,
+        "UnlockRank": 4,
+        "Priority": 2.3,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 2.125,
+            "AttackTimes": [
+              1.333333,
+              1.833333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.333333,
+                "X": -255.475,
+                "Y": 1410.55
+              },
+              {
+                "Time": 1.833333,
+                "X": -255.475,
+                "Y": 1410.55
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "av_av_fashion_fly_tiger",
+      "Name": "AV fashion FlyTiger",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9999000,
+      "CastRange": 8000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "region",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "ProjectileArt": "eff_tile_TS_atk2.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 1286,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 0,
+        "Cooldown": 9999,
+        "InitialCooldown": 9999,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 800,
+        "ShapeArg1": 150,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 367,
+        "Slot": 101,
+        "UnlockRank": 4,
+        "Priority": 2.1,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 3
+          }
+        ],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 2.125,
+            "AttackTimes": [
+              1.333333,
+              1.833333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.333333,
+                "X": -255.475,
+                "Y": 1410.55
+              },
+              {
+                "Time": 1.833333,
+                "X": -255.475,
+                "Y": 1410.55
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "av_av_evo1",
+      "Name": "AV evo1",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 9999000,
+      "CastRange": 8000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "region",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "ProjectileArt": "eff_tile_TS_atk2.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 10003602,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 0,
+        "CostEnergy": 0,
+        "GainEnergy": 0,
+        "Cooldown": 9999,
+        "InitialCooldown": 9999,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 800,
+        "ShapeArg1": 150,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 368,
+        "Slot": 102,
+        "UnlockRank": 4,
+        "Priority": 2.2,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 2.125,
+            "AttackTimes": [
+              1.333333,
+              1.833333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.333333,
+                "X": -255.475,
+                "Y": 1410.55
+              },
+              {
+                "Time": 1.833333,
+                "X": -255.475,
+                "Y": 1410.55
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "thd_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 2550,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "PassiveAttribute": "AD",
+        "ProjectileArt": "eff_tile_THD_atk.cha",
+        "ImpactEffect": "eff_impact_burst.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 0,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 255,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 700,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 381,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 0,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.125,
+            "AttackTimes": [
+              0.416667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.416667,
+                "X": 540.175,
+                "Y": 484.15
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "thd_glacier_trail",
+      "Name": "Glacier Trail",
+      "Kind": 0,
+      "Activation": 1,
+      "Target": 1,
+      "EnergyCost": 1000,
+      "CooldownMilliseconds": 0,
+      "CastRange": 3000,
+      "AnimationState": "ult",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "self",
+        "AoeShape": "rectangle",
+        "ImpactEffect": "eff_impact_CM_atk.cha",
+        "LaunchEffect": "eff_launch_ult.cha",
+        "PointEffect": "eff_point_THD_ult.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 10003801,
+        "ChainJumps": 0,
+        "BasicAmount": 20,
+        "PlusRatio": 0.5,
+        "CostEnergy": 1000,
+        "GainEnergy": 0,
+        "Cooldown": 0,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 300,
+        "ShapeArg1": 440,
+        "ShapeArg2": 400,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": true,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 380,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 4,
+        "Interruptable": false,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 10
+          }
+        ],
+        "ScriptArgs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "ult",
+            "Duration": 1.916667,
+            "AttackTimes": [
+              1
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1,
+                "X": -0.025,
+                "Y": 372
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "thd_pyrofreeze",
+      "Name": "Pyrofreeze",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 18000,
+      "CastRange": 3000,
+      "AnimationState": "atk2",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "self",
+        "AoeShape": "quartercircle",
+        "ImpactEffect": "eff_impact_burst.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 9,
+        "PlusRatio": 0.3,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 18,
+        "InitialCooldown": 6,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 300,
+        "ShapeArg1": 440,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 382,
+        "Slot": 2,
+        "UnlockRank": 2,
+        "Priority": 3,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 9
+          }
+        ],
+        "ScriptArgs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk2",
+            "Duration": 1.708333,
+            "AttackTimes": [
+              0.583333,
+              0.958333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.583333,
+                "X": 575.175,
+                "Y": 448.9
+              },
+              {
+                "Time": 0.958333,
+                "X": 837.675,
+                "Y": 591.4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "thd_flame_storm",
+      "Name": "Flame Storm",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 18000,
+      "CastRange": 3000,
+      "AnimationState": "atk3",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "PassiveAttribute": "AP",
+        "AoeOrigin": "self",
+        "AoeShape": "rectangle",
+        "ImpactEffect": "eff_impact_burst.cha",
+        "LaunchEffect": "eff_launch_skill_1.cha",
+        "PointEffect": "eff_point_THD_atk3.cha",
+        "TargetCamp": -1,
+        "AffectedCamp": -1,
+        "BuffId": 10003802,
+        "ChainJumps": 0,
+        "BasicAmount": 12,
+        "PlusRatio": 0.4,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 18,
+        "InitialCooldown": 6,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 300,
+        "ShapeArg1": 440,
+        "ShapeArg2": 400,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 0,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 383,
+        "Slot": 3,
+        "UnlockRank": 4,
+        "Priority": 2,
+        "Interruptable": true,
+        "Growth": [
+          {
+            "Field": "Basic Num",
+            "Amount": 12
+          },
+          {
+            "Field": "HPR",
+            "Amount": -5
+          }
+        ],
+        "ScriptArgs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk3",
+            "Duration": 1.291667,
+            "AttackTimes": [
+              0.625
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.625,
+                "X": 648.925,
+                "Y": 484.15
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "glaive_thrower_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 4500,
+      "CastRange": 3800,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "ProjectileArt": "eff_tile_GlaiveThrower_atk.cha",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 4.5,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 380,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 400,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 500,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": true,
+        "AimTarget": false,
+        "SourceId": 10003,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.208333,
+            "AttackTimes": [
+              0.833333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.833333,
+                "X": 567.925,
+                "Y": 717.75
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "spell_breaker_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 2800,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "ProjectileArt": "eff_tile_SpellBreaker_atk.cha",
+        "ImpactEffect": "eff_impact_slash.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 0,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 280,
+        "ShapeArg1": 0,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 300,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 100,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 10014,
+        "Slot": 5,
+        "UnlockRank": 1,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.583333,
+            "AttackTimes": [
+              1.041667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 1.041667,
+                "X": 342.625,
+                "Y": 321.2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "tank_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 1085,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AD",
+        "PlusAttribute": "AD",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "ProjectileArt": "eff_tile_Tank_atk.cha",
+        "ImpactEffect": "eff_impact_burst.cha",
+        "PointEffect": "eff_point_burst.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 108.5,
+        "ShapeArg1": 150,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 150,
+        "ProjectileZSpeed": 180,
+        "Gravity": -900,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 20,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": false,
+        "SourceId": 10024,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 1,
+        "Interruptable": false,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.083333,
+            "AttackTimes": [
+              0.666667
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.666667,
+                "X": 267.2,
+                "Y": 1403.25
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Id": "dragon_baby_basic_attack",
+      "Name": "Basic Attack",
+      "Kind": 0,
+      "Activation": 0,
+      "Target": 1,
+      "EnergyCost": 0,
+      "CooldownMilliseconds": 3000,
+      "CastRange": 1200,
+      "AnimationState": "atk",
+      "Effects": [],
+      "Crystal": {
+        "ActiveType": "active",
+        "TargetType": "target",
+        "TrackType": "projectile",
+        "DamageType": "AP",
+        "PlusAttribute": "AP",
+        "AoeOrigin": "target",
+        "AoeShape": "circle",
+        "ProjectileArt": "eff_tile_THD_atk.cha",
+        "ImpactEffect": "eff_impact_burn.cha",
+        "PointEffect": "eff_point_burst.cha",
+        "TargetCamp": 0,
+        "AffectedCamp": -1,
+        "BuffId": 0,
+        "ChainJumps": 0,
+        "BasicAmount": 0,
+        "PlusRatio": 1,
+        "CostEnergy": 0,
+        "GainEnergy": 90,
+        "Cooldown": 3,
+        "InitialCooldown": 3,
+        "GlobalCooldown": 3,
+        "MinRange": 0,
+        "MaxRange": 120,
+        "ShapeArg1": 60,
+        "ShapeArg2": 0,
+        "XShift": 0,
+        "ChainGap": 0,
+        "ProjectileSpeed": 550,
+        "ProjectileZSpeed": 0,
+        "Gravity": 0,
+        "ProjectileDistance": 0,
+        "ProjectileOverHeight": 0,
+        "KnockUp": 0,
+        "KnockBack": 0,
+        "MoveForward": 0,
+        "CritPercent": 100,
+        "LifestealPercent": 0,
+        "Manual": false,
+        "Piercing": false,
+        "AimTarget": true,
+        "SourceId": 10022,
+        "Slot": 1,
+        "UnlockRank": 1,
+        "Priority": 1,
+        "Interruptable": true,
+        "Growth": [],
+        "ScriptArgs": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "Phases": [
+          {
+            "Action": "atk",
+            "Duration": 1.625,
+            "AttackTimes": [
+              0.583333
+            ],
+            "AttackOrigins": [
+              {
+                "Time": 0.583333,
+                "X": 291,
+                "Y": 647.9
               }
             ]
           }

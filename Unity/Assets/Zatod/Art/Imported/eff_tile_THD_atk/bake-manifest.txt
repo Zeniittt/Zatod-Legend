@@ -1,0 +1,144 @@
+{
+  "UnitId": "effect_eff_tile_THD_atk",
+  "Resource": "eff_tile_THD_atk",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_THD_atk_Start_0000",
+          "X": 0,
+          "Y": 103,
+          "Width": 185,
+          "Height": 103,
+          "PivotX": 0.8162162162162162,
+          "PivotY": 0.47572815533980584
+        },
+        {
+          "Name": "eff_tile_THD_atk_Start_0001",
+          "X": 185,
+          "Y": 103,
+          "Width": 185,
+          "Height": 103,
+          "PivotX": 0.8162162162162162,
+          "PivotY": 0.47572815533980584
+        },
+        {
+          "Name": "eff_tile_THD_atk_Start_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 185,
+          "Height": 103,
+          "PivotX": 0.8162162162162162,
+          "PivotY": 0.47572815533980584
+        },
+        {
+          "Name": "eff_tile_THD_atk_Start_0003",
+          "X": 185,
+          "Y": 0,
+          "Width": 185,
+          "Height": 103,
+          "PivotX": 0.8162162162162162,
+          "PivotY": 0.47572815533980584
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_THD_atk_Loop_0000",
+          "X": 0,
+          "Y": 103,
+          "Width": 185,
+          "Height": 103,
+          "PivotX": 0.8162162162162162,
+          "PivotY": 0.47572815533980584
+        },
+        {
+          "Name": "eff_tile_THD_atk_Loop_0001",
+          "X": 185,
+          "Y": 103,
+          "Width": 185,
+          "Height": 103,
+          "PivotX": 0.8162162162162162,
+          "PivotY": 0.47572815533980584
+        },
+        {
+          "Name": "eff_tile_THD_atk_Loop_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 185,
+          "Height": 103,
+          "PivotX": 0.8162162162162162,
+          "PivotY": 0.47572815533980584
+        },
+        {
+          "Name": "eff_tile_THD_atk_Loop_0003",
+          "X": 185,
+          "Y": 0,
+          "Width": 185,
+          "Height": 103,
+          "PivotX": 0.8162162162162162,
+          "PivotY": 0.47572815533980584
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.16666666666666666,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Start_0.png",
+          "Name": "eff_tile_THD_atk_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Start_0.png",
+          "Name": "eff_tile_THD_atk_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Start_0.png",
+          "Name": "eff_tile_THD_atk_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Start_0.png",
+          "Name": "eff_tile_THD_atk_Start_0003"
+        }
+      ],
+      "Loop": false,
+      "Width": 185,
+      "Height": 103,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.16666666666666666,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Loop_0.png",
+          "Name": "eff_tile_THD_atk_Loop_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Loop_0.png",
+          "Name": "eff_tile_THD_atk_Loop_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Loop_0.png",
+          "Name": "eff_tile_THD_atk_Loop_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_THD_atk/Loop_0.png",
+          "Name": "eff_tile_THD_atk_Loop_0003"
+        }
+      ],
+      "Loop": true,
+      "Width": 185,
+      "Height": 103,
+      "AudioCues": []
+    }
+  ]
+}

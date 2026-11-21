@@ -41,6 +41,7 @@ namespace Zatod.Heroes
         public HeroFormationData Formation = new HeroFormationData();
         public List<Currency> Currencies = new List<Currency>();
         public List<ItemData> Inventory = new List<ItemData>();
+        public List<ItemOperationReceipt> ItemOperations = new List<ItemOperationReceipt>();
         // Retired definitions keep their original instance/history; they are outside active gameplay.
         public List<HeroData> RetiredHeroDesk = new List<HeroData>();
         public List<ItemData> RetiredInventory = new List<ItemData>();

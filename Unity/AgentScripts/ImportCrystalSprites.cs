@@ -31,7 +31,7 @@ public static class ImportCrystalSprites
         var paths=Directory.GetFiles("Assets/Zatod/Art/Imported","bake-manifest.txt",SearchOption.AllDirectories).OrderBy(x=>x,StringComparer.Ordinal).ToArray();
         foreach(var path in paths)
         {
-            var manifest=JsonUtility.FromJson<Manifest>(File.ReadAllText(path));
+            var manifest=JsonUtility.FromJson<Manifest>(File.ReadAllText(path).Replace("Assets/Zatod/Art/Crystal/","Assets/Zatod/Art/Imported/"));
             if(File.Exists(Path.Combine(Evidence,manifest.Resource+".json")))continue;
             return Run(manifest);
         }
@@ -49,6 +49,7 @@ public static class ImportCrystalSprites
             importer.spritePixelsPerUnit=100;importer.mipmapEnabled=false;importer.alphaIsTransparency=true;
             importer.textureCompression=TextureImporterCompression.Uncompressed;importer.maxTextureSize=4096;
             importer.filterMode=FilterMode.Bilinear;importer.wrapMode=TextureWrapMode.Clamp;importer.npotScale=TextureImporterNPOTScale.None;
+            var platform=importer.GetPlatformTextureSettings("Standalone");platform.name="Standalone";platform.overridden=true;platform.format=TextureImporterFormat.BC7;platform.maxTextureSize=4096;platform.compressionQuality=50;platform.crunchedCompression=false;importer.SetPlatformTextureSettings(platform);
             importer.SaveAndReimport();
             var provider=factory.GetSpriteEditorDataProviderFromObject(importer);
             if(provider==null)throw new Exception("No sprite provider: "+sheet.Path);

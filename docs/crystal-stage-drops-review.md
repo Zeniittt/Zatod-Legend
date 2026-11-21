@@ -83,6 +83,22 @@ Trích xuất có thể kiểm tra lại: `Artifacts/CrystalPhaseChecks/chest-lo
 
 Tại thời điểm khảo sát ban đầu, Zatod chưa có drop-table/cấp thưởng ải. Sau đó người dùng chốt D19 ngày20/11/2026: đã thêm `CampaignStageDefinition.DropItems` (`ItemId`, `DropChancePercent`) cho 18 ải, 36 dòng/10 loại trang bị có sẵn; mọi tỷ lệ là100 theo yêu cầu prototype, không phải tỷ lệ reverse. ID20555 nằm ngoài catalog nên ghi vào báo cáo bỏ qua. Icon Reward đã nối trong hai View theo D20; chưa roll hoặc cấp thưởng. Hướng dẫn authoring: `docs/zatod-stage-drops-config.md`; inventory GUID và phạm vi67 gear giữ nguyên.
 
+Lưu ý trạng thái Zatod cập nhật21/11/2026: mô tả config-only phía trên là lịch sử ngày20/11. Người dùng đã duyệt và triển khai D26: MaxDropAmount, tổng tỷ lệ100%, server pending loot/cấp sau validate thắng. Đây là thiết kế Zatod riêng; giới hạn bằng chứng backend Crystal trong báo cáo vẫn giữ nguyên. Xem docs/zatod-stage-drops-config.md.
+
+## Đối chiếu thời điểm roll/nhận đồ —21/11/2026
+
+Đọc lại protocol và consumer để trả lời thiết kế MaxDropAmount của Zatod, chưa sửa runtime/config:
+
+- `down.proto:353`: `enter_stage_reply` có `_rseed` và repeated `_loots`. Danh sách loot của lượt chơi đã được xác định trước khi trả response vào ải. Chưa có backend để nói server roll ngay trong handler enter_stage hay chuẩn bị trước đó.
+- `network/network.lua:1579`: seed đưa vào ed.srand, `_loots` lưu riêng vào player.loots. Chưa chứng minh loot RNG và combat RNG là cùng một chuỗi.
+- `player/playerinfo.lua:1173` và `battle/battle_scene.lua:939`: lấy loot đã cấp theo wave/slot/phe để hiển thị khi quái chết; không random lại từ Stage.UI reward ở đường này.
+- `up.proto:267` và `battle/battle_engine.lua:3720`: exit_stage gửi claim kết quả/sao/operations, không có field danh sách item để client tự quyết định thưởng.
+- `battle/battle_engine.lua:3309`: handler downExit chỉ gọi takeStageReward khi isKnown và result==0; `player/playerinfo.lua:1247` cộng phần thưởng vào trạng thái client. Đây là bằng chứng thời điểm cập nhật phía client; không phải bằng chứng về transaction/DB server đã commit lúc nào.
+
+Không tìm thấy bằng chứng Crystal dùng quy trình random0..MaxDropAmount rồi chọn item theo trọng số. Chest chứa các cặp ID/Yield nhưng chưa có consumer backend để suy phép chuẩn hóa, số lượt chọn hoặc cho phép rơi trùng.
+
+Đối với Zatod, hướng người dùng nêu tách hai bước: random số món N, rồi chọn đúng một loại cho mỗi trong N lượt. Phần trăm mỗi dòng là xác suất chọn loại trong một lượt, khác với tỷ lệ rớt độc lập từng loại của config D19. Có thể dùng trọng số chuẩn hóa (1/1/1 cho ba món bằng nhau), UI hiển thị33,33%; đây là đề xuất biểu diễn, chưa chốt schema. Cho phép lặp cùng loại, default giới hạn và thời điểm roll/cấp vẫn cần hoàn thiện thiết kế. Đã ghi phạm vi chưa triển khai tại D26.
+
 ## Bằng chứng để tra lại
 
 Gốc source Lua: `Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.

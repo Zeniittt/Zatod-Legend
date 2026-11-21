@@ -22,6 +22,8 @@ namespace Zatod.Presentation
         public static TextMeshProUGUI Text(Transform parent,string name,string value,float x,float y,float w,float h,int size,TMP_FontAsset font)
         {
             var t=Box(parent,name,x,y,w,h).gameObject.AddComponent<TextMeshProUGUI>();t.font=font;t.text=value;t.fontSize=size;
+            // Inactive prefab authoring has not run TMP.Awake yet; outline setters use this cache.
+            _=t.canvasRenderer;t.fontSharedMaterial=font.material;
             t.color=new Color(1,.97f,.87f);t.raycastTarget=false;t.alignment=TextAlignmentOptions.MidlineLeft;
             t.textWrappingMode=TextWrappingModes.NoWrap;t.outlineWidth=.16f;t.outlineColor=new Color32(35,28,26,255);return t;
         }

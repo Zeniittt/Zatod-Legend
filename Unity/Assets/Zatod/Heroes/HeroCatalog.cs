@@ -26,7 +26,8 @@ namespace Zatod.Heroes
             monsters = Index(data.Monsters, s => s.Id, "Monsters");
             Require(stats.Count > 0 && heroes.Count > 0, "Config needs stats and heroes.");
             foreach (var stat in data.Stats) Require(stat.Minimum >= 0, "Negative minimum: " + stat.Id);
-            foreach (var item in data.Items) ValidateStats(item.Stats, "Item " + item.Id);
+            foreach (var item in data.Items) { Require(Enum.IsDefined(typeof(ItemKind),item.ItemKind),"Invalid ItemKind: "+item.DefinitionId); ValidateStats(item.Stats, "Item " + item.Id); }
+            _ = new CraftingCatalog(this);
             foreach (var skill in data.Skills)
             {
                 if (skill.Crystal != null && skill.Crystal.SourceId > 0)

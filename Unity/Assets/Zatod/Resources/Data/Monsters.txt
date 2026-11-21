@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-prototype-2",
+  "ConfigVersion": "zatod-prototype-crafting-1",
   "Monsters": [
     {
       "Id": "treant",
@@ -3498,6 +3498,1434 @@
             {
               "StatId": "magic_resistance",
               "Value": 23.32583333
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 44.93555556
+            }
+          ]
+        }
+      ],
+      "SkillIds": []
+    },
+    {
+      "Id": "glaive_thrower",
+      "Name": "GlaiveThrower",
+      "SourceUnitId": 103,
+      "Position": 2,
+      "PortraitKey": "glaive_thrower",
+      "BodyPrefabResource": "Zatod/GlaiveThrower/GlaiveThrower",
+      "AnimationSetResource": "Zatod/GlaiveThrower/AnimationSet",
+      "SourcePuppet": "GlaiveThrower.cha",
+      "SourceResource": "GlaiveThrower",
+      "ArtScale": 0.8,
+      "CollideRadius": 22,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "glaive_thrower_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 497
+        },
+        {
+          "StatId": "damage",
+          "Value": 30
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 3800
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 90
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "attack_interval",
+          "Value": 90
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 3800
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": []
+        },
+        {
+          "Stars": 2,
+          "PerLevel": []
+        },
+        {
+          "Stars": 3,
+          "PerLevel": []
+        },
+        {
+          "Stars": 4,
+          "PerLevel": []
+        },
+        {
+          "Stars": 5,
+          "PerLevel": []
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 51.27709091
+            },
+            {
+              "StatId": "damage",
+              "Value": 30.12218182
+            },
+            {
+              "StatId": "defense",
+              "Value": 3.851727273
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 497.3181818
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.780454545
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 10.11090909
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 51.27709091
+            },
+            {
+              "StatId": "damage",
+              "Value": 30.12218182
+            },
+            {
+              "StatId": "defense",
+              "Value": 3.851727273
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 497.3181818
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.780454545
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 10.11090909
+            }
+          ]
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 120.3970909
+            },
+            {
+              "StatId": "damage",
+              "Value": 49.27854545
+            },
+            {
+              "StatId": "defense",
+              "Value": 11.00809091
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 1004.590909
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 4.816818182
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 24.98363636
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 120.3970909
+            },
+            {
+              "StatId": "damage",
+              "Value": 49.27854545
+            },
+            {
+              "StatId": "defense",
+              "Value": 11.00809091
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 1004.590909
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 4.816818182
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 24.98363636
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 220.2589091
+            },
+            {
+              "StatId": "damage",
+              "Value": 87.43854545
+            },
+            {
+              "StatId": "defense",
+              "Value": 22.16809091
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 1732.772727
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 8.780454545
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 48.92
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 220.2589091
+            },
+            {
+              "StatId": "damage",
+              "Value": 87.43854545
+            },
+            {
+              "StatId": "defense",
+              "Value": 22.16809091
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 1732.772727
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 8.780454545
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 48.92
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 334.3898182
+            },
+            {
+              "StatId": "damage",
+              "Value": 149.5549091
+            },
+            {
+              "StatId": "defense",
+              "Value": 36.98445455
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 2583.227273
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 12.58045455
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 83.22909091
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 334.3898182
+            },
+            {
+              "StatId": "damage",
+              "Value": 149.5549091
+            },
+            {
+              "StatId": "defense",
+              "Value": 36.98445455
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 2583.227273
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 12.58045455
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 83.22909091
+            }
+          ]
+        }
+      ],
+      "SkillIds": []
+    },
+    {
+      "Id": "spell_breaker",
+      "Name": "SpellBreaker",
+      "SourceUnitId": 114,
+      "Position": 1,
+      "PortraitKey": "spell_breaker",
+      "BodyPrefabResource": "Zatod/SpellBreaker/SpellBreaker",
+      "AnimationSetResource": "Zatod/SpellBreaker/AnimationSet",
+      "SourcePuppet": "SpellBreaker.cha",
+      "SourceResource": "SpellBreaker",
+      "ArtScale": 0.9,
+      "CollideRadius": 18,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "spell_breaker_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 614
+        },
+        {
+          "StatId": "damage",
+          "Value": 49
+        },
+        {
+          "StatId": "defense",
+          "Value": 5
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2800
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 2800
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": []
+        },
+        {
+          "Stars": 2,
+          "PerLevel": []
+        },
+        {
+          "Stars": 3,
+          "PerLevel": []
+        },
+        {
+          "Stars": 4,
+          "PerLevel": []
+        },
+        {
+          "Stars": 5,
+          "PerLevel": []
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 49.776
+            },
+            {
+              "StatId": "damage",
+              "Value": 48.85333333
+            },
+            {
+              "StatId": "defense",
+              "Value": 5.065522222
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 613.8794444
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 2.246833333
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 6.391111111
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 49.776
+            },
+            {
+              "StatId": "damage",
+              "Value": 48.85333333
+            },
+            {
+              "StatId": "defense",
+              "Value": 5.065522222
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 613.8794444
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 2.246833333
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 6.391111111
+            }
+          ]
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 116.656
+            },
+            {
+              "StatId": "damage",
+              "Value": 66.92
+            },
+            {
+              "StatId": "defense",
+              "Value": 13.0793
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 1275.079444
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 5.987944444
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 15.10222222
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 116.656
+            },
+            {
+              "StatId": "damage",
+              "Value": 66.92
+            },
+            {
+              "StatId": "defense",
+              "Value": 13.0793
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 1275.079444
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 5.987944444
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 15.10222222
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 226.5226667
+            },
+            {
+              "StatId": "damage",
+              "Value": 99.08666667
+            },
+            {
+              "StatId": "defense",
+              "Value": 25.79041111
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 2302.979444
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 10.97127778
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 29.15777778
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 226.5226667
+            },
+            {
+              "StatId": "damage",
+              "Value": 99.08666667
+            },
+            {
+              "StatId": "defense",
+              "Value": 25.79041111
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 2302.979444
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 10.97127778
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 29.15777778
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 328.1226667
+            },
+            {
+              "StatId": "damage",
+              "Value": 154.42
+            },
+            {
+              "StatId": "defense",
+              "Value": 46.38818889
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 3452.057222
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 20.21572222
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 44.93555556
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 328.1226667
+            },
+            {
+              "StatId": "damage",
+              "Value": 154.42
+            },
+            {
+              "StatId": "defense",
+              "Value": 46.38818889
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 3452.057222
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 20.21572222
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 44.93555556
+            }
+          ]
+        }
+      ],
+      "SkillIds": []
+    },
+    {
+      "Id": "tank",
+      "Name": "Tank",
+      "SourceUnitId": 120,
+      "Position": 0,
+      "PortraitKey": "tank",
+      "BodyPrefabResource": "Zatod/Tank/Tank",
+      "AnimationSetResource": "Zatod/Tank/AnimationSet",
+      "SourcePuppet": "Tank.cha",
+      "SourceResource": "Tank",
+      "ArtScale": 0.9,
+      "CollideRadius": 18,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "tank_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 1163
+        },
+        {
+          "StatId": "damage",
+          "Value": 39
+        },
+        {
+          "StatId": "defense",
+          "Value": 8
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1085
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1085
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": []
+        },
+        {
+          "Stars": 2,
+          "PerLevel": []
+        },
+        {
+          "Stars": 3,
+          "PerLevel": []
+        },
+        {
+          "Stars": 4,
+          "PerLevel": []
+        },
+        {
+          "Stars": 5,
+          "PerLevel": []
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 49.776
+            },
+            {
+              "StatId": "damage",
+              "Value": 39.08266667
+            },
+            {
+              "StatId": "defense",
+              "Value": 7.793111111
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 1163.14
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.456666667
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 6.391111111
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 49.776
+            },
+            {
+              "StatId": "damage",
+              "Value": 39.08266667
+            },
+            {
+              "StatId": "defense",
+              "Value": 7.793111111
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 1163.14
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 3.456666667
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 6.391111111
+            }
+          ]
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 116.656
+            },
+            {
+              "StatId": "damage",
+              "Value": 53.536
+            },
+            {
+              "StatId": "defense",
+              "Value": 20.122
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 2415.94
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 9.212222222
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 15.10222222
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 116.656
+            },
+            {
+              "StatId": "damage",
+              "Value": 53.536
+            },
+            {
+              "StatId": "defense",
+              "Value": 20.122
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 2415.94
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 9.212222222
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 15.10222222
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 226.5226667
+            },
+            {
+              "StatId": "damage",
+              "Value": 79.26933333
+            },
+            {
+              "StatId": "defense",
+              "Value": 39.67755556
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 4363.54
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 16.87888889
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 29.15777778
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 226.5226667
+            },
+            {
+              "StatId": "damage",
+              "Value": 79.26933333
+            },
+            {
+              "StatId": "defense",
+              "Value": 39.67755556
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 4363.54
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 16.87888889
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 29.15777778
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 328.1226667
+            },
+            {
+              "StatId": "damage",
+              "Value": 123.536
+            },
+            {
+              "StatId": "defense",
+              "Value": 71.36644444
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 6540.74
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 31.10111111
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 44.93555556
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 328.1226667
+            },
+            {
+              "StatId": "damage",
+              "Value": 123.536
+            },
+            {
+              "StatId": "defense",
+              "Value": 71.36644444
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 6540.74
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 31.10111111
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 44.93555556
+            }
+          ]
+        }
+      ],
+      "SkillIds": []
+    },
+    {
+      "Id": "dragon_baby",
+      "Name": "DragonBaby",
+      "SourceUnitId": 121,
+      "Position": 0,
+      "PortraitKey": "dragon_baby",
+      "BodyPrefabResource": "Zatod/DragonBaby/DragonBaby",
+      "AnimationSetResource": "Zatod/DragonBaby/AnimationSet",
+      "SourcePuppet": "DragonBaby.cha",
+      "SourceResource": "DragonBaby",
+      "ArtScale": 0.9,
+      "CollideRadius": 18,
+      "ProjectileHurtboxHeight": 100,
+      "DeathAnimationMilliseconds": 1500,
+      "NormalAttackSkillId": "dragon_baby_basic_attack",
+      "BaseStats": [
+        {
+          "StatId": "health",
+          "Value": 969
+        },
+        {
+          "StatId": "damage",
+          "Value": 49
+        },
+        {
+          "StatId": "defense",
+          "Value": 4
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1200
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        },
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        }
+      ],
+      "PreciseBaseStats": [
+        {
+          "StatId": "attack_interval",
+          "Value": 60
+        },
+        {
+          "StatId": "attack_range",
+          "Value": 1200
+        },
+        {
+          "StatId": "damage_energy_rate",
+          "Value": 1000
+        },
+        {
+          "StatId": "interrupt_health_ratio",
+          "Value": 8
+        },
+        {
+          "StatId": "move_speed",
+          "Value": 1200
+        }
+      ],
+      "Growth": [
+        {
+          "Stars": 1,
+          "PerLevel": []
+        },
+        {
+          "Stars": 2,
+          "PerLevel": []
+        },
+        {
+          "Stars": 3,
+          "PerLevel": []
+        },
+        {
+          "Stars": 4,
+          "PerLevel": []
+        },
+        {
+          "Stars": 5,
+          "PerLevel": []
+        }
+      ],
+      "RankStats": [
+        {
+          "Rank": 1,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 62.22
+            },
+            {
+              "StatId": "damage",
+              "Value": 48.85333333
+            },
+            {
+              "StatId": "defense",
+              "Value": 3.896555556
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 969.2833333
+            },
+            {
+              "StatId": "magic_immunity",
+              "Value": 100.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.728333333
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 6.391111111
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 62.22
+            },
+            {
+              "StatId": "damage",
+              "Value": 48.85333333
+            },
+            {
+              "StatId": "defense",
+              "Value": 3.896555556
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 969.2833333
+            },
+            {
+              "StatId": "magic_immunity",
+              "Value": 100.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 1.728333333
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 6.391111111
+            }
+          ]
+        },
+        {
+          "Rank": 2,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 145.82
+            },
+            {
+              "StatId": "damage",
+              "Value": 66.92
+            },
+            {
+              "StatId": "defense",
+              "Value": 10.061
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 2013.283333
+            },
+            {
+              "StatId": "magic_immunity",
+              "Value": 100.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 4.606111111
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 15.10222222
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 145.82
+            },
+            {
+              "StatId": "damage",
+              "Value": 66.92
+            },
+            {
+              "StatId": "defense",
+              "Value": 10.061
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 2013.283333
+            },
+            {
+              "StatId": "magic_immunity",
+              "Value": 100.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 4.606111111
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 15.10222222
+            }
+          ]
+        },
+        {
+          "Rank": 3,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 283.1533333
+            },
+            {
+              "StatId": "damage",
+              "Value": 99.08666667
+            },
+            {
+              "StatId": "defense",
+              "Value": 19.83877778
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 3636.283333
+            },
+            {
+              "StatId": "magic_immunity",
+              "Value": 100.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 8.439444444
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 29.15777778
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 283.1533333
+            },
+            {
+              "StatId": "damage",
+              "Value": 99.08666667
+            },
+            {
+              "StatId": "defense",
+              "Value": 19.83877778
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 3636.283333
+            },
+            {
+              "StatId": "magic_immunity",
+              "Value": 100.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 8.439444444
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 29.15777778
+            }
+          ]
+        },
+        {
+          "Rank": 4,
+          "Stats": [
+            {
+              "StatId": "ability_power",
+              "Value": 410.1533333
+            },
+            {
+              "StatId": "damage",
+              "Value": 154.42
+            },
+            {
+              "StatId": "defense",
+              "Value": 35.68322222
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 5450.616667
+            },
+            {
+              "StatId": "magic_immunity",
+              "Value": 100.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 15.55055556
+            },
+            {
+              "StatId": "physical_crit",
+              "Value": 44.93555556
+            }
+          ],
+          "EstimatedStats": [
+            {
+              "StatId": "ability_power",
+              "Value": 410.1533333
+            },
+            {
+              "StatId": "damage",
+              "Value": 154.42
+            },
+            {
+              "StatId": "defense",
+              "Value": 35.68322222
+            },
+            {
+              "StatId": "energy_max",
+              "Value": 1000.0
+            },
+            {
+              "StatId": "health",
+              "Value": 5450.616667
+            },
+            {
+              "StatId": "magic_immunity",
+              "Value": 100.0
+            },
+            {
+              "StatId": "magic_resistance",
+              "Value": 15.55055556
             },
             {
               "StatId": "physical_crit",

@@ -2,6 +2,10 @@
 
 Scene mới: `Unity/Assets/Zatod/Scenes/ZatodPrototype.unity`. Menu build: **Zatod > Tools > Build Windows Prototype**. Bản Windows ở `Builds/ZatodPrototype/ZatodLegend.exe`.
 
+Cập nhật21/11/2026: mở/chạy **ZatodPrototype** làm scene chính. Game tự nạp **ZatodBattle** additive khi vào Phó bản/Arena/PvP/replay, dùng renderer2D cho chiến trường và Canvas cho HUD; không cần tự mở scene Battle để chơi.
+
+Town/chương1/chương2 cùng tồn tại khi world được khởi tạo. Qua portal chỉ teleport player/camera, giữ các đảo. Xem các root `ZatodMap_*` trong Hierarchy sau khi Play; chưa có map preview Edit Mode mới. Config độc lập nằm tại `Unity/Assets/Zatod/Resources/Data/WorldMaps/town.txt`, `chapter_one.txt`, `chapter_two.txt`; `Worlds.txt` là index. Origin là vị trí đảo trong world; bố trí bên trong dùng local coordinates. Báo cáo: [world/battle phase](zatod-world-battle-implementation.md).
+
 Từ thư mục project, chạy server trước:
 
 ```powershell
@@ -9,7 +13,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\Start-ZatodSer
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\Start-ZatodClient.ps1 -Profile player1
 ```
 
-Bấm **Kết nối** trong game. Để thử PvP trên cùng máy, mở client thứ hai bằng profile khác:
+Bấm **Kết nối** trong game để xuất hiện tại **Town**. Di chuyển bằng **Fixed joystick ở vùng dưới trái** (kéo bằng chuột khi test Windows). **WASD/phím mũi tên chỉ dùng trong Unity Editor**. Lại gần NPC/building để hiện nút tương tác, đi xa nút tự ẩn. Điểm **Campaign** đưa tới map chương1; cổng cuối map qua chương2 (Undead Forest), có thể đi lại tự do. Điểm ải mở preview → Challenge → chọn đội → Battle; kết thúc trận về đúng vị trí trên map. Clan/Lost Tower là placeholder. Arena/PvP/Hero có NPC ở Town hoặc mở qua nút Menu. Để thử PvP trên cùng máy, mở client thứ hai bằng profile khác:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\Start-ZatodClient.ps1 -Profile player2
@@ -18,6 +22,14 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\Start-ZatodCli
 Chọn đội rồi bấm **PvP online > Tìm trận** ở cả hai client. Server mặc định dùng TCP/Telepathy cổng 7788. Trên máy khác, truyền `-Server <địa chỉ server>` và dùng profile khác. Trong Unity Editor, đặt `DevelopmentProfile` trên ZatodConnection trước khi kết nối nếu muốn tách tài khoản thử nghiệm.
 
 Các lệnh trên dùng execution policy riêng cho process PowerShell chạy script, để tránh lỗi máy đang chặn `.ps1`; không đổi policy vĩnh viễn. Server chạy nền, chỉ mở một lần. Kiểm tra `Get-Content .\Artifacts\ZatodServer\server.log -Tail 10`, chờ dòng `READY port=7788` rồi kết nối. Server không tự tắt khi đóng cửa sổ PowerShell; PID được in khi khởi động, dùng `Stop-Process -Id <PID đó>` để tắt lúc không còn trận đang chạy. Lịch sử lỗi/workaround: [ChangeLog.md](../ChangeLog.md).
+
+## Menu Hero mới (20/11/2026)
+
+Ở góc phải dưới Town/map có Task, Hero, Inventory và mũi tên thu/mở; joystick Fixed nằm ở vùng dưới trái. Bấm **Hero** → List of Heroes → bấm một Hero để mở **Base**. Dùng All/Front/Mid/Rear, cuộn danh sách và cuộn Hero Stats. X của detail về danh sách; Back của danh sách về đúng map/vị trí. Khi View Hero mở, WASD bị khóa.
+
+Ô trang bị hiển thị item thật đã mặc, dấu cộng nếu kho có loại yêu cầu, hoặc trống nếu chưa có. Ô item/dấu cộng và Quick Equip chưa có hành động. Task/Inventory, tab ngoài Base, Lvl Up/Star Up và cộng tài nguyên cũng chưa nối logic. Diamond/gold/stamina/power là ??; EXP dùng giá trị hiện có/ngưỡng ??; shard là ??/??.
+
+Công cụ cấp item/mặc/tiến bậc cũ vẫn ở **Menu → Hero / Đồ**; menu Hero mới không gửi lệnh mặc. Game hỗ trợ bố cục ngang với safe area; không xây layout portrait. Báo cáo triển khai: [zatod-hero-ui-implementation.md](zatod-hero-ui-implementation.md).
 
 ## Các luồng trong phase
 
@@ -45,16 +57,16 @@ HUD dùng prefab `Assets/Zatod/Resources/Zatod/UI/ZatodBattleHUD.prefab`. HP/ene
 
 Mở **GameEditor > Open** (hoặc **Zatod > GameEditor**). Bảy tab: Heroes, Monsters, Items, Stats, Skills, Buffs, Campaign. Mở mũi tên để xem từng object/nested config; dữ liệu con chỉ dựng khi mở để giữ Editor nhẹ. Cửa sổ tự đọc lại file ngoài khi không có draft; nếu đang chỉnh sẽ giữ draft và từ chối save stale.
 
-Bộ mới dùng ID snake_case: `lina`, `zeus`, `small_stout_shield`, skill có prefix owner để phân biệt các Basic Attack. 67 item và toàn bộ skill hiển thị dùng nhãn English gốc. Bảy skill kỹ thuật ẩn chưa có nhãn English xác nhận dùng nhãn kỹ thuật có ghi nguồn trong báo cáo, không coi là bản dịch chính thức.
+Bộ mới dùng ID snake_case: `lina`, `zeus`, `small_stout_shield`, skill có prefix owner để phân biệt các Basic Attack. 76 item và các skill hiển thị dùng nhãn English gốc. Bảy skill kỹ thuật ẩn chưa có nhãn English xác nhận dùng nhãn kỹ thuật có ghi nguồn trong báo cáo, không coi là bản dịch chính thức.
 
 ## Dữ liệu và công cụ
 
-- Năm Hero sở hữu khởi đầu: Coco, DR, Lina, Zeus, Ench. Định nghĩa đầy đủ trong phase có 16 Hero và 10 quái; import không tự cấp 11 Hero bổ sung.
-- Chương 1 Thường có 18 ải/54 wave. Config: `Resources/Data/Campaigns.txt`. Editor: **GameEditor > Open > Campaign**; có validate tham chiếu và bản sao trước khi save. Sau khi sửa config, restart PlayMode hoặc build/restart client và server để nạp cùng phiên bản mới; chưa có hot reload balance trên server đang chạy.
+- Năm Hero sở hữu khởi đầu: Coco, DR, Lina, Zeus, Ench. Định nghĩa đầy đủ trong phase có25 Hero và14 quái; import không tự cấp20 Hero bổ sung.
+- Chương1 Thường18 ải/54 wave, chương2 Thường21 ải/63 wave (tổng39/117). World layout: Resources/Data/Worlds.txt; nguồn/link nghiệm thu D21: zatod-shared-world-implementation.md. Config: `Resources/Data/Campaigns.txt`. Editor: **GameEditor > Open > Campaign**; có validate tham chiếu và bản sao trước khi save. Sau khi sửa config, restart PlayMode hoặc build/restart client và server để nạp cùng phiên bản mới; chưa có hot reload balance trên server đang chạy.
 - Config Hero/item/stats/skill/buff: `Resources/Data/*.txt`; **GameEditor > Open**. Dữ liệu JSON trong `.txt`, không chuyển thành ScriptableObject.
-- 67 loại trang bị trực tiếp đủ cho đường Trắng → Xanh Lá → Xanh Lá+1 → Xanh Dương. Không nhập thêm 41 nguyên liệu craft vì phase bypass craft.
+- 76 loại trang bị trực tiếp đủ cho đường Trắng → Xanh Lá → Xanh Lá+1 → Xanh Dương. Không nhập thêm 41 nguyên liệu craft vì phase bypass craft.
 - Source frame PNG giữ nguyên trong `Assets/Zatod/Art/Imported`; clip/controller/prefab/AnimationSet ở `Resources/Zatod`. Bản Windows dùng BC7 ở độ phân giải gốc. Animation được sample theo timeline, không dùng callback Animator để tính damage.
-- Hai sound reference của quái không có trong nguồn đã khôi phục (`Civ_Human_Wizard_BigAttack.mp3`, `Civ_Wizard_Attack.mp3`). Báo cáo tại `Artifacts/CrystalPhaseChecks/static-art-audio.json`; không tự thay bằng sound khác.
+- Bốn sound reference của quái không có trong nguồn đã khôi phục (`Civ_Human_Wizard_BigAttack.mp3`, `Civ_Wizard_Attack.mp3`, `TANKGLOBAL_ATK.mp3`, `TANKGLOBAL_DEATH.mp3`). Báo cáo tại `Artifacts/CrystalPhaseChecks/static-art-audio.json`; không tự thay bằng sound khác.
 
 Chưa gồm Tinh Anh, Tím/Cam/thức tỉnh, craft/enchant, Market/trade, quest/economy, farm EXP/sao đầy đủ hay lưu tiến trình ải dài hạn. Source backend Crystal không đầy đủ; core C# là bản port các luật trong phạm vi đã kiểm tra, chưa chứng minh tương đương từng bit với native engine/RNG gốc.
 
@@ -66,3 +78,6 @@ dotnet run --project Tests/CrystalChecks/CrystalChecks.csproj --no-restore
 ```
 
 Báo cáo lượt UI/đổi ID nằm ở `Artifacts/ZatodPhaseChecks/`; báo cáo phase gốc ở `Artifacts/CrystalPhaseChecks/`. Kết quả mới nhất: `docs/zatod-ui-implementation-progress.md`.
+
+
+Bàn giao world D21 ngày20/11: [báo cáo triển khai](zatod-shared-world-implementation.md). Build cuối0 lỗi/2 cảnh báo có sẵn, Editor đã dừng Play. Town và hai map chung đã qua hai client/remote interpolation; tổng39 ải/117 wave. Server thường được khởi động lại với dữ liệu cũ. Khi vào Town, đi lên phía trên tới điểm Campaign; chữ/nút tương tác xuất hiện khi đủ gần. Clan và Lost Tower chưa có gameplay ở phase này.

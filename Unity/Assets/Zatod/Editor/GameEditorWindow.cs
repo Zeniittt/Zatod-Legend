@@ -11,7 +11,7 @@ using Zatod.Heroes;
 
 namespace Zatod.Editor
 {
-    public sealed class GameEditorWindow : EditorWindow
+    public sealed partial class GameEditorWindow : EditorWindow
     {
         [SerializeField] string draftJson, sourceJson, previewJson;
         [SerializeField] HeroConfigDocuments sourceDocuments;
@@ -39,10 +39,15 @@ namespace Zatod.Editor
             window.titleContent=new GUIContent("Zatod GameEditor");window.Show();window.CreateGUI();
         }
 
+        [MenuItem("GameEditor/Craft Recipes")]
+        public static void OpenCraftRecipes()
+        {
+            var window=GetWindow<GameEditorWindow>();window.titleContent=new GUIContent("GameEditor");window.campaignTab=false;window.mapsTab=false;window.activeTab=HeroConfigSection.CraftRecipes;window.CreateGUI();window.Show();
+        }
         public void CreateGUI()
         {
             minSize = new Vector2(920, 600);
-            saveChangesMessage = "Combat config has unsaved changes. Save the JSON balance files?";
+            saveChangesMessage = "Game config has unsaved changes. Save the edited config files?";
             string loadError = null;
             if ((sourceDocuments == null || !hasUnsavedChanges) && HeroConfigFileStore.AnyFileExists)
             {
@@ -61,6 +66,7 @@ namespace Zatod.Editor
             }
             if(string.IsNullOrEmpty(campaignJson) || !hasUnsavedChanges){campaignSourceJson=File.ReadAllText(CampaignDataJson.AssetPath);campaignJson=campaignSourceJson;}
             campaignDraft=JsonUtility.FromJson<CampaignDefinition>(campaignJson);
+            try{if(worldDocuments==null || !hasUnsavedChanges)worldDocuments=WorldConfigFileStore.Read();}catch(Exception error){loadError=error.Message;}
             BuildUi();
             if (loadError != null) SetStatus("ERROR / " + loadError);
         }
@@ -72,16 +78,16 @@ namespace Zatod.Editor
             if (style != null && !rootVisualElement.styleSheets.Contains(style)) rootVisualElement.styleSheets.Add(style);
             rootVisualElement.AddToClassList("hero-balance");
             rootVisualElement.Add(new Label("ZATOD GAME EDITOR") { name = "hero-title" });
-            rootVisualElement.Add(new Label(HeroDataJson.ConfigAssetDirectory + "/{Heroes, Monsters, Items, Stats, Skills, Buffs, Campaigns}.txt"));
+            rootVisualElement.Add(new Label(HeroDataJson.ConfigAssetDirectory + "/{Heroes, Monsters, Items, Stats, Skills, Buffs, Campaigns, Worlds}.txt + WorldMaps/*.txt") { name = "config-source-paths" });
             var toolbar = new VisualElement(); toolbar.AddToClassList("toolbar");
             toolbar.Add(Button("Reload files", "reload-config", () =>
             {
-                if (hasUnsavedChanges && !EditorUtility.DisplayDialog("Reload hero config", "Discard unsaved config edits?", "Reload", "Cancel")) return;
+                if (hasUnsavedChanges && !EditorUtility.DisplayDialog("Reload game config", "Discard unsaved config edits?", "Reload", "Cancel")) return;
                 ReloadFromFile();
             }));
             toolbar.Add(Button("Validate", "validate-config", () => Guard(() =>
             {
-                var catalog=new HeroCatalog(draft);new CampaignCatalog(campaignDraft,catalog);
+                var catalog=new HeroCatalog(draft);var campaign=new CampaignCatalog(campaignDraft,catalog);WorldConfigFileStore.Validate(worldDocuments,campaign);
                 SetStatus("VALID / " + draft.ConfigVersion);
             })));
             toolbar.Add(Button("Save all config", "save-config", SaveConfig));
@@ -92,21 +98,24 @@ namespace Zatod.Editor
 
             var columns = new VisualElement(); columns.AddToClassList("columns"); rootVisualElement.Add(columns);
             var authoring = new VisualElement(); authoring.AddToClassList("authoring"); columns.Add(authoring);
-            if (draft != null) DrawObject(authoring, draft, "SchemaVersion", "ConfigVersion");
+            if(mapsTab && worldDocuments!=null)DrawObject(authoring,worldDocuments.Index,"SchemaVersion","ConfigVersion");
+            else if(draft!=null)DrawObject(authoring,draft,"SchemaVersion","ConfigVersion");
             var tabs = new VisualElement { name = "config-tabs" }; tabs.AddToClassList("config-tabs"); authoring.Add(tabs);
             foreach (var section in HeroDataJson.Sections)
             {
                 var selectedSection = section;
                 var tab = Button(section.ToString(), "tab-" + section, () =>
                 {
-                    campaignTab=false;activeTab = selectedSection;
+                    campaignTab=false;mapsTab=false;activeTab = selectedSection;
                     BuildUi();
                 });
                 tab.AddToClassList("config-tab");
-                if (section == activeTab && !campaignTab) tab.AddToClassList("config-tab-active");
+                if (section == activeTab && !campaignTab && !mapsTab) tab.AddToClassList("config-tab-active");
                 tabs.Add(tab);
             }
-            var campaignButton=Button("Campaign", "tab-Campaign",()=>{campaignTab=true;BuildUi();});campaignButton.AddToClassList("config-tab");if(campaignTab)campaignButton.AddToClassList("config-tab-active");tabs.Add(campaignButton);
+            var campaignButton=Button("Campaign", "tab-Campaign",()=>{mapsTab=false;campaignTab=true;BuildUi();});campaignButton.AddToClassList("config-tab");if(campaignTab && !mapsTab)campaignButton.AddToClassList("config-tab-active");tabs.Add(campaignButton);
+            var mapsButton=Button("Maps","tab-Maps",()=>{mapsTab=true;campaignTab=false;BuildUi();});mapsButton.AddToClassList("config-tab");if(mapsTab)mapsButton.AddToClassList("config-tab-active");tabs.Add(mapsButton);
+            if(mapsTab){DrawMaps(authoring);return;}
             if(campaignTab){var campaignPage=new ScrollView{name="page-Campaign"};campaignPage.AddToClassList("tab-page");authoring.Add(campaignPage);campaignPage.Add(new Label(CampaignDataJson.AssetPath));DrawObject(campaignPage,campaignDraft);return;}
             var page = new ScrollView { name = "page-" + activeTab }; page.AddToClassList("tab-page"); authoring.Add(page);
             page.Add(new Label(HeroDataJson.AssetPath(activeTab)) { name = "section-path" });
@@ -192,27 +201,32 @@ namespace Zatod.Editor
                 }
                 else if (type == typeof(int))
                 {
-                    var input = new IntegerField(label) { value = (int)value, isDelayed = true };
+                    var input = new IntegerField(label) { value = (int)value, isDelayed = true }; input.name="field-"+field.Name;
+                    input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
+                }
+                else if (type == typeof(long))
+                {
+                    var input = new LongField(label) { value = (long)value, isDelayed = true }; input.name="field-"+field.Name;
                     input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
                 }
                 else if (type == typeof(double))
                 {
-                    var input = new DoubleField(label) { value = (double)value, isDelayed = true };
+                    var input = new DoubleField(label) { value = (double)value, isDelayed = true }; input.name="field-"+field.Name;
                     input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
                 }
                 else if (type == typeof(float))
                 {
-                    var input = new FloatField(label) { value = (float)value, isDelayed = true };
+                    var input = new FloatField(label) { value = (float)value, isDelayed = true }; input.name="field-"+field.Name;
                     input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
                 }
                 else if (type == typeof(bool))
                 {
-                    var input = new Toggle(label) { value = (bool)value };
+                    var input = new Toggle(label) { value = (bool)value }; input.name="field-"+field.Name;
                     input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
                 }
                 else if (type.IsEnum)
                 {
-                    var input = new EnumField(label, (Enum)value);
+                    var input = new EnumField(label, (Enum)value); input.name="field-"+field.Name;
                     input.RegisterValueChangedCallback(e => { field.SetValue(target, e.newValue); Edited(); }); parent.Add(input);
                 }
                 else if (typeof(IList).IsAssignableFrom(type))
@@ -221,7 +235,7 @@ namespace Zatod.Editor
                     if (list == null) { list = (IList)Activator.CreateInstance(type); field.SetValue(target, list); }
                     DrawList(parent, label, list, type.GetGenericArguments()[0]);
                 }
-                else if (type.IsClass && type.Namespace == "Zatod.Heroes" && value != null)
+                else if(type.IsClass && (type.Namespace=="Zatod.Heroes" || type.Namespace=="Zatod.World") && value!=null)
                 {
                     var nested = new Foldout { text = label, value = false };
                     parent.Add(nested);PopulateOnOpen(nested,()=>DrawObject(nested,value));
@@ -273,10 +287,11 @@ namespace Zatod.Editor
 
         void Edited()
         {
+            if(mapsTab){UpdateDirtyState();SetStatus("MAP DRAFT / Validate and save maps. Coordinates remain local to the island.");return;}
             draftJson = JsonUtility.ToJson(draft, true);
             campaignJson=JsonUtility.ToJson(campaignDraft,true);
-            hasUnsavedChanges = draftJson != sourceJson || campaignJson!=campaignSourceJson;
-            if (!campaignTab && jsonInput != null) jsonInput.SetValueWithoutNotify(HeroDataJson.WriteSection(draft, activeTab));
+            UpdateDirtyState();
+            if(!campaignTab && !mapsTab && jsonInput!=null) jsonInput.SetValueWithoutNotify(HeroDataJson.WriteSection(draft, activeTab));
             RefreshPreview();
             SetStatus("DRAFT / Preview uses the current edits. Validate and change ConfigVersion before saving a balance update.");
         }
@@ -346,14 +361,15 @@ namespace Zatod.Editor
         {
             Guard(() =>
             {
-                var catalog=new HeroCatalog(draft);new CampaignCatalog(campaignDraft,catalog);
-                if(File.ReadAllText(CampaignDataJson.AssetPath)!=campaignSourceJson)throw new IOException("Campaign file changed on disk. Reload before saving.");
-                sourceDocuments = HeroConfigFileStore.Save(draft, sourceDocuments ?? new HeroConfigDocuments());
+                var catalog=new HeroCatalog(draft);var campaign=new CampaignCatalog(campaignDraft,catalog);WorldConfigFileStore.Validate(worldDocuments,campaign);
+                if(FilesChanged())throw new IOException("Config files changed on disk. Draft preserved; reload before saving.");
+                if(HeroDirty)sourceDocuments=HeroConfigFileStore.Save(draft,sourceDocuments??new HeroConfigDocuments());
                 string nextCampaign=JsonUtility.ToJson(campaignDraft,true);
-                if(nextCampaign!=campaignSourceJson){string backup=Path.GetFullPath("../Artifacts/ZatodConfigBefore/"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss"));Directory.CreateDirectory(backup);File.WriteAllText(Path.Combine(backup,"Campaigns.txt"),campaignSourceJson);HeroDataJson.WriteFileAtomically(CampaignDataJson.AssetPath,nextCampaign);AssetDatabase.ImportAsset(CampaignDataJson.AssetPath);}
-                campaignSourceJson=campaignJson=nextCampaign;
-                sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); hasUnsavedChanges = false;
-                SetStatus("SAVED / "+string.Join(", ",HeroDataJson.Sections.Select(s=>s+".txt"))+" / " + draft.ConfigVersion);
+                if(CampaignDirty){string backup=Path.GetFullPath("../Artifacts/ZatodConfigBefore/"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss"));Directory.CreateDirectory(backup);File.WriteAllText(Path.Combine(backup,"Campaigns.txt"),campaignSourceJson);HeroDataJson.WriteFileAtomically(CampaignDataJson.AssetPath,nextCampaign);AssetDatabase.ImportAsset(CampaignDataJson.AssetPath);}
+                int mapsSaved=WorldConfigFileStore.Save(worldDocuments,campaign);
+                campaignSourceJson=campaignJson=File.ReadAllText(CampaignDataJson.AssetPath);
+                sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); UpdateDirtyState();
+                SetStatus("SAVED / maps="+mapsSaved+" / "+string.Join(", ",HeroDataJson.Sections.Select(s=>s+".txt"))+" / " + draft.ConfigVersion);
             });
         }
 
@@ -365,7 +381,7 @@ namespace Zatod.Editor
 
         public override void DiscardChanges()
         {
-            draftJson = sourceJson; base.DiscardChanges();
+            ReloadFromFile();if(!hasUnsavedChanges)base.DiscardChanges();
         }
 
         void ReloadFromFile()
@@ -377,7 +393,8 @@ namespace Zatod.Editor
                 sourceDocuments = documents;
                 sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); hasUnsavedChanges = false;
                 campaignSourceJson=campaignJson=File.ReadAllText(CampaignDataJson.AssetPath);campaignDraft=JsonUtility.FromJson<CampaignDefinition>(campaignJson);
-                BuildUi(); SetStatus("LOADED / " + draft.ConfigVersion);
+                worldDocuments=WorldConfigFileStore.Read();
+                BuildUi(); SetStatus("LOADED / " + (mapsTab ? worldDocuments.Index.ConfigVersion : draft.ConfigVersion));
             });
         }
 
@@ -385,7 +402,7 @@ namespace Zatod.Editor
         {
             if(sourceDocuments==null)return true;
             var disk=HeroConfigFileStore.ReadExisting();
-            return HeroDataJson.Sections.Any(section=>disk.Get(section)!=sourceDocuments.Get(section)) || File.ReadAllText(CampaignDataJson.AssetPath)!=campaignSourceJson;
+            return HeroDataJson.Sections.Any(section=>disk.Get(section)!=sourceDocuments.Get(section)) || File.ReadAllText(CampaignDataJson.AssetPath)!=campaignSourceJson || WorldConfigFileStore.FilesChanged(worldDocuments);
         }
         void OnFocus(){if(draft!=null)ReloadIfClean();}
         void OnProjectChange(){if(draft!=null)ReloadIfClean();}

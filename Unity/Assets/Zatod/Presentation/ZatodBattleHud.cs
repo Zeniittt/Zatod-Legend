@@ -31,7 +31,7 @@ namespace Zatod.Presentation
             hud.ReplayControls.gameObject.SetActive(replay!=null);
             hud.Auto.gameObject.SetActive(replay==null && simulation.Mode==ZatodMode.Campaign);
             hud.Auto.interactable=!frame.Finished;RefreshAuto();
-            hud.ResultPanel.SetActive(frame.Finished);
+            hud.ResultPanel.SetActive(frame.Finished && !(simulation.Mode==ZatodMode.Campaign && frame.Winner==0));
             hud.Floating.gameObject.SetActive(!frame.Finished);
             bool validated=replay!=null || connection.LastReplay!=null && connection.LastReplay.Initial.BattleId==simulation.BattleId;
             hud.Continue.interactable=frame.Finished && validated;
@@ -59,6 +59,7 @@ namespace Zatod.Presentation
             var live=new HashSet<int>();
             foreach(var effect in frame.CombatEvents)
             {
+                if(effect.Kind=="death")continue;
                 double age=(frame.Tick-effect.Tick)*ZatodBattleSimulation.StepSeconds+interpolation;if(age>1.25)continue;live.Add(effect.Id);
                 if(!floatingText.TryGetValue(effect.Id,out var text))
                 {

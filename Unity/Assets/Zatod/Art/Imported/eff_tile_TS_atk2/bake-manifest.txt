@@ -1,0 +1,37 @@
+{
+  "UnitId": "effect_eff_tile_TS_atk2",
+  "Resource": "eff_tile_TS_atk2",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_TS_atk2/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_TS_atk2_Start_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 139,
+          "Height": 75,
+          "PivotX": 0.49640287769784175,
+          "PivotY": 0.5066666666666667
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_TS_atk2/Start_0.png",
+          "Name": "eff_tile_TS_atk2_Start_0000"
+        }
+      ],
+      "Loop": false,
+      "Width": 139,
+      "Height": 75,
+      "AudioCues": []
+    }
+  ]
+}

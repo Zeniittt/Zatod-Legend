@@ -14,7 +14,7 @@ namespace Zatod.Heroes
     }
     [Serializable] public sealed class CampaignChapterDefinition
     {
-        public string Id,Name;
+        public string Id,Name,WorldMapId;
         public List<CampaignStageDefinition> Stages=new List<CampaignStageDefinition>();
     }
     [Serializable] public sealed class CampaignStageDefinition
@@ -22,6 +22,7 @@ namespace Zatod.Heroes
         public string Id,Name,Description;
         public int SourceStageId, Difficulty = 1;
         public int VitalityCost;
+        public int MaxDropAmount = 5;
         public string RequiredStageId;
         public double EnergyGainMultiplier = 1, EnergySupplyPercent;
         public List<CampaignDropItemDefinition> DropItems = new List<CampaignDropItemDefinition>();
@@ -29,7 +30,7 @@ namespace Zatod.Heroes
         public float MapX,MapY;
         public List<CampaignMonsterSlot> Monsters=new List<CampaignMonsterSlot>();
     }
-    // Authoring metadata only; granting/rolling loot is not implemented by the Campaign catalog.
+    // Selection probability for one item draw; a stage's entries must total 100 percent.
     [Serializable] public sealed class CampaignDropItemDefinition
     {
         public string ItemId;
@@ -64,8 +65,10 @@ namespace Zatod.Heroes
                         || float.IsNaN(stage.MapX) || float.IsNaN(stage.MapY) || stage.MapX<0 || stage.MapX>1 || stage.MapY<0 || stage.MapY>1
                         || stage.VitalityCost<0 || stage.Monsters==null || ((stage.Waves==null || stage.Waves.Count==0) && (stage.Monsters.Count<1 || stage.Monsters.Count>5)))throw new ArgumentException("Invalid Campaign stage.");
                     if (stage.Waves!=null && stage.Waves.Count>0) WaveValidation.Validate(stage,heroes);
-                    if(stage.DropItems==null)throw new ArgumentException("Missing drop item list: "+stage.Id);
+                    if(stage.MaxDropAmount<0 || stage.MaxDropAmount==int.MaxValue)throw new ArgumentException("Invalid MaxDropAmount: "+stage.Id);
+                    if(stage.DropItems==null || stage.DropItems.Count==0)throw new ArgumentException("Stage needs a drop list totaling 100%: "+stage.Id);
                     var dropIds=new HashSet<string>(StringComparer.Ordinal);
+                    decimal dropTotal=0;
                     foreach(var drop in stage.DropItems)
                     {
                         if(drop==null || string.IsNullOrWhiteSpace(drop.ItemId) || !dropIds.Add(drop.ItemId)
@@ -73,7 +76,9 @@ namespace Zatod.Heroes
                             || drop.DropChancePercent<0 || drop.DropChancePercent>100)
                             throw new ArgumentException("Invalid drop item/chance: "+stage.Id);
                         heroes.Item(drop.ItemId);
+                        dropTotal+=(decimal)drop.DropChancePercent;
                     }
+                    if(dropTotal!=100m)throw new ArgumentException("Drop chances must total 100%: "+stage.Id+" (current "+dropTotal+"%).");
                     foreach(var slot in stage.Monsters)
                     {
                         if(slot==null || slot.PowerBasisPoints<1000 || slot.PowerBasisPoints>100000)throw new ArgumentException("Invalid encounter power.");

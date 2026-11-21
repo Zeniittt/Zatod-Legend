@@ -10,6 +10,20 @@ sys.path.insert(0, str(REF / 'recovery_tools'))
 from lua_data import read_table, named_row
 DATA = ROOT / 'Unity/Assets/Zatod/Resources/Data'
 TABLES = {}
+STAGE_TRANSLATIONS = None
+def english_stage_name(name):
+    global STAGE_TRANSLATIONS
+    if STAGE_TRANSLATIONS is None:
+        import re
+        from lua_data import Reader
+        path=REF/'recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/texttable/texttable.lua'
+        text=path.read_text(encoding='utf-8-sig')
+        text=re.sub(r'\[(=*)\[(.*?)\]\1\]',lambda m:json.dumps(m.group(2),ensure_ascii=False),text,flags=re.S)
+        STAGE_TRANSLATIONS=Reader(text.replace('ed.textConfig =','return ',1)).parse()
+    value=STAGE_TRANSLATIONS.get(name,{}).get('nil',{}).get('en')
+    if not value:raise ValueError('Missing official English stage name: '+name)
+    return value
+
 def table(name):
     if name not in TABLES: TABLES[name] = read_table(name)
     return TABLES[name]
@@ -176,7 +190,7 @@ for st in normal_stages:
         if stage_id==1 and wave_id==3:hooks.append({'Id':'boss_manual_ultimate','Action':2,'BossOnly':True,'Amount':0})
         if stage_id in [6,7] and wave_id==3:hooks.append({'Id':'boss_initial_energy','Action':1,'BossOnly':True,'Amount':800 if stage_id==6 else 950})
         waves.append({'Id':'wave_'+str(wave_id),'Index':wave_id,'TimeLimitSeconds':90,'BackgroundResource':info['Background Pic'],'FlipBackground':info['H Flip'],'Enemies':spawns,'Hooks':hooks})
-    stages.append({'Id':'crystal_stage_'+str(stage_id),'Name':st['Stage Name'],'Description':st['description'],'SourceStageId':stage_id,'Difficulty':1,'VitalityCost':st['Vitality Cost'],'RequiredStageId':'crystal_stage_'+str(st['Require Stage']) if st['Require Stage'] else None,'EnergyGainMultiplier':st['MP Bonus'],'EnergySupplyPercent':st['Mps Restraint'],'MapX':round(.08+((stage_id-1)%6)*.168,6),'MapY':round(.2+((stage_id-1)//6)*.3,6),'Monsters':[],'Waves':waves})
+    stages.append({'Id':'crystal_stage_'+str(stage_id),'Name':english_stage_name(st['Stage Name']),'Description':st['description'],'SourceStageId':stage_id,'Difficulty':1,'VitalityCost':st['Vitality Cost'],'RequiredStageId':'crystal_stage_'+str(st['Require Stage']) if st['Require Stage'] else None,'EnergyGainMultiplier':st['MP Bonus'],'EnergySupplyPercent':st['Mps Restraint'],'MapX':round(.08+((stage_id-1)%6)*.168,6),'MapY':round(.2+((stage_id-1)//6)*.3,6),'Monsters':[],'Waves':waves})
 write(DATA/'Campaigns.txt',{'SchemaVersion':1,'ConfigVersion':'crystal-chapter1-1','StarterHeroRankId':'white','StarterHeroIds':[uid(i) for i in starter],'Chapters':[{'Id':'crystal_chapter_1','Name':'Chương 1','Stages':stages}]})
 oracle=[]
 for hid in hero_ids:
@@ -199,3 +213,6 @@ print('Chapter: 18 stages / 54 waves; stat oracle:',len(oracle),'cases')
 import runpy
 runpy.run_path(str(ROOT / "scripts/Prepare-ZatodData.py"), run_name="__main__")
 runpy.run_path(str(ROOT / "scripts/Import-ZatodStageDrops.py"), run_name="__main__")
+if (DATA/'Worlds.txt').exists():
+    runpy.run_path(str(ROOT/'scripts/Import-ZatodChapterTwo.py'),run_name='__main__')
+    runpy.run_path(str(ROOT/'scripts/Prepare-ZatodWorld.py'),run_name='__main__')

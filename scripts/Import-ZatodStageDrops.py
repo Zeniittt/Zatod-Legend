@@ -1,6 +1,6 @@
 """Import stage drop preview metadata for the existing Zatod item catalog.
 
-Every imported chance is 100 percent by prototype design, not a recovered Crystal rate.
+Imported selection chances total 100 percent per stage (D26), not recovered Crystal rates.
 Explicit re-import resets the imported drop lists/rates; GameEditor edits persist otherwise.
 Does not run Lua or change ownership, battle logic, or reward delivery.
 """
@@ -47,16 +47,23 @@ def main():
                 if item_id in seen:
                     continue
                 seen.add(item_id)
-                drops.append({'ItemId': item_id, 'DropChancePercent': 100})
+                drops.append({'ItemId': item_id, 'DropChancePercent': 0})
+            if drops:
+                share = 10000 // len(drops)
+                for i, drop in enumerate(drops):
+                    drop['DropChancePercent'] = (share if i < len(drops)-1 else 10000-share*(len(drops)-1)) / 100
+            if 'MaxDropAmount' not in stage:
+                stage['MaxDropAmount'] = 5
+                changed = True
             if stage.get('DropItems') != drops:
                 stage['DropItems'] = drops
                 changed = True
             imported.append({'StageId': stage['Id'], 'SourceStageId': source_id, 'DropItems': drops})
     if changed:
-        campaign['ConfigVersion'] = 'zatod-chapter-one-4'
+        campaign['ConfigVersion'] = 'zatod-campaign-loot-1'
         campaign_path.write_text(json.dumps(campaign, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    report = {'Date': '2026-11-20', 'ConfigOnly': True, 'ChanceUnit': 'percent',
-              'PrototypeChancePercent': 100, 'StageCount': len(imported),
+    report = {'Date': '2026-11-21', 'ConfigOnly': True, 'ChanceUnit': 'percent-per-draw',
+              'TotalChancePercent': 100, 'StageCount': len(imported),
               'DropEntryCount': sum(len(stage['DropItems']) for stage in imported),
               'UniqueItemCount': len({item['ItemId'] for stage in imported for item in stage['DropItems']}),
               'Stages': imported, 'Skipped': skipped}

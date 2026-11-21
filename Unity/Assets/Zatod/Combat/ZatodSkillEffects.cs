@@ -237,7 +237,7 @@ namespace Zatod.Combat
             amount*=1+Math.Max(-1,Get(target,"heal_ratio")/100);
             double previous=target.State.Hp;
             target.State.Hp=Math.Clamp(target.State.Hp+Math.Max(0,amount),0,target.State.MaxHp);
-            CombatEvent(target,"heal",target.State.Hp-previous);
+            RecordHealing(source,target.State.Hp-previous);CombatEvent(target,"heal",target.State.Hp-previous,sourceActorId:source?.Data.EntityId??0);
         }
         double Damage(Unit actor,Unit target,double amount,string type,double critModifier)
         {
@@ -259,11 +259,12 @@ namespace Zatod.Combat
             }
             amount*=Math.Max(0,1-immunity/100);
             double lost=Math.Min(target.State.Hp,amount);target.State.Hp-=lost;
-            CombatEvent(target,"damage",lost,type,critical);
+            RecordDamage(actor,target,lost);CombatEvent(target,"damage",lost,type,critical,actor.Data.EntityId);
             GainEnergy(target,lost/Math.Max(1,target.State.MaxHp)*Get(target,"damage_energy_rate",1000)*(1+Get(target,"mpratio")/100)*initial.EnergyGainMultiplier);
 
             if(!target.State.Alive)
             {
+                RecordDeath(actor,target);
                 bool reduced=Random()<Get(target,"kill_energy")/100;
                 if(actor.Data.Hero && actor.State.Alive)GainEnergy(actor,reduced?150:300,"last_hit");
                 target.State.Hp=0;target.State.Energy=0;target.State.Action="Death";target.State.ActionElapsed=0;target.Cast=null;target.QueuedUltimate=false;target.Buffs.RemoveAll(b=>b.Definition.ClearOnDeath);
@@ -327,8 +328,8 @@ namespace Zatod.Combat
             foreach(var actor in units.Where(u=>u.State.Alive))
             {
                 double hpr=Get(actor,"health_regen");
-                if(hpr>0 && !Controlled(actor,"unheal"))Heal(actor,hpr*StepSeconds);
-                else if(hpr<0 && !Controlled(actor,"noHPR")){double previous=actor.State.Hp;actor.State.Hp=Math.Max(1,actor.State.Hp+hpr*StepSeconds*(1-Math.Min(.99,Get(actor,"dot_resistance")/100)));CombatEvent(actor,"damage",previous-actor.State.Hp,"DOT");}
+                if(hpr>0 && !Controlled(actor,"unheal")){double previous=actor.State.Hp;Heal(actor,hpr*StepSeconds);RecordPeriodicHealing(actor,actor.State.Hp-previous);}
+                else if(hpr<0 && !Controlled(actor,"noHPR")){double previous=actor.State.Hp;actor.State.Hp=Math.Max(1,actor.State.Hp+hpr*StepSeconds*(1-Math.Min(.99,Get(actor,"dot_resistance")/100)));RecordPeriodicDamage(actor,previous-actor.State.Hp);CombatEvent(actor,"damage",previous-actor.State.Hp,"DOT");}
                 GainEnergy(actor,Get(actor,"energy_regen")*StepSeconds*initial.EnergyGainMultiplier,"energy",true);
             }
             foreach(var actor in units)

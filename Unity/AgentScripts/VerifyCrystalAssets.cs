@@ -9,7 +9,7 @@ int resources=0,spriteCount=0,clipCount=0;
 var paths=Directory.GetFiles("Assets/Zatod/Art/Imported","bake-manifest.txt",SearchOption.AllDirectories);
 foreach(string path in paths)
 {
-    var manifest=JsonUtility.FromJson<ZatodBakeManifest>(File.ReadAllText(path));
+    var manifest=JsonUtility.FromJson<ZatodBakeManifest>(File.ReadAllText(path).Replace("Assets/Zatod/Art/Crystal/","Assets/Zatod/Art/Imported/"));
     foreach(var sheet in manifest.Sheets)
     {
         var sprites=AssetDatabase.LoadAllAssetsAtPath(sheet.Path).OfType<Sprite>().ToDictionary(s=>s.name);

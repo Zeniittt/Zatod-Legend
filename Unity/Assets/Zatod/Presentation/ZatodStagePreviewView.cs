@@ -26,7 +26,7 @@ namespace Zatod.Presentation
             var size=((RectTransform)transform).rect.size;if(size==lastSize)return;lastSize=size;
             Layout.localScale=Vector3.one*Mathf.Min(size.x/1600,size.y/900);
         }
-        public void Open(CampaignStageDefinition stage,HeroCatalog catalog,int stars,bool connected,Action onClose,Action onChallenge)
+        public void Open(CampaignStageDefinition stage,HeroCatalog catalog,int stars,bool connected,Action onClose,Action onChallenge,bool unlocked=true)
         {
             StageId=stage.Id;close=onClose;challenge=onChallenge;Title.text=stage.Name;Description.text=stage.Description??"";
             Cost.text=stage.VitalityCost.ToString();DailyAttempts.text="Daily Attempts: ?";RaidVoucher.text="Raid Voucher: ?";
@@ -36,12 +36,12 @@ namespace Zatod.Presentation
                 bool show=i<enemies.Length;Enemies[i].Root.gameObject.SetActive(show);BossBadges[i].SetActive(show && enemies[i].Boss);
                 if(show){ZatodFormationView.DrawEnemyCard(Enemies[i],enemies[i],catalog);Enemies[i].InstanceId=enemies[i].Id;}
             }
-            DrawDrops(DropRow,stage,catalog,80,22,7);Refresh(stars,connected);
+            DrawDrops(DropRow,stage,catalog,80,22,7);Refresh(stars,connected,unlocked);
             gameObject.SetActive(true);transform.SetAsLastSibling();lastSize=Vector2.zero;Fit();
         }
-        public void Refresh(int stars,bool connected)
+        public void Refresh(int stars,bool connected,bool unlocked=true)
         {
-            StarCount=Math.Clamp(stars,0,3);Challenge.interactable=connected;Notice.text=connected?"":"Disconnected";
+            StarCount=Math.Clamp(stars,0,3);Challenge.interactable=connected && unlocked;Notice.text=!connected?"Disconnected":unlocked?"":"Clear the previous stage first";
             StarBackground.sprite=Art(StarCount==0?"campaign_detail_star_unlock_bg":"campaign_detail_star_lock_bg");
             for(int i=0;i<Stars.Length;i++)Stars[i].sprite=Art("campaign_stage_star_"+(i<StarCount?1:StarCount==0?2:3));
             string raidArt=StarCount==3?"button_com_big":"button_grey";

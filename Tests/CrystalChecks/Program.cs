@@ -8,14 +8,14 @@ using Zatod.Editor;
 using Zatod.Combat;
 // DTO fields below are populated by System.Text.Json.
 #pragma warning disable CS0649
-static class Program
+static partial class Program
 {
     static int checks;
     static void Check(bool value,string why){checks++;if(!value)throw new Exception(why);}
     static void Reject(Action action,string why){bool rejected=false;try{action();}catch(ArgumentException){rejected=true;}Check(rejected,why);}
     static void Main()
     {
-        try { Inventory(); ImportedData(); CampaignDropConfig(); ZatodBattles(); Sessions(); SourceCombatRules(); PresentationMotion(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); }
+        try { Inventory(); ImportedData(); CampaignDropConfig(); CampaignLootChecks(); BattleStatisticsChecks(); CraftingChecks(); SharedWorld(); ZatodBattles(); Sessions(); SourceCombatRules(); PresentationMotion(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); }
         catch(Exception error) { Console.Error.WriteLine(error.ToString());Environment.ExitCode=1; }
     }
     sealed class Oracle { public List<OracleRow> Rows; }
@@ -28,15 +28,15 @@ static class Program
         var data=new HeroCatalogData{ConfigVersion=Read<StatsConfigData>(root+"Stats.txt").ConfigVersion,
             Stats=Read<StatsConfigData>(root+"Stats.txt").Stats,Items=Read<ItemsConfigData>(root+"Items.txt").Items,
             Skills=Read<SkillsConfigData>(root+"Skills.txt").Skills,Heroes=Read<HeroesConfigData>(root+"Heroes.txt").Heroes,
-            Monsters=Read<MonstersConfigData>(root+"Monsters.txt").Monsters,Buffs=Read<BuffsConfigData>(root+"Buffs.txt").Buffs};
+            Monsters=Read<MonstersConfigData>(root+"Monsters.txt").Monsters,Buffs=Read<BuffsConfigData>(root+"Buffs.txt").Buffs,CraftRecipes=Read<CraftRecipesConfigData>(root+"CraftRecipes.txt").CraftRecipes};
         return new HeroCatalog(data);
     }
     static void ImportedData()
     {
         var catalog=ImportedCatalog();
-        Check(catalog.Data.Heroes.Count(x=>x.SourceUnitId>0)==16,"Crystal Hero coverage");
-        Check(catalog.Data.Monsters.Count(x=>x.SourceUnitId>0)==10,"Crystal Monster coverage");
-        Check(catalog.Data.Items.Count==67,"Crystal equipment coverage");
+        Check(catalog.Data.Heroes.Count(x=>x.SourceUnitId>0)==25,"Two-chapter Hero coverage");
+        Check(catalog.Data.Monsters.Count(x=>x.SourceUnitId>0)==14,"Two-chapter Monster coverage");
+        Check(catalog.Data.Items.Count==112,"Two-chapter equipment coverage");
         var oracle=Read<Oracle>("Artifacts/CrystalPhaseChecks/stat-oracle.json");
         foreach(var expected in oracle.Rows)
         {
@@ -53,7 +53,7 @@ static class Program
             Check(original.Phases[0].AttackTimes[0]==time,"Crystal timing snapshot shares mutable config");
         }
         var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),catalog);
-        Check(campaign.Data.Chapters.Single().Stages.Count==18 && campaign.Data.Chapters.Single().Stages.Sum(x=>x.Waves.Count)==54,"Chapter wave coverage");
+        Check(campaign.Data.Chapters.Select(c=>c.Stages.Count).SequenceEqual(new[]{18,21}) && campaign.Data.Chapters.SelectMany(c=>c.Stages).Sum(x=>x.Waves.Count)==117,"Chapter wave coverage");
         var run=new CampaignRun(campaign);Check(run.IsUnlocked("chapter_one_stage_1")&&!run.IsUnlocked("chapter_one_stage_2"),"New run unlock state");
         run.AcceptValidated("chapter_one_stage_1",true,3);Check(run.IsUnlocked("chapter_one_stage_2"),"Validated clear did not unlock next stage");
         Check(!new CampaignRun(campaign).IsUnlocked("chapter_one_stage_2"),"New run restored old progress");
@@ -64,13 +64,13 @@ static class Program
         CampaignDefinition Load()=>Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt");
         var data=Load();var campaign=new CampaignCatalog(data,heroes);
         var stages=data.Chapters.SelectMany(c=>c.Stages).ToArray();
-        Check(stages.Length==18 && stages.All(s=>s.DropItems.Count>0),"Imported stages need drop preview metadata");
+        Check(stages.Length==39 && stages.All(s=>s.DropItems.Count>0),"Imported stages need drop preview metadata");
         foreach(var stage in stages)
         {
-            Check(stage.DropItems.All(d=>d.DropChancePercent==100),"Prototype drop rates must be 100 percent");
+            Check(stage.MaxDropAmount==5 && stage.DropItems.Sum(d=>(decimal)d.DropChancePercent)==100m,"Stage selection rates must total 100%, max 5");
             Check(stage.DropItems.All(d=>heroes.Item(d.ItemId)!=null),"Drop references missing item");
         }
-        Check(stages.SelectMany(s=>s.DropItems).Select(d=>d.ItemId).Distinct().Count()==10,"Chapter one imported drop item scope");
+        Check(data.Chapters[0].Stages.SelectMany(s=>s.DropItems).Select(d=>d.ItemId).Distinct().Count()==10,"Chapter one imported drop item scope");
         Check(campaign.Stage("chapter_one_stage_3").DropItems.Select(d=>d.ItemId).SequenceEqual(new[]{"iron_axe","small_stout_shield"}),"Stage 3 preview differs from source");
         foreach(double chance in new[]{-1d,100.01d,double.NaN,double.PositiveInfinity,double.NegativeInfinity})
         {
@@ -80,6 +80,7 @@ static class Program
         foreach(double chance in new[]{0d,12.5d,100d})
         {
             var editable=Load();editable.Chapters[0].Stages[0].DropItems[0].DropChancePercent=chance;
+            editable.Chapters[0].Stages[0].DropItems[1].DropChancePercent=100-chance;
             editable.Chapters[0].Stages[0].VitalityCost=7;
             var roundtrip=JsonSerializer.Deserialize<CampaignDefinition>(JsonSerializer.Serialize(editable,Json),Json);
             var restored=new CampaignCatalog(roundtrip,heroes);
@@ -94,15 +95,56 @@ static class Program
         Invalid(s=>s.VitalityCost=-1,"Negative stage vitality cost accepted");
         var free=Load();free.Chapters[0].Stages[0].VitalityCost=0;
         Check(new CampaignCatalog(free,heroes).Data.Chapters[0].Stages[0].VitalityCost==0,"Free stage cost rejected");
-        var legacy=Load();foreach(var stage in legacy.Chapters.SelectMany(c=>c.Stages))stage.DropItems.Clear();
-        new CampaignCatalog(legacy,heroes);
-        Check(new CampaignStageDefinition().DropItems.Count==0,"Old stages must default to an empty drop list");
+        Invalid(s=>s.DropItems.Clear(),"Empty selection pool accepted");
+        Invalid(s=>s.DropItems[0].DropChancePercent=49.99,"Total below 100 accepted");
+        Invalid(s=>s.DropItems[0].DropChancePercent=50.01,"Total above 100 accepted");
+        Invalid(s=>s.MaxDropAmount=-1,"Negative max drop accepted");
+        Check(new CampaignStageDefinition().MaxDropAmount==5,"New stages need the prototype max drop default");
+    }
+    static Zatod.World.WorldDefinition ReadWorld()
+    {
+        var world=Read<Zatod.World.WorldDefinition>("Unity/Assets/Zatod/Resources/Data/Worlds.txt");
+        world.Maps=world.MapResources.Select(path=>Read<Zatod.World.WorldMapDefinition>("Unity/Assets/Zatod/Resources/"+path+".txt")).ToList();
+        world.MapResources.Clear();return world;
+    }
+    static void SharedWorld()
+    {
+        var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),ImportedCatalog());
+        var world=new Zatod.World.WorldCatalog(ReadWorld(),campaign);
+        Check(world.Data.Maps.Count==3,"Town and two chapter maps required");
+        var authored=ReadWorld();var rawSpawn=authored.Maps[1].Spawns[0].X;
+        var compiled=new Zatod.World.WorldCatalog(authored,campaign);
+        Check(compiled.Spawn("chapter_one","entry").X==rawSpawn+110,"Island origin not applied to spawn");
+        Check(authored.Maps[1].Spawns[0].X==rawSpawn,"Compiling world mutated authoring config");
+        Check(compiled.Map("chapter_two").MinX>=220,"World bounds did not use island origin");
+        var overlapping=ReadWorld();overlapping.Maps[1].OriginX=0;overlapping.Maps[1].OriginY=0;
+        Reject(()=>new Zatod.World.WorldCatalog(overlapping,campaign),"Overlapping islands accepted");
+        var observer=new Zatod.World.WorldPlayerState{ConnectionId=1,MapId="town",X=0,Y=0};
+        var peer=new Zatod.World.WorldPlayerState{ConnectionId=2,MapId="town",X=3,Y=4};
+        Check(Zatod.World.WorldInterest.Visible(observer,peer,5),"Nearby peer on interest boundary hidden");
+        peer.X=6;Check(!Zatod.World.WorldInterest.Visible(observer,peer,5),"Far peer leaked into interest");
+        peer.X=0;peer.MapId="chapter_one";Check(!Zatod.World.WorldInterest.Visible(observer,peer,5),"Other island peer leaked into interest");
+        Check(Zatod.World.WorldInterest.Visible(observer,observer,5),"Observer missing from own snapshot");
+
+        var stages=world.Data.Maps.SelectMany(m=>m.Interactions).Where(p=>p.Kind==Zatod.World.WorldInteractionKind.Stage).ToArray();
+        Check(stages.Length==39 && stages.Select(p=>p.TargetId).Distinct().Count()==39,"Each stage needs one world entry");
+        var visited=new HashSet<string>{"town"};for(int n=0;n<3;n++)foreach(var map in world.Data.Maps.Where(m=>visited.Contains(m.Id)).ToArray())foreach(var p in map.Interactions.Where(p=>p.Kind==Zatod.World.WorldInteractionKind.Portal))visited.Add(p.TargetId);
+        Check(visited.Count==3,"World portal graph disconnected");
+        foreach(var chapter in campaign.Data.Chapters)Check(world.Map(chapter.WorldMapId).Interactions.Count(p=>p.Kind==Zatod.World.WorldInteractionKind.Stage)==chapter.Stages.Count,"Chapter/map binding mismatch");
+        var fixture=new Zatod.World.WorldMapDefinition{MinX=-10,MinY=-10,MaxX=10,MaxY=10};float x=0,y=0;
+        Zatod.World.WorldMovement.Move(fixture,ref x,ref y,1,1,.2f);Check(Math.Abs(Math.Sqrt(x*x+y*y)-Zatod.World.WorldMovement.Speed*.2)<.00001,"Diagonal movement faster than straight");
+        x=9.7f;y=0;Zatod.World.WorldMovement.Move(fixture,ref x,ref y,1,0,.2f);Check(x<=9.72f,"Movement escaped bounds");
+        fixture.Props.Add(new Zatod.World.WorldPropDefinition{X=1,Y=0,HalfWidth=.4f,HalfDepth=.4f});x=0;y=0;
+        for(int n=0;n<20;n++)Zatod.World.WorldMovement.Move(fixture,ref x,ref y,1,0,.1f);Check(x<.33f,"Movement crossed trunk collision");
+        var prior=x;Zatod.World.WorldMovement.Move(fixture,ref x,ref y,float.NaN,0,.2f);Check(x==prior,"Nonfinite input mutated world position");
+        var invalid=ReadWorld();invalid.Maps[0].Spawns[0].X=float.NaN;
+        Reject(()=>new Zatod.World.WorldCatalog(invalid,campaign),"Invalid world spawn accepted");
     }
     static void ZatodBattles()
     {
         var catalog=ImportedCatalog();var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),catalog);
         var account=campaign.CreateDemoCharacter(catalog);foreach(var hero in account.HeroDesk)hero.Level=40;
-        foreach(var stage in campaign.Data.Chapters[0].Stages)
+        foreach(var stage in campaign.Data.Chapters.SelectMany(c=>c.Stages))
         {
             var match=ZatodMatchFactory.Campaign(campaign,catalog,account,stage.Id,account.HeroDesk.Select(h=>h.HeroInstanceId),17,stage.Id);
             var battle=new ZatodBattleSimulation(match);
@@ -274,7 +316,7 @@ static class Program
     static void CanonicalContent()
     {
         var catalog=ImportedCatalog();
-        Check(catalog.Data.Heroes.Count==16 && catalog.Data.Monsters.Count==10 && catalog.Data.Items.Count==67 && catalog.Data.Skills.Count==86,"Retired content remains active");
+        Check(catalog.Data.Heroes.Count==25 && catalog.Data.Monsters.Count==14 && catalog.Data.Items.Count==112 && catalog.Data.Skills.Count==131,"Two-chapter content scope changed");
         foreach(var row in catalog.Data.Heroes.Select(h=>(h.Id,h.Name)).Concat(catalog.Data.Monsters.Select(h=>(h.Id,h.Name))).Concat(catalog.Data.Items.Select(h=>(h.DefinitionId,h.Name))).Concat(catalog.Data.Skills.Select(h=>(h.Id,h.Name))))
         {
             Check(System.Text.RegularExpressions.Regex.IsMatch(row.Item1,"^[a-z][a-z0-9_]*$") && !System.Text.RegularExpressions.Regex.IsMatch(row.Item1,"^crystal_(?:item_|skill_)?[0-9]+$"),"Noncanonical object ID "+row.Item1);

@@ -8,7 +8,7 @@ DEST=ROOT/'Unity/Assets/Zatod/Resources/Zatod'
 apply='--apply' in sys.argv
 report={'Applied':apply,'Backgrounds':[],'Audio':[],'MissingOriginalAudio':[]}
 campaign=json.loads((DATA/'Campaigns.txt').read_text(encoding='utf8'))
-for background in sorted({w['BackgroundResource'] for s in campaign['Chapters'][0]['Stages'] for w in s['Waves']}):
+for background in sorted({w['BackgroundResource'] for c in campaign['Chapters'] for s in c['Stages'] for w in s['Waves']}):
  source=REF/'assets/install_time_pack/remake/UI/alpha/1080P'/background
  if not source.exists():raise FileNotFoundError(source)
  target=DEST/'Backgrounds'/Path(background).name

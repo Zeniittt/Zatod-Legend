@@ -42,7 +42,7 @@ namespace Zatod.Editor
                 .Select(UnityEngine.SceneManagement.SceneManager.GetSceneAt).Where(scene=>scene.isDirty).Select(scene=>scene.name).ToArray();
             if(dirtyScenes.Length>0)throw new InvalidOperationException("Save modified scenes before building Zatod: "+string.Join(", ",dirtyScenes));
             string executable=Path.GetFullPath("../Builds/ZatodPrototype/ZatodLegend.exe");Directory.CreateDirectory(Path.GetDirectoryName(executable));
-            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath},locationPathName=executable,target=BuildTarget.StandaloneWindows64,subtarget=(int)StandaloneBuildSubtarget.Player,options=BuildOptions.None});
+            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath,ZatodBattleSceneController.ScenePath},locationPathName=executable,target=BuildTarget.StandaloneWindows64,subtarget=(int)StandaloneBuildSubtarget.Player,options=BuildOptions.None});
             if(report.summary.result!=BuildResult.Succeeded)throw new Exception("Zatod build failed: "+report.summary.result);
             return executable;
         }

@@ -10,6 +10,7 @@ namespace Zatod.Heroes
         public string ConfigVersion = "heroes-prototype-1";
         public List<StatDefinition> Stats = new List<StatDefinition>();
         public List<ItemDefinition> Items = new List<ItemDefinition>();
+        public List<CraftRecipeDefinition> CraftRecipes = new List<CraftRecipeDefinition>();
         public List<SkillDefinition> Skills = new List<SkillDefinition>();
         public List<HeroDefinition> Heroes = new List<HeroDefinition>();
         public List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
@@ -37,6 +38,7 @@ namespace Zatod.Heroes
         public string DefinitionId => string.IsNullOrEmpty(ItemId) ? Id : ItemId;
         public string IconResource;
         public int LevelRequirement = 1, Quality;
+        public ItemKind ItemKind;
         public List<StatAmount> PreciseStats = new List<StatAmount>();
         public List<HeroItemStats> HeroStats = new List<HeroItemStats>();
         public List<StatValue> Stats = new List<StatValue>();

@@ -1,0 +1,161 @@
+{
+  "prefabs": [
+    "Assets/TreasureHunterJoystickExport/GameSkin/Fixed Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/PackDefaults/Fixed Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/GameSkin/Floating Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/PackDefaults/Floating Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/GameSkin/Dynamic Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/PackDefaults/Dynamic Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/GameSkin/Floating Joystick Legacy.prefab",
+    "Assets/TreasureHunterJoystickExport/PackDefaults/Variable Joystick.prefab"
+  ],
+  "mappings": [
+    {
+      "source": "Assets/Content/Scenes/Prefabs/Joystick/Fixed Joystick.prefab",
+      "exported": "Assets/TreasureHunterJoystickExport/GameSkin/Fixed Joystick.prefab",
+      "mode": "Fixed"
+    },
+    {
+      "source": "Assets/Packages/Joystick Pack/Prefabs/Fixed Joystick.prefab",
+      "exported": "Assets/TreasureHunterJoystickExport/PackDefaults/Fixed Joystick.prefab",
+      "mode": "Fixed"
+    },
+    {
+      "source": "Assets/Content/Scenes/Prefabs/Joystick/Floating Joystick.prefab",
+      "exported": "Assets/TreasureHunterJoystickExport/GameSkin/Floating Joystick.prefab",
+      "mode": "Floating"
+    },
+    {
+      "source": "Assets/Packages/Joystick Pack/Prefabs/Floating Joystick.prefab",
+      "exported": "Assets/TreasureHunterJoystickExport/PackDefaults/Floating Joystick.prefab",
+      "mode": "Floating"
+    },
+    {
+      "source": "Assets/Content/Scenes/Prefabs/Joystick/Dynamic Joystick.prefab",
+      "exported": "Assets/TreasureHunterJoystickExport/GameSkin/Dynamic Joystick.prefab",
+      "mode": "Dynamic"
+    },
+    {
+      "source": "Assets/Packages/Joystick Pack/Prefabs/Dynamic Joystick.prefab",
+      "exported": "Assets/TreasureHunterJoystickExport/PackDefaults/Dynamic Joystick.prefab",
+      "mode": "Dynamic"
+    },
+    {
+      "source": "Assets/Content/Scenes/Prefabs/Floating Joystick.prefab",
+      "exported": "Assets/TreasureHunterJoystickExport/GameSkin/Floating Joystick Legacy.prefab",
+      "mode": "Floating"
+    },
+    {
+      "source": "Assets/Packages/Joystick Pack/Prefabs/Variable Joystick.prefab",
+      "exported": "Assets/TreasureHunterJoystickExport/PackDefaults/Variable Joystick.prefab",
+      "mode": "Original variable setting"
+    }
+  ],
+  "tests": [
+    {
+      "path": "Assets/TreasureHunterJoystickExport/GameSkin/Fixed Joystick.prefab",
+      "type": "FixedJoystick",
+      "pointerDragClampRelease": true,
+      "images": 2
+    },
+    {
+      "path": "Assets/TreasureHunterJoystickExport/PackDefaults/Fixed Joystick.prefab",
+      "type": "FixedJoystick",
+      "pointerDragClampRelease": true,
+      "images": 2
+    },
+    {
+      "path": "Assets/TreasureHunterJoystickExport/GameSkin/Floating Joystick.prefab",
+      "type": "VariableJoystick",
+      "pointerDragClampRelease": true,
+      "images": 4
+    },
+    {
+      "path": "Assets/TreasureHunterJoystickExport/PackDefaults/Floating Joystick.prefab",
+      "type": "VariableJoystick",
+      "pointerDragClampRelease": true,
+      "images": 3
+    },
+    {
+      "path": "Assets/TreasureHunterJoystickExport/GameSkin/Dynamic Joystick.prefab",
+      "type": "VariableJoystick",
+      "pointerDragClampRelease": true,
+      "images": 3
+    },
+    {
+      "path": "Assets/TreasureHunterJoystickExport/PackDefaults/Dynamic Joystick.prefab",
+      "type": "VariableJoystick",
+      "pointerDragClampRelease": true,
+      "images": 3
+    },
+    {
+      "path": "Assets/TreasureHunterJoystickExport/GameSkin/Floating Joystick Legacy.prefab",
+      "type": "VariableJoystick",
+      "pointerDragClampRelease": true,
+      "images": 3
+    },
+    {
+      "path": "Assets/TreasureHunterJoystickExport/PackDefaults/Variable Joystick.prefab",
+      "type": "VariableJoystick",
+      "pointerDragClampRelease": true,
+      "images": 3
+    }
+  ],
+  "assets": [
+    "Assets/Content/Graphics/UI/Graphic/Joystick/F200_Circle.png",
+    "Assets/Content/Graphics/UI/Graphic/UIElements/HUD/Icon_Handle.png",
+    "Assets/Content/Graphics/UI/Graphic/UIElements/HUD/Icon_Joystick.png",
+    "Assets/Content/Graphics/UI/Graphic/UIElements/Setting/Joystick_0.png",
+    "Assets/Content/Graphics/UI/Graphic/UIElements/Setting/Joystick_1.png",
+    "Assets/Packages/Joystick Pack/Documentaion.pdf",
+    "Assets/Packages/Joystick Pack/Scripts/Base/Joystick.cs",
+    "Assets/Packages/Joystick Pack/Scripts/Editor/JoystickEditor.cs",
+    "Assets/Packages/Joystick Pack/Scripts/Editor/VariableJoystickEditor.cs",
+    "Assets/Packages/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs",
+    "Assets/Packages/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs",
+    "Assets/Packages/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Outline.png",
+    "Assets/Packages/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Outline_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Plain.png",
+    "Assets/Packages/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Plain_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Ridged.png",
+    "Assets/Packages/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Ridged_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Handles/Handle_Outline.png",
+    "Assets/Packages/Joystick Pack/Sprites/Handles/Handle_Outline_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Handles/Handle_Plain.png",
+    "Assets/Packages/Joystick Pack/Sprites/Handles/Handle_Plain_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Handles/Handle_Ridged.png",
+    "Assets/Packages/Joystick Pack/Sprites/Handles/Handle_Ridged_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Outline.png",
+    "Assets/Packages/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Outline_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Plain.png",
+    "Assets/Packages/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Plain_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Ridged.png",
+    "Assets/Packages/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Ridged_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Outline.png",
+    "Assets/Packages/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Outline_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Plain.png",
+    "Assets/Packages/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Plain_Arrows.png",
+    "Assets/Packages/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Ridged.png",
+    "Assets/Packages/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Ridged_Arrows.png",
+    "Assets/TreasureHunterJoystickExport/GameSkin/Dynamic Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/GameSkin/Fixed Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/GameSkin/Floating Joystick Legacy.prefab",
+    "Assets/TreasureHunterJoystickExport/GameSkin/Floating Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/OriginalJoystickSource.zip",
+    "Assets/TreasureHunterJoystickExport/PackDefaults/Dynamic Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/PackDefaults/Fixed Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/PackDefaults/Floating Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/PackDefaults/Variable Joystick.prefab",
+    "Assets/TreasureHunterJoystickExport/README_IMPORT.txt"
+  ],
+  "upm": [
+    "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs"
+  ],
+  "sceneState": [
+    "Assets/Content/Scenes/GameClient_Test.unity|True"
+  ],
+  "unity": "6000.6.2f1",
+  "upmGuids": {
+    "fe87c0e1cc204ed48ad3b37840f39efc": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs"
+  }
+}

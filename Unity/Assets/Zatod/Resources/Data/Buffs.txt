@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-prototype-2",
+  "ConfigVersion": "zatod-prototype-crafting-1",
   "Buffs": [
     {
       "SourceId": 1415,
@@ -751,6 +751,449 @@
       "Scaling": [],
       "Stats": [],
       "Id": "rougue_charm_buff_16"
+    },
+    {
+      "SourceId": 1286,
+      "Name": "Av Fashion Radiation",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 999,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": false,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "defense",
+          "Value": -100.0
+        }
+      ],
+      "Id": "av_fashion_radiation"
+    },
+    {
+      "SourceId": 10001601,
+      "Name": "Med Ult Stone",
+      "Control": "frozen,antistealth",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [],
+      "Id": "med_ult_stone"
+    },
+    {
+      "SourceId": 10002201,
+      "Name": "Sp Atk2",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "ability_power",
+          "Ratio": -0.2
+        }
+      ],
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": -45.0
+        }
+      ],
+      "Id": "sp_atk2"
+    },
+    {
+      "SourceId": 10002202,
+      "Name": "Sp Atk3",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": "eff_buff_SP_atk3.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 6,
+      "ShieldValue": 100,
+      "ShieldType": "shallowGrave",
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [],
+      "Id": "sp_atk3"
+    },
+    {
+      "SourceId": 10002401,
+      "Name": "Om Ult",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 1,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [],
+      "Id": "om_ult"
+    },
+    {
+      "SourceId": 10002402,
+      "Name": "Om Atk2",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_burn.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "ability_power",
+          "Ratio": -0.2
+        }
+      ],
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": -30.0
+        }
+      ],
+      "Id": "om_atk2"
+    },
+    {
+      "SourceId": 10002403,
+      "Name": "Om Atk3",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_OM_atk3.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 8,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "action_speed",
+          "Value": 0.3
+        },
+        {
+          "StatId": "haste",
+          "Value": 0.6
+        }
+      ],
+      "Id": "om_atk3"
+    },
+    {
+      "SourceId": 10002501,
+      "Name": "Sf Atk3",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": "eff_buff_Bone_ult.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 999,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "damage",
+          "Value": 50.0
+        }
+      ],
+      "Id": "sf_atk3"
+    },
+    {
+      "SourceId": 10002502,
+      "Name": "Sf Atk3S",
+      "Control": "",
+      "StackRule": "True",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": "eff_buff_Bone_ult.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 10,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 10,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "damage",
+          "Value": 10.0
+        }
+      ],
+      "Id": "sf_atk3s"
+    },
+    {
+      "SourceId": 10002703,
+      "Name": "Jugg Atk3",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": 10.0
+        }
+      ],
+      "Id": "jugg_atk3"
+    },
+    {
+      "SourceId": 10002801,
+      "Name": "Axe Atk2",
+      "Control": "silence,antistealth",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_Axe_atk2.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "damage",
+          "Ratio": -0.15
+        }
+      ],
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": -3.0
+        }
+      ],
+      "Id": "axe_atk2"
+    },
+    {
+      "SourceId": 10003001,
+      "Name": "Es Ult",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [],
+      "Id": "es_ult"
+    },
+    {
+      "SourceId": 10003002,
+      "Name": "Es Atk2",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [],
+      "Id": "es_atk2"
+    },
+    {
+      "SourceId": 10003003,
+      "Name": "Es Atk3",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [],
+      "Id": "es_atk3"
+    },
+    {
+      "SourceId": 10003601,
+      "Name": "Av Atk2",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [],
+      "Id": "av_atk2"
+    },
+    {
+      "SourceId": 10003602,
+      "Name": "Av Ult Evobuff",
+      "Control": "stun",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_stun.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [],
+      "Id": "av_ult_evobuff"
+    },
+    {
+      "SourceId": 10003603,
+      "Name": "Av Ult Evobuff2",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 10,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "defense",
+          "Value": -50.0
+        }
+      ],
+      "Id": "av_ult_evobuff2"
+    },
+    {
+      "SourceId": 10003801,
+      "Name": "Thd Ult",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [],
+      "Stats": [
+        {
+          "StatId": "action_speed",
+          "Value": -60.0
+        },
+        {
+          "StatId": "haste",
+          "Value": -15.0
+        }
+      ],
+      "Id": "thd_ult"
+    },
+    {
+      "SourceId": 10003802,
+      "Name": "Thd Atk3",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_burn.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 8,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "ability_power",
+          "Ratio": -0.05
+        }
+      ],
+      "Stats": [],
+      "Id": "thd_atk3"
     }
   ]
 }

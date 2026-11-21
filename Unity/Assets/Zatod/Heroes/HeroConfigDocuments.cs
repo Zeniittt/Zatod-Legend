@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Zatod.Heroes
 {
-    public enum HeroConfigSection { Stats, Items, Skills, Heroes, Monsters, Buffs }
+    public enum HeroConfigSection { Stats, Items, Skills, Heroes, Monsters, Buffs, CraftRecipes }
 
     [Serializable]
     public abstract class HeroConfigTable
@@ -17,12 +17,13 @@ namespace Zatod.Heroes
     [Serializable] public sealed class SkillsConfigData : HeroConfigTable { public List<SkillDefinition> Skills; }
     [Serializable] public sealed class HeroesConfigData : HeroConfigTable { public List<HeroDefinition> Heroes; }
     [Serializable] public sealed class MonstersConfigData : HeroConfigTable { public List<MonsterDefinition> Monsters; }
+    [Serializable] public sealed class CraftRecipesConfigData : HeroConfigTable { public List<CraftRecipeDefinition> CraftRecipes; }
     [Serializable] public sealed class BuffsConfigData : HeroConfigTable { public List<ZatodBuffDefinition> Buffs; }
 
     [Serializable]
     public sealed class HeroConfigDocuments
     {
-        public string Stats, Items, Skills, Heroes, Monsters, Buffs;
+        public string Stats, Items, Skills, Heroes, Monsters, Buffs, CraftRecipes;
 
         public string Get(HeroConfigSection section)
         {
@@ -34,6 +35,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Heroes: return Heroes;
                 case HeroConfigSection.Monsters: return Monsters;
                 case HeroConfigSection.Buffs: return Buffs;
+                case HeroConfigSection.CraftRecipes: return CraftRecipes;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }
@@ -48,6 +50,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Heroes: Heroes = json; break;
                 case HeroConfigSection.Monsters: Monsters = json; break;
                 case HeroConfigSection.Buffs: Buffs = json; break;
+                case HeroConfigSection.CraftRecipes: CraftRecipes = json; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }

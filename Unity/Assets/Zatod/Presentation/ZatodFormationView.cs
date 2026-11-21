@@ -62,7 +62,7 @@ namespace Zatod.Presentation
                 start?.Invoke(encounter.Id,selection.ToArray());
             });
         }
-        void LateUpdate(){Fit();}
+        void LateUpdate(){Fit();if(Background.GetComponent<ZatodFullScreenArt>()==null)Background.gameObject.AddComponent<ZatodFullScreenArt>();}
         public void Fit()
         {
             var size=((RectTransform)transform).rect.size;
@@ -160,6 +160,7 @@ namespace Zatod.Presentation
         static TextMeshProUGUI Text(Transform parent,string name,string value,float x,float y,float w,float h,int size,TMP_FontAsset font)
         {
             var text=Box(name,parent,x,y,w,h).gameObject.AddComponent<TextMeshProUGUI>();text.font=font;text.text=value;text.fontSize=size;text.color=new Color(1,.97f,.87f);text.raycastTarget=false;text.alignment=TextAlignmentOptions.Center;text.textWrappingMode=TextWrappingModes.NoWrap;
+            _=text.canvasRenderer;text.fontSharedMaterial=font.material;
             text.outlineWidth=.16f;text.outlineColor=new Color32(35,28,26,255);return text;
         }
         static UnityEngine.UI.Button MakeButton(Transform parent,string name,string art,float x,float y,float w,float h)

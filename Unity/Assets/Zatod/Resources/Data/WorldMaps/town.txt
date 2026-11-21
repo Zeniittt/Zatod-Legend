@@ -1,0 +1,522 @@
+{
+  "Id": "town",
+  "Name": "Town",
+  "Theme": "grass",
+  "VisualResource": "grass_background",
+  "MinX": -18,
+  "MinY": -13,
+  "MaxX": 18,
+  "MaxY": 13,
+  "Spawns": [
+    {
+      "Id": "entry",
+      "X": 0,
+      "Y": -4
+    }
+  ],
+  "Interactions": [
+    {
+      "Id": "campaign",
+      "Label": "Campaign",
+      "VisualResource": "goddess",
+      "X": 0,
+      "Y": 4,
+      "Kind": 1,
+      "TargetId": "chapter_one",
+      "DestinationSpawnId": "entry",
+      "Height": 2.3,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "clan",
+      "Label": "Clan Hall",
+      "VisualResource": "main_building",
+      "X": -10,
+      "Y": 4,
+      "Kind": 2,
+      "TargetId": "clan",
+      "DestinationSpawnId": "entry",
+      "Height": 4,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "tower",
+      "Label": "Lost Tower",
+      "VisualResource": "watch_tower",
+      "X": 10,
+      "Y": 4,
+      "Kind": 2,
+      "TargetId": "tower",
+      "DestinationSpawnId": "entry",
+      "Height": 4,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "arena",
+      "Label": "Arena",
+      "VisualResource": "cyclone_tower",
+      "X": -10,
+      "Y": -6,
+      "Kind": 2,
+      "TargetId": "arena",
+      "DestinationSpawnId": "entry",
+      "Height": 3,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "pvp",
+      "Label": "PvP Realtime",
+      "VisualResource": "blessing_tower",
+      "X": 10,
+      "Y": -6,
+      "Kind": 2,
+      "TargetId": "pvp",
+      "DestinationSpawnId": "entry",
+      "Height": 3,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "heroes",
+      "Label": "Heroes",
+      "VisualResource": "npc_varn",
+      "X": -5,
+      "Y": -1,
+      "Kind": 2,
+      "TargetId": "heroes",
+      "DestinationSpawnId": "entry",
+      "Height": 2.3,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    }
+  ],
+  "Props": [
+    {
+      "Id": "prop_0",
+      "VisualResource": "grass_tree_0",
+      "X": -3.485378182630445,
+      "Y": -7.451722323988429,
+      "Height": 3.302439319975531,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_1",
+      "VisualResource": "grass_patch",
+      "X": 4.2682704365998845,
+      "Y": 0.6401250544382382,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_2",
+      "VisualResource": "grass_patch",
+      "X": 6.688707875204681,
+      "Y": 8.4595492496573,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_3",
+      "VisualResource": "grass_tree_0",
+      "X": 6.324957562799025,
+      "Y": -8.74783869550798,
+      "Height": 3.3917405840162873,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_4",
+      "VisualResource": "grass_patch",
+      "X": -12.83945538548694,
+      "Y": -8.625240933589383,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_5",
+      "VisualResource": "grass_patch",
+      "X": -11.107130177166104,
+      "Y": -2.1551931517695824,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_6",
+      "VisualResource": "grass_tree_0",
+      "X": 5.774179896863355,
+      "Y": -8.652246003359103,
+      "Height": 2.563836144803976,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_7",
+      "VisualResource": "grass_patch",
+      "X": -1.2091830667128214,
+      "Y": 8.671998620732356,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_8",
+      "VisualResource": "grass_patch",
+      "X": -14.948981484817415,
+      "Y": 9.6607519890173,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_9",
+      "VisualResource": "grass_tree_0",
+      "X": -8.586455128574906,
+      "Y": 9.096498942184034,
+      "Height": 2.619369055157403,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_10",
+      "VisualResource": "grass_patch",
+      "X": 14.273341555212202,
+      "Y": 11.706383270374712,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_11",
+      "VisualResource": "grass_patch",
+      "X": 16.18010886194547,
+      "Y": 3.5442705495279085,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_12",
+      "VisualResource": "grass_tree_0",
+      "X": 15.369818683146839,
+      "Y": 6.812389348891699,
+      "Height": 2.425035551305008,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_16",
+      "VisualResource": "grass_patch",
+      "X": -12.285261092389597,
+      "Y": -1.7175657970357925,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_17",
+      "VisualResource": "grass_patch",
+      "X": -6.421946805645618,
+      "Y": 8.459984537346735,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_18",
+      "VisualResource": "grass_tree_0",
+      "X": -16.296301349290246,
+      "Y": -8.81118963290066,
+      "Height": 2.954119143757516,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_19",
+      "VisualResource": "grass_patch",
+      "X": -14.100447184641514,
+      "Y": -5.140571355074544,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_20",
+      "VisualResource": "grass_patch",
+      "X": 7.048441464904631,
+      "Y": 11.41813703202125,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_21",
+      "VisualResource": "grass_tree_0",
+      "X": -4.575566907145811,
+      "Y": -11.408399667021666,
+      "Height": 2.864612384929211,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_23",
+      "VisualResource": "grass_patch",
+      "X": 4.192496825989718,
+      "Y": -2.671468527638009,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_24",
+      "VisualResource": "grass_tree_0",
+      "X": -5.207890014355632,
+      "Y": 4.490607874899389,
+      "Height": 2.9193895455844583,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_27",
+      "VisualResource": "grass_tree_0",
+      "X": 15.642231380568752,
+      "Y": 7.1866431039589,
+      "Height": 3.3267443672721333,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_28",
+      "VisualResource": "grass_patch",
+      "X": 10.947879150036766,
+      "Y": -11.172982683607916,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_29",
+      "VisualResource": "grass_patch",
+      "X": -6.044280950827687,
+      "Y": -6.2183746371948025,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_31",
+      "VisualResource": "grass_patch",
+      "X": 7.062178757831006,
+      "Y": -10.058030863671341,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_32",
+      "VisualResource": "grass_patch",
+      "X": -15.205189174097503,
+      "Y": -4.552400146516167,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_33",
+      "VisualResource": "grass_tree_0",
+      "X": -15.923468783431863,
+      "Y": 1.419858436316492,
+      "Height": 2.6001540432241814,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_34",
+      "VisualResource": "grass_patch",
+      "X": 16.565543157955958,
+      "Y": 3.89958254472241,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_35",
+      "VisualResource": "grass_patch",
+      "X": 8.423408020894762,
+      "Y": -1.5292881139635757,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_36",
+      "VisualResource": "grass_tree_0",
+      "X": -0.9401508949341206,
+      "Y": -8.730296080069632,
+      "Height": 2.7846604007914824,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_37",
+      "VisualResource": "grass_patch",
+      "X": 16.03532574535668,
+      "Y": 11.07833968622414,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_39",
+      "VisualResource": "grass_tree_0",
+      "X": -12.39429279240766,
+      "Y": 11.822545905928482,
+      "Height": 3.2938978797412735,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_41",
+      "VisualResource": "grass_patch",
+      "X": -7.405536852343943,
+      "Y": 9.298986678579176,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_42",
+      "VisualResource": "grass_tree_0",
+      "X": -7.435119167143153,
+      "Y": 9.117274146592077,
+      "Height": 3.31619576096248,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_44",
+      "VisualResource": "grass_patch",
+      "X": -15.549837488459037,
+      "Y": -4.176000207763122,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_46",
+      "VisualResource": "grass_patch",
+      "X": 3.5728268758476034,
+      "Y": -7.650540862935539,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_48",
+      "VisualResource": "grass_tree_0",
+      "X": 6.466171249788793,
+      "Y": 4.786218056438102,
+      "Height": 2.646626307707001,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_49",
+      "VisualResource": "grass_patch",
+      "X": 12.465321974530784,
+      "Y": -11.15505529040433,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_50",
+      "VisualResource": "grass_patch",
+      "X": 14.261812461167356,
+      "Y": -3.216859818889125,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_51",
+      "VisualResource": "grass_tree_0",
+      "X": -6.321862387152594,
+      "Y": 9.154474389617828,
+      "Height": 2.760177109906715,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_53",
+      "VisualResource": "grass_patch",
+      "X": -3.328580890266295,
+      "Y": 7.429162420992366,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_57",
+      "VisualResource": "grass_tree_0",
+      "X": -5.967577652356336,
+      "Y": 11.319729480638955,
+      "Height": 3.1353508970341517,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_58",
+      "VisualResource": "grass_patch",
+      "X": 9.263511670324196,
+      "Y": 9.16219361179315,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_59",
+      "VisualResource": "grass_patch",
+      "X": -10.012357603141428,
+      "Y": 7.843328178012811,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_61",
+      "VisualResource": "grass_patch",
+      "X": -13.77313466184333,
+      "Y": 5.6835822499595885,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_63",
+      "VisualResource": "grass_tree_0",
+      "X": -9.99387846054735,
+      "Y": 11.790359852624572,
+      "Height": 2.8521296840598938,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    }
+  ],
+  "OriginX": 0,
+  "OriginY": 0,
+  "InterestRadius": 48
+}

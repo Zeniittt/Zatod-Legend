@@ -9,7 +9,7 @@ namespace Zatod.Heroes
     {
         public const string ConfigAssetDirectory = "Assets/Zatod/Resources/Data";
         public static readonly HeroConfigSection[] Sections =
-            { HeroConfigSection.Stats, HeroConfigSection.Items, HeroConfigSection.Skills, HeroConfigSection.Heroes, HeroConfigSection.Monsters, HeroConfigSection.Buffs };
+            { HeroConfigSection.Stats, HeroConfigSection.Items, HeroConfigSection.Skills, HeroConfigSection.Heroes, HeroConfigSection.Monsters, HeroConfigSection.Buffs, HeroConfigSection.CraftRecipes };
 
         public static string AssetPath(HeroConfigSection section) { return ConfigAssetDirectory + "/" + section + ".txt"; }
 
@@ -19,7 +19,7 @@ namespace Zatod.Heroes
             foreach (var section in Sections)
             {
                 var asset = Resources.Load<TextAsset>("Data/" + section);
-                if (asset == null && (section==HeroConfigSection.Monsters || section==HeroConfigSection.Buffs)) continue;
+                if (asset == null && (section==HeroConfigSection.Monsters || section==HeroConfigSection.Buffs || section==HeroConfigSection.CraftRecipes)) continue;
                 if (asset == null) throw new FileNotFoundException("Missing hero JSON config: " + AssetPath(section));
                 documents.Set(section, asset.text);
             }
@@ -32,7 +32,7 @@ namespace Zatod.Heroes
             HeroCatalogData data = null;
             foreach (var section in Sections)
             {
-                if((section==HeroConfigSection.Monsters || section==HeroConfigSection.Buffs) && string.IsNullOrWhiteSpace(documents.Get(section))) continue;
+                if((section==HeroConfigSection.Monsters || section==HeroConfigSection.Buffs || section==HeroConfigSection.CraftRecipes) && string.IsNullOrWhiteSpace(documents.Get(section))) continue;
                 var table = ReadTable(section, documents.Get(section));
                 if (data == null) data = new HeroCatalogData { SchemaVersion = table.SchemaVersion, ConfigVersion = table.ConfigVersion };
                 if (table.SchemaVersion != data.SchemaVersion || table.ConfigVersion != data.ConfigVersion)
@@ -61,6 +61,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Heroes: table = new HeroesConfigData { Heroes = data.Heroes }; break;
                 case HeroConfigSection.Monsters: table = new MonstersConfigData { Monsters = data.Monsters }; break;
                 case HeroConfigSection.Buffs: table = new BuffsConfigData { Buffs = data.Buffs }; break;
+                case HeroConfigSection.CraftRecipes: table = new CraftRecipesConfigData { CraftRecipes = data.CraftRecipes }; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
             table.SchemaVersion = data.SchemaVersion; table.ConfigVersion = data.ConfigVersion;
@@ -82,6 +83,8 @@ namespace Zatod.Heroes
             bool hasEntries;
             switch (section)
             {
+                case HeroConfigSection.CraftRecipes:
+                    var recipes = JsonUtility.FromJson<CraftRecipesConfigData>(json); table = recipes; hasEntries = recipes != null && recipes.CraftRecipes != null; break;
                 case HeroConfigSection.Stats:
                     var stats = JsonUtility.FromJson<StatsConfigData>(json); table = stats; hasEntries = stats != null && stats.Stats != null; break;
                 case HeroConfigSection.Items:
@@ -111,6 +114,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Heroes: data.Heroes = ((HeroesConfigData)table).Heroes; break;
                 case HeroConfigSection.Monsters: data.Monsters = ((MonstersConfigData)table).Monsters; break;
                 case HeroConfigSection.Buffs: data.Buffs = ((BuffsConfigData)table).Buffs; break;
+                case HeroConfigSection.CraftRecipes: data.CraftRecipes = ((CraftRecipesConfigData)table).CraftRecipes; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }

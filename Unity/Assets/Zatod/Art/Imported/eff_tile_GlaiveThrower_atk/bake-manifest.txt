@@ -1,0 +1,170 @@
+{
+  "UnitId": "effect_eff_tile_GlaiveThrower_atk",
+  "Resource": "eff_tile_GlaiveThrower_atk",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0000",
+          "X": 0,
+          "Y": 88,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        },
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0001",
+          "X": 320,
+          "Y": 88,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        },
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0002",
+          "X": 640,
+          "Y": 88,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        },
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        },
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0004",
+          "X": 320,
+          "Y": 0,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0000",
+          "X": 0,
+          "Y": 88,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        },
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0001",
+          "X": 320,
+          "Y": 88,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        },
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0002",
+          "X": 640,
+          "Y": 88,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        },
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        },
+        {
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0004",
+          "X": 320,
+          "Y": 0,
+          "Width": 320,
+          "Height": 88,
+          "PivotX": 0.7,
+          "PivotY": 0.48863636363636365
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.20833333333333334,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Start_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Start_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Start_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Start_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Start_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Start_0004"
+        }
+      ],
+      "Loop": false,
+      "Width": 320,
+      "Height": 88,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.20833333333333334,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Loop_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Loop_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Loop_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Loop_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_GlaiveThrower_atk/Loop_0.png",
+          "Name": "eff_tile_GlaiveThrower_atk_Loop_0004"
+        }
+      ],
+      "Loop": true,
+      "Width": 320,
+      "Height": 88,
+      "AudioCues": []
+    }
+  ]
+}

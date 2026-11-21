@@ -22,7 +22,7 @@ namespace Zatod.Networking
                 try {var replay=ReplayArchive.DecodePayload<ZatodReplay>(File.ReadAllBytes(path));if(replay.Completed && ZatodMatchDefinition.SupportedRules(replay.Initial.RulesVersion))archives[replay.Initial.BattleId]=replay;}
                 catch(Exception error){Debug.LogWarning("[ZatodArchive] "+Path.GetFileName(path)+": "+error.Message);}
             }
-            NetworkServer.RegisterHandler<ZatodPacket>(OnServerPacket,false);
+            NetworkServer.RegisterHandler<ZatodPacket>(OnServerPacket,false);RegisterWorldServer();
             NetworkServer.OnDisconnectedEvent+=ServerDisconnected;
             NetworkServer.Listen(32);SetStatus("Zatod server TCP "+Port);
             Debug.Log("[ZatodServer] READY port="+Port+" inputArchives="+archiveDirectory);
@@ -42,7 +42,7 @@ namespace Zatod.Networking
                     if(!sessions.TryGetValue(connection.connectionId,out var session))throw new ArgumentException("Launch session is missing.");
                     if(packet.kind=="claim")
                     {
-                        var replay=session.ValidateCampaign(ReplayArchive.DecodePayload<ZatodReplay>(bytes));Archive(replay);Send(connection,"replay",replay);SendAccount(connection,session);
+                        var replay=session.ValidateCampaign(ReplayArchive.DecodePayload<ZatodReplay>(bytes),()=>SaveOwned(session));Archive(replay);Send(connection,"replay",replay);SendAccount(connection,session);
                         Debug.Log("[ZatodServer] VALIDATED "+replay.Initial.BattleId+" ticks="+replay.EndTick+" inputs="+replay.Inputs.Count+" digest="+replay.Digest);
                     }
                     else if(packet.kind=="operation")AcceptOperation(connection,ReplayArchive.DecodePayload<ZatodOperation>(bytes));
@@ -72,9 +72,10 @@ namespace Zatod.Networking
                     owned.CharacterId=request.B;found=new ZatodPlayerSession(catalog,campaign,request.A,owned);launches.Add(request.A,found);SaveOwned(found);
                 }
                 if(sessions.Values.Contains(found))throw new ArgumentException("This launch is connected already.");
-                sessions.Add(id,found);SendAccount(connection,found);return;
+                sessions.Add(id,found);JoinWorld(connection,found);SendAccount(connection,found);return;
             }
             if(!sessions.TryGetValue(id,out var session))throw new ArgumentException("Initialize the launch first.");
+            if(request.Command=="world_portal"){UseWorldPortal(connection,request.A);return;}
             if(request.Command=="replay")
             {
                 if(!archives.TryGetValue(request.A??"",out var record))throw new ArgumentException("Replay is unavailable.");Send(connection,"replay",record);return;
@@ -87,7 +88,7 @@ namespace Zatod.Networking
             switch(request.Command)
             {
                 case "campaign":
-                    var match=session.BeginCampaign(request.A,request.Heroes,Seed(),Guid.NewGuid().ToString("N"));Send(connection,"start",new ZatodStart{Match=match});break;
+                    var match=session.BeginCampaign(request.A,request.Heroes,Seed(),Guid.NewGuid().ToString("N"));Send(connection,"start",new ZatodStart{Match=match,LootItems=session.PendingLoot(match.BattleId)});break;
                 case "arena":
                     var left=session.Team(request.Heroes);
                     var right=campaign.CreateDemoCharacter(catalog).HeroDesk;
@@ -98,7 +99,8 @@ namespace Zatod.Networking
                     var selected=session.Team(request.Heroes);queuedTeams[id]=selected.Select(h=>h.HeroInstanceId).ToList();queue.Add(id);
                     Send(connection,"notice",new ZatodNotice{Text="Finding a second online player..."});Pair();break;
                 case "item":if(request.Number<1 || request.Number>100)throw new ArgumentException("Dev grant amount must be 1-100.");session.DevItem(request.A,request.Number);SendAccount(connection,session);break;
-                case "equip":session.Equip(request.A,request.B,request.C);SendAccount(connection,session);break;
+                case "equip":session.EquipItem(request.A,request.B,request.C,request.OperationId??Guid.NewGuid().ToString("D"),()=>SaveOwned(session));SendAccount(connection,session,false);break;
+                case "craft":session.Craft(request.A,request.OperationId,()=>SaveOwned(session));SendAccount(connection,session,false);break;
                 case "promote":session.Promote(request.A);SendAccount(connection,session);break;
                 case "level":session.DevLevel(request.A,request.Number);SendAccount(connection,session);break;
                 default:throw new ArgumentException("Unknown Crystal command.");
@@ -115,10 +117,10 @@ namespace Zatod.Networking
             File.WriteAllText(temporary,HeroDataJson.WriteCharacter(session.Account,catalog));
             if(File.Exists(path))File.Replace(temporary,path,null);else File.Move(temporary,path);
         }
-        void SendAccount(NetworkConnectionToClient connection,ZatodPlayerSession session)
+        void SendAccount(NetworkConnectionToClient connection,ZatodPlayerSession session,bool save=true)
         {
-            SaveOwned(session);
-            Send(connection,"account",new ZatodAccountSnapshot{Account=session.Account,Cleared=session.Run.Stars.Keys.ToList(),StageStars=session.Run.Stars.OrderBy(s=>s.Key,StringComparer.Ordinal).Select(s=>new ZatodStageStars{StageId=s.Key,Stars=s.Value}).ToList(),Replays=archives.Values.OrderByDescending(x=>x.Initial.BattleId).Take(100).Select(x=>x.Initial.BattleId).ToList()});
+            if(save)SaveOwned(session);
+            Send(connection,"account",new ZatodAccountSnapshot{Account=session.Account,LastCampaignReward=session.LastCampaignReward,Cleared=session.Run.Stars.Keys.ToList(),StageStars=session.Run.Stars.OrderBy(s=>s.Key,StringComparer.Ordinal).Select(s=>new ZatodStageStars{StageId=s.Key,Stars=s.Value}).ToList(),Replays=archives.Values.OrderByDescending(x=>x.Initial.BattleId).Take(100).Select(x=>x.Initial.BattleId).ToList()});
         }
         void Archive(ZatodReplay replay)
         {
@@ -189,6 +191,6 @@ namespace Zatod.Networking
             }
         }
         void ServerDisconnected(NetworkConnectionToClient connection)
-        {int id=connection.connectionId;AbortRoom(id,"Opponent disconnected. Match aborted; no result recorded.");RemoveFromQueue(id);sessions.Remove(id);uploads.Remove(id);}
+        {int id=connection.connectionId;AbortRoom(id,"Opponent disconnected. Match aborted; no result recorded.");RemoveFromQueue(id);sessions.Remove(id);uploads.Remove(id);worldPlayers.Remove(id);nextWorldSnapshot=0;}
     }
 }

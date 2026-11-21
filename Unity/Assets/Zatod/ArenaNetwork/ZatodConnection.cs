@@ -22,6 +22,7 @@ namespace Zatod.Networking
         public ZatodAccountSnapshot Snapshot {get;private set;}
         public ZatodBattleSimulation Battle {get;private set;}
         public ZatodReplay LastReplay {get;private set;}
+        public IReadOnlyList<string> PendingCampaignLoot {get;private set;}=Array.Empty<string>();
         public int Team {get;private set;}
         public event Action Changed;
         public event Action MatchStarted;
@@ -70,7 +71,11 @@ namespace Zatod.Networking
         public void Connect()
         {
             if(IsServer || NetworkClient.active)return;
-            NetworkClient.RegisterHandler<ZatodPacket>(OnClientPacket,false);
+            NetworkClient.RegisterHandler<ZatodPacket>(OnClientPacket,false);RegisterWorldClient();
+            // Connect may be called again in the same app launch after a disconnect.
+            NetworkClient.OnConnectedEvent-=OnConnected;
+            NetworkClient.OnDisconnectedEvent-=OnDisconnected;
+            NetworkClient.OnErrorEvent-=OnError;
             NetworkClient.OnConnectedEvent+=OnConnected;
             NetworkClient.OnDisconnectedEvent+=OnDisconnected;
             NetworkClient.OnErrorEvent+=OnError;
@@ -86,7 +91,7 @@ namespace Zatod.Networking
             return account;
         }
         void OnConnected(){Request(new ZatodRequest{Command="hello",A=launchId,B=AccountKey()});}
-        void OnDisconnected(){Battle=null;SetStatus("Disconnected. Reconnect within this launch to keep its campaign run.");}
+        void OnDisconnected(){ItemOperationBusy=false;ClearClientWorld();Battle=null;PendingCampaignLoot=Array.Empty<string>();SetStatus("Disconnected. Reconnect within this launch to keep its campaign run.");}
         void OnError(TransportError error,string reason){SetStatus(error+": "+reason);}
         public void Disconnect(){if(!IsServer)NetworkClient.Disconnect();}
         public void Request(ZatodRequest request)
@@ -98,10 +103,19 @@ namespace Zatod.Networking
         public void FindPvp(IEnumerable<string> heroes)=>Request(new ZatodRequest{Command="queue",Heroes=heroes.ToArray()});
         public void Cancel()
         {
-            Request(new ZatodRequest{Command="cancel"});Battle=null;intents.Clear();submitted=false;Changed?.Invoke();
+            Request(new ZatodRequest{Command="cancel"});Battle=null;PendingCampaignLoot=Array.Empty<string>();intents.Clear();submitted=false;Changed?.Invoke();
         }
         public void AddItemByItemId(string itemId,int amount=1)=>Request(new ZatodRequest{Command="item",A=itemId,Number=amount});
-        public void Equip(string heroId,string slotId,string guid)=>Request(new ZatodRequest{Command="equip",A=heroId,B=slotId,C=guid});
+        public bool ItemOperationBusy {get;private set;}
+        public string PendingItemOperationId {get;private set;}
+        ZatodRequest pendingItemOperation;
+        public void Equip(string heroId,string slotId,string guid)=>SendItemOperation(new ZatodRequest{Command="equip",A=heroId,B=slotId,C=guid});
+        public void Craft(string recipeId)=>SendItemOperation(new ZatodRequest{Command="craft",A=recipeId});
+        void SendItemOperation(ZatodRequest request)
+        {
+            if(!Connected||ItemOperationBusy)return;request.OperationId=Guid.NewGuid().ToString("D");pendingItemOperation=request;PendingItemOperationId=request.OperationId;ItemOperationBusy=true;Request(request);SetStatus("Updating items...");
+        }
+        public void RetryItemOperation(){if(Connected && pendingItemOperation!=null){ItemOperationBusy=true;Request(pendingItemOperation);}}
         public void Promote(string heroId)=>Request(new ZatodRequest{Command="promote",A=heroId});
         public void DevLevel(string heroId,int level)=>Request(new ZatodRequest{Command="level",A=heroId,Number=level});
         public bool Ultimate(int actorId)
@@ -122,7 +136,7 @@ namespace Zatod.Networking
         }
         void Update()
         {
-            if(IsServer){UpdateRooms();return;}
+            if(IsServer){UpdateRooms();UpdateWorldServer();return;}
             if(Battle==null || Battle.Finished || Battle.Mode==ZatodMode.RealtimePvp)return;
             elapsed+=Time.unscaledDeltaTime;
             int budget=16;
@@ -137,9 +151,10 @@ namespace Zatod.Networking
                 var bytes=Assemble(ref download,packet);if(bytes==null)return;
                 switch(packet.kind)
                 {
-                    case "account":Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);SetStatus("Connected. Campaign progress belongs to this app launch.");break;
+                    case "account":Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Campaign progress belongs to this app launch.");break;
                     case "start":
                         var start=ReplayArchive.DecodePayload<ZatodStart>(bytes);Battle=new ZatodBattleSimulation(start.Match);Team=start.Team;elapsed=0;submitted=false;intents.Clear();LastReplay=null;
+                        PendingCampaignLoot=start.Match.Mode==ZatodMode.Campaign?(start.LootItems??new List<string>()).AsReadOnly():Array.Empty<string>();
                         SetStatus(start.Match.Mode+" Â· "+start.Match.BattleId);MatchStarted?.Invoke();FrameReceived?.Invoke();
                         if(start.Match.Mode==ZatodMode.RealtimePvp)SendOperation(1);break;
                     case "tick":
@@ -151,7 +166,7 @@ namespace Zatod.Networking
                     case "replay":LastReplay=ReplayArchive.DecodePayload<ZatodReplay>(bytes);SetStatus("Validated replay: winner "+LastReplay.Winner+", stars "+LastReplay.Stars);ReplayReceived?.Invoke();break;
                     case "notice":SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
                     case "abort":Battle=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
-                    case "error":submitted=false;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
+                    case "error":submitted=false;ItemOperationBusy=false;pendingItemOperation=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
                     default:throw new InvalidDataException("Unknown Crystal message.");
                 }
             }

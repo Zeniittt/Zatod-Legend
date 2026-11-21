@@ -77,7 +77,7 @@ namespace Zatod.Combat
             SpawnWave();
         }
         static ZatodMatchDefinition Freeze(ZatodMatchDefinition value)
-            =>new ZatodMatchDefinition{BattleId=value.BattleId,StageId=value.StageId,ConfigVersion=value.ConfigVersion,RulesVersion=value.RulesVersion,Seed=value.Seed,Mode=value.Mode,EnergyGainMultiplier=value.EnergyGainMultiplier,EnergySupplyPercent=value.EnergySupplyPercent,Players=value.Players.ConvertAll(x=>x.Copy()),Buffs=value.Buffs.ConvertAll(ZatodMatchFactory.CopyBuff),Waves=value.Waves.ConvertAll(w=>new ZatodWaveData{Id=w.Id,Background=w.Background,FlipBackground=w.FlipBackground,TimeLimitSeconds=w.TimeLimitSeconds,Enemies=w.Enemies.ConvertAll(x=>x.Copy()),Hooks=w.Hooks.ConvertAll(h=>new WaveHookDefinition{Id=h.Id,TargetDefinitionId=h.TargetDefinitionId,Action=h.Action,BossOnly=h.BossOnly,PlayerSide=h.PlayerSide,Amount=h.Amount})})};
+            =>new ZatodMatchDefinition{BattleId=value.BattleId,StageId=value.StageId,ConfigVersion=value.ConfigVersion,RulesVersion=value.RulesVersion,Seed=value.Seed,Mode=value.Mode,EnergyGainMultiplier=value.EnergyGainMultiplier,EnergySupplyPercent=value.EnergySupplyPercent,Players=value.Players.ConvertAll(x=>x.Copy()),Buffs=value.Buffs.ConvertAll(ZatodMatchFactory.CopyBuff),LootDrops=(value.LootDrops??new List<ZatodLootDrop>()).ConvertAll(d=>d.Copy()),Waves=value.Waves.ConvertAll(w=>new ZatodWaveData{Id=w.Id,Background=w.Background,FlipBackground=w.FlipBackground,TimeLimitSeconds=w.TimeLimitSeconds,Enemies=w.Enemies.ConvertAll(x=>x.Copy()),Hooks=w.Hooks.ConvertAll(h=>new WaveHookDefinition{Id=h.Id,TargetDefinitionId=h.TargetDefinitionId,Action=h.Action,BossOnly=h.BossOnly,PlayerSide=h.PlayerSide,Amount=h.Amount})})};
         Unit Create(ZatodUnitData data)
         {
             var stats=data.Battle.PreciseStats.Count>0?data.Battle.PreciseStats.ToDictionary(x=>x.StatId,x=>x.Value,StringComparer.Ordinal):data.Battle.Stats.ToDictionary(x=>x.StatId,x=>(double)x.Value,StringComparer.Ordinal);
@@ -94,7 +94,7 @@ namespace Zatod.Combat
             }
             runtime.State.MaxHp=Get(runtime,"health");runtime.State.Hp=data.InitialHealth<0?runtime.State.MaxHp:Math.Min(runtime.State.MaxHp,data.InitialHealth);
             runtime.State.MaxEnergy=Get(runtime,"energy_max",1000);runtime.State.Energy=Math.Min(runtime.State.MaxEnergy,data.InitialEnergy);
-            return runtime;
+            RegisterStatistics(data);return runtime;
         }
         Unit Find(int id)=>units.FirstOrDefault(x=>x.State.EntityId==id);
         double Random()
@@ -366,7 +366,7 @@ namespace Zatod.Combat
             var frame=new ZatodFrame{Tick=tick,Wave=wave+1,Finished=finished,Winner=winner,Stars=stars,Units=units.Select(PresentationUnit).ToList(),Visuals=Visuals(),TimeRemaining=Math.Max(0,waveRemaining),CombatEvents=combatEvents.ConvertAll(e=>e.Copy())};
             frame.Digest=Digest(frame);return frame;
         }
-        public ZatodReplay Replay()=>new ZatodReplay{Initial=Freeze(initial),Inputs=inputs.ConvertAll(x=>x.Copy()),EndTick=tick,Winner=winner,Stars=stars,Completed=finished,Digest=Frame().Digest};
+        public ZatodReplay Replay()=>new ZatodReplay{Initial=Freeze(initial),Inputs=inputs.ConvertAll(x=>x.Copy()),EndTick=tick,Winner=winner,Stars=stars,Completed=finished,Digest=Frame().Digest,Statistics=Statistics()};
         public ZatodReplay RunToCompletion(){while(!finished)Step();return Replay();}
         static ulong Digest(ZatodFrame frame)
         {
