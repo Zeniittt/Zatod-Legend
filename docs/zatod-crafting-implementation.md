@@ -1,5 +1,7 @@
 # Mặc đồ và craft prototype Zatod
 
+**Cập nhật D30 ngày22/11/2026:** phí craft đã được nối thu GoldCost thật trong phase kinh tế. Các mô tả phí0/112 item bên dưới là nghiệm thu lịch sử D28; trạng thái mới xem [zatod-economy-implementation.md](zatod-economy-implementation.md).
+
 Ngày21/11/2026, theo D28. Người dùng đã duyệt metadata ItemKind, config craft riêng, bổ sung nguyên liệu, giao dịch server và bypass phí vàng; sau đó yêu cầu thực thi. Không thay ba lớp Hero hoặc quy tắc D08/D12.
 
 ## Sử dụng

@@ -130,6 +130,7 @@ namespace Zatod.Presentation
                 if(!initializedSelection){selected.AddRange(connection.Snapshot.Account.HeroDesk.Take(5).Select(h=>h.HeroInstanceId));initializedSelection=true;}
                 if(selectedHero==null)selectedHero=connection.Snapshot.Account.HeroDesk.FirstOrDefault()?.HeroInstanceId;
             }
+            if(inventoryView!=null && inventoryView.gameObject.activeSelf && connection.Snapshot!=null){inventoryView.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}
             if(heroRoster!=null && heroRoster.gameObject.activeSelf && connection.Snapshot!=null){heroRoster.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}
             if(heroDetail!=null && heroDetail.gameObject.activeSelf && connection.Snapshot!=null){heroDetail.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}
             if(stagePreview!=null && stagePreview.gameObject.activeSelf && connection.Snapshot!=null)
@@ -140,7 +141,7 @@ namespace Zatod.Presentation
         }
         void Show(string mode)
         {
-            ClearBattleResult();equipmentWindow?.Hide();
+            ClearBattleResult();inventoryView?.gameObject.SetActive(false);equipmentWindow?.Hide();
             battleScene?.Leave();
             if(heroRoster!=null)heroRoster.gameObject.SetActive(false);if(heroDetail!=null)heroDetail.gameObject.SetActive(false);
             screen=mode;stagePreview.gameObject.SetActive(false);playing=false;stage.gameObject.SetActive(false);formation.gameObject.SetActive(false);menu.gameObject.SetActive(true);RenderMenu();
@@ -228,7 +229,7 @@ namespace Zatod.Presentation
         void ClearBattle(){ClearBattleResult();battleScene?.Stage?.Clear();drawnTick=-1;drawnFrame=null;drawnSimulation=null;ClearFloating();}
         void OnMatch()
         {
-            equipmentWindow?.Hide();heroRoster.gameObject.SetActive(false);heroDetail.gameObject.SetActive(false);
+            equipmentWindow?.Hide();inventoryView?.gameObject.SetActive(false);heroRoster.gameObject.SetActive(false);heroDetail.gameObject.SetActive(false);
             formation.gameObject.SetActive(false);stagePreview.gameObject.SetActive(false);
             replay=null;record=null;playing=false;ClearBattle();menu.gameObject.SetActive(false);battleScene.Enter();DrawBattle();
         }
@@ -240,7 +241,7 @@ namespace Zatod.Presentation
         }
         void LoadReplay(ZatodReplay value)
         {
-            equipmentWindow?.Hide();heroRoster.gameObject.SetActive(false);heroDetail.gameObject.SetActive(false);
+            equipmentWindow?.Hide();inventoryView?.gameObject.SetActive(false);heroRoster.gameObject.SetActive(false);heroDetail.gameObject.SetActive(false);
             formation.gameObject.SetActive(false);stagePreview.gameObject.SetActive(false);
             record=value;replay=new ZatodBattleSimulation(value.Initial);replayElapsed=0;playing=true;ClearBattle();menu.gameObject.SetActive(false);battleScene.Enter();DrawBattle();
         }
@@ -255,6 +256,7 @@ namespace Zatod.Presentation
         }
         void Update()
         {
+            if(connection?.Snapshot!=null){if(heroRoster!=null&&heroRoster.gameObject.activeSelf)ZatodHeroUi.RefreshCurrencies(heroRoster.CurrencyRow,connection.Snapshot.Account,connection.ServerNow);if(heroDetail!=null&&heroDetail.gameObject.activeSelf)ZatodHeroUi.RefreshCurrencies(heroDetail.CurrencyRow,connection.Snapshot.Account,connection.ServerNow);}
             if(replay==null || !playing || replay.Finished){if(stage!=null && stage.gameObject.activeSelf)DrawBattle();return;}
             replayElapsed+=Time.unscaledDeltaTime*speed;int ticks=(int)(replayElapsed/ZatodBattleSimulation.StepSeconds);
             if(ticks>0){replayElapsed-=ticks*(float)ZatodBattleSimulation.StepSeconds;AdvanceReplay(Math.Min(record.EndTick,replay.CurrentTick+ticks));}

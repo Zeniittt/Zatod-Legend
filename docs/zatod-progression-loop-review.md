@@ -1,6 +1,10 @@
 # Kiểm tra vòng lặp tiến triển Phó bản
 
+**Cập nhật22/11/2026:** D30 đã triển khai EXP tài khoản/Hero, vàng/thể lực, đồ EXP ở mức định nghĩa và craft thu phí thật; xem [zatod-economy-implementation.md](zatod-economy-implementation.md). Những mục EXP/economy còn thiếu dưới đây là tình trạng trước D30. Phạm vi pool gear/Promote UI còn để sau vẫn giữ nguyên.
+
 Ngày21/11/2026. Chỉ đọc code/config và tổng hợp, chưa có quyết định phase mới hoặc thay runtime. Đối chiếu D08/D11/D12/D23/D26/D28.
+
+Khảo sát bổ sung cùng ngày về EXP tài khoản/Hero, vàng, thể lực và các placeholder liên quan: [crystal-progression-economy-review.md](crystal-progression-economy-review.md). Chưa triển khai economy hoặc thay chính sách phí craft.
 
 Vòng Phó bản -> thưởng item -> mặc/ghép -> tăng stats -> trận sau đã có nền chạy thực tế. Chưa có đường chơi tự nhiên đầy đủ từ account mới đến Blue mà không dùng dev.
 

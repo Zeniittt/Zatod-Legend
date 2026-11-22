@@ -27,10 +27,7 @@ def main():
             name=translations[src['Name']]['nil']['en'];ident=slug(name);assert ident not in existing,ident;aliases[key]=ident
         ident=aliases[key]
         if ident not in existing:
-            item={'ItemId':ident,'Name':translations[src['Name']]['nil']['en'],'IconResource':src['Icon'],'LevelRequirement':src['Level Requirement'],'Quality':src['Quality'],'Stats':[],'PreciseStats':env['amounts'](env['direct'](src)),'HeroStats':[]}
-            for h in docs['Heroes']['Heroes']:
-                extra=float(src.get(units[h['SourceUnitId']]['Main Attrib']) or 0)
-                if extra:item['HeroStats'].append({'HeroId':h['Id'],'Stats':[{'StatId':'damage','Value':extra}]})
+            item={'ItemId':ident,'Name':translations[src['Name']]['nil']['en'],'IconResource':src['Icon'],'LevelRequirement':src['Level Requirement'],'Quality':src['Quality'],'Stats':[],'PreciseStats':env['amounts'](env['direct'](src))}
             existing[ident]=item;items.append(item);added.append(ident)
         existing[ident]['ItemKind']=1 if src['Category']=='碎片' else (2 if '卷轴' in src['Name'] else 0)
     rows=[]

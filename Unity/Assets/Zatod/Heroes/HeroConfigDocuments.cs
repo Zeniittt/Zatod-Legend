@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Zatod.Heroes
 {
-    public enum HeroConfigSection { Stats, Items, Skills, Heroes, Monsters, Buffs, CraftRecipes }
+    public enum HeroConfigSection { Stats, Items, Skills, Heroes, Monsters, Buffs, CraftRecipes, StarRules }
 
     [Serializable]
     public abstract class HeroConfigTable
@@ -18,12 +18,13 @@ namespace Zatod.Heroes
     [Serializable] public sealed class HeroesConfigData : HeroConfigTable { public List<HeroDefinition> Heroes; }
     [Serializable] public sealed class MonstersConfigData : HeroConfigTable { public List<MonsterDefinition> Monsters; }
     [Serializable] public sealed class CraftRecipesConfigData : HeroConfigTable { public List<CraftRecipeDefinition> CraftRecipes; }
+    [Serializable] public sealed class StarRulesConfigData : HeroConfigTable { public int MaxHeroStars=5; public List<StarRuleDefinition> StarRules; }
     [Serializable] public sealed class BuffsConfigData : HeroConfigTable { public List<ZatodBuffDefinition> Buffs; }
 
     [Serializable]
     public sealed class HeroConfigDocuments
     {
-        public string Stats, Items, Skills, Heroes, Monsters, Buffs, CraftRecipes;
+        public string Stats, Items, Skills, Heroes, Monsters, Buffs, CraftRecipes, StarRules;
 
         public string Get(HeroConfigSection section)
         {
@@ -36,6 +37,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Monsters: return Monsters;
                 case HeroConfigSection.Buffs: return Buffs;
                 case HeroConfigSection.CraftRecipes: return CraftRecipes;
+                case HeroConfigSection.StarRules: return StarRules;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }
@@ -51,6 +53,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Monsters: Monsters = json; break;
                 case HeroConfigSection.Buffs: Buffs = json; break;
                 case HeroConfigSection.CraftRecipes: CraftRecipes = json; break;
+                case HeroConfigSection.StarRules: StarRules = json; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }

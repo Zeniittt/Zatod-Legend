@@ -17,7 +17,7 @@ namespace Zatod.Editor
         {
             var window=Resources.FindObjectsOfTypeAll<GameEditorWindow>().FirstOrDefault(w=>!w.monsterWindow);
             if(window==null)window=CreateInstance<GameEditorWindow>();
-            window.mapsTab=true;window.campaignTab=false;window.titleContent=new GUIContent("Zatod GameEditor");window.Show();window.CreateGUI();window.Focus();
+            window.progressionTab=false;window.mapsTab=true;window.campaignTab=false;window.titleContent=new GUIContent("Zatod GameEditor");window.Show();window.CreateGUI();window.Focus();
         }
         void DrawMaps(VisualElement authoring)
         {
@@ -48,6 +48,6 @@ namespace Zatod.Editor
         }
         bool HeroDirty=>draftJson!=sourceJson;
         bool CampaignDirty=>JsonUtility.ToJson(campaignDraft)!=JsonUtility.ToJson(JsonUtility.FromJson<Zatod.Heroes.CampaignDefinition>(campaignSourceJson));
-        void UpdateDirtyState()=>hasUnsavedChanges=HeroDirty || CampaignDirty || (worldDocuments?.Changed??false);
+        void UpdateDirtyState()=>hasUnsavedChanges=ProgressionDirty || HeroDirty || CampaignDirty || (worldDocuments?.Changed??false);
     }
 }

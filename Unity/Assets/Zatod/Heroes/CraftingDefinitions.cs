@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Zatod.Heroes
 {
-    public enum ItemKind { Equipment, Fragment, Material }
+    public enum ItemKind { Equipment, Fragment, Material, Consumable, Soulstone }
     [Serializable] public sealed class CraftIngredient { public string ItemId; public int Amount=1; }
     [Serializable] public sealed class CraftRecipeDefinition
     {
@@ -13,7 +13,8 @@ namespace Zatod.Heroes
     [Serializable] public sealed class ItemOperationReceipt
     {
         public string OperationId,Command,HeroId,SlotId,ItemInstanceId,RecipeId;
-        public long Revision,GoldCharged;
+        public long Revision,GoldCharged,GoldReceived;
+        public string RequestKey; public ExperienceChange Experience;
         public List<ItemData> Consumed=new List<ItemData>(),Created=new List<ItemData>();
     }
     // A recipe names types. Executing it consumes distinct, owned instances.
@@ -54,10 +55,11 @@ namespace Zatod.Heroes
         public static Dictionary<string,int> Requirements(CraftRecipeDefinition recipe)
         {var result=new Dictionary<string,int>(StringComparer.Ordinal);foreach(var i in recipe.Ingredients)result[i.ItemId]=checked((result.TryGetValue(i.ItemId,out int n)?n:0)+i.Amount);return result;}
         public bool CanCraft(CharacterData account,string id)
-        {return Requirements(Recipe(id)).All(i=>account.Inventory.Count(x=>x.ItemId==i.Key)>=i.Value);}
+        {return CurrencyBalance.GetGold(account)>=Recipe(id).GoldCost && Requirements(Recipe(id)).All(i=>account.Inventory.Count(x=>x.ItemId==i.Key)>=i.Value);}
         public ItemOperationReceipt Craft(CharacterData account,string id)
         {
             var recipe=Recipe(id);new ItemInventory(account,catalog).Validate();
+            if(CurrencyBalance.GetGold(account)<recipe.GoldCost)throw new ArgumentException("Not enough gold.");
             var consumed=new List<ItemData>();
             foreach(var i in Requirements(recipe))
             {
@@ -65,9 +67,10 @@ namespace Zatod.Heroes
                 HeroCatalog.Require(owned.Length==i.Value,"Not enough ingredients: "+catalog.Item(i.Key).Name);consumed.AddRange(owned);
             }
             var created=Enumerable.Range(0,recipe.OutputAmount).Select(_=>new ItemData{Id=Guid.NewGuid().ToString("D"),ItemId=recipe.OutputItemId}).ToList();
+            CurrencyBalance.AddGold(account,-recipe.GoldCost);
             foreach(var item in consumed)account.Inventory.Remove(item);account.Inventory.AddRange(created);
-            // D28: prototype bypasses gold only; keep the original GoldCost in config.
-            return new ItemOperationReceipt{RecipeId=id,GoldCharged=0,Consumed=consumed,Created=created};
+            // D30: cost and material consumption share the session transaction.
+            return new ItemOperationReceipt{RecipeId=id,GoldCharged=recipe.GoldCost,Consumed=consumed,Created=created};
         }
     }
 }

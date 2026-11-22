@@ -75,12 +75,8 @@ for hid in hero_ids:
             item_id=r['Equip'+str(n)+' ID']
             source=row('equip',table('equip')[1][item_id])
             if item_id not in items:
-                items[item_id]={'ItemId':iid(item_id),'Name':source['Name'],'IconResource':source['Icon'],'LevelRequirement':source['Level Requirement'],'Quality':source['Quality'],'Stats':[],'PreciseStats':amounts(direct(source)),'HeroStats':[]}
-for item_id, item in items.items():
-    source=row('equip',table('equip')[1][item_id])
-    for hid in hero_ids:
-        extra=float(source.get(units[hid]['Main Attrib']) or 0)
-        if extra:item['HeroStats'].append({'HeroId':uid(hid),'Stats':amounts({'damage':extra})})
+                items[item_id]={'ItemId':iid(item_id),'Name':source['Name'],'IconResource':source['Icon'],'LevelRequirement':source['Level Requirement'],'Quality':source['Quality'],'Stats':[],'PreciseStats':amounts(direct(source))}
+# D31: items only carry common direct stats; no per-Hero bonus.
 
 def phases_for(unit, info):
     puppet=row('Puppet',table('Puppet')[1][unit['Puppet']]);resource=puppet['Resource']+'.cha';phases=[]

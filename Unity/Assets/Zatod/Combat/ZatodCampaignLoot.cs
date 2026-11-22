@@ -9,6 +9,7 @@ namespace Zatod.Combat
     [Serializable] public sealed class ZatodCampaignReward
     {
         public string BattleId, StageId;
+        public EconomyBattleReceipt Economy;
         public List<ItemData> Items = new List<ItemData>();
     }
 

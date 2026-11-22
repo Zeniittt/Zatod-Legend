@@ -28,6 +28,7 @@ namespace Zatod.Heroes
             foreach (var stat in data.Stats) Require(stat.Minimum >= 0, "Negative minimum: " + stat.Id);
             foreach (var item in data.Items) { Require(Enum.IsDefined(typeof(ItemKind),item.ItemKind),"Invalid ItemKind: "+item.DefinitionId); ValidateStats(item.Stats, "Item " + item.Id); }
             _ = new CraftingCatalog(this);
+            InventoryCatalog.Validate(this);
             foreach (var skill in data.Skills)
             {
                 if (skill.Crystal != null && skill.Crystal.SourceId > 0)
@@ -293,7 +294,7 @@ namespace Zatod.Heroes
                 foreach(var phase in info.Phases)
                     Require(!double.IsNaN(phase.Duration) && !double.IsInfinity(phase.Duration) && phase.AttackTimes.SequenceEqual(phase.AttackTimes.OrderBy(t=>t)),"Invalid Crystal event order: "+skill.Id);
             }
-            foreach(var item in data.Items){ValidatePrecise(item.PreciseStats,"Item "+item.DefinitionId);foreach(var value in item.HeroStats){Hero(value.HeroId);ValidatePrecise(value.Stats,"Item Hero "+value.HeroId);}}
+            foreach(var item in data.Items){ValidatePrecise(item.PreciseStats,"Item "+item.DefinitionId);}
             foreach(var unit in data.Heroes.Cast<CombatantDefinition>().Concat(data.Monsters))
             {
                 ValidatePrecise(unit.PreciseBaseStats,"Unit "+unit.Id);

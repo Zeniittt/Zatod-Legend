@@ -524,6 +524,9 @@ Cập nhật 21/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 
 - Rà vòng lặp21/11 sau D28: phạm vi đã sửa của REVIEW-002 là equip/craft. Nhánh Promote vẫn gọi thay đổi rank/AbsorbedItems rồi mới SendAccount/SaveOwned; chưa có rollback/retry receipt cho Promote. Mới đọc cấu trúc, chưa giả lập lỗi ghi hoặc quan sát mất dữ liệu thực tế; ghi để xử lý cùng phase UI tiến bậc, không coi toàn bộ thao tác account đã được transaction hóa.
 
+- Rà phạm vi economy D30 ngày21/11: transaction craft hiện snapshot Inventory/EquippedItems/Revision, chưa snapshot Currencies vì runtime vẫn bỏ phí. Khi thêm GoldCost thật cần đưa số dư vào rollback và receipt, kiểm tra đủ vàng trước tiêu hao, retry không thu lại. Đây là yêu cầu mở rộng khi triển khai, chưa phải lỗi mất vàng đã quan sát; chưa đổi C# hay thử lỗi lưu trong lượt brainstorm.
+
+
 ## BUG-049 — Popup craft dùng font bootstrap thiếu glyph tên ải
 
 - Ngày21/11/2026, phát hiện khi kiểm tra Get Way. Popup mới được author bằng FormationFont cũ từ bootstrap, không có fallback; tên ải chương2 xuất hiện warning10 glyph thiếu. Không phải thiếu text/asset item hoặc recipe.
@@ -535,6 +538,8 @@ Cập nhật 21/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 - Nguyên nhân xác nhận: helper authoring chạy trước lượt reload hoàn tất nên Create dùng assembly cũ rồi lưu prefab; sửa source không tự dựng lại hierarchy trong prefab. Khắc phục: Stop Play, Refresh ngoài Play, đợi reload, author lại; helper kiểm tra child Arrow của layout mới trước SaveAsPrefabAsset. Không sửa scene của người dùng hoặc reset Library.
 - Một lượt Play bắt đầu chồng reload có catalog nonserialized=null dù frame vẫn tiến. Đã xác nhận bằng probe, dừng Play/chờ stopped và compiling=false rồi mở phiên mới; không inject catalog giả vào runtime để né lỗi. Giữ ui-reload-before-restart.json. Đây là vấn đề trình tự authoring/test, chưa có bằng chứng phát sinh trong Player build.
 
+
+- Bổ sung22/11 phase D30: UI fixture ban đầu gặp NullReference khi mở HeroDetail. Probe runtime xác nhận Host.catalog=false dù frame tiến; sau Stop Play, xác nhận compiling=false rồi Play mới, UI77 checks PASS. Không inject catalog vào host để né lỗi; không sửa scene/Owned. Evidence Artifacts/ZatodEconomyChecks/ui/result.json; dùng lại workflow BUG-050.
 
 ## D28 — Nghiệm thu config craft và UI mặc/ghép
 
@@ -572,3 +577,75 @@ Cập nhật 21/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 - Bằng chứng: docs/zatod-item-sources-implementation.md; Artifacts/ZatodItemSourcesChecks/{import,editor,ui,archive-regression,build,data-audit,deploy,handoff}.json; craft-regression/result.json và world/result.json. Restore Unity/Temp/restore/item-sources-20261121/before.zip. Không thay loot/economy/combat/Owned hoặc các TH object ngoài39 stage marker.
 
 - Công cụ cuối phase: lệnh background ban đầu dùng nhầm group editor tạo console1107; đã tra metadata và chạy đúng editor.playmode set_run_in_background=false (overridden=false/projectValue=true). Helper script top-level cũ không hợp CLI hiện tại được bọc class/entry trước chạy. Console cuối không có lỗi runtime mới ngoài lỗi build disk đã giải thích và lỗi lệnh đã sửa; giữ console-final.json, không clear lịch sử.
+
+## D30 — Tiến trình, vàng và thể lực đang triển khai
+
+- Ngày22/11/2026. Đã mở rộng rollback craft từ kho/Revision sang cả số dư vàng; core kiểm tra persist fail và idempotent receipt thu GoldCost thật. Thưởng trận rollback cả item/level/EXP/vàng/stamina và ledger khi lưu lỗi; start cost cũng rollback. Đây là triển khai mở rộng REVIEW-002, không tuyên bố Promote đã được transaction hóa.
+- Core4.982, Editor37, UI77 và14 archive PASS; build/network/deploy còn đang chạy. Chi tiết docs/zatod-economy-implementation.md, Artifacts/ZatodEconomyChecks.
+- Unity CLI cài trong Program Files không tự cập nhật được do quyền file; dùng bản sao trong Artifacts/Tools/UnityCLI và cập nhật thành1.0.1, không thay bộ CLI global.
+
+## BUG-051 — Build Player thiếu dung lượng ổ đĩa khi nhân bản resources
+
+- Ngày22/11/2026, phaseD30. Trạng thái đã kiểm tra workaround thành công. Build đầu314s/1 lỗi: copy resources.assets.resS báo There is not enough space on the disk. Bundle chuẩn cũ có resource11.314.723.168 byte; build còn tạo output Bee/cache trênE, sau fail E chỉ còn khoảng9,4GB. Không kết luận lỗi compile/gameplay.
+- Workaround đang thực hiện: build kiểm tra sang thư mục TEMP/ZatodEconomyChecks20261122/Player trênC còn hơn120GB; giữ source/Owned/bản chuẩnE, không xóa tài nguyên hoặc Library. HelperBuildZatodEconomy.cs; evidence Artifacts/ZatodEconomyChecks/build-first-failed.json. Chỉ đánh dấu đã kiểm tra sau build mới.
+
+## REVIEW-004 — MonsterChecks cũ tham chiếu định nghĩa đã loại khỏi config
+
+- Ngày22/11/2026 khi mở rộng regressionD30. Tests/MonsterChecks/Program.cs:26 đòi fighter_goblin và bộHero prototype cũ; active config hiện không còn ID này theoD16. Lượt chạy fail Unknown monster ID: fighter_goblin; dữ liệu Monsters/Skills/Heroes không đổi ngoài ConfigVersion qua auditHEAD nên không quy lỗi vào economy. Chưa sửa bài test lịch sử trong phase này; kiểm tra active combat bằng CrystalChecks4.982 và14 replay cũ. HeroChecks112 PASS. Không ghi MonsterChecks PASS.
+
+## D30 — Nghiệm thu cuối22/11/2026
+
+- EXP tài khoản/Hero, vàng, thể lực và thu phí craft thật đã triển khai; core4.982/Hero112/Editor37/UI81/network21/14 archive PASS. Windows build cuối0errors/2warnings có sẵn,218 file chuẩn khớpSHA256;10 hash Owned/scene giữ nguyên. Artifacts/ZatodEconomyChecks/handoff.json, deploy-audit.json, docs/zatod-economy-implementation.md.
+- BUG-051: chuyển build sangTEMP trênC đã thành công143,92s; giữ backup build chuẩn cũ trênC và cập nhật Builds/ZatodPrototype. Không xóaLibrary/rawassets để lấy chỗ.
+- Fixture mạng phải dùng launchGUID mới khi đổi development profile; Stop/StartPlay trước mỗi lượt profile mới. Fixture GreenBoots phải giữ Hero đủ level mặc, tách khỏi đội kiểm traEXP thấp cấp. Các lỗi fixture đầu không được quy thành lỗi gameplay.
+- Dừng server test: chuẩn hóa cả process.Path và buildreport.Path bằng Path.GetFullPath trước so sánh, vì một bên dùng\ và một bên dùng/. Kiểm tra PID từ listener và executable đúng thư mục test rồi mới dừng; không dừng process lạ. Server test cuối đã dừng.
+- Mainserver giữ trạng thái dừng như ban đầu, Editor stopped/scene sạch/auto_tick=false, tab Progression mở. Console hiện hành không có lỗi compile/runtime; warning ReplaceHandler khi reconnect Mirror giữ theo lịch sử, không clearConsole. MonsterChecks cũ còn REVIEW-004 như đã ghi.
+
+## REVIEW-005 — Inventory source có đường asset literal cũ và phụ kiện chưa tìm thấy
+
+- Ngày22/11/2026. Trạng thái kiểm tra tĩnh, chưa triển khai/chưa quan sát lỗi runtime. Mainpackage27/27 ảnh có sẵn, cáclayoutphụ chính có đủ. package_item.lua tham chiếu3 đường không có đúngliteral trong recovered: HVGA/equip_frame_white.png cóframe1080Pnative tươngứng; SeasonArena/treasure/unlock_icon.png và package/bg_timer.png chưa tìm thấy quafileinventoryrecovered. Hai iconphụ dùng khóa/hếthạn ngoài phạmvicơbản đang bàn.
+- Không kết luận thiếu file gốc hay sửa bằngshapegiả: cần xét resolver/remap nếu sau này bật2feature đó. Khảo sát hiện không thay runtime. Bằng chứng Artifacts/CrystalInventoryReview_20261122/audit.json, docs/crystal-inventory-review.md.
+- Bổ sung22/11/2026 khi dựng preview EXP ngoài Unity: lần đầu script tra nhầm herolist_bg.png, trong raw thực là herolist_bg.jpg; Unit.Portrait dùng tên dLina.jpg trong khi ảnh có thật là UI/DOTA-HERO/Lina.jpg. Chỉ sửa đường lookup của script preview, không rename/copy giả vào nguồn. Script chạy thành công,21 ảnh đọc được và preview đã kiểm tra trực quan; không phải lỗi asset runtime của game. File Artifacts/CrystalInventoryReview_20261122/preview_exp_source.py và hero-exp-preview-audit.json. Nếu tái diễn kiểm file inventory/remap thay vì suy thiếu art.
+
+## BUG-052 — Công cụ kiểm tra D31: license/TCP sandbox và API TMP
+
+- Ngày22/11/2026, đang kiểm tra phase Inventory. Unity tự khởi động lần đầu báo license entitlement/timeout; không kết luận license tài khoản bị mất. Người dùng mở project qua Hub, CLI trong sandbox vẫn không nhận Pipeline, CLI được cấp quyền kết nối local trả ready đúng6000.6.2f1. Dùng Editor đã mở, không đổi Unity version/license/project settings. Chỉ dừng process23692 do agent tự mở; không dừng Editor người dùng.
+- Compile đầu báo CS0619 enableWordWrapping trong ZatodInventoryView: TMP hiện tại yêu cầu textWrappingMode. Đổi sang TextWrappingModes.Normal; chờ compile/visual checks trước nghiệm thu.
+- dotnet restore không đọc được NuGet.Config profile trong sandbox. Dùng --no-restore với assets đã restore có sẵn, không sửa NuGet.Config hệ thống. Core5053 assertions PASS. Lượt oracle đầu dùng alias crystal_1 để tra fixture bonus mới nên mismatch; sửa lookup theo HeroDefinitionId đã resolve, không sửa số nguồn để che regression.
+- Bằng chứng Artifacts/ZatodInventoryChecks/editor*.log, before.zip, core và Editor reports khi hoàn tất. Script compile Roslyn ngoài Editor thử gộp asmdef vào Assembly-CSharp gây type conflict; không coi đó là lỗi Unity runtime, nghiệm thu bằng compile đúng Editor/asmdef.
+
+## BUG-053 — Inventory thiếu khung quality tím/cam khi tái sử dụng popup craft
+
+- Ngày22/11/2026, phát hiện qua UI checks D31: EXP Pizza/icon quality có sprite null. ZatodEquipmentView.ItemIcon chỉ tra Crafting/common/frame; bộ Crafting cũ chỉ import equip trắng/xanh lá/xanh dương, trong khi đồ EXP có bậc4/5 và Soulstone cũng cần khung khác.
+- Bổ sung đủ khung có thật trong raw vào Inventory/Native và fallback lookup từ EquipmentView.Native sang InventoryView.Native; không tạo shape giả hoặc đổi quality config. Đang compile/import và chạy lại kiểm tra sprite/responsive. File Scripts/Import-ZatodInventory.py, ZatodEquipmentView.cs; evidence Artifacts/ZatodInventoryChecks/ui/result.json.
+- Lượt safe-area check ban đầu dùng Rect.Contains ở biên max loại trừ góc đúng trên biên; mở tolerance1 pixel cho phép sai số float, vẫn kiểm mọi control nằm trong safe area. Đây là chỉnh fixture, không phải dịch UI để che clipping.
+
+## BUG-054 — D31: cache script Editor và review popup Quick Craft
+
+- Ngày22/11/2026. Editor eval không thấy field MaxHeroStars dù source đã có: DLL Heroes vẫn timestamp17:13 trong khi source17:25. RequestScriptCompilation đơn lẻ chưa nhập file đổi trên đĩa. Gọi AssetDatabase.Refresh(ForceUpdate), chờ compile xong; sau đó Editor19 checks/Owned round-trip và16 archive PASS. Không sửa dữ liệu để né cache.
+- Review ảnh Quick Craft sau stack: checkbox ký tự Unicode không có glyph (ô vuông), chữ trắng trên nền sáng thiếu tương phản; lớp dim gắn theo board chưa phủ vùng ngoài safe area. Đổi sang lưới icon mảnh và sprite package/selected.png native, text số lượng trên bar gốc; dim lấy bounds Canvas toàn màn. Đang chạy lại visual checks/build, không coi UI cũ là bản cuối.
+- Fixture mạng lần đầu kết nối trước server lạnh READY nên timeout/Disconnected,0 checks; Stop/Start Play launch mới sau READY đã qua15 checks. Không kết luận gameplay disconnect. Khi tái diễn chờ log READY trước Connect, giữ test data/port17996 riêng.
+- Trong cleanup importer bỏ loop HeroStats để lại elif trống ở Import-ZatodChapterTwo.py; py_compile phát hiện và đã bỏ nhánh rỗng. Cả5 importer liên quan đã qua syntax check; không chạy importer cũ vào Owned/config balance của người dùng.
+
+## BUG-055 — Inventory/Soulstones chưa đúng bố cục Crystal tham chiếu
+
+- Ngày22/11/2026, người dùng đối chiếu preview và yêu cầu sửa: grid Soulstones đang dùng icon item đá và nhãn Recruit/Star Up, thiếu card Hero, level/sao/rank, progress tím và nhóm Heroes Not Owned; cả view còn dùng font/tỷ lệ khác ảnh.
+- Nguyên nhân xác nhận: controller tái sử dụng ZatodEquipmentView.ItemIcon cho cả grid Soulstones, dùng projection kho thay vì Hero. Source Package:createStoneIcon thực tế dùng readhero.createIcon, getStoneAmount/getStoneNeed và unHeroList; font English là DFPYuanW7-GB/FZCQJW trong multilanguage.lua, không phải Roboto đang dùng cho draft.
+- Đang chuyển grid sang projection Hero sở hữu/chưa sở hữu (kể cả0 đá), giữ raw Inventory/GUID nguyên vẹn; tái dùng FormationCard/native rank/stars, bar tím, dấu đủ điều kiện và effect background/title lấy từ FCA gốc. Thay font Inventory riêng, không thay font chung của world; chỉnh tỷ lệ panel,8 cột, selected tab, Source rows và giá ở footer. Chưa ghi hoàn tất cho đến visual/responsive/build mới.
+- Effect FCA có internal name prefix effect/, nên helper recovery dành cho Hero từ chối so sánh tên. Đọc trực tiếp ChaReader/atlas/render_frame của công cụ recovery, giữ SHA256 nguồn trong Artifacts/ZatodInventoryChecks/source-effects/audit.json; không rename hoặc sửa FCA nguồn.
+
+- BUG-055 bổ sung kiểm tra22/11: preview đầu còn tên món bị mất nét khi dùng font bold và filter Forged bị cắt. Chuyển label thường sang font normal gốc, sửa khung tên (bg_number thay vì kéo giãn seg_normal là đường trang trí), hạ min-size filter. TMP_SDF-Mobile có shader_feature OUTLINE_ON; bật keyword trên material font riêng để viền chữ thực sự được render, bỏ outline ở body tối màu. Đồng bộ description25 đá với tên roster active (Lina thay alias locale Vulcano); không sửa stats/drop/Owned. UI cuối1119 checks PASS/4tỷ lệ, gồm card0 đá không GUID giả, nhóm Hero và mở confirmation. Ảnh reference-final-* đã review; đang hoàn tất build/deploy.
+
+- BUG-055 bổ sung theo yêu cầu mới: dùng chung HasUpgradeStones và glow/title native cho List of Heroes, kiểm đủ ngưỡng sao kế/cap. Fixture đầu tìm Transform ngay sau Destroy nên thấy card cũ đã inactive (Unity hủy cuối frame), chưa chứng minh lỗi hiển thị; chờ frame trước kiểm card mới. Đang chạy lại kiểm chứng thay đổi đá và cap. Build trước bổ sung roster đã Succeeded215,82s/0errors/2warnings; eval chờ120s timeout nhưng build tiếp tục, không chạy build trùng.
+
+## D31 — Nghiệm thu Inventory, stack và layout tham chiếu cuối22/11/2026
+
+- BUG-052/053/054/055 đã qua kiểm chứng trong phạm vi phase: Unity compile không lỗi; core5068/Hero112/Editor19/UI1123/network15/replay16 PASS. UI có đủ native quality frames, glyph/filter đọc được, dim toànCanvas, card Hero/nhóm0 đá/progress tím và Star-Up ở Inventory lẫn List of Heroes. Roster tắt badge khi tiêu đá/cap và hiện lại khi đủ đá; dùng chung HasUpgradeStones, không sửa số dư hoặc tự cấp vật phẩm.
+- Build cuối Succeeded0errors/1warning26,97s;218 file bản chuẩn khớpSHA256. Đã dừng server test17996 đúng PID3680/path; Editor stopped/scenes sạch/auto_tick=false, GameEditor StarRules mở, Console groundTruth0errors.9 Owned/5scene giữhash, không tạo thêm Owned trong hai kho thật. Chưa benchmark mobile vật lý.
+- Nguồn và bằng chứng: docs/zatod-inventory-implementation.md; Artifacts/ZatodInventoryChecks/handoff.json, ui/result.json, ui/reference-final-*, network/result.json, build.json, deploy-audit.json, data-audit.json, owned-check.json, before.zip/owned-before.zip. Khi tái diễn stale Editor, làm Refresh(ForceUpdate)/chờcompile/Play mới; server lạnh phải READY trước Connect; Destroy kết thúc frame thì test UI mới kiểm hierarchy; build eval timeout không có nghĩa build dừng, đọc build.json/log trước khi chạy lại.
+
+## REVIEW-006 — Mức sẵn sàng LAN Windows/Android (chỉ khảo sát)
+
+- Ngày22/11/2026. Theo yêu cầu kiểm tra, không sửa runtime/config/firewall hoặc build/cài module. Windows đã kiểm2 cặp standalone qua IP Wi-Fi192.168.0.5:17997, world movement/portals/isolation/private battle và Campaign/Arena/PvP PASS; hai phía PvP cùng digest và8inputs. Listener mọi interface, firewall cho executable chuẩn đã có rule AllowTCP Private/Public. Chưa kiểm2 thiết bị vật lý/router; không ghi đã nghiệm thu LAN thực địa.
+- Android hiện chưa có APK/AAB và Editor6000.6.2f1 thiếu AndroidPlayer module. Đây là bước chuẩn bị nền tảng chưa thực hiện, chưa kết luận lỗi gameplay Android. WASD chỉ Editor theo chốtD24; Windows Player dùng chuột kéo joystick. Arena vẫn đấu đội mẫu, PvP mới là hai người online. Chưa sửa những hành vi này.
+- Evidence/report: docs/zatod-lan-readiness-review.md; Artifacts/ZatodLanChecks/20261122-192258/result.json và client logs. Test PID23104/client đã dừng; mainserver7788/PID33916 có sẵn được giữ chạy. Test dữ liệu riêng, không reset hoặc grant vào kho thật. Khi test máy khác nhập IP LAN server thay127.0.0.1, dùng cùng bản build; cần nghiệm thu riêng Windows–Android sau khi có APK.

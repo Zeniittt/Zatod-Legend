@@ -20,6 +20,8 @@ namespace Zatod.Networking
         public bool Connected=>!IsServer && NetworkClient.isConnected;
         public string Status {get;private set;}="Connect to a Zatod server.";
         public ZatodAccountSnapshot Snapshot {get;private set;}
+        double accountReceivedAt;
+        public long ServerNow=>(Snapshot?.ServerTime??0)+(long)Math.Max(0,Time.realtimeSinceStartupAsDouble-accountReceivedAt);
         public ZatodBattleSimulation Battle {get;private set;}
         public ZatodReplay LastReplay {get;private set;}
         public IReadOnlyList<string> PendingCampaignLoot {get;private set;}=Array.Empty<string>();
@@ -33,6 +35,7 @@ namespace Zatod.Networking
         Incoming download;
         HeroCatalog catalog;
         CampaignCatalog campaign;
+        ProgressionCatalog progression;double nextEconomySync;
         readonly Dictionary<int,ZatodPlayerSession> sessions=new Dictionary<int,ZatodPlayerSession>();
         readonly Dictionary<string,ZatodPlayerSession> launches=new Dictionary<string,ZatodPlayerSession>(StringComparer.Ordinal);
         readonly Dictionary<string,ZatodReplay> archives=new Dictionary<string,ZatodReplay>(StringComparer.Ordinal);
@@ -111,6 +114,7 @@ namespace Zatod.Networking
         ZatodRequest pendingItemOperation;
         public void Equip(string heroId,string slotId,string guid)=>SendItemOperation(new ZatodRequest{Command="equip",A=heroId,B=slotId,C=guid});
         public void Craft(string recipeId)=>SendItemOperation(new ZatodRequest{Command="craft",A=recipeId});
+        public void InventoryAction(string command,string target,int level,string signature)=>SendItemOperation(new ZatodRequest{Command=command,A=target,B=signature,Number=level});
         void SendItemOperation(ZatodRequest request)
         {
             if(!Connected||ItemOperationBusy)return;request.OperationId=Guid.NewGuid().ToString("D");pendingItemOperation=request;PendingItemOperationId=request.OperationId;ItemOperationBusy=true;Request(request);SetStatus("Updating items...");
@@ -136,7 +140,7 @@ namespace Zatod.Networking
         }
         void Update()
         {
-            if(IsServer){UpdateRooms();UpdateWorldServer();return;}
+            if(IsServer){UpdateRooms();UpdateWorldServer();UpdateEconomyServer();return;}
             if(Battle==null || Battle.Finished || Battle.Mode==ZatodMode.RealtimePvp)return;
             elapsed+=Time.unscaledDeltaTime;
             int budget=16;
@@ -151,7 +155,7 @@ namespace Zatod.Networking
                 var bytes=Assemble(ref download,packet);if(bytes==null)return;
                 switch(packet.kind)
                 {
-                    case "account":Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Campaign progress belongs to this app launch.");break;
+                    case "account":accountReceivedAt=Time.realtimeSinceStartupAsDouble;Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Campaign progress belongs to this app launch.");break;
                     case "start":
                         var start=ReplayArchive.DecodePayload<ZatodStart>(bytes);Battle=new ZatodBattleSimulation(start.Match);Team=start.Team;elapsed=0;submitted=false;intents.Clear();LastReplay=null;
                         PendingCampaignLoot=start.Match.Mode==ZatodMode.Campaign?(start.LootItems??new List<string>()).AsReadOnly():Array.Empty<string>();

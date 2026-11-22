@@ -20,7 +20,7 @@ namespace Zatod.Presentation
         {
             var world=battleScene.Stage;var loot=world.GetComponent<ZatodBattleLootView>();if(loot==null)loot=world.gameObject.AddComponent<ZatodBattleLootView>();
             loot.Draw(simulation,interpolation,world.BattleCamera,hud.ChestValue.rectTransform,replay==null||playing);
-            hud.ChestValue.text=loot.Collected.ToString();hud.GoldValue.text="?";
+            hud.ChestValue.text=loot.Collected.ToString();hud.GoldValue.text=(connection.Snapshot?.LastCampaignReward?.BattleId==simulation.BattleId?connection.Snapshot.LastCampaignReward.Economy?.Gold??0:0).ToString("N0");
             if(resultSimulation!=simulation){if(battleResult.BattleId!=simulation.BattleId)battleResult.Hide();resultSimulation=simulation;battleFinishedAt=-1;}
             bool campaignWin=simulation.Mode==ZatodMode.Campaign && frame.Finished && frame.Winner==0;
             if(!campaignWin)return;

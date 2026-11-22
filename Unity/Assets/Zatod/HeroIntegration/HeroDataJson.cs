@@ -9,7 +9,7 @@ namespace Zatod.Heroes
     {
         public const string ConfigAssetDirectory = "Assets/Zatod/Resources/Data";
         public static readonly HeroConfigSection[] Sections =
-            { HeroConfigSection.Stats, HeroConfigSection.Items, HeroConfigSection.Skills, HeroConfigSection.Heroes, HeroConfigSection.Monsters, HeroConfigSection.Buffs, HeroConfigSection.CraftRecipes };
+            { HeroConfigSection.Stats, HeroConfigSection.Items, HeroConfigSection.Skills, HeroConfigSection.Heroes, HeroConfigSection.Monsters, HeroConfigSection.Buffs, HeroConfigSection.CraftRecipes, HeroConfigSection.StarRules };
 
         public static string AssetPath(HeroConfigSection section) { return ConfigAssetDirectory + "/" + section + ".txt"; }
 
@@ -62,6 +62,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Monsters: table = new MonstersConfigData { Monsters = data.Monsters }; break;
                 case HeroConfigSection.Buffs: table = new BuffsConfigData { Buffs = data.Buffs }; break;
                 case HeroConfigSection.CraftRecipes: table = new CraftRecipesConfigData { CraftRecipes = data.CraftRecipes }; break;
+                case HeroConfigSection.StarRules: table = new StarRulesConfigData { StarRules = data.StarRules, MaxHeroStars=data.MaxHeroStars }; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
             table.SchemaVersion = data.SchemaVersion; table.ConfigVersion = data.ConfigVersion;
@@ -83,6 +84,8 @@ namespace Zatod.Heroes
             bool hasEntries;
             switch (section)
             {
+                case HeroConfigSection.StarRules:
+                    var stars = JsonUtility.FromJson<StarRulesConfigData>(json); table = stars; hasEntries = stars != null && stars.StarRules != null; break;
                 case HeroConfigSection.CraftRecipes:
                     var recipes = JsonUtility.FromJson<CraftRecipesConfigData>(json); table = recipes; hasEntries = recipes != null && recipes.CraftRecipes != null; break;
                 case HeroConfigSection.Stats:
@@ -115,6 +118,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Monsters: data.Monsters = ((MonstersConfigData)table).Monsters; break;
                 case HeroConfigSection.Buffs: data.Buffs = ((BuffsConfigData)table).Buffs; break;
                 case HeroConfigSection.CraftRecipes: data.CraftRecipes = ((CraftRecipesConfigData)table).CraftRecipes; break;
+                case HeroConfigSection.StarRules: data.StarRules = ((StarRulesConfigData)table).StarRules; data.MaxHeroStars=((StarRulesConfigData)table).MaxHeroStars; break;
                 default: throw new ArgumentOutOfRangeException(nameof(section));
             }
         }

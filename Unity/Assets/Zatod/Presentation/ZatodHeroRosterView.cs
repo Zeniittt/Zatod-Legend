@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -29,10 +29,10 @@ namespace Zatod.Presentation
             for(int n=0;n<Filters.Length;n++){int index=n;Filters[n].onClick.AddListener(()=>SetFilter(index==0?(HeroPosition?)null:(HeroPosition)(index-1)));}
         }
         public void Open(HeroCatalog definitions,CharacterData owned,Action onBack,Action<string> onSelect)
-        {catalog=definitions;account=owned;back=onBack;select=onSelect;gameObject.SetActive(true);Refresh(owned);Fit();}
+        {catalog=definitions;account=owned;RefreshCurrencies(CurrencyRow,owned);back=onBack;select=onSelect;gameObject.SetActive(true);Refresh(owned);Fit();}
         public void Refresh(CharacterData owned)
         {
-            account=owned;float scroll=RosterScroll.verticalNormalizedPosition;
+            account=owned;RefreshCurrencies(CurrencyRow,owned);float scroll=RosterScroll.verticalNormalizedPosition;
             foreach(var card in cards){card.gameObject.SetActive(false);Destroy(card.gameObject);}cards.Clear();ids.Clear();
             foreach(var hero in account.HeroDesk.Where(h=>!PositionFilter.HasValue || catalog.Hero(h.HeroDefinitionId).Position==PositionFilter))
             {
@@ -42,6 +42,8 @@ namespace Zatod.Presentation
                 portrait.Portrait.sprite=ZatodFormationView.Art("Portraits/"+definition.Id);portrait.Frame.sprite=ZatodFormationView.Art("hero_icon_frame_"+Rank(hero,catalog));portrait.Level.text=hero.Level.ToString();portrait.Selected.gameObject.SetActive(false);
                 portrait.Button.interactable=true;portrait.Button.onClick.AddListener(()=>select?.Invoke(id));
                 for(int n=0;n<5;n++){portrait.Stars[n].gameObject.SetActive(n<hero.Stars);portrait.Stars[n].rectTransform.anchoredPosition=new Vector2((108-Math.Clamp(hero.Stars,1,5)*17)/2+n*17,-86);}
+                if(new InventoryCatalog(catalog).HasUpgradeStones(account,hero))
+                    ZatodInventoryView.DrawSoulstoneReady(portrait,Resources.Load<TMP_FontAsset>("Zatod/UI/Inventory/Fonts/InventoryRegular")??Font,"Star-Up");
                 Picture(r,"NameBackground","bg_name",172,15,365,48);
                 var name=Text(r,"HeroName",definition.Name,Font,27);Place(name.rectTransform,178,16,352,46);name.alignment=TextAlignmentOptions.Center;
                 Picture(r,"Astrolabe","astrolabe_herolist_bg_1",178,74,352,28);

@@ -37,6 +37,10 @@ namespace Zatod.Heroes
         public string CharacterId, Name;
         public long Revision, Exp;
         public int Level = 1;
+        public int Stamina;
+        public long StaminaRecoveryTimestamp;
+        public int EconomyVersion;
+        public List<EconomyBattleReceipt> CampaignRewards = new List<EconomyBattleReceipt>();
         public List<HeroData> HeroDesk = new List<HeroData>();
         public HeroFormationData Formation = new HeroFormationData();
         public List<Currency> Currencies = new List<Currency>();
@@ -50,7 +54,7 @@ namespace Zatod.Heroes
         public List<QuestProgressData> Quests = new List<QuestProgressData>();
     }
 
-    [Serializable] public sealed class Currency { public string Id; public long Amount; }
+    [Serializable] public sealed class Currency { public CurrencyType Type; public long Amount; public string Id; }
     [Serializable]
     public sealed class ItemData
     {

@@ -22,6 +22,8 @@ namespace Zatod.Heroes
         public string Id,Name,Description;
         public int SourceStageId, Difficulty = 1;
         public int VitalityCost;
+        public int VitalityReturn;
+        public long PlayerExpReward, HeroExpReward, GoldReward, FailPlayerExpReward;
         public int MaxDropAmount = 5;
         public string RequiredStageId;
         public double EnergyGainMultiplier = 1, EnergySupplyPercent;
@@ -63,7 +65,7 @@ namespace Zatod.Heroes
                 {
                     if(stage==null || string.IsNullOrWhiteSpace(stage.Id) || stages.ContainsKey(stage.Id) || string.IsNullOrWhiteSpace(stage.Name)
                         || float.IsNaN(stage.MapX) || float.IsNaN(stage.MapY) || stage.MapX<0 || stage.MapX>1 || stage.MapY<0 || stage.MapY>1
-                        || stage.VitalityCost<0 || stage.Monsters==null || ((stage.Waves==null || stage.Waves.Count==0) && (stage.Monsters.Count<1 || stage.Monsters.Count>5)))throw new ArgumentException("Invalid Campaign stage.");
+                        || stage.VitalityCost<0 || stage.VitalityReturn<0 || stage.VitalityReturn>stage.VitalityCost || stage.PlayerExpReward<0 || stage.HeroExpReward<0 || stage.GoldReward<0 || stage.FailPlayerExpReward<0 || stage.Monsters==null || ((stage.Waves==null || stage.Waves.Count==0) && (stage.Monsters.Count<1 || stage.Monsters.Count>5)))throw new ArgumentException("Invalid Campaign stage.");
                     if (stage.Waves!=null && stage.Waves.Count>0) WaveValidation.Validate(stage,heroes);
                     if(stage.MaxDropAmount<0 || stage.MaxDropAmount==int.MaxValue)throw new ArgumentException("Invalid MaxDropAmount: "+stage.Id);
                     if(stage.DropItems==null || stage.DropItems.Count==0)throw new ArgumentException("Stage needs a drop list totaling 100%: "+stage.Id);

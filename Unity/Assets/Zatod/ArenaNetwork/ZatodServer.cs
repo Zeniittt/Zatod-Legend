@@ -14,7 +14,7 @@ namespace Zatod.Networking
         readonly Dictionary<int,List<string>> queuedTeams=new Dictionary<int,List<string>>();
         void StartServer()
         {
-            catalog=HeroDataJson.LoadBundledCatalog();campaign=CampaignDataJson.LoadZatod(catalog);
+            catalog=HeroDataJson.LoadBundledCatalog();campaign=CampaignDataJson.LoadZatod(catalog);progression=ProgressionDataJson.LoadBundled();
             archiveDirectory=Path.GetFullPath(Argument("--data-dir",Path.Combine(Application.persistentDataPath,"ZatodPrototype")));
             Directory.CreateDirectory(archiveDirectory);
             foreach(var path in Directory.GetFiles(archiveDirectory,"*.gz").Where(path=>path.EndsWith(".zatod.gz",StringComparison.Ordinal) || path.EndsWith(".crystal.gz",StringComparison.Ordinal)))
@@ -69,12 +69,13 @@ namespace Zatod.Networking
                     string accountPath=OwnedPath(request.B);
                     if(File.Exists(accountPath) && !File.Exists(accountPath+".before-zatod-ids") && File.ReadAllText(accountPath).Contains("crystal_"))File.Copy(accountPath,accountPath+".before-zatod-ids");
                     var owned=File.Exists(accountPath)?HeroDataJson.ReadCharacter(File.ReadAllText(accountPath),catalog):campaign.CreateDemoCharacter(catalog);
-                    owned.CharacterId=request.B;found=new ZatodPlayerSession(catalog,campaign,request.A,owned);launches.Add(request.A,found);SaveOwned(found);
+                    owned.CharacterId=request.B;found=new ZatodPlayerSession(catalog,campaign,request.A,owned,progression:progression);launches.Add(request.A,found);SaveOwned(found);
                 }
                 if(sessions.Values.Contains(found))throw new ArgumentException("This launch is connected already.");
-                sessions.Add(id,found);JoinWorld(connection,found);SendAccount(connection,found);return;
+                found.RefreshEconomy(()=>SaveOwned(found));sessions.Add(id,found);JoinWorld(connection,found);SendAccount(connection,found);return;
             }
             if(!sessions.TryGetValue(id,out var session))throw new ArgumentException("Initialize the launch first.");
+            session.RefreshEconomy(()=>SaveOwned(session));
             if(request.Command=="world_portal"){UseWorldPortal(connection,request.A);return;}
             if(request.Command=="replay")
             {
@@ -88,7 +89,7 @@ namespace Zatod.Networking
             switch(request.Command)
             {
                 case "campaign":
-                    var match=session.BeginCampaign(request.A,request.Heroes,Seed(),Guid.NewGuid().ToString("N"));Send(connection,"start",new ZatodStart{Match=match,LootItems=session.PendingLoot(match.BattleId)});break;
+                    var match=session.BeginCampaign(request.A,request.Heroes,Seed(),Guid.NewGuid().ToString("N"),()=>SaveOwned(session));SendAccount(connection,session,false);Send(connection,"start",new ZatodStart{Match=match,LootItems=session.PendingLoot(match.BattleId)});break;
                 case "arena":
                     var left=session.Team(request.Heroes);
                     var right=campaign.CreateDemoCharacter(catalog).HeroDesk;
@@ -101,6 +102,8 @@ namespace Zatod.Networking
                 case "item":if(request.Number<1 || request.Number>100)throw new ArgumentException("Dev grant amount must be 1-100.");session.DevItem(request.A,request.Number);SendAccount(connection,session);break;
                 case "equip":session.EquipItem(request.A,request.B,request.C,request.OperationId??Guid.NewGuid().ToString("D"),()=>SaveOwned(session));SendAccount(connection,session,false);break;
                 case "craft":session.Craft(request.A,request.OperationId,()=>SaveOwned(session));SendAccount(connection,session,false);break;
+                case "sell":case "quick_craft":case "use_exp":case "recruit":case "star_up":
+                    session.ExecuteInventory(request.Command,request.A,request.Number,request.B,request.OperationId,()=>SaveOwned(session));SendAccount(connection,session,false);break;
                 case "promote":session.Promote(request.A);SendAccount(connection,session);break;
                 case "level":session.DevLevel(request.A,request.Number);SendAccount(connection,session);break;
                 default:throw new ArgumentException("Unknown Crystal command.");
@@ -111,6 +114,15 @@ namespace Zatod.Networking
             if(!Guid.TryParseExact(id,"D",out _))throw new ArgumentException("Invalid account identity.");
             string folder=Path.Combine(archiveDirectory,"Owned");Directory.CreateDirectory(folder);return Path.Combine(folder,id+".json");
         }
+        void UpdateEconomyServer()
+        {
+            if(NetworkTime.time<nextEconomySync)return;nextEconomySync=NetworkTime.time+1;
+            foreach(var pair in sessions.ToArray())
+            {
+                try{if(pair.Value.RefreshEconomy(()=>SaveOwned(pair.Value)) && NetworkServer.connections.TryGetValue(pair.Key,out var client))SendAccount(client,pair.Value,false);}
+                catch(Exception error){Debug.LogWarning("[ZatodEconomy] Recovery save failed: "+error.Message);}
+            }
+        }
         void SaveOwned(ZatodPlayerSession session)
         {
             string path=OwnedPath(session.Account.CharacterId),temporary=path+".tmp";
@@ -120,7 +132,7 @@ namespace Zatod.Networking
         void SendAccount(NetworkConnectionToClient connection,ZatodPlayerSession session,bool save=true)
         {
             if(save)SaveOwned(session);
-            Send(connection,"account",new ZatodAccountSnapshot{Account=session.Account,LastCampaignReward=session.LastCampaignReward,Cleared=session.Run.Stars.Keys.ToList(),StageStars=session.Run.Stars.OrderBy(s=>s.Key,StringComparer.Ordinal).Select(s=>new ZatodStageStars{StageId=s.Key,Stars=s.Value}).ToList(),Replays=archives.Values.OrderByDescending(x=>x.Initial.BattleId).Take(100).Select(x=>x.Initial.BattleId).ToList()});
+            Send(connection,"account",new ZatodAccountSnapshot{ServerTime=DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Account=session.Account,LastCampaignReward=session.LastCampaignReward,Cleared=session.Run.Stars.Keys.ToList(),StageStars=session.Run.Stars.OrderBy(s=>s.Key,StringComparer.Ordinal).Select(s=>new ZatodStageStars{StageId=s.Key,Stars=s.Value}).ToList(),Replays=archives.Values.OrderByDescending(x=>x.Initial.BattleId).Take(100).Select(x=>x.Initial.BattleId).ToList()});
         }
         void Archive(ZatodReplay replay)
         {

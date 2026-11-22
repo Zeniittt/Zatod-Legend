@@ -30,7 +30,7 @@ namespace Zatod.Presentation
         void RefreshWorldChrome()
         {
             if(world==null)return;bool battling=battleScene?.OccupiesClient??false;bool worldScreen=screen=="campaign" && connection.Snapshot!=null && connection.Connected;
-            bool heroes=heroRoster!=null && heroRoster.gameObject.activeSelf || heroDetail!=null && heroDetail.gameObject.activeSelf;
+            bool heroes=inventoryView!=null && inventoryView.gameObject.activeSelf || heroRoster!=null && heroRoster.gameObject.activeSelf || heroDetail!=null && heroDetail.gameObject.activeSelf;
             root.GetComponent<UnityEngine.UI.Image>().color=worldScreen || heroes || battling?Color.clear:Ink;
             root.parent.Find("Backdrop").GetComponent<UnityEngine.UI.Image>().color=worldScreen || heroes || battling?Color.clear:Ink;
             legacyHeader.gameObject.SetActive(!worldScreen && !heroes && !battling);status.gameObject.SetActive(!worldScreen && !heroes && !battling);

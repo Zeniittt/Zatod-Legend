@@ -7,10 +7,12 @@ namespace Zatod.Heroes
     public sealed class HeroCatalogData
     {
         public int SchemaVersion = 1;
+        public int MaxHeroStars = 5;
         public string ConfigVersion = "heroes-prototype-1";
         public List<StatDefinition> Stats = new List<StatDefinition>();
         public List<ItemDefinition> Items = new List<ItemDefinition>();
         public List<CraftRecipeDefinition> CraftRecipes = new List<CraftRecipeDefinition>();
+        public List<StarRuleDefinition> StarRules = new List<StarRuleDefinition>();
         public List<SkillDefinition> Skills = new List<SkillDefinition>();
         public List<HeroDefinition> Heroes = new List<HeroDefinition>();
         public List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
@@ -39,8 +41,12 @@ namespace Zatod.Heroes
         public string IconResource;
         public int LevelRequirement = 1, Quality;
         public ItemKind ItemKind;
+        public long HeroExpValue;
         public List<StatAmount> PreciseStats = new List<StatAmount>();
-        public List<HeroItemStats> HeroStats = new List<HeroItemStats>();
+        public InventoryTab InventoryTab;
+        public InventoryFilter InventoryFilter;
+        public string Description, Comment;
+        public long SellPrice;
         public List<StatValue> Stats = new List<StatValue>();
     }
 
@@ -68,7 +74,8 @@ namespace Zatod.Heroes
     [Serializable]
     public sealed class HeroDefinition : CombatantDefinition
     {
-        public string StartingRankId;
+        public string StartingRankId, SoulstoneItemId;
+        public int InitialStars=1;
         public List<HeroRankDefinition> Ranks = new List<HeroRankDefinition>();
         public List<HeroSkillSlotDefinition> SkillSlots = new List<HeroSkillSlotDefinition>();
     }

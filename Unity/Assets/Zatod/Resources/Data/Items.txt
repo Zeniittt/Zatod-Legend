@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-prototype-crafting-1",
+  "ConfigVersion": "zatod-inventory-1",
   "Items": [
     {
       "ItemId": "boxing_gloves_of_strength",
@@ -19,63 +19,12 @@
           "Value": 54.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Feel the might of the beast!",
+      "SellPrice": 75
     },
     {
       "ItemId": "ring_of_regen",
@@ -90,8 +39,12 @@
           "Value": 80.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "This ring appears to be poorly crafted, resembling the ring made from a cola can.",
+      "SellPrice": 175
     },
     {
       "ItemId": "simple_staff",
@@ -110,8 +63,12 @@
           "Value": 15.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "I excel at counter-kills!",
+      "SellPrice": 100
     },
     {
       "ItemId": "small_stout_shield",
@@ -130,8 +87,12 @@
           "Value": 1.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "It imbued with the fragrant of wine.",
+      "SellPrice": 125
     },
     {
       "ItemId": "iron_axe",
@@ -146,8 +107,12 @@
           "Value": 6.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Standard Appearance, Standard Damage.",
+      "SellPrice": 112
     },
     {
       "ItemId": "helm_of_warrior",
@@ -166,8 +131,12 @@
           "Value": 90.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "It's extremely sturdy, capable of cracking open walnuts.",
+      "SellPrice": 475
     },
     {
       "ItemId": "bracer_of_strength",
@@ -202,234 +171,12 @@
           "Value": 1.2
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "A good choice for living longer.",
+      "SellPrice": 262
     },
     {
       "ItemId": "circlet_of_nobility",
@@ -464,234 +211,12 @@
           "Value": 0.8
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "I saw the Goblin Merchant categorize it as a circlet for low-tier users.",
+      "SellPrice": 92
     },
     {
       "ItemId": "branches",
@@ -726,234 +251,12 @@
           "Value": 0.4
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 1.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Excellent value for the price, suitable for sensitive skin, and popular among young people.",
+      "SellPrice": 26
     },
     {
       "ItemId": "boots",
@@ -988,234 +291,12 @@
           "Value": 2.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "A must-have for every hero, including the formidable Medusa.",
+      "SellPrice": 225
     },
     {
       "ItemId": "claymore",
@@ -1230,8 +311,12 @@
           "Value": 21.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Slices armor or cake with ease.",
+      "SellPrice": 3500
     },
     {
       "ItemId": "charge_shield",
@@ -1254,8 +339,12 @@
           "Value": 240.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Essential for love, optional for doom.",
+      "SellPrice": 1112
     },
     {
       "ItemId": "claw_of_assassin",
@@ -1270,8 +359,12 @@
           "Value": 9.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Once possessed by a ghostly assassin, the tale concludes abruptly one day when he forgot to remove it while scratching an itch.",
+      "SellPrice": 225
     },
     {
       "ItemId": "scarf_of_regeneration",
@@ -1310,234 +403,12 @@
           "Value": 120.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Do you feel it? Not yet.",
+      "SellPrice": 301
     },
     {
       "ItemId": "green_boots",
@@ -1576,234 +447,12 @@
           "Value": 90.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "It's too green!",
+      "SellPrice": 487
     },
     {
       "ItemId": "aurora",
@@ -1830,63 +479,12 @@
           "Value": 288.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Infinite power, razor-sharp. What could go wrong?",
+      "SellPrice": 3025
     },
     {
       "ItemId": "magic_resis_scarf",
@@ -1905,8 +503,12 @@
           "Value": 180.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Heals headaches with a burning sensation.",
+      "SellPrice": 1062
     },
     {
       "ItemId": "orb_of_perseverance",
@@ -1929,8 +531,12 @@
           "Value": 200.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Unlimited battery – because charging mid-quest is overrated.",
+      "SellPrice": 875
     },
     {
       "ItemId": "life_vessel",
@@ -1957,63 +563,12 @@
           "Value": 70.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "It really likes its new name.",
+      "SellPrice": 437
     },
     {
       "ItemId": "ring_of_sanctum",
@@ -2032,8 +587,12 @@
           "Value": 15.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Do you remember the teammates who have switched the rings to control those minion waves?",
+      "SellPrice": 250
     },
     {
       "ItemId": "pegleg_of_strength",
@@ -2068,234 +627,12 @@
           "Value": 17.4
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Before a potion, try this. It won't switch. Surprise!",
+      "SellPrice": 700
     },
     {
       "ItemId": "stockings_of_agility",
@@ -2318,81 +655,12 @@
           "Value": 1.2
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Do not put them on your head.",
+      "SellPrice": 75
     },
     {
       "ItemId": "mask_of_agility",
@@ -2427,234 +695,12 @@
           "Value": 2.4
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "It really scared me! Why is there a spider inside?",
+      "SellPrice": 242
     },
     {
       "ItemId": "vital_shield",
@@ -2681,81 +727,12 @@
           "Value": 2.4
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Not a bad choice for a poor guy.",
+      "SellPrice": 275
     },
     {
       "ItemId": "noir",
@@ -2778,81 +755,12 @@
           "Value": 12.4
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Swift destruction – blade spins, hands move.",
+      "SellPrice": 3025
     },
     {
       "ItemId": "domination",
@@ -2875,8 +783,12 @@
           "Value": 15.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Become Dr. Doolittle, impress friends.",
+      "SellPrice": 925
     },
     {
       "ItemId": "ring_of_aquila",
@@ -2915,234 +827,12 @@
           "Value": 15.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "A lot of people miss it.",
+      "SellPrice": 492
     },
     {
       "ItemId": "short_staff",
@@ -3161,8 +851,12 @@
           "Value": 5.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "It does not perceive itself as being short.",
+      "SellPrice": 450
     },
     {
       "ItemId": "crossblade",
@@ -3193,135 +887,12 @@
           "Value": 18.4
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 16.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "They are not ordinary blades.",
+      "SellPrice": 6050
     },
     {
       "ItemId": "crazy_face",
@@ -3344,8 +915,12 @@
           "Value": 20.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Let enemies queue for lessons.",
+      "SellPrice": 950
     },
     {
       "ItemId": "boots_of_agility",
@@ -3368,81 +943,12 @@
           "Value": 2.4
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "These boots are super lightweight.",
+      "SellPrice": 225
     },
     {
       "ItemId": "pegleg_of_agility",
@@ -3477,234 +983,12 @@
           "Value": 20.6
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 14.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Not enough mana? Try this. Still won't switch.",
+      "SellPrice": 700
     },
     {
       "ItemId": "cloak_of_intelligence",
@@ -3723,108 +1007,12 @@
           "Value": 0.3
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Boosts Intelligence effectively.",
+      "SellPrice": 75
     },
     {
       "ItemId": "orb_of_mana",
@@ -3839,8 +1027,12 @@
           "Value": 30.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Every mage would covet it.",
+      "SellPrice": 500
     },
     {
       "ItemId": "robe_of_intelligence",
@@ -3859,108 +1051,12 @@
           "Value": 0.6
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Mage's graduation attire imparts a sense of wisdom when worn.",
+      "SellPrice": 225
     },
     {
       "ItemId": "accessory_of_intelligence",
@@ -3995,234 +1091,12 @@
           "Value": 1.2
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Prohibited Items in Testing.",
+      "SellPrice": 235
     },
     {
       "ItemId": "verdant_staff",
@@ -4261,234 +1135,12 @@
           "Value": 2.8
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 7.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Play stupid games and win stupid prizes.",
+      "SellPrice": 4000
     },
     {
       "ItemId": "zen_staff",
@@ -4519,108 +1171,12 @@
           "Value": 20.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "You can't fathom the power of Zen.",
+      "SellPrice": 837
     },
     {
       "ItemId": "mask_of_celebrity",
@@ -4635,8 +1191,12 @@
           "Value": 10.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Planning on getting into acting?",
+      "SellPrice": 162
     },
     {
       "ItemId": "crimson_staff",
@@ -4659,108 +1219,12 @@
           "Value": 1.5
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 15.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Your cute little \"I'm stealing kills\" stick – do your folks know?",
+      "SellPrice": 8985
     },
     {
       "ItemId": "azul_scepter",
@@ -4799,234 +1263,12 @@
           "Value": 4.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Once the wizardry mic drop – now just an antique.",
+      "SellPrice": 8100
     },
     {
       "ItemId": "void_gem",
@@ -5041,8 +1283,12 @@
           "Value": 30.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Glowing with mystical power.",
+      "SellPrice": 437
     },
     {
       "ItemId": "staff_of_intelligence",
@@ -5061,108 +1307,12 @@
           "Value": 1.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "You shall not pass!",
+      "SellPrice": 2500
     },
     {
       "ItemId": "starlight_staff",
@@ -5205,234 +1355,12 @@
           "Value": 15.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 3.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Do you acquire plenty of branches?",
+      "SellPrice": 228
     },
     {
       "ItemId": "ring_of_soul",
@@ -5459,63 +1387,12 @@
           "Value": 15.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Now, let's duel.",
+      "SellPrice": 400
     },
     {
       "ItemId": "bar_of_hawk",
@@ -5542,108 +1419,12 @@
           "Value": 120.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "May the force be with you, always.",
+      "SellPrice": 7175
     },
     {
       "ItemId": "mythic_shoes",
@@ -5682,234 +1463,12 @@
           "Value": 45.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Pre-battle sniff for instant rage.",
+      "SellPrice": 725
     },
     {
       "ItemId": "celestial_drum",
@@ -5944,234 +1503,12 @@
           "Value": 3.6
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Orcs call it the Battle Jam. Party on!",
+      "SellPrice": 887
     },
     {
       "ItemId": "anemoi_s_scepter",
@@ -6198,108 +1535,12 @@
           "Value": 50.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Hey, you! No peeking!",
+      "SellPrice": 6100
     },
     {
       "ItemId": "mekan",
@@ -6346,234 +1587,12 @@
           "Value": 2.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 5.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Never quit healing!",
+      "SellPrice": 1153
     },
     {
       "ItemId": "rousing_rose",
@@ -6600,8 +1619,12 @@
           "Value": 100.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Three orbs for a single rose – dizzying logic.",
+      "SellPrice": 8250
     },
     {
       "ItemId": "courage_medal",
@@ -6624,8 +1647,12 @@
           "Value": 20.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "The anthem of mankind resonates as the hymn of courage.",
+      "SellPrice": 537
     },
     {
       "ItemId": "orb_of_vigor",
@@ -6644,8 +1671,12 @@
           "Value": 200.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Brimming with vigor!",
+      "SellPrice": 600
     },
     {
       "ItemId": "boots_of_adventure",
@@ -6680,234 +1711,12 @@
           "Value": 10.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Off the beaten path.",
+      "SellPrice": 10225
     },
     {
       "ItemId": "hammer_of_mithril",
@@ -6922,8 +1731,12 @@
           "Value": 24.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Flies in like a boss!",
+      "SellPrice": 4000
     },
     {
       "ItemId": "rothar",
@@ -6942,8 +1755,12 @@
           "Value": 15.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Invisibility: the ultimate cheat code.",
+      "SellPrice": 7500
     },
     {
       "ItemId": "crystal_sword",
@@ -6962,8 +1779,12 @@
           "Value": 30.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Fragile – handle with care, or not.",
+      "SellPrice": 5725
     },
     {
       "ItemId": "shoes_of_claw",
@@ -6998,234 +1819,12 @@
           "Value": 3.6
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 9.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Dancing in flowers – leaves begone!",
+      "SellPrice": 675
     },
     {
       "ItemId": "lance",
@@ -7244,8 +1843,12 @@
           "Value": 10.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Poke people with the pointy end.",
+      "SellPrice": 3750
     },
     {
       "ItemId": "iron_buckler",
@@ -7280,234 +1883,12 @@
           "Value": 0.8
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 2.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Said to withstand the swing of the Claymore. Perhaps.",
+      "SellPrice": 401
     },
     {
       "ItemId": "gloves_of_speed",
@@ -7522,8 +1903,12 @@
           "Value": 7.5
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "The fast, the furious.",
+      "SellPrice": 250
     },
     {
       "ItemId": "gloves_of_ghost",
@@ -7550,63 +1935,12 @@
           "Value": 10.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 25.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Treasured by Divine Guard.",
+      "SellPrice": 4450
     },
     {
       "ItemId": "mask_of_blood_thirty",
@@ -7621,8 +1955,12 @@
           "Value": 12.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Do vampires prefer spicy or non-spicy food?",
+      "SellPrice": 450
     },
     {
       "ItemId": "ring_of_protection",
@@ -7637,8 +1975,12 @@
           "Value": 2.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Take care not to prick yourself.",
+      "SellPrice": 87
     },
     {
       "ItemId": "cloak_of_wizardry",
@@ -7653,8 +1995,12 @@
           "Value": 5.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Enhanced with rhinestones to mitigate any sense of mediocrity.",
+      "SellPrice": 275
     },
     {
       "ItemId": "orb_of_health",
@@ -7669,8 +2015,12 @@
           "Value": 250.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "A crucial addition to every warrior's abode and conquest.",
+      "SellPrice": 550
     },
     {
       "ItemId": "shortsword",
@@ -7685,8 +2035,12 @@
           "Value": 18.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Spins in the wind with a \"squeak-swoosh.\"",
+      "SellPrice": 3000
     },
     {
       "ItemId": "blade_of_agility",
@@ -7709,81 +2063,12 @@
           "Value": 4.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Light as a feather, sharp as sarcasm.",
+      "SellPrice": 2500
     },
     {
       "ItemId": "axe_of_strength",
@@ -7802,63 +2087,12 @@
           "Value": 180.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Chop wood or foes – versatile!",
+      "SellPrice": 2500
     },
     {
       "ItemId": "chainmail",
@@ -7873,8 +2107,12 @@
           "Value": 5.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "It appears to be of decent quality at an affordable price.",
+      "SellPrice": 275
     },
     {
       "ItemId": "dispersant",
@@ -7905,180 +2143,12 @@
           "Value": 8.8
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "dr",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 22.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sniper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 22.0
-            }
-          ]
-        },
-        {
-          "HeroId": "med",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 22.0
-            }
-          ]
-        },
-        {
-          "HeroId": "bone",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 22.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sf",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 22.0
-            }
-          ]
-        },
-        {
-          "HeroId": "jugg",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 22.0
-            }
-          ]
-        },
-        {
-          "HeroId": "av",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 22.0
-            }
-          ]
-        },
-        {
-          "HeroId": "viper",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 22.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 4.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Hold this and pretend to be a big shot? Nice try.",
+      "SellPrice": 9475
     },
     {
       "ItemId": "thorny_mail",
@@ -8105,108 +2175,12 @@
           "Value": 6.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "lina",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "zeus",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "lion",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "qop",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "pugna",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "nec",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "sp",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "om",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "thd",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ench",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 10.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 6,
+      "Description": "",
+      "Comment": "Hit me, I dare you! Come on, hit me!",
+      "SellPrice": 3500
     },
     {
       "ItemId": "bracer_of_strength_scroll",
@@ -8216,8 +2190,12 @@
       "Quality": 1,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Bracer of Strength.",
+      "Comment": "",
+      "SellPrice": 95
     },
     {
       "ItemId": "accessory_of_intelligence_scroll",
@@ -8227,8 +2205,12 @@
       "Quality": 1,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Accessory of Intelligence.",
+      "Comment": "",
+      "SellPrice": 67
     },
     {
       "ItemId": "mask_of_agility_scroll",
@@ -8238,8 +2220,12 @@
       "Quality": 1,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Mask of Agility.",
+      "Comment": "",
+      "SellPrice": 75
     },
     {
       "ItemId": "scarf_of_regeneration_scroll",
@@ -8249,8 +2235,12 @@
       "Quality": 1,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Scarf of Regeneration.",
+      "Comment": "",
+      "SellPrice": 100
     },
     {
       "ItemId": "belt_of_strength",
@@ -8269,63 +2259,12 @@
           "Value": 108.0
         }
       ],
-      "HeroStats": [
-        {
-          "HeroId": "coco",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "ok",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "snk",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "tiny",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "axe",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        },
-        {
-          "HeroId": "es",
-          "Stats": [
-            {
-              "StatId": "damage",
-              "Value": 6.0
-            }
-          ]
-        }
-      ],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "It's not for the weak.",
+      "SellPrice": 225
     },
     {
       "ItemId": "ring_of_healing",
@@ -8340,8 +2279,12 @@
           "Value": 150.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Enhances the hero's survivability on the battlefield.",
+      "SellPrice": 437
     },
     {
       "ItemId": "ring_of_soul_scroll",
@@ -8351,8 +2294,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Ring of Soul.",
+      "Comment": "",
+      "SellPrice": 62
     },
     {
       "ItemId": "starlight_staff_scroll",
@@ -8362,8 +2309,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Starlight Staff.",
+      "Comment": "",
+      "SellPrice": 75
     },
     {
       "ItemId": "iron_buckler_scroll",
@@ -8373,8 +2324,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Iron Buckler.",
+      "Comment": "",
+      "SellPrice": 100
     },
     {
       "ItemId": "courage_medal_scroll",
@@ -8384,8 +2339,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Courage Medal.",
+      "Comment": "",
+      "SellPrice": 100
     },
     {
       "ItemId": "life_vessel_scroll",
@@ -8395,8 +2354,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Life Vessel.",
+      "Comment": "",
+      "SellPrice": 125
     },
     {
       "ItemId": "aurora_scroll",
@@ -8406,8 +2369,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Aurora.",
+      "Comment": "",
+      "SellPrice": 300
     },
     {
       "ItemId": "noir_scroll",
@@ -8417,8 +2384,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Noir.",
+      "Comment": "",
+      "SellPrice": 300
     },
     {
       "ItemId": "celestial_drum_scroll",
@@ -8428,8 +2399,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Celestial Drum.",
+      "Comment": "",
+      "SellPrice": 400
     },
     {
       "ItemId": "mekan_scroll",
@@ -8439,8 +2414,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Mekan.",
+      "Comment": "",
+      "SellPrice": 450
     },
     {
       "ItemId": "crazy_face_scroll",
@@ -8450,8 +2429,12 @@
       "Quality": 2,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Crazy Face.",
+      "Comment": "",
+      "SellPrice": 500
     },
     {
       "ItemId": "amulet_of_abyss",
@@ -8470,8 +2453,12 @@
           "Value": 15.0
         }
       ],
-      "HeroStats": [],
-      "ItemKind": 0
+      "ItemKind": 0,
+      "InventoryTab": 2,
+      "InventoryFilter": 7,
+      "Description": "",
+      "Comment": "Used in hide-and-seek, vanished forever.",
+      "SellPrice": 4000
     },
     {
       "ItemId": "crystal_sword_scroll",
@@ -8481,8 +2468,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Crystal Sword.",
+      "Comment": "",
+      "SellPrice": 2500
     },
     {
       "ItemId": "anemoi_s_scepter_scroll",
@@ -8492,8 +2483,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Anemoi's Scepter.",
+      "Comment": "",
+      "SellPrice": 3000
     },
     {
       "ItemId": "gloves_of_ghost_scroll",
@@ -8503,8 +2498,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Gloves of Ghost.",
+      "Comment": "",
+      "SellPrice": 3500
     },
     {
       "ItemId": "dispersant_scroll",
@@ -8514,8 +2513,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Dispersant.",
+      "Comment": "",
+      "SellPrice": 4250
     },
     {
       "ItemId": "bar_of_hawk_scroll",
@@ -8525,8 +2528,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Bar of Hawk.",
+      "Comment": "",
+      "SellPrice": 4500
     },
     {
       "ItemId": "crimson_staff_scroll",
@@ -8536,8 +2543,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Crimson Staff.",
+      "Comment": "",
+      "SellPrice": 6250
     },
     {
       "ItemId": "boots_of_adventure_scroll",
@@ -8547,8 +2558,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 2
+      "ItemKind": 2,
+      "InventoryTab": 2,
+      "InventoryFilter": 8,
+      "Description": "Material for crafting Boots of Adventure.",
+      "Comment": "",
+      "SellPrice": 10000
     },
     {
       "ItemId": "crystal_sword_scroll_shard",
@@ -8558,8 +2573,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Crystal Sword Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 500
     },
     {
       "ItemId": "anemoi_s_scepter_scroll_shard",
@@ -8569,8 +2588,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Anemoi's Scepter Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 600
     },
     {
       "ItemId": "gloves_of_ghost_scroll_shard",
@@ -8580,8 +2603,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Gloves of Ghost Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 700
     },
     {
       "ItemId": "dispersant_scroll_shard",
@@ -8591,8 +2618,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Dispersant Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 850
     },
     {
       "ItemId": "bar_of_hawk_scroll_shard",
@@ -8602,8 +2633,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Bar of Hawk Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 900
     },
     {
       "ItemId": "axe_of_strength_shard",
@@ -8613,8 +2648,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Axe of Strength Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 500
     },
     {
       "ItemId": "blade_of_agility_shard",
@@ -8624,8 +2663,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Blade of Agility Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 500
     },
     {
       "ItemId": "staff_of_intelligence_shard",
@@ -8635,8 +2678,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Staff of Intelligence Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 500
     },
     {
       "ItemId": "shortsword_shard",
@@ -8646,8 +2693,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Shortsword Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 600
     },
     {
       "ItemId": "crimson_staff_scroll_shard",
@@ -8657,8 +2708,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Crimson Staff Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 1250
     },
     {
       "ItemId": "claymore_shard",
@@ -8668,8 +2723,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Claymore Shards to create the complete item.",
+      "Comment": "",
+      "SellPrice": 700
     },
     {
       "ItemId": "lance_shard",
@@ -8679,8 +2738,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Lance Shards to create the complete item.",
+      "Comment": "",
+      "SellPrice": 750
     },
     {
       "ItemId": "hammer_of_mithril_shard",
@@ -8690,8 +2753,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Hammer of Mithril Shards to create the complete item.",
+      "Comment": "",
+      "SellPrice": 800
     },
     {
       "ItemId": "amulet_of_abyss_shard",
@@ -8701,8 +2768,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Amulet of Abyss Shards to create the complete item.",
+      "Comment": "",
+      "SellPrice": 800
     },
     {
       "ItemId": "verdant_staff_shard",
@@ -8712,8 +2783,12 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Verdant Staff Shards to create the complete item.",
+      "Comment": "",
+      "SellPrice": 800
     },
     {
       "ItemId": "boots_of_adventure_scroll_shard",
@@ -8723,8 +2798,492 @@
       "Quality": 3,
       "Stats": [],
       "PreciseStats": [],
-      "HeroStats": [],
-      "ItemKind": 1
+      "ItemKind": 1,
+      "InventoryTab": 1,
+      "InventoryFilter": 0,
+      "Description": "Combine 5 Boots of Adventure Scroll Shards to create the complete scroll.",
+      "Comment": "",
+      "SellPrice": 2000
+    },
+    {
+      "ItemId": "exp_potion",
+      "Name": "EXP Potion",
+      "IconResource": "UI/DOTA-ITEM/501.jpg",
+      "LevelRequirement": 1,
+      "Quality": 1,
+      "ItemKind": 3,
+      "HeroExpValue": 60,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 0,
+      "InventoryFilter": 5,
+      "Description": "Provides 60 Hero EXP.",
+      "Comment": "Good for health.",
+      "SellPrice": 200
+    },
+    {
+      "ItemId": "exp_salve",
+      "Name": "EXP Salve",
+      "IconResource": "UI/DOTA-ITEM/502.jpg",
+      "LevelRequirement": 1,
+      "Quality": 2,
+      "ItemKind": 3,
+      "HeroExpValue": 300,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 0,
+      "InventoryFilter": 5,
+      "Description": "Provides 300 Hero EXP.",
+      "Comment": "Sharp mind, endless energy – not FDA approved.",
+      "SellPrice": 600
+    },
+    {
+      "ItemId": "exp_cheese",
+      "Name": "EXP Cheese",
+      "IconResource": "UI/DOTA-ITEM/503.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 3,
+      "HeroExpValue": 1500,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 0,
+      "InventoryFilter": 5,
+      "Description": "Provides 1500 Hero EXP.",
+      "Comment": "Snack on me for an EXP boost.",
+      "SellPrice": 2000
+    },
+    {
+      "ItemId": "exp_burger",
+      "Name": "EXP Burger",
+      "IconResource": "UI/DOTA-ITEM/440.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 3,
+      "HeroExpValue": 7500,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 0,
+      "InventoryFilter": 5,
+      "Description": "Provides 7500 Hero EXP.",
+      "Comment": "Hero EXP with a side of extra pounds – the quest for gains.",
+      "SellPrice": 12000
+    },
+    {
+      "ItemId": "exp_pizza",
+      "Name": "EXP Pizza",
+      "IconResource": "UI/DOTA-ITEM/1609.jpg",
+      "LevelRequirement": 1,
+      "Quality": 5,
+      "ItemKind": 3,
+      "HeroExpValue": 75000,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 0,
+      "InventoryFilter": 5,
+      "Description": "Provides 75,000 Hero EXP.",
+      "Comment": "Don't miss its tight flavor.",
+      "SellPrice": 30000
+    },
+    {
+      "ItemId": "soulstone_coco",
+      "Name": "Soulstone (Coco)",
+      "IconResource": "UI/DOTA-HERO/Coco.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 10 Soulstones to recruit Coco, or use them to star up Coco.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_dr",
+      "Name": "Soulstone (DR)",
+      "IconResource": "UI/DOTA-HERO/DR.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 10 Soulstones to recruit DR, or use them to star up DR.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_lina",
+      "Name": "Soulstone (Lina)",
+      "IconResource": "UI/DOTA-HERO/Lina.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 10 Soulstones to recruit Lina, or use them to star up Lina.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_zeus",
+      "Name": "Soulstone (Zeus)",
+      "IconResource": "UI/DOTA-HERO/Zeus.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 10 Soulstones to recruit Zeus, or use them to star up Zeus.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_lion",
+      "Name": "Soulstone (Lion)",
+      "IconResource": "UI/DOTA-HERO/Lion.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit Lion, or use them to star up Lion.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_qop",
+      "Name": "Soulstone (QOP)",
+      "IconResource": "UI/DOTA-HERO/QOP.jpg",
+      "LevelRequirement": 1,
+      "Quality": 6,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 80 Soulstones to recruit QOP, or use them to star up QOP.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_ok",
+      "Name": "Soulstone (OK)",
+      "IconResource": "UI/DOTA-HERO/OK.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 10 Soulstones to recruit OK, or use them to star up OK.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_tk",
+      "Name": "Soulstone (TK)",
+      "IconResource": "UI/DOTA-HERO/TK.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit TK, or use them to star up TK.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_sniper",
+      "Name": "Soulstone (Sniper)",
+      "IconResource": "UI/DOTA-HERO/Sniper.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 10 Soulstones to recruit Sniper, or use them to star up Sniper.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_bone",
+      "Name": "Soulstone (Bone)",
+      "IconResource": "UI/DOTA-HERO/Bone.jpg",
+      "LevelRequirement": 1,
+      "Quality": 6,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 80 Soulstones to recruit Bone, or use them to star up Bone.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_pugna",
+      "Name": "Soulstone (Pugna)",
+      "IconResource": "UI/DOTA-HERO/Pugna.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit Pugna, or use them to star up Pugna.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_snk",
+      "Name": "Soulstone (SNK)",
+      "IconResource": "UI/DOTA-HERO/SNK.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit SNK, or use them to star up SNK.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_nec",
+      "Name": "Soulstone (NEC)",
+      "IconResource": "UI/DOTA-HERO/NEC.jpg",
+      "LevelRequirement": 1,
+      "Quality": 6,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 80 Soulstones to recruit NEC, or use them to star up NEC.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_tiny",
+      "Name": "Soulstone (Tiny)",
+      "IconResource": "UI/DOTA-HERO/Tiny.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit Tiny, or use them to star up Tiny.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_viper",
+      "Name": "Soulstone (Viper)",
+      "IconResource": "UI/DOTA-HERO/Viper.jpg",
+      "LevelRequirement": 1,
+      "Quality": 6,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 80 Soulstones to recruit Viper, or use them to star up Viper.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_ench",
+      "Name": "Soulstone (Ench)",
+      "IconResource": "UI/DOTA-HERO/Ench.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 10 Soulstones to recruit Ench, or use them to star up Ench.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_med",
+      "Name": "Soulstone (Med)",
+      "IconResource": "UI/DOTA-HERO/Med.jpg",
+      "LevelRequirement": 1,
+      "Quality": 6,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 80 Soulstones to recruit Med, or use them to star up Med.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_sp",
+      "Name": "Soulstone (SP)",
+      "IconResource": "UI/DOTA-HERO/SP.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit SP, or use them to star up SP.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_om",
+      "Name": "Soulstone (OM)",
+      "IconResource": "UI/DOTA-HERO/OM.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit OM, or use them to star up OM.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_sf",
+      "Name": "Soulstone (SF)",
+      "IconResource": "UI/DOTA-HERO/SF.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit SF, or use them to star up SF.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_jugg",
+      "Name": "Soulstone (JUGG)",
+      "IconResource": "UI/DOTA-HERO/JUGG.jpg",
+      "LevelRequirement": 1,
+      "Quality": 6,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 80 Soulstones to recruit JUGG, or use them to star up JUGG.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_axe",
+      "Name": "Soulstone (Axe)",
+      "IconResource": "UI/DOTA-HERO/Axe.jpg",
+      "LevelRequirement": 1,
+      "Quality": 6,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 80 Soulstones to recruit Axe, or use them to star up Axe.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_es",
+      "Name": "Soulstone (ES)",
+      "IconResource": "UI/DOTA-HERO/ES.jpg",
+      "LevelRequirement": 1,
+      "Quality": 6,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 80 Soulstones to recruit ES, or use them to star up ES.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_av",
+      "Name": "Soulstone (AV)",
+      "IconResource": "UI/DOTA-HERO/AV.jpg",
+      "LevelRequirement": 1,
+      "Quality": 3,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit AV, or use them to star up AV.",
+      "Comment": "",
+      "SellPrice": 4000
+    },
+    {
+      "ItemId": "soulstone_thd",
+      "Name": "Soulstone (THD)",
+      "IconResource": "UI/DOTA-HERO/THD.jpg",
+      "LevelRequirement": 1,
+      "Quality": 4,
+      "ItemKind": 4,
+      "HeroExpValue": 0,
+      "Stats": [],
+      "PreciseStats": [],
+      "InventoryTab": 3,
+      "InventoryFilter": 0,
+      "Description": "Collect 30 Soulstones to recruit THD, or use them to star up THD.",
+      "Comment": "",
+      "SellPrice": 4000
     }
   ]
 }

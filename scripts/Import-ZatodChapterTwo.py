@@ -33,7 +33,7 @@ def main():
     for st in env['normal_stages']:
         for key,value in st.items():
             if not key.startswith('UI reward') or not value or value==20555 or value in env['items']:continue
-            item=row('equip',table('equip')[1][value]);env['items'][value]={'ItemId':env['iid'](value),'Name':item['Name'],'IconResource':item['Icon'],'LevelRequirement':item['Level Requirement'],'Quality':item['Quality'],'Stats':[],'PreciseStats':env['amounts'](env['direct'](item)),'HeroStats':[]}
+            item=row('equip',table('equip')[1][value]);env['items'][value]={'ItemId':env['iid'](value),'Name':item['Name'],'IconResource':item['Icon'],'LevelRequirement':item['Level Requirement'],'Quality':item['Quality'],'Stats':[],'PreciseStats':env['amounts'](env['direct'](item))}
     used={x['ItemId'] for x in docs['Items']['Items']}
     for item in env['items'].values():
         if item['ItemId'] in aliases:continue
@@ -68,11 +68,6 @@ def main():
             else:key=value.get('ItemId',value.get('Id'))
             if key not in existing:
                 docs[section][section].append(value);existing[key]=value;report[section].append(key)
-            elif section=='Items':
-                # Existing equipment needs its direct-main-attribute contribution for the newly imported Heroes.
-                heroIds={r['HeroId'] for r in existing[key].get('HeroStats',[])}
-                for bonus in value.get('HeroStats',[]):
-                    if bonus['HeroId'] not in heroIds:existing[key].setdefault('HeroStats',[]).append(bonus)
         docs[section]['ConfigVersion']='zatod-prototype-chapters-1-2'
     oldStats={s['Id'] for s in docs['Stats']['Stats']}
     for key in sorted(env['required_stats']-oldStats):docs['Stats']['Stats'].append({'Id':key,'Name':key.replace('_',' ').title(),'Minimum':0})

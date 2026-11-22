@@ -27,7 +27,7 @@ namespace Zatod.Presentation
         void Awake(){Close.onClick.AddListener(()=>close?.Invoke());}
         public void Open(HeroCatalog definitions,CharacterData owned,string id,Action onClose)
         {
-            catalog=definitions;close=onClose;HeroId=id;account=owned;hero=owned.HeroDesk.Single(h=>h.HeroInstanceId==id);
+            catalog=definitions;close=onClose;HeroId=id;account=owned;RefreshCurrencies(CurrencyRow,owned);hero=owned.HeroDesk.Single(h=>h.HeroInstanceId==id);
             gameObject.SetActive(true);Refresh(owned);opened=Time.unscaledTime;
             if(idleRoot!=null){idleRoot.gameObject.SetActive(false);Destroy(idleRoot.gameObject);}
             idleRoot=Box(CenterPanel,"HeroIdle");idle=idleRoot.gameObject.AddComponent<ReplaySprite>();idle.Initialize(catalog.Hero(hero.HeroDefinitionId).AnimationSetResource);
@@ -37,9 +37,12 @@ namespace Zatod.Presentation
         }
         public void Refresh(CharacterData owned)
         {
-            account=owned;hero=owned.HeroDesk.SingleOrDefault(h=>h.HeroInstanceId==HeroId);if(hero==null){close?.Invoke();return;}
+            account=owned;RefreshCurrencies(CurrencyRow,owned);hero=owned.HeroDesk.SingleOrDefault(h=>h.HeroInstanceId==HeroId);if(hero==null){close?.Invoke();return;}
             var definition=catalog.Hero(hero.HeroDefinitionId);var rank=HeroProgression.CurrentRank(hero,catalog);
-            HeroName.text=definition.Name+" · "+rank.Name;ArtName.text=definition.Name;Level.text="Level "+hero.Level;Exp.text=hero.Exp+" / ??";Shards.text="?? / ??";Power.text="Power: ??";
+            HeroName.text=definition.Name+" · "+rank.Name;ArtName.text=definition.Name;Level.text="Level "+hero.Level;Exp.text=hero.Exp+" / "+ProgressionDataJson.LoadBundled().Hero(hero.Level).NextLevelExp;var starRule=hero.Stars>=catalog.Data.MaxHeroStars?null:catalog.Data.StarRules.FirstOrDefault(r=>r.Stars==hero.Stars+1);Shards.text=starRule==null?"Max stars":owned.Inventory.Count(i=>i.ItemId==definition.SoulstoneItemId)+" / "+starRule.UpgradeStones;Power.text="Power: ??";
+            var rail=InfoPanel.Find("ExpRail");var fill=rail.Find("ProgressionFill")?.GetComponent<UnityEngine.UI.Image>();
+            if(fill==null){fill=Picture(rail,"ProgressionFill","hero_exp_progress");Stretch(fill.rectTransform,2);fill.type=UnityEngine.UI.Image.Type.Filled;fill.fillMethod=UnityEngine.UI.Image.FillMethod.Horizontal;}
+            long required=ProgressionDataJson.LoadBundled().Hero(hero.Level).NextLevelExp;fill.fillAmount=required>0?Mathf.Clamp01((float)((double)hero.Exp/required)):1;
             Illustration.sprite=Art("Illustrations/"+definition.Id);RankFrame.sprite=Art("hero_rank_"+Rank(hero,catalog));
             for(int n=0;n<Stars.Length;n++)Stars[n].sprite=Art(n<hero.Stars?"hero_star_1":"hero_star_bg");
             foreach(Transform child in EquipmentLayer){child.gameObject.SetActive(false);Destroy(child.gameObject);}

@@ -39,10 +39,14 @@ namespace Zatod.Editor
             window.titleContent=new GUIContent("Zatod GameEditor");window.Show();window.CreateGUI();
         }
 
+        [MenuItem("GameEditor/Star Rules")]
+        public static void OpenStarRules()
+        {var w=GetWindow<GameEditorWindow>();w.progressionTab=w.campaignTab=w.mapsTab=false;w.activeTab=HeroConfigSection.StarRules;w.titleContent=new GUIContent("GameEditor");w.CreateGUI();w.Show();}
+
         [MenuItem("GameEditor/Craft Recipes")]
         public static void OpenCraftRecipes()
         {
-            var window=GetWindow<GameEditorWindow>();window.titleContent=new GUIContent("GameEditor");window.campaignTab=false;window.mapsTab=false;window.activeTab=HeroConfigSection.CraftRecipes;window.CreateGUI();window.Show();
+            var window=GetWindow<GameEditorWindow>();window.titleContent=new GUIContent("GameEditor");window.progressionTab=false;window.campaignTab=false;window.mapsTab=false;window.activeTab=HeroConfigSection.CraftRecipes;window.CreateGUI();window.Show();
         }
         public void CreateGUI()
         {
@@ -64,6 +68,7 @@ namespace Zatod.Editor
                 try { draft = JsonUtility.FromJson<HeroCatalogData>(draftJson); }
                 catch { draft = null; }
             }
+            LoadProgression();
             if(string.IsNullOrEmpty(campaignJson) || !hasUnsavedChanges){campaignSourceJson=File.ReadAllText(CampaignDataJson.AssetPath);campaignJson=campaignSourceJson;}
             campaignDraft=JsonUtility.FromJson<CampaignDefinition>(campaignJson);
             try{if(worldDocuments==null || !hasUnsavedChanges)worldDocuments=WorldConfigFileStore.Read();}catch(Exception error){loadError=error.Message;}
@@ -99,22 +104,24 @@ namespace Zatod.Editor
             var columns = new VisualElement(); columns.AddToClassList("columns"); rootVisualElement.Add(columns);
             var authoring = new VisualElement(); authoring.AddToClassList("authoring"); columns.Add(authoring);
             if(mapsTab && worldDocuments!=null)DrawObject(authoring,worldDocuments.Index,"SchemaVersion","ConfigVersion");
-            else if(draft!=null)DrawObject(authoring,draft,"SchemaVersion","ConfigVersion");
+            else if(draft!=null)DrawObject(authoring,draft,activeTab==HeroConfigSection.StarRules?new[]{"SchemaVersion","ConfigVersion","MaxHeroStars"}:new[]{"SchemaVersion","ConfigVersion"});
             var tabs = new VisualElement { name = "config-tabs" }; tabs.AddToClassList("config-tabs"); authoring.Add(tabs);
             foreach (var section in HeroDataJson.Sections)
             {
                 var selectedSection = section;
                 var tab = Button(section.ToString(), "tab-" + section, () =>
                 {
-                    campaignTab=false;mapsTab=false;activeTab = selectedSection;
+                    progressionTab=false;campaignTab=false;mapsTab=false;activeTab = selectedSection;
                     BuildUi();
                 });
                 tab.AddToClassList("config-tab");
-                if (section == activeTab && !campaignTab && !mapsTab) tab.AddToClassList("config-tab-active");
+                if (section == activeTab && !campaignTab && !mapsTab && !progressionTab) tab.AddToClassList("config-tab-active");
                 tabs.Add(tab);
             }
-            var campaignButton=Button("Campaign", "tab-Campaign",()=>{mapsTab=false;campaignTab=true;BuildUi();});campaignButton.AddToClassList("config-tab");if(campaignTab && !mapsTab)campaignButton.AddToClassList("config-tab-active");tabs.Add(campaignButton);
-            var mapsButton=Button("Maps","tab-Maps",()=>{mapsTab=true;campaignTab=false;BuildUi();});mapsButton.AddToClassList("config-tab");if(mapsTab)mapsButton.AddToClassList("config-tab-active");tabs.Add(mapsButton);
+            var campaignButton=Button("Campaign", "tab-Campaign",()=>{progressionTab=false;mapsTab=false;campaignTab=true;BuildUi();});campaignButton.AddToClassList("config-tab");if(campaignTab && !mapsTab)campaignButton.AddToClassList("config-tab-active");tabs.Add(campaignButton);
+            var mapsButton=Button("Maps","tab-Maps",()=>{progressionTab=false;mapsTab=true;campaignTab=false;BuildUi();});mapsButton.AddToClassList("config-tab");if(mapsTab)mapsButton.AddToClassList("config-tab-active");tabs.Add(mapsButton);
+            var progressionButton=Button("Progression","tab-Progression",()=>{progressionTab=true;mapsTab=campaignTab=false;BuildUi();});progressionButton.AddToClassList("config-tab");if(progressionTab)progressionButton.AddToClassList("config-tab-active");tabs.Add(progressionButton);
+            if(progressionTab){DrawProgression(authoring);return;}
             if(mapsTab){DrawMaps(authoring);return;}
             if(campaignTab){var campaignPage=new ScrollView{name="page-Campaign"};campaignPage.AddToClassList("tab-page");authoring.Add(campaignPage);campaignPage.Add(new Label(CampaignDataJson.AssetPath));DrawObject(campaignPage,campaignDraft);return;}
             var page = new ScrollView { name = "page-" + activeTab }; page.AddToClassList("tab-page"); authoring.Add(page);
@@ -287,6 +294,7 @@ namespace Zatod.Editor
 
         void Edited()
         {
+            if(progressionTab){progressionJson=JsonUtility.ToJson(progressionDraft,true);UpdateDirtyState();SetStatus("PROGRESSION DRAFT / Validate and save config.");return;}
             if(mapsTab){UpdateDirtyState();SetStatus("MAP DRAFT / Validate and save maps. Coordinates remain local to the island.");return;}
             draftJson = JsonUtility.ToJson(draft, true);
             campaignJson=JsonUtility.ToJson(campaignDraft,true);
@@ -362,11 +370,12 @@ namespace Zatod.Editor
             Guard(() =>
             {
                 var catalog=new HeroCatalog(draft);var campaign=new CampaignCatalog(campaignDraft,catalog);WorldConfigFileStore.Validate(worldDocuments,campaign);
+                new ProgressionCatalog(progressionDraft);
                 if(FilesChanged())throw new IOException("Config files changed on disk. Draft preserved; reload before saving.");
                 if(HeroDirty)sourceDocuments=HeroConfigFileStore.Save(draft,sourceDocuments??new HeroConfigDocuments());
                 string nextCampaign=JsonUtility.ToJson(campaignDraft,true);
                 if(CampaignDirty){string backup=Path.GetFullPath("../Artifacts/ZatodConfigBefore/"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss"));Directory.CreateDirectory(backup);File.WriteAllText(Path.Combine(backup,"Campaigns.txt"),campaignSourceJson);HeroDataJson.WriteFileAtomically(CampaignDataJson.AssetPath,nextCampaign);AssetDatabase.ImportAsset(CampaignDataJson.AssetPath);}
-                int mapsSaved=WorldConfigFileStore.Save(worldDocuments,campaign);
+                SaveProgression();int mapsSaved=WorldConfigFileStore.Save(worldDocuments,campaign);
                 campaignSourceJson=campaignJson=File.ReadAllText(CampaignDataJson.AssetPath);
                 sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); UpdateDirtyState();
                 SetStatus("SAVED / maps="+mapsSaved+" / "+string.Join(", ",HeroDataJson.Sections.Select(s=>s+".txt"))+" / " + draft.ConfigVersion);
@@ -393,7 +402,7 @@ namespace Zatod.Editor
                 sourceDocuments = documents;
                 sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); hasUnsavedChanges = false;
                 campaignSourceJson=campaignJson=File.ReadAllText(CampaignDataJson.AssetPath);campaignDraft=JsonUtility.FromJson<CampaignDefinition>(campaignJson);
-                worldDocuments=WorldConfigFileStore.Read();
+                worldDocuments=WorldConfigFileStore.Read();LoadProgression(true);
                 BuildUi(); SetStatus("LOADED / " + (mapsTab ? worldDocuments.Index.ConfigVersion : draft.ConfigVersion));
             });
         }
@@ -402,7 +411,7 @@ namespace Zatod.Editor
         {
             if(sourceDocuments==null)return true;
             var disk=HeroConfigFileStore.ReadExisting();
-            return HeroDataJson.Sections.Any(section=>disk.Get(section)!=sourceDocuments.Get(section)) || File.ReadAllText(CampaignDataJson.AssetPath)!=campaignSourceJson || WorldConfigFileStore.FilesChanged(worldDocuments);
+            return HeroDataJson.Sections.Any(section=>disk.Get(section)!=sourceDocuments.Get(section)) || File.ReadAllText(CampaignDataJson.AssetPath)!=campaignSourceJson || WorldConfigFileStore.FilesChanged(worldDocuments) || File.ReadAllText(ProgressionDataJson.AssetPath)!=progressionSource;
         }
         void OnFocus(){if(draft!=null)ReloadIfClean();}
         void OnProjectChange(){if(draft!=null)ReloadIfClean();}

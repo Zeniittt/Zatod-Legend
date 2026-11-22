@@ -15,7 +15,7 @@ static partial class Program
     static void Reject(Action action,string why){bool rejected=false;try{action();}catch(ArgumentException){rejected=true;}Check(rejected,why);}
     static void Main()
     {
-        try { Inventory(); ImportedData(); CampaignDropConfig(); CampaignLootChecks(); BattleStatisticsChecks(); CraftingChecks(); SharedWorld(); ZatodBattles(); Sessions(); SourceCombatRules(); PresentationMotion(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); }
+        try { Inventory(); ImportedData(); CampaignDropConfig(); CampaignLootChecks(); BattleStatisticsChecks(); CraftingChecks(); ProgressionChecks();InventoryChecks(); SharedWorld(); ZatodBattles(); Sessions(); SourceCombatRules(); PresentationMotion(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); }
         catch(Exception error) { Console.Error.WriteLine(error.ToString());Environment.ExitCode=1; }
     }
     sealed class Oracle { public List<OracleRow> Rows; }
@@ -28,7 +28,7 @@ static partial class Program
         var data=new HeroCatalogData{ConfigVersion=Read<StatsConfigData>(root+"Stats.txt").ConfigVersion,
             Stats=Read<StatsConfigData>(root+"Stats.txt").Stats,Items=Read<ItemsConfigData>(root+"Items.txt").Items,
             Skills=Read<SkillsConfigData>(root+"Skills.txt").Skills,Heroes=Read<HeroesConfigData>(root+"Heroes.txt").Heroes,
-            Monsters=Read<MonstersConfigData>(root+"Monsters.txt").Monsters,Buffs=Read<BuffsConfigData>(root+"Buffs.txt").Buffs,CraftRecipes=Read<CraftRecipesConfigData>(root+"CraftRecipes.txt").CraftRecipes};
+            Monsters=Read<MonstersConfigData>(root+"Monsters.txt").Monsters,Buffs=Read<BuffsConfigData>(root+"Buffs.txt").Buffs,CraftRecipes=Read<CraftRecipesConfigData>(root+"CraftRecipes.txt").CraftRecipes,StarRules=Read<StarRulesConfigData>(root+"StarRules.txt").StarRules};
         return new HeroCatalog(data);
     }
     static void ImportedData()
@@ -36,7 +36,7 @@ static partial class Program
         var catalog=ImportedCatalog();
         Check(catalog.Data.Heroes.Count(x=>x.SourceUnitId>0)==25,"Two-chapter Hero coverage");
         Check(catalog.Data.Monsters.Count(x=>x.SourceUnitId>0)==14,"Two-chapter Monster coverage");
-        Check(catalog.Data.Items.Count==112,"Two-chapter equipment coverage");
+        Check(catalog.Data.Items.Count==142,"Two-chapter equipment coverage");
         var oracle=Read<Oracle>("Artifacts/CrystalPhaseChecks/stat-oracle.json");
         foreach(var expected in oracle.Rows)
         {
@@ -45,8 +45,11 @@ static partial class Program
             while(hero.RankId!=expected.RankId){Fill();HeroProgression.Promote(hero,catalog);}
             if(expected.Equipped)Fill();
             var actual=HeroStatCalculator.Calculate(hero,catalog);
+            var removed=Read<System.Collections.Generic.Dictionary<string,System.Collections.Generic.Dictionary<string,double>>>("Tests/CrystalChecks/Fixtures/removed-item-bonuses.json");
+            double bonus(string id)=>removed.TryGetValue(id,out var map)&&map.TryGetValue(hero.HeroDefinitionId,out var b)?b:0;
+            double removedAD=hero.EquippedItems.Sum(x=>bonus(x.ItemId))+hero.AbsorbedItems.Sum(x=>bonus(x.ItemId)*x.Quantity);
             foreach(var stat in expected.Expected)
-                Check(Math.Abs(actual.PreciseStats.Single(s=>s.StatId==stat.StatId).Value-stat.Value)<.000001,"Source stat mismatch: "+expected.HeroId+"/"+expected.RankId+"/"+stat.StatId);
+                Check(Math.Abs(actual.PreciseStats.Single(s=>s.StatId==stat.StatId).Value-(stat.Value-(stat.StatId=="damage"?removedAD:0)))<.000001,"Source stat mismatch: "+expected.HeroId+"/"+expected.RankId+"/"+stat.StatId);
             var battle=HeroBattleFactory.Create(hero,catalog);
             var original=catalog.Skill(catalog.Hero(hero.HeroDefinitionId).NormalAttackSkillId).Crystal;
             double time=original.Phases[0].AttackTimes[0];battle.NormalAttack.Crystal.Phases[0].AttackTimes[0]+=1;
@@ -93,7 +96,7 @@ static partial class Program
         Invalid(s=>s.DropItems[0]=null,"Null drop entry accepted");
         Invalid(s=>s.DropItems=null,"Null drop list accepted");
         Invalid(s=>s.VitalityCost=-1,"Negative stage vitality cost accepted");
-        var free=Load();free.Chapters[0].Stages[0].VitalityCost=0;
+        var free=Load();free.Chapters[0].Stages[0].VitalityCost=0;free.Chapters[0].Stages[0].VitalityReturn=0;
         Check(new CampaignCatalog(free,heroes).Data.Chapters[0].Stages[0].VitalityCost==0,"Free stage cost rejected");
         Invalid(s=>s.DropItems.Clear(),"Empty selection pool accepted");
         Invalid(s=>s.DropItems[0].DropChancePercent=49.99,"Total below 100 accepted");
@@ -316,7 +319,7 @@ static partial class Program
     static void CanonicalContent()
     {
         var catalog=ImportedCatalog();
-        Check(catalog.Data.Heroes.Count==25 && catalog.Data.Monsters.Count==14 && catalog.Data.Items.Count==112 && catalog.Data.Skills.Count==131,"Two-chapter content scope changed");
+        Check(catalog.Data.Heroes.Count==25 && catalog.Data.Monsters.Count==14 && catalog.Data.Items.Count==142 && catalog.Data.Skills.Count==131,"Two-chapter content scope changed");
         foreach(var row in catalog.Data.Heroes.Select(h=>(h.Id,h.Name)).Concat(catalog.Data.Monsters.Select(h=>(h.Id,h.Name))).Concat(catalog.Data.Items.Select(h=>(h.DefinitionId,h.Name))).Concat(catalog.Data.Skills.Select(h=>(h.Id,h.Name))))
         {
             Check(System.Text.RegularExpressions.Regex.IsMatch(row.Item1,"^[a-z][a-z0-9_]*$") && !System.Text.RegularExpressions.Regex.IsMatch(row.Item1,"^crystal_(?:item_|skill_)?[0-9]+$"),"Noncanonical object ID "+row.Item1);

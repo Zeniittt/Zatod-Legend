@@ -22,7 +22,7 @@ namespace Zatod.Combat
                 return previous;
             }
             if(issued.Count>0)throw new ArgumentException("Finish or cancel the battle before changing items.");
-            var inventory=Account.Inventory.ToList();var equipment=Account.HeroDesk.ToDictionary(h=>h.HeroInstanceId,h=>h.EquippedItems.ToList());long revision=Account.Revision;
+            var economyBefore=new EconomyCheckpoint(Account);var inventory=Account.Inventory.ToList();var equipment=Account.HeroDesk.ToDictionary(h=>h.HeroInstanceId,h=>h.EquippedItems.ToList());long revision=Account.Revision;
             ItemOperationReceipt receipt=null;
             try
             {
@@ -33,7 +33,7 @@ namespace Zatod.Combat
             }
             catch
             {
-                Account.Inventory=inventory;foreach(var h in Account.HeroDesk)h.EquippedItems=equipment[h.HeroInstanceId];Account.Revision=revision;
+                economyBefore.Restore();Account.Inventory=inventory;foreach(var h in Account.HeroDesk)h.EquippedItems=equipment[h.HeroInstanceId];Account.Revision=revision;
                 if(receipt!=null)Account.ItemOperations.Remove(receipt);throw;
             }
         }

@@ -24,10 +24,10 @@ namespace Zatod.Presentation
         public string CurrentTreeItem=>history.Count>0?history[history.Count-1]:DisplayedItemId;
         public readonly List<UnityEngine.UI.Button> IngredientButtons=new List<UnityEngine.UI.Button>();
         HeroCatalog catalog;CharacterData account;ZatodConnection connection;HeroData hero;string heroId,slotId;
-        CampaignCatalog campaign;readonly List<string> history=new List<string>();CraftingCatalog crafting;bool equipped;
+        CampaignCatalog campaign;readonly List<string> history=new List<string>();CraftingCatalog crafting;bool equipped;bool inventoryContext;
         RectTransform icon,sourceIcon;Vector2 lastSize;int lastHistory=-1;
         public const string ArtPath="Zatod/UI/Crafting/";
-        public static Sprite Native(string key)=>Resources.Load<Sprite>(ArtPath+key);
+        public static Sprite Native(string key)=>Resources.Load<Sprite>(ArtPath+key) ?? ZatodInventoryView.Native(key);
         void Awake()
         {
             Close.onClick.AddListener(Hide);RecipeButton.onClick.AddListener(ToggleRecipe);ActionButton.onClick.AddListener(Act);CraftButton.onClick.AddListener(Craft);
@@ -35,21 +35,24 @@ namespace Zatod.Presentation
         }
         public void Open(HeroCatalog definitions,CharacterData owned,ZatodConnection client,CampaignCatalog stages,string ownedHeroId,string slot)
         {
-            catalog=definitions;account=owned;connection=client;campaign=stages;heroId=ownedHeroId;slotId=slot;crafting=new CraftingCatalog(catalog);history.Clear();Right.gameObject.SetActive(false);Message.text="";
+            inventoryContext=false;catalog=definitions;account=owned;connection=client;campaign=stages;heroId=ownedHeroId;slotId=slot;crafting=new CraftingCatalog(catalog);history.Clear();Right.gameObject.SetActive(false);Message.text="";
             gameObject.SetActive(true);transform.SetAsLastSibling();Refresh(owned);Fit();
+        }
+        public void OpenItem(HeroCatalog definitions,CharacterData owned,ZatodConnection client,CampaignCatalog stages,string itemId)
+        {
+            inventoryContext=true;catalog=definitions;account=owned;connection=client;campaign=stages;crafting=new CraftingCatalog(catalog);hero=null;DisplayedItemId=itemId;history.Clear();history.Add(itemId);Right.gameObject.SetActive(true);gameObject.SetActive(true);transform.SetAsLastSibling();Refresh(owned);
         }
         public void Hide(){gameObject.SetActive(false);history.Clear();}
         static void ClearChildren(Transform root){foreach(Transform c in root){c.gameObject.SetActive(false);Destroy(c.gameObject);}}
         public void Refresh(CharacterData owned)
         {
-            account=owned;hero=account.HeroDesk.SingleOrDefault(h=>h.HeroInstanceId==heroId);if(hero==null){Hide();return;}
+            account=owned;if(inventoryContext){RefreshInventoryItem();return;}hero=account.HeroDesk.SingleOrDefault(h=>h.HeroInstanceId==heroId);if(hero==null){Hide();return;}
             var slot=HeroProgression.CurrentRank(hero,catalog).EquipmentSlots.SingleOrDefault(s=>s.Id==slotId);if(slot==null){Hide();return;}
             var current=hero.EquippedItems.SingleOrDefault(i=>i.SlotId==slotId);equipped=current!=null;DisplayedItemId=current?.ItemId??slot.RequiredItemId;var item=catalog.Item(DisplayedItemId);
             if(icon!=null){icon.gameObject.SetActive(false);Destroy(icon.gameObject);}icon=ItemIcon(Left,"SelectedItem",item,178,28,164);
             ItemName.text=item.Name;Owned.text="Owned: "+account.Inventory.Count(i=>i.ItemId==DisplayedItemId);Requirement.text="Required hero level: "+item.LevelRequirement;
             Remark.text=equipped?"Equipped":hero.Level<item.LevelRequirement?"Hero level is too low":"Binds to this hero when equipped";
             ClearChildren(Stats);var stats=new Dictionary<string,double>();foreach(var stat in item.PreciseStats)stats[stat.StatId]=stat.Value;
-            foreach(var extra in item.HeroStats.Where(h=>h.HeroId==hero.HeroDefinitionId).SelectMany(h=>h.Stats))stats[extra.StatId]=(stats.TryGetValue(extra.StatId,out double v)?v:0)+extra.Value;
             foreach(var stat in item.Stats)if(!stats.ContainsKey(stat.StatId))stats[stat.StatId]=stat.Value;
             int n=0;foreach(var stat in stats.Where(s=>Math.Abs(s.Value)>.000001))
             {
@@ -62,11 +65,17 @@ namespace Zatod.Presentation
             if(RecipeVisible)DrawTree();else Fit();
             Message.text=connection.ItemOperationBusy?"Updating items...":connection.Status.StartsWith("Connected")?"":connection.Status;
         }
+        void RefreshInventoryItem()
+        {
+            var item=catalog.Item(DisplayedItemId);if(icon!=null){icon.gameObject.SetActive(false);Destroy(icon.gameObject);}icon=ItemIcon(Left,"SelectedItem",item,178,28,164);
+            ItemName.text=item.Name;Owned.text="Owned: "+account.Inventory.Count(x=>x.ItemId==DisplayedItemId);Requirement.text="Required hero level: "+item.LevelRequirement;Remark.text=item.Description;
+            ClearChildren(Stats);SetCaption(ActionButton,"Close");Message.text=connection.ItemOperationBusy?"Updating items...":connection.Status.StartsWith("Connected")?"":connection.Status;DrawTree();
+        }
         void ToggleRecipe()
         {Right.gameObject.SetActive(!RecipeVisible);if(RecipeVisible){history.Clear();history.Add(DisplayedItemId);DrawTree();}Fit();}
         void Act()
         {
-            if(connection.ItemOperationBusy)return;if(equipped){Hide();return;}
+            if(inventoryContext){Hide();return;}if(connection.ItemOperationBusy)return;if(equipped){Hide();return;}
             var item=account.Inventory.OrderBy(i=>i.Id,StringComparer.Ordinal).FirstOrDefault(i=>i.ItemId==DisplayedItemId);
             if(item==null){if(!RecipeVisible)ToggleRecipe();return;}
             if(hero.Level<catalog.Item(item.ItemId).LevelRequirement){Message.text="Requires hero level "+catalog.Item(item.ItemId).LevelRequirement;return;}
@@ -76,7 +85,7 @@ namespace Zatod.Presentation
         {
             var recipe=crafting.ForItem(CurrentTreeItem);if(recipe==null){if(history.Count>1){history.RemoveAt(history.Count-1);DrawTree();}else ToggleRecipe();return;}
             if(connection.ItemOperationBusy)return;
-            if(!crafting.CanCraft(account,recipe.Id)){Message.text="Not enough ingredients";return;}connection.Craft(recipe.Id);
+            if(!crafting.CanCraft(account,recipe.Id)){Message.text=CurrencyBalance.GetGold(account)<recipe.GoldCost?"Not enough gold":"Not enough ingredients";return;}connection.Craft(recipe.Id);
         }
         void DrawTree()
         {
@@ -89,7 +98,7 @@ namespace Zatod.Presentation
             {
                 sourceIcon=ItemIcon(Right,"SourceItem",item,80,36,70);DrawSources(itemId);return;
             }
-            ItemIcon(Tree,"Product",item,222,6,144);Cost.text="0";
+            ItemIcon(Tree,"Product",item,222,6,144);Cost.text=recipe.GoldCost.ToString("N0");Cost.color=CurrencyBalance.GetGold(account)<recipe.GoldCost?new Color(1,.35f,.25f):new Color(.75f,.46f,.06f);
             var needs=CraftingCatalog.Requirements(recipe).ToArray();float gap=Mathf.Min(96,480f/Math.Max(1,needs.Length));
             for(int n=0;n<needs.Length;n++)
             {
@@ -134,7 +143,7 @@ namespace Zatod.Presentation
         public static RectTransform ItemIcon(Transform parent,string name,ItemDefinition item,float x,float y,float size)
         {
             var root=Box(parent,name,x,y,size,size);
-            if(item.ItemKind==ItemKind.Fragment)
+            if(item.ItemKind==ItemKind.Fragment||item.ItemKind==ItemKind.Soulstone)
             {
                 NativePicture(root,"FragmentBackground","common/frame/fragment_bg",0,0,size,size);
                 var clip=NativePicture(root,"FragmentMask","common/frame/fragment_stencil",5,5,size-10,size-10);clip.gameObject.AddComponent<Mask>().showMaskGraphic=false;
@@ -145,8 +154,9 @@ namespace Zatod.Presentation
                 var clip=Picture(root,"ItemMask","equip_frame_mask",0,0,size,size);clip.gameObject.AddComponent<Mask>().showMaskGraphic=false;
                 Picture(clip.transform,"Icon","Items/"+item.DefinitionId,4,4,size-8,size-8,aspect:true);
             }
-            string[] colors={"white","green","blue","purple","orange","red"};string color=colors[Math.Clamp(item.Quality,1,6)-1];
-            NativePicture(root,"Quality","common/frame/"+(item.ItemKind==ItemKind.Fragment?"fragment":"equip")+"_frame_"+color,0,0,size,size);
+            string[] colors={"white","green","blue","purple","purple","orange","red","pink","prismatic"};string color=colors[Math.Clamp(item.Quality,1,9)-1];
+            NativePicture(root,"Quality","common/frame/"+(item.ItemKind==ItemKind.Fragment||item.ItemKind==ItemKind.Soulstone?"fragment":"equip")+"_frame_"+color,0,0,size,size);
+            if(item.ItemKind==ItemKind.Soulstone)NativePicture(root,"SoulstoneTag","icon/herodetail_soulstone_icon",4,2,size*.28f,size*.28f);
             if(item.ItemKind==ItemKind.Fragment)NativePicture(root,"FragmentTag","icon/fragment_tag",1,1,size*.24f,size*.24f);
             return root;
         }

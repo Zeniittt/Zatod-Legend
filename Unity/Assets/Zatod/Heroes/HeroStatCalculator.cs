@@ -85,8 +85,6 @@ namespace Zatod.Heroes
                 var config = catalog.Item(id);
                 IEnumerable<StatAmount> values = config.PreciseStats.Count > 0 ? config.PreciseStats : config.Stats.Select(x => new StatAmount { StatId=x.StatId,Value=x.Value });
                 add("Item",values.Select(x=>new StatAmount{StatId=x.StatId,Value=x.Value*quantity}));
-                var specific = config.HeroStats.SingleOrDefault(x => x.HeroId == definition.Id);
-                if (specific != null) add("Item/Hero",specific.Stats.Select(x=>new StatAmount{StatId=x.StatId,Value=x.Value*quantity}));
             };
             foreach (var source in hero.AbsorbedItems) item(source.ItemId, source.Quantity);
             foreach (var source in hero.EquippedItems) item(source.ItemId, 1);

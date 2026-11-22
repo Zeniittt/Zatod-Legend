@@ -59,6 +59,19 @@ namespace Zatod.Presentation
             string[] colors={"white","green","blue","purple","purple","orange","red","pink","prismatic"};
             Picture(root,"Quality","equip_frame_"+colors[Math.Clamp(item.Quality,1,9)-1],0,0,size,size,aspect:true);
         }
+        public static void RefreshCurrencies(RectTransform row,CharacterData account,long serverTime=0)
+        {
+            if(row==null||account==null)return;
+            var gold=row.Find("Gold/Value")?.GetComponent<TextMeshProUGUI>();if(gold!=null)gold.text=CurrencyBalance.GetGold(account).ToString("N0");
+            var stamina=row.Find("Stamina/Value")?.GetComponent<TextMeshProUGUI>();if(stamina!=null)
+            {
+                var rules=ProgressionDataJson.LoadBundled();int cap=rules.Player(account.Level).MaxStamina;stamina.text=account.Stamina+"/"+cap;
+                var timer=row.Find("Stamina/Recovery")?.GetComponent<TextMeshProUGUI>();
+                if(timer==null){timer=Text(row.Find("Stamina"),"Recovery","",stamina.font,15);Place(timer.rectTransform,45,36,125,19);timer.alignment=TextAlignmentOptions.Center;}
+                long now=serverTime>0?serverTime:account.StaminaRecoveryTimestamp;long left=Math.Max(0,rules.Data.StaminaRecoverySeconds-(now-account.StaminaRecoveryTimestamp));
+                timer.text=account.Stamina>=cap?"":TimeSpan.FromSeconds(left).ToString(@"mm\:ss");
+            }
+        }
         public static RectTransform Currencies(Transform parent,TMP_FontAsset font)
         {
             var row=Box(parent,"Currencies",w:690,h:54);

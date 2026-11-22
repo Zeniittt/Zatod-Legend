@@ -15,11 +15,11 @@ static partial class Program
         var owned=campaign.CreateDemoCharacter(catalog);owned.CharacterId=Guid.NewGuid().ToString("D");var session=new ZatodPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"),owned);var inventory=new ItemInventory(owned,catalog);
         var recipe=crafting.ForItem("green_boots");Check(recipe.GoldCost==1200 && recipe.Ingredients.Count==3,"Source boot formula");
         foreach(var i in recipe.Ingredients)inventory.AddItemByItemId(i.ItemId,i.Amount);
-        var extra=inventory.AddItemByItemId("boots")[0];string operation=Guid.NewGuid().ToString("D");
+        CurrencyBalance.AddGold(owned,1000000);var extra=inventory.AddItemByItemId("boots")[0];string operation=Guid.NewGuid().ToString("D");
         string Before()=>JsonSerializer.Serialize(owned,Json);
         var before=Before();try{session.Craft(recipe.Id,operation,()=>throw new IOException("Test save failure"));throw new Exception("Save failure not propagated");}catch(IOException){}
         Check(Before()==before,"Craft rollback changed account");int saves=0;var receipt=session.Craft(recipe.Id,operation,()=>saves++);
-        Check(receipt.Consumed.Count==3 && receipt.Created.Count==1 && receipt.GoldCharged==0 && owned.Currencies.Count==0,"Craft contents or bypass");
+        Check(receipt.Consumed.Count==3 && receipt.Created.Count==1 && receipt.GoldCharged==1200 && CurrencyBalance.GetGold(owned)==998800,"Craft contents or gold expense");
         Check(owned.Inventory.Count==2 && owned.Inventory.Count(i=>i.ItemId=="boots")==1 && receipt.Consumed.Select(i=>i.Id).Distinct().Count()==3,"Craft used an extra GUID");
         Check(receipt.Created.All(i=>Guid.TryParseExact(i.Id,"D",out _)) && !receipt.Consumed.Any(i=>i.Id==receipt.Created[0].Id),"Craft GUIDs");
         Check(session.Craft(recipe.Id,operation.ToUpperInvariant(),()=>saves++).Created[0].Id==receipt.Created[0].Id && saves==1,"Duplicate or differently cased operation repeated");

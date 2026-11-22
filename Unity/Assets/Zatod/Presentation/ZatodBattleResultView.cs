@@ -23,6 +23,9 @@ namespace Zatod.Presentation
         readonly List<ZatodUnitStatistics> report=new List<ZatodUnitStatistics>();
         readonly List<RectTransform> heroRoots=new List<RectTransform>(),rewardRoots=new List<RectTransform>();
         readonly List<TextMeshProUGUI> heroExp=new List<TextMeshProUGUI>();
+        readonly List<UnityEngine.UI.Image> heroBars=new List<UnityEngine.UI.Image>();
+        readonly List<TextMeshProUGUI> heroLevels=new List<TextMeshProUGUI>();
+        EconomyBattleReceipt economy;UnityEngine.UI.Image playerBar;
         readonly List<ReplaySprite> effects=new List<ReplaySprite>();
         Action onContinue;HeroCatalog catalog;ZatodReplay replay;Vector2 size;float opened;
         void Awake()
@@ -34,13 +37,15 @@ namespace Zatod.Presentation
         {
             replay=record;catalog=definitions;onContinue=close;BattleId=record.Initial.BattleId;opened=Time.unscaledTime;
             report.Clear();report.AddRange((record.Statistics??new List<ZatodUnitStatistics>()).Select(s=>s.Copy()));
-            Clear(HeroRow);Clear(RewardRow);heroRoots.Clear();heroExp.Clear();rewardRoots.Clear();
+            Clear(HeroRow);Clear(RewardRow);heroRoots.Clear();heroExp.Clear();rewardRoots.Clear();heroBars.Clear();heroLevels.Clear();
+            economy=receipt!=null && receipt.BattleId==BattleId?receipt.Economy:null;
+            playerBar=TeamBar.Find("ProgressionFill")?.GetComponent<UnityEngine.UI.Image>();if(playerBar==null)playerBar=MakeExpBar(TeamBar,"team_expbar");
             foreach(var unit in record.Initial.Players.Take(5))
             {
                 var hero=account.HeroDesk.FirstOrDefault(h=>h.HeroDefinitionId==unit.DefinitionId);
                 var card=ZatodFormationView.CreateCard(HeroRow,"Hero_"+unit.EntityId,108,Font);
                 ConfigureCard(card,unit.DefinitionId,unit.Level,hero?.Stars??1,hero==null?1:ZatodHeroUi.Rank(hero,catalog));heroRoots.Add(card.Root);
-                var bg=Picture(card.Root,"ExpBackground","battleresult/heroexp_bg");Place(bg.rectTransform,0,114,108,10);
+                var bg=Picture(card.Root,"ExpBackground","battleresult/heroexp_bg");Place(bg.rectTransform,0,114,108,10);heroBars.Add(MakeExpBar(bg.rectTransform,"expbar"));heroLevels.Add(card.Level);
                 var exp=Text(card.Root,"Exp","0/0",Font,19);Place(exp.rectTransform,0,128,108,25);exp.alignment=TextAlignmentOptions.Center;heroExp.Add(exp);
             }
             bool settled=receipt!=null && receipt.BattleId==BattleId;
@@ -53,7 +58,8 @@ namespace Zatod.Presentation
                 var frame=ZatodHeroUi.Picture(rect,"Quality","equip_frame_"+ranks[Math.Clamp(item.Quality,1,9)-1]);ZatodHeroUi.Stretch(frame.rectTransform);
                 var amount=Text(rect,"Amount","×"+group.Count(),Font,24);ZatodHeroUi.Fill(amount.rectTransform,new Vector2(.25f,0),Vector2.one,new Vector2(0,0),new Vector2(-5,-42));amount.alignment=TextAlignmentOptions.BottomRight;
             }
-            TeamLabel.text="Squad Level: "+account.Level;TeamExp.text="EXP 0/0";GoldValue.text="?";
+            TeamLabel.text="Squad Level: "+account.Level;TeamExp.text=economy==null?"Replay":"EXP +"+economy.Player.Granted;GoldValue.text=economy==null?"—":economy.Gold.ToString("N0");
+            RefreshExperience(0);
             RewardLabel.text=settled?"Rewards:":"Replay";
             for(int i=0;i<Stars.Length;i++)Stars[i].sprite=Art("battleresult/new_resource/"+(i<record.Stars?"star":"star_1"));
             StatisticsView.gameObject.SetActive(false);gameObject.SetActive(true);size=Vector2.zero;Fit();PlayResultEffects(record.Stars);
@@ -70,9 +76,31 @@ namespace Zatod.Presentation
         static void Clear(Transform parent){foreach(Transform child in parent){child.gameObject.SetActive(false);UnityEngine.Object.Destroy(child.gameObject);}}
         void LateUpdate()
         {
-            Fit();float elapsed=Time.unscaledTime-opened;
+            Fit();float elapsed=Time.unscaledTime-opened;RefreshExperience(Mathf.Clamp01(elapsed/1.4f));
             foreach(var effect in effects)if(effect!=null){float duration=effect.ClipDuration("Start");effect.gameObject.SetActive(elapsed<duration);if(elapsed<duration)effect.Sample("Start",elapsed,true,.55f);}
             for(int i=0;i<Stars.Length;i++){float scale=Mathf.Clamp01((elapsed-.10f-i*.12f)*5);Stars[i].transform.localScale=Vector3.one*scale;}
+        }
+        UnityEngine.UI.Image MakeExpBar(RectTransform parent,string art)
+        {
+            var image=Picture(parent,"ProgressionFill","battleresult/"+art);ZatodHeroUi.Stretch(image.rectTransform,1);
+            image.type=UnityEngine.UI.Image.Type.Filled;image.fillMethod=UnityEngine.UI.Image.FillMethod.Horizontal;image.fillAmount=0;return image;
+        }
+        void RefreshExperience(float t)
+        {
+            if(economy==null){if(playerBar!=null)playerBar.fillAmount=0;foreach(var bar in heroBars)bar.fillAmount=0;return;}
+            var rules=ProgressionDataJson.LoadBundled();
+            void Apply(ExperienceChange change,UnityEngine.UI.Image bar,TextMeshProUGUI label,TextMeshProUGUI levelLabel,bool player)
+            {
+                if(change==null)return;int level=change.BeforeLevel;long exp=change.BeforeExp+(long)(change.Granted*t);
+                Func<int,long> required=lv=>player?rules.PlayerRequired(lv):rules.Hero(lv).NextLevelExp;
+                while(level<change.AfterLevel&&required(level)>0&&exp>=required(level)){exp-=required(level);level++;}
+                if(t>=1){level=change.AfterLevel;exp=change.AfterExp;}
+                long cap=required(level);bar.fillAmount=cap>0?Mathf.Clamp01((float)((double)exp/cap)):1;
+                label.text=(player?"EXP +":"+")+change.Granted+(cap>0?"  ("+exp+"/"+cap+")":"  MAX");
+                levelLabel.text=player?"Squad Level: "+level:level.ToString();
+            }
+            Apply(economy.Player,playerBar,TeamExp,TeamLabel,true);
+            for(int i=0;i<heroBars.Count&&i<economy.Heroes.Count;i++)Apply(economy.Heroes[i],heroBars[i],heroExp[i],heroLevels[i],false);
         }
         public void Fit()
         {
