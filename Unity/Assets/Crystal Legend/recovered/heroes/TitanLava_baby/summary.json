@@ -1,0 +1,71 @@
+{
+  "name": "TitanLava_baby",
+  "source": "patch/pfca/TitanLava_baby.fca",
+  "container_sha256": "e62ed138bb8215db193513a12fef82f9fd2fd4f582671dd32f911204c7195eed",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 84,
+  "element_count": 103,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 48,
+      "duration_seconds": 2.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 12,
+      "duration_seconds": 0.5,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 62,
+      "duration_seconds": 2.5833333333333335,
+      "events": 5
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 2
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 1
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 134893,
+  "cha_bytes_consumed": 134893,
+  "atlas_pixel_roundtrip_verified": true
+}

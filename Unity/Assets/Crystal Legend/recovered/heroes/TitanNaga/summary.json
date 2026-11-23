@@ -1,0 +1,121 @@
+{
+  "name": "TitanNaga",
+  "source": "patch/pfca/TitanNaga.fca",
+  "container_sha256": "5830061ac776562e5fbfb28e30ffc0c422797e316ff34068268aa98b5d0e32cd",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png",
+    "sprite_sheets\\sheet1.png"
+  ],
+  "sprite_count": 209,
+  "element_count": 328,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 12,
+      "duration_seconds": 0.5,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 9,
+      "duration_seconds": 0.375,
+      "events": 0
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 69,
+      "duration_seconds": 2.875,
+      "events": 3
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 53,
+      "duration_seconds": 2.2083333333333335,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 3
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 73,
+      "duration_seconds": 3.0416666666666665,
+      "events": 2
+    },
+    {
+      "name": "Move_s",
+      "fps": 24.0,
+      "frames": 9,
+      "duration_seconds": 0.375,
+      "events": 0
+    },
+    {
+      "name": "Death_s",
+      "fps": 24.0,
+      "frames": 60,
+      "duration_seconds": 2.5,
+      "events": 1
+    },
+    {
+      "name": "Damaged_s",
+      "fps": 24.0,
+      "frames": 11,
+      "duration_seconds": 0.4583333333333333,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 58,
+      "duration_seconds": 2.4166666666666665,
+      "events": 0
+    },
+    {
+      "name": "Cheer_s",
+      "fps": 24.0,
+      "frames": 58,
+      "duration_seconds": 2.4166666666666665,
+      "events": 0
+    },
+    {
+      "name": "atk_s",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 8
+    },
+    {
+      "name": "Idle_s",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 644315,
+  "cha_bytes_consumed": 644315,
+  "atlas_pixel_roundtrip_verified": true
+}

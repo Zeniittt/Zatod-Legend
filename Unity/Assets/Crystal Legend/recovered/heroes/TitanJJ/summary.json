@@ -1,0 +1,85 @@
+{
+  "name": "TitanJJ",
+  "source": "patch/pfca/TitanJJ.fca",
+  "container_sha256": "e013aeab2b7f27f740cddce1618ce1a9ffd86664a22ec305fd0269be46865cfa",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 108,
+  "element_count": 232,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 100,
+      "duration_seconds": 4.166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 2
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 53,
+      "duration_seconds": 2.2083333333333335,
+      "events": 0
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 37,
+      "duration_seconds": 1.5416666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 46,
+      "duration_seconds": 1.9166666666666667,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 93,
+      "duration_seconds": 3.875,
+      "events": 4
+    }
+  ],
+  "cha_bytes": 634354,
+  "cha_bytes_consumed": 634354,
+  "atlas_pixel_roundtrip_verified": true
+}

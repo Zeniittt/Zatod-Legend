@@ -1,0 +1,85 @@
+{
+  "name": "Treasure2",
+  "source": "patch/pfca/Treasure2.fca",
+  "container_sha256": "ce38296942c0188270aafb3311ad493fd2861fc040d7fcc37d20db497fa034cd",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 61,
+  "element_count": 116,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 12,
+      "duration_seconds": 0.5,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 30,
+      "duration_seconds": 1.25,
+      "events": 2
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 1
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 217782,
+  "cha_bytes_consumed": 217782,
+  "atlas_pixel_roundtrip_verified": true
+}

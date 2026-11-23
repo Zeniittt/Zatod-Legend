@@ -1,0 +1,43 @@
+{
+  "name": "TitanHead_up",
+  "source": "patch/pfca/TitanHead_up.fca",
+  "container_sha256": "38833e840e40a044116d8a210456d5a3e76f1df26a962b202d13463753bfb144",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 20,
+  "element_count": 11,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 64,
+      "duration_seconds": 2.6666666666666665,
+      "events": 0
+    },
+    {
+      "name": "Idle2",
+      "fps": 24.0,
+      "frames": 64,
+      "duration_seconds": 2.6666666666666665,
+      "events": 0
+    },
+    {
+      "name": "Idle1change2",
+      "fps": 24.0,
+      "frames": 56,
+      "duration_seconds": 2.3333333333333335,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 64,
+      "duration_seconds": 2.6666666666666665,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 57952,
+  "cha_bytes_consumed": 57952,
+  "atlas_pixel_roundtrip_verified": true
+}

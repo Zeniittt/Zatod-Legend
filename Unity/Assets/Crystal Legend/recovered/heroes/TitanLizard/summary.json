@@ -1,0 +1,99 @@
+{
+  "name": "TitanLizard",
+  "source": "patch/pfca/TitanLizard.fca",
+  "container_sha256": "48f3890b8d3d3372a360783416a2e381eafef2b914215864dd55b4a8c6ed4ceb",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 225,
+  "element_count": 282,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 59,
+      "duration_seconds": 2.4583333333333335,
+      "events": 0
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 59,
+      "duration_seconds": 2.4583333333333335,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 22,
+      "duration_seconds": 0.9166666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 17,
+      "duration_seconds": 0.7083333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 59,
+      "duration_seconds": 2.4583333333333335,
+      "events": 1
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 93,
+      "duration_seconds": 3.875,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 27,
+      "duration_seconds": 1.125,
+      "events": 2
+    },
+    {
+      "name": "atk2b",
+      "fps": 24.0,
+      "frames": 63,
+      "duration_seconds": 2.625,
+      "events": 5
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 63,
+      "duration_seconds": 2.625,
+      "events": 5
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 51,
+      "duration_seconds": 2.125,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 92,
+      "duration_seconds": 3.8333333333333335,
+      "events": 2
+    },
+    {
+      "name": "ult_boss",
+      "fps": 24.0,
+      "frames": 57,
+      "duration_seconds": 2.375,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 1817015,
+  "cha_bytes_consumed": 1817015,
+  "atlas_pixel_roundtrip_verified": true
+}

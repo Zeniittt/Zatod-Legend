@@ -1,0 +1,78 @@
+{
+  "name": "TitanLava",
+  "source": "patch/pfca/TitanLava.fca",
+  "container_sha256": "a5ead2b046ce4fa3ea288eb0a497be3b92dd23aee592aaaa0f26b59cbfec88dd",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 115,
+  "element_count": 159,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 51,
+      "duration_seconds": 2.125,
+      "events": 2
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 36,
+      "duration_seconds": 1.5,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 57,
+      "duration_seconds": 2.375,
+      "events": 5
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 0
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 101,
+      "duration_seconds": 4.208333333333333,
+      "events": 6
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 45,
+      "duration_seconds": 1.875,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 389999,
+  "cha_bytes_consumed": 389999,
+  "atlas_pixel_roundtrip_verified": true
+}

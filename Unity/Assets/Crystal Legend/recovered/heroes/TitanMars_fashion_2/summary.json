@@ -1,0 +1,85 @@
+{
+  "name": "TitanMars_fashion_2",
+  "source": "patch/pfca/TitanMars_fashion_2.fca",
+  "container_sha256": "8a0066dba72ca4393dc65ed56ce55ad638d161ff6c872a7bf1a4dc54e89a734c",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 193,
+  "element_count": 209,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 51,
+      "duration_seconds": 2.125,
+      "events": 1
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 218,
+      "duration_seconds": 9.083333333333334,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 2
+    },
+    {
+      "name": "atks",
+      "fps": 24.0,
+      "frames": 55,
+      "duration_seconds": 2.2916666666666665,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 54,
+      "duration_seconds": 2.25,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 91,
+      "duration_seconds": 3.7916666666666665,
+      "events": 2
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 0
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 120,
+      "duration_seconds": 5.0,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 798035,
+  "cha_bytes_consumed": 798035,
+  "atlas_pixel_roundtrip_verified": true
+}

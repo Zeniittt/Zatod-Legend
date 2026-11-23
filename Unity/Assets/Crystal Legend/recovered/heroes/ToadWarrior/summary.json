@@ -1,0 +1,57 @@
+{
+  "name": "ToadWarrior",
+  "source": "patch/pfca/ToadWarrior.fca",
+  "container_sha256": "1bc42abaae42c715bf6cb0bb6b8c87104f5a4ab646e9711e6f4c36f62c20d217",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 66,
+  "element_count": 88,
+  "actions": [
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 2
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 1
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 32,
+      "duration_seconds": 1.3333333333333333,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 119,
+      "duration_seconds": 4.958333333333333,
+      "events": 3
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 180498,
+  "cha_bytes_consumed": 180498,
+  "atlas_pixel_roundtrip_verified": true
+}
