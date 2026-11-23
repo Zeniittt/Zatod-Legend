@@ -1,0 +1,78 @@
+KẾT QUẢ KHÔI PHỤC CRYSTAL LEGENDS 1.1.100312
+Ngày thực hiện: 18/11/2026 (Asia/Saigon)
+
+Đã xử lý đủ 4 APK trong thư mục đầu vào. Không chỉnh sửa APK và không chạy game.
+
+KẾT QUẢ
+- 4.317/4.317 file .abc đã mở được: 4.299 Lua bytecode và 18 source Protobuf.
+- 4.299/4.299 Lua đã decompile thành .lua và qua kiểm tra cú pháp Lua 5.1.
+- 4.299/4.299 bytecode chuẩn hóa được Lua 5.1 chấp nhận khi load, không thực thi.
+- 11.196/11.196 texture CCZ/PVR đã chuyển thành PNG và đối chiếu pixel.
+- 15/15 gói animation FCA đã mở; lấy thêm 16 sprite sheet PNG.
+- Xuất 8.306 asset khác, gồm 1.403 MP3, 6.512 JPG, font, shader và dữ liệu phụ.
+- 24.931 file trích xuất nguyên bản từ APK đã đối chiếu SHA256: không sai lệch.
+
+MỞ FILE Ở ĐÂU
+1. Script Lua đọc được:
+   scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/
+   Ví dụ: battle/battle_engine.lua, battle/ai.lua, Skill.lua, Buff.lua.
+   Các file *_ptr.lua được giữ riêng vì là biến thể có trong APK.
+
+2. Định nghĩa Protobuf:
+   scripts/protobuf_utf8/com.farlightgames.dgame.gp.apac/assets/remake/data/
+   scripts/protobuf_original/ giữ byte source gốc; bản UTF-8 chuyển mã các file GB18030.
+
+3. Asset dùng trực tiếp:
+   assets/install_time_pack/remake/
+   assets/com.farlightgames.dgame.gp.apac/
+   Texture đã đổi sang PNG; ảnh, âm thanh, font và shader khác giữ nội dung gốc.
+   File PNG không có đuôi trong APK được bổ sung đuôi .png khi xuất.
+
+4. Animation đã mở container:
+   assets_unpacked/install_time_pack/assets/remake/pfca/effect/
+   Giữ dữ liệu cha gốc, plist atlas và PVR; thêm PNG cho sprite sheet.
+   Dữ liệu chuyển động cha vẫn ở định dạng nhị phân của game, chưa chuyển thành video
+   hoặc project animation của phần mềm khác.
+
+5. Bản trích xuất đầy đủ, giữ cấu trúc từng APK:
+   apk_contents/
+   Bao gồm asset gốc, Android res, DEX, thư viện native, manifest và metadata.
+   scripts/custom_bytecode/ giữ payload sau khi mở lớp bảo vệ .abc.
+   scripts/lua51_bytecode/ giữ bytecode đã chuẩn hóa header/opcode.
+
+ĐỘ CHÍNH XÁC VÀ DẤU VẾT
+Lua source là kết quả decompile, không phải nguyên văn source ban đầu. Comment,
+format và một phần thông tin debug có thể không khôi phục được. Chưa kiểm chứng
+hành vi gameplay bằng cách chạy game.
+
+Có 2 lỗi thiếu ngoặc trong output unluac, ở tenPumping.lua và peakArenaPvpScene.lua.
+Đã sửa theo thứ tự TEST/NEWTABLE/GETTABLE trong bytecode. Output trước sửa, vị trí
+instruction và SHA256 trước/sau được giữ trong reports/decompiler_original/,
+reports/*.disassembly.txt và reports/source_repairs.json.
+
+Chỉ khôi phục nội dung có trong 4 APK này. Asset/script tải bổ sung từ server
+không nằm trong bộ cài sẽ không có trong kết quả.
+
+BÁO CÁO MÁY ĐỌC
+- reports/input_apks.json: kích thước và SHA256 các APK đầu vào.
+- reports/apk_inventory.json: danh sách đầy đủ file, kích thước và SHA256.
+- reports/script_inventory.json: kết quả mở từng .abc và đường dẫn source còn lưu.
+- reports/decompile.tsv: kết quả decompile từng Lua chunk.
+- reports/lua_validation.json: kiểm tra source và bytecode từng file.
+- reports/asset_inventory.json: danh sách asset xuất/chuyển đổi, kích thước và hash pixel.
+- reports/fca_inventory.json: nội dung từng gói animation.
+- reports/verification.json: kết quả kiểm tra tổng hợp.
+- reports/recovery_method.json: cơ chế mở .abc, bảng opcode, địa chỉ hàm và nguồn công cụ.
+
+Công cụ tái lập kết quả nằm ở ../recovery_tools/; xem RUN_RECOVERY.txt.
+
+
+BỔ SUNG: KHÔI PHỤC ANIMATION HERO TỪ GÓI CDN
+Đã tải gói aab_1.1.100312.zip từ CDN chính thức vào downloads/.
+Gói có 2.400 container FCA; 314 container thuộc nhóm nhân vật/skin/NPC.
+Đã xuất 326 atlas PNG, 27.278 mảnh sprite và 3.049 động tác từ nhóm này.
+Kết quả nằm ở heroes/. Xem heroes/HOW_TO_USE.txt và reports/hero_*.json.
+Dữ liệu animation.json của cả 314 container có thể mã hóa ngược thành cha
+khớp từng byte gốc. Preview dựng sprite nhân vật; event gọi âm thanh/hiệu ứng
+ngoài container được giữ trong JSON, chưa được thực thi trong preview.
+Thông tin này bổ sung cho kết quả chỉ phân tích 4 APK ban đầu ở phía trên.
