@@ -105,7 +105,7 @@ Ngày 19/11/2026, người dùng xác định và tiếp tục điều chỉnh m
 - Hoàn thành logic Phó bản, Arena tự động và PvP realtime theo D03.
 - Import bộ 5 khởi đầu Coco (1), DR (2), Lina (3), Zeus (4), Ench (45) và chương đầu tiên, gồm địch, ải và wave. Bổ sung cả các Hero xuất hiện phía địch dưới dạng Hero đầy đủ, không chỉ tạo bản quái thay thế. Việc import định nghĩa không tự cấp toàn bộ các Hero bổ sung vào HeroDesk khởi đầu.
 - Bổ sung lớp wave. Chương 1 Thường có 18 ải/54 wave; đây là phạm vi đang dùng để đối chiếu. Tinh Anh có thêm 6 ải/18 wave và để phase sau cùng các hệ thống phụ.
-- Giảm mục tiêu tiến bậc từ Tím+4 xuống Xanh Dương. Hiểu Xanh Dương thường là rank 4 của Crystal, gồm đường Trắng → Xanh Lá → Xanh Lá+1 → Xanh Dương; không tự mở rộng sang Xanh Dương+1/+2. Đã triển khai đường bậc này trong prototype.
+- Giảm mục tiêu tiến bậc từ Tím+4 xuống Xanh Dương. Hiểu Xanh Dương thường là rank 4 của Crystal, gồm đường Trắng → Xanh Lá → Xanh Lá+1 → Xanh Dương; không tự mở rộng sang Xanh Dương+1/+2. Đã triển khai đường bậc này trong prototype. **Mục tiêu phase mới được người dùng mở tới Tím thường ngày23/11/2026 tạiD34; runtime hiện tại vẫn mới tới Xanh Dương.**
 - Chưa làm lưu tiến trình phó bản. Mỗi lần mở game bắt đầu lại từ ải đầu; tiến trình trong một lần chơi chỉ giữ trong bộ nhớ. Không khôi phục clear/unlock của lần chơi mới từ replay/archive cũ. Không xóa archive cũ hoặc suy rộng thành reset toàn bộ Hero/item.
 - Phạm vi đã được duyệt và yêu cầu thực thi ngày 19/11/2026. Giữ ranh giới Definition/Data/BattleData; trạng thái thực tế ở mục triển khai, không coi các hệ thống ngoài phase là đã được yêu cầu làm.
 
@@ -449,11 +449,53 @@ Yêu cầu ngày20/11/2026. **Trạng thái:** đã triển khai Fixed joystick/
 
 - **Bảo trì cài iOS 23/11 — BUG-064:** người dùng cài qua Sideloadly gặp lỗi xác minh chữ ký UnityRuntime.framework. Đã kiểm IPA tải về và tạo IPA workaround bỏ riêng artifact build-only này, giữ 44 entries khác theo SHA256. Helper export bỏ nhúng UnityRuntime ở main app, vẫn giữ linker reference ở UnityFramework; SDK roundtrip/idempotence/linker/signing checks PASS. Bản `Artifacts/ZatodIosChecks/SigningFix/ZatodLegend-SigningFix.ipa` cần Sideloadly ký/cài lại; chưa xác nhận cài/chạy iPhone. Không đổi quyết định miễn phí, Team/Bundle ID hay dữ liệu app.
 
+### D34 — Mở rộng tới Tím và danh sách Hero PvP riêng
+
+- **Ngày chốt:**23/11/2026. **Trạng thái:** đã đồng ý hướng/phạm vi chính, chưa triển khai; làm sau phase nềnD35. Khảo sát nguồn: `docs/zatod-purple-pvp-phase-review.md`. Các nhận định chưa chốt từ lượt khảo sát ban đầu được thay bằng quyết định hiện hành ở đây.
+- Mở chương3–8 Normal để Hero phát triển tới **Tím thường**, gồm các bậc trung gian Blue+1/Blue+2. Điều này thay giới hạn Blue củaD11 cho phase nội dung, chưa mở Tím+1 trở lên. GiữD05 stat trực tiếp vàD08 lịch sử trang bị/hấp thụ, không chỉ đổi màu rank.
+- Phạm vi nguồn được đồng ý: thêm115 ải/345 wave; tổng8 chương/154 ải/462 wave. Cần đủ world map/portal/điểm tương tác, encounter, preview/cost/reward, item/recipe, animation/effect/hook và GameEditor. Không chỉ thêm Stage JSON.
+- Khoảng40 Hero chọn riêng cho PvP realtime, gồm25 hiện có và15 Hero Razor/WR/CM/Naga/SG/TH/OD/Ursa/Sil/Luna/VS/POM/Huskar/Lich/KOTL. Dùng định nghĩa chung, server tạo dữ liệu trận test riêng; **giữ HeroDesk hiện có**, không cấp40 Hero vào sở hữu hoặc nâng rank sở hữu để testPvP. Mỗi đội vẫn tối đa5; chưa yêu cầu đổi Arena auto.
+- Preset đã đồng ý:Lv60/3sao/Tím thường, chưa mặc các ô đồTím; giữ đóng góp đúng của các bậc trước theoD08. Mức skillPvP đã được đề xuất theohelpernguồn=HeroLevel/basic1, cần đưa rõ vào bản kế hoạchD34 trước thực thi; không coi việc tạo modelD35 là đã áp preset này vào runtime.
+- TổngHeroDefinition toàn project có thể vượt40 do encounter chương mới;40 là mục tiêu poolPvP, không phải giới hạn cấm nhập Hero địch cần thiết.
+- Source preview/recipe khảo sát cho thấy tới chương7 đủ loại để tiến vàoTím và tới chương8 đủ ô đồTím theo các tập Hero đã audit. Đây không phải xác nhận loot backend Crystal hoặc poolZatod đã hoàn tất; cần kiểm lượng đồ, Gold/stamina, độ khó và vòng phụ thuộc farm khi triển khai nội dung.
+- Người dùng đã đồng ý tối nền theo đường manual ultimate/freeze đã đối chiếu. Fade xác/timeline chết được hỏi khảo sát; kết luận nguồn là DeathDuration từngHero+2s chờ+1s fade, có ngoại lệ; chưa tự coi câu đồng ý tối nền là chốt mọi thay đổi xác chết. Cả hai presentation chưa thuộcD35.
+- **Chưa cần lưu tiến trình ải**: giữ reset sao/unlock theo launchD11. Không hỏi lại persistence như việc bắt buộc củaD34. Quyết định đã chốt không cần xin lại; vẫn phân biệt đồng ý thiết kế với lệnh triển khai.
+
+### D35 — Hoàn thiện hệ thống skill và Promote trước mở rộng nội dung
+
+- **Ngày chốt:**23/11/2026, gồm các lượt đối chiếu source, giải thích ví dụ và đồng ý model cuối. **Trạng thái:** thiết kế đã duyệt, chưa triển khai runtime. Bản bàn giao: `docs/zatod-skill-promote-phase-plan.md`; bằng chứng nguồn: `docs/zatod-skill-promote-review.md` và `docs/reference/zatod-skill-promote-source.json`. Dữ liệu trongArtifacts chỉ là evidence local, không là đầu vào duy nhất cho agent khác.
+- Phase hiện tại hoàn thiện hệ thống quản lý/nâng skill, **giữ SkillEvo**, Quick Equip và Promote trên model/combat core đã có. Các chương3–8, pool40 PvP và mở rộng nội dung Tím củaD34 tiếp tục sau phần nền này. GiữD11 reset tiến trình ải theo launch; chưa làm persistence Campaign.
+- **Model SkillEvo đã được duyệt:** thêm `SkillDefinition.Evolutions` trong configSkills.txt/tabSkills GameEditor. Mỗi mốc cóId ổn định, RequiredSkillLevel, Description, ParameterChanges và TriggeredEffects. Biểu diễn thay/add tham số rõ ràng, tái sử dụng buff/effect/hook cho tác động mới. Không giới hạn cứng ba mốc hoặc dùng index dòng làm ID. Đây là cấu trúc thiết kế đã duyệt, không phải các class đã được triển khai.
+- `HeroSkillData` tiếp tục lưu SlotId/Level, **không thêm EvoLevel/EvoExp song song**. Evo xác định từ level skill trên config; áp các mốc đủ điều kiện theo thứ tự xác định, tích lũy tác động của các mốc trước. Nâng qua ngưỡng mở Evo trong cùng giao dịch nâng skill, không thêm slot thứ5 hoặc thao tác mở Evo riêng. Skill vẫn phải được mở theo bậc trước khi sử dụng.
+- `BattleSkillData`/snapshot chụp level và đầy đủ configEvo, buff/effect phụ thuộc. Client/checker/replay giải cùng luật từ dữ liệu đã chụp. Apply thay đổi lên skill/caster runtime riêng, không sửa config chung. Đổi config hoặc tiến trình sở hữu sau đó không làm replay cũ tự nhậnEvo mới; khi thay logic cần rules compatibility/version phù hợp.
+- **Khởi tạo skill mới:** theo Init Level của từngslot/config nguồn; bộ25 Hero hiện có là1/1/21/41. Level hiện tại là tiến trình trongHeroData, không phải dữ liệu config. Các slot đang khóa có thể giữ seed cao hơnHeroLevel nhưng chưa được dùng/nâng.
+- **Save cũ và giao dịch đã duyệt:** migration theoSlotId, chỉ thêm slot thiếu, giữHero/GUID/trang bị và level cácslot cũ; không tự nâng đồng loạt slot cũLv1 lên21/41 hoặc reset Owned. Nâng skill/Promote cần save/rollback đầy đủ và receipt xử lý lại cùng yêu cầu chỉ một lần, giữ snapshot/replay cũ. Không hỏi lại phần kỹ thuật đã được giải thích và đồng ý này.
+- **Chi phí hiện hành:** nâng skill chỉ thu vàng, tạm bỏ qua phí sách; không kiểm thiếu sách để chặn nâng và không tiêu sách. Giữ chính sách này khi thêmEvo, không tự phát sinh phí mới. Chưa cần mở hoạt động farm/import sách chỉ để vượt điều kiện nguồn. Khóa tính năng nâng skill theo PlayerLv7 để các phase sau, chưa áp trong phase này. Mởslot theo bậc và giới hạn level skill theoHero là các điều kiện riêng.
+- **Cap skill:** giữ mặc định SkillLevelCap80 theo đề xuất đã được người dùng đồng ý khi kết thúc brainstorm; chỉnh được quaGameEditor. Cap nâng thực tế=min(HeroLevel,SkillLevelCap) cho skill đã mở; không suy số dòngSkillLevels hoặc accountLevel thành cap hoạt động.
+- **UI Quick Equip/Promote đã duyệt theo source:** cùng một nút dưới cụm trang bị; mặc nhanh món có sẵn/hợp lệ, đủ ô thì đổi nhãn thànhPromote. Không tự craft thiếu đồ hoặc tựPromote tiếp ngay trong một click mặc nhanh. Đã xác nhận từ layout herodetailNormal.btn_up/label_up và cả checkHeroUpgrade/doClickUpgrade. Khi triển khaiD35, điều này thay placeholder QuickEquip ởD23/D28; hiện runtime chưa đổi.
+- **Promote:** giữ D08 hấp thụ đúngItemId/GUID vào lịch sử, làm trống ô kế và mở skill theo đườngNextRankId; không cộng trùng tổngUnitRank với ledger hoặc viết lại đồ đã hấp thụ theo recipe mới. Giữ D07 Definition/Data/BattleData, D17/D22 art/responsive. Không tự thêm phí vàng, enchant/refund hoặc dữ liệu ngoài phạm vi đã chốt.
+- **Stats:** giữ D05 stat trực tiếp và bỏ bonus item riêng theoHero đã triển khai. STR/AGI/INT chỉ là khả năng người dùng cân nhắc về sau, chưa đưa trở lại. Cần port đúng Evo/hook/buff được mở trong nội dung hiện hành; schema có sẵn không đồng nghĩa mọi Evo của25/40 Hero đã được hỗ trợ.
+
+### D36 — Workflow brainstorm và bàn giao qua markdown
+
+- **Ngày chốt:**23/11/2026. Người dùng muốn brainstorm/chốt thiết kế cùng agent hiện tại, lưu tài liệu để một agent khác thực thi. Không dựa vào lịch sử chat như đầu vào bắt buộc của agent triển khai.
+- Design.md là nguồn quyết định; mỗi phase có một phase-plan hiện hành chứa phạm vi, hợp đồng, checklist và tiêu chí nghiệm thu. Review chứa bằng chứng nguồn/khảo sát, ChangeLog giữ lỗi và kinh nghiệm. Không trộn đề xuất bị thay thế với yêu cầu đang có hiệu lực hoặc tạo nhiều bản quyết định cạnh tranh.
+- Agent được giao thực thi theo phase-plan phải làm tiếp trong phạm vi đã duyệt, không hỏi lại model/rule đã chốt. Chỉ hỏi khi có xung đột thiết kế, đầu vào thực sự thiếu hoặc yêu cầu mở rộng ngoài phạm vi. Cập nhật implementation report/Design/ChangeLog theo kết quả thực tế.
+- Việc brainstorm, đồng ý thiết kế hoặc chuẩn bị markdown không tự khởi động runtime, build, deploy, tạo chat hay gửi việc cho agent khác. Người dùng sẽ giao agent thực thi; yêu cầu thực thi rõ ràng về sau là đủ quyền cho phạm vi được giao.
+- Tài liệu đi theo Git cần nêu đầu vào local bịignore. VớiD35, Crystal Legend/ vàArtifacts/ không theo clone; đã có JSON tham chiếu gọn trongdocs nhưng fullsource/art vẫn cần hiện diện để port. Chưa được khẳng định đã commit/push chỉ vì tài liệu được viết local.
+
+### Mốc xác nhận đa nền tảng — 23/11/2026
+
+- Người dùng xác nhận Android, iOS, Windows và server đều đã ổn và chuyển sang bàn phase tiếp theo. Đây là xác nhận vận hành từ người dùng, bổ sung cho các giới hạn kiểm chứng thiết bị ở những lượt bàn giao trước; không phải một lượt agent chạy lại ma trận kiểm thử hoặc bằng chứng mọi trường hợp đã được kiểm tra.
+- Sau đề xuất ban đầu, người dùng đã mở rộng hướng phase theoD34; các chi tiết còn mở và trạng thái chưa triển khai được ghi tại đó. Các quyết định hiện hành ngoài phần đượcD34 thay thế, gồmD11 reset tiến trình ải theo launch, tiếp tục áp dụng.
+
 ## Bản tổng hợp phase đã được duyệt
 
 Người dùng đã duyệt toàn bộ bản tổng hợp cùng hai lưu ý về chuyển stats và giới hạn source backend, rồi yêu cầu thực thi ngày 19/11/2026. [phase-crystal-prototype-scope.md](docs/phase-crystal-prototype-scope.md) là checklist triển khai. Không yêu cầu xác nhận lại các bước trong phạm vi; chỉ báo xung đột thiết kế hoặc khoảng trống source cần quyết định mới. Trạng thái thực tế được cập nhật tại [crystal-phase-implementation.md](docs/crystal-phase-implementation.md).
 
 ## Trạng thái triển khai cần phân biệt với thiết kế đích
+
+**Mốc lịch sử:** phần dưới ghi trạng thái ngày19/11/2026. Phạm vi/rule đã được các quyết định mới hơn thay thế phải đọc theo D12/D28–D36; không áp lại các giới hạn54wave, bypasscraft hoặc mô tả UI kho cũ làm yêu cầu hiện hành.
 
 Cập nhật 19/11/2026: **đã hoàn thành triển khai và kiểm tra phase prototype trong phạm vi được duyệt**. Build Windows cuối thành công, không có lỗi build; executable cuối đã qua Phó bản, Arena, PvP hai client và reset ải/giữ dữ liệu sở hữu. Báo cáo chuẩn: [crystal-phase-implementation.md](docs/crystal-phase-implementation.md).
 

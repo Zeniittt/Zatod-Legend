@@ -15,6 +15,13 @@
 - Phân biệt đồng ý về hướng thiết kế với yêu cầu triển khai ngay. Khi người dùng đang brainstorm hoặc nói chưa code, chỉ phân tích và duy trì tài liệu đã được yêu cầu; không sửa gameplay, scene, prefab, asset hoặc config runtime.
 - Không viết lại lịch sử tiến trình Hero hoặc xóa tài nguyên cũ chỉ vì đổi config/nguồn art. Áp dụng đúng chính sách đã ghi trong `Design.md`.
 
+## Workflow brainstorm và bàn giao
+
+- Theo D36, người dùng có thể brainstorm/chốt thiết kế với một agent rồi giao agent khác thực thi. Agent triển khai phải đọc được yêu cầu từ repository, không cần tìm lại chat brainstorm.
+- `Design.md` giữ quyết định hiện hành; phase-plan trong `docs/` là checklist thực thi/nghiệm thu; review chỉ giữ bằng chứng khảo sát; `ChangeLog.md` giữ lỗi và kinh nghiệm. Không áp lại đề xuất lịch sử đã bị thay thế.
+- Khi được giao thực thi một phase-plan đã duyệt, tiếp tục trong phạm vi đó; không xin lại các quyết định đã chốt. Đồng ý thiết kế hoặc chỉnh markdown riêng vẫn không tự là lệnh code/build/deploy.
+- Bản bàn giao phải nêu phạm vi, ngoài phạm vi, đầu vào/source bị Git ignore, migration, giao dịch, kiểm tra và trạng thái thực tế. Không coi file chỉ có ở `Artifacts/` hoặc thư mục reverse local là đã được chuyển cho agent ở clone khác.
+
 ## Ghi nhận lỗi và cách sửa
 
 - Mỗi khi phát hiện hoặc xử lý một vấn đề, cập nhật `ChangeLog.md` trong cùng lượt: ngày, mã lỗi, triệu chứng, nguyên nhân đã xác nhận (tách giả thuyết), cách sửa/workaround, file liên quan, bằng chứng kiểm tra và lưu ý nếu tái diễn.
