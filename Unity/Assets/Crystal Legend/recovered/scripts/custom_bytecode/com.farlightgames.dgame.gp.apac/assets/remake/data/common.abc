@@ -1,0 +1,690 @@
+enum gender {
+    male   = 1;
+    female = 2;
+    unknow = 3;
+}
+
+message user_summary {
+    optional uint32 _avatar      = 1; // 玩家头像
+    optional string _name        = 2; // 玩家名
+    optional uint32 _vip         = 3; // 玩家vip
+    optional uint32 _level       = 4; // 玩家等级
+    optional string _guild_name  = 5; // 公会名字
+    optional medal_item _medal   = 6; // 徽章
+    optional uint32 _babel_level = 7; // 通天塔等级
+    optional uint32 _uid         = 8; // 玩家UID
+    optional string _role_id     = 9; // 玩家RoleID
+}
+
+// 道具/通用项
+message item {
+  optional uint32 _id     = 1;  // ID
+  optional uint32 _amount = 2;  // 数量
+}
+
+message medal_item {
+    optional uint32 _medal_id    = 1;
+    optional uint32 _get_time    = 2;
+    optional uint32 _expire_time = 3;
+    optional bool   _is_new      = 4;
+}
+
+// 空数据, 占位用
+message empty_data {}
+
+enum hero_status {
+    idle    = 0;    // 空闲
+    hire    = 1;    // 雇佣兵
+    free    = 2;    // 免费英雄
+}
+
+message hero {
+    optional uint32             _tid             = 1;
+    optional uint32             _rank            = 2; // 英雄阶级
+    optional uint32             _level           = 3; // 英雄等级
+    optional uint32             _stars           = 4; // 进化等级
+    optional uint32             _exp             = 5;
+    optional uint32             _gs              = 6;
+    optional hero_status        _state           = 7; // 英雄状态，标识英雄正在干的事
+    repeated uint32             _skill_levels    = 8; // 技能等级
+    repeated hero_equip         _items           = 9; // 当前的装备列表
+    optional uint32             _fashion         = 10; // 皮肤ID
+    optional hero_shard         _shard           = 11; // 觉醒装备
+    optional pet                _pet             = 12; // 信使
+    optional hero_astrolabe     _astrolabe       = 13; // 星盘
+    optional hero_legend_equip  _legend_equip    = 14; // 传奇装备
+}
+
+message hero_equip {
+    optional uint32 _index                = 1;   // 装备的位置
+    optional uint32 _item_id              = 2;   // 装备ID
+    optional uint32 _exp                  = 3;   // 附魔经验/泰坦强化经验
+}
+
+
+message arena_pvp_hero {
+  optional uint32           _tid        = 1;
+  optional uint32           _damage     = 2; 
+  optional uint32           _kill       = 3;
+  optional uint32           _level      = 4;
+  optional uint32           _stars      = 5;
+  optional uint32           _rank       = 6;
+  optional uint32           _proto_rank = 7;
+  optional uint32           _fashion_id = 8;
+  optional uint32           _shard_id   = 9;
+  optional sint32           _camp       = 10;
+  optional uint32           _hp         = 11;
+  optional hero_pet_summary _pet        = 12;
+  optional hero_astrolabe   _astrolabe  = 13;
+
+  optional uint32           _healing     = 17; // 治疗
+  optional uint32           _suffer_damage = 18; // 受到伤害
+  optional hero_legend_equip _legend_equip = 19; // 传奇装备
+}
+
+
+enum rank_type {
+    guildliveness                = 1;   //公会活跃排行榜
+
+    top_gs                       = 5;   //巅峰战力榜
+    full_hero_gs                 = 6;   //全员战力榜
+    hero_team_gs                 = 7;   //小队战力榜
+    hero_evo_star                = 8;   //英雄进化榜
+
+    normal_arena                 = 11;  //普通竞技场
+
+    dreamland_individual         = 14;  //永生梦境玩家伤害排行榜
+    dreamland_guild              = 15;  //永生梦境公会伤害排行榜
+    real_arena                   = 16;  //诸王争霸排行榜
+    last_season_real_arena       = 17;  //诸王争霸上赛季成绩
+    dream_guild_individual       = 19;  //永生梦境公会成员贡献榜
+
+    dreamland_individual_multi   = 23;  //永生梦境多人对战伤害排行榜
+    dreamland_individual_global  = 24;  //永生梦境伤害全服排行榜
+    multi_arena                  = 26;  //诸神对决排行榜
+    last_season_multi_arena      = 27;  //诸神对决上赛季排行榜
+    real_arena_local             = 29;  //诸王争霸本地排行榜
+    chess_score_rank             = 32;  //自走棋积分排行
+    myth_boss_rank               = 33;  //时空秘境BOSS排行
+
+    collect_point_local          = 34;  //收藏积分本服排行榜
+    collection_point_global      = 35;  //收藏积分全服排行榜
+    solo_score_rank              = 36;  //选技竞技场积分排行
+}
+
+enum hire_from {
+    guild       = 0;
+    tbc         = 1;
+    stage       = 2;
+    guild_mount = 7; // 公会山
+    awake_dungeon = 8; // 地底历险
+}
+
+
+
+message trading_money {
+  optional uint32 _gold    = 1; // 金币(贤者之石)
+  optional uint32 _silver  = 2; // 银币(贤者之石精华)    
+}
+
+message hero_summary {
+    optional uint32               _tid         = 1;
+    optional uint32               _rank        = 2; // 英雄阶级
+    optional uint32               _level       = 3; // 英雄等级
+    optional uint32               _stars       = 4; // 进化等级
+    optional uint32               _gs          = 5; // GS
+    optional hero_status          _state       = 6; // 状态
+    optional uint32               _fashion     = 7; // 皮肤
+    optional hero_shard           _shard       = 8; // 觉醒装备
+    optional hero_pet_summary     _pet         = 9; // 宠物相关
+    optional hero_astrolabe       _astrolabe = 10; // 星盘
+    optional hero_legend_equip    _legend_equip = 11; // 传奇装备
+}
+
+message hero_pet_summary {
+    optional uint32 _id      = 1;
+    optional uint32 _type_id = 2;
+}
+
+message hero_astrolabe {
+    optional uint32  _level = 1; // 祈福等级
+    repeated astrolabe_star _stars = 2; // 星星词条
+    optional uint32         _gs    = 3; // 战力
+    optional bool    _is_unlock = 4; // 是否解锁
+}
+
+message astrolabe_star {
+    optional uint32 _index   = 1;   // 下标index
+    optional uint32 _id      = 2;     // 词条ID
+    optional uint32 _value   = 3;     // 词条的值
+}
+
+message honor_wall_item {
+    enum honor_wall_item_type {
+        hero_summary = 1;
+        medal        = 2;
+        avatar       = 3;
+        pixel        = 4;
+    }
+    optional honor_wall_item_type _type         = 1;
+    optional uint32               _x            = 2;
+    optional uint32               _y            = 3;
+    optional hero_summary         _hero_summary = 4;
+    optional uint32               _id           = 5;
+}
+
+message user_key {
+    optional uint32 _svr_id = 1; //服务器ID
+    optional uint32 _uid    = 2; //玩家ID
+}
+
+message battle_operations {
+    optional uint32            _tick = 1;
+    repeated operation_unit    _unit = 2;    // 玩家操作
+}
+
+message operation_unit {
+  optional user_key   _key   = 1;
+  repeated uint32     _ops   = 2;    // 同一帧有多个操作
+}
+
+message warschool_book {
+    optional uint32           _id               = 1;
+    repeated uint32           _skills           = 2;  // 技能列表 <<level:8, id:8>>
+}
+
+//  阵容
+message lineup {
+    repeated uint32 _hero_id  = 1; // 英雄ID
+    optional uint32 _gs       = 2; // 阵容gs
+}
+
+// 竞技场队伍
+message arena_team {
+    repeated hero   _heroes   = 1; // 英雄详细信息
+}
+
+message battle_user {
+    optional user_key       _key             = 1;
+    optional uint32         _book_level      = 2;
+    repeated warschool_book _warschool_books = 3;
+    repeated uint32         _select_hero_id  = 4;
+    optional battle_bonus   _bonus           = 5; // 战斗加成
+}
+
+message operation {
+    optional uint32     _tick          = 1;
+    optional uint32     _operation     = 2;
+}
+
+message barrage {
+    optional uint32 _tick    = 1;
+    optional uint32 _color   = 2;
+    optional string _content = 3;
+    optional uint32 _is_mute = 4;
+    optional user_key _user_key = 5;
+}
+
+// 自走棋的玩家key
+message chess_user_key {
+    optional uint32     _server_id = 1; // 服务器ID
+    optional uint32     _user_id   = 2; // 玩家ID
+}
+
+// 自走棋中的英雄
+message chess_hero {
+    optional uint32     _insid      = 1; // 实例ID
+    optional uint32     _hid        = 2; // 英雄ID
+    optional chess_pet  _pet        = 3; // 已装备信使
+}
+
+// 自走棋中的信使
+message chess_pet {
+    optional uint32     _insid     = 1;     // 实例ID
+    optional uint32     _pid        = 2;    // 信使ID
+}
+
+// 自走棋中玩家的摘要信息
+message chess_user_summary {
+    optional chess_user_key     _user_key           = 1; // 玩家key
+    optional user_summary       _user_summary       = 2; // 玩家摘要信息
+    optional string             _plat               = 3; // 平台名称
+    optional uint32             _show_server_id     = 4; // 显示的服务器id
+    optional uint32             _max_hp             = 5; // 最大血量
+    optional uint32             _hp                 = 6; // 当前血量
+    optional uint32             _level              = 7; // 等级
+}
+
+// 自走棋中的战斗队伍
+message chess_battle_team {
+    repeated chess_hero     _heroes     = 1; // 英雄数组
+    repeated uint32         _positions  = 2; // 英雄对应位置数组
+}
+
+// 自走棋游戏类型
+enum chess_game_type {
+    normal  = 0;    // 天梯
+    robot   = 1;    // 机器人
+    rookie  = 2;    // 新手引导
+    test    = 3;    // 测试
+    casual  = 4;    // 休闲模式
+}
+
+// 自走棋的单场战斗
+message chess_battle {
+    enum oppo_type {
+        monster = 1;    // 怪物
+        player  = 2;    // 玩家
+    }
+    optional uint32             _index          = 1;  // 索引
+    optional chess_user_summary _self_user      = 2;  // 自己key
+    optional oppo_type          _oppo_type      = 3;  // 对手类型
+    optional chess_user_summary _oppo_user      = 4;  // 对手key
+    optional uint32             _rseed          = 5;  // 战斗种子表
+    optional chess_battle_team  _self_team      = 6;  // 自己英雄
+    optional chess_battle_team  _oppo_team      = 7;  // 对手英雄
+    repeated chess_hero_power   _self_powers    = 8;  // 自己的英雄能力
+    repeated chess_hero_power   _oppo_powers    = 9;  // 对手的英雄能力
+}
+
+// 英雄能力
+message chess_hero_power {
+    optional uint32     _pos            = 1; // 第几个能力
+    optional uint32     _id             = 2; // 英雄能力ID
+    optional string     _name           = 3; // 英雄能力名字
+    repeated uint32     _battle_skills  = 4; // 战斗技能列表
+
+    optional sint32             _cur_effect_times       = 21; // 当前生效次数
+    optional sint32             _max_effect_times       = 22; // 最大生效次数,0表示没有限制
+    repeated common_config      _conditions             = 23; // 生效条件
+    repeated common_config      _effects                = 24; // 效果列表
+}
+
+// 通用配置结构
+message common_config {
+    optional string     _type       = 1; // 类型
+    repeated sint32     _int_values = 2; // 整型值列表
+    repeated string     _str_values = 3; // 字串值列表
+}
+
+// 自走棋规则
+message chess_rules {
+    optional chess_rules_common         _common     = 1; // 通用设置
+    optional chess_rules_hero_power     _hero_power = 2; // 英雄能力设置
+}
+
+// 自走棋通用规则
+message chess_rules_common {
+    optional uint32     _start_hp   = 1; // 设置起始血量
+    optional uint32     _start_gold = 2; // 设置起始金币
+}
+
+// 自走棋英雄能力规则
+message chess_rules_hero_power {
+    optional bool       _disable            = 1; // 关闭功能
+    optional uint32     _round              = 2; // 设置触发回合数
+    optional uint32     _lock_power_id      = 3; // 锁定能力ID
+    optional uint32     _choose_count       = 4; // 选择个数
+}
+
+// 服务器UID Key
+message server_uid_key {
+    optional uint32     _server_id = 1; // 服务器ID
+    optional uint32     _user_id   = 2; // 玩家ID
+}
+
+// 服务器Device Key
+message server_device_key {
+    optional uint32     _server_id = 1; // 服务器ID
+    optional string     _device_id = 2; // 设备ID
+}
+
+
+// 队伍目标
+enum team_target {
+    chess            = 0; // 自走棋
+    team_real_arena  = 1; // 诸王
+    solo             = 2; // 选技天梯模式
+    solo_casual      = 3; // 选技休闲模式
+    solo_robot       = 4; // 选技人机模式
+}
+
+enum team_room_status {
+    host        = 0; // 主场
+    guest       = 1; // 客场
+    audience    = 2; // 观众
+}
+// 队伍玩家key
+message team_member_key {
+    optional uint32     _server_id = 1; // 服务器ID
+    optional uint32     _user_id   = 2; // 玩家ID
+}
+
+// 战斗加成
+message battle_bonus {
+    optional uint32   _buff_id = 1; // buffid
+}
+
+// 召唤法阵许愿英雄单
+message summon_circle_hero_wish {
+    optional uint32    _pos       = 1; // 位置
+    optional uint32    _hero      = 2; // 英雄ID
+    optional bool      _succeeded = 3; // 是否成功
+}
+
+// 月卡类型
+enum monthcard_type {
+    free = 0;  // 免费月卡
+    payed = 1; // 付费月卡，黑金月卡
+}
+
+enum summon_type {
+    normal  = 1;  // 普通召唤
+    destiny = 2;  // 命定召唤
+    timely  = 3;  // 活动召唤
+    beginner = 4; // 新手召唤
+    rise_star = 5; // 众星召唤
+}
+
+// 英雄觉醒装备
+message hero_shard {
+    optional uint32  _id    = 1; // ID
+    optional uint32  _level = 2; // 等级
+}
+
+// 赛季玩家ID
+message season_arena_key {
+    optional uint32     _server_id = 1; // 服务器ID
+    optional string     _device_id = 2; // 设备ID
+}
+
+// 巅峰竞技场阵容
+message peak_arena_lineup {
+    repeated uint32 _hero_ids  = 1; // 英雄ID列表
+    optional uint32 _gs        = 2; // 阵容gs
+    repeated bool   _hidden    = 3; // 是否隐藏
+}
+
+// 巅峰竞技场级别
+enum peak_arena_step {
+    high = 1; // 传奇竞技场
+    low   = 2; // 低级赛区竞技场
+}
+
+// 晋级赛信息
+message peak_arena_evolve_info {
+    optional peak_arena_evolve_state    _evolve_state       = 1; // 晋级赛状态
+    optional uint32                     _evolve_end_time    = 2; // 晋级赛结束时间
+}
+
+enum peak_arena_evolve_state {
+    prepare   = 1; // 准备中
+    running   = 2; // 进行中
+    success   = 3; // 成功
+    fail      = 4; // 失败
+    finish    = 5; // 结束
+}
+
+enum peak_arena_grade_state {
+    fall    = 1;  // 掉落
+    raise   = 2;  // 晋升
+}
+
+// 肉鸽玩法-热力
+message choose_heat {
+    optional uint32     _heat_id     = 1; // 热度id
+    optional uint32     _times       = 2; // 选择次数
+}
+
+enum retrieval_reward_type {
+    todolist = 1;       // 每日任务
+    act_point_chest = 2; // 每日箱子
+    daily_vitality  = 3; // 厨娘体力
+    auto_vitality   = 4; //体力溢出
+}
+
+// 周常 模块类型
+enum dailyjob_module{
+    weekly_job_guild      = 1; // 公会周常
+}
+
+// 公会山加时状态
+message guild_mount_extra_time {
+    optional uint32     _duration       = 1; // 持续时间
+    repeated uint32     _lineup         = 2; // 阵容
+    optional uint32     _hired_heroid   = 3; // 雇佣的英雄ID
+    repeated uint32     _hp_list        = 4; // 英雄血量万分比列表
+}
+
+message rogue_hero_info {
+    optional uint32   _heroid   = 1; // 英雄ID
+    optional uint32   _hp_perc  = 2; // 血量
+    optional uint32   _mp_perc  = 3; // 蓝量
+    optional uint32   _custom_data    = 4; // 备用
+}
+
+// 信使
+message pet {
+    optional uint32             _id                    = 1;  // 玩家身上宠物唯一id
+    optional uint32             _type_id               = 2;  // 宠物类型id
+    optional uint32             _level                 = 3;  // 宠物等级
+    repeated uint32             _skill_levels          = 4;  // 技能等级
+    optional uint32             _last_remove_time      = 5;  // 宠物上次被卸下的时间
+    optional uint32             _carried_hero_id       = 6;  // 携带英雄id
+    optional uint32             _scale                 = 7;  // 体型大小 前端需要除以1000
+    repeated uint32             _talents               = 8; // 天赋
+}
+
+// 杯赛阵容
+message cup_arena_lineup {
+    repeated uint32 _hero_ids  = 1; // 英雄ID列表
+    optional uint32 _gs        = 2; // 阵容gs
+    repeated bool   _hidden    = 3; // 是否隐藏
+}
+
+// 诸王段位
+enum real_arena_grade {
+    herald = 0;
+    guardian = 1;
+    crusader = 2;
+    archon = 3;
+    legend = 4;
+    ancient = 5;
+    divine = 6;
+    immortal = 7;
+}
+
+// 聊天屏蔽类型
+enum chat_blocking_type {
+    personal_chat = 1;
+    friend_apply  = 2;
+}
+
+enum user_point_type {
+    arenapoint      = 1;        // pvp点数
+    crusadepoint    = 2;        // 远征点数
+    vip_exp         = 4;        // vip经验
+    dreampoint      = 7;        // 永生梦境币
+    raid_point      = 20;       // 团本币
+    shard_point     = 21;       // 觉醒币
+    purple_pet_point = 22;      // 信使紫币
+    blue_pet_point   = 23;      // 信使蓝币
+
+    shard_point_daily = 121;    // 每日觉醒币
+    peak_arena_point  = 122;    // 巅峰币
+    guild_mount_point = 123;    // 讨伐勋章
+    tavern_point     = 124;     // 酒馆币
+    tavern_point_weekly = 125;  // 每周酒馆币
+}
+
+message rogue_charm_battle {
+    optional uint32    _id       = 1; // 护符ID
+    optional uint32    _exp      = 2; // 经验
+    optional uint32    _use_time = 3; // 使用次数
+    optional uint32    _progress = 4; // 累计
+    repeated uint32    _param    = 5; // 记录参数
+}
+
+// 传奇装备
+message hero_legend_equip {
+    optional legend_equip   _equip              = 1; // 传奇装备
+}
+
+message legend_equip {
+    optional uint32         _id                 = 1; // 玩家身上装备唯一id
+    optional uint32         _type_id            = 2; // 类型id
+    optional uint32         _star               = 3; // 星级
+    optional uint32         _rank               = 4; // 阶级
+    optional uint32         _carried_hero_id    = 5; // 携带英雄id
+    optional bool           _is_discard         = 6; // 是否丢弃
+    optional uint32         _next_unequip_time  = 7; // 下一次脱下装备时间
+}
+
+// 传奇装备心愿单类型
+enum legend_equip_wish_type {
+    normal  = 0;    // 普通
+    only    = 1;    // 唯一
+}
+
+enum impulse_gift_type {
+    common = 1;
+    dreamland = 2;
+}
+
+enum simple_assist_type {
+    legend_begin = 1; //传奇助力
+    hero_haggle  = 2; // 英雄砍价
+    solo_seven   = 3; // 选技
+    rise_star    = 4; // 众星觉醒
+}
+
+// 坐标
+message coordinate {
+    optional uint32 _x = 1;
+    optional uint32 _y = 2;
+}
+
+//=========================================================
+// 简单记录
+//=========================================================
+// 通用pve挑战记录
+message simple_pve_record {
+  optional uint32             _replay_id = 1;  // 战斗录像ID
+  optional uint32             _bt_time = 2;  // 战斗时间
+  optional double             _damage = 3;  // 伤害
+}
+
+
+//=========================================================
+// + 选技
+//=========================================================
+// 选技的玩家key
+message solo_user_key {
+    optional uint32     _server_id = 1; // 服务器ID
+    optional uint32     _user_id   = 2; // 玩家ID
+}
+
+// 选技中的英雄
+message solo_hero {
+    optional uint32         _hid        = 1; // 英雄ID
+    repeated solo_power     _powers     = 2; // 能力列表
+}
+
+// 选技中的卡片
+message solo_card {
+    optional uint32     _cid            = 1; // 卡片ID
+    optional uint32     _level          = 2; // 等级
+}
+
+// 选技中的卡片流派
+message solo_faction {
+    optional uint32     _faction    = 1; // 流派
+    optional uint32     _level      = 2; // 等级
+    optional uint32     _exp        = 3; // 经验
+}
+
+// 选技中玩家的摘要信息
+message solo_user_summary {
+    optional solo_user_key      _user_key           = 1; // 玩家key
+    optional user_summary       _user_summary       = 2; // 玩家摘要信息
+    optional string             _plat               = 3; // 平台名称
+    optional uint32             _show_server_id     = 4; // 显示的服务器id
+    optional uint32             _hero_id            = 5; // 显示英雄ID
+    optional uint32             _max_hp             = 6; // 最大血量
+    optional uint32             _hp                 = 7; // 当前血量
+    optional uint32             _level              = 8; // 等级
+    optional uint32             _damage             = 9; // 可以造成的伤害
+}
+
+// 选技中的战斗队伍
+message solo_battle_team {
+    optional solo_hero          _hero               = 1; // 英雄
+    repeated solo_card          _cards              = 2; // 卡片列表
+    repeated solo_faction       _factions           = 3; // 流派列表
+}
+
+// 选技游戏类型
+enum solo_game_type {
+    normal  = 0;    // 天梯
+    robot   = 1;    // 机器人
+    rookie  = 2;    // 新手引导
+    test    = 3;    // 测试
+    casual  = 4;    // 休闲模式
+}
+
+
+// 选技战斗对手类型
+enum solo_oppo_type {
+    nobody          = 0;    // 没有对手，你已经挂了
+    player          = 1;    // 玩家1v1
+    player_mirror   = 2;    // 玩家镜像
+}
+
+// 选技的单场战斗
+message solo_battle {
+    optional uint32                 _index          = 1; // 索引
+    optional solo_user_summary      _self_user      = 2; // 自己key
+    optional solo_oppo_type         _oppo_type      = 3; // 对手类型
+    optional solo_user_summary      _oppo_user      = 4; // 对手key
+    optional uint32                 _rseed          = 5; // 战斗种子表
+    optional solo_battle_team       _self_team      = 6; // 自己英雄
+    optional solo_battle_team       _oppo_team      = 7; // 对手英雄
+}
+
+// 选技能力
+message solo_power {
+    optional sint32     _pos            = 1; // 第几个能力，< 0 表示英雄额能力
+    optional uint32     _id             = 2; // 英雄能力ID
+    optional string     _name           = 3; // 英雄能力名字
+    
+    repeated solo_power_effect          _effects    = 10; // 效果
+    optional empty_data                 _extra      = 11; // 额外数据
+}
+
+// 选技英雄能力效果
+message solo_power_effect {
+    optional uint32             _index                  = 1; // 第几个效果
+    optional sint32             _cur_effect_times       = 2; // 当前生效次数
+    optional sint32             _max_effect_times       = 3; // 最大生效次数,0表示没有限制
+    optional common_config      _config                 = 4; // 效果配置
+    repeated common_config      _conditions             = 5; // 生效条件
+    repeated common_config      _records                = 6; // 已生效记录
+    optional empty_data         _extra                  = 7; // 额外数据
+}
+
+// 选技规则
+message solo_rules {
+    optional solo_rules_common          _common     = 1; // 通用设置
+    optional string                     _str_config = 2; // 使用配置字串
+}
+
+// 选技通用规则
+message solo_rules_common {
+    optional uint32     _start_hp   = 1; // 设置起始血量
+    optional uint32     _start_gold = 2; // 设置起始金币
+}
+
+
+//=========================================================
+// - 选技
+//=========================================================

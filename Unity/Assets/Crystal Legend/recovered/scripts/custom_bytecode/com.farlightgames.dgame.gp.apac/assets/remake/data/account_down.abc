@@ -1,0 +1,52 @@
+package account_down;
+
+message account_down_msg {
+  optional prepare_reply prepare_reply = 1; //获取验证码回复
+  optional create_reply  create_reply  = 2; // 注册，创建账号回复
+  optional login_reply   login_reply   = 3; // 登陆回复
+  optional report_login_account_reply report_login_account_reply = 4; //上报最后一次登录的账号信息回复
+
+}
+
+message prepare_reply {
+  required uint32 rslt = 1; //0 是成功，其他是错误码
+  required string msg  = 2; //错误信息说明
+}
+
+message create_reply {
+  required uint32 rslt = 1; //0 是成功，其他的是错误码
+  required string msg  = 2; //错误码信息 
+}
+
+message login_reply {
+  required uint32 rslt = 1;
+  required string msg  = 2;
+  optional string token = 3;
+  
+  
+  optional last_login_account account = 4; //最后一次登录的账号信息
+  optional fetch_reply   fetch_reply   = 5;  //拉取device_id列表回复
+}
+
+message fetch_reply {
+  repeated string device = 1;
+}
+
+message last_login_account {
+	optional uint32 avatar     = 1; // 玩家头像
+	optional string name       = 2; // 玩家名
+	optional uint32 vip        = 3; // 玩家vip
+	optional uint32 level      = 4; // 玩家等级
+	optional string svr_name   = 5; // 服务器名字
+	optional string user_id    = 6; // 玩家游戏内账号id
+	optional string svr_id     = 7; // 最近一次登录的服务器的id 
+	optional string device_id  = 8; //最近一次登录的deviceid 
+	optional string svr_ip     = 9 ; //最近一次登录的服务器ip
+	optional string svr_port   = 10; //最近一次登录的服务器的端口
+}
+
+
+message report_login_account_reply {
+	required uint32 rslt = 1;
+	required string msg  = 2;
+} 

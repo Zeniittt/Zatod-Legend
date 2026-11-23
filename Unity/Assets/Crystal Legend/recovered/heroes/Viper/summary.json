@@ -1,0 +1,85 @@
+{
+  "name": "Viper",
+  "source": "patch/pfca/Viper.fca",
+  "container_sha256": "2c72f91275711a6bad6ddc028f2d309850aaa817860585e66bd8a2b49fab6d42",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 81,
+  "element_count": 81,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 1
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 37,
+      "duration_seconds": 1.5416666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 2
+    },
+    {
+      "name": "null",
+      "fps": 24.0,
+      "frames": 1,
+      "duration_seconds": 0.041666666666666664,
+      "events": 0
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 71117,
+  "cha_bytes_consumed": 71117,
+  "atlas_pixel_roundtrip_verified": true
+}

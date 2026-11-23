@@ -1,0 +1,39 @@
+package account_up;
+
+message account_up_msg {
+  optional prepare prepare = 1; //请求验证码
+  optional create  create  = 2; //注册，创建账号
+  optional login   login   = 3; // 登陆
+  optional report_login_account report_login_account = 4 ; //上报最近一次登录的账号信息
+}
+
+message prepare {
+  required string tel = 1;
+}
+
+message create {
+  required string tel = 1;
+  required string passwd = 2;
+  required string code = 3;
+}
+
+message login {
+  required string tel = 1;
+  required string passwd = 2;
+  required string plat = 3; //平台号
+}
+
+message report_login_account {
+	optional uint32 avatar     = 1; // 玩家头像
+	optional string name       = 2; // 玩家名
+	optional uint32 vip        = 3; // 玩家vip
+	optional uint32 level      = 4; // 玩家等级
+	optional string svr_name   = 5; // 服务器名字
+	optional string user_id    = 6; // 玩家游戏内账号id
+	optional string svr_id     = 7; // 最近一次登录的服务器的id 
+	optional string device_id  = 8; //最近一次登录的deviceid 
+	optional string svr_ip     = 9 ; //最近一次登录的服务器ip
+	optional string svr_port   = 10; //最近一次登录的服务器的端口
+	optional string tel        = 11; // 手机号码
+	optional string token 	   = 12; //token
+}

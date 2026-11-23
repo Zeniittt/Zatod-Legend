@@ -1,0 +1,18 @@
+[
+  {
+    "file": "scripts\\lua\\com.farlightgames.dgame.gp.apac\\assets\\remake\\data\\ui\\activity\\tenPumping.lua",
+    "before": "local id = (data._rewards or {})[1] or {}._id",
+    "after": "local id = ((data._rewards or {})[1] or {})._id",
+    "evidence": "tenPumping.disassembly.txt; original Lua line 1012: TEST/NEWTABLE precedes GETTABLE _id",
+    "original_sha256": "9f02e1d2f157364c5b140303755e2c8c6f76bdbfdc4027e4a999c37457016608",
+    "corrected_sha256": "b2c937fcb37c6a7c99420eb09515749e7abbc7ef78e98d01ded5dd255c594a1d"
+  },
+  {
+    "file": "scripts\\lua\\com.farlightgames.dgame.gp.apac\\assets\\remake\\data\\ui_new\\modules\\peakArena\\peakArenaPvpScene.lua",
+    "before": "local name = (challenge._oppo or {})._summary or {}._name or \"NickName\"",
+    "after": "local name = ((challenge._oppo or {})._summary or {})._name or \"NickName\"",
+    "evidence": "peakArenaPvpScene.disassembly.txt; original Lua line 1023: TEST/NEWTABLE precedes GETTABLE _name",
+    "original_sha256": "e83547e3009cd430f1972512e55e94a16584b4cc9931fd78a4f8b2449d0871bb",
+    "corrected_sha256": "5fb2833ce4e36b678f9dfcfbc991e375fb9afc606e829c7a44b0255b80969963"
+  }
+]

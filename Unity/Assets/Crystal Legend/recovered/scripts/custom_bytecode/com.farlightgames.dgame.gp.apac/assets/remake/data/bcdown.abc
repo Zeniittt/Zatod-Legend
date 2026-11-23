@@ -1,0 +1,1079 @@
+package bcdown;
+
+import "common.proto";
+
+message battlecheck {
+  optional uint32                     _open_rank                 = 1;
+  repeated pve_check_msg              _pve_msg                   = 2;
+  repeated pvp_check_msg              _pvp_msg                   = 3;
+  repeated tbc_check_msg              _tbc_msg                   = 4;
+  repeated excav_check_msg            _excav_msg                 = 5;
+  repeated guild_pve_check_msg        _guild_msg                 = 6;
+  repeated rtpvp_check_msg            _rtpvp_msg                 = 7;
+  repeated toppvp_check_msg           _toppvp_msg                = 8;
+  repeated ancients_check_msg         _ancients_msg              = 9;
+  repeated gvg_check_msg              _gvg_check_msg             = 10;
+  repeated throne_tower_check_msg     _throne_tower_msg          = 11;
+  repeated dreamland_check_msg        _dreamland_msg             = 12;
+  repeated gcw_check_msg              _gcw_msg                   = 13;
+  repeated quest_check_msg            _quest_msg                 = 14;
+  repeated devilseal_check_msg        _devilseal_msg             = 15;
+  repeated test_battle_check_msg      _test_battle_check_msg     = 16;
+  repeated siege_check_msg            _siege_check_msg           = 17;
+  repeated nightmare_check_msg        _nightmare_check_msg       = 18;
+  repeated ass_check_msg              _ass_check_msg             = 19;
+  repeated multiplayer_check_msg      _multiplayer_check_msg     = 20;
+  repeated babel_check_msg            _babel_msg                 = 21;
+  repeated nian_check_msg             _nian_check_msg            = 22;
+  repeated legend_check_msg           _legend_check_msg          = 23;
+  repeated multi_arena_check_msg      _multi_arena_check_msg     = 24;
+  repeated multi_stage_check_msg      _multi_stage_check_msg     = 25;
+  repeated msb_check_msg              _msb_check_msg             = 26;
+  repeated stargate_check_msg         _stargate_check_msg        = 27;
+  repeated chaos_tower_check_msg      _chaos_tower_check_msg     = 28;
+  repeated chess_check_msg            _chess_check_msg           = 29;
+  repeated arcana_trial_check_msg     _arcana_trial_check_msg    = 30;
+  repeated cup_arena_check_msg        _cup_arena_check_msg       = 31;
+  repeated myth_boss_check_msg        _myth_boss_check_msg       = 32;
+  repeated five_boss_check_msg        _five_boss_check_msg       = 33;
+  repeated race_tower_check_msg       _race_tower_check_msg      = 34;
+  repeated guild_mount_check_msg      _guild_mount_check_msg     = 35;
+  optional bool                       _bclog_only                = 36; // 是否仅生成bclog
+  repeated season_arena_check_msg     _season_arena_check_msg    = 37;
+  repeated season_tower_check_msg     _season_tower_check_msg    = 38;
+  optional bool                       _bot_mode                  = 39; // 机器人战斗模式,自动放大招
+  repeated fancy_tower_check_msg      _fancy_tower_check_msg     = 40;
+  repeated act_adventure_check_msg    _act_adventure_check_msg   = 41; // 活动关卡
+  repeated fancy_abyss_check_msg      _fancy_abyss_check_msg     = 42; // 幻境深渊
+  repeated peak_arena_check_msg       _peak_arena_check_msg      = 43; // 巅峰竞技场
+  repeated awake_dungeon_check_msg    _awake_dungeon_check_msg   = 44; // 地底历险
+  repeated heat_check_msg             _heat_check_msg            = 45; // 热力挑战
+  repeated guild_clash_check_msg      _guild_clash_check_msg     = 46; // 公会战
+  repeated rogue_check_msg            _rogue_check_msg           = 47; // rogue
+  repeated crevice_defend_check_msg   _crevice_defend_check_msg  = 48; // 多队梦境
+  repeated solo_check_msg             _solo_check_msg            = 49; // 选技
+}
+
+message pve_check_msg {
+  required uint32 _checkid                     = 1;
+  required uint32 _userid                      = 2;
+  required uint32 _stageid                     = 3;
+  required result _result                      = 4 [default = victory];
+  required uint32 _stars                       = 5;
+  repeated hero   _heroes                      = 6;
+  repeated operation _operations               = 7;
+  required uint32 _rseed                       = 8;
+  optional uint32 _cli_battle_time             = 9;
+  repeated unit_battle_data  _unit_battle_data = 10;
+  repeated warschool_book    _warschool_books  = 11;
+  optional uint32 _bookreading_level           = 12;
+  optional bool   _is_manual_battle            = 13;
+  optional battle_bonus _bonus                 = 14; // 战斗加成
+}
+
+message unit_battle_data {
+  optional uint32        _unit_max_damage = 1;
+  repeated uint32        _unit_kill_list  = 2;
+  optional uint32        _unit_hid        = 3;
+}
+
+message pvp_check_msg{
+  enum type {
+    arena = 1;
+    fight = 2;
+  }
+  required uint32 _checkid                        = 1;
+  required type   _type                           = 2;
+  required uint32 _userid                         = 3;
+  optional string _username                       = 4;
+  optional uint32 _level                          = 5;
+  optional uint32 _avatar                         = 6;
+  optional uint32 _vip                            = 7;
+  required uint32 _oppo_userid                    = 8;
+  optional string _oppo_name                      = 9;
+  optional uint32 _oppo_level                     = 10;
+  optional uint32 _oppo_avatar                    = 11;
+  optional uint32 _oppo_vip                       = 12;
+  optional uint32 _oppo_robot                     = 13;
+  optional result _result                         = 14 [default = victory];
+  repeated hero   _self_heroes                    = 15;
+  repeated hero   _oppo_heroes                    = 16;
+  required uint32 _rseed                          = 17;
+  optional uint32 _self_robot                     = 18;
+  repeated warschool_book  _self_warschool_books  = 19;
+  repeated warschool_book  _oppo_warschool_books  = 20;
+  optional uint32 _self_bookreading_level         = 21;
+  optional uint32 _oppo_bookreading_level         = 22;
+  repeated arena_pvp_hero_data _arena_pvp_summary = 23;
+  optional uint32 _ladder_buff_id                 = 24;
+  optional uint32 _battle_time                    = 25;
+  optional uint32 _bt_st                          = 26;
+  optional battle_bonus _self_bonus               = 27; // 己方战斗加成
+  optional battle_bonus _oppo_bonus               = 28; // 对手战斗加成
+  optional medal_item   _self_medal = 29; // 我方徽章
+  optional medal_item   _oppo_medal = 30; // 敌方徽章
+  optional uint32       _oppo_svr_id = 31; // 对手服务器ID
+  optional uint32       _background_id = 32; // 正在使用中的背景id
+  optional uint32       _home_ground = 33; // 0代表自己为主场；1代表对手为主场；2 代表无主场
+}
+
+message arena_pvp_hero_data {
+  repeated arena_pvp_hero _arena_pvp_hero = 1;
+}
+
+message gvg_check_msg{
+  required uint32 _checkid                        = 1;
+  required uint32 _userid                         = 2;
+  required user_summary _user_summary             = 3;
+  required user_summary _oppo_summary             = 4;
+  repeated hero   _self_heroes                    = 5;
+  repeated hero   _oppo_heroes                    = 6;
+  required uint32 _rseed                          = 7;
+  optional uint32 _cli_battle_time                = 8;
+  repeated hero_dyna   _self_gvg_heroes           = 9;
+  repeated hero_dyna   _oppo_gvg_heroes           = 10;
+  required uint32 _oppo_userid                    = 11;
+  optional uint32 _end_hp_list                    = 12;
+  optional uint32 _end_mp_list                    = 13;
+  optional uint32 _winteam                        = 14;
+  repeated warschool_book  _self_warschool_books  = 15;
+  repeated warschool_book  _oppo_warschool_books  = 16;
+  optional uint32 _self_bookreading_level         = 17;
+  optional uint32 _oppo_bookreading_level         = 18;
+  optional battle_bonus _self_bonus               = 19; // 己方战斗加成
+  optional battle_bonus _oppo_bonus               = 20; // 对手战斗加成
+}
+
+message gcw_check_msg{
+  required uint32 _checkid                       = 1;
+  required uint32 _userid                         = 2;
+  required user_summary _user_summary             = 3;
+  required user_summary _oppo_summary             = 4;
+  repeated hero   _self_heroes                    = 5;
+  repeated hero   _oppo_heroes                    = 6;
+  required uint32 _rseed                          = 7;
+  optional uint32 _cli_battle_time                = 8;
+  repeated hero_dyna  _self_hero_dynas            = 9;
+  repeated hero_dyna  _oppo_hero_dynas            = 10;
+  required uint32 _oppo_userid                    = 11;
+  optional uint32 _end_hp_list                    = 12;
+  optional uint32 _end_mp_list                    = 13;
+  optional uint32 _winteam                        = 14;
+  repeated warschool_book  _self_warschool_books  = 15;
+  repeated warschool_book  _oppo_warschool_books  = 16;
+  repeated uint32 _self_buffs                     = 17;
+  repeated uint32 _oppo_buffs                     = 18;
+  optional uint32 _self_bookreading_level         = 19;
+  optional uint32 _oppo_bookreading_level         = 20;
+  optional battle_bonus _self_bonus               = 21; // 己方战斗加成
+  optional battle_bonus _oppo_bonus               = 22; // 对手战斗加成
+}
+
+message tbc_check_msg{
+  enum tbc_mode {
+    normal = 1;       // 正常模式
+    hell  = 2;        // 地狱模式
+  }
+  required uint32 _checkid                       = 1;
+  required uint32 _userid                        = 2;
+  optional string _username                      = 3;
+  required uint32 _oppo_userid                   = 4;
+  optional string _oppo_name                     = 5;
+  optional uint32 _oppo_robot                    = 6;
+  optional result _result                        = 7 [default = victory];
+  repeated hero   _self_heroes                   = 8;
+  repeated hero   _oppo_heroes                   = 9;
+  required uint32 _rseed                         = 10;
+  optional uint32 _self_robot                    = 11;
+  repeated hero_dyna _self_dyna_start            = 12;
+  repeated hero_dyna _self_dyna_end              = 13;
+  repeated hero_dyna _oppo_dyna_start            = 14;
+  repeated hero_dyna _oppo_dyna_end              = 15;
+  repeated operation _operations                 = 16;
+  optional uint32 _cli_battle_time               = 17;
+  optional tbc_mode _mode                        = 18;
+  repeated warschool_book  _self_warschool_books = 19;
+  repeated warschool_book  _oppo_warschool_books = 20;
+  optional uint32 _self_bookreading_level        = 21;
+  optional uint32 _oppo_bookreading_level        = 22;
+  optional uint32 _energy_beans                  = 23;
+  repeated arena_pvp_hero_data arena_pvp_summary = 24;
+  optional battle_bonus        _self_bonus       = 25; // 己方战斗加成
+  optional battle_bonus        _oppo_bonus       = 26; // 对手战斗加成
+}
+
+message throne_tower_check_msg{
+  required uint32 _checkid              = 1;
+  required uint32 _userid               = 2;
+  optional string _username             = 3;
+  required uint32 _oppo_userid          = 4;
+  optional string _oppo_name            = 5;
+  required uint32 _floor_id             = 6;
+  optional result _result               = 7 [default = victory];
+  repeated hero   _self_heroes          = 8;
+  repeated hero   _oppo_heroes          = 9;
+  required uint32 _rseed                = 10;
+  repeated hero_dyna _self_dyna_start   = 11;
+  repeated hero_dyna _self_dyna_end     = 12;
+  repeated hero_dyna _oppo_dyna_start   = 13;
+  repeated hero_dyna _oppo_dyna_end     = 14;
+  repeated operation _operations        = 15;
+  optional uint32 _cli_battle_time      = 16;
+  repeated warschool_book   _self_warschool_books  = 17;
+  repeated warschool_book   _oppo_warschool_books  = 18;
+  optional uint32 _self_bookreading_level = 19;
+  optional uint32 _oppo_bookreading_level = 20;
+  optional battle_bonus _self_bonus       = 21; // 己方战斗加成
+  optional battle_bonus _oppo_bonus       = 22; // 对手战斗加成
+}
+message dreamland_check_msg {
+  required uint32 _checkid    = 1;
+  required uint32 _userid     = 2;
+  required uint32 _stageid    = 3;
+  required result _result     = 4 [default = victory];
+  repeated hero   _heroes     = 5;
+  repeated operation _operations  = 6;
+  required uint32 _rseed      = 7;
+  optional uint32 _cli_battle_time = 8;
+  required uint32 _damage     = 9;
+  repeated warschool_book    _warschool_books  = 10;
+  optional uint32 _bookreading_level = 11;
+  required uint32 _bt_st      = 12;
+  optional uint32 _scene_buff = 13; //场景BUFFID
+  optional battle_bonus _bonus = 14; // 战斗加成
+  optional string _username    = 15;
+  repeated arena_pvp_hero_data _arena_pvp_hero_summary = 16;
+  optional medal_item _self_medal = 17; // 我方徽章
+}
+
+message devilseal_check_msg {
+  required uint32 _checkid    = 1;
+  required uint32 _userid     = 2;
+  required uint32 _stageid    = 3;
+  required result _result     = 4 [default = victory];
+  repeated hero   _heroes     = 5;
+  repeated operation _operations  = 6;
+  required uint32 _rseed      = 7;
+  optional uint32 _cli_battle_time = 8;
+  required uint32 _damage     = 9;
+  repeated warschool_book    _warschool_books  = 10;
+  optional uint32 _bookreading_level = 11;
+  optional battle_bonus _bonus       = 12; // 战斗加成
+}
+
+message excav_check_msg{
+  enum oppo_type {
+    monster = 1;
+    player  = 2;
+  }
+  enum battle_type {
+    pvp   = 1;
+    robot = 2;
+  }
+  required uint32 _checkid              = 1;
+  required uint32 _userid               = 2;
+  optional string _username             = 3;
+  optional uint32 _level                = 4;
+  optional uint32 _avatar               = 5;
+  optional uint32 _robot                = 6;
+  optional uint32 _vip                  = 7;
+  required uint32 _oppo_userid          = 8;    // 如果oppo_type是monster，这个字段是enemy id
+  optional string _oppo_username        = 9;
+  optional uint32 _oppo_level           = 10;
+  optional uint32 _oppo_avatar          = 11;
+  optional uint32 _oppo_vip             = 12;
+  optional uint32 _oppo_roboto          = 13;
+  required oppo_type _oppo_type         = 14;
+  optional result _result               = 15 [default = victory];
+  repeated hero   _self_heroes          = 16;
+  repeated hero   _oppo_heroes          = 17;   // 如果oppo_type是monster，这个字段无效
+  required uint32 _rseed                = 18;
+  repeated hero_dyna _self_dyna_start   = 19;
+  repeated hero_dyna _self_dyna_end     = 20;
+  repeated hero_dyna _oppo_dyna_start   = 21;
+  repeated hero_dyna _oppo_dyna_end     = 22;
+  optional uint32    _param1            = 23;
+  repeated operation _operations        = 24;
+  optional uint32 _cli_battle_time      = 25;
+  repeated warschool_book   _self_warschool_books  = 26;
+  repeated warschool_book   _oppo_warschool_books  = 27;
+  optional battle_type _battle_type      = 28;
+  optional uint32 _self_bookreading_level = 29;
+  optional uint32 _oppo_bookreading_level = 30;
+  optional battle_bonus _self_bonus       = 31; // 己方战斗加成
+  optional battle_bonus _oppo_bonus       = 32; // 对手战斗加成
+}
+
+message guild_pve_check_msg{
+  required uint32 _checkid              = 1;
+  required uint32 _userid               = 2;
+  required string _username             = 3;
+  required result _result               = 4 [default = victory];
+  repeated hero   _self_heroes          = 5;
+  required uint32 _stageid              = 6;
+  required uint32 _start_wave           = 7;
+  required uint32 _end_wave             = 8;
+  required uint32 _rseed                = 9;
+  repeated uint32 _hp_start             = 10;
+  repeated uint32 _hp_end               = 11;
+  repeated operation _operations        = 12;
+  optional uint32 _cli_battle_time      = 13;
+  required uint32 _dps                  = 14;
+  repeated warschool_book _self_warschool_books  = 15;
+  optional uint32 _bookreading_level    = 16;
+  required uint32 _bt_st                = 17;
+  optional battle_bonus _self_bonus     = 18; // 己方战斗加成
+}
+
+message rtpvp_check_msg {
+  required uint32 _checkid                        = 1;
+  required uint32 _userid                         = 2;
+  optional string _username                       = 3;
+  optional uint32 _level                          = 4;
+  optional uint32 _avatar                         = 5;
+  optional uint32 _vip                            = 6;
+  required uint32 _oppo_userid                    = 7;
+  optional string _oppo_username                  = 8;
+  optional uint32 _oppo_level                     = 9;
+  optional uint32 _oppo_avatar                    = 10;
+  optional uint32 _oppo_vip                       = 11;
+  repeated hero   _self_heroes                    = 12;
+  repeated hero   _oppo_heroes                    = 13;
+  repeated sync_operation _self_operation         = 14;
+  repeated sync_operation _oppo_operation         = 15;
+  required result _result                         = 16 [default = victory];
+  required uint32 _rseed                          = 17;
+  repeated warschool_book _self_warschool_books   = 18;
+  repeated warschool_book _oppo_warschool_books   = 19;
+  optional uint32 _self_bookreading_level         = 20;
+  optional uint32 _oppo_bookreading_level         = 21;
+  repeated arena_pvp_hero_data _arena_pvp_summary = 22;
+  optional battle_bonus        _self_bonus        = 23; // 己方战斗加成
+  optional battle_bonus        _oppo_bonus        = 24; // 对手战斗加成
+}
+
+message toppvp_check_msg{
+  required uint32 _checkid                         = 1;
+  required uint32 _userid                          = 2;
+  optional string _username                        = 3;
+  optional uint32 _level                           = 4;
+  optional uint32 _avatar                          = 5;
+  optional uint32 _vip                             = 6;
+  required uint32 _oppo_userid                     = 7;
+  optional string _oppo_name                       = 8;
+  optional uint32 _oppo_level                      = 9;
+  optional uint32 _oppo_avatar                     = 10;
+  optional uint32 _oppo_vip                        = 11;
+  optional uint32 _oppo_robot                      = 12;
+  repeated result _result                          = 13 [default = victory];
+  repeated arena_team   _self_heroes               = 14;
+  repeated arena_team   _oppo_heroes               = 15;
+  required uint32 _rseed                           = 16;
+  optional uint32 _self_robot                      = 17;
+  repeated warschool_book   _self_warschool_books  = 18;
+  repeated warschool_book   _oppo_warschool_books  = 19;
+  optional uint32 _self_bookreading_level          = 20;
+  optional uint32 _oppo_bookreading_level          = 21;
+  repeated arena_pvp_hero_data _arena_pvp_summary  = 22;
+  optional battle_bonus        _self_bonus         = 23; // 己方战斗加成
+  optional battle_bonus        _oppo_bonus         = 24; // 对手战斗加成
+}
+
+message ancients_check_msg{
+  required uint32 _checkid              = 1;
+  required uint32 _userid               = 2;
+  required string _username             = 3;
+  optional uint32 _level                = 4;
+  optional uint32 _avatar               = 5;
+  optional uint32 _vip                  = 6;
+  required result _result               = 7 [default = victory];
+  repeated hero   _self_heroes          = 8;
+  required uint32 _difficulty           = 9;
+  required uint32 _rseed                = 10;
+  repeated uint32 _hp_start             = 11;
+  repeated uint32 _hp_end               = 12;
+  repeated operation _operations        = 13;
+  optional uint32 _cli_battle_time      = 14;
+  optional uint32 _target_id            = 15;
+  repeated warschool_book _self_warschool_books = 16;
+  optional uint32 _bookreading_level    = 17;
+  optional battle_bonus _self_bonus     = 18; // 己方战斗加成
+}
+
+enum rune_type {
+  sun  = 0;
+  moon = 1;
+  star = 2;
+}
+
+message hero_dyna {
+  required uint32     _hp_perc        = 1;
+  required uint32     _mp_perc        = 2;
+  optional uint32     _custom_data    = 3;
+}
+
+enum result {
+  victory  = 0;
+  defeat   = 1;
+  canceled = 2;
+  timeout  = 3;
+}
+
+
+message sync_operation{
+  required uint32 _tick      = 1;
+  repeated uint32 _operation = 2;
+}
+
+message quest_check_msg {
+  required uint32            _checkid           = 1;
+  required uint32            _userid            = 2;
+  required uint32            _jobid             = 3;
+  required uint32            _enemyid           = 4;
+  repeated hero              _heroes            = 5;
+  required uint32            _rseed             = 6;
+  repeated warschool_book    _warschool_book    = 7;
+  optional uint32            _bookreading_level = 8;
+  optional result            _result            = 9 [default = victory];
+  optional battle_bonus      _bonus             = 10; // 战斗加成
+}
+
+message battle_check_hero {
+    required uint32 _heroid         = 1;
+    required uint32 _hp_perc        = 2;
+    required uint32 _mp_perc        = 3;
+    optional uint32 _custom_data    = 4;
+}
+
+message test_battle_check_msg {
+  enum type{
+  pvp       = 1;
+  guild     = 2;
+  dreamland = 3;
+  }
+  required uint32       _checkid              = 1;
+  required uint32       _userid               = 2;
+  required type         _type                 = 3;
+  repeated hero         _self_heroes          = 4;
+  repeated hero         _oppo_heroes          = 5;
+  repeated operation    _operations           = 6;
+  required result       _result               = 7 [default = victory];
+  required uint32       _self_demage          = 8;
+  required uint32       _oppo_demage          = 9;
+  required uint32       _rseed                = 10;
+  repeated battle_check_hero _self_hero_hp_mp = 11;
+  repeated battle_check_hero _oppo_hero_hp_mp = 12;
+  optional uint32       _stage_id             = 13;
+}
+
+// 超觉醒战斗校验
+message siege_check_msg {
+  required uint32       _checkid                = 1;
+  required uint32       _userid                 = 2;
+  repeated hero         _self_heroes            = 3;
+  repeated operation    _operations             = 4;
+  required uint32       _rseed                  = 5;
+  required uint32       _superHeroID            = 6;  // 超觉醒战斗英雄id
+  required uint32       _siegeStageID           = 7;  // 超觉醒关卡id
+  repeated warschool_book _self_warschool_books = 8;
+  optional uint32       _bookreading_level      = 9;
+  optional result       _result                 = 10 [default = victory];
+  repeated siege_hero_position   _positions     = 11; //超觉醒英雄位置
+  optional battle_bonus          _self_bonus    = 12; // 己方战斗加成
+}
+
+message siege_hero_position {
+    required uint32  _index = 1;    // 英雄索引
+    required uint32  _x     = 2;    // 英雄x位置
+    required uint32  _y     = 3;    // 英雄y位置
+}
+
+// 无尽梦魇战斗校验
+message nightmare_check_msg {
+  required uint32       _checkid                = 1;
+  required uint32       _userid                 = 2;
+  repeated hero         _self_heroes            = 3;
+  repeated operation     _operations             = 4;
+  required uint32       _rseed                  = 5;
+  required uint32       _stageId                = 6;  // 无尽梦魇关卡id
+  repeated warschool_book _self_warschool_books = 7;
+  optional uint32       _bookreading_level      = 8;
+  repeated siege_hero_position   _positions     = 9;  // 无尽梦魇位置
+  required uint32       _current_wave_idx       = 10; // 玩家当前打到的波数
+  repeated uint32       _dead_monster_infos     = 11; // <<waveid:7,monster_idx:3,dir_flag:1,item_id: 16>>
+  repeated uint32       _all_drop_infos         = 12; // <<waveid:7,monster_idx:3,dir_flag:1,item_id: 16>>
+  optional battle_bonus _self_bonus             = 13; // 己方战斗加成
+}
+
+// 工会战刺杀战斗校验
+message ass_check_msg {
+  required uint32 _checkid                      = 1;
+  required uint32 _userid                       = 2;
+  optional string _username                     = 3;
+  required uint32 _oppo_userid                  = 4;
+  optional string _oppo_name                    = 5;
+  repeated hero   _self_heroes                  = 6;
+  repeated hero   _oppo_heroes                  = 7;
+  required uint32 _rseed                        = 8;
+  required uint32 _ass_ticks                    = 9; //刺杀帧
+  required uint32 _time_limit                   = 10; //战斗超时时间，单位/秒
+  repeated hero_dyna _self_dyna_start           = 11;
+  repeated hero_dyna _self_dyna_end             = 12;
+  repeated hero_dyna _oppo_dyna_start           = 13;
+  repeated hero_dyna _oppo_dyna_end             = 14;
+  repeated operation _operations                = 15;
+  optional uint32 _cli_battle_time              = 16;
+  repeated warschool_book _self_warschool_books = 17;
+  repeated warschool_book _oppo_warschool_books = 18;
+  optional uint32 _self_bookreading_level       = 19;
+  optional uint32 _oppo_bookreading_level       = 20;
+  optional battle_bonus _self_bonus             = 21; // 己方战斗加成
+  optional battle_bonus _oppo_bonus             = 22; // 对手战斗加成
+}
+
+message multiplayer_check_msg {
+  required uint32                  _checkid           = 1;
+  required uint32                  _userid            = 2;
+  required uint32                  _stageid           = 3;
+  repeated hero                    _heroes            = 4;
+  required uint32                  _rseed             = 5;
+  optional bool                    _is_manual_battle  = 6;
+  repeated battle_operations       _operations        = 7;
+  repeated battle_user             _devicehero        = 8;
+  required uint32                  _bt_st             = 9;
+  repeated uint32                  _damages           = 10;
+  optional uint32                  _scene_buff        = 11; //场景BUFFID
+}
+
+message babel_check_msg {
+  required uint32 _checkid                 = 1;
+  required uint32 _userid                  = 2;
+  required uint32 _stageid                 = 3;
+  required result _result                  = 4;
+  required uint32 _stars                   = 5;
+  repeated hero   _heroes                  = 6;
+  repeated operation _operations           = 7;
+  required uint32 _rseed                   = 8;
+  repeated warschool_book _warschool_books = 9;
+  optional uint32 _bookreading_level       = 10;
+  required uint32 _bt_st                   = 11; 
+  optional battle_bonus _bonus             = 12; // 战斗加成
+}
+
+message nian_check_msg {
+  required uint32 _checkid                 = 1;
+  required uint32 _userid                  = 2;
+  required uint32 _stageid                 = 3;
+  required result _result                  = 4 [default = victory];
+  repeated hero   _heroes                  = 5;
+  repeated operation _operations           = 6;
+  required uint32 _rseed                   = 7;
+  optional uint32 _cli_battle_time         = 8;
+  required uint32 _damage                  = 9;
+  repeated warschool_book _warschool_books = 10;
+  optional uint32 _bookreading_level       = 11;
+  optional battle_bonus _bonus             = 12; // 战斗加成
+}
+
+message legend_check_msg{
+  required uint32           _checkid                = 1;
+  required uint32           _userid                 = 2;
+  required uint32           _rseed                  = 3;
+  required uint32           _round                  = 4;
+  repeated arena_team       _self_heroes            = 5;
+  repeated arena_team       _oppo_heroes            = 6;
+  repeated warschool_book   _self_warschool_books   = 7;
+  repeated warschool_book   _oppo_warschool_books   = 8;
+  optional uint32           _self_bookreading_level = 9;
+  optional uint32           _oppo_bookreading_level = 10;
+  repeated result           _result                 = 11;
+  repeated arena_pvp_hero_data _arena_pvp_summary   = 12;
+  required user_summary     _self_user_summary      = 13;
+  required user_summary     _oppo_user_summary      = 14;
+  required uint32           _self_svrid             = 15;
+  required string           _self_deviceid          = 16;
+  required uint32           _oppo_svrid             = 17;
+  required string           _oppo_deviceid          = 18;
+  optional bool             _is_promotion           = 19;
+  optional battle_bonus     _self_bonus             = 20; // 己方战斗加成
+  optional battle_bonus     _oppo_bonus             = 21; // 对手战斗加成
+}
+
+message multi_arena_check_msg {
+  required uint32                   _checkid           = 1;
+  required uint32                   _userid            = 2;
+  required multi_arena_check_team   _host_team         = 3;
+  required multi_arena_check_team   _guest_team        = 4;  
+  required uint32                   _rseed             = 5;
+  optional result                   _host_result       = 6 [default = victory];
+  optional result                   _guest_result      = 7 [default = victory];
+  required result                   _result            = 8 [default = victory];
+  repeated arena_pvp_hero_data      _arena_pvp_summary = 9;
+}
+
+message multi_arena_check_team {
+  repeated multi_arena_check_player _players    = 1;
+  required uint32                   _lord_index = 2;
+  required hero                     _lord       = 3; 
+  repeated sync_operation           _ops        = 4;
+}
+
+message multi_arena_check_player {
+  required uint32              _team_index         = 1;
+  required user_summary        _user_summary       = 2;
+  required string              _svr_name           = 3;
+  repeated warschool_book      _warschool_books    = 4;
+  optional uint32              _bookreading_level  = 5; 
+  repeated hero                _heroes             = 6;  
+  repeated uint32              _magics             = 7;
+  optional battle_bonus        _bonus              = 8; // 战斗加成
+}
+
+// 联机副本战斗校验
+message multi_stage_check_msg {
+  required uint32 _checkid                      = 1;
+  required uint32 _userid                       = 2;
+  required uint32 _pointid                      = 3;
+  required uint32 _stageid                      = 4;
+  required uint32 _rseed                        = 5;
+  repeated hero   _self_heroes                  = 6;
+  repeated hero_dyna _self_dyna_start           = 7;
+  repeated hero_dyna _self_dyna_end             = 8;
+  repeated hero_dyna _oppo_dyna_start           = 9;
+  repeated hero_dyna _oppo_dyna_end             = 10;
+  repeated operation _operations                = 11;
+  optional uint32 _cli_battle_time              = 12;
+  repeated warschool_book _self_warschool_books = 13;
+  optional uint32 _self_bookreading_level       = 14;
+  required uint32  _bt_st                       = 15; 
+  repeated uint32  _hire_heroids                = 16;
+  optional battle_bonus _self_bonus             = 17; // 己方战斗加成
+}
+
+message msb_unit {
+    required ms_deviceid            _key        = 1;
+    repeated uint32                 _ops        = 2;    // 同一帧有多个操作
+}
+
+message msb_operations {
+    required uint32            _tick       = 1;    // 有操作的帧
+    repeated msb_unit          _unit       = 2;    // 玩家操作
+}
+
+message ms_deviceid {
+    required uint32 _svr_id = 1; //服务器ID
+    required uint32 _uid    = 2; //玩家ID
+}
+
+message msb_user_info {
+  required ms_deviceid            _key                = 1;
+  required uint32                 _book_level         = 2;
+  repeated warschool_book         _warschool_books    = 3;
+  repeated uint32                 _select_hero_id     = 4;
+  optional battle_bonus           _bonus              = 5; // 战斗加成
+}
+message msb_check_msg {
+  required uint32                  _checkid           = 1;
+  required uint32                  _userid            = 2;
+  required uint32                  _stageid           = 3;
+  repeated hero_dyna               _stage_dyna_start  = 4;
+  repeated hero                    _heroes            = 5;
+  repeated hero_dyna               _self_dyna_start   = 6;
+  required uint32                  _rseed             = 7;
+  optional bool                    _is_manual_battle  = 8;
+  repeated msb_operations          _operations        = 9;
+  repeated msb_user_info           _devicehero        = 10;
+  required uint32                  _bt_st             = 11; 
+}
+
+// 混乱星门战斗
+message stargate_check_msg {
+  required uint32           _checkid                = 1;
+  required uint32           _userid                 = 2;
+  required uint32           _rseed                  = 3;
+  required uint32           _round                  = 4;
+  repeated arena_team       _self_heroes            = 5;
+  repeated arena_team       _oppo_heroes            = 6;
+  repeated warschool_book   _self_warschool_books   = 7;
+  repeated warschool_book   _oppo_warschool_books   = 8;
+  optional uint32           _self_bookreading_level = 9;
+  optional uint32           _oppo_bookreading_level = 10;
+  repeated result           _result                 = 11;
+  repeated arena_pvp_hero_data _arena_pvp_summary   = 12;
+  required user_summary     _self_user_summary      = 13;
+  required user_summary     _oppo_user_summary      = 14;
+  required uint32           _self_svrid             = 15;
+  required string           _self_deviceid          = 16;
+  required uint32           _oppo_svrid             = 17;
+  required string           _oppo_deviceid          = 18;
+  optional empty_data       _team_info              = 19;
+  optional empty_data       _hero_dyna              = 20; 
+  optional battle_bonus     _self_bonus             = 21; // 己方战斗加成
+  optional battle_bonus     _oppo_bonus             = 22; // 对手战斗加成
+}
+
+
+
+// 混乱之塔战斗
+message chaos_tower_check_msg {
+  required uint32 _checkid                 = 1;
+  required uint32 _userid                  = 2;
+  required uint32 _stageid                 = 3;
+  required result _result                  = 4;
+  required uint32 _stars                   = 5;
+  repeated hero   _heroes                  = 6;
+  repeated operation _operations           = 7;
+  required uint32 _rseed                   = 8;
+  repeated warschool_book _warschool_books = 9;
+  optional uint32 _bookreading_level       = 10;
+  required uint32 _bt_st                   = 11;
+  optional uint32 _battle_time             = 12; // 战斗耗时
+  optional battle_bonus _bonus             = 13; // 战斗加成
+}
+
+// 自走棋战斗校验协议
+message chess_check_msg {
+    required uint32           _checkid      = 1;
+    required uint32           _gameid       = 2; // 游戏ID
+    required uint32           _round        = 4; // 回合数
+    repeated chess_battle     _battles      = 5; // 战斗列表
+    repeated empty_data       _results      = 6; // 每场战斗结果
+    optional bool             _is_dump      = 7; // 是否是dump请求
+}
+
+// 至宝试炼
+message arcana_trial_check_msg {
+  required uint32           _checkid            = 1;
+  required uint32           _userid             = 2;  // 玩家ID
+  required uint32           _hero_id            = 3;  // 英雄ID
+  required uint32           _arcana_level       = 4;  // 至宝等级
+  required uint32           _start_progress     = 5;  // 开始进度
+  repeated hero             _heroes             = 6;  // 参战英雄
+  repeated warschool_book   _warschool_books    = 7;  // 战争学院书籍
+  optional uint32           _bookreading_level  = 8;  // 博学院等级
+  required uint32           _rseed              = 9;  // 战斗种子
+  required uint32           _start_time         = 10; // 开始时间
+  required result           _result             = 11; // 战斗结果
+  repeated operation        _operations         = 12; // 操作
+  required double           _damage             = 13; // 造成伤害
+  required uint32           _end_progress       = 14; // 结束进度
+  optional battle_bonus     _bonus              = 15; // 战斗加成
+}
+
+// 杯赛战斗
+message cup_arena_check_msg {
+  required uint32           _checkid                = 1;
+  required uint32           _userid                 = 2;
+  required uint32           _rseed                  = 3;
+  optional uint32           _match_id               = 4;
+  optional string           _self_roleid            = 5; // 自己的角色ID
+  optional string           _oppo_roleid            = 6; // 对手的角色ID
+  optional user_summary     _self_user_summary      = 7;
+  optional user_summary     _oppo_user_summary      = 8;
+  optional uint32           _self_camp_id           = 9;
+  optional uint32           _oppo_camp_id           = 10;
+  repeated arena_team       _self_heroes            = 11;
+  repeated arena_team       _oppo_heroes            = 12;
+  repeated warschool_book   _self_warschool_books   = 13;
+  repeated warschool_book   _oppo_warschool_books   = 14;
+  optional uint32           _self_bookreading_level = 15;
+  optional uint32           _oppo_bookreading_level = 16;
+  repeated result           _results                = 17;
+  repeated arena_pvp_hero_data _arena_pvp_summary   = 18;
+  optional battle_bonus        _self_bonus          = 19; // 己方战斗加成
+  optional battle_bonus        _oppo_bonus          = 20; // 对手战斗加成
+}
+
+message myth_boss_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _bossid              = 3;
+  repeated hero             _heroes              = 4;
+  repeated warschool_book   _warschool_books     = 5;
+  optional uint32           _bookreading_level   = 6;
+  required uint32           _rseed               = 7;
+  required uint32           _start_time          = 8;
+  required result           _result              = 9;
+  repeated operation        _operations          = 10;
+  required double           _damage              = 11;
+  optional battle_bonus     _bonus               = 12; // 战斗加成
+}
+
+message five_boss_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _bossid              = 3;
+  repeated hero             _heroes              = 4;
+  repeated warschool_book   _warschool_books     = 5;
+  optional uint32           _bookreading_level   = 6;
+  required uint32           _rseed               = 7;
+  required uint32           _start_time          = 8;
+  required result           _result              = 9;
+  repeated operation        _operations          = 10;
+  required double           _damage              = 11;
+  optional battle_bonus     _bonus               = 12; // 战斗加成
+}
+
+message race_tower_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _towerid             = 3;
+  required uint32           _floor               = 4;
+  repeated hero             _heroes              = 5;
+  repeated warschool_book   _warschool_books     = 6;
+  optional uint32           _bookreading_level   = 7;
+  required uint32           _rseed               = 8;
+  required uint32           _start_time          = 9;
+  required result           _result              = 10;
+  repeated operation        _operations          = 11;
+  optional battle_bonus     _bonus               = 12;
+}
+
+message guild_mount_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _bossid              = 3;
+  repeated hero             _heroes              = 4;
+  required uint32           _rseed               = 5;
+  required uint32           _start_time          = 6;
+  repeated uint32           _start_hp_list       = 7;
+  repeated uint32           _end_hp_list         = 8;
+  repeated uint32           _lineup              = 9;
+  optional uint32           _hired_heroid        = 10;
+  required result           _result              = 11;
+  repeated operation        _operations          = 12;
+  optional double           _damage              = 13;
+  optional uint32           _battle_time         = 14;
+  optional battle_bonus     _bonus               = 15;
+}
+
+// 赛季竞技场战斗
+message season_arena_check_msg {
+  required uint32           _checkid                = 1;
+  required uint32           _userid                 = 2;
+  required uint32           _rseed                  = 3;
+  optional uint32           _battle_time            = 4;
+  optional uint32           _match_id               = 5;
+  optional season_arena_key _self_key               = 6; // 自己的key
+  optional season_arena_key _oppo_key               = 7; // 对手的key
+  optional user_summary     _self_user_summary      = 8;
+  optional user_summary     _oppo_user_summary      = 9;
+  repeated arena_team       _self_heroes            = 10;
+  repeated arena_team       _oppo_heroes            = 11;
+  repeated warschool_book   _self_warschool_books   = 12;
+  repeated warschool_book   _oppo_warschool_books   = 13;
+  optional uint32           _self_bookreading_level = 14;
+  optional uint32           _oppo_bookreading_level = 15;
+  repeated result           _results                = 16;
+  repeated arena_pvp_hero_data _arena_pvp_summary   = 17;
+  optional empty_data       _team_info              = 18;
+  optional empty_data       _hero_dyna              = 19;
+  optional battle_bonus        _self_bonus          = 20; // 己方战斗加成
+  optional battle_bonus        _oppo_bonus          = 21; // 对手战斗加成
+  required uint32           _round                  = 22;
+}
+
+// 王塔校验
+message season_tower_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _towerid             = 3;
+  required uint32           _floor               = 4;
+  repeated hero             _heroes              = 5;
+  repeated warschool_book   _warschool_books     = 6;
+  optional uint32           _bookreading_level   = 7;
+  required uint32           _rseed               = 8;
+  required uint32           _start_time          = 9;
+  required result           _result              = 10;
+  repeated operation        _operations          = 11;
+  optional battle_bonus     _bonus               = 12;
+  optional uint32           _battle_time         = 13;
+  repeated uint32           _tower_bonus         = 14;
+  optional uint32           _damage              = 15;
+}
+
+// 幻境塔校验
+message fancy_tower_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _towerid             = 3;
+  required uint32           _floor               = 4;
+  repeated hero             _heroes              = 5;
+  repeated warschool_book   _warschool_books     = 6;
+  optional uint32           _bookreading_level   = 7;
+  required uint32           _rseed               = 8;
+  required uint32           _start_time          = 9;
+  required result           _result              = 10;
+  repeated operation        _operations          = 11;
+  optional battle_bonus     _bonus               = 12;
+  optional uint32           _battle_time         = 13;
+  required uint32           _stage_star          = 14; // 关卡星星校验
+}
+
+// 活动关卡校验
+message act_adventure_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _actid               = 3;
+  required uint32           _stageid             = 4;
+  repeated hero             _heroes              = 5;
+  required uint32           _rseed               = 6;
+  required uint32           _start_time          = 7;
+  required result           _result              = 8;
+  repeated operation        _operations          = 9;
+  optional uint32           _challenge_level     = 10; // 挑战等级 = 活动开启与开服的天数差
+}
+
+// 幻境深渊校验
+message fancy_abyss_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _seasonid            = 3;
+  required uint32           _floorid             = 4;
+  repeated hero             _heroes              = 5;
+  required uint32           _rseed               = 6;
+  required uint32           _start_time          = 7;
+  required result           _result              = 8;
+  repeated operation        _operations          = 9;
+  optional uint32           _battle_time         = 10;
+  optional battle_bonus     _bonus               = 11;
+}
+
+// 巅峰竞技场战斗
+message peak_arena_check_msg {
+    required uint32           _checkid                = 1;
+    required uint32           _userid                 = 2;
+    required uint32           _rseed                  = 3;
+    optional uint32           _battle_time            = 4;
+    optional uint32           _match_id               = 5;
+    repeated arena_team       _self_heroes            = 6;
+    repeated arena_team       _oppo_heroes            = 7;
+    repeated result           _results                = 8;
+    optional empty_data       _team_info              = 9;
+    optional battle_bonus     _self_bonus             = 10; // 己方战斗加成
+    optional battle_bonus     _oppo_bonus             = 11; // 对手战斗加成
+    required uint32           _round                  = 12;
+    optional string           _self_roleid            = 13; // 自己的key
+    optional string           _oppo_roleid            = 14; // 对手的key
+    optional user_summary     _self_user_summary      = 15;
+    optional user_summary     _oppo_user_summary      = 16;
+    repeated arena_pvp_hero_data _arena_pvp_summary   = 17;
+    optional uint32           _season_buff_key        = 18; // 赛季buff
+}
+
+
+// 地底历险校验
+message awake_dungeon_check_msg {
+  required uint32           _checkid             = 1; // checkid
+  required uint32           _userid              = 2; // UID
+  optional coordinate       _coordinate          = 3; // 坐标
+  required uint32           _stageid             = 4; // 关卡ID
+  repeated hero             _heroes              = 5; // 参战英雄
+  required uint32           _rseed               = 6; // 种子
+  required uint32           _start_time          = 7; // 开始时间
+  required result           _result              = 8; // 结果
+  repeated operation        _operations          = 9; // 操作
+  optional uint32           _battle_time         = 10; // 战斗时间
+  optional uint32           _paragon_level       = 11; // 巅峰等级
+  optional uint32           _max_paragon_level   = 12; // 最大巅峰等级
+  optional uint32           _level_group_id      = 13; // 巅峰等级组
+  optional uint32           _progress            = 14; // 关卡进度
+  optional uint32           _season_start_time   = 15; // 当期开启时间
+}
+
+// 热力挑战校验
+message heat_check_msg {
+  required uint32           _checkid             = 1;
+  required uint32           _userid              = 2;
+  required uint32           _groupid             = 3;
+  required uint32           _stageid             = 4;
+  repeated hero             _heroes              = 5;
+  required uint32           _rseed               = 6;
+  required uint32           _start_time          = 7;
+  required result           _result              = 8;
+  repeated operation        _operations          = 9;
+  optional uint32           _battle_time         = 10;
+  repeated choose_heat      _choose_heat         = 11; // 热力值选择
+  optional uint32           _total_heat          = 12; // 总热度值
+  optional uint32           _challenge_level     = 13; // 挑战等级 = 活动开启时间与开服天数差
+  optional uint32           _echo_id             = 14; // 法术ID
+  optional empty_data       _extend_map          = 15; // 扩展
+}
+
+message guild_clash_check_msg {
+  required uint32 _checkid                        = 1; // 校验ID
+  optional uint32 _userid                         = 2; // 左方UID
+  optional uint32 _oppo_userid                    = 3; // 右方UID
+  optional user_summary _user_summary             = 4; // 我方头像信息
+  optional user_summary _oppo_summary             = 5; // 敌方头像信息
+  repeated hero   _self_heroes                    = 6; // 我方英雄
+  repeated hero   _oppo_heroes                    = 7; // 敌方英雄
+  required uint32 _rseed                          = 8; // 种子
+  optional uint32 _start_time                     = 9; // 战斗开始时间
+  optional uint32 _battle_time                    = 10; // 战斗时间
+  optional uint32 _win_team                       = 11; // 胜利队伍
+  repeated hero_dyna   _self_hero_dynas           = 12; // 我方血量
+  repeated hero_dyna   _oppo_hero_dynas           = 13; // 对方血量
+  optional uint32       _end_hp_list              = 14; // 结束时我方血量
+  optional uint32       _end_mp_list              = 15; // 结束时对方血量
+  repeated uint32       _user1_runes              = 16; // 我方神符加成
+  repeated uint32       _user2_runes              = 17; // 对方神符加成
+  optional battle_bonus _self_bonus               = 18; // 己方战斗加成
+  optional battle_bonus _oppo_bonus               = 19; // 对手战斗加成
+  optional uint32       _camp1_win_times          = 20; // 进攻方胜场次数
+  optional uint32       _camp2_win_times          = 21; // 防守方胜场次数
+}
+
+message rogue_bless {
+    optional uint32   _bless = 1; // 祝福ID
+    optional uint32   _level = 2; // 等级
+}
+
+message rogue_check_msg {
+    required uint32 _checkid                     = 1; // 校验ID
+    required uint32 _userid                      = 2; // 玩家ID
+    required uint32 _stageid                     = 3; // 关卡ID
+    required uint32 _chapter_id                  = 4; // 章节ID
+    required uint32 _wave                        = 5; // 波数
+    repeated uint32 _chapter_buff                = 6; // 章节buff
+    required uint32 _chapter_diff                = 7; // 章节难度
+    optional uint32 _crisis                      = 8; // 危机
+    required result _result                      = 9 [default = victory]; // 结果
+    optional uint32 _destiny                     = 10; // 命途
+    optional uint32 _des_energy_start            = 11; // 命途能量开始
+    optional uint32 _des_energy_end              = 12; // 命途能量结束
+    repeated hero   _heroes                      = 13; // 英雄
+    repeated operation _operations               = 14; // 操作
+    required uint32 _rseed                       = 15; // 随机种子
+    repeated rogue_hero_info _dyna_start         = 16; // 开始时英雄信息
+    repeated rogue_hero_info _dyna_end           = 17; // 结束时英雄信息
+    optional uint32 _cli_battle_time             = 18; // 客户端战斗时间
+    repeated rogue_bless _bless                  = 19; // 祝福
+    repeated rogue_charm_battle _charm_list      = 20; // 护符
+    repeated uint32 _tech_ids                    = 21; // 天赋
+    optional battle_bonus _bonus                 = 22; // 战斗加成
+}
+
+// 多队梦境战斗校验
+message crevice_defend_check_msg {
+  required uint32               _checkid            = 1;  // 战斗校验ID
+  required uint32               _rseed              = 2;  // 随机种子
+  required uint32               _userid             = 3;  // 玩家ID
+  optional string               _self_roleid        = 4;  // 自己的角色ID
+  optional user_summary         _self_user          = 5;  // 自己的简要信息
+  repeated arena_team           _self_heroes        = 6;  // 自己的英雄
+  optional battle_bonus         _self_bonus         = 7;  // 己方战斗加成
+  repeated uint32               _stage_ids          = 8;  // 关卡列表
+  repeated arena_pvp_hero_data  _battle_summary     = 9;  // 战斗简报
+  repeated empty_data           _result             = 10; // 结果
+}
+
+// 选技战斗校验协议
+message solo_check_msg {
+  required uint32           _checkid      = 1;
+  required uint32           _gameid       = 2; // 游戏ID
+  required uint32           _round        = 4; // 回合数
+  repeated solo_battle      _battles      = 5; // 战斗列表
+  repeated empty_data       _results      = 6; // 每场战斗结果
+  optional bool             _is_dump      = 7; // 是否是dump请求
+}

@@ -1,0 +1,52 @@
+package acc_down;
+
+message acc_down_msg {
+    optional account_query_reply      account_query_reply       = 1;
+    optional idfa_query_reply         idfa_query_reply          = 2; 
+    optional idfa_bind_reply          idfa_bind_reply           = 3; 
+}
+
+message account_query_reply{
+    repeated account accounts   = 1; 
+}
+
+message account{
+    required uint32 uid        = 1 [ default = 0 ];
+    required uint32 svrid      = 2 [ default = 0 ];
+    required uint32 level      = 3;
+    required uint32 vip        = 4;
+    required uint32 avatar     = 5;    //头像+相框        
+    required string name       = 6;  
+    optional string deviceid   = 7;  
+    optional string svrname    = 8;  
+    optional uint32 babel_level= 9;
+}
+
+message idfa_query_reply{
+    repeated idfa_account idfa_accounts  = 1; 
+}
+
+message idfa_account{
+  enum bind_status{
+    bind_status_none     = 0;
+    bind_status_already  = 1;
+    bind_status_other    = 2;
+  }
+  required string uin              = 1; 
+  required bind_status bind_status = 2;
+  required uint32 last_login       = 3;
+  repeated account accounts        = 4; 
+}
+
+message idfa_bind_reply{
+    enum bind_result {
+       ok                             = 0;
+       error_openidfa_uinold_invalid  = 1;
+       error_uinnew_already_bind      = 2;
+       error_uinold_already_bind      = 3;
+       error_other                    = 4;
+       error_uinnew_have_role         = 5;
+    }
+
+    required bind_result bind_result = 1;
+}

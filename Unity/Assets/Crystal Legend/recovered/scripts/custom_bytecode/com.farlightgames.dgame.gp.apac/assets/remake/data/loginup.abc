@@ -1,0 +1,48 @@
+package up;
+
+message up {
+    optional login         login         = 1; //玩家用户名登录
+    optional update_passwd update_passwd = 2; //玩家更改密码
+    optional logout        logout        = 3; //玩家退出
+    optional create_user   create_user   = 4; //玩家注册
+    optional reset_passwd  reset_passwd  = 5; //找回密码
+	optional deviceinfo	   deviceinfo    = 6; //信息采集	
+}
+
+message deviceinfo {
+	optional int32  uin       = 1;
+	optional string devicename = 2;
+	optional string devicememory  = 3;
+	optional string hardwareversion = 4;
+	optional string firmwareversion = 5;
+	optional string manufacturer = 6;
+	optional string resolution = 7;
+}
+
+message create_user {
+    optional string email  = 1;
+    optional string passwd = 2;
+}
+
+message login {
+    optional string email  = 1;
+    optional string passwd = 2;
+    optional string token  = 3;
+    optional int32  uin    = 4;
+}
+
+message logout {
+    optional int32 uin   = 1;
+    optional string token = 2;
+}
+
+message update_passwd {
+    optional int32  uin       = 1;
+    optional string token     = 2;
+    optional string oldpasswd = 3;
+    optional string newpasswd = 4;
+}
+
+message reset_passwd {
+    optional string email = 1;
+}

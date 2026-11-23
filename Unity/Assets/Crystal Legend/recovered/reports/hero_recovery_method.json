@@ -1,0 +1,17 @@
+{
+  "native_library": "libhellolua.so",
+  "readCha_address": "0x284834",
+  "actor_update_address": "0x2817ac",
+  "string_encoding": "u32 little endian byte length followed by UTF-8 bytes",
+  "element_record": "string name; string sprite_name; u32 z_order",
+  "action_record": "string name; f32 fps; u32 frame_count; frames",
+  "frame_record": "u32 event_count; events; u32 element_count; elements",
+  "event_record": "u32 type; string argument; 8 x f32; u32 flags",
+  "frame_element_record": "u16 element_id; u8 alpha; 6 x f32 affine matrix (27 bytes)",
+  "frame_element_id_base": 1,
+  "native_duplicate_id_rule": "last transform/alpha/z_order for the same node wins",
+  "translation_scale_for_atlas_pixels": 0.20096,
+  "native_game_scripts_executed": false,
+  "png_pixels": "original RGBA8888 or RGBA4444 expanded to RGBA8888; no color/style edits",
+  "render_limitations": "Sprite body timeline only; external event-triggered effects, sound, gameplay shaders and battle state are not simulated."
+}

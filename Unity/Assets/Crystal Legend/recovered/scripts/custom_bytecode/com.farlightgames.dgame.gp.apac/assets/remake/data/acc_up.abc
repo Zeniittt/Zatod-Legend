@@ -1,0 +1,22 @@
+package acc_up;
+
+message acc_up_msg {
+    optional account_query      account_query      = 1;
+    optional idfa_query         idfa_query         = 2; 
+    optional idfa_bind          idfa_bind          = 3; 
+}
+
+message account_query{
+    repeated string uin    = 1;
+}
+
+message idfa_query{
+    required string   open_idfa      = 1;
+    optional uint32   plat_id        = 2;
+}
+
+message idfa_bind{
+    required string   open_idfa      = 1;
+    required string   uin_new        = 2;
+    required string   uin_old        = 3;
+}

@@ -1,0 +1,181 @@
+package bcup;
+
+import "common.proto";
+
+message battlecheck_reply {
+  repeated check_result _result = 1;  // 当为空时，表示请求校验数据
+}
+
+enum result {
+    honest  = 1;    // pve用
+    cheat   = 2;    // pve用
+    victory = 3;    // pvp用
+    defeat  = 4;    // pvp用
+    timeout = 5;
+    unknown = 6;    // 未知，战斗校验出错了
+}
+
+message check_result {
+  required uint32                      _checkid                   = 1;  // 在第一次发送请求的时候，设置为0
+  required uint32                      _userid                    = 2;  // 没什么作用，直接返回
+  required result                      _result                    = 3 [default = honest]; // 战斗校验的结果、
+  required uint32                      _is_plugin                 = 4;  // 是否为外挂,1是 0否
+  repeated result                      _round_result              = 5;  // 每局战斗校验的结果
+  optional gvg_result                  _gvg_result                = 6;  // 公会战结果
+  optional real_pvp_result             _real_pvp_result           = 7;  //实时对战结果
+  optional gcw_result                  _gcw_result                = 8;  // 五军之战结果
+  optional auto_excavate_result        _auto_excavate_result      = 9;  // 自动挖矿结果
+  repeated arena_pvp_hero_data         _pvp_result                = 10; // 竞技场对战结果
+  optional multiplayer_battle_result   _multiplayer_result        = 11; // 多人对战结果
+  optional uint32                      _battle_time               = 12; // 战斗所用时间
+  optional multiarena_battle_result    _multi_arena_battle_result = 13; // 2v2战斗校验结果
+  optional msb_result                  _msb_result                = 14; // 联机副本战斗校验结果
+  optional guild_pve_result            _guild_pve_result          = 15; // 工会副本结果
+  optional stargate_team_info          _stargate_team_info        = 16; // 星门战斗队伍信息
+  optional stargate_hero_dyna          _stargate_hero_dyna        = 17; // 星门英雄血量信息
+  repeated chess_battle_result         _chess_result              = 18; // 自走棋战斗结果
+  optional guild_clash_result          _guild_clash_result        = 19;  // 新版公会战结果
+  optional rogue_result_up             _rogue_result              = 20;  // Rogue结果
+  repeated crevice_defend_battle_result _crevice_defend_result     = 21;  // 多队梦境校验结果
+  repeated solo_battle_result          _solo_result               = 22; // 选技战斗结果
+}
+
+message arena_pvp_hero_data {
+    repeated arena_pvp_hero _hero_data = 1;
+}
+
+message gvg_result{
+  repeated  gvg_hero     _self_heros    =1;
+  repeated  gvg_hero     _oppo_heros    =2;
+  required  uint32       _battle_length  =3;
+}
+
+message gvg_hero {
+    required uint32 _heroid         = 1;
+    required uint32 _hp_perc        = 2;
+    required uint32 _mp_perc        = 3;
+    optional uint32 _custom_data    = 4;
+}
+
+message real_pvp_hero {
+    required uint32 _heroid         = 1;
+    required uint32 _damage         = 2;
+    required uint32 _kill           = 3;
+    optional hero_legend_equip _legend_equip = 4;
+}
+
+message real_pvp_result {
+    repeated real_pvp_hero _self_data = 1;
+    repeated real_pvp_hero _oppo_data = 2;
+}
+
+message gcw_result{
+    repeated  gvg_hero     _self_heros      =1;
+    repeated  gvg_hero     _oppo_heros      =2;
+    required  uint32       _battle_length   =3;
+}
+
+message excavate_hero {
+    required uint32 _heroid         = 1;
+    required uint32 _hp_perc        = 2;
+    required uint32 _mp_perc        = 3;
+    optional uint32 _custom_data    = 4;
+}
+
+message auto_excavate_result {
+  repeated  excavate_hero     _self_heros      = 1;
+  repeated  excavate_hero     _oppo_heros      = 2;
+  required  uint32            _battle_length   = 3;
+}
+
+message multiplayer_battle_result {
+  required uint32     _damage       = 1;
+}
+
+message multiarena_battle_result {
+  required real_pvp_hero _self_lord = 1;
+  required real_pvp_hero _oppo_lord = 2;
+}
+
+message hero_dyna {
+  required uint32     _hp_perc        = 1;
+  required uint32     _mp_perc        = 2;
+  optional uint32     _custom_data    = 3;
+}
+
+message msb_hero {
+  required uint32 _heroid         = 1;
+  required uint32 _hp_perc        = 2;
+  required uint32 _mp_perc        = 3;
+  optional uint32 _custom_data    = 4;
+}
+
+message msb_result {
+  repeated hero_dyna _stage_dyna_end = 1;
+  repeated msb_hero  _self_dyna_end  = 2;
+}
+
+message guild_pve_result {
+  required uint32     _damage       = 1;
+}
+
+message team_idx {
+    required uint32 self_team_idx = 1;
+    required uint32 oppo_team_idx = 2;
+}
+
+message stargate_team_info {
+    repeated team_idx _team_idx = 1;
+}
+
+message stargate_round_hero_dyna {
+    repeated msb_hero _self_hero   = 1;
+    repeated msb_hero _oppo_hero   = 2;
+    required bool     _trigger_buf = 3;
+}
+
+message stargate_hero_dyna {
+    repeated stargate_round_hero_dyna _round_hero_dyna = 1;
+}
+
+// 自走棋战斗结果
+message chess_battle_result {
+    optional result         _result         = 1; // 战斗结果
+    optional uint32         _battle_time    = 2; // 战斗时间
+    repeated uint32         _self_alives    = 3; // 我方存活英雄的InsID列表
+    repeated uint32         _oppo_alives    = 4; // 对方存活英雄的InsID列表
+}
+
+message guild_clash_result {
+  repeated  guild_clash_battle_up     _self_heros    =1;
+  repeated  guild_clash_battle_up     _oppo_heros    =2;
+  required  uint32       _battle_length  =3;
+}
+
+message guild_clash_battle_up {
+  required uint32 _heroid         = 1; // 英雄ID
+  required uint32 _hp_perc        = 2; // 英雄血量
+  required uint32 _mp_perc        = 3; // 英雄蓝量
+  optional uint32 _custom_data    = 4; // reserve
+}
+
+message rogue_result_up {
+    optional  uint32 _sheep_dead             = 1; // 普通绵绵羊死亡数量
+    optional  uint32 _gold_sheep_dead        = 2; // 黄金绵绵羊死亡数量
+    required  uint32       _battle_length    = 3;
+    optional  uint32 _damage                 = 4; // 关卡中造成的最高伤害
+    optional  uint32 _hero_id                = 5; // 造成最高伤害的英雄
+}
+
+// 多队梦境战斗结果
+message crevice_defend_battle_result {
+  optional uint32    _round  = 1;   // 战斗回合
+  optional result    _result = 2;   // 战斗结果
+  optional double    _damage = 3;   // 伤害
+}
+
+// 选技战斗结果
+message solo_battle_result {
+  optional result         _result         = 1; // 战斗结果
+  optional uint32         _battle_time    = 2; // 战斗时间
+}

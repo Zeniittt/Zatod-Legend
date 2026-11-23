@@ -1,0 +1,57 @@
+{
+  "name": "WaterElement",
+  "source": "patch/pfca/WaterElement.fca",
+  "container_sha256": "b777eb324f28b4290b8d71c1d6cc128d5b90c452b0347d05a476c9f3eb5f7742",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 38,
+  "element_count": 47,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 30,
+      "duration_seconds": 1.25,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 17,
+      "duration_seconds": 0.7083333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 0
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 37251,
+  "cha_bytes_consumed": 37251,
+  "atlas_pixel_roundtrip_verified": true
+}

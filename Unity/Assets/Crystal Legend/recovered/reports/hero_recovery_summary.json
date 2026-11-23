@@ -1,0 +1,21 @@
+{
+  "character_containers": 314,
+  "sprite_sheets": 326,
+  "sprite_parts": 27278,
+  "actions": 3049,
+  "timeline_frames": 117322,
+  "cha_roundtrip_verified": 314,
+  "sprite_pixel_verification_errors": 0,
+  "character_previews": 314,
+  "sample_full_frame_exports": [
+    "Lina: all 9 actions",
+    "Coco_HD: ult"
+  ],
+  "input_zip": "downloads/aab_1.1.100312.zip",
+  "output": "heroes",
+  "renderer": "recovery_tools/hero_animation.py",
+  "limitations": [
+    "Previews render the character sprite timeline; external effect/sound events are preserved but not executed.",
+    "No visual comparison with a running game has been performed."
+  ]
+}
