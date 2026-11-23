@@ -96,7 +96,6 @@ namespace Zatod.Editor
                 SetStatus("VALID / " + draft.ConfigVersion);
             })));
             toolbar.Add(Button("Save all config", "save-config", SaveConfig));
-            if (!HeroConfigFileStore.AnyFileExists) toolbar.Add(Button("Create test config", "create-sample", () => Guard(() => { CreateSampleFiles(); ReloadFromFile(); })));
             rootVisualElement.Add(toolbar);
             status = new Label("Draft changes affect preview only. Save with a new ConfigVersion to apply to future loads.");
             status.name = "config-status"; status.AddToClassList("wrapped"); rootVisualElement.Add(status);
@@ -422,11 +421,6 @@ namespace Zatod.Editor
             ReloadFromFile();
         }
 
-        public static void CreateSampleFiles()
-        {
-            if (HeroConfigFileStore.AnyFileExists) throw new IOException("Hero config already exists; sample creation will not overwrite it.");
-            HeroConfigFileStore.Save(HeroCatalogSample.Create(), new HeroConfigDocuments());
-        }
 
         void Guard(Action action)
         {

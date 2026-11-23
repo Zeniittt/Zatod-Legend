@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -29,6 +29,7 @@ namespace Zatod.Presentation
         public ZatodFormationCard[] EnemyCards,TeamCards;
         public TMP_FontAsset Font;
         public string StageId=>encounter?.Id;
+        public string SelectionMode{get;private set;}="campaign";
         public int WaveIndex {get;private set;}
         public HeroPosition? PositionFilter {get;private set;}
         public bool Pending {get;private set;}
@@ -59,7 +60,7 @@ namespace Zatod.Presentation
             {
                 if(Pending || !connected || selection==null || selection.Count<1)return;
                 Pending=true;Battle.interactable=false;Notice.text="";
-                start?.Invoke(encounter.Id,selection.ToArray());
+                start?.Invoke(encounter?.Id,selection.ToArray());
             });
         }
         void LateUpdate(){Fit();if(Background.GetComponent<ZatodFullScreenArt>()==null)Background.gameObject.AddComponent<ZatodFullScreenArt>();}
@@ -72,17 +73,32 @@ namespace Zatod.Presentation
         }
         public void Open(CampaignStageDefinition stage,HeroCatalog definitions,CharacterData owned,IList<string> selected,Action onBack,Action<string,string[]> onBattle)
         {
-            encounter=stage;catalog=definitions;account=owned;selection=selected;back=onBack;start=onBattle;
+            SelectionMode="campaign";CampaignChrome(true);encounter=stage;catalog=definitions;account=owned;selection=selected;back=onBack;start=onBattle;
             WaveIndex=0;PositionFilter=null;Pending=false;connected=true;
             gameObject.SetActive(true);lastSize=Vector2.zero;Fit();
             StageName.text=stage.Name;Description.text=stage.Description??"";Cost.text="Cost: "+stage.VitalityCost;Rewards.text="Reward";
             ZatodStageUi.DrawDrops(DropRow,stage,catalog,64,16,3);Power.text="?";Notice.text="";
             RefreshRoster(true);DrawWave();
         }
-        public void RefreshAccount(CharacterData owned,bool isConnected,string status)
+        public void OpenTeam(string mode,HeroCatalog definitions,CharacterData owned,IList<string> selected,Action onBack,Action<string[]> onBattle)
         {
-            if(encounter==null)return;account=owned;connected=isConnected;Pending=false;
-            Notice.text=isConnected && status!=null && status.StartsWith("Error",StringComparison.OrdinalIgnoreCase)?status:!isConnected?"Disconnected":"";
+            SelectionMode=mode;encounter=null;catalog=definitions;account=owned;selection=selected;back=onBack;start=(_,team)=>onBattle?.Invoke(team);
+            WaveIndex=0;PositionFilter=null;Pending=false;connected=true;CampaignChrome(false);
+            StageName.text=mode=="arena"?"Arena":"PvP Realtime";Description.text=Cost.text=Rewards.text=WaveLabel.text=Notice.text="";
+            foreach(Transform child in DropRow){child.gameObject.SetActive(false);Destroy(child.gameObject);}
+            foreach(var card in EnemyCards)card.Root.gameObject.SetActive(false);
+            gameObject.SetActive(true);transform.SetAsLastSibling();lastSize=Vector2.zero;Fit();RefreshRoster(true);
+        }
+        void CampaignChrome(bool visible)
+        {
+            PreviousWave.gameObject.SetActive(visible);NextWave.gameObject.SetActive(visible);WaveLabel.gameObject.SetActive(visible);
+            var enemy=DesignRoot.Find("Enemy");if(enemy!=null)enemy.gameObject.SetActive(visible);
+            var vitality=DesignRoot.Find("VitalityIcon");if(vitality!=null)vitality.gameObject.SetActive(visible);
+        }
+        public void RefreshAccount(CharacterData owned,bool isConnected,string status,bool waiting=false)
+        {
+            if(account==null)return;account=owned;connected=isConnected;Pending=waiting;
+            Notice.text=waiting?"Waiting for another player...":isConnected && status!=null && status.StartsWith("Error",StringComparison.OrdinalIgnoreCase)?status:!isConnected?"Disconnected":"";
             RefreshRoster(false);
         }
         public void SetFilter(HeroPosition? value)
@@ -91,6 +107,7 @@ namespace Zatod.Presentation
         }
         public void ChangeWave(int delta)
         {
+            if(encounter==null)return;
             WaveIndex=Math.Clamp(WaveIndex+delta,0,encounter.Waves.Count-1);DrawWave();
         }
         void DrawWave()
@@ -134,7 +151,7 @@ namespace Zatod.Presentation
                 var card=TeamCards[i];card.Root.gameObject.SetActive(i>=offset);card.Button.onClick.RemoveAllListeners();if(i<offset){card.InstanceId=null;continue;}
                 var hero=heroes[i-offset];card.InstanceId=hero.HeroInstanceId;DrawCard(card,hero.HeroDefinitionId,hero.Level,hero.Stars,Rank(hero),false);string id=hero.HeroInstanceId;card.Button.onClick.AddListener(()=>Toggle(id));
             }
-            Battle.interactable=connected && !Pending && heroes.Length>0;Power.text="?";
+            Battle.interactable=connected && !Pending && heroes.Length>0;Power.text=encounter==null?"":"?";
         }
         public static void DrawEnemyCard(ZatodFormationCard card,WaveSpawnDefinition spawn,HeroCatalog catalog)
         {

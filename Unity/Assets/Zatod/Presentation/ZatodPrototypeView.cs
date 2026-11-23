@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -19,11 +19,9 @@ namespace Zatod.Presentation
         ZatodConnection connection;HeroCatalog catalog;CampaignCatalog campaign;
         RectTransform root,menu,stage,actors,toolbar,detail;
         TextMeshProUGUI status,clock,result;
-        TMP_InputField address,itemId;
         UnityEngine.UI.RawImage background;
         readonly List<string> selected=new List<string>();
-        string selectedHero,screen="campaign";
-        int inventoryPage;
+        string screen="campaign";
         ZatodBattleSimulation replay;
         ZatodReplay record;
         bool playing;
@@ -70,11 +68,6 @@ namespace Zatod.Presentation
             var button=r.gameObject.AddComponent<UnityEngine.UI.Button>();button.targetGraphic=image;button.interactable=active;button.onClick.AddListener(()=>Safe(action));
             var text=Label(r,title,8,4,w-16,h-8,17,active?TextColor:Muted);text.alignment=TextAlignmentOptions.Center;return button;
         }
-        TMP_InputField Input(Transform parent,string value,float x,float y,float w)
-        {
-            var r=Box("Input",parent,x,y,w,38);var image=Image(r,new Color(.025f,.045f,.07f));image.raycastTarget=true;
-            var field=r.gameObject.AddComponent<TMP_InputField>();var label=Label(r,value,8,3,w-16,32,17);field.textViewport=label.rectTransform;field.textComponent=label;field.text=value;field.targetGraphic=image;field.characterLimit=100;return field;
-        }
         void Safe(Action action){try{action();}catch(Exception error){status.text=error.Message;}}
         void Build()
         {
@@ -85,11 +78,6 @@ namespace Zatod.Presentation
             root=Rect("SafeAreaRoot",canvasObject.transform,Vector2.zero,Vector2.one,Vector2.zero,Vector2.zero);Image(root,Ink);
             root.gameObject.AddComponent<ZatodSafeAreaRoot>();
             if(FindAnyObjectByType<EventSystem>()==null)new GameObject("EventSystem",typeof(EventSystem),typeof(InputSystemUIInputModule));
-            Label(root,"ZATOD LEGEND",30,20,300,40,30,Gold);Label(root,"ZATOD PROTOTYPE",330,29,310,30,18,Muted);
-            address=Input(root,connection.Address,1050,22,255);Button(root,"Kết nối",1320,22,120,38,()=>{connection.Address=address.text;connection.Connect();});
-            Button(root,"Ngắt",1450,22,110,38,()=>connection.Disconnect());
-            Button(root,"Phó bản",30,85,150,44,()=>Show("campaign"));Button(root,"Arena",190,85,150,44,()=>Show("arena"));Button(root,"PvP online",350,85,160,44,()=>Show("pvp"));Button(root,"Hero / Đồ",520,85,160,44,()=>Show("heroes"));Button(root,"Replay",690,85,150,44,()=>Show("history"));
-            Button(root,"Dừng trận",1410,85,150,44,()=>{connection.Cancel();replay=null;record=null;playing=false;ClearBattle();RenderMenu();});
             status=Label(root,"",30,844,1530,44,17,Muted);
             menu=Box("Menu",root,30,150,1540,660);Image(menu,Panel);
             var template=Resources.Load<GameObject>("Zatod/UI/ZatodBattleHUD");
@@ -118,6 +106,7 @@ namespace Zatod.Presentation
             BuildWorld();
             BuildHeroViews();
             BuildBattleResultView();
+            BuildLanViews();
         }
         void OnChanged()
         {
@@ -128,7 +117,6 @@ namespace Zatod.Presentation
             if(connection.Snapshot!=null)
             {
                 if(!initializedSelection){selected.AddRange(connection.Snapshot.Account.HeroDesk.Take(5).Select(h=>h.HeroInstanceId));initializedSelection=true;}
-                if(selectedHero==null)selectedHero=connection.Snapshot.Account.HeroDesk.FirstOrDefault()?.HeroInstanceId;
             }
             if(inventoryView!=null && inventoryView.gameObject.activeSelf && connection.Snapshot!=null){inventoryView.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}
             if(heroRoster!=null && heroRoster.gameObject.activeSelf && connection.Snapshot!=null){heroRoster.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}
@@ -136,11 +124,13 @@ namespace Zatod.Presentation
             if(stagePreview!=null && stagePreview.gameObject.activeSelf && connection.Snapshot!=null)
                 stagePreview.Refresh(connection.Snapshot.StarsFor(stagePreview.StageId),connection.Connected,campaign.IsUnlocked(stagePreview.StageId,connection.Snapshot.Cleared));
             else if(formation!=null && formation.gameObject.activeSelf && connection.Snapshot!=null)
-                formation.RefreshAccount(connection.Snapshot.Account,connection.Connected,connection.Status);
+                formation.RefreshAccount(connection.Snapshot.Account,connection.Connected,connection.Status,connection.FindingPvp);
             else if(!stage.gameObject.activeSelf)RenderMenu();
         }
         void Show(string mode)
         {
+            if(mode=="heroes"){OpenHeroRoster();return;}
+            featureView?.gameObject.SetActive(false);
             ClearBattleResult();inventoryView?.gameObject.SetActive(false);equipmentWindow?.Hide();
             battleScene?.Leave();
             if(heroRoster!=null)heroRoster.gameObject.SetActive(false);if(heroDetail!=null)heroDetail.gameObject.SetActive(false);
@@ -149,41 +139,8 @@ namespace Zatod.Presentation
         void Clear(Transform parent){foreach(Transform child in parent){child.gameObject.SetActive(false);Destroy(child.gameObject);}}
         void RenderMenu()
         {
-            RefreshWorldChrome();
-            if(screen=="campaign" && connection.Snapshot!=null){Clear(menu);return;}
-            Clear(menu);if(connection.Snapshot==null){Label(menu,"Kết nối server để bắt đầu. Mỗi lần mở ứng dụng tạo một phiên phó bản mới.",35,35,1300,90,24);return;}
-            var account=connection.Snapshot.Account;
-            if(screen=="heroes"){DrawHeroes();return;}
-            if(screen=="history")
-            {
-                Label(menu,"REPLAY · đầu vào + dữ liệu đầu trận",30,20,1000,40,24,Gold);
-                int index=0;foreach(string id in connection.Snapshot.Replays.Take(16)){string captured=id;Button(menu,id,30+(index%2)*745,85+(index/2)*64,715,48,()=>connection.Request(new ZatodRequest{Command="replay",A=captured}));index++;}return;
-            }
-            if(screen!="campaign")
-            {
-            Label(menu,"ĐỘI HÌNH · chọn 1–5 Hero",30,20,1200,40,23,Gold);
-            int n=0;foreach(var hero in account.HeroDesk)
-            {
-                string id=hero.HeroInstanceId;var definition=catalog.Hero(hero.HeroDefinitionId);string name=definition.SourceResource.Replace("_HD","");
-                var button=Button(menu,(selected.Contains(id)?"[x] ":"")+name+" · Lv "+hero.Level+" · "+hero.RankId,30+n*295,80,280,85,()=>{if(selected.Contains(id))selected.Remove(id);else if(selected.Count<5)selected.Add(id);RenderMenu();});n++;
-            }
-            }
-            if(screen=="campaign")
-            {
-                Label(menu,"CHƯƠNG 1 · 18 ải / 54 wave",30,190,1200,40,23,Gold);
-                var cleared=connection.Snapshot.Cleared;
-                foreach(var encounter in campaign.Data.Chapters[0].Stages)
-                {
-                    int index=encounter.SourceStageId-1;bool unlocked=campaign.IsUnlocked(encounter.Id,cleared);string id=encounter.Id;
-                    Button(menu,"Ải "+(index+1)+(cleared.Contains(id)?" · Đã qua":"")+"\n"+encounter.Waves.Count+" wave",30+(index%6)*247,250+(index/6)*115,230,95,()=>OpenStagePreview(id),unlocked);
-                }
-            }
-            else
-            {
-                Label(menu,screen=="arena"?"ARENA TỰ ĐỘNG":"PVP REALTIME",30,210,1200,45,28,Gold);
-                Label(menu,screen=="arena"?"Server tạo trận xác định. Client xem lại từ seed, đội hình và input.":"Hai client cùng online. Input được trao đổi theo tick 8 Hz; chờ đủ input sau năm tick đầu.",30,275,1350,100,23,Muted);
-                Button(menu,screen=="arena"?"Bắt đầu Arena":"Tìm trận",30,410,300,65,()=>{if(screen=="arena")connection.Arena(selected);else connection.FindPvp(selected);},selected.Count>0);
-            }
+            Clear(menu);menu.gameObject.SetActive(false);RefreshWorldChrome();
+            if(connection.Snapshot!=null&&connection.Connected&&(screen=="arena"||screen=="pvp"||screen=="history"))OpenNpcFeature();
         }
         void OpenStagePreview(string stageId)
         {
@@ -198,37 +155,10 @@ namespace Zatod.Presentation
             formation.Open(campaign.Stage(stageId),catalog,connection.Snapshot.Account,selected,()=>OpenStagePreview(stageId),
                 (id,heroes)=>connection.Campaign(id,heroes));
         }
-        void DrawHeroes()
-        {
-            var account=connection.Snapshot.Account;int n=0;
-            foreach(var hero in account.HeroDesk){string id=hero.HeroInstanceId;Button(menu,catalog.Hero(hero.HeroDefinitionId).Name+" · "+hero.RankId,20,20+n++*62,230,50,()=>{selectedHero=id;inventoryPage=0;RenderMenu();});}
-            var current=account.HeroDesk.Single(h=>h.HeroInstanceId==selectedHero);var stats=HeroStatCalculator.Calculate(current,catalog);
-            Label(menu,catalog.Hero(current.HeroDefinitionId).Name+" · Lv "+current.Level+" · "+current.RankId,280,20,1200,40,25,Gold);
-            double Stat(string id)=>stats.PreciseStats.FirstOrDefault(x=>x.StatId==id)?.Value??stats.Get(id);
-            Label(menu,"HP "+Stat("health").ToString("0.#")+"   AD "+Stat("damage").ToString("0.#")+"   AP "+Stat("ability_power").ToString("0.#")+"   ARM "+Stat("defense").ToString("0.#")+"   MR "+Stat("magic_resistance").ToString("0.#"),280,70,1200,35,19);
-            Button(menu,"Dev Lv 40",280,115,160,42,()=>connection.DevLevel(current.HeroInstanceId,40));Button(menu,"Tiến bậc",455,115,160,42,()=>connection.Promote(current.HeroInstanceId));
-            Label(menu,"Hấp thụ: "+current.AbsorbedItems.Count+" món · mỗi GUID chỉ tính một lần",640,120,830,35,18,Muted);
-            var rank=HeroProgression.CurrentRank(current,catalog);int slotIndex=0;
-            foreach(var slot in rank.EquipmentSlots)
-            {
-                string slotId=slot.Id;var equipped=current.EquippedItems.FirstOrDefault(x=>x.SlotId==slot.Id);var item=catalog.Item(slot.RequiredItemId);int y=185+slotIndex++*62;
-                Label(menu,slot.Id+"  "+item.Name+" · Lv "+item.LevelRequirement+(equipped!=null?"  [ĐÃ MẶC]":""),280,y,750,44,18);
-                if(equipped==null)
-                {
-                    Button(menu,"Cấp món",1040,y,125,42,()=>connection.AddItemByItemId(slot.RequiredItemId));
-                    var owned=account.Inventory.FirstOrDefault(x=>x.ItemId==slot.RequiredItemId);
-                    Button(menu,"Mặc",1175,y,120,42,()=>{if(owned!=null)connection.Equip(current.HeroInstanceId,slotId,owned.Id);},owned!=null);
-                }
-                else Label(menu,equipped.Id,1040,y,460,44,14,Muted);
-            }
-            Label(menu,"KHO · "+account.Inventory.Count+" instance",280,570,350,34,18,Gold);
-            itemId=Input(menu,"iron_axe",640,565,300);Button(menu,"AddItemByItemId",955,565,230,38,()=>connection.AddItemByItemId(itemId.text));
-            var items=account.Inventory.Skip(inventoryPage*3).Take(3).ToArray();for(int i=0;i<items.Length;i++)Label(menu,items[i].ItemId+"   "+items[i].Id,280,608+i*16,1100,18,13,Muted);
-            Button(menu,"<",1390,568,45,38,()=>{inventoryPage=Math.Max(0,inventoryPage-1);RenderMenu();});Button(menu,">",1445,568,45,38,()=>{inventoryPage=Math.Min(Math.Max(0,(account.Inventory.Count-1)/3),inventoryPage+1);RenderMenu();});
-        }
         void ClearBattle(){ClearBattleResult();battleScene?.Stage?.Clear();drawnTick=-1;drawnFrame=null;drawnSimulation=null;ClearFloating();}
         void OnMatch()
         {
+            featureView?.gameObject.SetActive(false);
             equipmentWindow?.Hide();inventoryView?.gameObject.SetActive(false);heroRoster.gameObject.SetActive(false);heroDetail.gameObject.SetActive(false);
             formation.gameObject.SetActive(false);stagePreview.gameObject.SetActive(false);
             replay=null;record=null;playing=false;ClearBattle();menu.gameObject.SetActive(false);battleScene.Enter();DrawBattle();
@@ -241,6 +171,7 @@ namespace Zatod.Presentation
         }
         void LoadReplay(ZatodReplay value)
         {
+            featureView?.gameObject.SetActive(false);
             equipmentWindow?.Hide();inventoryView?.gameObject.SetActive(false);heroRoster.gameObject.SetActive(false);heroDetail.gameObject.SetActive(false);
             formation.gameObject.SetActive(false);stagePreview.gameObject.SetActive(false);
             record=value;replay=new ZatodBattleSimulation(value.Initial);replayElapsed=0;playing=true;ClearBattle();menu.gameObject.SetActive(false);battleScene.Enter();DrawBattle();

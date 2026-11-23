@@ -18,7 +18,7 @@ Cập nhật: **22/11/2026, Asia/Saigon**.
 
 - Project tiếp tục dùng Unity và Mirror.
 - Giữ combat core C# thuần, có thể dùng chung cho client, server/checker và công cụ kiểm tra.
-- Đối chiếu source khi triển khai: battle_engine.lua đặt tick_interval=0.125, tức 8 Hz. Mô phỏng Crystal mới dùng nhịp này; bộ prototype/replay cũ 20 Hz giữ nhánh tương thích, không áp hằng số cũ sang flow Crystal.
+- Đối chiếu source khi triển khai: battle_engine.lua đặt tick_interval=0.125, tức8Hz. Mô phỏng Crystal dùng nhịp này. Nhánh prototype/replay trướcCrystal20Hz đã được loại theoD33 ngày22/11/2026; không áp hằng số cũ sang flowCrystal.
 - Hình ảnh và callback Animator không quyết định damage. Logic chiến đấu thực thi các mốc của timeline; phần hình ảnh thể hiện cùng tiến trình.
 
 ### D03 — Ba chế độ tham khảo concept Crystal Legends
@@ -396,6 +396,41 @@ Yêu cầu ngày20/11/2026. **Trạng thái:** đã triển khai Fixed joystick/
 
 - **Bổ sung đã chốt22/11/2026:** danh sách List of Heroes cũng phải hiện glow/nhãn Star-Up trên portrait khi Hero chưa chạm trần sao và đủ loại Soulstone/ngưỡng sao kế. Cùng điều kiện với Inventory Soulstones; không lấy tổng đá của Hero khác hoặc dùng ngưỡng triệu hồi. Snapshot mới sau tiêu/nhận đá hoặc nâng sao cập nhật dấu hiệu. Chỉ báo đủ đá, chi phí Gold vẫn được kiểm khi xác nhận giao dịch. Đã triển khai và kiểm chứng hiển thị/tắt/bật lại khi đá đổi và khi chạm cap trong UI1.123 checks.
 
+### D32 — Chuẩn bị Android và màn vào server LAN đơn giản
+
+- **Nghiệm thu22/11/2026:** đã triển khai login tên + tự dò LAN, NPC Arena/PvP/Replay và Formation dùng chung với Phó bản. Windows build cuối0 lỗi/2 warnings; core5075, UI86 và hai client Campaign/Arena/PvP/LAN reconnect PASS. APK ARM64 đã build headless thành công0 lỗi/33 warnings; file cài561.661.890byte (535,64MiB), đúng appid/quyền mạng, install-r thành công trên OPPO Pad Air. Đã quan sát Android vào Town, thấy nhân vật Windows và mở Inventory; server xác nhận kết nối Wi-Fi192.168.0.2→192.168.0.5:7788, không dùngadb reverse. Chưa nghiệm thu Android thứ2 hoặc trận đấu vật lý Windows–Android; không coi kiểm thử standalone cùngPC thay thế các bước đó.
+- Server thật và Windows client được giữ chạy từ bản Desktop, kho cũ không reset. APK chỉ tạo ở thư mục tạm PC rồi cài USB. Quy trình Android ưu tiên headless để tránh Editor DX12 vượt VRAM (BUG-059); helper đã sửa subtarget Android không dùng giá trị StandalonePlayer (BUG-058). Chi tiết và cách build lại: docs/zatod-lan-login-android-implementation.md, Scripts/Build-ZatodAndroid.ps1. Bằng chứng: Artifacts/ZatodLanLoginChecks/. Các ghi nhận chưa cài/build bên dưới là lịch sử khảo sát trước thực thi.
+
+
+
+
+- **Chốt UI bổ sung22/11/2026 khi đang thực thi:** chọn đội Arena/PvP dùng đúngViewFormation củaPhóbản (roster/filter/team/battle), phầnchưacódữliệuenemy/wave/description/cost/reward/power đểtrống. Không dựngstagegiảđểdùngUI; callbackphânbiệtmode. NPCReplayvẫn mởdanhsáchreplay. Đangápphạmvivàkiểmtralại.
+
+- **Lệnh thực thi22/11/2026:** người dùng đã nói “Oke giờ em thực thi đi”. Triển khai login tên/GUID riêng, tự tìm server LAN khi đổi mạng, NPC Arena/PvP/Replay, toolchain Android, Windows/server xuấtDesktop và AndroidAPK tạmPC cài/chạy trên tablet. Các ghi nhận chỉ khảo sát phía dưới là lịch sử trước lệnh này. Giữ tiến trình/GUID/history; không tự xóa app/data tablet khi deploy. Đang triển khai, chưa nghiệm thu3thiếtbị.
+
+- **Yêu cầu22/11/2026:** người dùng muốn chuẩn bị build Android; máy PC hiện tại chạy server chung trên LAN (mạng DoubleMeow), thử1 Windows client và2 Android client. Thay màn kết nối prototype trong ảnh bằng View nhập tên + Kết nối, vào world chung, chưa có đăng ký/mật khẩu/auth chính thức. Giữ art Crystal/responsive landscape D17/D22 và điều khiển D24.
+- **Trạng thái:** đang kiểm tra/làm rõ trước triển khai theo câu hỏi “kiểm tra xem có lưu ý gì không” và giới hạn chưa code của lượt trước. Chưa cài module, đổi mạng/router/firewall, sửa runtime hoặc build APK trong lượt khảo sát này. Không tự biến việc đồng ý hướng thành đã triển khai hoặc đã nghiệm thu3 thiết bị.
+- Phát hiện hiện trạng: PC nối Double Meow 5G, IPv4 Wi-Fi192.168.0.5. AndroidPlayer module chưa có; ổC74.8GiB trống/ổE9.3GiB. CharacterData đã có Name nhưng JoinWorld vẫn tạo nhãn Player +5ký tựGUID. Màn prototype cũ còn được dùng bởi menu Arena/PvP/Replay, cần tách phần kết nối khỏi menu chức năng khi thực thi.
+- **Đề xuất đang chờ chốt, không là hành vi đã duyệt riêng:** tên chỉ là display name, giữ GUID riêng theo thiết bị để giữ kho/progress và tránh dùng tên làm account key; server xác nhận tên và đồng bộ cho peers. Địa chỉ server nằm trong cấu hình test thay ô IP ở màn chính; cần chính sách IP ổn định/đổi địa chỉ khi DHCP thay đổi. Không reset Owned hoặc giả định cùng tên trên hai máy là cùng account. Chưa chọn chính sách tên trùng/đổi tên hoặc giao diện chỉnh endpoint.
+- Khảo sát/lưu ý tại docs/zatod-lan-login-android-plan.md. Kiểm tra LAN cùng host trước đây không thay kiểm thử1 Windows +2 Android vật lý.
+
+- **Làm rõ yêu cầu tiếp22/11/2026:** người dùng đồng ý giữ GUID theo thiết bị/tên hiển thị; muốn di chuyển PC sang mạng khác và các client cùngLAN vẫn vào server chung, không phụ thuộc IP ở nhà. Yêu cầu Arena/PvP/Replay chuyển sang NPC; tự cài các thành phần Android còn thiếu khi thực thi và tạo thư mục build trên Desktop. Không cần hỏi lại quyền cài dependency hoặc ghi build ở Desktop trong phạm vi này.
+- **Hướng triển khai đề xuất cho đổi mạng:** discovery LAN tự tìm server Zatod và endpoint hiện tại, thay việc cố định IP192.168.0.5 trong APK. Cùng Wi-Fi/LAN cần router cho phép peer traffic; office/guest isolation có thể chặn discovery lẫn game. Không tự đổi router/profile/firewall trong lượt rà yêu cầu. Chưa có discovery runtime ở bản hiện tại.
+- **Đích output đã xác nhận và tạo:** C:/Users/tinnq/OneDrive/Desktop/Zatod Legend LAN Test, gồm Windows/Android/Server. Chưa có build phaseD32 trong các folder này. Preflight CLI nhận đủ Android/SDK/NDK/JDK cho6000.6.2f1; mới dry-run, chưa cài/accept license/đổi target/sửa runtime. Editor đang Play của người dùng được giữ nguyên. Lượt này tiếp tục rà yêu cầu; các câu “tự cài”/“tạo folder” là quyền cho phần chuẩn bị và output, không coi dry-run là đã có APK.
+
+
+- **Đổi đích Android22/11/2026:** người dùng đã cắm tablet, yêu cầu khi build Android thì cài/chạy trực tiếp trên tablet quaUSB, không cần xuất vào thư mụcAndroid trênDesktop. Build vẫn biên dịch/tạoAPK tạm trênPC trước khi deploy; Windows/server vẫn dùng thư mụcDesktop đã yêu cầu. Không xóa dữ liệu app/Owned hoặc gỡ app cũ chỉ để cài nếu có xung đột.
+- **Thiết bị đã kiểm tra:** Windows nhận OPPO Pad Air (OPD2102A), ADB ban đầu unauthorized; sau người dùng chọn Cho phép USB debugging, trạng thái device. Đọc được Android13/API33, arm64-v8a (có tương thích32bit), dung lượng /data trống khoảng11G, Wi-Fi192.168.0.2 cùngsubnetPC192.168.0.5. Chưa cài/chạy APK hoặc nghiệm thu gameplayAndroid; kiểm nc TCP không thực hiện vì thiết bị không có tùy chọn zero-I/O. ADB lấy từ bộ Unity2022 có sẵn để kiểm thiết bị; không đồng nghĩa toolchainAndroid6000.6.2f1 đã cài.
+
+### D33 — Loại bỏ prototype trước Crystal và các bản build cũ
+
+- **Ngày chốt22/11/2026:** người dùng yêu cầu xóa Hero/art, logic combat/network/replay, UI, scene và công cụ prototype trước khi import Crystal vì không còn sử dụng; bổ sung xóa cả các bản build cũ. Đây là lệnh triển khai, không chỉ khảo sát.
+- Chỉ dẫn này thay yêu cầu giữ art/runtime pixel cũ tạiD04/D10/D16 và nhánh prototype20Hz tạiD02 trong phạm vi phần không còn được flowCrystal hiện tại dùng. Loại các entrypoint/bản preview cũ và build kiểm thử đã lỗi thời; giữ phần model, serializer, animation/UI helper hoặc validation vẫn được gameCrystal hiện tại dùng. Không suy tên file không có tiền tốZatod là đồ cũ phải xóa.
+- Giữ nguyên GUID/sở hữu/lịch sử Hero,item,save và replay trên đĩa; không reset dữ liệu người dùng. Có thể bỏ player/logic xem replay của prototype trướcCrystal, các archive của nhánh đó giữ làm dữ liệu lịch sử, không còn cam kết xem được bằng bản mới. Replay Crystal/Zatod hiện hành và snapshot của chúng vẫn phải hoạt động. Giữ nguồn reverseCrystal và assetCrystal đang dùng.
+- Đo riêng dung lượng source/project và bản build sau khi dọn; chưa sửa lỗi nénBC7 củaBUG-056 hoặc tự đổi cách bake/quality/timeline trong lượt này. Xóa build lịch sử và các bảnPlayer trongArtifacts, giữ report/save/bằng chứng nhỏ; thay bản đang dùng sau kiểm chứng để tránh xóa file đang chạy.
+- **Trạng thái22/11/2026:** đã loại nhánh cũ và kiểm tra core5068/Hero112/Editor235; build Windows0errors/2warnings, standalone Campaign/Arena/PvP/replay/reset/GUID PASS. Xóa10build lịch sử trong project(~48,92GiB),5build ngoàiC(~53,62GiB) sau người dùng cho phép riêng. Project đo97,83→48,85GiB; giữ1bản chuẩn đang chạy. Build kiểm tra10,75→10,69GiB(~66,73MiB giảm), đo trước khi khôi phục nguyên packContent/TreasureHunter hậuCrystal; số này không phải buildD32 cuối.993asset/metaContent được phục hồi nguyênHEAD, quét không còn reference mới gãy.115file protected ban đầu giữhash; lần cuối chỉtown.txt đổi bởiD32 song song, Owned/archive không đổi. Không sửaBC7/padding/quality. Đã xóaPlayer test sau đo/kiểm, nhườngEditor và deploy bản chuẩn cuối cho chatD32 để tránhrestart chồng; giữ mainserver/client cũ đang chạy. Điểm khôi phục source/asset đãtrack: gitHEAD1f9cc6ce4a2bcdc2520c76c9fd7ea6b7f2ba5d3e; evidenceArtifacts/ZatodLegacyCleanup/handoff.json. Các file sửa có bản nhỏedited-before; không tạo backupfullPlayer mới.
+
+
 ## Bản tổng hợp phase đã được duyệt
 
 Người dùng đã duyệt toàn bộ bản tổng hợp cùng hai lưu ý về chuyển stats và giới hạn source backend, rồi yêu cầu thực thi ngày 19/11/2026. [phase-crystal-prototype-scope.md](docs/phase-crystal-prototype-scope.md) là checklist triển khai. Không yêu cầu xác nhận lại các bước trong phạm vi; chỉ báo xung đột thiết kế hoặc khoảng trống source cần quyết định mới. Trạng thái thực tế được cập nhật tại [crystal-phase-implementation.md](docs/crystal-phase-implementation.md).
@@ -437,3 +472,5 @@ Tham khảo thêm: [ghi chú reverse và hai chat](docs/crystal-legends-referenc
 Người dùng đã yêu cầu thực thi các phần D14–D16 sau khi xác nhận 26 Basic Attack là 16 Hero + 10 Monster. Đã triển khai config chỉ bộ mới, ID snake_case/tên English, GameEditor và HUD Phó bản với Auto/số combat thật, vàng/rương 0; chưa thêm pause/tăng tốc Phó bản. Giữ GUID/save/replay qua chuyển ID. Core 4.377 PASS; GameEditor 13 PASS; HUD live server validate + replay pause/seek/x4 PASS. Build/network cuối và bằng chứng bàn giao được ghi tại `docs/zatod-ui-implementation-progress.md`; hướng dẫn hiện hành `docs/zatod-prototype-play.md`.
 
 Khảo sát nguồn 20/11/2026 (chưa chốt/triển khai loot Zatod): Crystal Stage có UI reward1..10 để preview, loot lượt đánh do enter_stage_reply._loots cấp riêng. Đối chiếu sâu tìm thấy Chest.lua có Loot N ID/Yield theo Chest ID, Hero ID và Rank (3.085 dòng); APK có chứa hệ số loot, nhưng chưa có code backend để xác nhận cách dùng/chuyển thành xác suất cuối của Campaign. Tỷ lệ random ordinary chưa được khôi phục đầy đủ. Xem [crystal-stage-drops-review.md](docs/crystal-stage-drops-review.md); không biến raw preview thành danh sách vật phẩm được bảo đảm nhận.
+
+

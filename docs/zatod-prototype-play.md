@@ -45,7 +45,7 @@ Kho không stack. Mặc giữ GUID; hấp thụ giữ GUID và ItemId nguồn. B
 
 Mỗi lần mở ứng dụng tạo một launch GUID mới và reset clear/unlock Phó bản về ải đầu, kể cả server còn chạy. Replay không khôi phục tiến trình ải. Hero, level, đồ đang mặc/kho và lịch sử hấp thụ của development profile được lưu riêng tại `<data-dir>/Owned/<account GUID>.json`; chúng không bị reset cùng ải. PlayerPrefs giữ GUID của development profile. Đây là định danh thử nghiệm, chưa phải hệ thống đăng nhập/Market.
 
-Archive mới là `<data-dir>/*.zatod.gz`; server vẫn đọc `.crystal.gz` đã lưu. Lần khởi động script mới đầu tiên sao chép dữ liệu server cũ sang `Artifacts/ZatodServer`, có `LegacyBackup`, không xóa nguồn. ID config được ánh xạ khi đọc save, giữ GUID Hero/item và lịch sử hấp thụ; định nghĩa pixel không còn hoạt động được giữ trong các trường Retired của save. Archive outcome và scene pixel cũ được giữ nguyên, với runtime/luồng tương thích riêng. Các bản input archive v1/v2 trong thư mục báo cáo lượt build đầu là artifact nội bộ trước nghiệm thu.
+Archive mới là `<data-dir>/*.zatod.gz`; server vẫn đọc `.crystal.gz` đã lưu. Lần khởi động script mới đầu tiên sao chép dữ liệu server cũ sang `Artifacts/ZatodServer`, có `LegacyBackup`, không xóa nguồn. ID config được ánh xạ khi đọc save, giữ GUID Hero/item và lịch sử hấp thụ; định nghĩa pixel không còn hoạt động được giữ trong các trường Retired của save. Theo D33 ngày22/11/2026, scene pixel và runtime replay outcome trướcCrystal đã được loại; các file archive lịch sử vẫn giữ trên đĩa nhưng bản mới không còn hỗ trợ phát chúng. Replay Crystal/Zatod hiện hành vẫn được hỗ trợ. Các bản input archive v1/v2 trong thư mục báo cáo lượt build đầu là artifact nội bộ trước nghiệm thu.
 
 ## View chọn đội
 

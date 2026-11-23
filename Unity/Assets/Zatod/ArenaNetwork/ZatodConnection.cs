@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -68,7 +68,8 @@ namespace Zatod.Networking
 #endif
             Address=Argument("--server",Address);
             if(IsServer)StartServer();
-            else if(HasArgument("--zatod-smoke")){gameObject.AddComponent<ZatodSmokeClient>();Connect();}
+            InitializeLan();
+            if(!IsServer && HasArgument("--zatod-smoke")){gameObject.AddComponent<ZatodSmokeClient>();if(!Argument("--zatod-smoke","").StartsWith("lan_",StringComparison.Ordinal))Connect();}
         }
         void SetStatus(string value){Status=value;Changed?.Invoke();}
         public void Connect()
@@ -82,6 +83,7 @@ namespace Zatod.Networking
             NetworkClient.OnConnectedEvent+=OnConnected;
             NetworkClient.OnDisconnectedEvent+=OnDisconnected;
             NetworkClient.OnErrorEvent+=OnError;
+            Snapshot=null;download=null;
             NetworkClient.Connect(Address);SetStatus("Connecting to "+Address+":"+Port);
         }
         string AccountKey()
@@ -93,8 +95,8 @@ namespace Zatod.Networking
             if(!PlayerPrefs.HasKey(key)){PlayerPrefs.SetString(key,account);PlayerPrefs.Save();}
             return account;
         }
-        void OnConnected(){Request(new ZatodRequest{Command="hello",A=launchId,B=AccountKey()});}
-        void OnDisconnected(){ItemOperationBusy=false;ClearClientWorld();Battle=null;PendingCampaignLoot=Array.Empty<string>();SetStatus("Disconnected. Reconnect within this launch to keep its campaign run.");}
+        void OnConnected(){Request(new ZatodRequest{Command="hello",A=launchId,B=AccountKey(),C=requestedName});}
+        void OnDisconnected(){FindingPvp=false;StopLogin();ItemOperationBusy=false;ClearClientWorld();Battle=null;PendingCampaignLoot=Array.Empty<string>();SetStatus("Disconnected. Reconnect within this launch to keep its campaign run.");}
         void OnError(TransportError error,string reason){SetStatus(error+": "+reason);}
         public void Disconnect(){if(!IsServer)NetworkClient.Disconnect();}
         public void Request(ZatodRequest request)
@@ -103,10 +105,10 @@ namespace Zatod.Networking
         }
         public void Campaign(string stageId,IEnumerable<string> heroes)=>Request(new ZatodRequest{Command="campaign",A=stageId,Heroes=heroes.ToArray()});
         public void Arena(IEnumerable<string> heroes)=>Request(new ZatodRequest{Command="arena",Heroes=heroes.ToArray()});
-        public void FindPvp(IEnumerable<string> heroes)=>Request(new ZatodRequest{Command="queue",Heroes=heroes.ToArray()});
+        public void FindPvp(IEnumerable<string> heroes){if(!Connected)return;FindingPvp=true;Request(new ZatodRequest{Command="queue",Heroes=heroes.ToArray()});Changed?.Invoke();}
         public void Cancel()
         {
-            Request(new ZatodRequest{Command="cancel"});Battle=null;PendingCampaignLoot=Array.Empty<string>();intents.Clear();submitted=false;Changed?.Invoke();
+            FindingPvp=false;Request(new ZatodRequest{Command="cancel"});Battle=null;PendingCampaignLoot=Array.Empty<string>();intents.Clear();submitted=false;Changed?.Invoke();
         }
         public void AddItemByItemId(string itemId,int amount=1)=>Request(new ZatodRequest{Command="item",A=itemId,Number=amount});
         public bool ItemOperationBusy {get;private set;}
@@ -141,6 +143,7 @@ namespace Zatod.Networking
         void Update()
         {
             if(IsServer){UpdateRooms();UpdateWorldServer();UpdateEconomyServer();return;}
+            UpdateGuestLogin();
             if(Battle==null || Battle.Finished || Battle.Mode==ZatodMode.RealtimePvp)return;
             elapsed+=Time.unscaledDeltaTime;
             int budget=16;
@@ -155,8 +158,8 @@ namespace Zatod.Networking
                 var bytes=Assemble(ref download,packet);if(bytes==null)return;
                 switch(packet.kind)
                 {
-                    case "account":accountReceivedAt=Time.realtimeSinceStartupAsDouble;Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Campaign progress belongs to this app launch.");break;
-                    case "start":
+                    case "account":accountReceivedAt=Time.realtimeSinceStartupAsDouble;Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);FinishLogin();if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Campaign progress belongs to this app launch.");break;
+                    case "start":FindingPvp=false;
                         var start=ReplayArchive.DecodePayload<ZatodStart>(bytes);Battle=new ZatodBattleSimulation(start.Match);Team=start.Team;elapsed=0;submitted=false;intents.Clear();LastReplay=null;
                         PendingCampaignLoot=start.Match.Mode==ZatodMode.Campaign?(start.LootItems??new List<string>()).AsReadOnly():Array.Empty<string>();
                         SetStatus(start.Match.Mode+" Â· "+start.Match.BattleId);MatchStarted?.Invoke();FrameReceived?.Invoke();
@@ -169,8 +172,8 @@ namespace Zatod.Networking
                         FrameReceived?.Invoke();if(!Battle.Finished)SendOperation(tick.Tick+1);break;
                     case "replay":LastReplay=ReplayArchive.DecodePayload<ZatodReplay>(bytes);SetStatus("Validated replay: winner "+LastReplay.Winner+", stars "+LastReplay.Stars);ReplayReceived?.Invoke();break;
                     case "notice":SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
-                    case "abort":Battle=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
-                    case "error":submitted=false;ItemOperationBusy=false;pendingItemOperation=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
+                    case "abort":FindingPvp=false;Battle=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
+                    case "error":FindingPvp=false;submitted=false;ItemOperationBusy=false;pendingItemOperation=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
                     default:throw new InvalidDataException("Unknown Crystal message.");
                 }
             }
@@ -202,6 +205,7 @@ namespace Zatod.Networking
         }
         void OnDestroy()
         {
+            lanDiscovery?.StopDiscovery();
             if(IsServer){NetworkServer.OnDisconnectedEvent-=ServerDisconnected;NetworkServer.Shutdown();}
             else{NetworkClient.OnConnectedEvent-=OnConnected;NetworkClient.OnDisconnectedEvent-=OnDisconnected;NetworkClient.OnErrorEvent-=OnError;if(NetworkClient.active)NetworkClient.Disconnect();}
         }

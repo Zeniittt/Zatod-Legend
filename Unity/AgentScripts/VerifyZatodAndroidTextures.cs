@@ -1,0 +1,14 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using UnityEditor;
+using UnityEngine;
+if(EditorUserBuildSettings.activeBuildTarget!=BuildTarget.Android)throw new Exception("Android target required");
+var warningMethod=typeof(TextureImporter).GetMethod("GetImportWarnings",BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic);
+var paths=AssetDatabase.FindAssets("t:Texture2D",new[]{"Assets/Zatod/Art/Imported"}).Select(AssetDatabase.GUIDToAssetPath).Where(p=>p.EndsWith(".png")).ToArray();
+var imports=paths.Select(p=>{var i=(TextureImporter)AssetImporter.GetAtPath(p);var s=i.GetPlatformTextureSettings("Android");return new{Path=p,Format=s.format.ToString(),s.overridden,Warnings=warningMethod?.Invoke(i,null) as string};}).ToArray();
+var samples=new[]{"Assets/Zatod/Art/Imported/AV/atk3_1.png","Assets/Zatod/Art/Imported/eff_UI_pvp_light/Loop_0.png","Assets/Zatod/Art/Imported/AV/Idle_0.png"}.Select(p=>{var t=AssetDatabase.LoadAssetAtPath<Texture2D>(p);return new{Path=p,Format=t.format.ToString(),t.width,t.height,Bytes=UnityEngine.Profiling.Profiler.GetRuntimeMemorySizeLong(t)};}).ToArray();
+var result=new{Textures=imports.Length,Overridden=imports.Count(i=>i.overridden&&i.Format=="ASTC_6x6"),WarningCount=imports.Count(i=>!string.IsNullOrEmpty(i.Warnings)),Samples=samples,Warnings=imports.Where(i=>!string.IsNullOrEmpty(i.Warnings)).ToArray()};
+File.WriteAllText(Path.GetFullPath("../Artifacts/ZatodLanLoginChecks/android-texture-verification.json"),Newtonsoft.Json.JsonConvert.SerializeObject(result,Newtonsoft.Json.Formatting.Indented));
+return result;

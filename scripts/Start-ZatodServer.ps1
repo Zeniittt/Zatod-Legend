@@ -1,8 +1,10 @@
 param([int]$Port=7788,[string]$DataDirectory="Artifacts/ZatodServer")
 $ErrorActionPreference='Stop'
 $root=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$exe=Join-Path $root 'Builds/ZatodPrototype/ZatodLegend.exe'
+$exe=Join-Path ([Environment]::GetFolderPath('DesktopDirectory')) 'Zatod Legend LAN Test/Windows/ZatodLegend.exe'
+if(-not(Test-Path -LiteralPath $exe)){$exe=Join-Path $root 'Builds/ZatodPrototype/ZatodLegend.exe'}
 if(-not (Test-Path -LiteralPath $exe)){throw 'Build the Zatod prototype from Unity first: Zatod > Tools > Build Windows Prototype.'}
+if(Get-NetTCPConnection -State Listen -LocalPort $Port -ErrorAction SilentlyContinue){throw "TCP port $Port is already in use. Stop the previous server first."}
 $data=[IO.Path]::GetFullPath((Join-Path $root $DataDirectory));New-Item -ItemType Directory -Path $data -Force|Out-Null
 $legacyData=Join-Path $root 'Artifacts/CrystalServer'
 if($DataDirectory -eq 'Artifacts/ZatodServer' -and (Test-Path -LiteralPath $legacyData) -and -not (Test-Path -LiteralPath (Join-Path $data '.legacy-copied'))){

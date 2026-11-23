@@ -6,6 +6,10 @@ partial class Program
 {
     static void InventoryChecks()
     {
+        Check(GuestIdentity.Name("  An   Nguyễn  ")=="An Nguyễn","Guest display name normalization");
+        Check(GuestIdentity.Name("  A\u0301nh  ")=="Ánh","Guest Unicode composed name");
+        foreach(var bad in new[]{"", "   ", "<color=red>Admin", new string('x',25), "one\n<sprite=0>"})
+        {bool rejected=false;try{GuestIdentity.Name(bad);}catch(ArgumentException){rejected=true;}Check(rejected,"Invalid guest name rejected");}
         var c=ImportedCatalog();var p=new ProgressionCatalog(Read<ProgressionDefinition>("Unity/Assets/Zatod/Resources/Data/Progression.txt"));
         var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),c);
         var a=campaign.CreateDemoCharacter(c);p.Initialize(a,1000);CurrencyBalance.AddGold(a,10000000);var inv=new ItemInventory(a,c);var planner=new InventoryCatalog(c);

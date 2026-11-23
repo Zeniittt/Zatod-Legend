@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -14,7 +14,7 @@ namespace Zatod.Presentation
     // World coordinates and the avatar are independent of the deterministic battle simulation.
     public sealed class ZatodWorldView : MonoBehaviour
     {
-        sealed class Avatar {public Transform Root,Visual;public Animator Animator;public float Facing=1;public bool Walking;public Vector2 From,To;public float Since;}
+        sealed class Avatar {public Transform Root,Visual;public TextMeshPro NameLabel;public Animator Animator;public float Facing=1;public bool Walking;public Vector2 From,To;public float Since;}
         ZatodConnection connection;WorldCatalog catalog;[NonSerialized] WorldMapDefinition map;GameObject landscape;
         readonly Dictionary<string,GameObject> landscapes=new Dictionary<string,GameObject>();
         readonly Dictionary<int,Avatar> avatars=new Dictionary<int,Avatar>();
@@ -61,8 +61,9 @@ namespace Zatod.Presentation
                     var root=new GameObject("Avatar_"+player.ConnectionId).transform;root.SetParent(transform,false);root.gameObject.layer=WorldLayer;
                     var visual=Visual("unit",root,1.7f);a=new Avatar{Root=root,Visual=visual,Animator=visual.GetComponentInChildren<Animator>(),From=new Vector2(player.X,player.Y),To=new Vector2(player.X,player.Y)};
                     avatars.Add(player.ConnectionId,a);root.position=new Vector3(player.X,player.Y,0);
-                    var label=new GameObject("PlayerName").AddComponent<TextMeshPro>();label.transform.SetParent(root,false);label.gameObject.layer=WorldLayer;label.transform.localPosition=new Vector3(0,2,0);label.font=MapLabel.font;label.text=player.Name+(player.ConnectionId==connection.WorldSelfId?" (You)":"");label.fontSize=2.3f;label.alignment=TextAlignmentOptions.Center;label.rectTransform.sizeDelta=new Vector2(7,.5f);label.GetComponent<MeshRenderer>().sortingOrder=20000;
+                    var label=new GameObject("PlayerName").AddComponent<TextMeshPro>();label.transform.SetParent(root,false);label.gameObject.layer=WorldLayer;label.transform.localPosition=new Vector3(0,2,0);label.font=MapLabel.font;label.text=player.Name+(player.ConnectionId==connection.WorldSelfId?" (You)":"");label.fontSize=2.3f;label.alignment=TextAlignmentOptions.Center;label.rectTransform.sizeDelta=new Vector2(7,.5f);label.GetComponent<MeshRenderer>().sortingOrder=20000;label.richText=false;a.NameLabel=label;
                 }
+                a.NameLabel.text=player.Name+(player.ConnectionId==connection.WorldSelfId?" (You)":"");
                 a.From=new Vector2(a.Root.position.x,a.Root.position.y);a.To=new Vector2(player.X,player.Y);a.Since=Time.unscaledTime;
                 if(player.ConnectionId!=connection.WorldSelfId)Animate(a,player.Walking,player.Facing);
             }

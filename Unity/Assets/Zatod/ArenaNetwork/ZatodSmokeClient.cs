@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +10,7 @@ namespace Zatod.Networking
     {
         ZatodConnection connection;HeroCatalog catalog;string role;string[] heroes;
         int phase;float started;int campaignReplays,arenaReplays;bool queued,grantVerified,grantSent;long pendingRevision;string grantType;
+        string lanAccount;string[] lanGuids;
         float worldPhaseAt;bool sawWorldPeer,sawWorldMovement,sawWorldIsolation,sawChapterOnePeer;
         void Start()
         {
@@ -22,6 +23,7 @@ namespace Zatod.Networking
             try
             {
                 if(Time.realtimeSinceStartup-started>240)throw new Exception("Smoke timeout phase="+phase+" status="+connection.Status);
+                if(role.StartsWith("lan_",StringComparison.Ordinal)){CheckLan();return;}
                 var snapshot=connection.Snapshot;if(snapshot==null)return;
                 if(role.StartsWith("interest_",StringComparison.Ordinal)){CheckInterest();return;}
                 if(role.StartsWith("world_",StringComparison.Ordinal)){CheckWorld();return;}
@@ -160,6 +162,29 @@ namespace Zatod.Networking
             if(phase==4 && connection.Battle!=null && !connection.Battle.Finished)
                 foreach(var actor in connection.Battle.Frame().Units.Where(u=>u.Team==connection.Team && u.Alive && u.Energy>=u.MaxEnergy))connection.Ultimate(actor.EntityId);
             if(phase>1 && (!sawWorldPeer || !sawWorldMovement))throw new Exception("World movement was not exercised.");
+        }
+        void CheckLan()
+        {
+            bool left=role=="lan_left";
+            if(phase==0){connection.JoinLan(left?"An Nguyễn":"Lan Right");phase=1;return;}
+            var account=connection.Snapshot?.Account;var self=connection.WorldSelf;
+            if(phase==1&&account!=null&&self!=null)
+            {
+                if(account.Name!=(left?"An Nguyễn":"Lan Right")||self.Name!=account.Name)throw new Exception("Guest name not accepted/broadcast.");
+                var peer=connection.WorldPlayers.FirstOrDefault(p=>p.ConnectionId!=self.ConnectionId&&p.Name==(left?"Lan Right":"An Nguyễn"));
+                if(peer==null)return;
+                if(peer.AccountId==account.CharacterId)throw new Exception("Guest accounts share a GUID.");
+                lanAccount=account.CharacterId;lanGuids=account.Inventory.Select(i=>i.Id).ToArray();
+                phase=left?2:4;worldPhaseAt=Time.realtimeSinceStartup;return;
+            }
+            if(phase==2&&Time.realtimeSinceStartup-worldPhaseAt>2){connection.Disconnect();phase=3;worldPhaseAt=Time.realtimeSinceStartup;return;}
+            if(phase==3&&!connection.Connected&&!connection.LoginBusy&&Time.realtimeSinceStartup-worldPhaseAt>.5f){connection.JoinLan("An Renamed");phase=5;return;}
+            if(phase==4&&connection.WorldPlayers.Any(p=>p.Name=="An Renamed")){Done("lan discovery guest-names distinct-accounts peer-rename");return;}
+            if(phase==5&&account!=null&&self!=null&&self.Name=="An Renamed")
+            {
+                if(account.CharacterId!=lanAccount||!account.Inventory.Select(i=>i.Id).SequenceEqual(lanGuids))throw new Exception("Guest rename/reconnect changed ownership.");
+                Done("lan discovery Unicode-name reconnect rename same-GUID inventory-retained endpoint="+connection.Address+":"+connection.Port);
+            }
         }
         void Done(string details)
         {

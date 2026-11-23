@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.TextCore.LowLevel;
 using Zatod.Networking;
 using Zatod.Presentation;
 namespace Zatod.Editor
@@ -23,7 +24,7 @@ namespace Zatod.Editor
             var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
             var camera=new GameObject("Main Camera",typeof(Camera),typeof(AudioListener));camera.tag="MainCamera";camera.transform.position=new Vector3(0,0,-10);camera.GetComponent<Camera>().orthographic=true;
             var bootstrap=new GameObject("ZatodBootstrap",typeof(TelepathyTransport),typeof(ZatodConnection),typeof(ZatodPrototypeView));
-            var font=FormationSetup.EnsureFont();
+            var font=EnsureFont();
             string labels="ZATOD LEGEND ZATOD PROTOTYPE Kết nối Ngắt Phó bản Arena PvP online Hero Đồ Replay Dừng trận Kho Cấp món Mặc Tiến bậc Đã mặc Tạm dừng Phát Tốc độ Xem lại Trắng Xanh Lá Xanh Dương Đội hình Chương Ải ĐÃ VALIDATE ĐANG VALIDATE";
             if(!font.TryAddCharacters(labels,out string missing))throw new InvalidOperationException("Missing font glyphs: "+missing);
             bootstrap.GetComponent<ZatodPrototypeView>().Font=font;EditorUtility.SetDirty(font);
@@ -33,6 +34,23 @@ namespace Zatod.Editor
             PlayerSettings.productName="Zatod Legend";PlayerSettings.runInBackground=true;PlayerSettings.defaultScreenWidth=1600;PlayerSettings.defaultScreenHeight=900;PlayerSettings.fullScreenMode=FullScreenMode.Windowed;PlayerSettings.resizableWindow=true;
             AssetDatabase.SaveAssets();return ScenePath;
         }
+        public static TMP_FontAsset EnsureFont()
+        {
+            var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>("Assets/Zatod/Resources/UI/FormationFont.asset");
+            if (font != null) return font;
+            var source = AssetDatabase.LoadAssetAtPath<Font>("Assets/TextMesh Pro/Fonts/LiberationSans.ttf");
+            if (source == null) throw new InvalidOperationException("Missing bundled LiberationSans font.");
+            Directory.CreateDirectory(Path.GetDirectoryName("Assets/Zatod/Resources/UI/FormationFont.asset")); AssetDatabase.Refresh();
+            font = TMP_FontAsset.CreateFontAsset(source, 90, 9, GlyphRenderMode.SDFAA, 1024, 1024, AtlasPopulationMode.Dynamic, true);
+            font.name = "FormationFont";
+            AssetDatabase.CreateAsset(font, "Assets/Zatod/Resources/UI/FormationFont.asset");
+            AssetDatabase.AddObjectToAsset(font.material, font);
+            foreach (var texture in font.atlasTextures) if (texture != null) AssetDatabase.AddObjectToAsset(texture, font);
+            string labels = "CHỌN ĐỘI HÌNH Trước Giữa Sau Chạm Hero để thêm vào đội hình. Đội hình đã đủ 5 Hero. Chạm Hero đã chọn để bỏ chọn.";
+            if (!font.TryAddCharacters(labels, out string missing)) throw new InvalidOperationException("Font is missing Vietnamese characters: " + missing);
+            EditorUtility.SetDirty(font); AssetDatabase.SaveAssets(); return font;
+        }
+
         [MenuItem("Zatod/Tools/Build Windows Prototype")]
         public static string Build()
         {

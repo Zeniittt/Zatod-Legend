@@ -1,6 +1,17 @@
 {
   "name": "Zatod.Runtime",
   "rootNamespace": "Zatod",
-  "references": ["Zatod.Combat", "Zatod.Heroes", "Zatod.HeroIntegration", "Zatod.JoystickPack", "Mirror", "Mirror.Transports", "UnityEngine.UI", "Unity.TextMeshPro", "Unity.InputSystem"],
+  "references": [
+    "Zatod.Combat",
+    "Zatod.Heroes",
+    "Zatod.HeroIntegration",
+    "Zatod.JoystickPack",
+    "Mirror",
+    "Mirror.Transports",
+    "UnityEngine.UI",
+    "Unity.TextMeshPro",
+    "Unity.InputSystem",
+    "Mirror.Components"
+  ],
   "autoReferenced": true
 }

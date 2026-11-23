@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -64,6 +64,7 @@ namespace Zatod.Networking
                 if(sessions.ContainsKey(id))throw new ArgumentException("Launch already initialized.");
                 if(!Guid.TryParseExact(request.B,"D",out _))throw new ArgumentException("Prototype account GUID is required.");
                 if(sessions.Values.Any(x=>x.Account.CharacterId==request.B))throw new ArgumentException("This development profile is connected already.");
+                string guestName=string.IsNullOrWhiteSpace(request.C)?null:GuestIdentity.Name(request.C);
                 if(!launches.TryGetValue(request.A,out var found))
                 {
                     string accountPath=OwnedPath(request.B);
@@ -71,6 +72,7 @@ namespace Zatod.Networking
                     var owned=File.Exists(accountPath)?HeroDataJson.ReadCharacter(File.ReadAllText(accountPath),catalog):campaign.CreateDemoCharacter(catalog);
                     owned.CharacterId=request.B;found=new ZatodPlayerSession(catalog,campaign,request.A,owned,progression:progression);launches.Add(request.A,found);SaveOwned(found);
                 }
+                if(guestName!=null)found.Account.Name=guestName;
                 if(sessions.Values.Contains(found))throw new ArgumentException("This launch is connected already.");
                 found.RefreshEconomy(()=>SaveOwned(found));sessions.Add(id,found);JoinWorld(connection,found);SendAccount(connection,found);return;
             }

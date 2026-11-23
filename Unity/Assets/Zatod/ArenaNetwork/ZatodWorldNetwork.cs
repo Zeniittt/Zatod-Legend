@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Mirror;
@@ -38,7 +38,7 @@ namespace Zatod.Networking
         void JoinWorld(NetworkConnectionToClient connection,ZatodPlayerSession session)
         {
             var spawn=worldCatalog.Spawn("town","entry");
-            worldPlayers[connection.connectionId]=new WorldPlayerState{ConnectionId=connection.connectionId,AccountId=session.Account.CharacterId,Name="Player "+session.Account.CharacterId.Substring(0,5),MapId="town",MapRevision=1,X=spawn.X,Y=spawn.Y};
+            worldPlayers[connection.connectionId]=new WorldPlayerState{ConnectionId=connection.connectionId,AccountId=session.Account.CharacterId,Name=string.IsNullOrWhiteSpace(session.Account.Name)?"Player "+session.Account.CharacterId.Substring(0,5):session.Account.Name,MapId="town",MapRevision=1,X=spawn.X,Y=spawn.Y};
             nextWorldSnapshot=0;
         }
         void UpdateWorldServer()

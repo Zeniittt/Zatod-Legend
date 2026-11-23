@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
@@ -10,7 +10,7 @@ namespace Zatod.Presentation
         ZatodWorldView world;Transform legacyHeader;
         void BuildWorld()
         {
-            // Keep the existing connection/debug controls available before login and in feature menus.
+            // Legacy HUD containers remain internal; login and NPC features have native views.
             legacyHeader=new GameObject("ConnectionAndFeatureControls",typeof(RectTransform)).transform;legacyHeader.SetParent(root,false);
             var header=(RectTransform)legacyHeader;header.anchorMin=Vector2.zero;header.anchorMax=Vector2.one;header.offsetMin=header.offsetMax=Vector2.zero;
             foreach(Transform child in root.Cast<Transform>().ToArray())if(child!=legacyHeader && child!=menu && child!=stage && child!=formation.transform && child!=stagePreview.transform && child!=status.transform)child.SetParent(header,false);
@@ -25,7 +25,7 @@ namespace Zatod.Presentation
                 else if(point.TargetId=="clan" || point.TargetId=="tower")world.Hint.text=point.Label+" - Coming soon";
                 else if(point.TargetId=="heroes")OpenHeroRoster();else Show(point.TargetId);
             };
-            var returnButton=ZatodStageUi.Button(world.Hud,"Features","buttion_big",1370,20,205,58);var rr=(RectTransform)returnButton.transform;rr.anchorMin=rr.anchorMax=rr.pivot=Vector2.one;rr.anchoredPosition=new Vector2(-24,-20);ZatodStageUi.Text(returnButton.transform,"Caption","Menu",10,3,185,48,23,world.MapLabel.font).alignment=TextAlignmentOptions.Center;returnButton.onClick.AddListener(()=>Show("heroes"));
+            var returnButton=ZatodStageUi.Button(world.Hud,"Features","buttion_big",1370,20,205,58);var rr=(RectTransform)returnButton.transform;rr.anchorMin=rr.anchorMax=rr.pivot=Vector2.one;rr.anchoredPosition=new Vector2(-24,-20);ZatodStageUi.Text(returnButton.transform,"Caption","Disconnect",10,3,185,48,23,world.MapLabel.font).alignment=TextAlignmentOptions.Center;returnButton.onClick.AddListener(()=>connection.Disconnect());
         }
         void RefreshWorldChrome()
         {
@@ -33,8 +33,10 @@ namespace Zatod.Presentation
             bool heroes=inventoryView!=null && inventoryView.gameObject.activeSelf || heroRoster!=null && heroRoster.gameObject.activeSelf || heroDetail!=null && heroDetail.gameObject.activeSelf;
             root.GetComponent<UnityEngine.UI.Image>().color=worldScreen || heroes || battling?Color.clear:Ink;
             root.parent.Find("Backdrop").GetComponent<UnityEngine.UI.Image>().color=worldScreen || heroes || battling?Color.clear:Ink;
-            legacyHeader.gameObject.SetActive(!worldScreen && !heroes && !battling);status.gameObject.SetActive(!worldScreen && !heroes && !battling);
-            menu.gameObject.SetActive(!worldScreen && !heroes && !battling && !stage.gameObject.activeSelf && !formation.gameObject.activeSelf);
+            legacyHeader.gameObject.SetActive(false);status.gameObject.SetActive(false);menu.gameObject.SetActive(false);
+            bool loggedIn=connection.Connected&&connection.Snapshot!=null;
+            if(loginView!=null){loginView.gameObject.SetActive(!loggedIn);if(!loggedIn){screen="campaign";loginView.transform.SetAsLastSibling();}}
+            if(featureView!=null)featureView.gameObject.SetActive(loggedIn&&!heroes&&!battling&&screen=="history");
         }
     }
 }
