@@ -1,0 +1,204 @@
+{
+  "name": "AW",
+  "source": "patch/pfca/AW.fca",
+  "container_sha256": "0c5bdf4102535dca64f3d35ca63dc4079bbaf150543b6002e373a0621a3f8828",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 228,
+  "element_count": 279,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 95,
+      "duration_seconds": 3.9583333333333335,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 2
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 95,
+      "duration_seconds": 3.9583333333333335,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 4
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 74,
+      "duration_seconds": 3.0833333333333335,
+      "events": 9
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 3
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665,
+      "events": 3
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 45,
+      "duration_seconds": 1.875,
+      "events": 2
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 95,
+      "duration_seconds": 3.9583333333333335,
+      "events": 0
+    },
+    {
+      "name": "Idlew",
+      "fps": 24.0,
+      "frames": 95,
+      "duration_seconds": 3.9583333333333335,
+      "events": 0
+    },
+    {
+      "name": "Movew",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 0
+    },
+    {
+      "name": "Damagedw",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Deathw",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 1
+    },
+    {
+      "name": "atkw",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk2w",
+      "fps": 24.0,
+      "frames": 74,
+      "duration_seconds": 3.0833333333333335,
+      "events": 4
+    },
+    {
+      "name": "atk3w",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk4w",
+      "fps": 24.0,
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665,
+      "events": 2
+    },
+    {
+      "name": "Idleb",
+      "fps": 24.0,
+      "frames": 95,
+      "duration_seconds": 3.9583333333333335,
+      "events": 0
+    },
+    {
+      "name": "Moveb",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 0
+    },
+    {
+      "name": "Deathb",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 1
+    },
+    {
+      "name": "Damagedb",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "atkb",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk2b",
+      "fps": 24.0,
+      "frames": 74,
+      "duration_seconds": 3.0833333333333335,
+      "events": 5
+    },
+    {
+      "name": "atk3b",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk4b",
+      "fps": 24.0,
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 1187150,
+  "cha_bytes_consumed": 1187150,
+  "atlas_pixel_roundtrip_verified": true
+}

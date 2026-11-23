@@ -1,0 +1,71 @@
+{
+  "name": "BRnest",
+  "source": "patch/pfca/BRnest.fca",
+  "container_sha256": "5c5488ca1e3baeacd78e554e59f164b52b9525578f8323980f3648008daca40f",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 16,
+  "element_count": 24,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 50,
+      "duration_seconds": 2.0833333333333335,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 21,
+      "duration_seconds": 0.875,
+      "events": 1
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 27,
+      "duration_seconds": 1.125,
+      "events": 1
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 50,
+      "duration_seconds": 2.0833333333333335,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 50,
+      "duration_seconds": 2.0833333333333335,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 50,
+      "duration_seconds": 2.0833333333333335,
+      "events": 0
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 50,
+      "duration_seconds": 2.0833333333333335,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 56936,
+  "cha_bytes_consumed": 56936,
+  "atlas_pixel_roundtrip_verified": true
+}
