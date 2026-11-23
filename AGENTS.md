@@ -22,6 +22,7 @@
 - `Design.md` giữ quyết định hiện hành; phase-plan trong `docs/` là checklist thực thi/nghiệm thu; review chỉ giữ bằng chứng khảo sát; `ChangeLog.md` giữ lỗi và kinh nghiệm. Không áp lại đề xuất lịch sử đã bị thay thế.
 - Khi được giao thực thi một phase-plan đã duyệt, tiếp tục trong phạm vi đó; không xin lại các quyết định đã chốt. Đồng ý thiết kế hoặc chỉnh markdown riêng vẫn không tự là lệnh code/build/deploy.
 - Bản bàn giao phải nêu phạm vi, ngoài phạm vi, đầu vào/source bị Git ignore, migration, giao dịch, kiểm tra và trạng thái thực tế. Không coi file chỉ có ở `Artifacts/` hoặc thư mục reverse local là đã được chuyển cho agent ở clone khác.
+- Theo D37, macOS tự tạo IPA chưa ký cho Sideloadly sau nhiệm vụ triển khai/kiểm tra phù hợp; chế độ cài/chạy iPhone qua USB chỉ dùng khi người dùng chọn. Windows hỏi trước đóng gói nếu chưa được yêu cầu build. Đọc skill `local-build-handoff` ở Codex home khi có; AGENTS → Design D37 đủ để agent Windows thực hiện nếu chưa cài skill. Đọc hiểu, brainstorm và sửa tài liệu/skill không kích hoạt build.
 
 ## Ghi nhận lỗi và cách sửa
 

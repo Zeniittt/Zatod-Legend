@@ -2,6 +2,8 @@
 
 23/11/2026. Unity6000.6.2f1. Mac miniM4/Tahoe26.6.2, iPhone11/iOS27. Server vẫn chạy trênPC Windows; không cần clone toàn bộ project Unity lênMac.
 
+**Quy tắc bàn giao đã chốt — Design D37:** sau nhiệm vụ code/kiểm tra trên Mac, mặc định tạo **IPA chưa ký cho Sideloadly** và báo đường dẫn tuyệt đối, thư mục chứa, kết quả kiểm tra. Chế độ khác do người dùng chọn là build/ký development/cài/chạy trực tiếp trên iPhone nối cáp với Mac, không qua Sideloadly. Windows hỏi trước đóng gói nếu chưa được yêu cầu build. Đọc hiểu hoặc sửa tài liệu/skill không kích hoạt build.
+
 ## 1. Xuất Xcode trên Windows
 
 Lưu và đóng Editor của **Zatod** trước khi xuất headless. Chạy PowerShell:
@@ -89,7 +91,7 @@ Chốt23/11/2026. Đây là hướng dẫn bổ sung. Người dùng đã xác n
 
 ### TạoIPA trênMac
 
-Mỗi khi source/art/config game đổi: đóngEditorZatod sau khi lưu, chạyhelperExport-ZatodXcode.ps1 ởmục1, chuyển **nguyên folder export mới** sangMac. ZIPexportkhông phảiIPA. Nếu chỉgia hạn cùng bản app, không cần chạyUnity/buildMac lại.
+Mỗi khi source/art/config game đổi: tạo export Xcode mới từ Unity trên Mac, hoặc chạy helper Export-ZatodXcode.ps1 trên Windows ở mục1 rồi chuyển **nguyên folder export mới** sang Mac. Lưu công việc trước khi đóng hoặc đổi trạng thái Editor. ZIP export không phải IPA. Nếu chỉ gia hạn cùng bản app, không cần chạy Unity/build Mac lại.
 
 MởTerminal trênMac. Gõ `cd ` (có dấu cách), kéo folder chứaUnity-iPhone.xcodeproj từFinder vàoTerminal rồiEnter. Chạyblock sau trongđúngfolder đó. DùngRelease/iphoneos/arm64; khôngbuildSimulator. Khôngchạy đồngthời buildtrongXcode vàTerminal.
 

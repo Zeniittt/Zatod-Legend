@@ -109,7 +109,7 @@ Buff nguồn10000104 và hook Coco là bằng chứng, không phải damage/heal
 3. Hoàn thiện giao dịch nâng skill, Quick Equip và Promote; kiểm thành công/thất bại/retry trước khi dựng hoàn chỉnh UI.
 4. Port các hiệu ứng Evo trong phạm vi, kiểm từng trigger/mốc/caster/target và deterministic client/checker.
 5. Nối UI Skill, nút Quick Equip/Promote và GameEditor, kiểm hình thức/tương tác trên các tỷ lệ màn.
-6. Chạy kiểm tra và build phù hợp; cập nhật trạng thái/bằng chứng bàn giao. Có thể điều chỉnh thứ tự kỹ thuật theo dependency, không mở rộng sản phẩm ngoài D35.
+6. Chạy kiểm tra và bàn giao theo Design D37: macOS tự tạo IPA chưa ký cho Sideloadly; build/ký/cài/chạy iPhone qua USB khi người dùng chọn chế độ đó. Windows hỏi trước đóng gói nếu nhiệm vụ chưa yêu cầu build. Cập nhật trạng thái/bằng chứng; có thể điều chỉnh thứ tự kỹ thuật theo dependency, không mở rộng sản phẩm ngoài D35.
 
 ## 9. Tiêu chí nghiệm thu
 
@@ -121,7 +121,7 @@ Buff nguồn10000104 và hook Coco là bằng chứng, không phải damage/heal
 - [ ] UI thật:25 Hero hiện có, locked/unlocked/max/thiếu tiền, hold nâng, cùngnút QuickEquip/Promote, trở về world đúng;16:9,19.5:9/20:9,4:3 vàsafearea. Có ảnh đã xem, không chỉ đếmassertion.
 - [ ] GameEditor: chỉnh/lưu/đọc lại rule/curve/Evo, validate reference, draft/stale handling; không ghi config ngoài thao tác Save.
 - [ ] Kiểmtra phùhợp từ Tests/HeroChecks, Tests/CrystalChecks và các harness Editor/network hiện có; chỉ sửa/viết ca liên quan D35. Không coi harness prototype cũ là bằngchứng active content nếu đã bị retire.
-- [ ] Client-server thật với profile/port riêng; build Windows và smoke hành vi mới. Mobile kiểmresponsive và thiết bị/build khi môi trường sẵn; phần chưa kiểm vật lý phải ghi rõ, không báo đã nghiệmthu Android/iOS chỉ từ GameView.
+- [ ] Client-server thật với profile/port riêng và smoke hành vi mới. Đóng gói theo D37: macOS tự tạo IPA chưa ký; Windows hỏi trước nếu chưa được yêu cầu build. Mobile kiểm responsive và thiết bị khi môi trường sẵn; phần chưa kiểm vật lý phải ghi rõ, không báo đã nghiệm thu Android/iOS chỉ từ GameView.
 - [ ] Owned/mainserver/scene/art không liên quan được bảo toàn; console không lỗi mới. Không tự publish/deploy lên môi trường đang dùng chỉ để kết thúc checklist.
 
 ## 10. Báo cáo bàn giao sau thực thi

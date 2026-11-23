@@ -1,6 +1,6 @@
 # Zatod Legend — Thiết kế đã thống nhất
 
-Cập nhật: **23/11/2026, Asia/Saigon**.
+Cập nhật: **24/11/2026, Asia/Saigon**.
 
 Đây là nguồn quyết định chung của project. Mỗi chat cần đọc file này trước khi làm việc và cập nhật khi người dùng chốt thêm. Đồng ý về thiết kế không đồng nghĩa thay đổi đó đã được triển khai hoặc được yêu cầu triển khai ngay.
 
@@ -37,6 +37,7 @@ Không khẳng định backend Crystal tính xong Arena trước phản hồi St
 
 ### D04 — Nguồn Crystal Legends và asset
 
+- **Trạng thái riêng clone Mac ngày 24/11/2026:** sau lượt dọn phần tải dở, người dùng yêu cầu kéo đủ 28 commit và tự xử lý conflict. Đã cập nhật main từ `0eb6bb073` tới `46d197182`, có đủ 96.077 file reference tại `Unity/Assets/Crystal Legend/`, không khác Git. Giữ source Zatod, tài liệu brainstorm và quy tắc build D37 khi gộp các chỉnh sửa local. 38 source khớp manifest sau quy đổi LF → CRLF trong bộ nhớ để đối chiếu; không sửa file nguồn. Chưa chạy Unity import/build hoặc triển khai D35; xem REVIEW-013.
 - **Vị trí hiện hành từ23/11/2026:** người dùng đã di chuyển bộ nguồn tham chiếu vào `Unity/Assets/Crystal Legend/` tính từ repository root; từ thư mục projectUnity là `Assets/Crystal Legend/`. Thư mục root cũ không còn. Chỉ dẫn mới này thay yêu cầu đặt ngoàiUnity/Assets trước đây; giữ nguyên dữ liệu raw và bản gốc trên ổC, không tự di chuyển lại.
 - Đây vẫn là bộ nguồn reverse/tham chiếu, không phải toàn bộ nội dung đã được cấu hình hoặc nghiệm thu để dùng trong game. Vị trí nằm trongAssets có thể được Unity quét/import; lượt cập nhật tài liệu này chưa chạyEditor/build hoặc xác nhận kết quả import. Ruleignore `/Crystal Legend/` cũ không khớp vị trí mới. **Cập nhật bàn giao23/11:** đã commit/push96.077 file reference lênmain theo26 lô; clone main đã có source/asset giải nén, trừ các file local được nêu dưới đây. Đã kiểm danh sách tracking và hash38source theo manifest; chưa nghiệmthu Unityimport toàn bộ folderraw.
 - Các script import/bake hiện còn đường dẫn root cũ. Agent cần đọc vị trí hiện hành và cập nhật resolver trước khi chạy helper; task tài liệu này chưa sửa script hoặc configruntime.
@@ -482,11 +483,22 @@ Yêu cầu ngày20/11/2026. **Trạng thái:** đã triển khai Fixed joystick/
 
 ### D36 — Workflow brainstorm và bàn giao qua markdown
 
+- **Làm rõ ngày 24/11/2026:** dọn file phát sinh từ pull Crystal phải giữ toàn bộ tài liệu brainstorm/đọc hiểu, Design, ChangeLog, phase-plan và skill. Người dùng chỉ cho phép bỏ phần Crystal tải dở cùng file tải tạm để pull lại; không suy rộng thành xóa project Zatod hoặc đặt lại quyết định thiết kế.
 - **Ngày chốt:**23/11/2026. Người dùng muốn brainstorm/chốt thiết kế cùng agent hiện tại, lưu tài liệu để một agent khác thực thi. Không dựa vào lịch sử chat như đầu vào bắt buộc của agent triển khai.
 - Design.md là nguồn quyết định; mỗi phase có một phase-plan hiện hành chứa phạm vi, hợp đồng, checklist và tiêu chí nghiệm thu. Review chứa bằng chứng nguồn/khảo sát, ChangeLog giữ lỗi và kinh nghiệm. Không trộn đề xuất bị thay thế với yêu cầu đang có hiệu lực hoặc tạo nhiều bản quyết định cạnh tranh.
 - Agent được giao thực thi theo phase-plan phải làm tiếp trong phạm vi đã duyệt, không hỏi lại model/rule đã chốt. Chỉ hỏi khi có xung đột thiết kế, đầu vào thực sự thiếu hoặc yêu cầu mở rộng ngoài phạm vi. Cập nhật implementation report/Design/ChangeLog theo kết quả thực tế.
 - Việc brainstorm, đồng ý thiết kế hoặc chuẩn bị markdown không tự khởi động runtime, build, deploy, tạo chat hay gửi việc cho agent khác. Người dùng sẽ giao agent thực thi; yêu cầu thực thi rõ ràng về sau là đủ quyền cho phạm vi được giao.
 - Tài liệu bàn giao phải nêu đầu vào thực sự hiện diện và trạng tháiGit. Nguồn Crystal hiện ở `Unity/Assets/Crystal Legend/` theoD04 cập nhật23/11; ruleignore root cũ không khớp đường mới nhưng folder đanguntracked tại mốc kiểm, nên chỉ có ởclone khác sau khi được commit hoặc chuyển riêng. `Artifacts/` vẫn bịignore. JSON tham chiếu trongdocs không thay fullsource/art; không khẳng định đã commit/push chỉ vì đã viết tài liệu hoặc di chuyển folder.
+
+### D37 — Bàn giao build theo hệ điều hành
+
+- **Ngày chốt:** 23/11/2026; khôi phục nội dung vào tài liệu clone Mac ngày 24/11/2026. Áp dụng cho project local có iOS app target. Đây là quy tắc làm việc của agent, không phải watcher chạy nền.
+- **macOS:** sau khi hoàn tất code/kiểm tra sản phẩm trong phạm vi được giao, tự build và đóng gói **IPA chưa ký cho Sideloadly**. Báo đường dẫn tuyệt đối của IPA, thư mục chứa, các kiểm tra đã chạy và trạng thái chưa ký. Không đồng nhất export project Xcode hoặc ZIP source với IPA đã build.
+- **Chế độ USB riêng khi người dùng chọn:** build trên Mac, ký development, cài và chạy trực tiếp trên iPhone nối cáp, không qua Sideloadly. Dùng lại pairing/signing còn hợp lệ; cấu hình lần đầu nếu thiếu. Chỉ báo cài/chạy thành công sau kiểm chứng thực tế.
+- **Windows:** hoàn tất code/test rồi hỏi có muốn đóng gói bản build không, trừ khi người dùng đã yêu cầu build trong nhiệm vụ hiện tại. Compile phục vụ test không cần hỏi đóng gói.
+- **Ngoại lệ:** đọc hiểu, brainstorm, tài liệu/skill-only và dọn file tải dở không tự kích hoạt build. Không tự thêm iOS target cho project không liên quan; đóng gói local không tự cho phép upload/publish hoặc cài thiết bị.
+- **Chia sẻ quy tắc:** chỉ cần lưu skill hoặc Markdown cho agent Windows đọc; không phải cài từ xa hay tạo ZIP chuyển máy. AGENTS của project dẫn tới D37 để quy tắc đi cùng checkout.
+- **Trạng thái:** skill `local-build-handoff` và AGENTS ở Codex home trên Mac đã có; cập nhật chỉ dẫn project/phase-plan/iOS. Chưa thêm menu/helper IPA mới trong Unity, chưa chạy build từ nhiệm vụ tài liệu này.
 
 ### Mốc xác nhận đa nền tảng — 23/11/2026
 
