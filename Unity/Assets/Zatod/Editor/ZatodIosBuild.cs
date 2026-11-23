@@ -98,6 +98,14 @@ namespace Zatod.Editor
             // Keep normal module compilation enabled; only skip the separate framework verification pass.
             project.SetBuildProperty(target,"ENABLE_MODULE_VERIFIER","NO");
         }
+        public static void ConfigureUnityRuntimeEmbedding(PBXProject project)
+        {
+            string runtime=project.FindFileGuidByProjectPath("Frameworks/UnityRuntime.framework");
+            if(string.IsNullOrEmpty(runtime))return;
+            // UUM-151138: UnityRuntime is a build-time artifact, not an app framework.
+            // Remove only the main app's copy; retain UnityFramework's linker reference.
+            project.RemoveFileFromBuild(project.GetUnityMainTargetGuid(),runtime);
+        }
         [PostProcessBuild(100)]
         public static void SetLocalNetworkPermission(BuildTarget target,string path)
         {
@@ -107,7 +115,8 @@ namespace Zatod.Editor
             plist.WriteToFile(plistPath);
             // Direct TCP only: no multicast entitlement or Bonjour advertising is added.
             string projectPath=PBXProject.GetPBXProjectPath(path);var project=new PBXProject();project.ReadFromFile(projectPath);
-            ConfigureGameAssemblyScripts(project);ConfigureUnityFrameworkModules(project);project.WriteToFile(projectPath);
+            ConfigureGameAssemblyScripts(project);ConfigureUnityFrameworkModules(project);
+            ConfigureUnityRuntimeEmbedding(project);project.WriteToFile(projectPath);
         }
 #endif
     }

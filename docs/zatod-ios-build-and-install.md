@@ -76,6 +76,92 @@ Nếu Issue navigator hiện nhóm lỗi AppDelegateListener/RedefinePlatforms/U
 
 iPhone cóaccountGUID riêng; nhập cùngtênAndroid không tự chuyểnkho. Kiểm Town/joystick/peers, UIhai chiều/notch/bànphím/quyềnLAN, Phóbản, Arena, PvP/replay giữa cácnền tảng saucài. Các bước thiết bị thật này chưa được kiểm bằngWindows export.
 
+## 6. Luồng miễn phí từ xa: Mac build, Windows dùng Sideloadly
+
+Chốt23/11/2026. Đây là hướng dẫn bổ sung. Người dùng đã xác nhận remote Windows vào Mac và Sideloadly trên Windows hiện tên iPhone; chưa xác nhận native build IPA, ký/cài Zatod hoặc refresh qua Wi-Fi. Mac không cần thấy iPhone trong luồng này: build app chưa ký, đóng góiIPA, rồi Windows ký/cài bằng Apple Account miễn phí. Không dùng Archive → App Store Connect/TestFlight cho luồng này.
+
+### Chuẩn bị một lần
+
+- Mac: setup Remote Access tại https://remotedesktop.google.com/access bằng Chrome Remote Desktop, đặt PIN và cấp quyền theo trình cài. Thử remote từPC trước khi rờiMac; giữ nguồn/Internet, không sleep lúc cần dùng. NếuMac khởi động lại và dừng ở màn mở khóa ổFileVault, có thể cần người tại chỗ mở khóa. Không tắtFileVault chỉ để tránh tình huống này.
+- Mac: mởXcode hoàn tất components/điều khoản; Xcode → Settings → Locations → Command Line Tools chọnXcode đang dùng. Giải nén nguyên folderexport vào ổnội bộ. BảnZIP cũ cần workaroundBUG-062 vàBUG-063 ở mục4; sourcehelper đã có sửa cho lầnexport mới.
+- Windows: tảiSideloadly64-bit và các bản **web iTunes/iCloud** từ link trên https://sideloadly.io/ . Nhà cung cấp yêu cầu bảnweb thay bảnMicrosoftStore; kiểm dữliệu đangđồngbộ trước khi thay phầnmềm hiệncó. Khởi động lạiPC sau cài dependency nếu được yêu cầu.
+- iPhone: nốiPC bằng cáp truyền dữliệu, mởkhóa vàTrust. TrongiTunes chọnthiếtbị → Summary → Options → Sync with this iPhone over Wi-Fi → Apply/Sync. BậtDeveloperMode nếu chưa bật: Settings → Privacy & Security → DeveloperMode, restart rồi xácnhận. GiữUSB cho lầncài đầu.
+
+### TạoIPA trênMac
+
+Mỗi khi source/art/config game đổi: đóngEditorZatod sau khi lưu, chạyhelperExport-ZatodXcode.ps1 ởmục1, chuyển **nguyên folder export mới** sangMac. ZIPexportkhông phảiIPA. Nếu chỉgia hạn cùng bản app, không cần chạyUnity/buildMac lại.
+
+MởTerminal trênMac. Gõ `cd ` (có dấu cách), kéo folder chứaUnity-iPhone.xcodeproj từFinder vàoTerminal rồiEnter. Chạyblock sau trongđúngfolder đó. DùngRelease/iphoneos/arm64; khôngbuildSimulator. Khôngchạy đồngthời buildtrongXcode vàTerminal.
+
+```bash
+(
+  set -e
+  test -d Unity-iPhone.xcodeproj
+  zatodDerived="$HOME/Builds/Zatod-iOS/DerivedData"
+  zatodOutput="$HOME/Builds/Zatod-iOS/IPA-$(date +%Y%m%d-%H%M%S)"
+  test ! -e "$zatodOutput"
+
+  xcodebuild -project Unity-iPhone.xcodeproj \
+    -scheme Unity-iPhone -configuration Release \
+    -sdk iphoneos -destination 'generic/platform=iOS' \
+    -derivedDataPath "$zatodDerived" \
+    ARCHS=arm64 CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+    CODE_SIGN_IDENTITY="" build
+
+  zatodApp="$zatodDerived/Build/Products/Release-iphoneos/ZatodLegend.app"
+  test -d "$zatodApp"
+  mkdir -p "$zatodOutput/Payload"
+  ditto "$zatodApp" "$zatodOutput/Payload/ZatodLegend.app"
+  # BUG-064: keep this build-only artifact outside the app before re-signing.
+  if [ -d "$zatodOutput/Payload/ZatodLegend.app/Frameworks/UnityRuntime.framework" ]; then
+    mkdir -p "$zatodOutput/BuildOnly"
+    mv "$zatodOutput/Payload/ZatodLegend.app/Frameworks/UnityRuntime.framework" "$zatodOutput/BuildOnly/"
+  fi
+  ditto -c -k --keepParent "$zatodOutput/Payload" "$zatodOutput/ZatodLegend.ipa"
+  unzip -t "$zatodOutput/ZatodLegend.ipa"
+  open "$zatodOutput"
+)
+```
+
+Chỉ lấyIPA khixcodebuild báoBUILD SUCCEEDED vàunzip khônglỗi. Block dừngkhi buildfailed, khôngđónggóiapp cũ. TênZatodLegend.app đối chiếuPRODUCT_NAME_APP trongpbxprojđãexport; nếuđổitênproductthìđiềuchỉnhpath. FileIPA này chưa ký và khôngcài trực tiếp bằngFiles/Safari; Sideloadly sẽký trênWindows. Chưa chạyblocktrênMac trongchat này. Khi lỗi giữlogđầu tiên; khôngdùngIPA cũ đểcoilàbuildmới.
+
+ChuyểnZatodLegend.ipa vềPC bằngdịchvụchuyểnfile anh đangdùng (vídụDrive/OneDrive); đợi upload/downloadhoàntất. RemoteDesktopđểđiềukhiểnMac khôngtựđồngbộfolderbuild.
+
+### Cài lần đầu trênWindows
+
+1. MởiTunes kiểmđãthấy iPhone; mởSideloadly, chọnđúngiPhone.
+2. KéoZatodLegend.ipa vàocửa sổ, nhậpAppleAccount. Nên dùngcùngaccountđãkýappZatodcũ nếuđãcài bằngXcode. Mật khẩu/2FA chỉ nhập vàoapp/Apple khiđượchỏi, khônggửivàochat.
+3. Dùng chếđộ AppleID sideload thôngthường, giữ tùychọnmặcđịnh ởlầnđầu; bậtAutomaticRefresh. Khôngthêm tweak/JIT/đổiBundleID/đổiminOS choZatod. Local/iTunes hoặcFakeAnisette làcáchxácthựcmiễnphí hiệnđượcnhàcungcấpmôtả; RemoteAnisette làtùychọnPatreon, khôngchọncholuồngmiễnphí. Nếulỗixácthực, lấylogvàkiểmbảnmới trước, khôngmặcnhiênmuagói.
+4. Start, nhậpcredential/2FA theo yêu cầu, giữiPhonemởkhóađếnkhihoàntất. NếuđượchỏiTrustdeveloper: Settings → General → VPN & DeviceManagement → đúngAppleAccount → Trust.
+5. MởZatod, cho phépLocalNetwork, nhậptên/IPPCserver vàConnect theo mục5. Mac cóthểởmạngkhác, nhưng gameLAN vẫn cần iPhone kết nốiđượcPCserver; remoteMac khôngtựtạokếtnốiserver.
+
+### Wi-Fi, cập nhật và gia hạn
+
+- CàiUSB thànhcôngrồi rút cáp, đểPC/iPhonecùngLAN; mởiTunes/Sideloadly, mởkhóaiPhone vàkiểmđãthấythiếtbịquamạng. Nếuchưathấy, kiểmWi-Fisync/Bonjour/guestisolation, dùngUSBPCđểphânbiệtlỗimạngvàlỗiký.
+- GiữSideloadlyDaemon chạy đểtựrefresh. Profile7ngàykhôngđượckéodàivĩnhviễn; daemon phảikếtnốiđượcthiếtbịvàAppleđểkýlại. Cóthểrefreshthủcôngtrướchếthạn; khôngcầnbuildMaclại nếugamekhôngđổi.
+- Bảnmới: exportUnity → build/đónggóiIPAtrênMac → tảiIPA vềWindows → kéoIPA mới vàoSideloadly → giữAppleAccount/BundleIDhiệulực vàAutomaticRefresh → Start. Khônggỡapptrước. Nếuđổi từXcode sangSideloadlymàbáoxungđộtidentifier/signing, dừngvàđốichiếuIDhiệulực/Team, chưaresetapp. Chưanghiệmthu giữGUID/savequachuyểncôngcụký.
+- Tàikhoảnmiễnphígiớihạn3appsideloadđanghoạtđộng, khôngphải3lầncậpnhật. Nếuquá7ngàykhôngrefresh, ký/càilạicùngIPA, khôngcầnxóaapp.
+
+Nguồn côngcụ: https://sideloadly.io/ , https://sideloadly.io/faq.html , https://sideloadly.io/changelog.html . XcodeCLI: https://developer.apple.com/library/archive/technotes/tn2339/_index.html . Remote: https://support.google.com/chrome/answer/1649523 . Các bước buildđónggói làhướngdẫnápdụngchoexportZatodhiệntại, chưalàbằngchứngnativetest.
+
+### BUG-064: Sideloadly không xác minh được UnityRuntime.framework
+
+Ngày 23/11/2026. Người dùng cài IPA bằng Sideloadly gặp `ApplicationVerificationFailed`, mã `3892346881` / `0xe8008001`, chỉ rõ `ZatodLegend.app/Frameworks/UnityRuntime.framework`. Chưa cài được nên không xử lý bằng Trust Developer, đổi IP hoặc retry cùng file liên tục.
+
+Đã kiểm trực tiếp `C:/Users/tinnq/Downloads/ZatodLegend.ipa`: có framework này trong app; hai binary ZatodLegend và UnityFramework không có load-command dependency tới UnityRuntime. Project export nhúng UnityRuntime vào app, đồng thời liên kết nó ở target UnityFramework. Unity ghi nhận UUM-151138: UnityRuntime là artifact lúc build và bản sửa của Unity bỏ nhúng nó vào app. Đây là bằng chứng cho workaround; lỗi thiết bị cụ thể còn cần cài lại để kiểm chứng.
+
+Đã tạo `Artifacts/ZatodIosChecks/SigningFix/ZatodLegend-SigningFix.ipa` từ chính IPA tải về, chỉ loại 10 ZIP entries thuộc UnityRuntime.framework. Cả 44 entries còn lại giữ SHA256 nội dung, input giữ hash; Bundle ID/app binary/data không đổi. IPA mới cần Sideloadly **Apple ID Sideload** ký lại, không dùng Normal Install cho package vừa chỉnh. Giữ Apple Account/Bundle ID và app hiện có. Không sửa hoặc thu hồi certificate để thử lỗi này.
+
+Tạo lại bản tương tự bằng Python trên Windows (đường output phải chưa tồn tại):
+
+```powershell
+python .\Scripts\Repair-ZatodIpa.py "C:\Users\tinnq\Downloads\ZatodLegend.ipa" ".\Artifacts\ZatodIosChecks\SigningFix\ZatodLegend-SigningFix.ipa"
+```
+
+Helper ZatodIosBuild.ConfigureUnityRuntimeEmbedding đã bỏ UnityRuntime khỏi build phases của **main app**, giữ nguyên phase liên kết của UnityFramework và embed của UnityFramework.framework. Đã kiểm bằng SDK Unity 6000.6.2f1: write/read, idempotence, linker phases và signing settings PASS. Export cũ trên Mac có thể chỉnh target Unity-iPhone → Build Phases → Embed Frameworks → bỏ riêng UnityRuntime.framework; không bỏ khỏi Link Binary With Libraries của UnityFramework, không xóa thư mục Frameworks nguồn. Cần clean output khi build lại project đã đổi. Khối đóng gói phía trên cũng chuyển bản sao UnityRuntime ra ngoài Payload để không đóng gói artifact còn sót trong build cũ.
+
+**Trạng thái:** bản IPA workaround và helper đã qua kiểm tra cấu trúc; chưa xác nhận Sideloadly ký/cài và game chạy trên iPhone. Nguồn: https://issuetracker.unity.com/issues/24433/minimumosversion-value-in-infoplist-does-not-change-when-setting-target-minimum-ios-version-in-the-editor . Theo dõi BUG-064 trong ChangeLog.md.
+
 ## Nguồn chính thức
 
 - Unity: https://docs.unity.com/en-us/engine/6000.6/manual/platform-specific/iphone/getting-started/ios-environment-setup
