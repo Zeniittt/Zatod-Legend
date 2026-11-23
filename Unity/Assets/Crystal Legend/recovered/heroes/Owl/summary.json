@@ -1,0 +1,43 @@
+{
+  "name": "Owl",
+  "source": "patch/pfca/Owl.fca",
+  "container_sha256": "17cbb35bb5f20495cbba522fd8d29724a10a414d476a970b1ca812f5ea639ef6",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 25,
+  "element_count": 74,
+  "actions": [
+    {
+      "name": "Idle2",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 37,
+      "duration_seconds": 1.5416666666666667,
+      "events": 1
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 85419,
+  "cha_bytes_consumed": 85419,
+  "atlas_pixel_roundtrip_verified": true
+}

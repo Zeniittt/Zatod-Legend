@@ -1,0 +1,36 @@
+{
+  "name": "PetTotoro",
+  "source": "patch/pfca/PetTotoro.fca",
+  "container_sha256": "d726595d1c48205e615dad22ebe79889c20ded616c7ffc0617b324bff108e0e4",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 82,
+  "element_count": 124,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 100,
+      "duration_seconds": 4.166666666666667,
+      "events": 3
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 160883,
+  "cha_bytes_consumed": 160883,
+  "atlas_pixel_roundtrip_verified": true
+}

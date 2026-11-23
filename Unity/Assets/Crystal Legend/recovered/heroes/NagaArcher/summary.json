@@ -1,0 +1,57 @@
+{
+  "name": "NagaArcher",
+  "source": "patch/pfca/NagaArcher.fca",
+  "container_sha256": "e3fbb01bc45ea91a90b061d6cdcf1b89a7eef0e19c505aa877dec57db21d1f89",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 58,
+  "element_count": 59,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 40,
+      "duration_seconds": 1.6666666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 45,
+      "duration_seconds": 1.875,
+      "events": 1
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 104943,
+  "cha_bytes_consumed": 104943,
+  "atlas_pixel_roundtrip_verified": true
+}

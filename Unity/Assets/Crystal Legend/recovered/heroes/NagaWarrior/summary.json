@@ -1,0 +1,71 @@
+{
+  "name": "NagaWarrior",
+  "source": "patch/pfca/NagaWarrior.fca",
+  "container_sha256": "e0ffa21516d9182fcce15ed09ff3034da067b5b8fd85162172e3c3d39f02915c",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 73,
+  "element_count": 81,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 39,
+      "duration_seconds": 1.625,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 32,
+      "duration_seconds": 1.3333333333333333,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 3
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 37,
+      "duration_seconds": 1.5416666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 61,
+      "duration_seconds": 2.5416666666666665,
+      "events": 6
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 313,
+      "duration_seconds": 13.041666666666666,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 395777,
+  "cha_bytes_consumed": 395777,
+  "atlas_pixel_roundtrip_verified": true
+}

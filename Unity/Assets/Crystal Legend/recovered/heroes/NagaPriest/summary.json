@@ -1,0 +1,50 @@
+{
+  "name": "NagaPriest",
+  "source": "patch/pfca/NagaPriest.fca",
+  "container_sha256": "fa6eb4cc08a7d19c276e5f13ab167b33463aa1aab4deb2ce3ee4a96d395741c8",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 36,
+  "element_count": 36,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 40,
+      "duration_seconds": 1.6666666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 78665,
+  "cha_bytes_consumed": 78665,
+  "atlas_pixel_roundtrip_verified": true
+}

@@ -1,0 +1,156 @@
+{
+  "name": "NS",
+  "source": "patch/pfca/NS.fca",
+  "container_sha256": "ee57c5e27a676b56e3988087029ecbcb3d43b929a1ed42780ced213bec4a609e",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png",
+    "sprite_sheets\\sheet1.png"
+  ],
+  "sprite_count": 159,
+  "element_count": 338,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 48,
+      "duration_seconds": 2.0,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 17,
+      "duration_seconds": 0.7083333333333334,
+      "events": 2
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 40,
+      "duration_seconds": 1.6666666666666667,
+      "events": 1
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 22,
+      "duration_seconds": 0.9166666666666666,
+      "events": 0
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 48,
+      "duration_seconds": 2.0,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 157,
+      "duration_seconds": 6.541666666666667,
+      "events": 2
+    },
+    {
+      "name": "Idle2",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Move2",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Damaged2",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "atk0",
+      "fps": 24.0,
+      "frames": 21,
+      "duration_seconds": 0.875,
+      "events": 2
+    },
+    {
+      "name": "Death2",
+      "fps": 24.0,
+      "frames": 30,
+      "duration_seconds": 1.25,
+      "events": 1
+    },
+    {
+      "name": "atk22",
+      "fps": 24.0,
+      "frames": 68,
+      "duration_seconds": 2.8333333333333335,
+      "events": 6
+    },
+    {
+      "name": "Cheer2",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "ult2",
+      "fps": 24.0,
+      "frames": 66,
+      "duration_seconds": 2.75,
+      "events": 2
+    },
+    {
+      "name": "ult3",
+      "fps": 24.0,
+      "frames": 26,
+      "duration_seconds": 1.0833333333333333,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 97,
+      "duration_seconds": 4.041666666666667,
+      "events": 4
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 39,
+      "duration_seconds": 1.625,
+      "events": 2
+    },
+    {
+      "name": "atk32",
+      "fps": 24.0,
+      "frames": 46,
+      "duration_seconds": 1.9166666666666667,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 633985,
+  "cha_bytes_consumed": 633985,
+  "atlas_pixel_roundtrip_verified": true
+}
