@@ -1,0 +1,113 @@
+{
+  "name": "Timber",
+  "source": "patch/pfca/Timber.fca",
+  "container_sha256": "3cd043ca6a066c872cd051d7f432fa9022245be053a57f05fe01002f6fd87023",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 201,
+  "element_count": 295,
+  "actions": [
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 27,
+      "duration_seconds": 1.125,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 85,
+      "duration_seconds": 3.5416666666666665,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 36,
+      "duration_seconds": 1.5,
+      "events": 4
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 3
+    },
+    {
+      "name": "atk2_2",
+      "fps": 24.0,
+      "frames": 55,
+      "duration_seconds": 2.2916666666666665,
+      "events": 20
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 2
+    },
+    {
+      "name": "ult_3",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 2
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 105,
+      "duration_seconds": 4.375,
+      "events": 0
+    },
+    {
+      "name": "ult_2",
+      "fps": 24.0,
+      "frames": 62,
+      "duration_seconds": 2.5833333333333335,
+      "events": 2
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 569574,
+  "cha_bytes_consumed": 569574,
+  "atlas_pixel_roundtrip_verified": true
+}

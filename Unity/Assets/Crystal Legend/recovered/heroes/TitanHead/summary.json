@@ -1,0 +1,99 @@
+{
+  "name": "TitanHead",
+  "source": "patch/pfca/TitanHead.fca",
+  "container_sha256": "5462b8f49dc27fee5954016be31639ff6c7d33dfe6e2ec4efbd3a26d514c7f76",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 39,
+  "element_count": 71,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 64,
+      "duration_seconds": 2.6666666666666665,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 40,
+      "duration_seconds": 1.6666666666666667,
+      "events": 3
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 54,
+      "duration_seconds": 2.25,
+      "events": 3
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 53,
+      "duration_seconds": 2.2083333333333335,
+      "events": 2
+    },
+    {
+      "name": "atk6",
+      "fps": 24.0,
+      "frames": 155,
+      "duration_seconds": 6.458333333333333,
+      "events": 5
+    },
+    {
+      "name": "atk7",
+      "fps": 24.0,
+      "frames": 56,
+      "duration_seconds": 2.3333333333333335,
+      "events": 2
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 1
+    },
+    {
+      "name": "stage",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 2
+    },
+    {
+      "name": "Idle2",
+      "fps": 24.0,
+      "frames": 64,
+      "duration_seconds": 2.6666666666666665,
+      "events": 0
+    },
+    {
+      "name": "stage2",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "atk8",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 167628,
+  "cha_bytes_consumed": 167628,
+  "atlas_pixel_roundtrip_verified": true
+}

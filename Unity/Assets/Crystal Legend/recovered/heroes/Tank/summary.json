@@ -1,0 +1,50 @@
+{
+  "name": "Tank",
+  "source": "patch/pfca/Tank.fca",
+  "container_sha256": "745c2639435c2d229fd50b74ae973599cbdfdb6bf506619c3a19aca407ec807c",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 18,
+  "element_count": 22,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 30,
+      "duration_seconds": 1.25,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 27,
+      "duration_seconds": 1.125,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 26,
+      "duration_seconds": 1.0833333333333333,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 48051,
+  "cha_bytes_consumed": 48051,
+  "atlas_pixel_roundtrip_verified": true
+}
