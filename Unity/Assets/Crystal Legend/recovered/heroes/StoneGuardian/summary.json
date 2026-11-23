@@ -1,0 +1,64 @@
+{
+  "name": "StoneGuardian",
+  "source": "patch/pfca/StoneGuardian.fca",
+  "container_sha256": "2a84172823c9d9be0a4fd6dbfe6364eaa010c7f4b145754307b713d5d58fa248",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 57,
+  "element_count": 121,
+  "actions": [
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 51,
+      "duration_seconds": 2.125,
+      "events": 1
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 36,
+      "duration_seconds": 1.5,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 48,
+      "duration_seconds": 2.0,
+      "events": 4
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 37,
+      "duration_seconds": 1.5416666666666667,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 151808,
+  "cha_bytes_consumed": 151808,
+  "atlas_pixel_roundtrip_verified": true
+}

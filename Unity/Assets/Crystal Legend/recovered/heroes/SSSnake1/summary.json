@@ -1,0 +1,57 @@
+{
+  "name": "SSSnake1",
+  "source": "patch/pfca/SSSnake1.fca",
+  "container_sha256": "f1dc2522ff1cec50bb21d5ca7908bf285e06fa762bc2a1ebf07a4ec8f4dfb994",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 10,
+  "element_count": 10,
+  "actions": [
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 17,
+      "duration_seconds": 0.7083333333333334,
+      "events": 1
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 39,
+      "duration_seconds": 1.625,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 2
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 13910,
+  "cha_bytes_consumed": 13910,
+  "atlas_pixel_roundtrip_verified": true
+}

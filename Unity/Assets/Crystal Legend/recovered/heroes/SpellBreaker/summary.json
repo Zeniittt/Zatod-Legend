@@ -1,0 +1,64 @@
+{
+  "name": "SpellBreaker",
+  "source": "patch/pfca/SpellBreaker.fca",
+  "container_sha256": "a6df845417c4adba0b3ff9b659f3d33a85b9cec0ddf4a5c7495d8ff5186a6e42",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 35,
+  "element_count": 35,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 1
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 117402,
+  "cha_bytes_consumed": 117402,
+  "atlas_pixel_roundtrip_verified": true
+}

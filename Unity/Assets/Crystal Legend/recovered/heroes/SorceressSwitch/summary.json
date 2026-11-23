@@ -1,0 +1,57 @@
+{
+  "name": "SorceressSwitch",
+  "source": "patch/pfca/SorceressSwitch.fca",
+  "container_sha256": "01c7d261832111cb703bd724e6dd6c8d84e78bb1196634a82fcea4664762f998",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 55,
+  "element_count": 67,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 79,
+      "duration_seconds": 3.2916666666666665,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 180785,
+  "cha_bytes_consumed": 180785,
+  "atlas_pixel_roundtrip_verified": true
+}

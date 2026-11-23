@@ -1,0 +1,57 @@
+{
+  "name": "TCsoul",
+  "source": "patch/pfca/TCsoul.fca",
+  "container_sha256": "b4b2b98d8286f99d4b732c8938ad685aec7f4b818f21a908eec86c6b5e8c7059",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 67,
+  "element_count": 95,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 63,
+      "duration_seconds": 2.625,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 70,
+      "duration_seconds": 2.9166666666666665,
+      "events": 10
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 1
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 13,
+      "duration_seconds": 0.5416666666666666,
+      "events": 0
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 112823,
+  "cha_bytes_consumed": 112823,
+  "atlas_pixel_roundtrip_verified": true
+}

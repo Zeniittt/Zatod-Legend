@@ -1,0 +1,535 @@
+[
+  {
+    "plist": "plist",
+    "texture": "sheet.pvr",
+    "width": 366,
+    "height": 366,
+    "pvr_header": [
+      52,
+      366,
+      366,
+      0,
+      32784,
+      267912,
+      16,
+      61440,
+      3840,
+      240,
+      15,
+      559044176,
+      1
+    ],
+    "sprites": [
+      {
+        "name": "Backpack.png",
+        "frame": {
+          "frame": "{{127,106},{71,122}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{71,122}}",
+          "sourceSize": "{71,122}"
+        },
+        "restored_size": [
+          71,
+          122
+        ],
+        "pixel_sha256": "ef179f128cb2778a0350a610a1bd8dfdf7815b6e5e33dd346ee068290f2a479a"
+      },
+      {
+        "name": "Backpack_g1.png",
+        "frame": {
+          "frame": "{{58,155},{66,123}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{66,123}}",
+          "sourceSize": "{66,123}"
+        },
+        "restored_size": [
+          66,
+          123
+        ],
+        "pixel_sha256": "611a91e6522829553dc89330caa9458fc32013b81bfd6d6af0f73ba94719ea78"
+      },
+      {
+        "name": "Head.png",
+        "frame": {
+          "frame": "{{127,2},{99,102}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{99,102}}",
+          "sourceSize": "{99,102}"
+        },
+        "restored_size": [
+          99,
+          102
+        ],
+        "pixel_sha256": "c4c9520734d82c77d8722854a77ecf126362f093f9c727a71610a8b84602aead"
+      },
+      {
+        "name": "Head_1_h.png",
+        "frame": {
+          "frame": "{{251,106},{98,101}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{98,101}}",
+          "sourceSize": "{98,101}"
+        },
+        "restored_size": [
+          98,
+          101
+        ],
+        "pixel_sha256": "a9ec6bc4038bf445d6afda9c82eb8dd8ea905dc83bb6a1dc2f6ff1fd4d24eee4"
+      },
+      {
+        "name": "Head_3.png",
+        "frame": {
+          "frame": "{{228,2},{99,102}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{99,102}}",
+          "sourceSize": "{99,102}"
+        },
+        "restored_size": [
+          99,
+          102
+        ],
+        "pixel_sha256": "fa449dfe993fa7995ba5e0d20bb78bea64fc5634e3a8a088f93703012f65de9d"
+      },
+      {
+        "name": "Head_4.png",
+        "frame": {
+          "frame": "{{126,179},{98,102}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{98,102}}",
+          "sourceSize": "{98,102}"
+        },
+        "restored_size": [
+          98,
+          102
+        ],
+        "pixel_sha256": "7acda3d1ec25a9ff00e8f6e3b24a4078529fb01903a3a0f3756f2b7d33c6b9d5"
+      },
+      {
+        "name": "LArm.png",
+        "frame": {
+          "frame": "{{289,305},{15,30}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{15,30}}",
+          "sourceSize": "{15,30}"
+        },
+        "restored_size": [
+          15,
+          30
+        ],
+        "pixel_sha256": "95c779a29cb71c147e39fb272c52185d7b5108d987be5e53b580ab1764a8e0e7"
+      },
+      {
+        "name": "LForearm.png",
+        "frame": {
+          "frame": "{{230,301},{25,39}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{25,39}}",
+          "sourceSize": "{25,39}"
+        },
+        "restored_size": [
+          25,
+          39
+        ],
+        "pixel_sha256": "58e8a552a4ebe7b513fd35e820fc99f199bd530676e063a000a678edf01618c5"
+      },
+      {
+        "name": "LForearm_h.png",
+        "frame": {
+          "frame": "{{337,273},{25,39}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{25,39}}",
+          "sourceSize": "{25,39}"
+        },
+        "restored_size": [
+          25,
+          39
+        ],
+        "pixel_sha256": "133292cbcf15a0dc7ce76736705f067f349aff990cf16b2f238204a132f119ec"
+      },
+      {
+        "name": "LLeg.png",
+        "frame": {
+          "frame": "{{230,179},{16,20}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{16,20}}",
+          "sourceSize": "{16,20}"
+        },
+        "restored_size": [
+          16,
+          20
+        ],
+        "pixel_sha256": "48fefd0062d4d16e3b8896c00ebf9b4a4ac87d1da3bcf6f6dcb9c4338c8fb574"
+      },
+      {
+        "name": "LLeg_1.png",
+        "frame": {
+          "frame": "{{283,323},{26,24}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{26,24}}",
+          "sourceSize": "{26,24}"
+        },
+        "restored_size": [
+          26,
+          24
+        ],
+        "pixel_sha256": "326b2c95654348eb34bf9b24f3a60c4b16048733700da2e9f9f01b5e7f6bfaff"
+      },
+      {
+        "name": "LLeg_1_h.png",
+        "frame": {
+          "frame": "{{309,322},{26,24}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{26,24}}",
+          "sourceSize": "{26,24}"
+        },
+        "restored_size": [
+          26,
+          24
+        ],
+        "pixel_sha256": "5ab8fcb54f65e02c570c033d35f2a287220e33d9970580a4992493ffe9c15d08"
+      },
+      {
+        "name": "MainWeapon.png",
+        "frame": {
+          "frame": "{{141,308},{24,56}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{24,56}}",
+          "sourceSize": "{24,56}"
+        },
+        "restored_size": [
+          24,
+          56
+        ],
+        "pixel_sha256": "4d28eaf004ca128a707e646d560112571990ed9b1b5e65b2d9f4b1bbc98b7679"
+      },
+      {
+        "name": "RArm.png",
+        "frame": {
+          "frame": "{{201,328},{24,39}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{24,39}}",
+          "sourceSize": "{24,39}"
+        },
+        "restored_size": [
+          24,
+          39
+        ],
+        "pixel_sha256": "e22e8dd029069b07e48e107cbb777ae7d885f501c35d4ea3fb5ca8b4641182aa"
+      },
+      {
+        "name": "RArm_h.png",
+        "frame": {
+          "frame": "{{242,328},{24,39}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{24,39}}",
+          "sourceSize": "{24,39}"
+        },
+        "restored_size": [
+          24,
+          39
+        ],
+        "pixel_sha256": "3ea01889da0c8755c39658fbc4e9c5d6587d7e0bd5fe424cb4b9f67f7301221a"
+      },
+      {
+        "name": "REar.png",
+        "frame": {
+          "frame": "{{58,280},{59,26}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{59,26}}",
+          "sourceSize": "{59,26}"
+        },
+        "restored_size": [
+          59,
+          26
+        ],
+        "pixel_sha256": "95a3dc9c82c334aa0813bf06ec467e683377cde45d9cdf3bb5b57693637aea00"
+      },
+      {
+        "name": "REar_h.png",
+        "frame": {
+          "frame": "{{230,273},{59,26}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{59,26}}",
+          "sourceSize": "{59,26}"
+        },
+        "restored_size": [
+          59,
+          26
+        ],
+        "pixel_sha256": "804989531965b4ebc2661c519a4ac1d66ac575bd22f47128bb3a58a2eb9f3847"
+      },
+      {
+        "name": "RForearm.png",
+        "frame": {
+          "frame": "{{329,50},{30,44}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{30,44}}",
+          "sourceSize": "{30,44}"
+        },
+        "restored_size": [
+          30,
+          44
+        ],
+        "pixel_sha256": "04df7d43208928264947d1593e2ccb19d33ce9883a94a101f150b558f6a5030f"
+      },
+      {
+        "name": "RForearm_h.png",
+        "frame": {
+          "frame": "{{291,273},{30,44}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{30,44}}",
+          "sourceSize": "{30,44}"
+        },
+        "restored_size": [
+          30,
+          44
+        ],
+        "pixel_sha256": "9bb371b6af8ff16a76b1b1e2e9a7890b90e82576045a0bb2659b180c5e43ddba"
+      },
+      {
+        "name": "RLeg.png",
+        "frame": {
+          "frame": "{{271,301},{16,20}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{16,20}}",
+          "sourceSize": "{16,20}"
+        },
+        "restored_size": [
+          16,
+          20
+        ],
+        "pixel_sha256": "4c2aa67208fb070184d1df02958f24c02472ef35bc5489ba4cf757a55e32505f"
+      },
+      {
+        "name": "RLeg_1.png",
+        "frame": {
+          "frame": "{{335,340},{25,24}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{25,24}}",
+          "sourceSize": "{25,24}"
+        },
+        "restored_size": [
+          25,
+          24
+        ],
+        "pixel_sha256": "3058e7693e762ec229ea568ae96826e6583844166c1b591a298c1a74deb53869"
+      },
+      {
+        "name": "RLeg_1_h.png",
+        "frame": {
+          "frame": "{{335,314},{26,24}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{26,24}}",
+          "sourceSize": "{26,24}"
+        },
+        "restored_size": [
+          26,
+          24
+        ],
+        "pixel_sha256": "21d2c3687b9f5b37ab766fcbb20ce4d8f64935f9ec894af1d283ec7a6770ba5f"
+      },
+      {
+        "name": "Shadow.png",
+        "frame": {
+          "frame": "{{2,155},{149,54}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{1,1},{149,54}}",
+          "sourceSize": "{151,56}"
+        },
+        "restored_size": [
+          151,
+          56
+        ],
+        "pixel_sha256": "04fce613cf84e97dae218b61128469c2bc9e4f98f12b4e15800c21ac23546990"
+      },
+      {
+        "name": "TorsoBottom.png",
+        "frame": {
+          "frame": "{{126,279},{55,27}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{55,27}}",
+          "sourceSize": "{55,27}"
+        },
+        "restored_size": [
+          55,
+          27
+        ],
+        "pixel_sha256": "06b4e795476d56f032705d0b9b38e30307f634566447c6ccd0bbcf4b16634d88"
+      },
+      {
+        "name": "TorsoBottom_h.png",
+        "frame": {
+          "frame": "{{112,308},{56,27}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{56,27}}",
+          "sourceSize": "{56,27}"
+        },
+        "restored_size": [
+          56,
+          27
+        ],
+        "pixel_sha256": "ae064ccb1ef138b55b4c2d363cced14a4d48685cf8db30ed9d59ceccf06db6e9"
+      },
+      {
+        "name": "TorsoTop.png",
+        "frame": {
+          "frame": "{{2,306},{56,53}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{56,53}}",
+          "sourceSize": "{56,53}"
+        },
+        "restored_size": [
+          56,
+          53
+        ],
+        "pixel_sha256": "0a8f4745447949b432b73ba199ab07614d63a2149a8a56d6a49a82accc42dada"
+      },
+      {
+        "name": "TorsoTop_1.png",
+        "frame": {
+          "frame": "{{230,209},{62,62}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{62,62}}",
+          "sourceSize": "{62,62}"
+        },
+        "restored_size": [
+          62,
+          62
+        ],
+        "pixel_sha256": "11eeb1e007007cd7a083b6b5fa5b6317b03b518f34307b2bc5d17d3e0b50f5fc"
+      },
+      {
+        "name": "TorsoTop_1_h.png",
+        "frame": {
+          "frame": "{{294,209},{62,62}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{62,62}}",
+          "sourceSize": "{62,62}"
+        },
+        "restored_size": [
+          62,
+          62
+        ],
+        "pixel_sha256": "581af4e6b81957801b729fc43e0d0952a819813e1829ba53da7cd10e9b618603"
+      },
+      {
+        "name": "TorsoTop_h.png",
+        "frame": {
+          "frame": "{{57,308},{56,53}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{56,53}}",
+          "sourceSize": "{56,53}"
+        },
+        "restored_size": [
+          56,
+          53
+        ],
+        "pixel_sha256": "6d0bd3de7365b4c3dd7f57c744aef0c83d31623a3ad0e56b8c12d6c274310470"
+      },
+      {
+        "name": "heiyan.png",
+        "frame": {
+          "frame": "{{2,2},{123,151}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{123,151}}",
+          "sourceSize": "{123,151}"
+        },
+        "restored_size": [
+          123,
+          151
+        ],
+        "pixel_sha256": "016d3243a59fe7140bfc157e1df3d374014202899c224e569923091de6594c27"
+      },
+      {
+        "name": "yan.png",
+        "frame": {
+          "frame": "{{167,308},{16,14}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{16,14}}",
+          "sourceSize": "{16,14}"
+        },
+        "restored_size": [
+          16,
+          14
+        ],
+        "pixel_sha256": "e37ec3a3cf64308a323491ef4e64207f06cb5d4f20d987d9bb09541418a153dc"
+      },
+      {
+        "name": "yx1.png",
+        "frame": {
+          "frame": "{{183,279},{45,47}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{45,47}}",
+          "sourceSize": "{45,47}"
+        },
+        "restored_size": [
+          45,
+          47
+        ],
+        "pixel_sha256": "c62fc52af86d1bcb1e45e36173041064e0bb3e72358f6cc94ab28a4053efd90a"
+      },
+      {
+        "name": "yx2.png",
+        "frame": {
+          "frame": "{{329,2},{46,35}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{46,35}}",
+          "sourceSize": "{46,35}"
+        },
+        "restored_size": [
+          46,
+          35
+        ],
+        "pixel_sha256": "291e7c2a1972dae2763973dcdbde897d73cf4df3838f6e7da6ac4d44fbbdbb00"
+      },
+      {
+        "name": "yx3.png",
+        "frame": {
+          "frame": "{{167,328},{32,33}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{32,33}}",
+          "sourceSize": "{32,33}"
+        },
+        "restored_size": [
+          32,
+          33
+        ],
+        "pixel_sha256": "c1df0741c6402da388819cfcb050b61ad79cda91df8b81a169215de8714ea4f9"
+      }
+    ]
+  }
+]
