@@ -1,0 +1,57 @@
+{
+  "name": "GoblinMiner",
+  "source": "patch/pfca/GoblinMiner.fca",
+  "container_sha256": "79bb5023a467ee2240fffbf7bb6ff1a5f2df66a536b1089e21af9ee95779c659",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 34,
+  "element_count": 38,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 57,
+      "duration_seconds": 2.375,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 1
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 40,
+      "duration_seconds": 1.6666666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 26,
+      "duration_seconds": 1.0833333333333333,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 85167,
+  "cha_bytes_consumed": 85167,
+  "atlas_pixel_roundtrip_verified": true
+}

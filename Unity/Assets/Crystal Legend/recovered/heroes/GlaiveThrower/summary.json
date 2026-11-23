@@ -1,0 +1,50 @@
+{
+  "name": "GlaiveThrower",
+  "source": "patch/pfca/GlaiveThrower.fca",
+  "container_sha256": "17b299a69ac86eb9bd591746170d8e2476ff4ffdeaf73d1947d690ee50a55574",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 31,
+  "element_count": 32,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 54,
+      "duration_seconds": 2.25,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 13,
+      "duration_seconds": 0.5416666666666666,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 115137,
+  "cha_bytes_consumed": 115137,
+  "atlas_pixel_roundtrip_verified": true
+}

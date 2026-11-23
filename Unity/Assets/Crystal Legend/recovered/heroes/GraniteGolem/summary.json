@@ -1,0 +1,50 @@
+{
+  "name": "GraniteGolem",
+  "source": "patch/pfca/GraniteGolem.fca",
+  "container_sha256": "465e6585121a4bb9938d13fa7a8ed46c0c93309dc68d51238d35dbcfa10cbc20",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 21,
+  "element_count": 23,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 57,
+      "duration_seconds": 2.375,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 1
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 69952,
+  "cha_bytes_consumed": 69952,
+  "atlas_pixel_roundtrip_verified": true
+}

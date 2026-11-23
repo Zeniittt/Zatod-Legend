@@ -1,0 +1,61 @@
+SPRITE VÀ ANIMATION NHÂN VẬT — CRYSTAL LEGENDS
+
+Mỗi thư mục con tương ứng một container nhân vật/skin/NPC trong gói CDN.
+Ví dụ: Lina/, Coco_HD/, DR/, AA/.
+
+Trong mỗi thư mục:
+- sprite_sheets/: atlas PNG nguyên kích thước, chuyển từ PVR.
+- sprites/: từng mảnh PNG; đã gỡ xoay atlas và phục hồi viền trong suốt bị trim.
+- animation.json: toàn bộ động tác, FPS, frame, ma trận, alpha và event đã đọc từ cha.
+- atlas.json: metadata cắt ảnh, kích thước và SHA256 của pixel từng sprite.
+- summary.json: danh sách động tác và thống kê ngắn gọn.
+- previews/: ảnh động WebP và ảnh PNG đầu tiên của một động tác mẫu.
+- original/: cha, plist và PVR gốc bên trong FCA.
+- frames/: chuỗi PNG đầy đủ khi xuất một động tác bằng tùy chọn --frames.
+
+Sprite PNG và chuỗi frame PNG giữ nền trong suốt. Preview WebP sử dụng nền tối
+để xem rõ nhân vật và tránh lỗi hiển thị RGB của pixel hoàn toàn trong suốt.
+
+XUẤT BẤT KỲ ĐỘNG TÁC NÀO
+Mở PowerShell tại thư mục APK ban đầu, rồi chạy:
+
+  python recovery_tools/hero_animation.py render Lina Idle --frames
+  python recovery_tools/hero_animation.py render Lina Move --frames
+  python recovery_tools/hero_animation.py render Lina atk --frames
+  python recovery_tools/hero_animation.py render Coco_HD ult --frames
+
+Tên động tác phân biệt hoa/thường. Xem đúng tên trong summary.json.
+Mặc định preview giới hạn cạnh dài khoảng 640 pixel cho các nhân vật rất lớn.
+Thêm --max-size 0 để xuất ở kích thước atlas gốc, không thu nhỏ.
+
+DỮ LIỆU ANIMATION
+elements khai báo id (bắt đầu từ 1), tên bộ phận và đường dẫn sprite PNG.
+actions chứa tên động tác, fps và danh sách frames theo thứ tự phát.
+Mỗi phần tử trong frame.elements có dạng:
+  [element_id, alpha, a, b, c, d, tx, ty]
+
+Ma trận gốc được giữ nguyên. Khi dựng ở đơn vị pixel của atlas:
+  X = a*(u - width/2) + c*(v - height/2) + tx*translation_scale
+  Y = b*(u - width/2) + d*(v - height/2) + ty*translation_scale
+Trong đó translation_scale đọc từ animation.json, mặc định 0.20096.
+Tọa độ ảnh: X sang phải, Y xuống dưới. Sprite dùng kích thước đã phục hồi trim.
+Thứ tự các phần tử trong frame là thứ tự lớp vẽ. Nếu một id lặp lại, trạng thái
+cuối cùng của id đó thắng, giống EDFcaActor::update trong thư viện native.
+
+events giữ type, argument, position, matrix và flags của dữ liệu gốc.
+Preview hiện dựng chuyển động và sprite nằm trong container nhân vật. Âm thanh,
+logic chiến đấu và hiệu ứng được event gọi từ container khác chưa được phát
+hay ghép vào preview. Các event này vẫn được bảo toàn trong animation.json.
+
+KIỂM CHỨNG
+- Bộ đọc dựa trên hàm native readCha tại 0x284834 trong libhellolua.so.
+- Thứ tự frame, biến đổi tâm sprite và Z order dựa trên EDFcaActor::update
+  tại 0x2817ac.
+- Đã đọc hết toàn bộ byte CHA; mã hóa ngược JSON thành CHA khớp byte gốc.
+- Atlas đã kiểm tra cắt/xoay/phục hồi trim bằng đối chiếu pixel ngược.
+- PNG từng mảnh được đối chiếu kích thước và hash pixel sau khi ghi.
+- Preview được mở lại và kiểm tra thời lượng sau khi mã hóa.
+- Chưa chạy game để đối chiếu hình ảnh với màn hình gameplay thực tế.
+
+Các báo cáo chi tiết nằm ở ../reports/hero_*.json.
+Gói FCA đầu vào vẫn được giữ trong ../downloads/aab_1.1.100312.zip.

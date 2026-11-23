@@ -1,0 +1,50 @@
+{
+  "name": "Goblinjr",
+  "source": "patch/pfca/Goblinjr.fca",
+  "container_sha256": "9c1724c376f1b5e9c9f3974185efe5c596658930a16726e86342ad1e7cc17dfc",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 20,
+  "element_count": 20,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 58,
+      "duration_seconds": 2.4166666666666665,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 3
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 65475,
+  "cha_bytes_consumed": 65475,
+  "atlas_pixel_roundtrip_verified": true
+}

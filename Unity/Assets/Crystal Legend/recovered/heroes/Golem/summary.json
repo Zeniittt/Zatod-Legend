@@ -1,0 +1,50 @@
+{
+  "name": "Golem",
+  "source": "patch/pfca/Golem.fca",
+  "container_sha256": "de7f9258cbb18da7fe54cdb20cff631989b7c22e33f69bffdb6d2ccc0a6c8865",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 22,
+  "element_count": 38,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 57,
+      "duration_seconds": 2.375,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 1
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 76669,
+  "cha_bytes_consumed": 76669,
+  "atlas_pixel_roundtrip_verified": true
+}

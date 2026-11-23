@@ -1,0 +1,71 @@
+{
+  "name": "Gorilla_2",
+  "source": "patch/pfca/Gorilla_2.fca",
+  "container_sha256": "8f7f96c6625ed84accd696545136caef57d4227b0c63381ac4d9116d7ae72202",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 51,
+  "element_count": 57,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 2
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 40,
+      "duration_seconds": 1.6666666666666667,
+      "events": 1
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 26,
+      "duration_seconds": 1.0833333333333333,
+      "events": 2
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 87,
+      "duration_seconds": 3.625,
+      "events": 4
+    }
+  ],
+  "cha_bytes": 142569,
+  "cha_bytes_consumed": 142569,
+  "atlas_pixel_roundtrip_verified": true
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Horse_2",
+  "source": "patch/pfca/Horse_2.fca",
+  "container_sha256": "be5dd477ef0300987795893159abf5a2c92923d3e3d11ffac0102af937148f03",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 31,
+  "element_count": 55,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 70,
+      "duration_seconds": 2.9166666666666665,
+      "events": 1
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 128954,
+  "cha_bytes_consumed": 128954,
+  "atlas_pixel_roundtrip_verified": true
+}

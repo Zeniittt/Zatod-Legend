@@ -1,0 +1,99 @@
+{
+  "name": "Huskar",
+  "source": "patch/pfca/Huskar.fca",
+  "container_sha256": "572af7aeb9a37efda66ed7486fcf4b53161a6a57001db588ddd118b5ac21f144",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 93,
+  "element_count": 139,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 46,
+      "duration_seconds": 1.9166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 40,
+      "duration_seconds": 1.6666666666666667,
+      "events": 3
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 37,
+      "duration_seconds": 1.5416666666666667,
+      "events": 1
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 0
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 1,
+      "duration_seconds": 0.041666666666666664,
+      "events": 0
+    },
+    {
+      "name": "Rage",
+      "fps": 24.0,
+      "frames": 52,
+      "duration_seconds": 2.1666666666666665,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 46,
+      "duration_seconds": 1.9166666666666667,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 231584,
+  "cha_bytes_consumed": 231584,
+  "atlas_pixel_roundtrip_verified": true
+}

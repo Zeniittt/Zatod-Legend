@@ -1,0 +1,92 @@
+{
+  "name": "KOTL",
+  "source": "patch/pfca/KOTL.fca",
+  "container_sha256": "fd129357951fb733b788d1646bbd5a91c11412d95d39e8abb474fdcfd3a64784",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 76,
+  "element_count": 114,
+  "actions": [
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 154,
+      "duration_seconds": 6.416666666666667,
+      "events": 3
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 2
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 39,
+      "duration_seconds": 1.625,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 1
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 59,
+      "duration_seconds": 2.4583333333333335,
+      "events": 0
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 36,
+      "duration_seconds": 1.5,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 32,
+      "duration_seconds": 1.3333333333333333,
+      "events": 2
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 1,
+      "duration_seconds": 0.041666666666666664,
+      "events": 0
+    },
+    {
+      "name": "Rage",
+      "fps": 24.0,
+      "frames": 56,
+      "duration_seconds": 2.3333333333333335,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 399174,
+  "cha_bytes_consumed": 399174,
+  "atlas_pixel_roundtrip_verified": true
+}

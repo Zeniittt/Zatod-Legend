@@ -1,0 +1,106 @@
+{
+  "name": "GT",
+  "source": "patch/pfca/GT.fca",
+  "container_sha256": "1570cfc8c2133ee950bfb212064d8bbfbb6ef052f635c4c1bb9604537c5694d1",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 158,
+  "element_count": 208,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 89,
+      "duration_seconds": 3.7083333333333335,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 54,
+      "duration_seconds": 2.25,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 55,
+      "duration_seconds": 2.2916666666666665,
+      "events": 3
+    },
+    {
+      "name": "Move2",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 1
+    },
+    {
+      "name": "Idle2",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 0
+    },
+    {
+      "name": "Death2",
+      "fps": 24.0,
+      "frames": 47,
+      "duration_seconds": 1.9583333333333333,
+      "events": 0
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 64,
+      "duration_seconds": 2.6666666666666665,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 74,
+      "duration_seconds": 3.0833333333333335,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 207,
+      "duration_seconds": 8.625,
+      "events": 3
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 810382,
+  "cha_bytes_consumed": 810382,
+  "atlas_pixel_roundtrip_verified": true
+}
