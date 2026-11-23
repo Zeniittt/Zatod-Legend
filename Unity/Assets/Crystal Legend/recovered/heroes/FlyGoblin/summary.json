@@ -1,0 +1,78 @@
+{
+  "name": "FlyGoblin",
+  "source": "patch/pfca/FlyGoblin.fca",
+  "container_sha256": "12239757d576f357b92a7f497a129720ff0448f0df1406d2f56e3731928ba4f6",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 27,
+  "element_count": 29,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 27,
+      "duration_seconds": 1.125,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 10,
+      "duration_seconds": 0.4166666666666667,
+      "events": 2
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 0
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 3,
+      "duration_seconds": 0.125,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 12,
+      "duration_seconds": 0.5,
+      "events": 0
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 125502,
+  "cha_bytes_consumed": 125502,
+  "atlas_pixel_roundtrip_verified": true
+}

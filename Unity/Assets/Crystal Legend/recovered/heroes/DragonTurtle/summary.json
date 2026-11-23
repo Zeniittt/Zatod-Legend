@@ -1,0 +1,57 @@
+{
+  "name": "DragonTurtle",
+  "source": "patch/pfca/DragonTurtle.fca",
+  "container_sha256": "abad2a00b65249601ca4ce0ac363e0b28c13122c041832c3f23ebb102ef84b01",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 23,
+  "element_count": 23,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 55,
+      "duration_seconds": 2.2916666666666665,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 27,
+      "duration_seconds": 1.125,
+      "events": 1
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 1
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 60023,
+  "cha_bytes_consumed": 60023,
+  "atlas_pixel_roundtrip_verified": true
+}

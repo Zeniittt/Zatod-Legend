@@ -1,0 +1,57 @@
+{
+  "name": "Footman",
+  "source": "patch/pfca/Footman.fca",
+  "container_sha256": "ad30e732a12d89f36fcea5fcefece1f39baee3f0bb0796b05a777b06f10cf954",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 24,
+  "element_count": 24,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 69020,
+  "cha_bytes_consumed": 69020,
+  "atlas_pixel_roundtrip_verified": true
+}

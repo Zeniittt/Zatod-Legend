@@ -1,0 +1,57 @@
+{
+  "name": "FireElement_Kael_fashion_1",
+  "source": "patch/pfca/FireElement_Kael_fashion_1.fca",
+  "container_sha256": "fac8652f52c2a17891c357cf6820fa219a0bba6aaa80c2755a1948f92bfcaa28",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 32,
+  "element_count": 47,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 30,
+      "duration_seconds": 1.25,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 22,
+      "duration_seconds": 0.9166666666666666,
+      "events": 0
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 35180,
+  "cha_bytes_consumed": 35180,
+  "atlas_pixel_roundtrip_verified": true
+}

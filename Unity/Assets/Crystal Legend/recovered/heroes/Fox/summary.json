@@ -1,0 +1,36 @@
+{
+  "name": "Fox",
+  "source": "patch/pfca/Fox.fca",
+  "container_sha256": "bf5f5761915daea51f7a375d40ee53452e0932ee06ba1e1b7e67a9269cba2b95",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 19,
+  "element_count": 20,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 84,
+      "duration_seconds": 3.5,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 55,
+      "duration_seconds": 2.2916666666666665,
+      "events": 1
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 84,
+      "duration_seconds": 3.5,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 105973,
+  "cha_bytes_consumed": 105973,
+  "atlas_pixel_roundtrip_verified": true
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Dog",
+  "source": "patch/pfca/Dog.fca",
+  "container_sha256": "b3a0101fa6d1a52f8b5f1f527f82c3fcb7801e44235406022bbfeee53f126eb6",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 18,
+  "element_count": 34,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 26,
+      "duration_seconds": 1.0833333333333333,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 11,
+      "duration_seconds": 0.4583333333333333,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 32230,
+  "cha_bytes_consumed": 32230,
+  "atlas_pixel_roundtrip_verified": true
+}

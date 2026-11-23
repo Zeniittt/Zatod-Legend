@@ -1,0 +1,141 @@
+{
+  "name": "FV_fashion_1",
+  "source": "patch/pfca/FV_fashion_1.fca",
+  "container_sha256": "9be0e252cfc07d6fc374985ddb844d68c5203f29fffc5baf8bca1ad28ea2b0d3",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 105,
+  "element_count": 185,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 27,
+      "duration_seconds": 1.125,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 46,
+      "duration_seconds": 1.9166666666666667,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 1
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 89,
+      "duration_seconds": 3.7083333333333335,
+      "events": 0
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 36,
+      "duration_seconds": 1.5,
+      "events": 2
+    },
+    {
+      "name": "atkc",
+      "fps": 24.0,
+      "frames": 54,
+      "duration_seconds": 2.25,
+      "events": 4
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 32,
+      "duration_seconds": 1.3333333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk2a",
+      "fps": 24.0,
+      "frames": 4,
+      "duration_seconds": 0.16666666666666666,
+      "events": 2
+    },
+    {
+      "name": "atk2b",
+      "fps": 24.0,
+      "frames": 8,
+      "duration_seconds": 0.3333333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk2d",
+      "fps": 24.0,
+      "frames": 4,
+      "duration_seconds": 0.16666666666666666,
+      "events": 2
+    },
+    {
+      "name": "atk2e",
+      "fps": 24.0,
+      "frames": 12,
+      "duration_seconds": 0.5,
+      "events": 2
+    },
+    {
+      "name": "ult1",
+      "fps": 24.0,
+      "frames": 13,
+      "duration_seconds": 0.5416666666666666,
+      "events": 2
+    },
+    {
+      "name": "ult2",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 2
+    },
+    {
+      "name": "atk2p",
+      "fps": 24.0,
+      "frames": 7,
+      "duration_seconds": 0.2916666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2q",
+      "fps": 24.0,
+      "frames": 11,
+      "duration_seconds": 0.4583333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 70,
+      "duration_seconds": 2.9166666666666665,
+      "events": 9
+    }
+  ],
+  "cha_bytes": 355658,
+  "cha_bytes_consumed": 355658,
+  "atlas_pixel_roundtrip_verified": true
+}

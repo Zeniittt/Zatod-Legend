@@ -1,0 +1,99 @@
+{
+  "name": "Dancer",
+  "source": "patch/pfca/Dancer.fca",
+  "container_sha256": "2fef387a85ee5d290d200a6e9d161c87ada6680dcd2a9cc79e42e8f53320a2cc",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 162,
+  "element_count": 307,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 48,
+      "duration_seconds": 2.0,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk5",
+      "fps": 24.0,
+      "frames": 70,
+      "duration_seconds": 2.9166666666666665,
+      "events": 2
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 83,
+      "duration_seconds": 3.4583333333333335,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 65,
+      "duration_seconds": 2.7083333333333335,
+      "events": 3
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 51,
+      "duration_seconds": 2.125,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 84,
+      "duration_seconds": 3.5,
+      "events": 6
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 81,
+      "duration_seconds": 3.375,
+      "events": 2
+    },
+    {
+      "name": "Death2",
+      "fps": 24.0,
+      "frames": 70,
+      "duration_seconds": 2.9166666666666665,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 547723,
+  "cha_bytes_consumed": 547723,
+  "atlas_pixel_roundtrip_verified": true
+}

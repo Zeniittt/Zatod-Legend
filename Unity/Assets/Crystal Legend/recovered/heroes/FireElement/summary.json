@@ -1,0 +1,57 @@
+{
+  "name": "FireElement",
+  "source": "patch/pfca/FireElement.fca",
+  "container_sha256": "7e2ebf51241fd75a0ab80a40d5a55c7c5b6b78a59675c45007cb1ed4520185ef",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 30,
+  "element_count": 39,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 30,
+      "duration_seconds": 1.25,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 22,
+      "duration_seconds": 0.9166666666666666,
+      "events": 0
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 27484,
+  "cha_bytes_consumed": 27484,
+  "atlas_pixel_roundtrip_verified": true
+}

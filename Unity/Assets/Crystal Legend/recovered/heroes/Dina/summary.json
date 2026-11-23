@@ -1,0 +1,92 @@
+{
+  "name": "Dina",
+  "source": "patch/pfca/Dina.fca",
+  "container_sha256": "008ba50cb6e82af028b34f58102d8c87b0f8aa842b333f73fda41000152cd245",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 81,
+  "element_count": 125,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 13,
+      "duration_seconds": 0.5416666666666666,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 39,
+      "duration_seconds": 1.625,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 2
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 65,
+      "duration_seconds": 2.7083333333333335,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 73,
+      "duration_seconds": 3.0416666666666665,
+      "events": 2
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 22,
+      "duration_seconds": 0.9166666666666666,
+      "events": 0
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 63,
+      "duration_seconds": 2.625,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 63,
+      "duration_seconds": 2.625,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 65,
+      "duration_seconds": 2.7083333333333335,
+      "events": 2
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 296910,
+  "cha_bytes_consumed": 296910,
+  "atlas_pixel_roundtrip_verified": true
+}

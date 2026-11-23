@@ -1,0 +1,169 @@
+{
+  "name": "Duck",
+  "source": "patch/pfca/Duck.fca",
+  "container_sha256": "512b3c66bfe1ece29493ddd98538a82508ea3e2aac0ac1b0f8f6250c8f60c5ed",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 8,
+  "element_count": 16,
+  "actions": [
+    {
+      "name": "Damaged2",
+      "fps": 24.0,
+      "frames": 10,
+      "duration_seconds": 0.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Death2",
+      "fps": 24.0,
+      "frames": 21,
+      "duration_seconds": 0.875,
+      "events": 0
+    },
+    {
+      "name": "ult2",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 10,
+      "duration_seconds": 0.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 21,
+      "duration_seconds": 0.875,
+      "events": 0
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "Rage",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "Idle2",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Idle3",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Idle4",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Move2",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "atk5",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "atk6",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    },
+    {
+      "name": "atk7",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 60569,
+  "cha_bytes_consumed": 60569,
+  "atlas_pixel_roundtrip_verified": true
+}

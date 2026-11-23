@@ -1,0 +1,57 @@
+{
+  "name": "DuckSwitch",
+  "source": "patch/pfca/DuckSwitch.fca",
+  "container_sha256": "f687b2dd1fbc3115129fb1d7e641244faf2a5c3725a98933c3ab6a6feda81388",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 8,
+  "element_count": 16,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 10,
+      "duration_seconds": 0.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 21,
+      "duration_seconds": 0.875,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 17505,
+  "cha_bytes_consumed": 17505,
+  "atlas_pixel_roundtrip_verified": true
+}
