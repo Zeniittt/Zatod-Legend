@@ -1,0 +1,85 @@
+{
+  "name": "Pudge",
+  "source": "patch/pfca/Pudge.fca",
+  "container_sha256": "633ad41ee26949690c3b8b88996ef2da1b80312e747eed22a57e2d4572992db3",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 71,
+  "element_count": 91,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 22,
+      "duration_seconds": 0.9166666666666666,
+      "events": 1
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 73,
+      "duration_seconds": 3.0416666666666665,
+      "events": 3
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 2
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 109,
+      "duration_seconds": 4.541666666666667,
+      "events": 7
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 238202,
+  "cha_bytes_consumed": 238202,
+  "atlas_pixel_roundtrip_verified": true
+}

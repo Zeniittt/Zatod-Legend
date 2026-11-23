@@ -1,0 +1,85 @@
+{
+  "name": "RedDragon",
+  "source": "patch/pfca/RedDragon.fca",
+  "container_sha256": "bc313c1f38b12e5aa5eab4a358d9f2777fbd329d770c8e4c7a852924d36c0e52",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 52,
+  "element_count": 54,
+  "actions": [
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 1,
+      "duration_seconds": 0.041666666666666664,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 39,
+      "duration_seconds": 1.625,
+      "events": 0
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 1,
+      "duration_seconds": 0.041666666666666664,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 39,
+      "duration_seconds": 1.625,
+      "events": 1
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 1,
+      "duration_seconds": 0.041666666666666664,
+      "events": 0
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 0
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 0
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 75,
+      "duration_seconds": 3.125,
+      "events": 5
+    }
+  ],
+  "cha_bytes": 128486,
+  "cha_bytes_consumed": 128486,
+  "atlas_pixel_roundtrip_verified": true
+}

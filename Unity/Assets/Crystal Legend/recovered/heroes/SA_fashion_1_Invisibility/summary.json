@@ -1,0 +1,100 @@
+{
+  "name": "SA_fashion_1_Invisibility",
+  "source": "patch/pfca/SA_fashion_1_Invisibility.fca",
+  "container_sha256": "e7b436eb7dcd72e389bcbb34177c57782db4af47de22596c077aa1e0278f551b",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png",
+    "sprite_sheets\\sheet1.png"
+  ],
+  "sprite_count": 231,
+  "element_count": 428,
+  "actions": [
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 84,
+      "duration_seconds": 3.5,
+      "events": 13
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 32,
+      "duration_seconds": 1.3333333333333333,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 3
+    },
+    {
+      "name": "atk5",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk6",
+      "fps": 24.0,
+      "frames": 30,
+      "duration_seconds": 1.25,
+      "events": 2
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 84,
+      "duration_seconds": 3.5,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 708431,
+  "cha_bytes_consumed": 708431,
+  "atlas_pixel_roundtrip_verified": true
+}

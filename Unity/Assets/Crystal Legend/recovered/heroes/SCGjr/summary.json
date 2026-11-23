@@ -1,0 +1,57 @@
+{
+  "name": "SCGjr",
+  "source": "patch/pfca/SCGjr.fca",
+  "container_sha256": "6b177a2b8ae413785881960f202939be61432c019bd36be83cccf57ae8798c6b",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 31,
+  "element_count": 36,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 11,
+      "duration_seconds": 0.4583333333333333,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 11,
+      "duration_seconds": 0.4583333333333333,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 32,
+      "duration_seconds": 1.3333333333333333,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 1
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 74798,
+  "cha_bytes_consumed": 74798,
+  "atlas_pixel_roundtrip_verified": true
+}

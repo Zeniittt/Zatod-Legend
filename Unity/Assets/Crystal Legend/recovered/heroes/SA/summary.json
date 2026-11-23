@@ -1,0 +1,107 @@
+{
+  "name": "SA",
+  "source": "patch/pfca/SA.fca",
+  "container_sha256": "95ddae1b394fe0185b1512a24e64a7b28016ba769726fdf0614b87d0c6b19989",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png",
+    "sprite_sheets\\sheet1.png"
+  ],
+  "sprite_count": 149,
+  "element_count": 252,
+  "actions": [
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 84,
+      "duration_seconds": 3.5,
+      "events": 13
+    },
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 32,
+      "duration_seconds": 1.3333333333333333,
+      "events": 1
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 48,
+      "duration_seconds": 2.0,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 2
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 3
+    },
+    {
+      "name": "atk5",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk6",
+      "fps": 24.0,
+      "frames": 30,
+      "duration_seconds": 1.25,
+      "events": 2
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 261910,
+  "cha_bytes_consumed": 261910,
+  "atlas_pixel_roundtrip_verified": true
+}

@@ -1,0 +1,120 @@
+{
+  "name": "SB",
+  "source": "patch/pfca/SB.fca",
+  "container_sha256": "01e0c52c1e9496ea7999647ebed472dd80bd5deeb6a4861701849a301fca82fb",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 138,
+  "element_count": 205,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 24,
+      "duration_seconds": 1.0,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 45,
+      "duration_seconds": 1.875,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 1
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 55,
+      "duration_seconds": 2.2916666666666665,
+      "events": 4
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 2
+    },
+    {
+      "name": "Death2",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 2
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 44,
+      "duration_seconds": 1.8333333333333333,
+      "events": 0
+    },
+    {
+      "name": "sawake1",
+      "fps": 24.0,
+      "frames": 26,
+      "duration_seconds": 1.0833333333333333,
+      "events": 1
+    },
+    {
+      "name": "sawake2",
+      "fps": 24.0,
+      "frames": 33,
+      "duration_seconds": 1.375,
+      "events": 2
+    },
+    {
+      "name": "sawake3",
+      "fps": 24.0,
+      "frames": 13,
+      "duration_seconds": 0.5416666666666666,
+      "events": 1
+    },
+    {
+      "name": "atk2b",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 427045,
+  "cha_bytes_consumed": 427045,
+  "atlas_pixel_roundtrip_verified": true
+}

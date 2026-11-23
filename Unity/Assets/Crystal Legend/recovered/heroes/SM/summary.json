@@ -1,0 +1,99 @@
+{
+  "name": "SM",
+  "source": "patch/pfca/SM.fca",
+  "container_sha256": "c44a60b62a61ab8def9d3e1da3c6db1825f302225dba5ba2deec0e99d1f10c9f",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 167,
+  "element_count": 346,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 12,
+      "duration_seconds": 0.5,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 151,
+      "duration_seconds": 6.291666666666667,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 45,
+      "duration_seconds": 1.875,
+      "events": 1
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 3
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 5
+    },
+    {
+      "name": "atk4",
+      "fps": 24.0,
+      "frames": 37,
+      "duration_seconds": 1.5416666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 90,
+      "duration_seconds": 3.75,
+      "events": 6
+    },
+    {
+      "name": "Switch",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 0
+    },
+    {
+      "name": "Rage",
+      "fps": 24.0,
+      "frames": 75,
+      "duration_seconds": 3.125,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 476314,
+  "cha_bytes_consumed": 476314,
+  "atlas_pixel_roundtrip_verified": true
+}

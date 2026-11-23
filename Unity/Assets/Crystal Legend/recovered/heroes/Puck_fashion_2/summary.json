@@ -1,0 +1,92 @@
+{
+  "name": "Puck_fashion_2",
+  "source": "patch/pfca/Puck_fashion_2.fca",
+  "container_sha256": "1b9f7461b245b1059e1e593886e8545e018c64944377b570ac2fd1ecf6a130de",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 97,
+  "element_count": 141,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 67,
+      "duration_seconds": 2.7916666666666665,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 17,
+      "duration_seconds": 0.7083333333333334,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 45,
+      "duration_seconds": 1.875,
+      "events": 2
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 2
+    },
+    {
+      "name": "Birth1",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 3
+    },
+    {
+      "name": "Birth2",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 3
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 67,
+      "duration_seconds": 2.7916666666666665,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 66,
+      "duration_seconds": 2.75,
+      "events": 1
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 41,
+      "duration_seconds": 1.7083333333333333,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 358365,
+  "cha_bytes_consumed": 358365,
+  "atlas_pixel_roundtrip_verified": true
+}
