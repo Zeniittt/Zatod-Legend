@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="address=no; email=no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="https://turing.captcha.qcloud.com/TCaptcha.js" type="text/javascript"></script>
+</head>
+
+<script>
+
+  function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    if (window.location.search && window.location.search.length >= 1) {
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null && r.length >= 2) return r[2];
+    }
+    return null;
+  }
+
+  function callback(res) {
+    // 定义回调函数
+    // 第一个参数传入回调结果，结果如下：
+    // ret         Int       验证结果，0：验证成功。2：用户主动关闭验证码。
+    // ticket      String    验证成功的票据，当且仅当 ret = 0 时 ticket 有值。
+    // CaptchaAppId       String    验证码应用ID。
+    // bizState    Any       自定义透传参数。
+    // randstr     String    本次验证的随机串，后续票据校验时需传递该参数。
+
+    TCaptchaJsBridgeHelper.callback(JSON.stringify(res))
+
+  }
+
+  // 定义验证码js加载错误处理函数
+  function loadErrorCallback() {
+    var appid = ''
+    TCaptchaJsBridgeHelper.callback(JSON.stringify({
+      ret: -1001,
+      randstr: '',
+      ticket: '',
+      errorCode: -1001,
+      errorMessage: 'jsload_error'
+    }))
+  }
+
+  window.onload = function () {
+  
+    try {
+      var option = {
+        userLanguage: GetQueryString("language"),
+        needFeedBack: false
+      }
+      // 生成一个验证码对象
+      // CaptchaAppId：登录验证码控制台，从【验证管理】页面进行查看。如果未创建过验证，请先新建验证。注意：不可使用客户端类型为小程序的CaptchaAppId，会导致数据统计错误。
+      //callback：定义的回调函数
+      var captcha = new TencentCaptcha(GetQueryString("appid"), callback, option);
+      // 调用方法，显示验证码
+      captcha.show();
+    } catch (error) {
+      loadErrorCallback();
+    }
+
+  }
+
+
+</script>
+
+</html>
