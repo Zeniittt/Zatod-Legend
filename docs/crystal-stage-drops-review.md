@@ -101,7 +101,7 @@ Không tìm thấy bằng chứng Crystal dùng quy trình random0..MaxDropAmoun
 
 ## Bằng chứng để tra lại
 
-Gốc source Lua: `Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
+Gốc source Lua: `Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
 
 - `Stage.lua:125126`: các UI reward field; Stage1/2/3 đọc bằng recovery_tools/lua_data.py, không execute Lua.
 - `ui_new/modules/stage/stagedetail.lua:12,974`: filter và dựng preview.

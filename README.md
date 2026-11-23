@@ -14,4 +14,4 @@ Project hiện dùng bộ Crystal: 25 Hero, 14 quái, 39 ải/117 wave trong hai
 
 Theo D33 ngày22/11/2026, nhánh pixel trướcCrystal, scene ArenaPrototype, combat20Hz, UI/network/preview và các bản build cũ đã được loại khỏi source hiện hành. Save và archive trên đĩa được giữ; player mới không còn hỗ trợ replay outcome của prototype trướcCrystal. ReplayCrystal/Zatod vẫn được hỗ trợ.
 
-Tài liệu các Hero pixel và kiến trúc20Hz còn trong `docs/` là lịch sử triển khai, không phải hướng dẫn chạy hiện tại. Nguồn reverse ở `Crystal Legend/` nằm ngoài Unity/Assets và được giữ để đối chiếu.
+Tài liệu các Hero pixel và kiến trúc20Hz còn trong `docs/` là lịch sử triển khai, không phải hướng dẫn chạy hiện tại. Nguồn reverse hiện ở `Unity/Assets/Crystal Legend/` từ repository root (hoặc `Assets/Crystal Legend/` từ thư mụcUnity), theo lần di chuyển của người dùng23/11/2026. Xem [chỉ dẫn nguồn hiện hành](docs/crystal-legends-reference.txt). Các helper import/bake còn đường root cũ phải được cập nhật trước khi chạy; việc đặt thư mục vàoAssets chưa chứng minh đã import/nghiệm thu toàn bộ raw asset.

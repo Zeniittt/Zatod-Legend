@@ -1,6 +1,33 @@
 # Zatod Legend — Lịch sử lỗi và cách xử lý
 
-Cập nhật 21/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi sửa lỗi. Chỉ ghi nguyên nhân đã có bằng chứng; giả thuyết ghi riêng. Design.md là nguồn quyết định thiết kế.
+Cập nhật 23/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi sửa lỗi. Chỉ ghi nguyên nhân đã có bằng chứng; giả thuyết ghi riêng. Design.md là nguồn quyết định thiết kế.
+
+**Vị trí reference hiện hành:** từ23/11/2026, người dùng chuyển nguồn sang `Unity/Assets/Crystal Legend/` tính từ repository root. Các mục trước REVIEW-010 có thể ghi root cũ hoặc trạng tháiGitignore ở thời điểm lịch sử; tra dữ liệu tương ứng dưới vị trí mới. Script import/bake còn đường cũ chưa được sửa trong task tài liệu này.
+
+## REVIEW-011 — Push reference lớn và kết nối bị ngắt
+
+- **Ngày:**23/11/2026. **Trạng thái:** đã kiểm dung lượng và lập phương án; chưa thay commit/branch/index hoặc push dữ liệu.
+- **Triệu chứng người dùng báo:** nhiều thay đổi, kết nối thường đứt giữa chừng khi đưa reference lên repo. Chưa có logpush để xác nhận lỗi cụ thể; không kết luận chắc chắn nguyên nhân là mạng hoặc giới hạnpack.
+- **Bằng chứng:** localmain ở2a3336ead (`Add Asset`), thay96.100file; reference có96.080file/5,87GiB dữ liệu gốc. Gitpack toànrepo6,66GiB. Đọc trực tiếp remote23/11 xác nhậnmain vẫn0eb6bb073, làparent củaassetcommit; assetcommit chưa có trênmain ở mốc kiểm. Kết nốiGit từsandbox thất bại nhưng lượt đọc ngoài sandbox thànhcông; không dùng lỗi sandbox làm bằngchứng nguyênnhân lỗi push của người dùng.
+- **Giới hạn nguồn chính thức:** GitHub tối đa2GiB mỗi lầnpush, không phải chỉ giới hạn mỗifile. Chia nhiềucommit nhưng gửi chung mộtpush vẫn có thể vượtgiới hạn. Nguồn: https://docs.github.com/en/get-started/using-git/troubleshooting-the-2-gb-push-limit . 5,87GiB là rawblob tổng, chưa phải dung lượngpack nén của lầnpush; không khẳngđịnh đã đo packtransfer thực tế.
+- **Phương án đang đề xuất:** upload từnglô nhỏ, khoảng256MiB dữliệu blob hoặc5.000path/lô; grouping hiện cho25lô reference. Có thể chuẩn bị nhánh uploadtạm, push từngtip để remote nhận object từngđợt rồi pushmain bìnhthường khi đủobject; giữmain/file hiệncó, không cầnforcepush. Phương án chưa được triểnkhai hoặc duyệt như quyếtđịnh thiết kế. Nếu chọn chia lạiassetcommit local thì phải giữ dữliệu và kiểm remote trước, không reset hard hoặc sửa lịch sử đã chia sẻ.
+- **Evidence:** `Artifacts/ZatodGitUploadReview_20261123/committed-reference-files.json` và `upload-plan.json`. Chưa dùngGitLFS, xóa duplicate/cache, đổiignore hay publish nhánh. Agent chỉ kiểm và ghi phương án trong lượt này.
+
+- **Người dùng yêu cầu thực hiện23/11:** đồng ý chia lô, commit và push. Kiểm lại thấy localmain đã về0eb6bb073, file reference/tài liệu đang chưa commit; không tự khôi phục commitAddAsset cũ. Thực hiện trên nhánh `codex/crystal-reference-upload-20261123`, commit tài liệu/ignore trước, rồi reference theo lô tối đa256MiB/5.000path; kiểm remote vàpush từngtip, cuối cùngfast-forwardmain bìnhthường. Giữ file/baarchive bịignore, khôngforcepush hoặc xóa dữliệu. Tiến trình/receipt ở `Artifacts/ZatodGitUploadReview_20261123/upload-job/`; chỉ ghi hoànthành sau xácnhận remote.
+
+## REVIEW-010 — Đường dẫn reference lỗi thời sau khi người dùng chuyển folder Crystal
+
+- **Ngày:**23/11/2026. **Trạng thái:** đã cập nhật tài liệu và trường SourceRoot của JSON tham chiếu; chưa sửa hoặc chạy importer/bake/Unity.
+- **Triệu chứng:** root `Crystal Legend/` không còn, trong khi các markdown, reference index và machine-readable SourceRoot vẫn trỏ vào đó; D04/README/phase-plan còn mô tả đặt ngoàiAssets và bịGitignore.
+- **Nguyên nhân xác nhận:** người dùng đã chuyển nguyên reference vào `Unity/Assets/Crystal Legend/`. SkillEvo.lua, recovery_tools và các phần nguồn đã kiểm tồn tại ở vị trí mới. Rule `.gitignore` cũ neo `/Crystal Legend/` không khớp đường mới; Git báo folder mớiuntracked tại thời điểm kiểm, không phải đã commit hoặc đã theo clone.
+- **Cách xử lý:** cập nhật các đường source đang dùng trong Design/README/docs, AGENTS, `docs/crystal-legends-reference.txt` và `docs/reference/zatod-skill-promote-source.json`; D04 ghi rõ quyết định vị trí mới thay placement cũ. Bổ sung hướng dẫn phân biệt repository root với Unity project root, kiểm trạng tháiGit và resolver helper trước khi chạy. Giữ lịch sử ChangeLog cũ, thêm ghi chú ánh xạ ở đầu file thay vì viết lại bằng chứng lịch sử.
+- **Giới hạn:** các script import/bake vẫn ghép root cũ, đã được ghi vào preflight cho agent triểnkhai; không tự sửa code, `.gitignore`, di chuyển lại folder hoặc import/build rawsource trong yêu cầu chỉ chỉnh tài liệu. Việc nằm trongAssets chưa là bằngchứng asset đã được cấu hình/nghiệmthu cho game.
+- **Kiểm tra tài liệu:** kiểm đườngsource mới, linkMarkdown, JSON parse và SHA256 cácsource theo manifest; xác nhận không còn đường vận hành `Crystal Legend/recovered` thiếu prefix mới trong bộ tài liệu hiện hành. Báo cáo local: `Artifacts/ZatodReferenceRelocationReview_20261123/validation.json`; không coi đây là testUnity/gameplay.
+
+- **Bổ sung23/11 khi người dùng gặp cảnh báo3file quá lớn:** browser `chrome-headless-shell.exe` không là input D35; `install_time_pack.apk` là archive nguồn, các importer asset hiện dùng bản giải nén. Tuy nhiên Bake-CrystalEffects.py mởPACK ZIP trước khi kiểm bản bake, Bake_CrystalSupport.recover_effect và hero_animation.recover_container cũng đọc ZIP trực tiếp. Vì vậy không được báo bỏZIP là không ảnh hưởng mọi helper; agent phải hỗ trợ đọc thư mục giải nén hoặc nhận ZIP riêng khi cần recover/bake mới. Đã ghi preflight và reference index; chưa sửa loader/Gitignore/index hoặc xóa file.
+- **Bằng chứng giải nén:** đọc central directory ZIP và stat cácfile,2.400 entry `patch/pfca/` đều có bản giải nén cùng kích thước, gồm `effect/eff_buff_Coco_ult.fca`. Chưa hash toàn bộ hoặc chạy bake. Báo cáo `Artifacts/ZatodReferenceRelocationReview_20261123/archive-extraction-check.json`. Bản gốc local vẫn giữ; việc không commit không đồng nghĩa xóa hoặc chứng nhận pipeline không còn cầnarchive.
+
+- **Thực hiện theo yêu cầu23/11:** thêm3 rule theo đường dẫn đầy đủ vào `.gitignore` cho đúng browserexe/APK/ZIP được báo, giữ bản local và không ignore thư mục source/asset giải nén. Cả3 chưa nằm trongGitindex nên không cần bỏtracking hoặc sửa lịch sử commit. Kiểm `git check-ignore -v` nhận đúng3 rule; sourceLua và container giải nén mẫu không bịignore. Không sửa code/importer hoặc commit/push.
 
 ## BUG-026 — Probe UI chạy trước khi Editor/Canvas nhận trạng thái mới
 

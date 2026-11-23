@@ -8,7 +8,7 @@
 
 Khảo sát21/11/2026, Asia/Saigon. **Chỉ đọc source/config; chưa triển khai gameplay hoặc thay config runtime.** Không có quyết định economy mới được chốt. D07/D11/D19–D20/D23/D26–D29 vẫn áp dụng, đặc biệt phí craft thực thu 0 theoD28.
 
-Nguồn Lua dưới `Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/` (gọi là data/); protocol ở nhánh protobuf_utf8 tương ứng. Đây là client decompile/config, không phải toàn bộ backend. Mốc cập nhật client không chứng minh nội bộ transaction/DB server Crystal. Audit máy đọc được: `Artifacts/ZatodEconomyReview_20261121/audit.json`, gồm100 dòng PlayerLevel,120 dòng Levels,39 bộ thưởng ải active,8 consumable mẫu và SHA256 của21 nguồn/config. Trích bảng bằng parser, không chạy Lua game hay test/build Unity.
+Nguồn Lua dưới `Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/` (gọi là data/); protocol ở nhánh protobuf_utf8 tương ứng. Đây là client decompile/config, không phải toàn bộ backend. Mốc cập nhật client không chứng minh nội bộ transaction/DB server Crystal. Audit máy đọc được: `Artifacts/ZatodEconomyReview_20261121/audit.json`, gồm100 dòng PlayerLevel,120 dòng Levels,39 bộ thưởng ải active,8 consumable mẫu và SHA256 của21 nguồn/config. Trích bảng bằng parser, không chạy Lua game hay test/build Unity.
 
 ## 1. EXP tài khoản (Squad/Team Level)
 

@@ -38,7 +38,7 @@ View gồm back về chọn ải; preview từng wave với hai mũi tên; tab S
 
 ## Asset nguồn và mức xác minh
 
-Root `Crystal Legend/recovered/assets/install_time_pack/remake/UI/alpha/1080P/`.
+Root `Unity/Assets/Crystal Legend/recovered/assets/install_time_pack/remake/UI/alpha/1080P/`.
 
 - Đã xác nhận trên đĩa bộ `battle/battle_prepare_*`: panel, enemy panel, filter states, team/icon/power backgrounds, các `9bg` frame.
 - Đã xem ảnh `battle/battle_prepare_my_team_head.png`: bộ 5 ô đội hình trống đúng cấu trúc ref. Có thể giữ nguyên nền rồi đặt icon theo slot, không vẽ ô màu thay thế.

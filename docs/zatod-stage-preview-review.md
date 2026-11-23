@@ -14,7 +14,7 @@ Enemies lấy Waves cuối cùng theo dữ liệu thay vì hardcode index2. Bao 
 
 ## Asset đã xác nhận
 
-Gốc: `Crystal Legend/recovered/assets/install_time_pack/remake/`. Các đường dưới thuộc `UI/alpha/1080P/` nếu không ghi khác. Đã kiểm tra 22 file chính tồn tại; đã mở xem trực tiếp frame, banner normal/hard, nút X, nút Challenge/Raid, các sao/nền sao, badge Boss và vé.
+Gốc: `Unity/Assets/Crystal Legend/recovered/assets/install_time_pack/remake/`. Các đường dưới thuộc `UI/alpha/1080P/` nếu không ghi khác. Đã kiểm tra 22 file chính tồn tại; đã mở xem trực tiếp frame, banner normal/hard, nút X, nút Challenge/Raid, các sao/nền sao, badge Boss và vé.
 
 | Thành phần | Asset |
 |---|---|

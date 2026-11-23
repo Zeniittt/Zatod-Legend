@@ -8,7 +8,7 @@ Crystal dùng scene graph 2D của Cocos2d-x: tạo CCScene chiến đấu, các
 
 ## Bằng chứng trực tiếp
 
-Gốc nguồn: `E:/viec/Zatod Legend/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
+Gốc nguồn: `E:/viec/Zatod Legend/Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
 
 - `battle/battle_scene.lua:97` createSceneAndLayers tạo CCScene và CCLayer cho background/content/main/top/zoom; nền qua ed.createSprite, background FCA có thể thêm riêng. Dòng134 gọi sceneui:createUILayers(self.scene).
 - `battle/battle_scene.lua:473` addActor gắn actor.node vào main_layer. `battle/actor.lua:21` tạo UnitActor có node=CCNode:create(); dòng142 tạo puppet bằng ed.createFcaActor; dòng205 addChild puppet vào actor node. Dòng408 đặt zOrder theo config hoặc âm tọa độ Y.

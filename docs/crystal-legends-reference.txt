@@ -1,14 +1,15 @@
 CRYSTAL LEGENDS REFERENCE FOR ZATOD LEGEND
-Date: 2026-11-19 (Asia/Saigon)
+Original transfer: 2026-11-19 (Asia/Saigon)
+Reference-location update: 2026-11-23 (Asia/Saigon)
 
 CURRENT DESIGN: Read ../Design.md and ../AGENTS.md before using this historical reference. Design.md records current user decisions, implementation status and open questions; later confirmed decisions supersede older brainstorming below.
 
 WORKSPACE AND CHAT CONTEXT
 Main project: E:/viec/Zatod Legend
-Reference folder: E:/viec/Zatod Legend/Crystal Legend
+Reference folder: E:/viec/Zatod Legend/Unity/Assets/Crystal Legend
 Original source preserved: C:/Users/tinnq/OneDrive/Desktop/Crystal+Legends_1.1.100312_APKPurez
 The separately named C:/Users/tinnq/OneDrive/Desktop/Crystal Legend was empty at transfer time.
-The reference is a full physical copy, outside Unity/Assets. Import selected assets into Unity gradually; do not move/delete the whole reference as an import step.
+The reference was originally copied outside Unity/Assets on 2026-11-19. On 2026-11-23 the user relocated it to Unity/Assets/Crystal Legend; the old repository-root Crystal Legend folder is absent. From the Unity project directory the same location is Assets/Crystal Legend. This location update supersedes the old outside-Assets placement in D04. It does not certify that raw assets have been imported, configured, or tested for runtime use.
 
 Relevant Codex chats (read their history when needed):
 - Khan sat cach reverse Crystal Legend / title: Khảo sát cách reverse Crystal Legend
@@ -25,7 +26,7 @@ Future direction already requested, but implementation remains a separate next s
 4. Integrate Crystal Legends Hero assets and review Hero/config systems.
 Preserve existing Zatod work and pixel Hero assets until a deliberate integration replaces them.
 
-REFERENCE CONTENTS (paths below are relative to Crystal Legend/)
+REFERENCE CONTENTS (paths below are relative to Unity/Assets/Crystal Legend/ from the repository root)
 - Original APKs: root; all four APKs retained.
 - recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/
   4,299 decompiled Lua chunks, including configs, combat, Hero hooks, UI and checker scripts.
@@ -37,8 +38,10 @@ REFERENCE CONTENTS (paths below are relative to Crystal Legend/)
 - recovered/heroes/Lina/: all nine actions also have full PNG frame exports.
 - recovered/assets/, recovered/assets_unpacked/: APK assets and unpacked effects.
 - recovered/downloads/aab_1.1.100312.zip: official CDN supplementary asset package.
+  For a Git handoff this large ZIP can be omitted if recovered/downloads/aab_1.1.100312/patch/ is supplied. Check 2026-11-23 found all 2,400 patch/pfca files extracted with matching sizes, including eff_buff_Coco_ult.fca; this was not a full content-hash comparison. Current Bake-CrystalEffects.py/Bake_CrystalSupport.py and recovery_tools recovery functions still open the ZIP directly, so adapt those loaders to extracted containers or provide the archive separately before using them.
 - recovered/lina_preview/: standalone Lina skill/animation sketch and extracted related effects/audio. This sketch is not a full damage simulation.
 - recovery_tools/ and .recovery-deps/: complete extraction/rendering tools and dependencies retained.
+  chrome-headless-shell.exe is a browser tool binary, not a D35 asset input. Original APKs, including install_time_pack.apk, remain useful for re-extraction or preview scripts that open them; ordinary Zatod asset import uses recovered/assets/install_time_pack/remake/. Omitting these large files from a commit is not an instruction to delete the local originals or omit the extracted assets.
 - recovered/reports/ and recovered/RECOVERY_REPORT.txt: recovery/validation evidence.
 Decompiled Lua is not verbatim original source. Syntax checks passed, but whole-game behavior has not been validated against a running original game. Native and Android code were only partially reverse engineered. The full backend is not available.
 
@@ -67,4 +70,4 @@ TRANSFER AUDIT
 Artifacts/CrystalLegendReferenceMerge/20261119/copy.log
 Artifacts/CrystalLegendReferenceMerge/20261119/verification.json
 Artifacts/CrystalLegendReferenceMerge/20261119/verification-files.json
-The complete local reference is ignored by Git to avoid accidentally adding APKs, caches and large generated data. This does not remove files. The shared reference note and README pointer remain normal project files.
+At the original transfer, /Crystal Legend/ was ignored by Git. The anchored rule does not match the new Unity/Assets/Crystal Legend location. On 2026-11-23 git status showed the new folder as untracked; it is not automatically available in another clone until actually committed/transferred. Artifacts/ remains ignored. Existing import/bake scripts still contain repository-root Crystal Legend paths and must be adapted before use; this documentation-only task did not change or run them.

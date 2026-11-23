@@ -6,7 +6,7 @@ Ngày20/11/2026, D22/D23. Đây là bản khảo sát lịch sử trước tri�
 
 Có các nhóm art chính để ghép thanh thu/mở, danh sách Hero và detail Base theo ảnh. Tranh lớn của25/25 Hero trong catalog có trong nguồn;25 AnimationSet hiện có để dùng Hero Idle ở giữa.76/76 loại item có icon nguồn, nhưng đường resource dùng drop UI hiện mới có20 loại, nên cần import bổ sung khi triển khai. Không coi có file nguồn là đã import/kiểm định UI mới trong Unity.
 
-Nguồn UI: Crystal Legend/recovered/assets/install_time_pack/remake/. Source Lua: Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/.
+Nguồn UI: Unity/Assets/Crystal Legend/recovered/assets/install_time_pack/remake/. Source Lua: Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/.
 
 ## Đối chiếu art và source
 

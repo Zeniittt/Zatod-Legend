@@ -13,7 +13,7 @@ Ngày 19/11/2026. Trạng thái: chỉ khảo sát/brainstorm theo ảnh ngườ
 
 ## Asset đã xác nhận
 
-Nguồn: `Crystal Legend/recovered/assets/install_time_pack/remake/UI/`.
+Nguồn: `Unity/Assets/Crystal Legend/recovered/assets/install_time_pack/remake/UI/`.
 
 - `alpha/1080P/battle/`: `battle_pause.png`, `battle_auto_bg_1/2.png`, `battle_fastforward_2/3*.png`, `battle_hero_bg.png`, `battle_hero_blood_progress.png`, `battle_hero_energy_progress.png`, `battle_hero_energy_full.png`, `battle_hero_progress_bg.png`, digit/wave separator và `battle_resource_bg*.png`.
 - `DOTA-HERO/`: `Coco.jpg`, `DR.jpg`, `Lina.jpg`, `Zeus.jpg`, `Ench.jpg` đều có. Đã xem trực tiếp portrait Lina, pause, khung Hero và thanh HP.

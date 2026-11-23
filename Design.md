@@ -37,7 +37,10 @@ Không khẳng định backend Crystal tính xong Arena trước phản hồi St
 
 ### D04 — Nguồn Crystal Legends và asset
 
-- Giữ nguyên bộ nguồn tham chiếu tại `Crystal Legend/`, ngoài `Unity/Assets`. Bản gốc trên ổ C: được giữ lại.
+- **Vị trí hiện hành từ23/11/2026:** người dùng đã di chuyển bộ nguồn tham chiếu vào `Unity/Assets/Crystal Legend/` tính từ repository root; từ thư mục projectUnity là `Assets/Crystal Legend/`. Thư mục root cũ không còn. Chỉ dẫn mới này thay yêu cầu đặt ngoàiUnity/Assets trước đây; giữ nguyên dữ liệu raw và bản gốc trên ổC, không tự di chuyển lại.
+- Đây vẫn là bộ nguồn reverse/tham chiếu, không phải toàn bộ nội dung đã được cấu hình hoặc nghiệm thu để dùng trong game. Vị trí nằm trongAssets có thể được Unity quét/import; lượt cập nhật tài liệu này chưa chạyEditor/build hoặc xác nhận kết quả import. `.gitignore` cũ chỉ có rule `/Crystal Legend/`, không khớp vị trí mới; tại lúc kiểm23/11 folder mới đanguntracked, chưa tự theoGitclone.
+- Các script import/bake hiện còn đường dẫn root cũ. Agent cần đọc vị trí hiện hành và cập nhật resolver trước khi chạy helper; task tài liệu này chưa sửa script hoặc configruntime.
+- **Bổ sung23/11/2026 theo yêu cầu người dùng:** `.gitignore` loại đúng3 file lớn đã báo: browser `chrome-headless-shell.exe` trong `.recovery-deps/browsers/chromium_headless_shell-1234/chrome-headless-shell-win64/`, `install_time_pack.apk` và `recovered/downloads/aab_1.1.100312.zip` dưới reference mới. Giữ các file local, không ignore cả thư mục Crystal hoặc phần source/asset đã giải nén. Helper còn đọc ZIP phải được đổi sang thư mục giải nén hoặc nhận archive riêng khi cần, theo ghi chú bàn giaoD35.
 - Chuyển/import từng phần cần dùng vào project Unity theo từng bước; không tự xóa Hero pixel hoặc tài nguyên hiện có. Bổ sung 19/11/2026: D16 cho phép loại định nghĩa cũ khỏi các bảng config hoạt động khi triển khai dọn dữ liệu; không suy rộng thành xóa asset/reference hoặc viết lại lịch sử sở hữu.
 - Tận dụng asset Crystal cho assignment. 314 container đã xuất bao gồm Hero, skin và NPC, không phải 314 Hero độc lập.
 - Giữ source raw, dấu vết reverse và báo cáo để đối chiếu. Chưa có toàn bộ backend hay công cụ authoring gốc của Crystal.
@@ -141,7 +144,7 @@ Chốt ngày 19/11/2026, thay cho đề xuất kho kiểu ItemId + Quantity:
 Chốt ngày 19/11/2026: các thành phần do project xây dựng phải mang tên Zatod, dù lấy nguồn tham chiếu Crystal. Áp dụng cho nhãn UI/menu, cửa sổ Editor, scene/prefab, code/công cụ/build và tên tài liệu phục vụ sử dụng project. Crystal chỉ dùng khi nói rõ nguồn tham chiếu, nguồn reverse hoặc mô tả hành vi gốc.
 
 - **Trạng thái 19/11/2026:** đã triển khai theo yêu cầu thực thi sau khảo sát. UI/menu, class/file/scene/resource/build và công cụ hoạt động dùng Zatod; giữ dấu vết nguồn và lớp tương thích save/rules/archive/launch flag cũ. Scene `ZatodPrototype.unity`, executable `Builds/ZatodPrototype/ZatodLegend.exe`.
-- Giữ nguyên bộ reference `Crystal Legend/` theo D04 và dấu vết nguồn; đổi tên thành phần Zatod không tự xóa/viết lại source tham chiếu.
+- Giữ nguyên bộ reference `Unity/Assets/Crystal Legend/` theo D04 và dấu vết nguồn; đổi tên thành phần Zatod không tự xóa/viết lại source tham chiếu.
 - Những tên đang là ID lưu trữ/reference/resource/rules/replay cần rà soát migration hoặc lớp tương thích trước khi đổi, giữ Hero/item GUID và archive cũ theo D08/D12/D13. Không replace toàn repo làm hỏng dữ liệu sở hữu/replay. Kế hoạch cụ thể và từng thay đổi sẽ được thực hiện ở lượt triển khai được yêu cầu.
 
 Khảo sát UI ban đầu: [zatod-campaign-ui-review.md](docs/zatod-campaign-ui-review.md). Phạm vi sau đó đã chốt tại D15 và được yêu cầu thực thi cùng D14–D16; ý tưởng ngoài phạm vi ấy vẫn là brainstorm.
@@ -180,7 +183,7 @@ Chốt ngày 19/11/2026 sau phản hồi BUG-018. **Trạng thái:** đã áp d�
 
 - Người dùng tạm chấp nhận HUD hiện tại; không tự mở một đợt sửa lại toàn bộ HUD cũ trong lượt khảo sát chọn đội.
 - Từ đây, mọi UI/View mới dùng đúng asset Crystal đã khôi phục: background, panel/frame, button và các trạng thái, portrait, rank, star, selected mark; đối chiếu ảnh/source, không vẽ nền màu/control tạm hoặc dùng một nền nút cho mọi chức năng như trước.
-- Giữ nguyên nguồn trong `Crystal Legend/`, import phần cần dùng và đặt tên thành phần Zatod theo D04/D14. Không coi việc đã tìm thấy file là đã kiểm định đủ mọi biến thể giống screenshot.
+- Giữ nguyên nguồn trong `Unity/Assets/Crystal Legend/`, import phần cần dùng và đặt tên thành phần Zatod theo D04/D14. Không coi việc đã tìm thấy file là đã kiểm định đủ mọi biến thể giống screenshot.
 - Làm rõ và duyệt 19/11/2026: tiếp tục dùng **uGUI/Canvas để ghép đúng asset nguồn**; người dùng sửa cách diễn đạt trước đó, không cấm framework. Không dùng control/nền màu tạm thay art game.
 
 ### D18 — View chọn đội Phó bản theo ảnh tham chiếu
@@ -482,7 +485,7 @@ Yêu cầu ngày20/11/2026. **Trạng thái:** đã triển khai Fixed joystick/
 - Design.md là nguồn quyết định; mỗi phase có một phase-plan hiện hành chứa phạm vi, hợp đồng, checklist và tiêu chí nghiệm thu. Review chứa bằng chứng nguồn/khảo sát, ChangeLog giữ lỗi và kinh nghiệm. Không trộn đề xuất bị thay thế với yêu cầu đang có hiệu lực hoặc tạo nhiều bản quyết định cạnh tranh.
 - Agent được giao thực thi theo phase-plan phải làm tiếp trong phạm vi đã duyệt, không hỏi lại model/rule đã chốt. Chỉ hỏi khi có xung đột thiết kế, đầu vào thực sự thiếu hoặc yêu cầu mở rộng ngoài phạm vi. Cập nhật implementation report/Design/ChangeLog theo kết quả thực tế.
 - Việc brainstorm, đồng ý thiết kế hoặc chuẩn bị markdown không tự khởi động runtime, build, deploy, tạo chat hay gửi việc cho agent khác. Người dùng sẽ giao agent thực thi; yêu cầu thực thi rõ ràng về sau là đủ quyền cho phạm vi được giao.
-- Tài liệu đi theo Git cần nêu đầu vào local bịignore. VớiD35, Crystal Legend/ vàArtifacts/ không theo clone; đã có JSON tham chiếu gọn trongdocs nhưng fullsource/art vẫn cần hiện diện để port. Chưa được khẳng định đã commit/push chỉ vì tài liệu được viết local.
+- Tài liệu bàn giao phải nêu đầu vào thực sự hiện diện và trạng tháiGit. Nguồn Crystal hiện ở `Unity/Assets/Crystal Legend/` theoD04 cập nhật23/11; ruleignore root cũ không khớp đường mới nhưng folder đanguntracked tại mốc kiểm, nên chỉ có ởclone khác sau khi được commit hoặc chuyển riêng. `Artifacts/` vẫn bịignore. JSON tham chiếu trongdocs không thay fullsource/art; không khẳng định đã commit/push chỉ vì đã viết tài liệu hoặc di chuyển folder.
 
 ### Mốc xác nhận đa nền tảng — 23/11/2026
 
@@ -514,7 +517,7 @@ Cập nhật 19/11/2026: **đã hoàn thành triển khai và kiểm tra phase p
 
 ## Bằng chứng kỹ thuật để tra lại
 
-Gốc Lua: `Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
+Gốc Lua: `Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
 
 - `battle/unitattribs.lua`: danh sách 65 thuộc tính và chuyển đổi STR/AGI/INT của bản gốc.
 - `battle/unit.lua`: MSPD -> dt_action; HAST -> dt_cd; init skill, damage và buff.

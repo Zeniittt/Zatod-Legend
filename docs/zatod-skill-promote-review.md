@@ -6,7 +6,7 @@ Cập nhật: **23/11/2026, Asia/Saigon**. Đây là tài liệu khảo sát ngu
 
 ## 1. Đầu vào và mức bằng chứng
 
-Root Lua phục hồi: `Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
+Root Lua phục hồi: `Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
 
 - `gamedatatables/skillgrouptable.lua`: skill chính, Init Level theo slot.
 - `SkillGroup.lua`, `SkillLevels.lua`, `SkillEvo.lua`, `Buff.lua`: seed, giá, mốc và tham số effect.
@@ -19,7 +19,7 @@ Root Lua phục hồi: `Crystal Legend/recovered/scripts/lua/com.farlightgames.d
 
 Lua/config là bằng chứng về client nguồn đã phục hồi. Không có backend đầy đủ hoặc lượt quan sát game Crystal gốc đang chạy; không suy client gửi request nghĩa là backend tin số liệu client.
 
-`Crystal Legend/` và `Artifacts/` bị Git ignore. JSON trong docs giúp tra số liệu ở clone khác nhưng không thay thế source hook/art/audio khi cần port. Agent phải kiểm sự hiện diện của nguồn trước khi báo đủ đầu vào.
+**Đổi vị trí23/11/2026:** reference hiện ở `Unity/Assets/Crystal Legend/` từ repository root; root cũ không còn. Ruleignore `/Crystal Legend/` chỉ áp vị trí cũ, không áp folder mới; Git đang báo folder mớiuntracked tại mốc kiểm, chưa bảo đảm clone khác có source. `Artifacts/` vẫn bịignore. JSON trongdocs giúp tra số liệu nhưng không thay hook/art/audio. Các scriptimport/bake còn đường root cũ phải được cập nhật trước khi chạy; lượt này chỉ sửa tài liệu, chưa nghiệmthu Unityimport folderraw.
 
 ## 2. Skill trong Crystal
 

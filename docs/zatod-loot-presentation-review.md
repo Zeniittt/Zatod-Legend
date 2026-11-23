@@ -6,7 +6,7 @@ Ngày21/11/2026. Theo ba ảnh người dùng cung cấp. Chỉ khảo sát sour
 
 Đủ tài nguyên cho bố cục và hiệu ứng trong ảnh. Đã đọc/giải mã40 ảnh PNG/JPG được6 source UI/Loot tham chiếu, không thiếu ảnh nào trong tập này. Đã xem trực tiếp chest1, banner victory_bg, crest victory_bg_1 và star; khớp các thành phần tương ứng trong ảnh. Báo cáo Artifacts/ZatodLootPresentationReview/asset-audit.json.
 
-Ảnh nguồn dưới Crystal Legend/recovered/assets/install_time_pack/remake/:
+Ảnh nguồn dưới Unity/Assets/Crystal Legend/recovered/assets/install_time_pack/remake/:
 
 - UI/alpha/1080P/common/chest1.png (69x63), chestopen1.png, chest_holo.png, shine.png, holo.png.
 - UI/alpha/1080P/battleresult/new_resource/victory_bg.png (1056x190), victory_bg_1.png, victory_light.png, star.png, star_1.png.
@@ -14,7 +14,7 @@ Ngày21/11/2026. Theo ba ảnh người dùng cung cấp. Chỉ khảo sát sour
 - UI/alpha/1080P/common/button_com_big.png và crusade/btn_statics.png; có frame/tab/bar riêng của cửa sổ thống kê.
 - Hero/item portrait, rank/star/quality frame đã có từ các phase trước. Source còn có âm thanh battle_loot.mp3, battle_win.mp3, battledown_star_one.mp3.
 
-Hiệu ứng nguồn dưới Crystal Legend/recovered/downloads/aab_1.1.100312/patch/pfca/effect/: eff_UI_pve_victory_star_1/2/3, eff_UI_pve_victory_wings, eff_UI_pvp_light, eff_UI_pvp_newrecord_particles, eff_UI_levelup. Cả7 FCA đều có cha/plist/sheet.pvr; đã decode atlas và parse CHA, re-encode byte-identical. Các action chạy24FPS. Đây là kiểm tra container/timeline/ảnh, chưa bake hoặc nghiệm thu chuyển động đầy đủ trong Unity.
+Hiệu ứng nguồn dưới Unity/Assets/Crystal Legend/recovered/downloads/aab_1.1.100312/patch/pfca/effect/: eff_UI_pve_victory_star_1/2/3, eff_UI_pve_victory_wings, eff_UI_pvp_light, eff_UI_pvp_newrecord_particles, eff_UI_levelup. Cả7 FCA đều có cha/plist/sheet.pvr; đã decode atlas và parse CHA, re-encode byte-identical. Các action chạy24FPS. Đây là kiểm tra container/timeline/ảnh, chưa bake hoặc nghiệm thu chuyển động đầy đủ trong Unity.
 
 ## Rương trong Crystal
 
@@ -54,4 +54,4 @@ Zatod Damage(actor,target,...) và Heal(target,amount,source) đã có chỗ tí
 
 Lưu ý trình bày đã chốt: gộp xN chỉ trên popup, không stack GUID; gắn vào boss không làm roll lại hoặc tăng thưởng; EXP0/0 phải vẽ rỗng và tránh chia0; popup dùng receipt cùng battleId, Continue không cấp thêm.
 
-Gốc Lua: Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/. File chính: battle/loot.lua, battle/battle_sceneui.lua, ui_new/modules/stage/stageaccount.lua, ui_new/modules/battleResult/commonBattleWin.lua, BattleStatics.lua, ui_new/uieditor/commonBattleWin.lua và BattleStaticWin.lua.
+Gốc Lua: Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/. File chính: battle/loot.lua, battle/battle_sceneui.lua, ui_new/modules/stage/stageaccount.lua, ui_new/modules/battleResult/commonBattleWin.lua, BattleStatics.lua, ui_new/uieditor/commonBattleWin.lua và BattleStaticWin.lua.

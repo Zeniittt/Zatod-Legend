@@ -4,7 +4,7 @@ Khảo sát ngày 19/11/2026. Đối chiếu [Design.md](../Design.md), đặc b
 
 ## 1. Phạm vi và dữ liệu đã kiểm tra
 
-Gốc Lua tham chiếu: `../Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
+Gốc Lua tham chiếu: `../Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/`.
 
 - Đọc bảng Chapter, Stage, Battle, Unit, Puppet, hero_equip, UnitRank, equip, equipcraft, equipupgrade, enhancement, Loot, StageStarReward.
 - Đối chiếu battle_engine.lua, stage.lua, unit.lua, skill.lua, unitawake.lua; hero.lua, ui/readhero.lua và UI chế tạo/phù phép.
@@ -26,7 +26,7 @@ Báo cáo có schema và giá trị từng dòng: [source-audit.json](../Artifac
 
 Đây là bộ 5 đang dùng làm ứng viên để xác nhận ý người dùng. Unit/Puppet/skill/Hero hook và asset của cả 5 đều có. Client không cung cấp đầy đủ backend tạo tài khoản, nên không khẳng định tài khoản mới nhận đồng thời cả 5 hoặc thứ tự nhận ở từng ải. Trận cinematic hướng dẫn 5v5 có đội khác và level 70; không lấy đội cinematic làm đội khởi đầu.
 
-Lưu ý ánh xạ: Unit.Puppet của Coco là `Coco.cha`, nhưng Puppet.Resource là `Coco_HD`; không suy tên folder bằng cách bỏ `.cha`. Các folder reference nằm dưới `Crystal Legend/recovered/heroes/`.
+Lưu ý ánh xạ: Unit.Puppet của Coco là `Coco.cha`, nhưng Puppet.Resource là `Coco_HD`; không suy tên folder bằng cách bỏ `.cha`. Các folder reference nằm dưới `Unity/Assets/Crystal Legend/recovered/heroes/`.
 
 Đủ dữ liệu đầu vào để chuyển bộ Hero cơ bản; việc import thành công còn phải nối đủ SkillGroup/Skill/Buff, timeline, projectile/region/chain, Hero hook, art và âm thanh. Không coi đủ file ảnh là đã hoàn tất Hero. Nhánh nâng cao như shard/skin/thức tỉnh trong hook cần lọc theo phạm vi, không kích hoạt mặc định.
 

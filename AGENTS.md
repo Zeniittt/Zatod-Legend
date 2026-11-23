@@ -5,6 +5,7 @@
 - Trước khi phân tích, đề xuất hoặc chỉnh sửa project, đọc [Design.md](Design.md). Đọc thêm tài liệu trong `docs/` liên quan đến nhiệm vụ; khi cần nguồn reverse, đọc `docs/crystal-legends-reference.txt`.
 - Dùng skill của project tại `.agents/skills/zatod-design/SKILL.md` để duy trì các quyết định. `Design.md` là nguồn quyết định chung giữa các chat; không dựa riêng vào trí nhớ của một chat.
 - Trước khi chẩn đoán hoặc sửa lỗi, đọc [ChangeLog.md](ChangeLog.md) và tìm mục có triệu chứng liên quan để dùng lại kinh nghiệm đã kiểm chứng.
+- Nguồn Crystal hiện ở `Unity/Assets/Crystal Legend/` tính từ repository root, hoặc `Assets/Crystal Legend/` từ projectUnity, theo lần di chuyển23/11/2026. Không dùng root cũ hoặc bảnC làm đường mặc định. Kiểm resolver của script import/bake trước khi chạy vì helper hiện vẫn có đường cũ; xem `docs/crystal-legends-reference.txt` vàD04.
 
 ## Giữ các quyết định đã chốt
 

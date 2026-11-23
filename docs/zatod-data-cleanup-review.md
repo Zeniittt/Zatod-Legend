@@ -19,7 +19,7 @@ Code/tools còn hardcode training_warrior, axe_basic, monster pixel, crystal_3, 
 
 ## Nguồn English đã xác nhận
 
-- File `Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/texttable/texttable.lua`: 29.498 key top-level, nested context/language; không execute Lua, chỉ parse các entry liên quan bằng reader return-only.
+- File `Unity/Assets/Crystal Legend/recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/texttable/texttable.lua`: 29.498 key top-level, nested context/language; không execute Lua, chỉ parse các entry liên quan bằng reader return-only.
 - `tools.lua` khoảng dòng 1791–1835: loadTextCache/formatText đọc bảng và chọn `en` theo key/context. `translatecsv.lua`: dữ liệu bảng CN được bản địa hóa khi chọn language khác CN. Vì importer chưa chạy bước này nên các Name Unity còn tiếng Trung.
 - Toàn bộ **67/67 item** có tên English trực tiếp, không trùng khi normalize snake_case. Ví dụ:
 
