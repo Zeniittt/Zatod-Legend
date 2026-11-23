@@ -64,6 +64,6 @@ Không phủđen kínUI hoặc ápcho mọi skill tựđộng/mode. Zatodcore đ
 
 ## 5. Evidence và đầu vào khi triển khai D34
 
-Audit/script local: `Artifacts/ZatodPurplePhaseReview_20261123/audit.json` và `review.py`. Source hiện ở `Unity/Assets/Crystal Legend/` theo lần di chuyển23/11/2026. Folder mới không khớp ruleignore root cũ nhưng đanguntracked tại lúc kiểm; cần xác nhận commit/checkout hoặc chuyển riêng khi dùngclone khác. `Artifacts/` vẫn bịignore. Helper audit/import còn đường root cũ phải được cập nhật trước khi chạy. Các con số trên được ghi lại để không phụthuộc hoàn toàn vàoArtifacts.
+Audit/script local: `Artifacts/ZatodPurplePhaseReview_20261123/audit.json` và `review.py`. Source hiện ở `Unity/Assets/Crystal Legend/` theo lần di chuyển23/11/2026. Cập nhật23/11:96.077 file reference đã commit/push lênmain, có qua clone/checkout;3file lớn và3bản diagnostic chứa khóacloud chỉ giữlocal theo D04/REVIEW-011. Kiểm đầu vào thực tế sau checkout. `Artifacts/` vẫn bịignore. Helper audit/import còn đường root cũ phải được cập nhật trước khi chạy. Các con số trên được ghi lại để không phụthuộc hoàn toàn vàoArtifacts.
 
 Khi chuyển sangD34, lập phase-plan riêng từ các quyếtđịnh này và kiểm lạibaseline. Phải rà đủ skill thứ4/hiddenhook, chuyểnSTR/AGI/INT sangstat trực tiếp, đồ/recipe vànguồn farm, giữ ledgerGUID/replay, kiểm độkhó vàtài nguyên trênmobile. Không báo parity hoặc hoànthành chỉ từsốHeroDefinition/importJSON.

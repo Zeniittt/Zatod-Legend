@@ -19,7 +19,7 @@ Root Lua phục hồi: `Unity/Assets/Crystal Legend/recovered/scripts/lua/com.fa
 
 Lua/config là bằng chứng về client nguồn đã phục hồi. Không có backend đầy đủ hoặc lượt quan sát game Crystal gốc đang chạy; không suy client gửi request nghĩa là backend tin số liệu client.
 
-**Đổi vị trí23/11/2026:** reference hiện ở `Unity/Assets/Crystal Legend/` từ repository root; root cũ không còn. Ruleignore `/Crystal Legend/` chỉ áp vị trí cũ, không áp folder mới; Git đang báo folder mớiuntracked tại mốc kiểm, chưa bảo đảm clone khác có source. `Artifacts/` vẫn bịignore. JSON trongdocs giúp tra số liệu nhưng không thay hook/art/audio. Các scriptimport/bake còn đường root cũ phải được cập nhật trước khi chạy; lượt này chỉ sửa tài liệu, chưa nghiệmthu Unityimport folderraw.
+**Đổi vị trí23/11/2026:** reference hiện ở `Unity/Assets/Crystal Legend/` từ repository root; root cũ không còn. Ruleignore `/Crystal Legend/` chỉ áp vị trí cũ. Cập nhật23/11:96.077 file reference đã commit/push lênmain, clone có nguồn giải nén. Ngoại lệ:3file lớn theo D04 và3bản giải mã network_diagnosis chứa khóa cloud đượcignore, chỉ giữlocal; xem REVIEW-011. Ba bản diagnostic không là đầu vào D35; helper đọc archive vẫn cần preflight theo phase-plan. `Artifacts/` vẫn bịignore. JSON trongdocs giúp tra số liệu nhưng không thay hook/art/audio. Các scriptimport/bake còn đường root cũ phải được cập nhật trước khi chạy; lượt này chỉ sửa tài liệu, chưa nghiệmthu Unityimport folderraw.
 
 ## 2. Skill trong Crystal
 
