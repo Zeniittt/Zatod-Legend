@@ -1,0 +1,71 @@
+{
+  "name": "LYCwolf",
+  "source": "patch/pfca/LYCwolf.fca",
+  "container_sha256": "b5ce43c2f4d3ff07e020e50180ab8fa540a2eee9752e82faa3e84743ed641cb1",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 37,
+  "element_count": 40,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 43,
+      "duration_seconds": 1.7916666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 6,
+      "duration_seconds": 0.25,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 14,
+      "duration_seconds": 0.5833333333333334,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 1,
+      "duration_seconds": 0.041666666666666664,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 27,
+      "duration_seconds": 1.125,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 1
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 1
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 23,
+      "duration_seconds": 0.9583333333333334,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 62944,
+  "cha_bytes_consumed": 62944,
+  "atlas_pixel_roundtrip_verified": true
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Magic",
+  "source": "patch/pfca/Magic.fca",
+  "container_sha256": "bf78655eb40ebe9cb68c63a3cba4c638fef7ec3f70f01b42edf3a32389409013",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 25,
+  "element_count": 37,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 60,
+      "duration_seconds": 2.5,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 85,
+      "duration_seconds": 3.5416666666666665,
+      "events": 1
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 60,
+      "duration_seconds": 2.5,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 112386,
+  "cha_bytes_consumed": 112386,
+  "atlas_pixel_roundtrip_verified": true
+}

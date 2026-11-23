@@ -1,0 +1,78 @@
+{
+  "name": "Luna_fashion_1",
+  "source": "patch/pfca/Luna_fashion_1.fca",
+  "container_sha256": "45ca42d6e0d1e6aa2fed0a5da38247dd32369aa104c0f0d855bd12e9fb749217",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 62,
+  "element_count": 66,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 13,
+      "duration_seconds": 0.5416666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 29,
+      "duration_seconds": 1.2083333333333333,
+      "events": 1
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 79,
+      "duration_seconds": 3.2916666666666665,
+      "events": 5
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 39,
+      "duration_seconds": 1.625,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 31,
+      "duration_seconds": 1.2916666666666667,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 391744,
+  "cha_bytes_consumed": 391744,
+  "atlas_pixel_roundtrip_verified": true
+}
