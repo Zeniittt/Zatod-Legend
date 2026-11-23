@@ -1,0 +1,57 @@
+{
+  "name": "BlueBeast",
+  "source": "patch/pfca/BlueBeast.fca",
+  "container_sha256": "1b1819f06575c963c1df23ce581cdf5793e9ca6ac3833a37412ecb176898f4fa",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 24,
+  "element_count": 24,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 54,
+      "duration_seconds": 2.25,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 20,
+      "duration_seconds": 0.8333333333333334,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 21,
+      "duration_seconds": 0.875,
+      "events": 1
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 25,
+      "duration_seconds": 1.0416666666666667,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 35,
+      "duration_seconds": 1.4583333333333333,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 73446,
+  "cha_bytes_consumed": 73446,
+  "atlas_pixel_roundtrip_verified": true
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Bat",
+  "source": "patch/pfca/Bat.fca",
+  "container_sha256": "bab037d1695ef61c09de38429e8db73899de118b5a041d0932bb5e4cc73146ae",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 24,
+  "element_count": 24,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 10,
+      "duration_seconds": 0.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 10,
+      "duration_seconds": 0.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 10,
+      "duration_seconds": 0.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 19,
+      "duration_seconds": 0.7916666666666666,
+      "events": 2
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 28,
+      "duration_seconds": 1.1666666666666667,
+      "events": 1
+    },
+    {
+      "name": "Birth",
+      "fps": 24.0,
+      "frames": 13,
+      "duration_seconds": 0.5416666666666666,
+      "events": 0
+    }
+  ],
+  "cha_bytes": 16774,
+  "cha_bytes_consumed": 16774,
+  "atlas_pixel_roundtrip_verified": true
+}

@@ -1,0 +1,2095 @@
+[
+  {
+    "plist": "plist",
+    "texture": "sheet.pvr",
+    "width": 1686,
+    "height": 1686,
+    "pvr_header": [
+      52,
+      1686,
+      1686,
+      0,
+      32784,
+      5685192,
+      16,
+      61440,
+      3840,
+      240,
+      15,
+      559044176,
+      1
+    ],
+    "sprites": [
+      {
+        "name": "D_wingL.png",
+        "frame": {
+          "frame": "{{692,280},{265,228}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{265,228}}",
+          "sourceSize": "{265,228}"
+        },
+        "restored_size": [
+          265,
+          228
+        ],
+        "pixel_sha256": "e10fa610bbee29bf2b897ec7c5580e081692b0019ce56363e2de4a8d17b33cbf"
+      },
+      {
+        "name": "Eyes.png",
+        "frame": {
+          "frame": "{{1518,679},{22,10}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{22,10}}",
+          "sourceSize": "{22,10}"
+        },
+        "restored_size": [
+          22,
+          10
+        ],
+        "pixel_sha256": "e594acdab5bd962c451e88d894d19931c10f155445360c151ffcca46d70c5b42"
+      },
+      {
+        "name": "Head.png",
+        "frame": {
+          "frame": "{{771,1256},{130,119}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{130,119}}",
+          "sourceSize": "{130,119}"
+        },
+        "restored_size": [
+          130,
+          119
+        ],
+        "pixel_sha256": "58d515ddffc91c7e59a2390bae36ea2d35422e6620e56cc2a9407c95461c011c"
+      },
+      {
+        "name": "LArm.png",
+        "frame": {
+          "frame": "{{736,1388},{34,47}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{34,47}}",
+          "sourceSize": "{34,47}"
+        },
+        "restored_size": [
+          34,
+          47
+        ],
+        "pixel_sha256": "67c827855f88cd5aca820dcd00c280d421ca864f05630649768e2fc0d8bc1292"
+      },
+      {
+        "name": "LLeg.png",
+        "frame": {
+          "frame": "{{1634,1516},{35,50}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{35,50}}",
+          "sourceSize": "{35,50}"
+        },
+        "restored_size": [
+          35,
+          50
+        ],
+        "pixel_sha256": "7edd39866c6bfac8bb2da6238f8bd62a15c8b0dd93b90af6396a163c7d6ec18d"
+      },
+      {
+        "name": "LLeg_1.png",
+        "frame": {
+          "frame": "{{1546,1650},{29,39}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{29,39}}",
+          "sourceSize": "{29,39}"
+        },
+        "restored_size": [
+          29,
+          39
+        ],
+        "pixel_sha256": "551061f401bd2afb6f7fdb25b4d64edc939abbd1c848a3606eedb10fdbe16e2c"
+      },
+      {
+        "name": "LShoulder.png",
+        "frame": {
+          "frame": "{{1458,1466},{61,60}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{61,60}}",
+          "sourceSize": "{61,60}"
+        },
+        "restored_size": [
+          61,
+          60
+        ],
+        "pixel_sha256": "d1ea954207ca7b085b54234fc60c373b4ba8d5806eb12b7e64a8571d32e02297"
+      },
+      {
+        "name": "Mai.png",
+        "frame": {
+          "frame": "{{1129,1206},{177,84}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{177,84}}",
+          "sourceSize": "{177,84}"
+        },
+        "restored_size": [
+          177,
+          84
+        ],
+        "pixel_sha256": "b32d20b91dd54b4c51645d43d326d738d67f3e8a09d1a658870c42efea1c2cd0"
+      },
+      {
+        "name": "MainWeapon.png",
+        "frame": {
+          "frame": "{{1409,1137},{152,58}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{152,58}}",
+          "sourceSize": "{152,58}"
+        },
+        "restored_size": [
+          152,
+          58
+        ],
+        "pixel_sha256": "715e9bf452555ad473f3e78cdee0c0acb63875a15057efcea233f2e1ac0ecf73"
+      },
+      {
+        "name": "RArm.png",
+        "frame": {
+          "frame": "{{1594,1516},{38,56}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{38,56}}",
+          "sourceSize": "{38,56}"
+        },
+        "restored_size": [
+          38,
+          56
+        ],
+        "pixel_sha256": "0031cc6af2cf63c8dd45e3815c50a1fa2bdecd02e0205ad89b0cf27789c1c460"
+      },
+      {
+        "name": "RForearm.png",
+        "frame": {
+          "frame": "{{235,1152},{53,70}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{53,70}}",
+          "sourceSize": "{53,70}"
+        },
+        "restored_size": [
+          53,
+          70
+        ],
+        "pixel_sha256": "e2e8685f3330a05c81e12fdcf16154aecbbe4e548cd1d2ec59872a2a2e6e892e"
+      },
+      {
+        "name": "RLeg2.png",
+        "frame": {
+          "frame": "{{1635,1423},{38,46}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{38,46}}",
+          "sourceSize": "{38,46}"
+        },
+        "restored_size": [
+          38,
+          46
+        ],
+        "pixel_sha256": "b0d8213933a27bc651576548d6e8c6fa03e92a7f9690e725e52f838a17e09406"
+      },
+      {
+        "name": "RLeg_1.png",
+        "frame": {
+          "frame": "{{628,818},{33,39}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{33,39}}",
+          "sourceSize": "{33,39}"
+        },
+        "restored_size": [
+          33,
+          39
+        ],
+        "pixel_sha256": "363adf315d0ffb0a8d3cf3acd1ec776f29bec38419cdf415c9937e3828f76aef"
+      },
+      {
+        "name": "RShoulder.png",
+        "frame": {
+          "frame": "{{1443,679},{84,73}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{84,73}}",
+          "sourceSize": "{84,73}"
+        },
+        "restored_size": [
+          84,
+          73
+        ],
+        "pixel_sha256": "07ef213610eb3b157266c87bf44e4d02a0a01ccc07ab0e4cfb39075baaba25cf"
+      },
+      {
+        "name": "SecondWea.png",
+        "frame": {
+          "frame": "{{772,1388},{111,158}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{111,158}}",
+          "sourceSize": "{111,158}"
+        },
+        "restored_size": [
+          111,
+          158
+        ],
+        "pixel_sha256": "dcca91d54475763896210b0ad784063949f5d9ee6a1994c34df4a67c997b3173"
+      },
+      {
+        "name": "SecondWeapo.png",
+        "frame": {
+          "frame": "{{1546,1584},{39,64}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{39,64}}",
+          "sourceSize": "{39,64}"
+        },
+        "restored_size": [
+          39,
+          64
+        ],
+        "pixel_sha256": "dfe4efa128ec980deef413f4863dd353e11020c8c693babf078ee1f603cb2f05"
+      },
+      {
+        "name": "SecondWeapon.png",
+        "frame": {
+          "frame": "{{694,1447},{76,136}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{76,136}}",
+          "sourceSize": "{76,136}"
+        },
+        "restored_size": [
+          76,
+          136
+        ],
+        "pixel_sha256": "b7c477f64a44c48910e593c979a9b41f9e3d2efdfad853dd461ec073f664e2ef"
+      },
+      {
+        "name": "SecondWeapona.png",
+        "frame": {
+          "frame": "{{1469,1239},{57,114}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{57,114}}",
+          "sourceSize": "{57,114}"
+        },
+        "restored_size": [
+          57,
+          114
+        ],
+        "pixel_sha256": "6ca70446033fa53b232cee98ed50986e267e4a8169c39c8c5fd2f66c016cad14"
+      },
+      {
+        "name": "SecondWeaponq.png",
+        "frame": {
+          "frame": "{{737,1266},{32,76}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{32,76}}",
+          "sourceSize": "{32,76}"
+        },
+        "restored_size": [
+          32,
+          76
+        ],
+        "pixel_sha256": "77dd650c50ead700d6b35c7592387b722dfb13369e498bbd86532cf319d605a9"
+      },
+      {
+        "name": "Shadow.png",
+        "frame": {
+          "frame": "{{628,533},{283,51}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{1,0},{283,51}}",
+          "sourceSize": "{285,51}"
+        },
+        "restored_size": [
+          285,
+          51
+        ],
+        "pixel_sha256": "dd0bf42b5eefc6dcb8bb661968986a1d379299803d9116141827fc93462335b5"
+      },
+      {
+        "name": "TorsoBottom.png",
+        "frame": {
+          "frame": "{{1640,245},{44,43}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{44,43}}",
+          "sourceSize": "{44,43}"
+        },
+        "restored_size": [
+          44,
+          43
+        ],
+        "pixel_sha256": "ece5f16d48af06ceae5e35c67ba135212156b6a3b3cc7b1280c34ebf3e9a86b8"
+      },
+      {
+        "name": "TorsoTop.png",
+        "frame": {
+          "frame": "{{1479,1601},{77,65}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{77,65}}",
+          "sourceSize": "{77,65}"
+        },
+        "restored_size": [
+          77,
+          65
+        ],
+        "pixel_sha256": "0444f0bdc74941b3f2b605476bd4fd7cc733e4c5082a70e4a9c0f0d7710febf6"
+      },
+      {
+        "name": "TorsoTop_1.png",
+        "frame": {
+          "frame": "{{737,1344},{32,38}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{32,38}}",
+          "sourceSize": "{32,38}"
+        },
+        "restored_size": [
+          32,
+          38
+        ],
+        "pixel_sha256": "f681f4e7184209ef7b650abccb8d33648b94b95cd29ab95b9f84aae0d49187cd"
+      },
+      {
+        "name": "TorsoTop_2.png",
+        "frame": {
+          "frame": "{{1328,1131},{22,31}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{22,31}}",
+          "sourceSize": "{22,31}"
+        },
+        "restored_size": [
+          22,
+          31
+        ],
+        "pixel_sha256": "022ce61a69d8727e6114e549dac8784089539a08d63d813135b3840a5e7046e0"
+      },
+      {
+        "name": "atk2b_tx_49.png",
+        "frame": {
+          "frame": "{{2,2},{375,376}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{375,376}}",
+          "sourceSize": "{375,376}"
+        },
+        "restored_size": [
+          375,
+          376
+        ],
+        "pixel_sha256": "2acec052cc986bd7846dc87228259acc16b0ad96c9984cb37429a1b30afe5bfa"
+      },
+      {
+        "name": "atk3b_tx_10.png",
+        "frame": {
+          "frame": "{{1245,964},{195,81}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{195,81}}",
+          "sourceSize": "{195,81}"
+        },
+        "restored_size": [
+          195,
+          81
+        ],
+        "pixel_sha256": "3b908e01d84ff80a8957e70456167960958e0ba2b29ba43513ba455f6ca8f652"
+      },
+      {
+        "name": "atk3b_tx_11.png",
+        "frame": {
+          "frame": "{{1369,1363},{131,63}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{131,63}}",
+          "sourceSize": "{131,63}"
+        },
+        "restored_size": [
+          131,
+          63
+        ],
+        "pixel_sha256": "5014d7087aa4011e8e67b28dd9c7e60d917a7ae417647e51dc7271e8a3eec602"
+      },
+      {
+        "name": "atk3b_tx_2.png",
+        "frame": {
+          "frame": "{{904,1553},{131,80}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{131,80}}",
+          "sourceSize": "{131,80}"
+        },
+        "restored_size": [
+          131,
+          80
+        ],
+        "pixel_sha256": "5a9e23a2ac9d0469cfae9f3fbf25fcbcbebe65145db2317a8cbfd2b93b51c682"
+      },
+      {
+        "name": "atk3b_tx_3.png",
+        "frame": {
+          "frame": "{{1233,1540},{137,81}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{137,81}}",
+          "sourceSize": "{137,81}"
+        },
+        "restored_size": [
+          137,
+          81
+        ],
+        "pixel_sha256": "25442e592ab5a7fc88c65b709ae68085609191c7ea49db6131fb713c054fe2a7"
+      },
+      {
+        "name": "atk3b_tx_4.png",
+        "frame": {
+          "frame": "{{1530,652},{154,83}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{154,83}}",
+          "sourceSize": "{154,83}"
+        },
+        "restored_size": [
+          154,
+          83
+        ],
+        "pixel_sha256": "863d2778f8f5aa84c27024ae4ad1c3f5cc524780dea67fe2a9ac44c133905c41"
+      },
+      {
+        "name": "atk3b_tx_5.png",
+        "frame": {
+          "frame": "{{1132,1385},{176,84}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{176,84}}",
+          "sourceSize": "{176,84}"
+        },
+        "restored_size": [
+          176,
+          84
+        ],
+        "pixel_sha256": "9c059c8ebca52c1cac45080c2c8ad382fbadbe32063e753e3ef79f3a02fe243d"
+      },
+      {
+        "name": "atk3b_tx_6.png",
+        "frame": {
+          "frame": "{{1446,265},{191,82}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{191,82}}",
+          "sourceSize": "{191,82}"
+        },
+        "restored_size": [
+          191,
+          82
+        ],
+        "pixel_sha256": "dc36ab5d0b3ebd343403961a1bcdcfbb1a5669cbd0eed13a712cdc349da1ffb4"
+      },
+      {
+        "name": "atk3b_tx_7.png",
+        "frame": {
+          "frame": "{{1450,935},{194,78}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{194,78}}",
+          "sourceSize": "{194,78}"
+        },
+        "restored_size": [
+          194,
+          78
+        ],
+        "pixel_sha256": "5b91ae02a72bdab066785ec6e139833b7a323a7f38a00a5d919417ad94528e45"
+      },
+      {
+        "name": "atk3b_tx_8.png",
+        "frame": {
+          "frame": "{{1223,765},{197,80}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{197,80}}",
+          "sourceSize": "{197,80}"
+        },
+        "restored_size": [
+          197,
+          80
+        ],
+        "pixel_sha256": "19239fbdf17d445b9b2d2d71a1345464b5ef9cc205c01f81960891efbe3a267d"
+      },
+      {
+        "name": "atk3b_tx_9.png",
+        "frame": {
+          "frame": "{{1115,1004},{200,80}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{200,80}}",
+          "sourceSize": "{200,80}"
+        },
+        "restored_size": [
+          200,
+          80
+        ],
+        "pixel_sha256": "5a2cf838741b45a954b174fd5e769728e00856e63ada9abdeb288addbb5970d0"
+      },
+      {
+        "name": "fire00.png",
+        "frame": {
+          "frame": "{{1171,357},{204,167}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{204,167}}",
+          "sourceSize": "{204,167}"
+        },
+        "restored_size": [
+          204,
+          167
+        ],
+        "pixel_sha256": "b4b3d2f6653f827e434ac8cc98678e3750104142232c16f4c37dda5a4eb68c79"
+      },
+      {
+        "name": "fire000.png",
+        "frame": {
+          "frame": "{{1530,1170},{143,103}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{143,103}}",
+          "sourceSize": "{143,103}"
+        },
+        "restored_size": [
+          143,
+          103
+        ],
+        "pixel_sha256": "7927e9a3dc0fa89ce957ff4988904cfb9f52948bdf0e6cc0a3416c22c97b4e95"
+      },
+      {
+        "name": "fire01.png",
+        "frame": {
+          "frame": "{{959,280},{247,210}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{247,210}}",
+          "sourceSize": "{247,210}"
+        },
+        "restored_size": [
+          247,
+          210
+        ],
+        "pixel_sha256": "be96b708672c56c7672ff8b9f1589102eabbdc81b97c2ce4c85364337f982fad"
+      },
+      {
+        "name": "fire02.png",
+        "frame": {
+          "frame": "{{235,1244},{254,201}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{254,201}}",
+          "sourceSize": "{254,201}"
+        },
+        "restored_size": [
+          254,
+          201
+        ],
+        "pixel_sha256": "32fedbfbed72a08769fc9e6b72284ccfadf86d4738519a8f9c0481ce792e85f3"
+      },
+      {
+        "name": "fire03.png",
+        "frame": {
+          "frame": "{{291,853},{262,197}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{262,197}}",
+          "sourceSize": "{262,197}"
+        },
+        "restored_size": [
+          262,
+          197
+        ],
+        "pixel_sha256": "a0460a8eba42555b974798df6ef2557701b93374667c2a31f84969bba947365b"
+      },
+      {
+        "name": "fire04.png",
+        "frame": {
+          "frame": "{{235,1447},{261,190}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{261,190}}",
+          "sourceSize": "{261,190}"
+        },
+        "restored_size": [
+          261,
+          190
+        ],
+        "pixel_sha256": "34264b47010fd253721926dad8d1d5a5316973f4c988f8b4d0032194bfa35470"
+      },
+      {
+        "name": "light01.png",
+        "frame": {
+          "frame": "{{752,815},{194,194}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{1,1},{194,194}}",
+          "sourceSize": "{196,196}"
+        },
+        "restored_size": [
+          196,
+          196
+        ],
+        "pixel_sha256": "b59358ce57904859345ebb15239093e1a5900b0112b9f4be061cfc35512f5dad"
+      },
+      {
+        "name": "light03.png",
+        "frame": {
+          "frame": "{{555,853},{197,195}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,1},{197,195}}",
+          "sourceSize": "{197,197}"
+        },
+        "restored_size": [
+          197,
+          197
+        ],
+        "pixel_sha256": "887325a68ac3c278372b7907f7e886b87542ba24a24204a2fccfece541674d1e"
+      },
+      {
+        "name": "light04.png",
+        "frame": {
+          "frame": "{{557,1052},{212,212}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{212,212}}",
+          "sourceSize": "{212,212}"
+        },
+        "restored_size": [
+          212,
+          212
+        ],
+        "pixel_sha256": "f16c4f6ee1178dee197b1247a67a71bd020d0cf6d097af6d397c85991579c7fa"
+      },
+      {
+        "name": "light8.png",
+        "frame": {
+          "frame": "{{1458,1528},{71,67}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{1,0},{71,67}}",
+          "sourceSize": "{73,67}"
+        },
+        "restored_size": [
+          73,
+          67
+        ],
+        "pixel_sha256": "25a1f0b337deb88b3c6ab8c9569dc031450cdd0351bea4e97895297f05ea70ff"
+      },
+      {
+        "name": "long.png",
+        "frame": {
+          "frame": "{{379,2},{455,276}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{455,276}}",
+          "sourceSize": "{455,276}"
+        },
+        "restored_size": [
+          455,
+          276
+        ],
+        "pixel_sha256": "5b19de6b7d682d1ff741c472e07a936500c9c1295d95be69d0d91c63c0f07f1c"
+      },
+      {
+        "name": "long_chibangL01.png",
+        "frame": {
+          "frame": "{{681,612},{238,201}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{238,201}}",
+          "sourceSize": "{238,201}"
+        },
+        "restored_size": [
+          238,
+          201
+        ],
+        "pixel_sha256": "b2428e7f04e4007d3294b3cf567bc0bfd5a123563c161fb4622fe8acdcbd47a3"
+      },
+      {
+        "name": "long_chibangL03.png",
+        "frame": {
+          "frame": "{{291,1052},{190,264}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{190,264}}",
+          "sourceSize": "{190,264}"
+        },
+        "restored_size": [
+          190,
+          264
+        ],
+        "pixel_sha256": "73e454b59b0b6ef07c971368cd4d7cf533a539ed4e80171fe6fe5d753eac9307"
+      },
+      {
+        "name": "long_chibangL04.png",
+        "frame": {
+          "frame": "{{1509,2},{261,129}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{261,129}}",
+          "sourceSize": "{261,129}"
+        },
+        "restored_size": [
+          261,
+          129
+        ],
+        "pixel_sha256": "ecce421f9d55e08f614f76cd86565fed7a6c8be12c70e17a56f7971c29074e25"
+      },
+      {
+        "name": "long_chibangL05.png",
+        "frame": {
+          "frame": "{{692,510},{261,100}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{261,100}}",
+          "sourceSize": "{261,100}"
+        },
+        "restored_size": [
+          261,
+          100
+        ],
+        "pixel_sha256": "94eea89dccae5d2b2013a99fc671e70e210e2b81f5a8c7e03a6975640fc8b80f"
+      },
+      {
+        "name": "long_chibangL06.png",
+        "frame": {
+          "frame": "{{921,626},{184,238}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{184,238}}",
+          "sourceSize": "{184,238}"
+        },
+        "restored_size": [
+          184,
+          238
+        ],
+        "pixel_sha256": "1c7dfd6058fb35272254b05962e7be81c12ef05657eb8ff25925f7a10c53f95a"
+      },
+      {
+        "name": "long_chibangL07.png",
+        "frame": {
+          "frame": "{{333,729},{122,293}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{122,293}}",
+          "sourceSize": "{122,293}"
+        },
+        "restored_size": [
+          122,
+          293
+        ],
+        "pixel_sha256": "cbdf206be3f03e2c72f4a47a6f3d470162fc90adc4bf12b09d2597511ebdaa1b"
+      },
+      {
+        "name": "long_wingL02.png",
+        "frame": {
+          "frame": "{{948,812},{177,189}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{177,189}}",
+          "sourceSize": "{177,189}"
+        },
+        "restored_size": [
+          177,
+          189
+        ],
+        "pixel_sha256": "a74e8131ea09ca4dafc380ed20457b4a02028c00bfe41a46a35de7ef3e9975c2"
+      },
+      {
+        "name": "long_wingL03.png",
+        "frame": {
+          "frame": "{{771,1011},{125,243}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{125,243}}",
+          "sourceSize": "{125,243}"
+        },
+        "restored_size": [
+          125,
+          243
+        ],
+        "pixel_sha256": "fe35d435d29c3028be15eeb9ee220867f0fff9f402cd050b742297d409a8a783"
+      },
+      {
+        "name": "long_wingL04.png",
+        "frame": {
+          "frame": "{{498,1447},{194,136}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{194,136}}",
+          "sourceSize": "{194,136}"
+        },
+        "restored_size": [
+          194,
+          136
+        ],
+        "pixel_sha256": "24e7d2def1a4df5e01d2b7a32585917c1dddb50b1d9de56a00dd7eeecfdbfbd5"
+      },
+      {
+        "name": "long_wingL05.png",
+        "frame": {
+          "frame": "{{1127,812},{190,94}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{190,94}}",
+          "sourceSize": "{190,94}"
+        },
+        "restored_size": [
+          190,
+          94
+        ],
+        "pixel_sha256": "c3e776e15f8acc940cb740e8eeff1995c110aba7ac8cf0ed2ecaaf4010b376c3"
+      },
+      {
+        "name": "long_wingL06.png",
+        "frame": {
+          "frame": "{{990,1003},{123,226}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{123,226}}",
+          "sourceSize": "{123,226}"
+        },
+        "restored_size": [
+          123,
+          226
+        ],
+        "pixel_sha256": "8b9ff9dd9ce9b36fcb57e398e868d06ac9e6f5eec50a09db49287ecc8a2fee78"
+      },
+      {
+        "name": "long_wingL07.png",
+        "frame": {
+          "frame": "{{898,1011},{90,255}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{90,255}}",
+          "sourceSize": "{90,255}"
+        },
+        "restored_size": [
+          90,
+          255
+        ],
+        "pixel_sha256": "c8b62fbf928f8744c21abf265d80f3ce9a6740e37e665940d2fa0dea0a40c42e"
+      },
+      {
+        "name": "lq_0.png",
+        "frame": {
+          "frame": "{{1171,280},{15,13}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{15,13}}",
+          "sourceSize": "{15,13}"
+        },
+        "restored_size": [
+          15,
+          13
+        ],
+        "pixel_sha256": "b80983da129e5f7b8e394203bd9c47911f4516d499f1e00cdc648306dee8aa7b"
+      },
+      {
+        "name": "lq_1.png",
+        "frame": {
+          "frame": "{{1320,629},{143,121}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{143,121}}",
+          "sourceSize": "{143,121}"
+        },
+        "restored_size": [
+          143,
+          121
+        ],
+        "pixel_sha256": "b88dc671a4c6f15cf6ff0d7cd13e55a04a5abe8ea7ac2c517dabc9b7b67fd6fb"
+      },
+      {
+        "name": "lq_10.png",
+        "frame": {
+          "frame": "{{1658,1471},{26,26}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{26,26}}",
+          "sourceSize": "{26,26}"
+        },
+        "restored_size": [
+          26,
+          26
+        ],
+        "pixel_sha256": "99f3ed7fefb6407aafddfc6849e024939841e86dd060677f660f046b38e3a08b"
+      },
+      {
+        "name": "lq_11.png",
+        "frame": {
+          "frame": "{{1587,1584},{30,60}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{30,60}}",
+          "sourceSize": "{30,60}"
+        },
+        "restored_size": [
+          30,
+          60
+        ],
+        "pixel_sha256": "52f034fa3cee1b54df781527856d07ed5dda4feeefd16de24bf83e644b1299b3"
+      },
+      {
+        "name": "lq_14.png",
+        "frame": {
+          "frame": "{{2,1629},{108,52}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{108,52}}",
+          "sourceSize": "{108,52}"
+        },
+        "restored_size": [
+          108,
+          52
+        ],
+        "pixel_sha256": "977e868530a374916606c60770ffa8823a856a6e88ceb47b9a101c9dc5bb649d"
+      },
+      {
+        "name": "lq_15.png",
+        "frame": {
+          "frame": "{{987,1292},{132,140}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{132,140}}",
+          "sourceSize": "{132,140}"
+        },
+        "restored_size": [
+          132,
+          140
+        ],
+        "pixel_sha256": "3bb046aa1db227b8349df66d18571fb795a0e61d06a4363c77ea0e65f7b5e072"
+      },
+      {
+        "name": "lq_16.png",
+        "frame": {
+          "frame": "{{1434,1355},{109,87}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{109,87}}",
+          "sourceSize": "{109,87}"
+        },
+        "restored_size": [
+          109,
+          87
+        ],
+        "pixel_sha256": "910b1079fbbba5e77a392a3951ae52dbbbc6f99e5e984d0d7c8dca7328b4cdce"
+      },
+      {
+        "name": "lq_18.png",
+        "frame": {
+          "frame": "{{1161,765},{57,45}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{57,45}}",
+          "sourceSize": "{57,45}"
+        },
+        "restored_size": [
+          57,
+          45
+        ],
+        "pixel_sha256": "808fd979dcaca64e646d5d8eb4bcecbad822714ffbcc9fc707704c634bb23439"
+      },
+      {
+        "name": "lq_19.png",
+        "frame": {
+          "frame": "{{1639,290},{45,30}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{1,0},{45,30}}",
+          "sourceSize": "{47,30}"
+        },
+        "restored_size": [
+          47,
+          30
+        ],
+        "pixel_sha256": "206a12acd649a6bbf0fb487b5f26e46734f8563e7acc32a0ebba70c0c6230e4c"
+      },
+      {
+        "name": "lq_2.png",
+        "frame": {
+          "frame": "{{1383,1496},{108,73}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{108,73}}",
+          "sourceSize": "{108,73}"
+        },
+        "restored_size": [
+          108,
+          73
+        ],
+        "pixel_sha256": "dbff4d8030c8f827efeaabee8a91d34eace3bfa534cab57440fb6d16f3761c00"
+      },
+      {
+        "name": "lq_20.png",
+        "frame": {
+          "frame": "{{1634,1553},{46,23}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{46,23}}",
+          "sourceSize": "{46,23}"
+        },
+        "restored_size": [
+          46,
+          23
+        ],
+        "pixel_sha256": "d3ddf133e036333d8d6627ffc9ede6d073ba659b0822572ca0188075317df9e1"
+      },
+      {
+        "name": "lq_21.png",
+        "frame": {
+          "frame": "{{696,1357},{81,38}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{81,38}}",
+          "sourceSize": "{81,38}"
+        },
+        "restored_size": [
+          81,
+          38
+        ],
+        "pixel_sha256": "8b37a388c40980015915c7e98d687c7afaac1a136275f21ad91c17d9c665fe65"
+      },
+      {
+        "name": "lq_22.png",
+        "frame": {
+          "frame": "{{681,815},{36,48}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{36,48}}",
+          "sourceSize": "{36,48}"
+        },
+        "restored_size": [
+          36,
+          48
+        ],
+        "pixel_sha256": "11c1227db44c096c6828b69f68ffd2a0391a2796071ee2ad3b7dab2e04fec2f6"
+      },
+      {
+        "name": "lq_23.png",
+        "frame": {
+          "frame": "{{1635,1394},{27,49}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{27,49}}",
+          "sourceSize": "{27,49}"
+        },
+        "restored_size": [
+          27,
+          49
+        ],
+        "pixel_sha256": "048e7f6b979d4acd4c2c8500c43986576f88679931177e7f9555e5a89ee9d323"
+      },
+      {
+        "name": "lq_24.png",
+        "frame": {
+          "frame": "{{1292,1319},{50,51}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{50,51}}",
+          "sourceSize": "{50,51}"
+        },
+        "restored_size": [
+          50,
+          51
+        ],
+        "pixel_sha256": "8d731f801273f647508df147b4268ddd21dadb03eed2a32f2cb891ebed171f58"
+      },
+      {
+        "name": "lq_25.png",
+        "frame": {
+          "frame": "{{1364,1280},{43,64}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{43,64}}",
+          "sourceSize": "{43,64}"
+        },
+        "restored_size": [
+          43,
+          64
+        ],
+        "pixel_sha256": "acb54224131684b29f5118f72c9852159e8c6a0d154e6796e0abe3160f3aa989"
+      },
+      {
+        "name": "lq_26.png",
+        "frame": {
+          "frame": "{{291,796},{40,49}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{40,49}}",
+          "sourceSize": "{40,49}"
+        },
+        "restored_size": [
+          40,
+          49
+        ],
+        "pixel_sha256": "d921187eea9f7c22dc39a9d7bcec2b486f8b23ca8113b7c3d177077bc5ec3534"
+      },
+      {
+        "name": "lq_27.png",
+        "frame": {
+          "frame": "{{1587,1646},{38,52}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{38,52}}",
+          "sourceSize": "{38,52}"
+        },
+        "restored_size": [
+          38,
+          52
+        ],
+        "pixel_sha256": "d15ea12aa8a3a6357309b79b05e2357d9020b3485bf5d63e82d463c9df2a801e"
+      },
+      {
+        "name": "lq_3.png",
+        "frame": {
+          "frame": "{{1245,1161},{42,41}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{42,41}}",
+          "sourceSize": "{42,41}"
+        },
+        "restored_size": [
+          42,
+          41
+        ],
+        "pixel_sha256": "178f4af0c353f61077828a1b5f4dd7d8591ac2b39da64a4e12b6bf7dbace7146"
+      },
+      {
+        "name": "lq_4.png",
+        "frame": {
+          "frame": "{{1383,1606},{94,72}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{94,72}}",
+          "sourceSize": "{94,72}"
+        },
+        "restored_size": [
+          94,
+          72
+        ],
+        "pixel_sha256": "c382da5f58a4470f0b8a60b2ead66c77e4d22948a4139ca72219ec541b514ec0"
+      },
+      {
+        "name": "lq_5.png",
+        "frame": {
+          "frame": "{{1527,1517},{65,65}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{65,65}}",
+          "sourceSize": "{65,65}"
+        },
+        "restored_size": [
+          65,
+          65
+        ],
+        "pixel_sha256": "93922e422fc3eec4415718661b6244d573cb202ee2760e33245e36348b5e2f23"
+      },
+      {
+        "name": "lq_6.png",
+        "frame": {
+          "frame": "{{772,1548},{24,29}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{24,29}}",
+          "sourceSize": "{24,29}"
+        },
+        "restored_size": [
+          24,
+          29
+        ],
+        "pixel_sha256": "79c7f97c370224747bc1c812ef2f3b7652161733b7dae8a2e569c016d71f5139"
+      },
+      {
+        "name": "lq_7.png",
+        "frame": {
+          "frame": "{{1409,1291},{50,50}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{50,50}}",
+          "sourceSize": "{50,50}"
+        },
+        "restored_size": [
+          50,
+          50
+        ],
+        "pixel_sha256": "d965997fcf82b5ead60339c5e34da78ef4af0b69f10f6431a4547c0715508ca9"
+      },
+      {
+        "name": "lq_8.png",
+        "frame": {
+          "frame": "{{121,1602},{82,76}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{82,76}}",
+          "sourceSize": "{82,76}"
+        },
+        "restored_size": [
+          82,
+          76
+        ],
+        "pixel_sha256": "8ff6b51afe0e93ae6fd60bed916cd9a7d0860fecfab96e723a83f1e4d4456173"
+      },
+      {
+        "name": "lq_9.png",
+        "frame": {
+          "frame": "{{1593,1475},{39,63}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{39,63}}",
+          "sourceSize": "{39,63}"
+        },
+        "restored_size": [
+          39,
+          63
+        ],
+        "pixel_sha256": "b0f68b44eeb361b21d73b23cc5353dffc61008272c3223c560cb2cb0e2c45a0f"
+      },
+      {
+        "name": "npc001.png",
+        "frame": {
+          "frame": "{{1530,525},{125,154}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{125,154}}",
+          "sourceSize": "{125,154}"
+        },
+        "restored_size": [
+          125,
+          154
+        ],
+        "pixel_sha256": "bc07f8eb67187e6678654c285d9a642155aaa7f27d739cf5805ad4997344b0cb"
+      },
+      {
+        "name": "npc002.png",
+        "frame": {
+          "frame": "{{1530,897},{124,156}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{124,156}}",
+          "sourceSize": "{124,156}"
+        },
+        "restored_size": [
+          124,
+          156
+        ],
+        "pixel_sha256": "c28e19f05255d613353d357ce28daeb4bc57fb3cc90aa475e4a552a2b7d6e433"
+      },
+      {
+        "name": "npc003.png",
+        "frame": {
+          "frame": "{{1520,737},{123,158}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{123,158}}",
+          "sourceSize": "{123,158}"
+        },
+        "restored_size": [
+          123,
+          158
+        ],
+        "pixel_sha256": "42288d0f59939045d6ca62fc6d48bb680c2ce515a631bf2e17485aa39f0654c1"
+      },
+      {
+        "name": "npc004.png",
+        "frame": {
+          "frame": "{{1454,349},{124,160}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{124,160}}",
+          "sourceSize": "{124,160}"
+        },
+        "restored_size": [
+          124,
+          160
+        ],
+        "pixel_sha256": "9b7b4ba4426b3f23347aac4ebe9c2fb8ca32f528bffe936d50548dac98d92341"
+      },
+      {
+        "name": "npc005.png",
+        "frame": {
+          "frame": "{{1305,774},{126,161}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{126,161}}",
+          "sourceSize": "{126,161}"
+        },
+        "restored_size": [
+          126,
+          161
+        ],
+        "pixel_sha256": "99d0e260431c796c043e8890c7fa30d46b23a9b7f5cd62edb1faa4a2bc5ca3d3"
+      },
+      {
+        "name": "npc006.png",
+        "frame": {
+          "frame": "{{885,1433},{114,118}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{114,118}}",
+          "sourceSize": "{114,118}"
+        },
+        "restored_size": [
+          114,
+          118
+        ],
+        "pixel_sha256": "45015efe56dd3ec75706bb029dfaf5a45f674a848b1ba50daf37aca46fe786d8"
+      },
+      {
+        "name": "npc007.png",
+        "frame": {
+          "frame": "{{1530,1055},{143,113}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{143,113}}",
+          "sourceSize": "{143,113}"
+        },
+        "restored_size": [
+          143,
+          113
+        ],
+        "pixel_sha256": "a8374d4ef75006afcebbf52d33187cdb7a510d8c163dd86359602bd99f7203e8"
+      },
+      {
+        "name": "npc008.png",
+        "frame": {
+          "frame": "{{379,280},{251,311}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{251,311}}",
+          "sourceSize": "{251,311}"
+        },
+        "restored_size": [
+          251,
+          311
+        ],
+        "pixel_sha256": "a40373efb4bc96cc8200b351d374d7ef558aa62f739b75eabadbeed895c7b600"
+      },
+      {
+        "name": "npc009.png",
+        "frame": {
+          "frame": "{{1528,1275},{86,118}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{86,118}}",
+          "sourceSize": "{86,118}"
+        },
+        "restored_size": [
+          86,
+          118
+        ],
+        "pixel_sha256": "1e9da0fd934646f574e051969ff4edb4d5dd340d39a07ca99a3b1f2354755044"
+      },
+      {
+        "name": "npc01.png",
+        "frame": {
+          "frame": "{{498,1585},{99,132}}",
+          "offset": "{-3,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{99,132}}",
+          "sourceSize": "{105,132}"
+        },
+        "restored_size": [
+          105,
+          132
+        ],
+        "pixel_sha256": "e34f1dd60fa6a13955f08287e79060f8e07f49f57c5fa3ea644b9b5d3204db33"
+      },
+      {
+        "name": "stsr01.png",
+        "frame": {
+          "frame": "{{1001,1426},{129,135}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{129,135}}",
+          "sourceSize": "{129,135}"
+        },
+        "restored_size": [
+          129,
+          135
+        ],
+        "pixel_sha256": "73f0d101be701a44c41e00402d72ae5764f53dacec9ce74ddc1229b673886ea5"
+      },
+      {
+        "name": "tui.png",
+        "frame": {
+          "frame": "{{199,1602},{33,32}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{33,32}}",
+          "sourceSize": "{33,32}"
+        },
+        "restored_size": [
+          33,
+          32
+        ],
+        "pixel_sha256": "aab6ac44f1d8448727b169d04fd915057997b533b25ecf36a94a42aee40b7723"
+      },
+      {
+        "name": "tx_a3_smoke1.png",
+        "frame": {
+          "frame": "{{121,1152},{448,112}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{448,112}}",
+          "sourceSize": "{448,112}"
+        },
+        "restored_size": [
+          448,
+          112
+        ],
+        "pixel_sha256": "dc8629334b5058da2b028f9f867dc768ead37cf73577790ca94b931baec0b83d"
+      },
+      {
+        "name": "tx_a3_smoke2.png",
+        "frame": {
+          "frame": "{{2,1152},{475,117}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{475,117}}",
+          "sourceSize": "{475,117}"
+        },
+        "restored_size": [
+          475,
+          117
+        ],
+        "pixel_sha256": "250299d4b511d6cf8b123207dc4d172ada572bdfb8383ba45608a043394be147"
+      },
+      {
+        "name": "tx_a3_smoke4.png",
+        "frame": {
+          "frame": "{{892,1268},{163,93}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{163,93}}",
+          "sourceSize": "{163,93}"
+        },
+        "restored_size": [
+          163,
+          93
+        ],
+        "pixel_sha256": "850f97bb2ed02a36caa8b06f0ccd0d07619d00f52d0df178bb3109a3b60b8877"
+      },
+      {
+        "name": "tx_a3_smoke4_2.png",
+        "frame": {
+          "frame": "{{1640,2},{241,40}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{241,40}}",
+          "sourceSize": "{241,40}"
+        },
+        "restored_size": [
+          241,
+          40
+        ],
+        "pixel_sha256": "24c2ac574cd02aaca93897695e6e50026ee976974e16a5f35ddb2a48864a8c43"
+      },
+      {
+        "name": "tx_a3_smoke5.png",
+        "frame": {
+          "frame": "{{809,1553},{131,93}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{131,93}}",
+          "sourceSize": "{131,93}"
+        },
+        "restored_size": [
+          131,
+          93
+        ],
+        "pixel_sha256": "b56647f67d0151d8fcf4160f7e0298b41471cc8c865756a1de5c3ce7f23f8647"
+      },
+      {
+        "name": "tx_a3_smoke5_2.png",
+        "frame": {
+          "frame": "{{199,1639},{174,38}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{174,38}}",
+          "sourceSize": "{174,38}"
+        },
+        "restored_size": [
+          174,
+          38
+        ],
+        "pixel_sha256": "96040e37f68ff626939a714c071dcbab276e69461a8ec5ea4fe8a708314654dc"
+      },
+      {
+        "name": "tx_a3_smokeb1.png",
+        "frame": {
+          "frame": "{{1414,937},{198,34}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{198,34}}",
+          "sourceSize": "{198,34}"
+        },
+        "restored_size": [
+          198,
+          34
+        ],
+        "pixel_sha256": "2fa3a9b4b08c5ffb4c78f763d67198c00e6222acb7d3f8a97c2ae0c771bafa26"
+      },
+      {
+        "name": "tx_a3_smokeb2.png",
+        "frame": {
+          "frame": "{{1197,1004},{198,46}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{198,46}}",
+          "sourceSize": "{198,46}"
+        },
+        "restored_size": [
+          198,
+          46
+        ],
+        "pixel_sha256": "fbe4dae815acd398fdea3015afefc51f163f2f71ed38c2b6e0c37493abab334f"
+      },
+      {
+        "name": "tx_a3_smokeb3.png",
+        "frame": {
+          "frame": "{{1364,1131},{147,43}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{147,43}}",
+          "sourceSize": "{147,43}"
+        },
+        "restored_size": [
+          147,
+          43
+        ],
+        "pixel_sha256": "f33cb7a127d0f3516bb5382aabb0c1203674c6ea50c26b93431316efcee8f6bb"
+      },
+      {
+        "name": "tx_a3_smokeb4.png",
+        "frame": {
+          "frame": "{{333,380},{128,44}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{128,44}}",
+          "sourceSize": "{128,44}"
+        },
+        "restored_size": [
+          128,
+          44
+        ],
+        "pixel_sha256": "ca16b8cb2dcb11ccfe35dd8a533251b7f7e387c933471c73193f905317947ce8"
+      },
+      {
+        "name": "tx_a3_smokec1.png",
+        "frame": {
+          "frame": "{{955,529},{253,95}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{253,95}}",
+          "sourceSize": "{253,95}"
+        },
+        "restored_size": [
+          253,
+          95
+        ],
+        "pixel_sha256": "bcb98d2e5b1391dafa314fa9fcd8ab053c915cded2a0479e4e1cd96c4215f1e0"
+      },
+      {
+        "name": "tx_a3_smokec2.png",
+        "frame": {
+          "frame": "{{1433,774},{159,85}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{159,85}}",
+          "sourceSize": "{159,85}"
+        },
+        "restored_size": [
+          159,
+          85
+        ],
+        "pixel_sha256": "66f6a637d57bc1cbe505a2b0944850fcefd48668a490638631588cd18a7a7923"
+      },
+      {
+        "name": "tx_a3_smokec3.png",
+        "frame": {
+          "frame": "{{1186,263},{258,92}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{258,92}}",
+          "sourceSize": "{258,92}"
+        },
+        "restored_size": [
+          258,
+          92
+        ],
+        "pixel_sha256": "75b4c5054d8b621e91ec6251fd85dbbe8655dc6e115e3c580a1d7ac34e88946a"
+      },
+      {
+        "name": "tx_a3_smokec4.png",
+        "frame": {
+          "frame": "{{491,1266},{244,89}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{244,89}}",
+          "sourceSize": "{244,89}"
+        },
+        "restored_size": [
+          244,
+          89
+        ],
+        "pixel_sha256": "be2516e42a1f4917c49a9c1a10b545d683cfa06b790c27a22b910488e11d5a16"
+      },
+      {
+        "name": "ult_tx_13.png",
+        "frame": {
+          "frame": "{{1186,2},{321,259}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{321,259}}",
+          "sourceSize": "{321,259}"
+        },
+        "restored_size": [
+          321,
+          259
+        ],
+        "pixel_sha256": "f9eca73f6fb4cd6951b75ee3a2c359c36a535f2648b70c26f5be66445b592404"
+      },
+      {
+        "name": "ult_tx_14.png",
+        "frame": {
+          "frame": "{{836,2},{348,276}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{348,276}}",
+          "sourceSize": "{348,276}"
+        },
+        "restored_size": [
+          348,
+          276
+        ],
+        "pixel_sha256": "dfc1b4aa83029da2f0a912cd845103d05d861f9b181c282d7bc3c43f9fc005d0"
+      },
+      {
+        "name": "ult_tx_15.png",
+        "frame": {
+          "frame": "{{2,796},{354,287}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{354,287}}",
+          "sourceSize": "{354,287}"
+        },
+        "restored_size": [
+          354,
+          287
+        ],
+        "pixel_sha256": "59a35512d23955420c15b0a7ec22622cafaa7b1c72411234236fb5bb2df9c9a8"
+      },
+      {
+        "name": "x2.png",
+        "frame": {
+          "frame": "{{990,1231},{59,137}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{59,137}}",
+          "sourceSize": "{59,137}"
+        },
+        "restored_size": [
+          59,
+          137
+        ],
+        "pixel_sha256": "131fd0d1a8bb9eca1691be1c9c4e442971a519cf2d9592a2758cd2f80ec76738"
+      },
+      {
+        "name": "xdg1.png",
+        "frame": {
+          "frame": "{{1210,526},{227,101}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{227,101}}",
+          "sourceSize": "{227,101}"
+        },
+        "restored_size": [
+          227,
+          101
+        ],
+        "pixel_sha256": "42bc7ccaba4be5b79eded3a56dcf3cc9bfe502689c0fb5ca118a26b39ab9796f"
+      },
+      {
+        "name": "xdg2.png",
+        "frame": {
+          "frame": "{{2,380},{414,329}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{414,329}}",
+          "sourceSize": "{414,329}"
+        },
+        "restored_size": [
+          414,
+          329
+        ],
+        "pixel_sha256": "9b990615b781638841cf6a5af1e949aba0f6c7f191db6bedfa4bd584cfd406fb"
+      },
+      {
+        "name": "xdg3.png",
+        "frame": {
+          "frame": "{{333,533},{194,293}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{194,293}}",
+          "sourceSize": "{194,293}"
+        },
+        "restored_size": [
+          194,
+          293
+        ],
+        "pixel_sha256": "5a761382508c8b874cb6cc3dee61c66f660cccc3dd39819835081a55c1488851"
+      },
+      {
+        "name": "xs.png",
+        "frame": {
+          "frame": "{{1218,1372},{166,71}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{166,71}}",
+          "sourceSize": "{166,71}"
+        },
+        "restored_size": [
+          166,
+          71
+        ],
+        "pixel_sha256": "78971232eb483772bcfa4e355ba136bbaf1eb6eadce709c311b1feabfe65df99"
+      },
+      {
+        "name": "xuli01.png",
+        "frame": {
+          "frame": "{{1521,1475},{70,40}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{70,40}}",
+          "sourceSize": "{70,40}"
+        },
+        "restored_size": [
+          70,
+          40
+        ],
+        "pixel_sha256": "4d6f505871797aa4b47dda3bb82ad6c8f0f6484954e8835d0e8ce4618d16be14"
+      },
+      {
+        "name": "xuli02.png",
+        "frame": {
+          "frame": "{{1645,737},{147,39}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{147,39}}",
+          "sourceSize": "{147,39}"
+        },
+        "restored_size": [
+          147,
+          39
+        ],
+        "pixel_sha256": "974e64636f217d8ed450fca33db26966dd14140a91ede220ab526a9a7d783c7b"
+      },
+      {
+        "name": "xuli03.png",
+        "frame": {
+          "frame": "{{491,1357},{203,88}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{203,88}}",
+          "sourceSize": "{203,88}"
+        },
+        "restored_size": [
+          203,
+          88
+        ],
+        "pixel_sha256": "262991054485c17dd702320adb59c8ef821cc65c97afeb752caef0e93af8f6a0"
+      },
+      {
+        "name": "xuli04.png",
+        "frame": {
+          "frame": "{{1161,629},{157,134}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{157,134}}",
+          "sourceSize": "{157,134}"
+        },
+        "restored_size": [
+          157,
+          134
+        ],
+        "pixel_sha256": "31f6d97813faa23d6cc71f4c636759dc03326bf63640945373f0b95e6970101b"
+      },
+      {
+        "name": "xuli05.png",
+        "frame": {
+          "frame": "{{986,1563},{117,132}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{117,132}}",
+          "sourceSize": "{117,132}"
+        },
+        "restored_size": [
+          117,
+          132
+        ],
+        "pixel_sha256": "c11561b73c6bf45baa93504efa617c9269d8f50cf2381ce36fb285c9135c4144"
+      },
+      {
+        "name": "xuli06.png",
+        "frame": {
+          "frame": "{{1523,1363},{110,110}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{110,110}}",
+          "sourceSize": "{110,110}"
+        },
+        "restored_size": [
+          110,
+          110
+        ],
+        "pixel_sha256": "061f1b5bfed67f775b125c7b7acada2f73833dcec1e21cb40ad9c89c42d836a3"
+      },
+      {
+        "name": "xuli08.png",
+        "frame": {
+          "frame": "{{1469,1131},{106,59}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{106,59}}",
+          "sourceSize": "{106,59}"
+        },
+        "restored_size": [
+          106,
+          59
+        ],
+        "pixel_sha256": "1b8ab21ddcd4e10808c34262646ee5833b86f4044d072db5ac35b9a4a027a267"
+      },
+      {
+        "name": "xuli09.png",
+        "frame": {
+          "frame": "{{632,1585},{77,99}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{77,99}}",
+          "sourceSize": "{77,99}"
+        },
+        "restored_size": [
+          77,
+          99
+        ],
+        "pixel_sha256": "a9bba2b102027ef07c4298521d5edd80c60cd87016c931ac5b4e36e51c317849"
+      },
+      {
+        "name": "xuli10.png",
+        "frame": {
+          "frame": "{{1328,937},{192,84}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{192,84}}",
+          "sourceSize": "{192,84}"
+        },
+        "restored_size": [
+          192,
+          84
+        ],
+        "pixel_sha256": "8e6b346ed1d474406ee80ddd001c7f81bc954cb0cfe11251cead0afa23c27a20"
+      },
+      {
+        "name": "xuli11.png",
+        "frame": {
+          "frame": "{{1580,349},{174,91}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{174,91}}",
+          "sourceSize": "{174,91}"
+        },
+        "restored_size": [
+          174,
+          91
+        ],
+        "pixel_sha256": "5ea926d79cb5ca80a8240113b4345476c7c69a15e7092641e81770dd6d00e87a"
+      },
+      {
+        "name": "xuli12.png",
+        "frame": {
+          "frame": "{{1120,1563},{113,111}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{113,111}}",
+          "sourceSize": "{113,111}"
+        },
+        "restored_size": [
+          113,
+          111
+        ],
+        "pixel_sha256": "796fd8b60c663ec1f946f12f64607d185be83eea66530b699eefb7c73ac1d136"
+      },
+      {
+        "name": "xuli13.png",
+        "frame": {
+          "frame": "{{711,1585},{96,98}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{96,98}}",
+          "sourceSize": "{96,98}"
+        },
+        "restored_size": [
+          96,
+          98
+        ],
+        "pixel_sha256": "5878419f0c1eab2d20cb0e062833edf84f0fb47ad4d4c612b41a7ed9478ff2c9"
+      },
+      {
+        "name": "xuli14.png",
+        "frame": {
+          "frame": "{{1648,1275},{79,36}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{79,36}}",
+          "sourceSize": "{79,36}"
+        },
+        "restored_size": [
+          79,
+          36
+        ],
+        "pixel_sha256": "24d667af5fe725900a4f7e00c140c5bec32f14a195697dd702a6bd62558f8016"
+      },
+      {
+        "name": "yanc1.png",
+        "frame": {
+          "frame": "{{375,1639},{112,40}}",
+          "offset": "{0,0}",
+          "rotated": false,
+          "sourceColorRect": "{{0,0},{112,40}}",
+          "sourceSize": "{112,40}"
+        },
+        "restored_size": [
+          112,
+          40
+        ],
+        "pixel_sha256": "23d5ee9837db7526f09e94b55e0d29abbbf4e086c9f6c48b98c83cd42dbb258e"
+      },
+      {
+        "name": "yanc11.png",
+        "frame": {
+          "frame": "{{1291,1372},{162,76}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{162,76}}",
+          "sourceSize": "{162,76}"
+        },
+        "restored_size": [
+          162,
+          76
+        ],
+        "pixel_sha256": "c5dd8d6c468cac9310ea0a3bae1c5c83d1d415fd9cca01b9a836768ff05aadc2"
+      },
+      {
+        "name": "yanc2.png",
+        "frame": {
+          "frame": "{{1316,1536},{148,65}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{148,65}}",
+          "sourceSize": "{148,65}"
+        },
+        "restored_size": [
+          148,
+          65
+        ],
+        "pixel_sha256": "4d61ad93683b1238f72df54fa31098bd686d5aa1a1acbc036a2ecbe45896ecb6"
+      },
+      {
+        "name": "yanc3.png",
+        "frame": {
+          "frame": "{{1292,1161},{156,70}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{156,70}}",
+          "sourceSize": "{156,70}"
+        },
+        "restored_size": [
+          156,
+          70
+        ],
+        "pixel_sha256": "a0a9de63a847fbd055a72d660ce1b9c7a7dafb5fb7ba8247a1bd70d9e6c6e03d"
+      },
+      {
+        "name": "yanc5.png",
+        "frame": {
+          "frame": "{{1454,511},{166,74}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{166,74}}",
+          "sourceSize": "{166,74}"
+        },
+        "restored_size": [
+          166,
+          74
+        ],
+        "pixel_sha256": "1916eae0fe2340d68695c9484f198f417c540a7a83480ba351b1ea6af30a9492"
+      },
+      {
+        "name": "yanc7.png",
+        "frame": {
+          "frame": "{{1377,357},{167,75}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{167,75}}",
+          "sourceSize": "{167,75}"
+        },
+        "restored_size": [
+          167,
+          75
+        ],
+        "pixel_sha256": "7106d0577e7d230251175c680af3c7ca78d1631b7f63ca1fa05a2c1ad47204de"
+      },
+      {
+        "name": "yanc9.png",
+        "frame": {
+          "frame": "{{1215,1204},{166,75}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,0},{166,75}}",
+          "sourceSize": "{166,75}"
+        },
+        "restored_size": [
+          166,
+          75
+        ],
+        "pixel_sha256": "935f5577ddd54427862687831a5cd1ba587c26e61cd84208865c89cae4bff3c7"
+      },
+      {
+        "name": "zbb.png",
+        "frame": {
+          "frame": "{{1635,1363},{29,49}}",
+          "offset": "{0,0}",
+          "rotated": true,
+          "sourceColorRect": "{{0,1},{29,49}}",
+          "sourceSize": "{29,51}"
+        },
+        "restored_size": [
+          29,
+          51
+        ],
+        "pixel_sha256": "05e64d062a799a873416895341b2a327bb9c6a66bd64c11f112e2dd325b36909"
+      }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "name": "DP_fashion_1",
+  "source": "patch/pfca/DP_fashion_1.fca",
+  "container_sha256": "0892fc179e48a6bc717e2c0e043cdee81ad541039118a5da094dda6754451d08",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 64,
+  "element_count": 84,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 48,
+      "duration_seconds": 2.0,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 45,
+      "duration_seconds": 1.875,
+      "events": 2
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 47,
+      "duration_seconds": 1.9583333333333333,
+      "events": 2
+    },
+    {
+      "name": "atk3",
+      "fps": 24.0,
+      "frames": 49,
+      "duration_seconds": 2.0416666666666665,
+      "events": 2
+    },
+    {
+      "name": "Cheer",
+      "fps": 24.0,
+      "frames": 57,
+      "duration_seconds": 2.375,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 42,
+      "duration_seconds": 1.75,
+      "events": 1
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 15,
+      "duration_seconds": 0.625,
+      "events": 0
+    },
+    {
+      "name": "ult",
+      "fps": 24.0,
+      "frames": 71,
+      "duration_seconds": 2.9583333333333335,
+      "events": 2
+    }
+  ],
+  "cha_bytes": 451016,
+  "cha_bytes_consumed": 451016,
+  "atlas_pixel_roundtrip_verified": true
+}

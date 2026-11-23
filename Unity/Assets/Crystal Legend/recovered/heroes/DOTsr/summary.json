@@ -1,0 +1,57 @@
+{
+  "name": "DOTsr",
+  "source": "patch/pfca/DOTsr.fca",
+  "container_sha256": "64b4150feaaf87e71c9a6916f339add227dbc14ebe586b187852c1a3dddd024e",
+  "sprite_sheets": [
+    "sprite_sheets\\sheet.png"
+  ],
+  "sprite_count": 26,
+  "element_count": 29,
+  "actions": [
+    {
+      "name": "Idle",
+      "fps": 24.0,
+      "frames": 38,
+      "duration_seconds": 1.5833333333333333,
+      "events": 0
+    },
+    {
+      "name": "Move",
+      "fps": 24.0,
+      "frames": 16,
+      "duration_seconds": 0.6666666666666666,
+      "events": 0
+    },
+    {
+      "name": "Damaged",
+      "fps": 24.0,
+      "frames": 18,
+      "duration_seconds": 0.75,
+      "events": 0
+    },
+    {
+      "name": "Death",
+      "fps": 24.0,
+      "frames": 34,
+      "duration_seconds": 1.4166666666666667,
+      "events": 0
+    },
+    {
+      "name": "atk",
+      "fps": 24.0,
+      "frames": 26,
+      "duration_seconds": 1.0833333333333333,
+      "events": 1
+    },
+    {
+      "name": "atk2",
+      "fps": 24.0,
+      "frames": 45,
+      "duration_seconds": 1.875,
+      "events": 1
+    }
+  ],
+  "cha_bytes": 107326,
+  "cha_bytes_consumed": 107326,
+  "atlas_pixel_roundtrip_verified": true
+}
