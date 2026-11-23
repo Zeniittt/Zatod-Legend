@@ -1,0 +1,42 @@
+package up;
+
+message pvp_parameter{
+	required uint32 _warschoolLevel 		= 1;
+	required uint32 _bookReadingLevel 		= 2;
+	required uint32 _maxRank 				= 3;
+	required uint32 _arenaLevel				= 4;
+	required uint32 _generationNum 			= 5;
+	required uint32 _heroStar 				= 6;
+	required uint32 _teamNumber 			= 7;
+	required uint32 _variationProbability 	= 8;
+	required uint32 _specifyHeroID 			= 9;
+	repeated uint32 _cullHeroeIds 			= 10;
+	required pvp_heroAwake _awake 			= 11;
+	required pvp_heroSuperAwake _superAwake = 12;
+	required uint32 _maxHeroId				= 13;	
+	required string _name 					= 14;
+}
+
+message pvp_heroAwake{
+	required uint32 _status = 1;
+	required uint32 _str    = 2;
+	required uint32 _int 	= 3;
+	required uint32 _agi 	= 4;
+}
+
+enum rune_type {
+    sun  = 0;
+    moon = 1;
+    star = 2;
+}
+
+message hero_rune_attr {
+    required rune_type _prefix  = 1;
+    required string    _postfix = 2;
+    required uint32    _item_id = 3;
+}
+
+message pvp_heroSuperAwake{
+	required uint32 _status = 1;
+	optional hero_rune_attr _hero_rune_attr = 2;
+}

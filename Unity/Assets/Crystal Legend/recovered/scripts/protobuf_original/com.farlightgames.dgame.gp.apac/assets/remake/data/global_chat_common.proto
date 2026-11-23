@@ -1,0 +1,12 @@
+package global_chat_common;
+
+enum gender {
+    male   = 1;
+    female = 2;
+    unknow = 3;
+}
+
+message gc_channel_chat {
+    required string channel_chat  = 1;
+    repeated bytes  extra_content = 2;
+}

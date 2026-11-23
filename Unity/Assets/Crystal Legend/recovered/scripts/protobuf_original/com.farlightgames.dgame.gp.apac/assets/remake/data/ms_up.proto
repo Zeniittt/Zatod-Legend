@@ -1,0 +1,14 @@
+package ms_up;
+
+message ms_up_msg {
+    optional charge_query       charge_query      = 1;
+    optional login_query        login_query       = 2;
+}
+
+message charge_query{
+    required uint32 platform_type    = 1;
+}
+
+message login_query{
+    required uint32 platform_type    = 1;
+}

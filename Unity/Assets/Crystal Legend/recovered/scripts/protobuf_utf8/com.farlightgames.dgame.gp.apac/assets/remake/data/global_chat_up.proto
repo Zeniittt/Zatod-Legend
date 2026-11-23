@@ -1,0 +1,28 @@
+package global_chat_up;
+
+import "global_chat_common.proto";
+
+message gc_up {
+    optional gc_open_panel   open_panel   = 1;
+    optional gc_channel_sub  channel_sub  = 2;
+    optional gc_channel_chat channel_chat = 3;
+    optional uint32          msg_ask       = 4;
+    optional gc_connect_test connect_test = 5;
+    required string          uuid         = 6;
+}
+
+message gc_open_panel {
+    required uint32  svr_id = 1;
+    required uint32  uid    = 2;
+    required string  key    = 3;
+    required string  uuid   = 4;
+}
+
+message gc_channel_sub {
+    required uint32 channel_id = 1;
+    required uint32 cur_msg_id = 2;
+}
+
+message gc_connect_test {
+
+}

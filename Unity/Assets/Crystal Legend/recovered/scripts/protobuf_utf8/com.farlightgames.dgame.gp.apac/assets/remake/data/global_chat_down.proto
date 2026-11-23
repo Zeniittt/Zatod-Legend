@@ -1,0 +1,63 @@
+package global_chat_down;
+
+import "global_chat_common.proto";
+
+enum gc_connect_status {
+    success      = 1;
+    unregistered = 2;
+    unsubscribed = 3;
+}
+
+message gc_down {
+    optional string               error              = 1;
+    optional gc_open_panel_reply  open_panel_reply   = 2;
+    optional bool                 channel_sub_reply  = 3;
+    optional bool                 channel_chat_reply = 4;
+    optional gc_msg               msg                = 5;
+    optional gc_connect_status    connect_status     = 6;
+}
+
+message gc_open_panel_reply {
+    repeated gc_chat_channel chat_channel = 1;
+    required bool            can_chat     = 2;
+}
+
+message gc_chat_channel {
+    enum channel_color {
+        red   = 1;
+        blue  = 2;
+        green = 3;
+    }
+    required uint32        id   = 1;
+    required string        name = 2;
+    required channel_color channel_color = 3;
+}
+
+message gc_msg {
+    required uint32          seq_id      = 1;  // 客户端要回给服务器的确认号
+    repeated gc_channel_msg  channel_msg = 2;
+}
+
+message gc_channel_msg {
+    required uint32           channel_id = 1;
+    required uint32           msg_id     = 2;
+    required gc_user_info     send_user  = 3;
+    required gc_channel_chat  content    = 4;
+    required uint32           timestamp  = 5;
+}
+
+message gc_user_info {
+    required uint32  avatar      = 1; // 玩家头像
+    required string  name        = 2; // 玩家名
+    required uint32  vip         = 3; // 玩家vip
+    required uint32  level       = 4; // 玩家等级
+    optional string  guild_name  = 5; // 公会名字
+    optional uint32  medal_id    = 6; // 徽章
+    optional uint32  babel_level = 7; // 通天塔等级
+    optional uint32  svr_id      = 8;
+    optional uint32  uid         = 9;
+    optional string  uuid        = 10;
+    optional gender  gender      = 11;
+    optional uint32  cp_frame_id = 12; // 自定义头像框ID
+    optional string  cp_photo    = 13; // 自定义头像
+}

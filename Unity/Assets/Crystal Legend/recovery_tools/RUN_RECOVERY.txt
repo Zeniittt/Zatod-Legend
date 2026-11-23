@@ -1,0 +1,40 @@
+Run from the APK folder using PowerShell.
+
+Dependencies:
+  python -m pip install --target .recovery-deps -r recovery_tools/requirements.txt
+  Pillow must also be available to the Python environment running assets.py.
+  Java JDK is needed for unluac and the batch wrapper.
+
+The included unluac.jar came from the official SourceForge project:
+  https://sourceforge.net/projects/unluac/files/Unstable/unluac_2025_12_23.jar/
+Its SHA256 and the native loader evidence are in:
+  recovered/reports/recovery_method.json
+The upstream license and authors are retained inside unluac.jar and
+recovery_tools/unluac_classes.
+
+Steps:
+  python recovery_tools/recover.py
+  javac -cp recovery_tools/unluac.jar recovery_tools/BatchDecompile.java
+  java -cp "recovery_tools;recovery_tools/unluac.jar" BatchDecompile recovered/scripts/lua51_bytecode recovered/scripts/lua recovered/reports/decompile.tsv
+  python recovery_tools/fix_decompiler_output.py
+  python recovery_tools/assets.py
+  python recovery_tools/verify.py
+
+All APK inputs remain unchanged. Outputs are written under recovered/.
+No game script is executed: verify.py calls Lua loadstring only to compile
+source and load bytecode, and discards the resulting functions.
+
+The batch decompiler skips existing nonempty .lua files. If you change the
+normalization algorithm, use a new output directory to force decompilation.
+
+Script stages:
+  raw .abc -> filename-keyed XOR/permutation -> password-protected ZIP
+  -> original custom Lua bytecode or Protobuf text
+  -> standard Lua 5.1 header/opcodes -> unluac source
+
+The 52 *_ptr.abc variants use their filename with _ptr removed as the
+encryption key and ZIP password basename. Their output names stay distinct.
+
+CCZ textures are zlib-compressed PVR v2 files. All base-level RGBA8888 and
+RGBA4444 pixels are exported as PNG. The original CCZ, PVR containers and
+any mip levels remain available in apk_contents/.

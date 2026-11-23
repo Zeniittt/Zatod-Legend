@@ -1,0 +1,57 @@
+package down;
+
+message down {
+	optional login_reply         login_reply         = 1;
+	optional update_passwd_reply update_passwd_reply = 2;
+	optional logout_reply        logout_reply        = 3;
+	optional reset_passwd_reply  reset_passwd_reply  = 4;
+	optional create_user_reply   create_user_reply   = 5;
+	optional deviceinfo_reply	 deviceinfo_reply    = 6;
+}
+
+message login_reply {
+	optional string token      = 1;
+	optional int32  uin        = 2;
+	optional int32  error_code = 3;  // error code
+	optional int32  open_pay   = 4;  // if open winphone pay.
+}
+
+message logout_reply {
+	optional int32 error_code = 1;  // error code
+}
+
+message update_passwd_reply {
+	optional int32 error_code = 1;  // error code
+}
+
+message reset_passwd_reply {
+	optional int32 error_code = 1;  // error code
+}
+
+message create_user_reply {
+	optional string token      = 1;
+	optional int32  uin        = 2;
+	optional int32  error_code = 3;  // error code
+	optional int32  open_pay   = 4;  // if open winphone pay.
+}
+
+message deviceinfo_reply {
+	optional int32 error_code = 1;  // error code
+}
+
+/* error_code comment
+enum error_code {
+   -1 = 1;    // fail
+	0 = 2;    // success
+	1 = 3;    // name password not match
+	2 = 4;    // name not found
+	3 = 5;    // email duplicate
+	4 = 6;    // token expired
+	5 = 7;    // token not found
+	6 = 8;    // token uin not match
+	7 = 9;    // user auth fail
+    8 = 10;   // name exists
+    9 = 11;   // system internal error
+    10 = 12;  // uin not found
+}
+*/

@@ -1,0 +1,53 @@
+package down;
+
+message awake{
+	required uint32 _status = 1;
+	optional uint32 _str 	= 2;
+	optional uint32 _int 	= 3;
+	optional uint32 _agi 	= 4;
+}
+
+enum rune_type {
+    sun  = 0;
+    moon = 1;
+    star = 2;
+}
+
+message hero_rune_attr {
+    required rune_type _prefix  = 1;
+    required string    _postfix = 2;
+    required uint32    _item_id = 3;
+}
+
+message superAwake{
+	required uint32 _status = 1;
+	optional hero_rune_attr _hero_rune_attr = 2;
+}
+
+message pvp_hero{
+	required uint32 _tid 					= 1;
+	required uint32 _level 					= 2;
+	required uint32 _star 					= 3;
+	required awake _awake 					= 4;
+	required superAwake  _superAwake 		= 5;
+	required string _name 					= 6;
+}
+
+message pvp_team{
+	repeated pvp_hero _heroes = 1;
+	optional uint32 _position 	= 2;
+	required uint32 _score 		= 3;
+	
+}
+
+message roundResult {
+	repeated pvp_team _teamList = 1;
+	required uint32 _generation = 2;
+	required uint32 _totalTime 	= 3;
+	required uint32 _drawBout 	= 4;
+	required uint32 _totalBout 	= 5;
+}
+
+message pvp_resultData{
+	repeated roundResult _result = 1;
+}

@@ -1,0 +1,5644 @@
+package up;
+
+import "common.proto";
+
+// 平台类型
+enum platform_type {
+    self          = 0;  // 官方
+    lilith_test1  = 1;  // 公司内测
+
+    lilith_ptr      = 301; // 国服ptr包
+    lilith_official = 302; // 国服官服
+    douyin_official = 303; // 抖音官服
+
+    lilith_global   = 501; // 海外服统一包
+    lilith_global_mask_gp  = 901; // 谷歌包市场测试
+}
+
+enum battle_result {
+    victory  = 0;
+    defeat   = 1;
+    canceled = 2;
+    timeout  = 3;
+}
+
+enum rankboard_type {
+    static   = 0;
+    dynamic  = 1;
+    local    = 2;
+    global   = 3;
+}
+
+// 可选奖励
+message choose_reward {
+    optional uint32  _group_id   = 1; // 组id
+    optional uint32  _index      = 2; // 奖励下表
+}
+
+message up_msg {
+    optional uint32             _sequence           = 1;    // 请求流水
+    optional uint32             _repeat             = 2;    // 重复请求标示
+    optional uint32             _user_id            = 3;    // 玩家ID
+    optional login              _login              = 4;    // 登录
+    optional enter_stage        _enter_stage        = 5;    // 开始关卡战斗
+    optional exit_stage         _exit_stage         = 6;    // 结束战斗
+    optional gm_cmd             _gm_cmd             = 7;    // GM 指令
+    optional hero_upgrade       _hero_upgrade       = 8;    // 需要进阶的英雄
+    optional equip_synthesis    _equip_synthesis    = 9;    // 需要合成的装备
+    optional wear_equip         _wear_equip         = 10;   // 英雄穿装备
+    optional consume_item       _consume_item       = 11;   // 吃经验丹
+    optional shop_refresh       _shop_refresh       = 12;   // 刷新商店
+    optional shop_consume       _shop_consume       = 13;   // 购买物品
+    optional skill_levelup      _skill_levelup      = 14;   // 技能升级
+    optional sell_item          _sell_item          = 15;   // 物品出售
+    optional fragment_compose   _fragment_compose   = 16;   // 碎片合成
+    optional hero_equip_upgrade _hero_equip_upgrade = 17;   // 英雄身上的装备进阶
+    optional trigger_task       _trigger_task       = 18;   // 触发任务F
+    optional require_rewards    _require_rewards    = 19;   // 请求任务奖励
+    optional trigger_job        _trigger_job        = 20;   // 触发每日活动，这个接口先占着，以后用得着
+    optional job_rewards        _job_rewards        = 21;   // 每日活动奖励
+    optional reset_elite        _reset_elite        = 22;   // 精英关卡重置
+    optional sweep_stage        _sweep_stage        = 23;   // 关卡扫荡
+    optional buy_vitality       _buy_vitality       = 24;   // 购买体力
+
+    optional recharge_polling   _recharge_polling   = 27;   // 充值轮询
+    optional hero_evolve        _hero_evolve        = 28;   // 英雄进化
+    optional enter_act_stage    _enter_act_stage    = 29;   // 进入活动关卡
+    optional sync_vitality      _sync_vitality      = 30;   // 同步体力值
+    optional suspend_report     _suspend_report     = 31;   // 客户端关闭日志
+    optional tutorial           _tutorial           = 32;   // 新手引导
+    optional ladder             _ladder             = 33;   // pvp天梯
+    optional set_name           _set_name           = 34;   // 设置玩家名字
+    optional midas              _midas              = 35;   // 点金手
+    optional open_shop          _open_shop          = 36;   // 开启商店
+    optional sdk_login          _sdk_login          = 38;   // sdk登陆消息
+    optional set_avatar         _set_avatar         = 39;   // 设置头像
+    optional ask_daily_login    _ask_daily_login    = 40;   // 每日登陆
+    optional tbc                _tbc                = 41;   // 燃烧的远征
+    optional get_maillist       _get_maillist       = 42;   // 获取所有邮件
+    optional read_mail          _read_mail          = 43;   // 通知服务器处理某封邮件：领取附件，删除邮件
+    optional get_svr_time       _get_svr_time       = 44;   // 获取服务器时间
+    optional get_vip_gift       _get_vip_gift       = 45;   // 获取vip礼包
+    optional md5_request        _important_data_md5 = 46;   // 重要数据的MD5
+    optional chat               _chat               = 47;   // 聊天
+    optional cdkey_gift         _cdkey_gift         = 48;   // 兑换码
+    optional guild              _guild              = 49;   // 公会
+    optional push_notify        _push_notify        = 53;   // 推送初始化
+    optional system_setting     _system_setting     = 54;   // 系统设置
+
+    optional report_battle      _report_battle      = 59;   // 战斗数据上报
+    optional query_replay       _query_replay       = 60;   // 查询战斗录像
+
+    optional query_ranklist     _query_ranklist     = 62;   // 查询排行榜信息
+    optional change_task_status _change_task_status = 64;   // 修改任务状态
+    optional request_guild_log  _request_guild_log  = 65;   // 请求公会日志
+    optional query_act_stage    _query_act_stage    = 66;   // 查询活动关卡
+    optional real_pvp           _real_pvp           = 68;   // 实时对战相关
+
+    optional request_userinfo   _request_userinfo   = 84;   // 请求用户信息
+    optional realtime_notify    _realtime_notify    = 87;   // 长连接实时推送系统
+
+    optional dailyjob           _dailyjob           = 89;   // 每日活动
+    optional dreamland          _dreamland          = 90;   // 永生梦境
+    optional shop_switch        _shop_switch        = 91;   // 商店切换
+
+    optional real_arena         _real_arena         = 95;   // 诸王争霸
+
+    optional update_backdoor    _update_backdoor    = 108;  // backdoor
+
+    optional test_battle_check  _test_battle_check  = 112;  // 测试战斗校验
+    optional migrate            _migrate            = 113;  // 转服
+
+    optional consume_exp_items  _consume_exp_items  = 116;  // 批量混合使用道具
+
+    optional medal_req          _medal              = 123;  // 徽章操作相关
+    optional remote_setting     _remote_setting     = 126;  // 跨服设置头像和徽章
+    optional sort_item          _sort_item          = 129;  // 整理道具
+
+    optional multiplayer_battle _multiplayer_battle = 132;  // 多人联机对战
+
+    optional monster_request    _monster_request    = 136;  // 年兽
+
+    optional multi_arena        _multi_arena        = 140;  // 诸神对决
+    optional query_guild_members _query_guild_members = 141; // 查询公会成员信息
+
+    optional herohot            _herohot            = 145;  // 英雄推荐
+
+    optional personal_home_page _personal_home_page = 149;  // 个人主页
+    optional video              _video              = 150;  // 录像
+    optional onekey_sweep_stage _onekey_sweep_stage = 151;  // 一键扫荡
+
+    optional gm_ext             _gm_ext             = 153;  // gm扩展协议
+    optional achievement        _achievement        = 154;  // 成就
+    optional binding            _binding            = 155;  // 手机绑定
+    optional fragment_compose_auto  _fragment_compose_auto  = 156;   // 碎片装备一键合成
+
+    optional world_cup_req          _world_cup          = 164; // 世界杯
+
+    optional goback_req             _goback             = 169; // 重返战场
+    optional chess_req              _chess              = 170; // 自走棋短连接
+    optional chess_game_req         _chess_game         = 171; // 自走棋游戏
+    optional team_req               _team               = 173; // 队伍信息
+    optional impulse_gift_req       _impulse_gift       = 174; // 心动礼包
+    optional cup_arena_req          _cup_arena          = 175; // 杯赛
+    optional myth_req               _myth               = 176; // 时空秘境
+    optional mall_gift_req          _mall_gift          = 177; // 商城礼包
+    optional activity_hint_req      _activity_hint      = 178; // 活动提示
+
+    optional guild_mount_req        _guild_mount        = 182; // 公会山
+    optional newplayer_req          _newplayer          = 184; // 萌新助力
+    optional daily_pass_req         _daily_pass         = 185; // 日常pass
+    optional hero_man_req           _hero_man           = 186; // 英雄小人
+
+    optional btc_ctrl_report        _btc_ctrl_report    = 189; // 战斗校验控制上报
+
+    optional simple_shop_req        _simple_shop        = 193; // 简单商店
+    optional fast_equip_chest_req   _fast_equip_chest_use  = 202; // 快速装备选择箱
+    optional new_compose_req        _new_compose_exchange  = 203; // 新信使兑换活动
+
+    optional consume_timely_item    _consume_timely_item   = 205; // 使用限时道具
+    optional summon_circle_req      _summon_circle         = 206; // 召唤法阵
+    optional cut_read_mail          _cut_read_mail         = 207; // 删除已读邮件
+    optional new_daily_login_req    _new_daily_login       = 208; // 新版签到
+    optional fancy_tower_req        _fancy_tower           = 209; // 幻境塔
+    optional stage_star_reward      _stage_star_reward     = 210; // 战役章节星星宝箱
+    optional guild_raid_req         _guild_raid            = 211; // 新团本
+    optional monthcard_req          _monthcard             = 212; // 月卡
+    optional resolve_expired_item   _resolve_expired       = 213; // 道具过期
+    optional activity_req           _activity              = 214; // 活动
+    optional daily_vitality_req     _daily_vitality        = 215; // 每日体力
+    optional simple_pass_req        _simple_pass           = 216; // 通用通行证
+    optional equip_sweep_req        _equip_sweep_req       = 217; // 装备扫荡
+    optional pull_hero_info_req     _pull_hero_info        = 218; // 拉取英雄数据
+    optional fashion_req            _fashion               = 219; // 皮肤
+    optional charge_vault_req       _charge_vault          = 220; // 充值宝库
+    optional act_adventure_req      _act_adventure         = 221; // 活动关卡
+    optional sevenday_assist_req    _sevenday_assist       = 222; // 七日助力
+    optional fancy_abyss_req        _fancy_abyss           = 223; // 幻境深渊
+    optional lottery_req            _lottery               = 224; // 戳戳乐
+    optional peak_arena_req         _peak_arena            = 225; // 巅峰竞技场
+    optional soul_exchange_req      _soul_exchange         = 226; // 灵魂石回收
+    optional preset_lineup_req      _preset_lineup         = 227; // 预设阵容
+    optional shard_req              _shard                 = 228; // 英雄觉醒
+    optional awake_dungeon_req      _awake_dungeon         = 229; // 地底历险
+    optional heat_req               _heat                  = 230; // 热力挑战
+    optional sync_timestamps        _sync_timestamps       = 231; // 同步服务器时间戳
+    optional nian_monster_req       _nian_monster          = 232; // 年兽活动
+    optional guild_enlist_req       _guild_enlist          = 233; // 公会招募大厅
+    optional guild_clash_req        _guild_clash           = 234; // 公会战
+    optional retrieval_reward_req   _retrieval_reward      = 235; // 奖励找回
+    optional manual_trigger_req     _manual_trigger        = 236; // 手动触发
+    optional cosmetic_shop_req      _cosmetic_shop         = 237; // 外观商店
+    optional select_stage_reward_req _select_stage_reward   = 238;// 关卡自选奖励
+    optional rogue_req              _rogue                 = 239; // 魔力豫州rogue
+    optional pet_req                _pet                   = 240; // 信使
+    optional astrolabe_req          _astrolabe             = 241; // 星盘
+    optional all_star_req           _all_star              = 242; // 送花活动
+    optional hero_recycle_req       _hero_recycle          = 243; // 英雄重生
+    optional sweet_party_req        _sweet_party           = 244; // 甜心派对
+    optional time_corridor_req      _time_corridor         = 245; // 时空回廊
+    optional guild_contest_req      _guild_contest         = 246; // 天下角逐
+    optional point_sync_req         _point_sync            = 247; // 代币数量主动同步
+    optional dreamland_new_year_req _dreamland_new_year    = 248; // 梦境新年活动
+    optional sync_tiger_tool        _sync_tiger_tool       = 249; // 同步白虎助手信息
+    optional legend_equip_req       _legend_equip          = 250; // 传奇装备
+    optional pirate_shop_req        _pirate_shop           = 251; // 海盗商店
+    optional simple_assist_req      _simple_assist         = 252; // 简单助力
+    optional collection_point_req   _collection_point      = 253; // 收藏排行榜
+    optional player_shift_req       _player_shift          = 254; // 玩家导流
+    optional dragon_boat_req        _dragon_boat           = 255; // 划龙舟
+    optional crevice_defend_req     _crevice_defend        = 256; // 多队梦境
+    optional hero_haggle_req        _hero_haggle           = 257; // 英雄砍一刀
+    optional solo_req               _solo                  = 258; // 选技短连接
+    optional solo_game_req          _solo_game             = 259; // 选技游戏内长连接
+    optional feature_preview_req    _feature_preview       = 260; // 功能预览
+    // up_msg_end 跳转
+    // 需要改动record.hrl:up_msg
+    // 需要改动mysql iAction
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+message login {
+    enum region_type {
+        cn            = 0; // 简体中文
+        tw            = 1; // 台湾繁体
+        jp            = 2; // 日语
+        kr            = 3; // 韩语
+        us            = 4; // 英语
+        es            = 5; // 西语
+    }
+    optional uint64   _active_code    = 1;      // 激活码，初次登陆时提供
+    optional string   _old_deviceid   = 2;      // 老设备ID，用于发放奖励
+    optional string   _version        = 3;      // 客户端版本号
+    optional string   _os             = 4;      // 客户端os
+    optional string   _os_version     = 5;      // 客户端os版本
+    optional string   _device         = 6;      // 客户端机型
+    optional string   _lang           = 7;      // 客户端os语言
+    optional region_type   _region    = 8;      // 客户端游戏语言 cn|tw
+    optional string   _cpu            = 10;     // 客户端CPU类型
+    optional bool     _is_adult       = 11;     // 是否成年
+    optional string   _sdk_version    = 12;     // sdk版本
+    optional string   _idfa           = 14;     // ios设备广告标识符，IOS客户端必填
+    optional string   _android_id     = 15;     // 安卓设备id，安卓客户端必填
+    optional string   _google_aid     = 16;     // google广告平台账号，安装了google play的设备可以渠道
+    optional string   _ip             = 17;     // 客户端IP
+    optional string   _ip_region      = 18;     // IP属地
+    optional uint32   _sdk_plat_id    = 19;     // SDK指定的platform id
+}
+
+message sdk_login {
+    optional string           _session_key    = 1;      // session id
+    optional platform_type    _plat_id        = 2;      // platform id
+    optional string           _mobile_num     = 3;      // mobile number
+    optional string           _crypt_key      = 4;      // 密钥
+    optional string           _sdk_version    = 5;      // sdk version 如duoku、91：3.6.3, lemon_base_sdk
+    optional string           _sdk_params     = 6;      // sdk params
+}
+
+message request_userinfo {
+}
+
+message enter_stage {
+    optional uint32 _stage_id = 1;
+}
+
+message exit_stage {
+    optional battle_result     _result    = 1 [default = victory];
+    optional uint32            _stars     = 2;
+    repeated uint32            _heroes    = 3;  // hero type id
+    repeated operation         _oprations = 4;  //
+    // op = 0: cast skill
+    // op = 1: revive hero
+    optional string            _md5        = 5;
+    repeated uint32            _self_data  = 6; // self hp
+    repeated unit_battle_data  _unit_battle_data = 7;
+    optional bool              _is_manual_battle = 8;
+}
+
+message unit_battle_data
+{
+    optional uint32            _unit_max_damage = 1; //
+    repeated uint32            _unit_kill_list = 2;   //
+    optional uint32            _unit_hid = 3;
+}
+
+message gm_cmd {
+    optional int32      _unlock_all_stages    = 1; // 解锁所有关卡
+    optional int32      _get_all_heroes       = 2; // 获得英雄
+    repeated hero       _set_hero_info        = 3; // 设置英雄
+    optional int32      _set_vitality         = 4; // 设置体力
+    optional set_money  _set_money            = 5; // 设置资源
+    optional int32      _set_recharge_sum     = 6; // 设置累计充值，VIP用
+    optional int32      _set_player_level     = 7; // 设置玩家等级
+    optional int32      _set_player_exp       = 8; // 设置玩家经验
+    repeated item       _set_items            = 9; // 设置道具列表
+    optional uint32     _reset_device         = 10; // 删号重练
+    optional uint32     _reset_device2        = 11; // 删号重练2，用于压测
+
+    optional uint32     _archive_id           = 12; // 存档
+    optional uint32     _restore_id           = 13; // 取档
+    optional int32      _reset_sweep          = 14; // 重置精英扫荡次数
+    optional uint32     _set_dailylogin_days  = 15; // 设置连续登陆时间，包括今天
+    optional open_guild_raid      _open_guild_raid  = 16; //团队副本
+    optional uint32     _set_guild_liveness = 17;  //公会活跃值
+    optional uint32     _stage_id               = 18; // 清空特殊副本次数
+
+    optional monthcard_type     _get_monthcard = 21; // 获得月卡
+
+    optional uint32     _clear_item             = 24; // 清道具
+    optional uint32     _reset_ladder_cd        = 26; // 重置竞技场cd
+    optional set_real_arena _set_real_arena     = 27; //设置诸王争霸
+
+    optional uint32     _get_medal              = 40; // 获取徽章
+
+    optional uint32     _set_raid_point         = 44; // 设置公会团本币
+
+    optional uint32     _set_monster           = 48; // 开启3天年兽
+
+    optional uint32     _set_multi_arena_causal_point    = 51; // 设置2v2休闲积分
+    optional uint32     _set_multi_arena_athletics_point = 52; // 设置2v2竞技积分
+    optional uint32     _set_tbc_stage                   = 53; // tbc开启打第几关
+
+    optional uint32     _reset_tbc_use_count    = 55; // 重置远征
+    optional uint32     _set_mt_point           = 56; // 设置诸神币
+
+    optional set_tbc_oppos _set_tbc_oppos       = 59; // 设置远征对手阵容
+
+    optional sint32     _set_guild_raid_progress    = 60; // 设置团队副本进度,万分比,10000=100%,-1=一键抵达BOSS
+    optional uint32     _set_guild_raid_unlimited_battle  = 61; // 团本无限挑战
+
+    optional uint32     _skip_battlecheck       = 62; // 开启跳过战斗校验
+
+    optional uint32     _add_chess_score        = 66; // 增加自走棋积分
+    optional uint32     _add_cup_arena_score    = 67; // 添加杯赛积分
+    optional uint32     _gain_all_items         = 68; // 获取所有道具
+    optional uint32     _gain_myth_coin         = 69; // 获得时空秘境代币
+
+    optional uint32     _reset_guild_mount_battle= 80; // 重置公会山战斗
+    optional uint32     _next_guild_mount_boss   = 81; // 推进公会山BOSS，前进N个BOSS
+    optional uint32     _daily_pass_add_exp      = 82; // 英雄通行证增加n点经验
+
+    optional uint32     _gain_impulse_gift      = 86; // 获取一个心动礼包
+
+    optional uint32     _set_whitelist          = 89; // 1=添加到白名单,2=从白名单移除
+    optional uint32     _set_newplayer_task_line = 90; // 设置萌新助力点数
+
+    optional uint32     _migrate_self            = 99; // GM转服
+
+    optional item       _set_timely_items        = 105; // 获取限时道具: TimelyId, Amount
+    optional uint32     _set_candle_count        = 106; // 设置幻生烛数量
+    optional uint32     _set_fancy_tower_floor   = 107; // 设置幻境塔挑战层数
+    optional uint32     _set_hero_skill_level    = 108; // 设置英雄技能等级
+    optional uint32     _set_hero_skill_evo      = 109; // 设置英雄技能阶数
+    optional uint32     _clear_act_stage         = 110; // 恢复英雄试炼次数
+    optional uint32     _send_long_mail          = 111; // 发指定数量的长邮件，有附件
+    optional uint32     _send_small_mail         = 112; // 发指定数量的短邮件
+
+    optional uint32     _gain_gift_tickets       = 113; // 获得代币
+    optional uint32     _gain_gift_ticket_items  = 114; // 获得代币道具
+    optional uint32     _set_summon_sum          = 115; // 设置召唤总数
+    optional uint32     _add_activity            = 116; // 添加一个活动(填ActID)
+    optional uint32     _set_act_task_progress   = 117; // 设置活动任务进度大于0=完成，0=清除
+    optional uint32     _set_actstage_floor      = 118; // 设置英雄试炼层数
+    optional uint32     _add_charge_vault_score  = 119; // 增加充值宝库积分
+    optional uint32     _add_ptr_rebate          = 120; // 增加PTR返利,数量为充值金额
+    optional uint32     _add_act_adventure_vitality  = 121; // 增加活动关卡体力
+    optional uint32     _fancy_abyss_pass_floor  = 122; // 幻境深渊通关
+    optional uint32     _lantern_trigger         = 123; // 跑马灯触发，=数字越大，间隔越短
+
+    optional uint32     _peak_arena_add_pile     = 124; // 增加巅峰竞技场机器人
+    optional uint32     _peak_arena_set_grade_score     = 125; // 巅峰竞技场改分
+    optional uint32     _peak_arena_set_medal    = 126; // 巅峰竞技场设置勋章
+    optional uint32     _peak_arena_add_challenge_time  = 127;  // 巅峰竞技场增加挑战次数
+    optional uint32     _peak_arena_add_refresh_time    = 128;  // 巅峰竞技场增加刷新次数
+    optional uint32     _peak_arena_add_zone     = 129; // 巅峰竞技场增加赛区
+    optional uint32     _set_left_days           = 130; // 设置离线时间
+    optional uint32     _set_goback_task_line    = 131; // 设置回归任务线
+    optional uint32     _awake_dungeon_add_exp   = 132; // 地底历险 增加经验
+    optional uint32     _awake_dungeon_set_level = 133; // 地底历险 设置等级
+    optional uint32     _awake_dungeon_add_vitality = 134; // 地底历险 增加体力
+    optional uint32     _awake_dungeon_pass_stage = 135; // 地底历险 通关
+    optional string     _online_data_transfer     = 136; // 数据复刻
+    optional uint32     _act_adventure_challenge_level  = 137; // 活动关卡 设置挑战等级
+    optional uint32     _add_peak_arena_coins     = 138; // 加巅峰币
+    optional uint32     _set_svr_open_time        = 139; // 设置服务器开服时间
+    optional uint32     _restore_summon_weekly    = 140; // 恢复法阵周五星保底
+    optional uint32     _set_guild_yesterday_liveness    = 141; // 设置公会昨日活跃
+    optional uint32     _set_dailyjob_acc         = 142; // 设置日常任务累计数量
+    optional uint32     _reset_dreamland_use_count       = 143; // 重置梦境次数
+    optional uint32     _guild_clash_set_oppo_guild     = 144; // 公会战设置对手公会
+    optional uint32     _guild_clash_calc_battle     = 145; // 公会战计算战斗
+    optional uint32     _guild_clash_start_replay     = 146; // 公会战开始演播
+    optional uint32     _guild_clash_add_user_liveness  = 147; // 公会战增加个人活跃度
+    optional uint32     _guild_clash_restart_schedule   = 148; // 公会战重启赛季周期
+    optional uint32     _guild_clash_add_random_teams   = 149; // 公会战随机添加队伍
+    optional chess_rules    _set_chess_rules            = 150; // 设置自走棋规则
+    optional uint32     _guild_add_frame                = 151; // 公会增加头像框
+    optional uint32     _guild_mount_add_battle_time    = 152; // 魔界讨伐增加挑战次数
+    optional uint32     _guild_mount_set_boss_hp        = 153; // 魔界讨伐设置boss血量
+     optional uint32     _rogue_set_weekly_point         = 154; // 设置肉鸽周积分
+    optional uint32     _rogue_set_view_bless_num       = 155; // 设置肉鸽遇见祝福数量
+    optional uint32     _rogue_set_view_event           = 156; // 设置肉鸽遇见事件
+    optional uint32     _rogue_add_pearl                = 157; // 加珍珠
+    optional uint32     _rogue_gm_clear_chapter         = 158; // 清除当前章节
+    optional uint32     _rogue_gm_set_event             = 159; // 设置当前房间的事件
+    optional uint32     _rogue_gm_add_tech              = 160; // 添加科技点
+    optional uint32     _rogue_gm_set_shop              = 161; // 将当前房间设置成商店
+    optional uint32     _pet_equip_all_hero             = 162; // 给所有英雄随机安装信使
+    optional uint32     _rogue_unlock_chapter           = 164; // 通关某个章节的所有难度
+    optional uint32     _pet_get_all_pets               = 165; // 获取所有满强化信使
+    optional uint32     _rogue_add_retry_times          = 166; // 获取rogue重试次数
+    optional uint32     _rogue_add_destiny_bless        = 167; // 获取rogue某个命途下所有祝福
+    optional uint32     _rogue_exchange_vit             = 168; // rogue交换卷轴
+    optional uint32     _rogue_add_vit                  = 169; // 增加肉鸽卷轴
+    optional uint32     _astrolabe_add_times            = 170; // 增加星盘祈福次数
+    optional uint32     _rogue_complete_script          = 171; // 肉鸽完成某个剧本
+    optional uint32     _cup_arena_add_pile             = 172; // 女神之战增加机器人
+    optional uint32     _cup_arena_add_medal            = 173; // 女神之战增加勋章
+    optional uint32     _cup_arena_add_challenge_time   = 174; // 女神之战增加挑战次数
+    optional uint32     _cup_arena_add_refresh_time     = 175; // 女神之战增加刷新次数
+    optional uint32     _cup_arena_add_zone             = 176; // 女神之战增加赛区
+    optional uint32     _cup_arena_add_player           = 177; // 女神之战增加假玩家
+    optional uint32     _guild_contest_tally            = 178; // 天下角逐每日结算
+    optional uint32     _guild_contest_restart          = 179; // 天下角逐重启
+    optional uint32     _rogue_add_chapter_charm        = 180; // 获得指定章节下所有护符
+    optional uint32     _rogue_add_charm_exp            = 181; // 增加所有护符经验
+    repeated uint32     _generate_legend_equip          = 182; // 生成传奇装备
+    optional uint32     _full_star_legend_equip         = 183; // 生成满星传奇装备
+    optional uint32     _player_shift_add_self          = 184; // 玩家导流添加自己,钻石
+    optional uint32     _dragon_boat_add_single_player  = 185; // 划龙舟增加假玩家（输入指定尺寸）
+    optional uint32     _dragon_boat_add_mult_player    = 186; // 划龙舟增加假玩家（输入数量）
+    optional uint32     _crevice_defend_reset_season    = 187; // 重置多队梦境赛季
+    optional uint32     _crevice_defend_challenge_count = 188; // 重置多队梦境挑战次数
+    optional solo_rules _set_solo_rules                 = 189; // 设置选技规则
+    optional uint32     _set_solo_score                 = 190; // 设置选技积分
+    optional uint32     _add_solo_score                 = 191; // 增加选技积分
+    optional uint32     _add_all_server_assist          = 192; // 增加全服活动助力
+    optional uint32     _add_simple_assist_point        = 193; // 增加助力商店点数
+
+    // gm_cmd_end 跳转
+    // 需要改动record.hrl:gm_cmd
+}
+
+message gm_ext {
+    optional gm_query_replay            _query_replay           = 1; // 查询录像
+    optional gm_reset_activity_season   _reset_activity_season  = 2; // 清理赛季活动
+    optional gm_server_full_version     _server_full_version    = 3; // 获得服务器完成版本号
+    optional gm_upload_user_data        _upload_user_data       = 4; // 上传玩家数据
+    optional gm_open_guild_enlist       _open_guild_enlist      = 5; // 打开公会招募大厅
+    optional gm_upload_guild_data       _upload_guild_data      = 6; // 上传公会数据
+    optional gm_download_guild_data     _download_guild_data    = 7; // 下载公会数据到自己服务器
+}
+
+message gm_query_replay {
+    optional uint32     _check_id     = 1; // 通过ID查找录像
+    optional uint32     _server_id    = 2; // 服务器ID,跨服需要填写
+}
+
+message gm_reset_activity_season {
+    enum season_act_type {
+      fancy_abyss = 1;
+    }
+    optional season_act_type _type = 1; // 活动类型
+}
+
+message gm_server_full_version {
+}
+
+message gm_upload_user_data {
+}
+
+message gm_open_guild_enlist {
+    optional bool   _entry_all = 1; // 报名所有
+}
+
+message gm_upload_guild_data {
+    optional uint32 _guild_id = 1; // 公会ID，=0表示自己公会
+}
+
+message gm_download_guild_data {
+    optional string _data_key       = 1; // 数据串
+    optional bool   _be_chairman    = 2; // 自己成为会长
+}
+
+message open_guild_raid {
+    optional uint32 _raid_id = 1;
+}
+
+message set_money {
+    enum price_type {
+        gold          = 0;
+        diamond       = 1;
+        crusadepoint  = 2;
+        arenapoint    = 3;
+        guildpoint    = 4;
+        dreampoint    = 7;
+        raid_point    = 8;
+        bbp           = 9;
+        shard_point   = 10;
+        shard_point_daily = 11; // 每日觉醒币
+    }
+    optional price_type _type   = 1;
+    optional uint32     _amount = 2;
+}
+message set_real_arena {
+    enum arena_type {
+        level          = 0;
+        score          = 1;
+        casual_score   = 2;
+        points         = 3;
+    }
+    optional arena_type _type   = 1;
+    optional uint32     _amount = 2;
+}
+
+message set_tbc_oppos {
+
+}
+
+message hero_upgrade {
+    enum is_one_time {
+        true     = 1;
+        false    = 2;
+    }
+    optional uint32 _hero_id = 1;
+    optional is_one_time _is_one_time = 2;
+}
+
+message equip_synthesis {
+    optional uint32 _equip_id = 1;
+    optional uint32 _synthesis_type = 2; //默认不传，只有神器合成时传1
+}
+
+message wear_equip {
+    optional uint32 _hero_id  = 1; // 要穿装备的英雄type id
+    repeated uint32 _item_pos = 2; // 要穿的装备位：1 - 6
+}
+
+message sync_vitality {
+}
+
+message buy_vitality {
+    enum type {
+        shadow_rune = 1; // 幽暗符文
+        vitality    = 2; // 日常体力
+    }
+    optional type _type = 1; // 要买的体力类型
+}
+
+
+// 吃经验丹，先添加这个协议
+// 以后如果有其他的道具消耗方式，需要修改/合并此协议
+message consume_item {
+    optional item _item = 1; // 要吃经验单的道具和数量
+    optional consume_item_extra_info _consume_item_extra_info = 2; //额外带的信息
+}
+
+message consume_item_extra_info {
+    enum type {
+        hero = 1;    //吃经验丹要用到英雄的id
+        item = 2;    //选择宝箱的物品需要有物品的id
+    }
+    optional type _type = 1;
+    optional uint32 _id = 2;
+}
+
+// 刷新商店
+// 例外情况处理：
+// 1. sync的时候，如果自动刷新周期到了，刷一批新的内容返回
+// 2. manual_refresh的时候，如果自动刷新周期到了，免费刷新
+message shop_refresh {
+    enum rtype {
+        sync           = 0;   // 玩家新进入商店时，同步商店
+        auto_refresh   = 1;   // 时间到了，客户端发起的商店自动刷新请求
+        manual_refresh = 2;   // 玩家手动刷新的请求
+        multi_refresh  = 3;   // 多个刷新
+    }
+    optional rtype  _type     = 1[default = sync]; // refresh or sync
+    optional uint32 _shop_id  = 2;                 // 商店ID
+    repeated uint32 _shop_ids = 3;                 // 多个商店ID
+}
+
+message shop_consume {
+    optional uint32 _sid       = 1; // shop id
+    optional uint32 _slotid    = 2; // slot id
+    optional uint32 _itemid    = 3; // 物品 id
+    optional uint32 _buy_times = 4; // 要购买的次数
+}
+
+// 升级技能
+message skill_levelup {
+    optional uint32 _heroid   = 1;
+    repeated item _ups     = 2; // item.id=slot item.amount=up_levels
+}
+
+message sell_item {
+    repeated item _items     = 1; // 道具数量
+}
+
+message sort_item {
+}
+
+message fragment_compose {
+    optional uint32 _fragment     = 1; // 合成的物品ID
+    optional uint32 _frag_amount  = 2; // 对应碎片的个数，服务器会自动补全需要的万能碎片 已经废除字段
+    optional uint32 _compose_amount = 3; // 碎片合成成品数量
+}
+
+message fragment_compose_auto {
+    repeated fragment_compose _fragments = 1;
+}
+
+message hero_equip_upgrade {
+    enum OP_TYPE{
+        normal      =   1;  //普通进阶
+        boss        =   2;  //一键到顶
+    }
+    optional OP_TYPE _op_type   = 1[default = normal];      // 进阶方式
+    optional uint32 _heroid     = 2;                        // 英雄ID
+    optional uint32 _slot       = 3;                        // 要进阶的装备位
+    repeated item   _materials  = 4;                        // 消耗的材料组
+}
+
+message tutorial {
+    repeated uint32 _record               = 1;
+}
+
+// 任务触发
+message trigger_task {
+    repeated line_task_id _line_task_id = 1;
+}
+
+message line_task_id {
+    optional uint32 _line_id = 1;
+    optional uint32 _task_id = 2;
+    optional uint32 _stage_id= 3;
+}
+// 请求奖励
+message require_rewards {
+    optional uint32 _line = 1;  // 任务线ID
+    optional uint32 _id   = 2;  // 任务ID
+}
+
+message change_task_status {
+    optional uint32 _line = 1;  // 任务线ID
+    optional uint32 _id   = 2;  // 任务ID
+    optional uint32 _operation = 3; //任务操作  1:冻结任务，2：resume冻结的任务
+    optional uint32 _stage_id  = 4; //英雄觉醒任务选择觉醒物品掉落关卡
+}
+
+
+// 触发活动
+message trigger_job {
+    repeated uint32 _jobs = 1; // 活动列表
+}
+
+
+// 活动奖励领取
+message job_rewards {
+    optional uint32 _job = 1; // 活动
+    optional uint32 _idx = 2; // 奖励索引，从1开始
+}
+
+// 客户端关闭日志
+message suspend_report {
+    optional uint32 _gametime = 1;    //游戏时间
+}
+
+
+//-------------------------------------------------------------------------------
+// 精英关卡重置
+message reset_elite {
+    enum rtype {
+        daily_free     = 0;   // 每日0点自动重置
+        vip_reset      = 1;   // VIP重置
+    }
+    optional rtype  _type    = 1[default = daily_free]; // 自动重置
+    optional uint32 _stageid = 2;                       // 精英关ID，例如：10001
+}
+
+// 关卡扫荡
+message sweep_stage {
+    enum rtype {
+        sweep_with_ticket = 0;    // 用扫荡币扫荡，命名是历史遗留问题
+        sweep_with_rmb    = 1;    // 付费扫荡
+    }
+    optional rtype  _type     = 1; // 扫荡类型
+    optional uint32 _stageid  = 2; // 关卡id
+    optional uint32 _times    = 3; // 扫荡次数, 缺省为1
+}
+
+
+enum magicsoul_pos {
+    right   = 1;
+    left    = 2;
+    specify = 3; // 指定英雄
+}
+
+
+// 英雄进化
+message hero_evolve{
+    optional uint32 _heroid     = 1;        // 要进化的英雄ID
+}
+
+
+// 进入活动关卡
+message enter_act_stage {
+    optional uint32 _stage_group  = 1;
+    optional uint32 _stage        = 2;
+}
+
+// pvp天梯
+message ladder{
+    optional open_panel             _open_panel         = 1;   // 打开面板
+    optional apply_opponent         _apply_opponent     = 2;   // 申请对手
+    optional start_battle           _start_battle       = 3;   // 开始战斗
+    optional end_battle             _end_battle         = 4;   // 结束战斗
+    optional set_lineup             _set_lineup         = 5;   // 设置阵容
+    optional query_records          _query_records      = 6;   // 查询比赛记录
+    optional query_replay           _query_replay       = 7;   // 查询回放
+    optional query_rankboard        _query_rankboard    = 8;   // 查询排行榜
+    optional query_oppo_info        _query_oppo         = 9;   // 查询对手信息
+    optional clear_battle_cd        _clear_battle_cd    = 10;  // 重置战斗cd
+    optional draw_rank_reward       _draw_rank_reward   = 11;  // 领取排名奖励
+    optional buy_battle_chance      _buy_battle_chance  = 12;  // 购买战斗次数
+    optional share_fight            _share_fight        = 13;  // 分享阵容到公会用于战斗
+    optional start_fight            _start_fight        = 14;  // 天梯切磋模式
+    optional query_summary          _query_summary      = 15;   // 查询战斗简报
+    optional sweep_reward           _sweep_reward       = 16;   // 扫荡奖励
+    optional arena_use_background   _use_background     = 17;   // 请求选择使用竞技场指定背景图
+}
+
+// 请求选择使用竞技场指定背景图
+message arena_use_background       {
+    optional uint32 _background_id     = 1;  // 背景图id
+}
+
+message sweep_reward {
+    optional   uint32          _oppo_uid   = 1; // 对手UID
+    optional   uint32          _sweep_count = 2; //
+}
+
+message query_summary{
+    optional uint32 _record_index   = 1;
+    optional uint32 _record_svrid   = 2;     // 录像所在的svrid
+}
+
+message open_panel{
+}
+
+message apply_opponent{
+}
+
+message start_battle{
+    optional uint32 _oppo_user_id   = 1;      // 目标玩家账号ID
+    repeated uint32 _attack_lineup  = 2;      // 进攻阵容
+}
+message share_fight{
+    optional chat_broad_say _chat_broad_say = 1;
+}
+message start_fight{
+    optional string _oppo_role_id   = 1;      // 目标玩家role_id
+    repeated uint32 _oppo_lineup    = 2;      // 对手阵容
+    repeated uint32 _attack_lineup  = 3;      // 进攻阵容
+}
+
+message end_battle{
+    optional battle_result _result  = 1;     // 战斗结果
+}
+
+message set_lineup{
+    repeated uint32 _lineup         = 1;     // 阵容信息，hero数组
+    optional uint32 _ban_hero       = 2;     // 阵容信息，ban掉的英雄
+}
+
+message query_records{
+}
+
+message query_replay{
+    optional uint32 _record_index   = 1;
+    optional uint32 _record_svrid   = 2;     // 录像所在的svrid
+}
+
+message query_guild_members {
+}
+
+
+message query_rankboard{
+    optional rankboard_type _type = 1;
+}
+
+message query_oppo_info{
+    optional uint32 _oppo_user_id   = 1;
+}
+
+message clear_battle_cd{
+}
+
+message draw_rank_reward{
+}
+
+message buy_battle_chance{
+}
+
+// 设置玩家名字
+message set_name {
+    enum set_type {
+        free  = 0;
+        rmb   = 1;
+    }
+    optional set_type _type = 1;
+    optional string   _name = 2;
+}
+
+// 设置头像
+message set_avatar {
+    optional uint32 _avatar = 1;
+}
+
+// 充值轮询
+message recharge_polling {
+    optional recharge_submit      _submit = 1; // 提交充值
+    optional recharge_sync        _sync   = 2; // 查询数据
+}
+
+message recharge_submit {
+    enum action {
+        gift_ticket_buy_goods   = 1; // 礼包券购买商品(recharge表中)
+        gift_ticket_buy_other   = 2; // 礼包券购买其他商品
+    }
+    optional action                 _action         = 1; // 购买动作
+    optional uint32                 _buy_goods_id   = 2; // 购买的商品ID
+    optional uint32                 _ticket_item_id = 3; // 使用礼包券道具购买 不填=使用订单券，0=使用冰冰点，>0=使用对应ID礼包券道具
+    optional gift_ticket_buy_other  _buy_other      = 4; // 购买其他
+}
+
+// 礼包券购买
+message gift_ticket_buy_other {
+    optional mall_gift_buy_daily    _mall_gift_buy_daily    = 1; // 商城礼包购买日礼包
+    optional mall_gift_buy_weekly   _mall_gift_buy_weekly   = 2; // 商城礼包购买周礼包
+    optional mall_gift_buy_once     _mall_gift_buy_once     = 3; // 商城礼包购买一次性礼包
+    optional mall_gift_buy_timely   _mall_gift_buy_timely   = 4; // 商城礼包购买限时礼包
+    optional simple_pass_buy_rank   _simple_pass_buy_rank   = 5; // 通用通行证购买品阶
+    optional impulse_gift_buy       _impulse_gift_buy       = 6; // 心动礼包购买
+    optional forge_queue_buy        _forge_queue_buy        = 7; // 传奇装备锻造队列购买
+    optional dragon_boat_buy_skin   _dragon_boat_buy_skin   = 8; // 端午划龙舟购买皮肤
+    optional hero_haggle_buy_hero   _hero_haggle_buy_hero   = 9; // 英雄砍一刀购买英雄
+}
+
+message recharge_sync {
+    enum type {
+        diamond             = 1; // 钻石
+        hero                = 2; // 英雄
+        recharge_limit      = 3; // 充值限制
+        monthcard           = 4; // 月卡
+        item                = 5; // 道具
+    }
+    repeated type         _types            = 1; // 查询类型
+    repeated uint32       _hero_ids         = 2; // 查询英雄ID列表
+    repeated uint32       _item_ids         = 3; // 查询道具ID列表
+    repeated monthcard_type  _monthcard_types = 4; // 月卡类型列表
+}
+
+// 点金手
+message midas {
+    optional uint32 _times = 1;
+}
+
+// 开启商店
+message open_shop {
+    required uint32  _shopid = 1;
+}
+
+//每日登陆
+message ask_daily_login {
+    enum status {
+        all     = 1;  // 正常领取+VIP领取
+        common  = 2;  // 正常领取
+        vip     = 3;  // VIP补领
+    }
+    optional status _status   = 1;
+}
+
+// 燃烧的远征
+message tbc {
+    optional tbc_open_panel _open_panel        = 1;
+    optional tbc_query_oppo _query_oppo        = 2;
+    optional tbc_start_battle _start_bat       = 3;
+    optional tbc_end_battle _end_bat           = 4;
+    optional tbc_reset _reset                  = 5;
+    optional tbc_draw_reward _draw_reward      = 6;
+    optional tbc_sweep _sweep                  = 7; // 原来扫荡已经不支持
+    optional tbc_change_mode _change_mode      = 8;
+    optional tbc_rush    _tbc_rush             = 9; // 新的扫荡
+    optional tbc_weekly_reward _weekly_reward  = 10; // 领取周奖励
+    optional tbc_draw_hell_box _draw_hell_box  = 11;
+    optional tbc_battle_record _battle_record  = 12; // 获取战斗记录
+    optional query_replay      _query_replay   = 13; // 查看战斗录像
+    optional query_summary     _query_summary  = 14; // 查询战斗简报
+    optional tbc_revive_hero   _revive_hero    = 15; // 查询复活英雄
+    optional tbc_line_reward   _line_reward    = 16; // 领取阶段奖励
+
+}
+
+message tbc_change_mode{
+}
+
+message tbc_rush{
+    repeated uint32 _heroids        = 1;
+    optional uint32 _use_hire       = 2;  // 是否使用雇佣英雄，是1，否0
+}
+message tbc_sweep{
+}
+
+message tbc_open_panel {
+}
+
+message tbc_query_oppo {
+    optional uint32 _stage_id       = 1;
+}
+
+message tbc_start_battle {
+    repeated uint32 _heroids        = 1;
+    optional uint32 _use_hire       = 2;  // 是否使用雇佣英雄，是1，否0
+}
+
+message tbc_hero {
+    optional uint32 _heroid         = 1;
+    optional uint32 _hp_perc        = 2;
+    optional uint32 _mp_perc        = 3;
+    optional uint32 _custom_data    = 4;
+}
+
+message tbc_end_battle {
+    repeated operation   _oprations    = 1;  // <<replacement:8, op:2, wave_idx:3, tick:10, hero_pos:3>>
+    // op = 0: cast skill
+    // op = 1: revive hero
+    optional battle_result _result  = 2[default = victory];
+    repeated tbc_hero _self_heroes  = 3;
+    repeated tbc_hero _oppo_heroes  = 4;
+    optional uint32 _energy_bean     = 5; //能量豆
+
+}
+
+message tbc_reset {
+
+    enum tbc_mode {
+        normal = 1;       // 正常模式
+        hell  = 2;        // 地狱模式
+    }
+    optional tbc_mode _mode = 1; //重置模式
+}
+
+message tbc_draw_reward {
+    optional uint32 _stage_id       = 1;
+}
+
+message tbc_weekly_reward {
+}
+
+message tbc_draw_hell_box {
+}
+
+message tbc_battle_record {
+}
+
+message tbc_revive_hero {
+    optional uint32     _heroid     = 1; // 英雄ID
+    optional bool       _is_hire    = 2; // 是否是雇佣英雄
+}
+
+message tbc_line_reward {
+    optional uint32     _index  = 1; // 奖励位置
+}
+
+// 获取邮件列表
+message get_maillist {
+}
+
+// 读邮件
+message read_mail {
+    repeated uint32 _ids = 1;  // 邮件ID
+}
+
+// 删除已读
+message cut_read_mail {
+    repeated uint32  _ids = 1; // 邮件ID
+}
+
+// 获取服务器时间
+message get_svr_time {}
+
+message get_vip_gift {
+    optional uint32 _vip  = 1;
+}
+
+// md5 的请求校验信息
+message md5_request {
+    optional string _md5        = 1;        // 客户端计算出来的MD5值，包含gold，diamond，heroids
+    repeated uint32 _heroids    = 2;        // 用来算MD5的英雄列表
+}
+
+// 聊天消息
+message chat {
+    optional chat_say            _say                   = 1;  // 发聊天消息
+    optional chat_fresh          _fresh                 = 2;  // 拉取服务器上的聊天记录
+    optional chat_fetch          _fetch                 = 3;  // 拉取附件
+    optional chat_add_bl         _chat_add_bl           = 4;  // 拉黑名单
+    optional chat_del_bl         _chat_del_bl           = 5;  // 解除黑名单
+    optional chat_fetch_bl       _chat_fetch_bl         = 6;
+    optional chat_broad_say      _chat_broad_say        = 7;  // 向多个玩家发消息
+    optional chat_multi_fresh    _multi_fresh           = 8;  // 拉取多个频道
+    optional chat_set_bubble_id  _chat_set_bubble_id    = 9;  // 聊天设置气泡ID
+    optional chat_contact        _chat_contact          = 10; // 最近联系人信息
+    optional chat_apply_friend   _chat_apply_friend     = 11; // 申请好友
+    optional chat_reject_friend  _chat_reject_friend    = 12; // 拒绝好友申请
+    optional chat_add_friend     _chat_add_friend       = 13; // 添加好友
+    optional chat_del_friend     _chat_del_friend       = 14; // 删除好友
+    optional chat_get_friends    _chat_get_friends      = 15; // 获取所有好友
+    optional chat_group_leave    _chat_group_leave      = 16; // 聊天室退出
+    optional chat_search_user    _chat_search_user      = 17; // 搜索用户
+    optional chat_delete_recent  _chat_delete_recent    = 18; // 删除最近联系人
+    optional chat_get_unread_msg _get_unread_msg        = 19; // 获取未读消息
+    optional chat_query_hero     _chat_query_hero       = 20; // 查看分享英雄
+    optional chat_set_gender     _set_gender            = 21; // 删除最近联系人
+    optional chat_recommend_friends  _recommend_friends = 22; // 推荐好友
+    optional chat_set_blocking   _set_blocking          = 23; // 聊天设置屏蔽
+    optional chat_translate      _chat_translate        = 24; // 聊天翻译
+}
+
+message chat_set_gender {
+    optional gender _gender = 1;
+}
+
+message chat_query_hero {
+    optional string _role_id  = 1;
+    optional uint32 _hero_id  = 2;
+}
+
+message chat_get_unread_msg {
+}
+
+message chat_delete_recent {
+    repeated string  _role_ids = 1;
+}
+
+message chat_user_key {
+    optional uint32  _svr_id = 1;
+    optional uint32  _uid    = 2;
+}
+
+message chat_search_user {
+    enum game_channel {
+        any      = 1;
+    }
+    optional game_channel  _channel  = 1;
+    optional string        _role_id  = 2;
+}
+
+enum chat_group_type {
+    multi_stage_talk = 1;   // 勇者之书
+    dreamland        = 2;   // 梦境
+    multi_arena      = 3;   // 诸神
+}
+
+message chat_group_leave
+{
+    optional chat_group_type _group_type = 1;
+    optional uint32          _chat_group_id= 2;        //消息对象ID
+
+}
+
+message chat_group_say {
+    optional chat_group_type _group_type   = 1[default = multi_stage_talk];
+    optional uint32          _chat_group_id= 2;        //消息对象ID
+    optional uint32          _content_type = 3;        // 1：普通聊天；2：带附件或者是带超链的聊天；3：挖矿的聊天
+    optional string          _content      = 4;
+    optional chat_acc        _accessory    = 5;
+}
+
+message chat_get_friends {
+}
+
+message chat_recommend_friends {
+}
+
+message chat_set_blocking {
+    repeated chat_blocking_type _type   = 1; // 需要生效的屏蔽类型
+}
+
+message chat_apply_friend {
+    optional string _role_id = 1; // 角色码
+}
+
+message chat_reject_friend {
+    optional string _role_id = 1; // 角色码
+}
+
+message chat_add_friend {
+    optional string _role_id = 1; // 角色码
+}
+
+message chat_del_friend {
+    optional string _role_id = 1; // 角色码
+}
+
+message chat_contact {
+    optional uint32       _version   = 1; //第一次是0
+    optional uint32       _group_version = 2; //第一次是0 聊天室的版本号
+}
+
+message chat_set_bubble_id {
+    optional uint32          _set_bubble_id      = 1; // 设置气泡id
+}
+
+
+message chat_multi_fresh {
+    repeated chat_channel _channel      = 1;
+    optional bool         _is_history   = 2;
+}
+
+message chat_broad_say {
+    optional chat_channel _channel      = 1;
+    repeated chat_target  _targets      = 2;
+    optional uint32       _content_type = 3;
+    optional string       _content      = 4;
+    optional chat_acc     _accessory    = 5;
+}
+
+message chat_fetch_bl {
+
+}
+message chat_target {
+    optional string       _role_id      = 1; // 角色ID
+}
+// 发聊天消息
+message chat_say {
+    optional chat_channel       _channel        = 1[default = world_channel];
+    optional chat_target        _target         = 2; //消息对象ID，部分情况有效
+    optional uint32             _content_type   = 3; // 1：普通聊天；2：带附件或者是带超链的聊天；3：挖矿的聊天
+    optional string             _content        = 4; // 聊天内容
+    optional chat_acc           _accessory      = 5; // 附件
+    optional chat_group_type    _group_type     = 6; // 群聊类型
+    optional uint32             _chat_group_id  = 7; // 群ID
+}
+
+message chat_acc {
+    enum chat_acc_t {
+        binary             = 1;      // 客户端自定义数据
+        pvp_replay         = 2;      // pvp比赛录像
+        binary_replay      = 3;      // pve,tbc等比赛录像
+        real_pvp_replay    = 5;      // 真实（蓝牙）对战录像
+        real_arena_replay  = 7;      // 诸王争霸录像
+        ladder_fight       = 8;      // 竞技场切磋
+        multiplayer_invite = 10;     // 多人联机
+        multi_arena_invite = 12;     // 诸神对决
+        multi_arena_replay = 13;     // 诸神录像
+        tbc_replay         = 16;     // 远征录像
+        heroes_link        = 17;     // 英雄数据分享链接
+        team_invite        = 18;     // 组队邀请
+        dreamland_replay   = 20;     // 梦境录像
+        real_arena_invite  = 21;     // 诸王邀请
+    }
+
+    optional chat_acc_t                 _type               = 1[default = binary];
+    optional bytes                      _binary             = 2;
+    optional uint32                     _record_id          = 3;
+    optional string                     _role_id            = 4;
+    optional real_arena_type            _target_type        = 5;
+    repeated arena_pvp_hero_data        _query_summary      = 6; // 战斗结算的统计数据
+    optional multiplayer_invite         _multiplayer_invite = 7; // 多人联机
+    optional uint32                     _place_holder       = 8; //  厨娘(新)求助;此处占位, 实际由服务器发送
+    optional multi_arena_invite         _multi_arena_invite = 9; // 诸神对决
+    optional multi_stage_invite         _multi_stage_invite = 10; // 勇者之书多人副本
+    optional chat_hero_link             _chat_hero_link     = 11; // 聊天分享英雄信息的链接
+    optional team_invite                _team_invite        = 12; // 组队邀请
+}
+
+message chat_hero_link {
+    optional string _role_id = 1; // 分享玩家的svrid
+    repeated uint32 _heroids = 2; // 分享的英雄id
+}
+
+message chat_translate {
+    optional string       _target_lang  = 1; // 语言码
+    optional string       _content      = 2;
+}
+
+message multiplayer_invite {
+    optional uint32          _room_id         = 1;    // 参数1
+    optional uint32          _stage_id        = 2;    // 参数2
+    optional string          _module_type     = 3;    // 参数3
+}
+
+message multi_arena_invite {
+    enum invite_type {
+        team = 1; //组队邀请
+        room = 2; //房间邀请
+    }
+    optional invite_type    _invite_type    = 1;    // 参数1
+    optional uint32         _id             = 2;    // 参数1
+    optional uint32         _stage_id       = 3;    // 参数2
+}
+
+message team_invite {
+    optional team_target    _target     = 1; // 目标
+    optional uint32         _team_id    = 2; // 队伍ID
+}
+
+message multi_stage_invite {
+    optional uint32          _room_id         = 1;    // 参数1
+    optional uint32          _stage_id        = 2;    // 参数2
+}
+
+message arena_pvp_hero_data {
+    repeated arena_pvp_hero _hero_data = 1;
+}
+
+message battle_record {
+    optional uint32 _checkid       = 1;
+    optional uint32 _userid        = 2;
+    optional string _username      = 3;
+    optional uint32 _level         = 4;
+    optional uint32 _avatar        = 5;
+    optional uint32 _vip           = 6;
+    optional uint32 _oppo_userid   = 7;
+    optional string _oppo_name     = 8;
+    optional uint32 _oppo_level    = 9;
+    optional uint32 _oppo_avatar   = 10;
+    optional uint32 _oppo_vip      = 11;
+    optional uint32 _oppo_robot    = 12;
+    optional battle_result _result = 13 [default = victory];
+    repeated hero   _self_heroes   = 14;
+    repeated hero_dyna _self_dynas = 15;
+    repeated hero   _oppo_heroes   = 16;
+    repeated hero_dyna _oppo_dynas = 17;
+    optional uint32 _rseed         = 18;
+    optional uint32 _self_robot    = 19;
+    optional uint32 _param1        = 20;
+    repeated operation _operations    = 21;
+    repeated operation _self_operations    = 22;
+    optional uint32 _args          = 23;
+    repeated warschool_book    _self_warschool_books  = 24;
+    repeated warschool_book    _oppo_warschool_books  = 25;
+    optional uint32 _self_bookreading_level = 26;
+    optional uint32 _oppo_bookreading_level = 27;
+    optional uint32   _is_ladder_buff_open    = 28;  //竞技场buf活动是否开启
+    optional uint32      _bt_st             = 29;
+    optional battle_bonus _self_bonus       = 30; // 己方战斗加成
+    optional battle_bonus _oppo_bonus       = 31; // 对手战斗加成
+}
+
+message hero_dyna {
+    optional uint32     _hp_perc        = 1;
+    optional uint32     _mp_perc        = 2;
+    optional uint32     _custom_data    = 3;
+}
+
+// 服务器聊天消息拉取
+message chat_fresh {
+    optional chat_channel _channel = 1[default = world_channel];
+    optional bool         _is_history   = 2;
+}
+
+// 聊天附件拉取
+message chat_fetch {
+    optional chat_channel _channel = 1[default = world_channel];
+    optional uint32       _chat_id = 2;
+}
+
+message chat_add_bl {
+    optional string       _role_id  = 1;
+}
+
+message chat_del_bl {
+    optional string       _role_id  = 1;
+}
+
+// 公会消息
+message guild {
+    optional guild_create           _create             = 1;        //创建公会
+    optional guild_dismiss          _dismiss            = 2;        //解散公会
+    optional guild_list             _list               = 3;        //获取公会列表
+    optional guild_search           _search             = 4;        //按条件查询公会
+    optional guild_join             _join               = 5;        //加入公会
+    optional guild_join_confirm     _join_confirm       = 6;        //加入公会确认
+    optional guild_leave            _leave              = 7;        //离开公会
+    optional guild_kick             _kick               = 8;        //踢出公会
+    optional guild_set              _set                = 9;        //设置公会信息
+    optional guild_query            _query              = 10;       //查询本公会信息
+    optional guild_open_pannel      _open_pannel        = 11;       //打开公会面板
+    optional guild_set_job          _set_job            = 12;       //修改成员权限
+    optional guild_add_hire         _add_hire           = 13;       //上架雇佣英雄
+    optional guild_del_hire         _del_hire           = 14;       //下架雇佣英雄
+    optional guild_query_hires      _query_hires        = 15;       //查询公会用的雇佣英雄
+    optional guild_hire_hero        _hire_hero          = 16;       //雇佣别人的英雄
+    optional guild_worship_req      _worship_req        = 17;       //膜拜英雄
+    optional guild_worship_withdraw _worship_withdraw   = 18;       //领膜拜奖励
+    optional guild_qurey_hh_detail  _query_hh_detail    = 19;       //雇佣英雄详情查询
+    optional guild_query_member     _guild_query_member = 34;       // 公会成员列表
+
+    optional guild_send_mail        _guild_send_mail    = 37;       // 发送公会邮件
+    optional guild_query_single     _guild_query_single = 38;       // 查询某成员信息
+    optional guild_query_chair_info _guild_query_chair_info = 39;   // 查询会长信息
+    optional guild_relation_list    _guild_relation_list= 42;       // 工会关系列表
+    optional guild_set_relation     _guild_set_relation = 43;       // 设置工会关系
+    optional guild_list_query       _guild_list_query   = 44;       // 查询工会列表
+    optional guild_recruit_item     _set_recuit_item    = 45;       // 设置公会宣言
+    optional guild_member_rank      _guild_member_rank  = 46;       // 玩法排行
+}
+
+message guild_set_relation {
+    enum relation {
+        friendship = 1;
+        hostility  = 2;
+        default    = 3;
+    }
+    optional uint32   _guild_id = 1;
+    optional relation _relation = 2;
+}
+
+message guild_list_query {
+    optional uint32 _start = 1;
+    optional uint32 _end   = 2;
+}
+
+message guild_recruit_item {
+    optional string recruit_del = 1;
+    repeated uint32 guild_tag   = 2;
+}
+
+message guild_member_rank {
+    enum type {
+        dreamland          = 1; // 梦境
+    }
+    optional type   _type = 1;
+}
+
+message guild_relation_list {}
+
+message guild_query_chair_info {
+    optional uint32 guild_id = 1;
+}
+
+message guild_set_tactics {
+    optional string content = 1;
+}
+
+message guild_query_tactics {
+}
+
+message guild_query_single {
+    enum type {
+        monthcard          = 1;
+        magic_soul_voucher = 2;
+    }
+    repeated type   query_type = 1;
+    optional uint32 uid        = 2;
+}
+
+message guild_send_mail {
+    optional string title   = 1;   // 公会邮件标题
+    optional string content = 2;   // 公会邮件内容
+}
+
+message guild_query_member {
+
+}
+
+message guild_create {
+    optional string     _name       = 1;
+    optional uint32     _avatar     = 2;
+}
+
+message guild_dismiss {
+}
+
+message guild_list {
+}
+
+message guild_search {
+    optional uint32     _guild_id   = 1;
+}
+
+message guild_join {
+    optional uint32     _guild_id   = 1;
+}
+
+message guild_join_confirm {
+    enum confirm_type {
+        accept = 1;
+        reject = 2;
+    }
+    optional uint32         _uid    = 1;    //同意加入的玩家uid
+    optional confirm_type   _type   = 2[default = accept];
+}
+
+message guild_leave {
+}
+
+message guild_kick {
+    optional uint32     _uid    = 1;    //被踢玩家uid
+}
+
+message guild_set {
+    enum guild_join_t {
+        no_verify   = 1;        //不需要验证
+        verify      = 2;        //需要验证才能加入
+        closed      = 3;        //不允许加入
+    }
+    optional uint32         _avatar     = 1;
+    optional guild_join_t   _join_type  = 2;        //加入公会类型
+    optional uint32         _join_limit = 3;        //最小战队等级
+    optional string         _slogan     = 4;        //公告
+    optional string         _change_guild_name = 5;       // 修改公会名字
+}
+
+message guild_query {
+}
+
+message guild_open_pannel {
+}
+
+
+message guild_set_job {
+    optional uint32         _uid    = 1;
+    optional guild_job_t    _job    = 2;
+}
+
+message guild_add_hire {
+    optional uint32         _heroid = 1;
+}
+
+message guild_del_hire {
+    optional uint32         _heroid = 2;
+}
+
+message guild_query_hires {
+    optional hire_from      _from   = 1;
+}
+
+message guild_hire_hero {
+    optional uint32         _uid    = 1;
+    optional uint32         _heroid = 2;
+    optional hire_from      _from   = 3;
+    optional uint32         _stage_id = 4;
+}
+
+message guild_worship_req {
+    optional uint32         _id     = 1;        //膜拜配置ID
+    optional uint32         _uid    = 2;        //膜拜对象
+}
+
+message guild_worship_withdraw {
+}
+
+//查询雇佣英雄详情
+message guild_qurey_hh_detail {
+    enum hero_type {
+        common_hero = 1;
+        guild_hero  = 2;
+    }
+    optional hero_type      _hero_type = 1;
+    optional uint32         _uid       = 2;
+    optional uint32         _heroid    = 3;
+}
+
+enum guild_job_t {
+    chairman    = 1;
+    member      = 2;
+    elder       = 3;
+}
+
+// 聊天频道
+enum chat_channel {
+    world_channel       = 1;              // 世界频道
+    guild_channel       = 2;              // 公会频道
+    personal_channel    = 3;              // 私聊频道
+    chatroom_channel    = 4;
+}
+
+// 兑换码
+message cdkey_gift {
+    optional string _cdkey  = 1;
+}
+
+message push_notify{
+    optional string _client_id     =1; // 推送定义的客户端id
+    optional string _jpush_client_id = 2; //极光推送的客户端id
+    optional string _gcm_id = 3; //gcm推送的客户端id
+}
+
+message system_setting{
+    optional system_setting_change   _change = 1;
+}
+
+message system_setting_change{
+    enum setting_status {
+        on    = 1;
+        off   = 2;
+    }
+    optional string key = 1;
+    optional setting_status value = 2;
+}
+
+
+
+message report_battle {
+    optional uint32 _id      = 1;
+    optional bytes  _data    = 2;
+    optional string _type    = 3;  //类型
+    optional uint32 _svr_id  = 4;  //服务器id,不一定在本服
+}
+
+message query_ranklist {
+    optional rank_type      _rank_type   = 1;
+    optional rankboard_type _board_type  = 2;
+    optional uint32         _custom_data = 3;
+}
+
+
+message request_guild_log{
+}
+message query_act_stage{
+}
+
+
+message register_device {
+    optional uint32         _user_id            = 1; // 玩家id
+    optional string         _device_id             = 2; // 玩家设备信息
+    optional user_summary     _summary             = 3; // 玩家简要信息，临时
+    repeated string         _other_device_id     = 4; // 附件其他玩家设备信息
+}
+
+enum pvp_rule {
+    bo1 = 1; // 单局定胜负
+    bo3 = 2; // 三局两胜制
+    bo5 = 3; // 五局三胜制
+}
+
+message pvp_challenge_req {
+    optional string    _device_id            = 1;
+    optional string    _challenge_device_id  = 2; // 欲匹配的设备id
+    optional pvp_rule  _pvp_rule             = 3; // 赛制选择
+}
+
+message pvp_challenge_reply {
+    optional string    _device_id            = 1;
+    optional string    _challenge_device_id  = 2; // 欲匹配的设备id
+    optional int32     _accept_challenge     = 3;  // 1 接受/ 0 拒绝
+}
+
+message pvp_enter_room{
+    optional string    _device_id = 1;
+    optional string    _server_id = 2;
+    optional uint32    _udp_port  = 3; // 客户端打开的udp端口号
+    optional string    _data_md5  = 4; // 玩家重要数据md5
+}
+
+message pvp_ready {
+    optional string       _device_id      = 1;
+    repeated uint32       _self_heroes    = 2; // 玩家英雄ID列表
+}
+
+message pvp_ban {
+    optional string       _device_id      = 1;
+    repeated uint32       _hero_ids       = 2;
+}
+
+message pvp_pick {
+    optional string       _device_id      = 1;
+    repeated uint32       _hero_ids       = 2;
+}
+
+message pvp_end {
+}
+
+message hero_select {
+    optional string           _device_id                = 1;
+    optional uint32           _hero_selected            = 2; // 选择的英雄ID
+}
+
+message hero_deselect {
+    optional string           _device_id               = 1;
+    optional uint32           _hero_deselected         = 2; // 取消选择的英雄ID
+}
+
+message hero_select_round_end{
+    optional string           _device_id               = 1;
+    optional uint32           _step                    = 2; // 当前局第几次选择
+    repeated uint32           _heroes_selected         = 3; // 本轮选择的英雄ID
+}
+
+message pvp_round_end {
+    optional string         _device_id    = 1;
+    optional int32          _cur_round    = 2; // 取值:1, 2, 3
+    optional battle_result  _result       = 3[default = victory];
+}
+
+message sync_operation{
+    optional uint32  _tick = 1;
+    repeated uint32  _operation = 2;
+}
+
+message sync_operations{
+    optional string  _device_id  = 1;
+    repeated sync_operation _ops = 2;
+}
+
+message sync_acks{
+    optional string  _device_id = 1;
+    optional uint32  _tick      = 2;         // 第几帧的确认，表示该帧之前的所有帧都已经收到
+}
+
+message pvp_heart{
+    optional string           _device_id = 1;
+    optional uint32           _my_lag    = 2; // 我的延迟
+}
+
+message pvp_round_reset{
+    optional string           _device_id               = 1;
+}
+
+message result_show_over{
+    optional string           _device_id               = 1;
+}
+
+message pvp_round_init_over{
+    optional string           _device_id               = 1;
+}
+
+// 准备好选人
+message pvp_select_ready{
+    optional string           _device_id               = 1;
+}
+
+// udp穿透包，不需要有内容，仅为了服务器拿到客户端的nat端口和IP
+message udp_penetrate{
+    optional string  _device_id  = 1;
+}
+
+// pvp房间的聊天协议
+message pvp_chat_msg {
+    optional string  _device_id = 1;
+    optional string  _chat_data = 2; // 聊天的数据
+}
+
+message reconnect_msg {
+    optional string  _device_id = 1;
+}
+
+message real_pvp {
+    optional register_device          _reg_device              = 1; // 上报自己和周围的设备信息
+    optional pvp_challenge_req        _pvp_challenge_req       = 2; // 挑战者选择对战设备和战斗类型
+    optional pvp_challenge_reply      _pvp_challenge_reply     = 3; // 被挑战者 接受or拒绝挑战
+    optional pvp_enter_room           _pvp_enter_room          = 4; // 进入对战房间
+    optional pvp_select_ready         _pvp_select_ready        = 5; // 准备好选人
+    optional pvp_ready                _pvp_ready               = 6; // 单局胜负时， 上报自己的英雄列表 弃用
+    optional hero_select              _hero_select             = 7; // 点选英雄 弃用
+    optional hero_deselect            _hero_deselect           = 8; // 取消选择的英雄 弃用
+    optional hero_select_round_end    _hero_select_round_end   = 9; // 确认本轮选择的英雄 弃用
+    optional pvp_round_init_over      _pvp_round_init_over     = 10; // 战斗初始化完毕
+    optional pvp_round_end            _round_end               = 11; // 本轮结束
+    optional pvp_round_reset          _pvp_round_reset         = 12; // 重置
+    optional pvp_heart                _pvp_heart               = 13; // 心跳
+    optional udp_penetrate            _udp_penetrate           = 14; // udp穿透包
+    optional sync_operations          _sync_operations         = 15; // 战斗同步
+    optional sync_acks                _sync_acks               = 16; // 战斗同步确认
+    optional pvp_chat_msg             _pvp_chat_msg            = 17; // 聊天的协议
+    optional reconnect_msg            _reconnect_msg           = 18; // 重新连接后，获取房间最新消息(目前适用于选英雄)
+    optional pvp_ban                  _pvp_ban                 = 19; // bp禁用英雄
+    optional pvp_pick                 _pvp_pick                = 20; // bp选择英雄
+}
+
+// 实时对战 end
+
+
+// 长连接实时推送系统
+message realtime_notify  {
+    optional rtnotify_register  _rtnotify_register    = 1;  // 玩家注册自己的信息
+    optional rtnotify_keepalive _rtnotify_keepalive   = 2;  // 心跳包
+}
+
+message rtnotify_register {
+    optional uint32   _iuserid       = 1;
+    optional bytes    _sign          = 2;
+}
+
+message rtnotify_keepalive {
+    optional uint32     _iuserid       = 1;
+    optional bytes      _sign          = 2;
+    optional uint32     _time          = 3; // 心跳发送时间
+}
+
+
+message dailyjob {
+    optional dailyjob_open_panel   _dailyjob_open_panel  = 1;
+    optional dailyjob_open_chest   _dailyjob_open_chest  = 2;
+    optional dailyjob_onekey       _dailyjob_one_key     = 3;
+}
+
+message dailyjob_open_panel {
+  optional dailyjob_module _type = 1; // 可为空
+}
+
+message dailyjob_open_chest {
+    optional uint32 _chest_id = 1; // 宝箱id
+}
+
+message dailyjob_onekey {
+    repeated uint32 _job = 1; // 活动
+}
+
+// 永生梦境
+message dreamland {
+    optional dreamland_open_panel                _open_panel        = 1;
+    optional dreamland_start_battle              _start_battle      = 2;
+    optional dreamland_end_battle                _end_battle        = 3;
+    optional dreamland_buy_chance                _buy_chance        = 4;
+    optional dreamland_request_summary           _request_summary   = 5;
+    optional dreamland_set_video_status          _set_video_status  = 6;
+    optional dreamland_battle_record             _battle_record     = 7;
+    optional dreamland_query_replay              _query_replay      = 8;
+    optional dreamland_query_summary             _query_summary     = 9;
+    optional dreamland_query_calendar            _query_calendar    = 10;
+}
+
+message dreamland_open_panel {
+}
+
+message dreamland_start_battle {
+    repeated uint32 _hero_ids        = 1;
+}
+
+message dreamland_end_battle {
+    optional battle_result  _result        = 1;
+    optional uint32         _damage        = 2;
+    repeated operation      _operations    = 3; // <<replacement:8, op:2, wave_idx:3, tick:10, hero_pos:3>>
+    // op = 0: cast skill
+    // op = 1: revive hero
+}
+
+message dreamland_buy_chance {
+}
+
+message dreamland_request_summary {
+}
+
+message dreamland_set_video_status {
+    optional bool _is_hide = 1;
+}
+
+message dreamland_battle_record {
+
+}
+
+message dreamland_query_replay{
+    optional uint32 _replay_id  = 1; // 战斗录像ID
+}
+
+message dreamland_query_summary{
+    optional uint32 _replay_id  = 1; // 战斗录像ID
+}
+
+message dreamland_query_calendar{
+
+}
+
+
+// 商店切换
+message shop_switch {
+    enum switch_type{
+        next = 1; //下一个商店
+        prev = 2; //上一个商店
+    }
+
+    optional switch_type     _type = 1;
+
+    optional uint32   _cur_shop_id = 2; //当前的商店id
+}
+
+// 诸王争霸
+message real_arena {
+    optional real_arena_open_panel              _open_panel             = 1; // 打开面板
+    optional real_arena_match                   _match                  = 2; // 匹配对手
+    optional real_arena_cancel_match            _cancel_match           = 3; // 取消匹配对手
+    optional real_arena_request_achievement     _request_achievement    = 4; // 查询战绩
+    optional real_arena_request_hero            _request_hero           = 5; // 查询英雄
+    optional real_arena_request_record          _request_record         = 6; // 查询记录
+    optional real_arena_check_network           _check_network          = 7; // 网络测速
+    optional real_arena_request_replay          _request_replay         = 8; // 查询录像
+    optional real_arena_request_guild           _request_guild          = 9; // 查询公会成员
+    optional real_arena_request_challenge       _request_challenge      = 10; // 发送挑战请求
+    optional real_arena_cancel_challenge        _cancel_challenge       = 11; // 取消挑战请求
+    optional real_arena_challenge_reply         _challenge_reply        = 12; // 挑战请求回复
+    optional real_arena_request_battle_result   _request_battle_result  = 13; // 请求比赛结果
+    optional real_arena_open_task_panel         _open_task_panel        = 14; // 打开诸王任务面板
+    optional real_arena_job_rewards             _job_rewards            = 15; // 诸王任务领取奖励
+    optional real_arena_open_shop_panel         _open_shop_panel        = 16; // 打开诸王商店面板
+    optional real_arena_buy_goods               _buy_goods              = 17; // 购买商品
+
+    optional real_arena_room                    _room                   = 19; // 诸王房间匹配
+    optional real_arena_team_start              _team                   = 20; // 诸王队伍开始比赛
+    optional real_arena_query_local_rank        _query_local_rank       = 21; // 查询本地排名
+    optional real_arena_grade_rewards           _grade_rewards          = 22; // 诸王段位奖励
+}
+
+enum real_arena_type {
+    athletics     = 1;    // 竞技模式
+    casual        = 2;    // 休闲模式
+    guild         = 3;    // 公会切磋
+    point         = 4;    // 积分赛模式
+}
+
+message real_arena_open_panel {
+}
+
+message real_arena_match {
+    optional real_arena_type _target_type = 1;
+    optional string          _server_id   = 2;
+    optional string          _version     = 3; // 客户端版本号
+    optional pvp_rule        _pvp_rule    = 4; // 赛制选择
+}
+
+message real_arena_cancel_match {
+}
+
+message real_arena_request_achievement {
+}
+
+message real_arena_request_hero {
+    repeated uint32             _heroes = 1; // 英雄ID列表
+}
+
+message real_arena_request_record {
+
+}
+
+message real_arena_check_network {
+    optional uint32 _time_ping = 1;
+}
+
+message real_pvp_hero_dyna {
+    optional uint32     _id             = 1;
+    optional uint32     _hp_perc        = 2;
+    optional uint32     _mp_perc        = 3;
+    optional uint32     _custom_data    = 4;
+}
+
+message real_arena_request_replay {
+    optional uint32 _record_index           = 1; // 三场录像总ID
+    optional real_arena_type _target_type   = 2; // 模式信息
+    optional uint32 _replay_index           = 3; // 第几场录像 取值 [0,1,2,3] 0 返回全部的三场
+}
+
+message real_arena_request_guild {
+}
+
+enum real_arena_challenge_type {
+    guild            = 1; // 公会挑战
+    lbs              = 2; // 附近挑战
+}
+
+message real_arena_request_challenge {
+    optional real_arena_challenge_type    _type        = 1;
+    optional uint32                       _user_id     = 2;
+    optional string                       _server_id   = 3;
+    optional string                       _version     = 4; // 客户端版本号
+    optional pvp_rule                     _pvp_rule    = 5; // 赛制选择
+    optional chat_say                     _say         = 6; // 挑战聊天内容
+}
+
+message real_arena_cancel_challenge {
+    optional real_arena_challenge_type    _type        = 1;
+}
+
+message real_arena_challenge_reply {
+    optional int32                        _result      = 1;  // 1接受，0拒绝
+    optional real_arena_challenge_type    _type        = 2;
+    optional uint32                       _oppo_id     = 3;
+    optional string                       _server_id   = 4;
+    optional pvp_rule                     _pvp_rule    = 5; // 赛制选择
+}
+
+message real_arena_request_battle_result {
+    optional uint32         _room_id    = 1; // 房间序号
+}
+
+message real_arena_open_task_panel {
+}
+
+message real_arena_job_rewards {
+    optional uint32         _job_id    = 1; // 任务序号
+}
+
+message real_arena_open_shop_panel {
+}
+
+enum real_arena_goods_type{
+    star    = 1;
+    awake   = 2;
+    hire    = 3;
+}
+
+message real_arena_buy_goods {
+    optional real_arena_goods_type   _type        = 1; // 商品类型
+    optional uint32                  _hero_id     = 2; // 英雄ID
+}
+
+message real_arena_room {
+    optional real_arena_room_create _create_room = 1; // 开房
+    optional real_arena_room_enter  _enter_room  = 2; // 进入房间
+    optional real_arena_room_ready  _ready       = 3; // 准备
+    optional real_arena_room_cancel _cancel      = 4; // 关闭
+    optional real_arena_room_reconnect   _reconnect   = 5; // 重连
+}
+
+message real_arena_room_create {
+    optional pvp_rule                     _pvp_rule    = 1; // 赛制选择
+    optional string                       _version     = 2; // 客户端版本号
+}
+
+message real_arena_room_enter {
+    optional uint32   _room_id  = 1;
+    optional string                       _version     = 2; // 客户端版本号
+}
+
+message real_arena_room_ready {
+}
+
+message real_arena_room_cancel {
+}
+message real_arena_room_reconnect {
+}
+
+message real_arena_query_local_rank {
+}
+
+message real_arena_team_start {
+
+}
+
+message real_arena_grade_rewards {
+    optional uint32         _grade_id    = 1; // 段位序号
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+message update_backdoor {
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+message battle_check_hero {
+    optional uint32 _heroid         = 1;
+    optional uint32 _hp_perc        = 2;
+    optional uint32 _mp_perc        = 3;
+    optional uint32 _custom_data    = 4;
+}
+// 战斗校验测试
+message test_battle_check {
+    enum type{
+        pvp       = 1;
+        guild     = 2;
+        dreamland = 3;
+    }
+    optional type               _type               = 1;
+    repeated hero               _self_heroes        = 2; //己方战队英雄
+    repeated hero               _oppo_heroes        = 3; //敌方战队英雄
+    repeated operation          _operations         = 4;
+    optional battle_result      _result             = 5 [default = victory];
+    optional uint32             _self_demage        = 6;
+    optional uint32             _oppo_demage        = 7;
+    repeated battle_check_hero  _self_hero_hp_mp    = 8;
+    repeated battle_check_hero  _oppo_hero_hp_mp    = 9;
+    optional uint32             _rseed              = 10;
+    optional uint32             _stage_id           = 11;
+}
+
+
+message migrate {
+    optional migrate_open_panel           _migrate_open_panel          =   1; // 打开转服界面 获取服务器列表
+    optional migrate_check                _check                       =   2; // 检查服务器
+    optional migrate_opration             _migrate_opration            =   3; // 转服
+}
+
+message migrate_open_panel {
+}
+message migrate_check{
+    optional uint32 _server_id = 1;
+}
+message migrate_opration {
+    enum type {
+        normal = 0;    // 转服操作
+        privilege = 1;    // 使用特权转服
+        normal_kick_exsits = 2;    // 不论目标服有没有用户, 强制转服, 此操作再条件不满足且有特权时候默认使用特权
+        privilege_kick_exsits = 3;
+    }
+
+    optional type    _type = 1;
+    optional uint32 _server_id = 2;
+
+}
+
+//批量使用混合升级道具
+message consume_exp_items {
+    optional uint32 _heroid     = 1;               // 英雄ID
+    repeated item   _items      = 2;               // 消耗的材料组
+}
+
+
+message medal_req {
+    optional medal_open_panel    _open_panel = 1; // 打开徽章界面
+    optional medal_set           _set_medal     = 2; // 设置徽章
+}
+
+message medal_open_panel {}
+
+message medal_set {
+    optional   uint32   _medal_id = 1; //设置勋章ID
+}
+
+message set_medal {
+    optional uint32 _set_medal_id = 1;
+}
+
+message unmount_medal {}
+
+message remote_setting {
+    optional get_remote_items _get_remote_items = 1; // 获取远程的头像和徽章
+    optional set_remote_item  _set_remote_item  = 2; // 设置远程的头像和徽章
+}
+
+message get_remote_items {
+    optional uint32 svr_id = 1; // 服务器id
+}
+
+message set_remote_item {
+    enum remote_item_type {
+        avatar       = 1;
+        avatar_frame = 2;
+        medal        = 3;
+    }
+    optional remote_item_type _remote_item_type = 1;
+    optional uint32  _remote_item_id            = 2;
+}
+
+message multiplayer_battle {
+    optional multiplayer_createroom        _createroom       = 1;    // 创建房间
+    optional multiplayer_findroom          _findroom         = 2;    // 查找房间
+    optional multiplayer_register          _register         = 3;    // 注册玩家
+    optional multiplayer_enterroom         _enterroom        = 4;    // 加入房间
+    optional multiplayer_statechange       _statechange      = 5;    // 状态变化
+    optional multiplayer_heart             _heart            = 6;    // 心跳
+    optional multiplayer_kick_player       _kick_player      = 7;    // 踢人
+    optional multiplayer_hero_select       _hero_select      = 8;    // 选英雄界面
+    optional multiplayer_udp_penetrate     _udp_penetrate    = 9;    // udp穿透包
+    optional multiplayer_synchronization   _synchronization  = 10;   // 同步帧
+    optional multiplayer_sync_acks         _sync_acks        = 11;   // 确认帧
+    optional multiplayer_endbattle         _endbattle        = 12;   // 结束战斗
+    optional multiplayer_start_match       _start_match      = 13;   // 多人对战匹配
+    optional multiplayer_cancel_match      _cancel_match     = 14;   // 取消匹配
+    optional multiplayer_prepare           _prepare          = 15;   // 功能准备检查
+    optional multiplayer_open_check        _open_check       = 16;   // 是否开启检查
+    optional multiplayer_chat              _chat             = 17;   // 聊天
+    optional multiplayer_matchchange       _matchchage       = 18;   // 匹配模式改变
+    optional multiplayer_playagain         _playagain        = 19;   // 再来一局
+}
+
+message multiplayer_createroom {
+    optional string _version = 1; // 客户端版本
+}
+
+message multiplayer_findroom {
+    optional uint32 _room_id = 1; //房间ID
+    optional string _version = 2; // 客户端版本
+}
+
+message multiplayer_register {
+    optional user_key _deviceid = 1;
+}
+
+message multiplayer_enterroom {
+    optional user_key             _deviceid = 1;
+    optional uint32               _room_id  = 2; //房间ID
+    optional bool                 _matched  = 3; //是否是匹配进入的
+}
+
+message multiplayer_statechange {
+    enum room_states {
+        exit    = 1;
+        ready   = 2;
+        unready = 3;
+    }
+    optional user_key             _deviceid = 1;
+    optional room_states          _state    = 2; // 玩家变化状态
+}
+
+message multiplayer_heart {
+    optional user_key _deviceid = 1;
+}
+
+message multiplayer_kick_player {
+    optional user_key _deviceid                = 1;
+    optional user_key _be_kick_player_deviceid = 2;
+}
+
+message multiplayer_hero_select {
+    enum select_operartion {
+        addhero  = 1;
+        delhero  = 2;
+        ready    = 3;
+        unready  = 4;
+        exit     = 5;
+    }
+    optional select_operartion      _state      = 1;    // 操作码
+    optional user_key               _deviceid   = 2;
+    optional uint32                 _index      = 3;    // 槽号
+    optional uint32                 _tid        = 4;    // 选择英雄ID
+}
+
+message multiplayer_udp_penetrate {
+    optional user_key  _deviceid  = 1;
+}
+
+message multiplayer_operations {
+    optional uint32  _tick  = 1;
+    repeated uint32  _ops   = 2;
+}
+
+message multiplayer_synchronization {
+    optional user_key                   _deviceid   = 1;
+    repeated multiplayer_operations     _operations = 2;
+}
+
+message multiplayer_sync_acks {
+    optional user_key               _deviceid  = 1;
+    optional uint32                 _tick      = 2;    // 第几帧的确认，表示该帧之前的所有帧都已经收到
+}
+
+message multiplayer_endbattle {
+    optional user_key               _deviceid            = 1;
+    optional bool                   _is_manual_battle    = 2;
+    optional uint32                 _damage              = 3;
+}
+
+message multiplayer_start_match {
+    optional string  _version = 1; // 客户端版本
+}
+
+message multiplayer_cancel_match {}
+
+message multiplayer_prepare {
+    enum module_type {
+        devilseal = 1; // 魔王封印
+        dreamland = 2; // 永生梦境
+        guild_monster = 3; // 年兽
+    }
+    optional module_type _module_type = 1;
+    optional uint32      _stage_id    = 2;
+}
+
+message multiplayer_open_check {
+    optional uint32  _stage_id = 1;
+}
+
+message multiplayer_chat {
+    optional user_key _deviceid = 1;
+    optional string   _content  = 2;
+}
+
+message multiplayer_matchchange {
+    optional user_key _deviceid           = 1;
+    optional bool     _match_stranger     = 2; // 是否能匹配路人
+}
+
+message multiplayer_playagain {
+    optional string _version = 1; // 客户端版本
+}
+
+message monster_request {
+    optional monster_open_panel   _monster_open_panel   = 1;
+    optional monster_scan_node    _monster_scan_node    = 2;
+    optional monster_start_battle _monster_start_battle = 3;
+    optional monster_end_battle   _monster_end_battle   = 4;
+    optional monster_buy_chance   _monster_buy_chance   = 5;
+    optional monster_draw_rewards _monster_draw_rewards = 6;
+    optional monster_rankboard    _monster_rankboard    = 7;
+}
+
+message monster_rankboard {
+}
+
+message monster_open_panel {
+}
+
+message monster_scan_node {
+    optional uint32 _node_id = 1;
+}
+
+message monster_start_battle {
+    repeated uint32 _hero_ids = 1;
+}
+
+message monster_end_battle {
+    optional battle_result  _result        = 1;
+    optional uint32         _damage        = 2;
+    repeated operation      _operations    = 3;
+}
+
+message monster_buy_chance {
+    optional uint32 _count = 1;
+}
+
+message monster_draw_rewards {
+    optional uint32 _id = 1;
+}
+
+//诸神对决
+message multi_arena {
+    optional multi_arena_open_panel        _open_panel       = 1;    // 诸王2v2
+    optional multi_arena_create_team       _create_team      = 2;    // 创建队伍
+    optional multi_arena_enter_team        _enter_team       = 3;    // 加入队伍
+    optional multi_arena_kick_member       _kick_member      = 4;    // 提人
+    optional multi_arena_member_action     _member_action    = 5;    // 队伍成员操作
+    optional multi_arena_create_room       _create_room      = 6;    // 创建房间
+    optional multi_arena_query_room        _query_room       = 7;    // 查询房间
+    optional multi_arena_enter_room        _enter_room       = 8;    // 加入房间
+    optional multi_arena_invate_payer      _invate_payer     = 9;    // 邀请
+    optional multi_arena_start_match       _start_match      = 10;   // 匹配
+    optional multi_arena_cancel_match      _cancel_match     = 11;   // 取消匹配
+    optional multi_arena_kick_player       _kick_player      = 12;   // 踢人
+    optional multi_arena_player_action     _player_action    = 13;   // 玩家状态变化
+    optional multi_arena_start_game        _start_game       = 14;   // 开始游戏
+    optional multi_arena_select_defense    _select_defense   = 15;   // 基地变更（含确认）
+    optional multi_arena_udp_penetrate     _udp_penetrate    = 16;   // udp穿透包
+    optional multi_arena_heart             _heart            = 17;   // 心跳
+    optional multi_arena_synchronization   _synchronization  = 18;   // 同步帧
+    optional multi_arena_sync_acks         _sync_acks        = 19;   // 确认帧
+    optional multi_arena_end_battle        _end_battle       = 20;   // 结束战斗
+    optional multi_arena_set_hero_cards    _set_hero_cards   = 21;   // 队伍预设
+    optional multi_arena_set_magic_cards   _set_magic_cards  = 22;   // 法术预设
+    optional multi_arena_chat              _chat             = 23;   // 聊天
+    optional multi_arena_achievement       _achievement      = 24;   // 查询战绩
+    optional multi_arena_record            _record           = 25;   // 查询记录
+    optional multi_arena_replay            _replay           = 26;   // 查询录像
+    optional multi_arena_init_over         _init_over        = 27;   // 加载结束，准备战斗
+    optional multi_arena_ask_heroes        _ask_heroes       = 29;   // 后台加载英雄数据
+    optional multi_arena_fetch_result      _fetch_result     = 30;   // 拉取战斗结果
+    optional multi_arena_ask_books         _ask_books        = 31;   // 学院技能
+    optional multi_arena_rpt_fca_load      _rpt_fca_load     = 32;   // 上报资源加载进度
+    optional multi_arena_ask_lords         _ask_lords        = 33;   // 请求领主信息
+    optional multi_arena_buy_goods         _buy_goods        = 34;   // 购买物品
+}
+
+message multi_arena_open_panel {
+}
+
+enum multi_arena_mode {
+    athletics     = 1;    // 竞技模式
+    casual        = 2;    // 休闲模式
+    test          = 3;    // 内部用
+}
+
+message multi_arena_deviceid {
+    optional uint32 _svr_id = 1; // 服务器ID
+    optional uint32 _uid    = 2; // 玩家ID
+    optional uint32 _key    = 3; // ID标识
+}
+
+message multi_arena_create_team {
+    optional multi_arena_mode _type    = 1;
+    optional string           _version = 2; // 客户端版本
+}
+
+message multi_arena_enter_team {
+    optional uint32      _team_id    = 1; // 队伍号
+    optional string      _version    = 2; // 客户端版本
+}
+
+message multi_arena_kick_member {
+    optional uint32 _team_id = 1;
+    optional multi_arena_deviceid _be_kick_key = 2;
+}
+
+message multi_arena_member_action {
+    enum member_action {
+        exit    = 1;
+        ready   = 2;
+        unready = 3;
+    }
+    optional uint32         _team_id = 1;
+    optional member_action  _action  = 2; // 玩家操作
+}
+
+message multi_arena_create_room {
+    optional multi_arena_mode   _type       = 1;
+    optional string             _version    = 2; // 客户端版本
+}
+
+message multi_arena_enter_room {
+    optional multi_arena_deviceid   _deviceid   = 1;
+    optional multi_arena_mode       _type       = 2; // 竞技类型
+    optional uint32                 _room_id    = 3; // 房间ID
+    optional string                 _version    = 4; // 客户端版本
+}
+
+message multi_arena_invate_payer {
+    optional multi_arena_index _player_index = 1; //邀请的位置
+    optional multi_arena_mode  _type         = 2;
+}
+
+message multi_arena_index {
+    enum role {
+        host  = 1;
+        guest = 2;
+    }
+    enum pos {
+        first   = 1;
+        second = 2;
+    }
+    optional role   _role  = 1;
+    optional pos    _pos   = 2;
+}
+
+message multi_arena_start_match {
+    enum multi_arena_match_type {
+        single = 1; // 单人匹配
+        team   = 2; // 组队匹配
+    }
+    optional multi_arena_mode       _type       = 1;
+    optional string                 _version    = 2; // 客户端版本
+    optional multi_arena_match_type _match_type = 3;
+    optional uint32                 _team_id    = 4;
+}
+
+message multi_arena_cancel_match {
+    optional uint32  _team_id = 1;
+}
+
+message multi_arena_kick_player {
+    optional multi_arena_deviceid _deviceid                = 1;
+    optional multi_arena_deviceid _be_kick_player_deviceid = 2;
+}
+
+message multi_arena_player_action {
+    enum player_action {
+        exit    = 1;
+        ready   = 2; // 准备
+        unready = 3;
+        ok      = 4; //所有数据就绪
+    }
+    optional multi_arena_deviceid _deviceid = 1;
+    optional player_action        _action    = 2; // 玩家操作
+}
+
+message multi_arena_start_game {
+    optional multi_arena_deviceid _deviceid = 1;
+}
+
+message multi_arena_select_defense {
+    optional multi_arena_deviceid _deviceid     = 1;
+    optional uint32               _defense_id   = 2; //首领ID
+    optional bool                 _is_confirmed = 3; //是否确认
+}
+
+message multi_arena_udp_penetrate {
+    optional multi_arena_deviceid   _deviceid  = 1;
+    optional uint32                 _room_id   = 2;
+}
+
+message multi_arena_heart {
+    optional multi_arena_deviceid  _deviceid       = 1;
+    optional uint32                _network_lag    = 2; // 我的延迟
+}
+
+message multi_arena_operations {
+    optional uint32  _tick  = 1;
+    repeated uint32  _ops   = 2;
+}
+
+message multi_arena_synchronization {
+    optional multi_arena_deviceid       _deviceid   = 1;
+    repeated multi_arena_operations     _operations = 2;
+}
+
+message multi_arena_sync_acks {
+    optional multi_arena_deviceid   _deviceid  = 1;
+    optional uint32                 _tick      = 2;    // 第几帧的确认，表示该帧之前的所有帧都已经收到
+}
+
+message multi_arena_end_battle {
+    optional multi_arena_deviceid _deviceid = 1;
+    optional battle_result        _result   = 2;
+}
+
+message multi_arena_set_hero_cards {
+    repeated uint32 _heroes = 1;
+}
+
+message multi_arena_set_magic_cards {
+    repeated uint32 _magics = 1;
+}
+
+message multi_arena_chat {
+    optional multi_arena_deviceid _deviceid = 1;
+    optional string               _content  = 2;
+}
+
+message multi_arena_achievement {
+}
+
+message multi_arena_record {
+    optional multi_arena_mode _type = 1;
+}
+
+message multi_arena_replay {
+    optional uint32             _svr_id     = 1; // 服务器ID
+    optional uint32             _reply_id   = 2; // 录像ID
+    optional multi_arena_index  _index      = 3; // 个人位置
+}
+
+message multi_arena_query_room {
+    optional uint32 room_id = 1;
+}
+
+message multi_arena_init_over {
+    optional multi_arena_deviceid _deviceid = 1;
+}
+
+message multi_arena_fetch_result {
+}
+
+message multi_arena_ask_heroes {
+    optional multi_arena_deviceid _deviceid     = 1;
+    optional multi_arena_deviceid _target       = 2;
+    repeated uint32               _hero_ids      = 3;
+}
+
+message multi_arena_ask_books {
+    optional multi_arena_deviceid _deviceid = 1;
+    optional multi_arena_deviceid _target   = 2;
+}
+
+message multi_arena_ask_lords {
+    enum role {
+        host  = 1;
+        guest = 2;
+    }
+    optional multi_arena_deviceid _deviceid     = 1;
+    optional role                 _role         = 2;
+    repeated uint32               _lord_ids     = 3;
+}
+
+message multi_arena_rpt_fca_load {
+    optional multi_arena_deviceid _deviceid   = 1;
+    optional uint32               _progress   = 2;
+}
+
+enum multi_arena_goods_type{
+    star_3_to_5  = 1;
+    star_4_to_5  = 2;
+    enhance      = 3;
+    hire         = 4;
+}
+
+message multi_arena_buy_goods {
+    enum pay_type {
+        mt_point      = 1;
+        diamond       = 2;
+    }
+    optional pay_type                           _pay_type     = 1;
+    optional multi_arena_goods_type             _goods_type   = 2;
+    optional uint32                             _hero_id      = 3;
+}
+
+
+//英雄培养引导
+message herohot {
+    optional hh_open_panel          _open_panel         = 1; // 打开界面
+    optional hh_hot_hero            _hot_hero           = 2; // 查看热点英雄
+    optional hh_top_hero            _top_hero           = 3; // 查看最强英雄
+    optional hh_fav_add             _fav_add            = 4; // 添加到收藏夹
+    optional hh_fav_del             _fav_del            = 5; // 清理收藏夹
+    optional hh_query_exceed        _query_exceed       = 6; // 查询超过千分比
+    optional hh_stage_recommend     _stage_recommend    = 7; // 关卡推荐
+    optional hh_team_recommend      _team_recommend     = 8; // 阵容推荐
+    optional hh_latest_recommend    _latest_recommend   = 9;  // 最近通关
+    optional hh_hot_recommend       _hot_recommend      = 10; // 热门阵容推荐
+    optional hh_lineup_recommend    _lineup_recommend   = 11; // 阵容推荐
+}
+
+message hh_open_panel {
+
+}
+
+message hh_hot_hero {
+    optional uint32 _heroid = 1; //英雄的ID
+}
+
+message hh_top_hero {
+    optional uint32 _heroid = 1; //英雄的ID
+}
+
+message hh_fav_add {
+    repeated uint32 _heroids = 1; //英雄的ID数组
+}
+
+message hh_fav_del {
+    repeated uint32 _heroids = 1; //英雄的ID数组
+}
+
+message hh_query_exceed {
+    optional uint32 _heroid = 1; //英雄的ID
+}
+
+message hh_stage_recommend {
+    optional hh_gameplay   _gameplay     = 1; // 玩法
+    optional uint32        _stageid      = 2; // 关卡ID
+}
+
+enum hh_gameplay {
+    ladder          = 0; // 竞技场
+    legend_arena    = 1; // 传奇竞技场
+    dreamland       = 2; // 梦境
+    guild_raid     = 3; // 团本
+    race_tower      = 4; // 种族塔
+    race_tower_team = 5; // 种族塔阵容
+    stage           = 6; // 战役
+    dreamland_team  = 7; // 梦境阵容
+    dreamland_sg    = 8; // 梦境关卡
+}
+
+message hh_team_recommend {
+    optional hh_gameplay     _gameplay   = 1; // 玩法
+}
+
+message hh_latest_recommend {
+    optional hh_gameplay   _gameplay   = 1; // 玩法
+    optional uint32        _stageid    = 2; // 关卡ID
+    optional string        _version    = 3; // 客户端版本号
+}
+
+message hh_hot_recommend {
+    optional hh_gameplay     _gameplay   = 1; // 玩法
+    optional uint32          _stageid    = 2; // 关卡ID
+}
+
+message hh_lineup_recommend {
+    optional hh_gameplay     _gameplay   = 1; // 玩法
+    optional uint32          _stageid    = 2; // 关卡ID
+}
+
+message personal_home_page {
+    optional php_open_panel             _open_panel            = 1;
+    optional php_set_signature          _set_signature         = 2;
+    optional php_set_honor_wall         _set_honor_wall        = 3;
+    optional php_req_home_page          _req_home_page         = 4;
+    optional php_req_hero               _req_hero              = 5;
+    optional php_req_home_page_specail  _req_home_page_specail = 6; // 特殊的协议，返回协议内错误码
+}
+
+message php_open_panel {
+}
+
+message php_set_signature {
+    optional string _signature = 1;
+}
+
+message php_set_honor_wall {
+    repeated honor_wall_item _honor_wall = 1;
+}
+
+message php_req_home_page {
+    optional string _role_id    = 1; // 角色ID
+}
+
+message php_req_hero {
+    optional string _role_id   = 1; // 角色ID
+    optional uint32 _hero_id   = 2; // 英雄ID
+}
+
+message php_req_home_page_specail {
+    optional php_req_home_page _php_req_home_page = 1;
+}
+
+message video {
+    optional uint32        _query_video         = 1;
+    optional uint32        _query_barrage       = 2;
+    optional send_barrage  _send_barrage        = 3;
+    optional uint32        _query_video_summary = 4;
+}
+
+message send_barrage {
+    optional uint32  _video_id = 1;
+    optional barrage _barrage  = 2;
+}
+
+message onekey_sweep_stage {
+    enum stype{
+        sweep_use_ticket    = 0;    // 使用扫荡券
+        sweep_use_diamond   = 1;    // 使用钻石
+    }
+    optional stype  _stype          = 1; // 扫荡方式
+    optional bool   _force_sweep    = 2; // 是否强制扫荡
+}
+
+
+
+message achievement{
+    optional achievement_open_panel             _open_panel         = 1;    //打开成就面板
+    optional achievement_require_rewards        _require_rewards    = 2;    //请求成就奖励
+    optional achievement_point_reward           _point_reward       = 3;    // 请求成就点奖励
+}
+message achievement_open_panel {
+}
+message achievement_require_rewards {
+    enum achievement_type {
+        Player      = 0;                  //个人成就
+        Hero        = 1;                   //英雄成就
+        Guild       = 2;                   //工会成就
+        Festival    = 3;                   //活动成就
+        Dungeon     = 4;                   //副本成就
+        Event       = 5;
+    }
+    optional achievement_type   _type             = 1;      //成就类型
+    optional uint32             _id               = 2;      //成就id
+    optional uint32             _line_id          = 3;      //成就链id
+}
+
+message achievement_point_reward {
+    optional uint32             _id  = 1;  // 奖励Index
+}
+
+message binding {
+    optional binding_code       _code   = 1; // 获取验证码
+    optional binding_submit     _sumbit = 2; // 提交绑定
+}
+
+message binding_code {
+    optional string _phone_number   = 1; // 手机号
+}
+
+message binding_submit {
+    optional string _phone_number   = 1; // 手机号
+    optional string _code           = 2; // 验证码
+}
+
+// 世界杯（新）
+message world_cup_req {
+    optional wc_open_panel      _open_panel = 1; // 打开面板
+    optional wc_bet_team        _bet_team   = 2; // 押注队伍
+}
+
+message wc_open_panel { }
+
+message wc_bet_team {
+    optional string     _match_id   = 1; // 比赛ID
+    optional uint32     _team_id    = 2; // 队伍
+    optional uint32     _counter    = 3; // 设置总下注筹码
+}
+
+
+// 重返战场,全新回归系统
+message goback_req {
+    optional goback_open_panel          _open_panel         = 1; // 打开面板
+    optional goback_once_reward         _once_reward        = 2; // 领取一次性奖励
+    optional goback_login_reward        _login_reward       = 3; // 登录阶段奖励
+    optional goback_buy_goods           _buy_goods          = 4; // 购买商品
+    optional goback_task_line_reward    _task_line_reward   = 5; // 任务阶段奖励
+}
+
+message goback_open_panel {
+
+}
+
+message goback_once_reward {
+
+}
+
+message goback_login_reward {
+    optional uint32     _index  = 1; // 奖励索引
+}
+
+message goback_buy_goods {
+    optional uint32     _goods_id  = 1; // 商品ID
+}
+
+message goback_task_line_reward {
+    optional uint32      _index      = 1; // 奖励索引
+}
+
+
+// 自走棋
+message chess_req {
+    optional chess_open_panel       _open_panel     = 1; // 打开面板
+    optional chess_match_start      _match_start    = 2; // 开始匹配
+    optional chess_match_cancel     _match_cancel   = 3; // 取消匹配
+    optional chess_resolve_rookie   _resolve_rookie = 4; // 跳过引导
+    optional chess_rookie_start     _rookie_start   = 5; // 开始新手引导
+    optional chess_rookie_finish    _rookie_finish  = 6; // 完成新手引导
+    optional chess_weekly_reward    _weekly_reward  = 7; // 周常奖励
+    optional chess_grade_reward     _grade_reward   = 8; // 段位奖励
+}
+
+// 打开面板
+message chess_open_panel {
+
+}
+
+// 开始匹配
+message chess_match_start {
+    optional string             _version    = 1; // 客户端版本号
+    optional chess_game_type    _game_type  = 2; // 游戏类型
+}
+
+// 取消匹配
+message chess_match_cancel {
+
+}
+
+// 跳过引导
+message chess_resolve_rookie {
+
+}
+
+// 开始新手引导
+message chess_rookie_start {
+
+}
+
+// 完成新手引导
+message chess_rookie_finish {
+    optional string             _version    = 1; // 客户端版本号
+    repeated uint32             _hero_ids   = 2; // 上阵英雄ID列表
+    repeated uint32             _positions  = 3; // 上阵英雄位置列表
+}
+
+// 段位奖励
+message chess_weekly_reward {
+}
+
+// 段位奖励
+message chess_grade_reward {
+    optional uint32     _grade   = 1; // 段位
+}
+
+
+// 自走棋游戏中请求(长连接)
+message chess_game_req {
+    optional chess_join                 _join               = 1;  // 加入游戏
+    optional chess_loading              _loading            = 2;  // 加载同步
+    optional chess_buy_hero             _buy_hero           = 3;  // 购买英雄
+    optional chess_sell_hero            _sell_hero          = 4;  // 出售英雄
+    optional chess_shop_refresh         _shop_refresh       = 5;  // 商店刷新
+    optional chess_shop_lock            _shop_lock          = 6;  // 商店锁定
+    optional chess_set_lineup           _set_lineup         = 7;  // 设置阵容
+    optional chess_equip_pet            _equip_pet          = 8;  // 装备信使
+    optional chess_replace_pet          _replace_pet        = 9;  // 替换信使
+    optional chess_buy_exp              _buy_exp            = 10; // 购买经验
+    optional chess_quit                 _quit               = 11; // 退出游戏
+    optional chess_battle_confirm       _battle_confirm     = 12; // 战斗确认
+    optional chess_heartbeat            _heartbeat          = 13; // 心跳
+    optional chess_switch_pet           _switch_pet         = 14; // 交换宠物
+    optional chess_choose_hero_power    _choose_hero_power  = 15; // 选择英雄能力
+    optional chess_emoji                _emoji              = 16; // 发表情包
+
+}
+
+// 加入游戏
+message chess_join {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+    optional uint32                 _game_id        = 2; // 游戏ID
+    optional string                 _version        = 3; // 版本号
+    optional bool                   _is_reconnect   = 4; // 是否是重连
+}
+
+// 加载
+message chess_loading {
+    optional chess_user_key         _user_key   = 1; // 玩家Key
+    optional uint32                 _progress   = 2; // 进度
+    optional bool                   _is_finish  = 3; // 是否加载完成
+}
+
+// 重新连接
+message chess_reconnect {
+    optional chess_user_key         _user_key   = 1; // 玩家Key
+    optional uint32                 _game_id    = 2; // 游戏ID
+    optional string                 _version    = 3; // 版本号
+}
+
+// 购买英雄
+message chess_buy_hero {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+    optional uint32                 _goods_insid    = 2; // 商品实例ID
+}
+
+// 出售英雄
+message chess_sell_hero {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+    optional uint32                 _hero_insid     = 2; // 英雄实例ID
+}
+
+// 商店刷新
+message chess_shop_refresh {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+}
+
+// 商店锁定
+message chess_shop_lock {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+    optional bool                   _is_unlock      = 2; // 是否是解锁
+}
+
+// 设置阵容
+message chess_set_lineup {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+    repeated uint32                 _hero_insids    = 2; // 上阵英雄
+    repeated uint32                 _positions      = 3; // 上阵英雄位置
+}
+
+// 装备信使
+message chess_equip_pet {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+    optional uint32                 _hero_insid     = 2; // 英雄实例ID
+    optional uint32                 _pet_insid      = 3; // 信使实例ID
+}
+
+// 替换信使
+message chess_replace_pet {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+    optional uint32                 _hero_insid     = 2; // 英雄实例ID
+    optional uint32                 _pet_insid      = 3; // 新信使实例ID
+}
+
+// 购买经验
+message chess_buy_exp {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+}
+
+// 退出游戏（永久）
+message chess_quit {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+}
+
+// 自走棋战斗结果
+message chess_battle_result {
+    optional battle_result  _result         = 1; // 战斗结果
+    optional uint32         _battle_time    = 2; // 战斗时间
+    repeated uint32         _self_alives    = 3; // 我方存活英雄的InsID列表
+    repeated uint32         _oppo_alives    = 4; // 对方存活英雄的InsID列表
+}
+
+// 战斗确认
+message chess_battle_confirm {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+    optional uint32                 _round          = 2; // 回合数
+    optional chess_battle_result    _result         = 3; // 战斗结果
+}
+
+message chess_heartbeat {
+    optional chess_user_key         _user_key       = 1; // 玩家Key
+}
+
+message chess_switch_pet {
+    optional chess_user_key         _user_key           = 1; // 玩家Key
+    optional uint32                 _from_hero_insid    = 2; // 从哪个英雄实例ID
+    optional uint32                 _to_hero_insid      = 3; // 到哪个英雄实例ID
+}
+
+message chess_choose_hero_power {
+    optional chess_user_key         _user_key           = 1; // 玩家Key
+    optional uint32                 _power_pos          = 2; // 第几个英雄能力
+    optional uint32                 _option_index       = 3; // 选项索引
+}
+
+message chess_emoji {
+    optional chess_user_key      _user_key  = 1; // 玩家Key
+    optional string              _content   = 2; // 内容
+}
+
+// 组队请求
+message team_req {
+    optional team_open_panel        _open_panel     = 1; // 打开面板
+    optional team_create            _create         = 2; // 创建队伍
+    optional team_query             _query          = 3; // 队伍查看
+    optional team_apply             _apply          = 4; // 申请入队
+    optional team_join              _join           = 5; // 加入队伍
+    optional team_quit              _quit           = 6; // 离开队伍
+    optional team_kick              _kick           = 7; // 踢出队伍
+    optional team_heartbeat         _heartbeat      = 8; // 心跳
+    optional team_set_room_status   _room_status    = 9; // 设置房间状态
+}
+
+// 打开队伍面板
+message team_open_panel {
+
+}
+
+// 创建队伍
+message team_create {
+    optional team_target        _target     = 1; // 目标
+    optional string             _version    = 2; // 版本号
+    optional string             _param1     = 3; // 额外参数
+}
+
+// 查看队伍信息
+message team_query {
+    optional uint32             _team_id        = 1; // 查询队伍信息
+}
+
+// 申请加入队伍
+message team_apply {
+    optional uint32             _team_id        = 1; // 想要加入的队伍ID
+    optional string             _version        = 2; // 版本号
+    optional team_target        _team_target    = 3;
+}
+
+// 加入队伍
+message team_join {
+    optional team_member_key    _member_key = 1; // 队员Key
+    optional string             _version    = 2; // 版本号
+}
+
+// 离开队伍
+message team_quit {
+    optional team_member_key    _member_key = 1; // 队员Key
+}
+
+// 踢出队伍
+message team_kick {
+    optional team_member_key    _member_key = 1; // 队员Key
+    optional team_member_key    _target_key = 2; // 目标Key
+}
+
+// 心跳
+message team_heartbeat {
+    optional team_member_key    _member_key = 1; // 玩家Key
+}
+
+// 设置房间状态
+message team_set_room_status {
+    optional team_member_key    _member_key     = 1; // 队员Key
+    optional team_member_key    _target_key     = 2; // 目标Key
+    optional team_room_status   _room_status    = 3; // 房间状态
+}
+
+// 心动礼包
+message impulse_gift_req {
+    optional impulse_gift_open    _open = 1; // 打开
+    optional impulse_gift_buy     _buy  = 2; // 购买
+    optional impulse_gift_view    _view = 3; //  查看礼包
+}
+
+// 打开心动礼包
+message impulse_gift_open {
+    optional impulse_gift_type  _gift_type = 1; // 礼包类型
+}
+
+// 购买心动礼包
+message impulse_gift_buy {
+    optional uint32     _gift_id = 1; // 礼包ID
+}
+
+message impulse_gift_view {
+    optional uint32   _gift_id = 1; // 礼包ID
+}
+
+// 杯赛（金苹果，女神之战）
+message cup_arena_req {
+    optional cup_arena_open_panel				_open_panel			= 1;  // 打开面板
+    optional cup_arena_entry					_entry				= 2;  // 报名
+    optional cup_arena_open_challenge           _open_challenge     = 3;  // 打开挑战面板
+    optional cup_arena_get_lineup				_get_lineup			= 4;  // 获取防守阵容
+    optional cup_arena_set_lineup				_set_lineup			= 5;  // 设置防守阵容
+    optional cup_arena_refresh_oppo				_refresh_oppo		= 6;  // 刷新对手
+    optional cup_arena_oppo_teams				_oppo_teams			= 7;  // 获取对手阵容
+    optional cup_arena_challenge				_challenge			= 8;  // 挑战对手
+    optional cup_arena_challenge_record			_challenge_record	= 9;  // 挑战记录
+    optional cup_arena_clear_cd					_clear_cd			= 10; // 清除挑战CD
+    optional cup_arena_buy_count				_buy_count			= 11; // 购买挑战次数
+    optional cup_arena_get_replay				_get_replay			= 12; // 获取战斗录像
+    optional cup_arena_query_summary			_query_summary		= 13; // 获取战斗录像摘要
+    optional cup_arena_medal_reward				_medal_reward		= 14; // 勋章奖励
+    optional cup_arena_history					_history			= 15; // 历史赛季
+    optional cup_arena_top_rankboard			_top_rankboard		= 16; // 排行榜-名人堂
+    optional cup_arena_user_rankboard			_user_rankboard		= 17; // 排行榜-个人
+    optional cup_arena_camp_rankboard			_camp_rankboard		= 18; // 排行榜-阵营
+    optional cup_arena_match_rankboard          _match_rankboard    = 19; // 排行榜-比赛
+    optional cup_arena_time_schedule			_time_schedule		= 20; // 时间表
+    optional cup_arena_match_schedule			_match_schedule		= 21; // 赛程表
+    optional cup_arena_match_group				_match_group		= 22; // 查看比赛分组信息
+    optional cup_arena_match_record				_match_record		= 23; // 赛事对战记录
+    optional cup_arena_set_match_lineup	        _set_match_lineup   = 24; // 设置防守阵容
+    optional cup_arena_view_user				_view_user			= 25; // 查看玩家信息
+    optional cup_arena_open_bet					_open_bet			= 26; // 打开竞猜面板
+    optional cup_arena_bet_match				_bet_match			= 27; // 竞猜比赛
+    optional cup_arena_bet_record				_bet_record			= 28; // 竞猜记录
+    optional cup_arena_open_reward				_open_reward		= 30; // 打开奖励界面
+    optional cup_arena_audition			        _open_audition		= 31; // 打开海选界面
+    optional cup_arena_open_task                _open_task          = 32; // 打开任务界面
+    optional cup_arena_audition_achievement     _audition_achievement = 33; // 打开海选赛果界面
+    optional cup_arena_open_camp_reward   _cup_arena_open_camp_reward = 34; // 打开阵营奖励界面
+    optional cup_arena_paint_trigger      _cup_arena_paint_trigger    = 35; // 图鉴触发
+}
+
+// 杯赛打开面板
+message cup_arena_open_panel {}
+
+// 报名
+message cup_arena_entry {}
+
+// 打开挑战界面
+message cup_arena_open_challenge {}
+
+// 获取防守阵容
+message cup_arena_get_lineup {}
+
+// 设置防守阵容
+message cup_arena_set_lineup {
+    repeated cup_arena_lineup _lineups = 1;
+}
+
+// 刷新对手
+message cup_arena_refresh_oppo {
+    optional bool _is_force     = 1; // 是否强制刷新
+}
+
+// 获取对手阵容
+message cup_arena_oppo_teams {
+    optional string _role_id = 1; // 对手角色ID
+}
+
+// 挑战对手
+message cup_arena_challenge {
+    optional string             _role_id    = 1; // 对手角色ID
+    repeated lineup             _lineups    = 2; // 派出的阵容
+}
+
+// 挑战记录
+message cup_arena_challenge_record {
+
+}
+
+// 清除挑战CD
+message cup_arena_clear_cd { }
+
+// 购买挑战次数
+message cup_arena_buy_count { }
+
+
+// 获取战斗录像
+message cup_arena_get_replay {
+    optional uint32 _replay_id  = 1; // 战斗录像ID
+    optional uint32 _match_id   = 2; // 比赛ID
+}
+
+// 获取战斗录像摘要
+message cup_arena_query_summary {
+    optional uint32 _replay_id  = 1; // 战斗录像ID
+    optional uint32 _round_id   = 2; // 第几轮战斗
+    optional uint32 _match_id   = 3; // 比赛ID
+}
+
+// 勋章奖励
+message cup_arena_medal_reward {
+    optional uint32     _reward_id = 1; // 奖励ID
+}
+
+// 历史赛季
+message cup_arena_history {}
+
+
+// 排行榜-名人堂
+message cup_arena_top_rankboard {
+    optional uint32     _season     = 1; // 赛季
+    optional uint32     _zone_id    = 2; // 赛区
+}
+
+// 排行榜-个人
+message cup_arena_user_rankboard {
+    optional uint32     _camp_id    = 1; // 阵营ID
+}
+
+// 排行榜-阵营
+message cup_arena_camp_rankboard {}
+
+// 排行榜-比赛
+message cup_arena_match_rankboard {}
+
+// 时间表
+message cup_arena_time_schedule {
+    repeated uint32     _schedule_ids   = 1; // 赛程ID
+}
+
+// 赛程表
+message cup_arena_match_schedule {}
+
+// 查看比赛分组信息
+message cup_arena_match_group {
+    optional uint32     _group_id = 1; // 小组ID
+}
+
+// 赛事对战记录
+message cup_arena_match_record {}
+
+// 设置比赛阵容
+message cup_arena_set_match_lineup {
+    repeated cup_arena_lineup     _lineups = 1;
+}
+
+// 查看玩家信息
+message cup_arena_view_user {
+    optional string _role_id = 1; // 目标角色ID
+}
+
+// 打开竞猜面板
+message cup_arena_open_bet {}
+
+// 竞猜比赛
+message cup_arena_bet_match {
+    optional uint32     _match_id   = 1; // 比赛ID
+    optional bool       _pick_host  = 2; // 选择host(左边)
+    optional uint32     _counter    = 3; // 设置总下注筹码
+
+}
+
+// 竞猜记录
+message cup_arena_bet_record {}
+
+// 打开奖励界面
+message cup_arena_open_reward {}
+
+// 打开海选界面
+message cup_arena_audition {}
+
+// 打开任务界面
+message cup_arena_open_task {}
+
+// 打开海选赛果
+message cup_arena_audition_achievement {}
+
+// 打开阵营奖励界面
+message cup_arena_open_camp_reward {}
+
+// 图鉴触发
+message cup_arena_paint_trigger{}
+
+// 时空秘境
+message myth_req {
+    optional myth_open_panel            _open_panel         = 1; // 打开面板
+    optional myth_boss_start_battle     _boss_start_battle  = 2; // BOSS战斗开始
+    optional myth_boss_end_battle       _boss_end_battle    = 3; // BOSS战斗结束
+    optional myth_shop_consume          _shop_consume       = 4; // 商店购买
+    optional myth_view_team             _view_team          = 5; // 查看boss阵容
+    optional myth_boss_sweep            _boss_sweep         = 6; // BOSS扫荡
+    optional myth_multi_shop_consume    _multi_consume      = 7; // 多次商店购买
+}
+
+// 时空秘境打开面板
+message myth_open_panel {}
+
+// 时空秘境BOSS战斗开始
+message myth_boss_start_battle {
+    repeated uint32             _lineup             = 1; // 阵容
+}
+
+// 时空秘境BOSS战斗结束
+message myth_boss_end_battle {
+    optional battle_result      _result             = 1; // 战斗结果
+    repeated operation          _operations         = 2; // 战斗操作
+    optional uint32             _damage             = 3; // 造成伤害
+}
+
+// 时空秘境商店购买
+message myth_shop_consume {
+    optional uint32     _goods_id   = 1; // 商品ID
+    optional uint32     _item_id    = 2; // 道具ID (验证)
+}
+
+message myth_view_team {
+    optional uint32     _user_id            = 1;  // 玩家ID
+}
+
+message myth_boss_sweep {
+    optional uint32     _times  = 1; // 扫荡次数
+}
+
+message myth_multi_shop_consume {
+    optional uint32     _goods_id   = 1; // 商品ID
+    optional uint32     _item_id    = 2; // 道具ID (验证)
+    optional uint32     _times      = 3; // 购买的商品个数
+}
+
+// 商城礼包
+message mall_gift_req {
+    optional mall_gift_open_panel   _open_panel     = 1; // 打开面板
+    optional mall_gift_free_reward  _free_reward    = 2; // 免费奖励
+    optional mall_gift_buy_daily    _buy_daily      = 3; // 购买日礼包
+    optional mall_gift_buy_weekly   _buy_weekly     = 4; // 购买周礼包
+    optional mall_gift_buy_once     _buy_once       = 5; // 购买一次性礼包
+    optional mall_gift_view_timely  _view_timely    = 6; // 查看限时礼包
+    optional mall_gift_buy_timely   _buy_timely     = 7; // 购买限时礼包
+}
+
+// 打开面板
+message mall_gift_open_panel { }
+
+// 免费奖励
+message mall_gift_free_reward {
+    optional uint32     _day_acc    = 1; // 累计天数，验证
+}
+
+// 购买日礼包
+message mall_gift_buy_daily {
+    optional uint32     _gift_id    = 1; // 礼包ID，验证
+}
+
+// 购买周礼包
+message mall_gift_buy_weekly {
+    optional uint32     _gift_id    = 1; // 礼包ID，验证
+}
+
+// 购买一次性礼包
+message mall_gift_buy_once {
+  optional uint32     _gift_id      = 1; // 礼包ID，验证
+}
+
+// 查看限时礼包
+message mall_gift_view_timely {
+    optional uint32     _gift_id    = 1; // 礼包ID
+}
+
+// 购买限时礼包
+message mall_gift_buy_timely {
+    optional uint32     _gift_id    = 1; // 礼包ID
+}
+
+// 活动红点提示
+message activity_hint_req {
+    optional activity_hint_pull         _view       = 1; // 拉取提示信息
+    optional activity_hint_resolve      _resolve    = 2; // 消除提示信息
+}
+
+// 拉取活动提示信息
+message activity_hint_pull {
+
+}
+
+// 消除活动提示信息
+message activity_hint_resolve {
+    optional uint32     _act_id = 1; // 活动的key
+}
+
+
+// 公会山
+message guild_mount_req {
+    optional guild_mount_open_panel         _open_panel     = 1; // 打开面板
+    optional guild_mount_open_boss          _open_boss      = 2; // 打开BOSS
+    optional guild_mount_query_damage       _query_damage   = 3; // 查询伤害
+    optional guild_mount_start_battle       _start_battle   = 4; // 开始战斗
+    optional guild_mount_end_battle         _end_battle     = 5; // 结束战斗
+    optional guild_mount_gain_reward        _gain_reward    = 6; // 领取奖励
+    optional guild_mount_pull_event         _pull_event     = 7; // 拉取事件
+    optional guild_mount_score_rankboard    _score_rank     = 8; // 查看积分排名
+    optional guild_mount_guild_rankboard    _guild_rank     = 9; // 查看公会排名
+    optional guild_mount_query_goods        _query_goods    = 10; // 查询商品
+    optional guild_mount_buy_goods          _buy_goods      = 11; // 购买商品
+    optional guild_mount_change_display     _change_display = 12; // 更换形象
+    optional guild_mount_guild_member_rb    _guild_member_rb = 13; // 公会个人今日排行榜
+    optional guild_mount_practice           _practice       = 14; // 练习模式
+}
+
+// 打开界面
+message guild_mount_open_panel {
+
+}
+
+// 打开BOSS页面
+message guild_mount_open_boss {
+
+}
+
+// 查询伤害排行
+message guild_mount_query_damage {
+    optional uint32     _boss_id = 1; // BOSSID
+}
+
+// 开始战斗
+message guild_mount_start_battle {
+    optional uint32     _boss_id    = 1; // 挑战的BOSSID
+    repeated uint32     _lineup     = 2; // 阵容
+    optional bool       _use_hired  = 3; // 是否使用雇佣的英雄
+}
+
+// 结束战斗
+message guild_mount_end_battle {
+    optional uint32             _boss_id        = 1; // 挑战的BOSSID
+    optional battle_result      _result         = 2; // 挑战的结果
+    repeated operation          _oprations      = 3; // 操作列表
+    repeated uint32             _hp_list        = 4; // 英雄血量列表
+    optional double             _damage         = 5; // 对BOSS造成的伤害
+}
+
+// 获取奖励
+message guild_mount_gain_reward {
+    optional uint32     _index  = 1; // 奖励的位置
+}
+
+// 拉取事件
+message guild_mount_pull_event {
+    optional bool       _need_damage    = 1; //是否需要伤害事件
+}
+
+// 查询积分排名
+message guild_mount_score_rankboard {
+
+}
+
+
+// 查询公会排行
+message guild_mount_guild_rankboard {
+    enum guild_mount_rb_type {
+        guild      = 0;                  //战区公会排行
+        player     = 1;                  //战区个人排行
+    }
+    optional guild_mount_rb_type   _type             = 1;
+}
+
+// 查询商品
+message guild_mount_query_goods {
+
+}
+
+
+// 购买商品
+message guild_mount_buy_goods {
+    optional uint32     _group_id   = 1; // 奖励组编号
+    optional uint32     _index      = 2; // 奖励的位置
+    optional uint32     _amount     = 3; // 奖励的数量
+}
+
+message guild_mount_change_display {
+    optional uint32     _hero_id    = 1; // 英雄id
+}
+
+// 公会个人今日排行榜
+message guild_mount_guild_member_rb {
+
+}
+
+// 练习模式
+message guild_mount_practice {
+    optional uint32     _boss_id  = 1;
+    optional uint32     _damage   = 2;
+}
+
+// 萌新助力
+message newplayer_req {
+    optional newplayer_open_panel          _open_panel         = 1; // 打开面板
+    optional newplayer_once_reward         _once_reward        = 2; // 领取一次性奖励
+    optional newplayer_line_reward         _line_reward        = 3; // 阶段奖励
+    optional newplayer_buy_goods           _buy_goods          = 4; // 购买商品
+    optional newplayer_task_reward         _task_reward        = 5; // 任务奖励
+    optional newplayer_task_line_reward    _task_line_reward   = 6; // 任务阶段奖励
+}
+
+message newplayer_open_panel {
+
+}
+
+message newplayer_once_reward {
+
+}
+
+message newplayer_line_reward {
+    optional uint32     _index  = 1; // 奖励索引
+}
+
+message newplayer_buy_goods {
+    optional uint32     _index  = 1; // 商品索引
+}
+
+message newplayer_task_reward {
+    optional uint32     _task_id    = 1; // 任务ID
+}
+
+message newplayer_task_line_reward {
+    optional uint32      _index      = 1; // 奖励索引
+}
+
+message daily_pass_req {
+    optional daily_pass_open_panel              _open_panel              = 1; // 返回daily_pass信息
+    optional daily_pass_level_reward            _level_reward            = 2; // 通行证等级奖励
+    optional daily_pass_sweep_reward            _sweep_reward            = 3; // 一键领取
+    optional daily_pass_buy_level               _buy_level               = 4; // 购买等级
+}
+
+message daily_pass_open_panel {
+
+}
+
+message daily_pass_level_reward {
+    optional uint32      _index        = 1; //索引
+    optional uint32      _reward_index = 2; // 奖励索引
+    optional bool        _is_advanced  = 3; //是否是高级奖励
+}
+
+message daily_pass_sweep_reward {
+}
+
+message daily_pass_buy_level {
+    optional uint32    _buy_levels = 1; // 购买多少级
+}
+
+
+// 英雄小人
+message hero_man_req {
+    optional hero_man_trigger   _trigger     = 1; // 触发
+}
+
+message hero_man_trigger {
+    optional uint32     _times = 1; // 触发次数
+}
+
+
+// 战斗校验冲突上报
+message btc_ctrl_report {
+    optional string         _battle_type    = 1; // 战斗类型
+    optional uint32         _btlog_id       = 2; // 校验日志ID
+    optional bytes          _btlog          = 3; // 战斗日志
+}
+
+// 简单商店
+message simple_shop_req {
+    optional simple_shop_buy    _simple_shop_buy = 1; // 购买商品
+}
+
+// 简单商店购买
+message simple_shop_buy {
+    optional uint32     _goods_id  = 1; // 商品ID
+    optional uint32     _buy_times = 2; // 购买次数
+}
+
+//=========================================================
+// 快速装备选择箱优化 fast_equip_chest
+//=========================================================
+message fast_equip_chest_req {
+    optional fast_equip_chest_use      _use     = 1; // 快速使用选择箱
+}
+
+message fast_equip_chest_use {
+    repeated equip_chest  _item_id   = 1; // 装备选择箱列表
+}
+
+message equip_chest{
+    optional uint32  _chest_id    = 1;  // 选择箱id
+    optional uint32  _chest_num   = 2;  // 要打开的选择箱数量
+    optional uint32  _equip_id    = 3;  // 装备id
+
+}
+
+//=========================================================
+// 新信使兑换活动 new_compose
+//=========================================================
+message new_compose_req {
+    optional new_compose_open_panel    _open_panel   = 1; // 打开面板
+    optional new_compose_exchange      _exchange     = 2; // 道具兑换
+}
+
+message new_compose_open_panel {
+    optional uint32     _act_id        = 1; // 活动id
+}
+
+message new_compose_exchange {
+    optional uint32   _act_id          = 1; // 活动id
+    optional uint32   _id              = 2; // 兑换id
+}
+
+//=========================================================
+// 限时道具 timely_item
+//=========================================================
+message consume_timely_item {
+  optional uint32   _insid       = 1; // 实例Id
+  optional uint32   _amount      = 2; // 使用道具数量
+  optional consume_item_extra_info _consume_item_extra_info = 3; //额外带的信息
+}
+
+
+
+// 召唤法阵 summon_circle (全新抽卡)
+//=========================================================
+message summon_circle_req {
+    optional summon_circle_open_panel   _open_panel  = 1; // 打开界面
+    optional summon_circle_summon       _summon      = 2; // 抽卡
+    optional summon_circle_switch_wish  _switch_wish = 3; // 切换愿望单
+    optional summon_circle_buy_ticket   _buy_ticket  = 4; // 购买抽奖券
+    optional summon_circle_query_records   _query_records  = 5; // 查询记录
+    optional summon_circle_take_rewards    _take_rewards   = 6; // 领取新手卡池奖励
+}
+
+message summon_circle_open_panel {
+}
+
+message summon_circle_summon {
+    optional uint32      _summon_times  = 1; // 召唤次数
+    optional summon_type _type          = 2; // 类型
+}
+
+message summon_circle_switch_wish {
+    repeated summon_circle_hero_wish _wish_list    = 1; // 许愿的英雄ID
+    optional uint32                  _batch_id     = 2; // 批次ID
+    optional uint32                  _hero_id      = 3; // 英雄ID
+    optional summon_type             _summon_type  = 4; // 召唤类型
+}
+
+message summon_circle_buy_ticket {
+    optional uint32      _ticket_amount = 1; // 购买的抽奖券数量
+    optional summon_type _type          = 2; // 类型
+}
+
+message summon_circle_query_records {
+    optional summon_type _type          = 1; // 类型
+}
+
+message summon_circle_take_rewards {
+    optional summon_type _type          = 1; // 类型
+}
+
+//=========================================================
+// 新版签到 new_daily_login
+//=========================================================
+// 每日签到
+message new_daily_login_req {
+    optional daily_login_sign_in      _sign_in      = 1; // 签到
+    optional daily_login_make_up      _make_up      = 2; // 补签
+}
+
+message daily_login_sign_in {
+
+}
+
+message daily_login_make_up {
+    optional uint32  _day   = 1; // 补签日期
+}
+
+
+//=========================================================
+//  幻境探险 fancy_tower
+//=========================================================
+message fancy_tower_req {
+  optional fancy_tower_open_panel      _open_panel     = 1; // 打开面板
+  optional fancy_tower_start_battle    _start_battle   = 2; // 开始战斗
+  optional fancy_tower_end_battle      _end_battle     = 3; // 结束战斗
+  optional fancy_tower_sweep           _sweep          = 4; // 关卡扫荡
+  optional fancy_tower_star_reward     _star_reward    = 5; // 领取星星奖励
+  optional fancy_tower_candle_buy      _candle_buy     = 6; // 购买幻生烛
+}
+
+// 打开面板
+message fancy_tower_open_panel {
+
+}
+
+// 挑战
+message fancy_tower_start_battle {
+  optional uint32     _tower_id   = 1; // 塔ID
+  optional uint32     _floor      = 2; // 层数
+  repeated uint32     _lineup     = 3; // 阵容
+}
+
+// 结束战斗
+message fancy_tower_end_battle {
+  optional battle_result    _result       = 1; // 战斗结果
+  repeated operation        _operations   = 2; // 战斗操作
+  optional uint32           _stage_star   = 3; // 关卡星星获取数量
+}
+
+// 领取星星奖励
+message fancy_tower_star_reward {
+    optional uint32     _star_id   = 1; // 星星id
+}
+
+// 关卡扫荡
+message fancy_tower_sweep {
+    optional uint32     _tower_id   = 1; // 塔ID
+    optional uint32     _floor      = 2; // 层数
+    optional uint32     _times      = 3; // 扫荡次数, 缺省为1
+}
+
+// 购买幻生烛
+message fancy_tower_candle_buy {
+    optional uint32     _count      = 1; // 购买数量
+}
+
+//=========================================================
+//  战役章节星星宝箱奖励 stage
+//=========================================================
+// 领取奖励
+message stage_star_reward {
+    optional uint32            _star_id     = 1;  // 星星宝箱id
+}
+
+
+//=========================================================
+//  新团本 guild_raid
+//=========================================================
+message guild_raid_req {
+    optional guild_raid_open_panel      _open_panel     = 1; // 打开面板
+    optional guild_raid_open_instance   _open_instance  = 2; // 开启团本实例
+    optional guild_raid_reset_instance  _reset_instance = 3; // 重置团本实例
+    optional guild_raid_query_instance  _query_instance = 4; // 查询团本实例
+    optional guild_raid_query_stage     _query_stage    = 5; // 查询关卡
+    optional guild_raid_prepare_battle  _prepare_battle = 6; // 准备战斗
+    optional guild_raid_start_battle    _start_battle   = 7; // 开始战斗
+    optional guild_raid_end_battle      _end_battle     = 8; // 结束战斗
+    optional guild_raid_view_members    _view_members   = 9; // 查看成员列表
+    optional guild_raid_member_rank     _member_rank    = 10; // 成员单次伤害排行榜
+    optional guild_raid_stage_rank      _stage_rank     = 11; // 关卡伤害排行榜
+    optional guild_raid_query_user      _query_user     = 12; // 查询玩家团本信息
+}
+
+// 打开面板
+message guild_raid_open_panel {
+
+}
+
+// 开启团本实例
+message guild_raid_open_instance {
+    optional uint32     _raid_id        = 1; // 团本ID
+    optional bool       _has_discount   = 2; // 是否有折扣, 校验
+}
+
+// 重置团本实例
+message guild_raid_reset_instance {
+    optional uint32     _raid_id        = 1; // 团本ID
+    optional bool       _has_discount   = 2; // 是否有折扣, 校验
+}
+
+// 查询团本实例
+message guild_raid_query_instance {
+    optional uint32     _raid_id        = 1; // 团本ID
+}
+
+// 查询团本关卡
+message guild_raid_query_stage {
+    optional uint32     _stage_id       = 1; // 关卡ID
+}
+
+// 团本准备战斗
+message guild_raid_prepare_battle {
+    optional uint32     _stage_id       = 1; // 关卡ID
+    optional uint32     _stage_progress = 2; // 关卡进度
+}
+
+// 团本开始战斗
+message guild_raid_start_battle {
+    optional uint32     _stage_id       = 1; // 关卡ID
+    repeated uint32     _lineup         = 2; // 阵容
+}
+
+// 团本结束战斗
+message guild_raid_end_battle {
+    repeated operation      _operations     = 1; // 操作
+    optional battle_result  _battle_result  = 2; // 战斗结果
+    optional uint32         _wave           = 3; // 当前波数
+    repeated uint32         _hp_list        = 4; // 血量列表
+    optional uint32         _stage_progress = 5; // 关卡进度
+    optional double         _damage         = 6; // 伤害量
+}
+
+// 查看团本成员列表
+message guild_raid_view_members {
+    optional uint32     _raid_id        = 1; // 团本ID
+}
+
+// 团本成员单次伤害排行榜
+message guild_raid_member_rank {
+    optional uint32     _raid_id        = 1; // 团本ID
+}
+
+// 团本关卡本服排行
+message guild_raid_stage_rank {
+    optional uint32     _stage_id       = 1; // 关卡ID
+}
+
+// 查询团本玩家信息
+message guild_raid_query_user {
+    optional uint32     _user_id        = 1; // 玩家ID
+}
+
+
+// 月卡协议
+message monthcard_req {
+    optional monthcard_daily_reward     _daily_reward = 1; // 月卡每日领奖
+}
+
+// 月卡每日奖励
+message monthcard_daily_reward {
+    repeated monthcard_type   _types = 1; // 类型
+}
+
+// 上报过期道具
+message resolve_expired_item {
+    repeated uint32   _item_ids           = 1; // 普通道具ID列表
+    repeated uint32   _timely_item_insids = 2; // 限时道具的实例ID列表
+}
+
+// 活动请求
+message activity_req {
+    optional activity_pull              _pull           = 1; // 拉取活动信息
+    optional activity_task_submit       _task_submit    = 2; // 提交任务
+    optional activity_calendar          _act_calendar   = 3; // 活动日历拉取
+    optional activity_choose_reward     _choose_reward  = 4; // 选择奖励
+    optional activity_hero_recycle      _hero_recycle   = 5; // 英雄重生
+    optional activity_assist            _assist         = 6; // 活动助力
+}
+
+// 拉取活动日历
+message activity_calendar {
+}
+
+// 拉取活动信息
+message activity_pull {
+    repeated uint32     _act_ids = 1; // 需要拉取的活动ID列表，为空表示拉取所有活动
+}
+
+// 提交活动任务
+message activity_task_submit {
+    optional uint32     _act_id     = 1; // 活动ID
+    optional uint32     _task_id    = 2; // 任务ID
+    optional uint32     _times      = 3; // 提交次数
+}
+
+// 选择奖励任务
+message activity_choose_reward {
+    optional uint32     _act_id     = 1; // 活动ID
+    optional uint32     _task_id    = 2; // 任务ID
+    optional uint32     _index      = 3; // 奖励序号
+    optional uint32     _reward_id  = 4; // 奖励id
+    optional uint32     _reward_amount = 5; // 奖励数量
+}
+
+// 英雄重生
+message activity_hero_recycle {
+    optional uint32     _act_id     = 1; // 活动ID
+    optional uint32     _task_id    = 2; // 任务ID
+    optional uint32     _hero_id    = 3; // 英雄id
+}
+
+// 活动助力
+message activity_assist {
+    optional uint32     _act_id     = 1; // 活动ID
+    optional uint32     _amount     = 2; // 助力数量
+}
+
+message hero_recycle_req {
+    optional hero_recycle_check     _check      = 1; // 回收前的检查
+    optional hero_recycle_preview   _preview    = 2; // 预览回收奖励
+}
+
+message hero_recycle_check {
+    required uint32 _hero_id    = 1; // 英雄ID
+}
+
+message hero_recycle_preview {
+    required uint32 _hero_id    = 1; // 英雄ID
+}
+
+message daily_vitality_req {
+    enum type {
+        lunch = 0;    // 午饭
+        dinner = 1;    // 晚饭
+    }
+  optional type               _type  = 1; // 领取种类
+  optional bool                 _is_replenish = 2; // 是否是补领
+}
+
+
+// 简单pass（通用的pass）
+message simple_pass_req {
+    optional simple_pass_open_panel     _open_panel     = 1; // 打开某个pass界面
+    optional simple_pass_level_reward   _level_reward   = 2; // 通行证等级奖励
+    optional simple_pass_buy_rank       _buy_rank       = 3; // 通行证购买品阶
+    optional simple_pass_buy_level      _buy_level      = 4; // 购买等级
+}
+
+// 简单pass打开
+message simple_pass_open_panel {
+    optional uint32     _pass_id = 1; // 通行证ID
+}
+
+// 简单pass的等级奖励
+message simple_pass_level_reward {
+    optional uint32     _pass_id        = 1; // 通行证ID
+    optional bool       _is_all_reward  = 2; // 是否领取所有奖励
+    optional uint32     _pos            = 3; // 位置索引, 奖励索引偏移=品级*10000
+    optional uint32     _reward_index   = 4; // 奖励索引
+}
+
+// 简单pass购买品阶
+message simple_pass_buy_rank {
+    optional uint32     _pass_id    = 1; // 通行证ID
+    optional uint32     _pass_rank  = 2; // 通行证品阶
+}
+
+message simple_pass_buy_level {
+    optional uint32     _pass_id    = 1; // 通行证ID
+    optional uint32     _level      = 2; // 通行证等级
+}
+
+message equip_sweep_req {
+  enum rtype {
+    sweep_with_ticket = 0;    // 用扫荡卷扫荡
+    sweep_with_rmb    = 1;    // 付费扫荡
+  }
+  optional rtype  _type       = 1; // 扫荡类型
+  optional uint32 _stageid    = 2; // 关卡id
+  optional uint32 _times      = 3; // 扫荡次数, 缺省为1
+  optional uint32 _equip_id   = 4; // 需要的装备id
+  optional uint32 _equip_cnt  = 5; // 需要的装备数量
+}
+
+
+// 拉取自己的英雄数据
+message pull_hero_info_req {
+  repeated uint32   _hero_ids = 1; // 英雄ID列表
+}
+
+message fashion_req {
+    optional fashion_set    _set_fashion   = 1; // 设置皮肤
+}
+
+message fashion_set {
+    optional   uint32     _hero_id    = 1; // 英雄ID
+    optional   uint32     _fashion_id = 2; // 皮肤ID
+}
+
+// 充值宝库（秘密宝匣）
+message charge_vault_req {
+    optional charge_vault_open_panel        _open_panel       = 1; // 打开面板
+    optional charge_vault_gain_reward       _gain_reward      = 2; // 获取奖励
+    optional charge_vault_infinite_reward   _infinite_reward  = 3; // 无限奖励
+}
+
+// 打开面板
+message charge_vault_open_panel {
+
+}
+
+// 获取奖励
+message charge_vault_gain_reward {
+    optional uint32  _index = 1; // 奖励位置
+}
+
+// 无限奖励
+message charge_vault_infinite_reward {
+
+}
+
+
+// 活动关卡
+message act_adventure_req {
+    optional act_adventure_open_panel       _open_panel     = 1; // 打开面板
+    optional act_adventure_enter_stage      _enter_stage    = 2; // 进入关卡
+    optional act_adventure_exit_stage       _exit_stage     = 3; // 退出关卡
+    optional act_adventure_get_rewards      _get_rewards    = 4; // 领取奖励
+    optional act_adventure_sweep            _sweep          = 5; // 扫荡
+    optional act_adventure_buy_vitality     _buy_vitality   = 6; // 购买体力
+}
+
+message act_adventure_open_panel {
+
+}
+
+message act_adventure_enter_stage {
+    optional uint32         _act_id         = 1; // 活动id
+    optional uint32         _stage_id       = 2; // 关卡id
+    repeated uint32         _lineup         = 3; // 阵容
+}
+
+message act_adventure_exit_stage {
+    optional battle_result      _result             = 1; // 战斗结果
+    repeated operation          _operations         = 2; // 战斗操作
+}
+
+message act_adventure_get_rewards {
+    optional uint32      _act_id                 = 1;
+    optional uint32      _rewards_id             = 2;
+}
+
+message act_adventure_sweep {
+    optional uint32      _act_id             = 1;
+    optional uint32      _stage_id           = 2;
+    optional uint32      _sweep_times        = 3;
+}
+
+message act_adventure_buy_vitality {
+    optional uint32     _act_id             = 1;
+    optional uint32     _times              = 2;
+}
+
+// 七日助力
+message sevenday_assist_req {
+  optional sevenday_assist_open_panel             _open_panel             = 1; // 打开面板
+  optional sevenday_assist_get_task_rewards       _get_task_rewards       = 2; // 领取任务奖励
+  optional sevenday_assist_get_line_rewards       _get_line_rewards       = 3; // 领取进度奖励
+}
+
+
+message sevenday_assist_open_panel {
+
+}
+
+message sevenday_assist_get_task_rewards {
+  optional uint32      _task_id             = 1;
+}
+
+message sevenday_assist_get_line_rewards {
+  optional uint32      _line_id             = 1;
+}
+
+// 幻境深渊
+message fancy_abyss_req {
+    optional fancy_abyss_open_panel             _open_panel     = 1; // 打开面板
+    optional fancy_abyss_enter_floor            _enter_floor    = 2; // 进入某一层
+    optional fancy_abyss_exit_floor             _exit_floor     = 3; // 退出某一层
+    optional fancy_abyss_time_rankboard         _time_rank      = 4; // 总耗时排行榜
+    optional fancy_abyss_pass_records           _pass_records   = 5; // 最快通关记录查询
+}
+
+message fancy_abyss_open_panel {
+
+}
+
+message fancy_abyss_enter_floor {
+    optional uint32     _season_id      = 1; // 赛季id
+    optional uint32     _floor_id       = 2; // 层数id
+    repeated uint32     _lineup         = 3; // 阵容
+}
+
+message fancy_abyss_exit_floor {
+    optional battle_result      _result             = 1; // 战斗结果
+    repeated operation          _operations         = 2; // 战斗操作
+    optional uint32             _battle_time        = 3; // 战斗时间
+}
+
+message fancy_abyss_time_rankboard {
+  enum rb_type {
+    local       = 0; // 本服
+    global      = 1; // 全服
+  }
+  optional rb_type _type = 1;
+}
+
+message fancy_abyss_pass_records {
+    enum query_type {
+        self = 0; // 自己
+        friends_and_guild = 1; //好友及公会
+    }
+    optional query_type _type       = 1;
+    optional uint32     _floor_id   = 2;
+}
+
+message lottery_req {
+    optional    lottery_open_panel    _open_panel   = 1; // 打开界面
+    optional    lottery_enter_tray    _enter_tray   = 2; // 进入下一层
+    optional    lottery_open_card     _open_card    = 3; // 翻牌
+    optional    lottery_line_reward   _line_reward  = 4; // 领取阶段奖励
+    optional    lottery_open_tray     _open_tray    = 5; // 开始翻牌
+    optional    lottery_talk          _talk         = 6; // 蓝胖谈话成就
+}
+
+message lottery_open_panel {
+
+}
+
+message lottery_enter_tray {
+
+}
+
+message lottery_open_card {
+    optional  uint32   _open_index = 1; // 打开的位置
+}
+
+message lottery_line_reward {
+    optional  uint32    _reward_index = 1; // 奖励下标
+}
+
+message lottery_open_tray {
+
+}
+
+message lottery_talk {
+    optional uint32   _count = 1; // 次数
+}
+
+//=========================================================
+//  巅峰竞技场 peak_arena
+//=========================================================
+// 赛季竞技场请求
+message peak_arena_req {
+    optional peak_arena_open_panel        _open_panel     = 1;  // 打开面板
+    optional peak_arena_refresh_oppo      _refresh_oppo   = 2;  // 刷新对手
+    optional peak_arena_get_lineup        _get_lineup     = 3;  // 获取防守阵容
+    optional peak_arena_set_lineup        _set_lineup     = 4;  // 设置防守阵容
+    optional peak_arena_query_oppo        _query_oppo     = 5;  // 查询对手信息
+    optional peak_arena_query_player      _query_player   = 6;  // 查询玩家信息
+    optional peak_arena_challenge         _challenge      = 7;  // 挑战对手
+    optional peak_arena_get_records       _get_records    = 8;  // 获取挑战记录
+    optional peak_arena_add_count         _add_count      = 9;  // 增加挑战次数
+    optional peak_arena_get_replay        _get_replay     = 10; // 获取战斗录像
+    optional peak_arena_query_summary     _query_summary  = 11; // 获取战斗录像摘要
+    optional peak_arena_history           _history        = 12; // 赛季历史
+    optional peak_arena_medal_reward      _medal_reward   = 13; // 赛季勋章奖励
+    optional peak_arena_score_rankboard   _score_rank     = 14; // 积分排行榜
+    optional peak_arena_check_evolve      _check_evolve   = 15; // 晋级赛确认
+    optional peak_arena_buy_count         _buy_count      = 16; // 购买挑战次数
+    optional peak_arena_challenge_evolve  _challenge_evolve = 17; // 挑战晋级赛
+    optional peak_arena_query_goods       _query_goods    = 18; // 查询商品信息
+    optional peak_arena_buy_goods         _buy_goods      = 19; // 购买商品
+    optional peak_arena_query_ban_list    _query_ban_list      = 20; // 当前英雄得票率
+    optional peak_arena_vote_heroes       _vote_heroes         = 21; // BP投票
+}
+
+// 打开面板
+message peak_arena_open_panel {}
+
+// 刷新对手
+message peak_arena_refresh_oppo {
+    optional bool _force = 1; // 刷新的原因
+}
+
+// 查看防守阵容
+message peak_arena_get_lineup {}
+
+// 设置防守阵容
+message peak_arena_set_lineup {
+    repeated peak_arena_lineup     _lineups = 1;
+}
+
+// 查询对手信息
+message peak_arena_query_oppo {
+    optional string   _role_id = 1; // 对手的key
+}
+
+// 查询玩家信息
+message peak_arena_query_player {
+    optional string   _role_id = 1; // 目标的key
+}
+
+// 挑战对手
+message peak_arena_challenge {
+    required string             _role_id    = 1; // 对手的key
+    repeated lineup             _lineups    = 2; // 派出的阵容
+}
+
+// 获取挑战记录
+message peak_arena_get_records { }
+
+// 增加挑战次数
+message peak_arena_add_count {
+    enum add_type {
+        ticket  = 0; // 门票
+        key     = 1; // 钥匙
+    }
+    optional add_type _type = 1;
+}
+
+// 获取战斗录像
+message peak_arena_get_replay {
+    optional uint32 _replay_id  = 1; // 战斗录像ID
+}
+
+// 获取战斗录像摘要
+message peak_arena_query_summary {
+    optional uint32 _replay_id  = 1; // 战斗录像ID
+    optional uint32 _round_id   = 2; // 第几轮战斗
+}
+
+// 赛季历史
+message peak_arena_history { }
+
+// 赛季勋章奖励
+message peak_arena_medal_reward {
+    optional uint32 _reward_idx = 1; // 奖励索引
+}
+
+enum peak_arena_rankboard {
+    global = 1; // 全服
+    zone   = 2; // 赛区
+    server = 3; // 本服
+    final_zone = 4; // 赛区
+    top    = 5;  // 名人堂
+}
+
+// 积分排行榜
+message peak_arena_score_rankboard {
+    optional peak_arena_rankboard  _step = 1; // 排行榜种类
+}
+
+// 晋级赛确认
+message peak_arena_check_evolve {
+
+}
+
+message peak_arena_buy_count {
+
+}
+
+// 挑战晋级赛对手
+message peak_arena_challenge_evolve {
+    required string             _role_id    = 1; // 对手的key
+    repeated lineup             _lineups    = 2; // 派出的阵容
+}
+
+message peak_arena_query_goods {
+
+}
+
+message peak_arena_buy_goods {
+    optional   uint32     _group_id     = 1; // 商品组
+    optional   uint32     _goods_index  = 2; // 商品下表
+    optional   uint32     _amount       = 3; // 数量
+}
+
+message peak_arena_query_ban_list {
+
+}
+
+message peak_arena_vote_heroes {
+    repeated   uint32   _hero_ids = 1; // 投票的英雄
+}
+
+message soul_exchange_req{
+    optional soul_exchange_item_convert  _item_convert  = 1;
+}
+
+message soul_exchange_item_convert {
+    repeated item _items     = 1; // 道具数量
+}
+
+//=========================================================
+//  预设阵容 preset_lineup
+//=========================================================
+// 预设阵容
+message preset_lineup_req {
+    optional preset_lineup_set_lineup    _set_lineup     = 1; // 预设阵容设置
+    optional preset_lineup_delete_lineup _delete_lineup  = 2; // 删除阵容
+    optional preset_lineup_switch_lineup _switch_lineup  = 3; // 交换阵容
+}
+
+message preset_lineup_set_lineup {
+    optional uint32    _id        = 1; // ID
+    optional string    _name      = 2; // 阵容名字
+    repeated uint32    _hero_ids  = 3; // 英雄
+}
+
+message preset_lineup_delete_lineup {
+    optional uint32    _id    = 1; // ID
+}
+
+message preset_lineup_switch_lineup {
+    optional uint32    _id1   = 1; // ID1
+    optional uint32    _id2   = 2; // ID2
+}
+
+// 英雄觉醒
+message shard_req {
+    optional shard_unlock    _unlock    = 1; // 解锁觉醒装备，如果没有装备会自动装上
+    optional shard_level_up  _level_up  = 2; // 等级提升
+    optional shard_wear      _wear      = 3; // 穿戴另外一件觉醒装备，先不做
+}
+
+// 觉醒装备解锁
+message shard_unlock {
+    optional uint32  _hero_id   = 1; // 英雄ID
+    optional uint32  _shard_id  = 2; // 觉醒装备ID
+}
+
+// 觉醒装备升级
+message shard_level_up {
+    optional uint32  _hero_id   = 1; // 英雄ID
+    optional uint32  _shard_id  = 2; // 觉醒装备ID
+    optional uint32  _to_level  = 3; // 要提升到多少级
+}
+
+// 觉醒装备穿戴
+message shard_wear {
+  optional uint32  _hero_id = 1; // 英雄ID
+  optional uint32  _shard_id = 2; // 觉醒装备ID
+}
+
+// 地底历险
+message awake_dungeon_req {
+    optional    awake_dungeon_open_panel    _open_panel       = 1; // 打开界面
+    optional    awake_dungeon_enter_stage   _enter_stage      = 2; // 进入关卡
+    optional    awake_dungeon_exit_stage    _exit_stage       = 3; // 进入关卡
+    optional    awake_dungeon_sweep         _sweep            = 4; // 扫荡关卡
+    optional    awake_dungeon_buy_vitality  _buy_vitality     = 5; // 购买补给
+    optional    awake_dungeon_level_rewards _level_rewards    = 6; // 等级奖励
+    optional    awake_dungeon_stage_record  _stage_record     = 7; // 首通记录查询
+    optional    awake_dungeon_take_block_rewards _take_block_rewards = 8; // 领取宝箱奖励
+    optional    awake_dungeon_enter_next_chapter _enter_next_chapter = 9; // 进入下一章
+    optional    awake_dungeon_enter_block        _enter_block        = 10; // 走到某个格子
+    optional    awake_dungeon_chapter_reward     _chapter_reward     = 11; // 章节奖励
+    optional    awake_dungeon_prepare_battle     _prepare_battle     = 12; // 准备战斗
+    optional    awake_dungeon_chapter_info       _chapter_info       = 13; // 章节信息
+}
+
+message awake_dungeon_open_panel {
+
+}
+
+message awake_dungeon_enter_block {
+    optional coordinate     _coordinate     = 1; // 坐标
+}
+
+message awake_dungeon_enter_stage {
+    optional coordinate   _coordinate     = 1; // 坐标
+    optional uint32       _stage_id       = 2; // 关卡id
+    repeated uint32       _lineup         = 3; // 阵容
+    repeated uint32       _free_heroes    = 4; // 免费英雄
+    optional bool         _use_hire       = 5; // 使用雇佣
+}
+
+message awake_dungeon_exit_stage {
+    optional battle_result      _result             = 1; // 战斗结果
+    repeated operation          _operations         = 2; // 战斗操作
+    optional uint32             _progress           = 3; // 进度
+}
+
+message awake_dungeon_sweep {
+    optional uint32      _sweep_times        = 1;
+}
+
+message awake_dungeon_buy_vitality {
+    optional uint32     _times              = 1;
+}
+
+message awake_dungeon_level_rewards {
+    optional uint32     _level              = 1;
+}
+
+message awake_dungeon_stage_record {
+    optional uint32     _stage_id           = 1;
+}
+
+message awake_dungeon_take_block_rewards {
+    optional coordinate     _coordinate     = 1; // 坐标
+}
+
+message awake_dungeon_enter_next_chapter {
+    optional uint32     _chapter_id        = 1; // 章节id
+}
+
+message awake_dungeon_chapter_reward {
+    optional uint32     _chapter_id        = 1; // 章节id
+}
+
+message awake_dungeon_prepare_battle {
+    optional coordinate     _coordinate     = 1; // 坐标
+    optional uint32         _stage_id       = 2; // 关卡id
+}
+
+message awake_dungeon_chapter_info {
+    optional uint32  _chapter_id = 1; // 章节id
+}
+
+// 热力挑战
+message heat_req {
+  optional heat_open_panel        _open_panel       = 1; // 打开面板
+  optional heat_enter_stage       _enter_stage      = 2; // 进入关卡
+  optional heat_exit_stage        _exit_stage       = 3; // 退出关卡
+  optional heat_rankboard         _rankboard        = 4; // 排行榜
+  optional heat_get_task_rewards  _get_task_rewards = 5; // 领取任务奖励
+}
+
+message heat_open_panel {
+  optional    uint32         _group_id = 1; // 组id
+}
+
+message heat_enter_stage {
+    optional uint32         _group_id         = 1; // 组id
+    optional uint32         _stage_id         = 2; // 关卡id
+    repeated uint32         _lineup           = 3; // 阵容
+    optional uint32         _item_id          = 4; // 战斗使用的道具id
+}
+
+message heat_exit_stage {
+    optional uint32             _group_id         = 1; // 组id
+    optional battle_result      _result           = 2; // 战斗结果
+    repeated operation          _operations       = 3; // 战斗操作
+    optional uint32             _battle_time      = 4; // 战斗时长
+    repeated choose_heat        _choose_heat      = 5; // 热力选择
+    optional uint32             _total_heat       = 6; // 总热度
+}
+
+// 热力排行榜
+message heat_rankboard {
+  optional uint32     _group_id = 1;
+}
+
+message heat_get_task_rewards {
+  optional uint32      _group_id    = 1;
+  optional uint32      _line_id     = 2;
+  optional uint32      _task_id     = 3;
+}
+
+// 同步服务器时间戳
+message sync_timestamps {
+    optional uint32     _days   = 1; // 天数，默认2天
+}
+
+// 年兽活动
+message nian_monster_req {
+    optional nian_monster_open_panel        _open_panel       = 1; // 打开面板
+    optional nian_monster_buy_item          _buy_item         = 2; // 道具购买
+}
+
+message nian_monster_open_panel {
+
+}
+
+message nian_monster_buy_item {
+    optional uint32         _item_id    = 1;
+    optional uint32         _item_cnt   = 2;
+}
+
+// 公会招募
+message guild_enlist_req {
+    optional guild_enlist_open_panel    _open_panel = 1; // 打开面板
+    optional guild_enlist_entry         _entry      = 2; // 登记
+    optional guild_enlist_quit          _quit       = 3; // 退出
+    optional guild_enlist_subscribe     _sub        = 4; // 订阅
+    optional guild_enlist_query         _query      = 5; // 查询
+}
+
+// 打开面板
+message guild_enlist_open_panel { }
+
+// 登记
+message guild_enlist_entry { }
+
+// 退出
+message guild_enlist_quit { }
+
+// 订阅服务
+message guild_enlist_subscribe { }
+
+// 查询
+message guild_enlist_query {
+    optional uint32     _start = 1; // 起始数量
+}
+
+//=========================================================
+//  公会战 guild_clash
+//=========================================================
+// 公会战
+message guild_clash_req {
+    optional guild_clash_open_panel         _open_panel             = 1; // 打开面板
+    optional guild_clash_user_team_info     _user_team              = 2; // 请求玩家队伍信息
+    optional guild_clash_guild_team_info    _guild_team             = 3; // 请求公会所有队伍信息
+    optional guild_clash_add_team           _add_team               = 4; // 增加队伍
+    optional guild_clash_del_team           _del_team               = 5; // 删除队伍
+    optional guild_clash_edit_team          _edit_team              = 6; // 修改队伍信息
+    optional guild_clash_change_line        _change_line            = 7; // 更换本队线路
+    optional guild_clash_chair_change_line  _chair_change_line      = 8; // 会长调整单个队伍线路
+    optional guild_clash_switch_line        _switch_line            = 9; // 交换两个线路的队伍
+    optional guild_clash_summary_info       _summary_info           = 10; // 玩家概况信息
+    optional guild_clash_query_line         _query_line             = 11; // 查询线路
+    optional guild_clash_sync_events        _sync_events            = 12; // 玩家概况信息
+    optional guild_clash_query_replay       _query_replay           = 13; // 查看录像
+    optional guild_clash_query_battle_summary  _query_battle_summary = 14; // 战斗战报
+    optional guild_clash_query_rank         _query_rank             = 15; // 排行榜
+    optional guild_clash_query_rune_summary _query_rune_summary     = 16; // 神符战报
+    optional guild_clash_query_battle_teams _query_battle_teams     = 17; // 请求线路全部战斗队伍
+    optional guild_clash_set_declare        _set_declare            = 18; // 设置战场宣言
+    optional guild_clash_guild_liveness     _guild_liveness         = 19; // 查询工会成员活跃度
+    optional guild_clash_query_history      _query_history          = 20; // 查询本赛季历史
+    optional guild_clash_query_battle_info  _query_battle_info      = 21; // 同步线路队伍信息
+    optional guild_clash_query_goods        _query_goods            = 22; // 查询商品信息
+    optional guild_clash_buy_goods          _buy_goods              = 23; // 购买商品
+    optional guild_clash_query_last_summarys _query_last_summarys   = 24; // 请求上一轮的工会玩家数据
+    optional guild_clash_start_chair_operate _start_chair_operate   = 25; // 开始会长调整
+    optional guild_clash_end_chair_operate  _end_chair_operate      = 26; // 停止会长调整
+}
+
+message guild_clash_open_panel {
+
+}
+
+message guild_clash_user_team_info {
+
+}
+
+message guild_clash_guild_team_info {
+
+}
+
+
+message guild_clash_save_team {
+    repeated   guild_clash_user_team                _user_team          = 1;// 队伍信息
+}
+
+message guild_clash_user_team{
+    optional  uint32          _id                    = 1; // 队伍ID
+    repeated  uint32          _hero_ids                  = 2; // 队伍英雄列表
+    optional  uint32          _line_id               = 3; // 线路id
+}
+
+message guild_clash_change_line {
+    optional    uint32     _team_id         = 1; // 队伍id
+    optional    uint32     _line_id         = 2; // 线路id
+}
+
+message guild_clash_chair_change_line {
+    repeated guild_clash_change_line_info       _change_line_infos = 1;
+}
+
+message guild_clash_switch_line {
+    optional uint32 _line_id_one    = 1;
+    optional uint32 _line_id_two    = 2;
+}
+
+message guild_clash_change_line_info {
+    optional    uint32     _team_id         = 1; // 队伍id
+    optional    uint32     _user_id         = 2; // 玩家id
+    optional    uint32     _line_id         = 3; // 线路id
+}
+
+message guild_clash_summary_info{
+    optional    uint32           _type                   =1; // 1自己的，2对手的,3全量
+}
+
+message guild_clash_query_line {
+    optional  uint32   _line_id      = 1; // 上1中2下3
+}
+
+message guild_clash_sync_events {
+    optional   uint32   _last_id = 1; // 上次获取到的最大事件ID
+}
+
+message guild_clash_add_team {
+    repeated  uint32          _hero_ids              = 1; // 队伍英雄列表
+    optional  uint32          _line_id               = 2; // 线路id
+}
+
+message guild_clash_del_team {
+    optional   uint32   _team_id = 1; // 队伍ID
+}
+
+message guild_clash_edit_team {
+    optional   uint32   _team_id    = 1; // 队伍ID
+    repeated   uint32   _hero_ids   = 2; // 队伍英雄列表
+}
+
+message guild_clash_query_replay {
+    optional  uint32           _replay_id   = 1; // 录像ID
+}
+
+message guild_clash_query_battle_summary {
+
+}
+
+message guild_clash_query_rank {
+    enum query_type {
+        team_gs      = 1; // 队伍战力
+        team_defeat  = 2; // 消灭队伍
+        hero_defeat  = 3; // 击败英雄
+        guild_rank   = 4; // 公会排名
+    }
+    optional  query_type   _type = 1; // 类型
+}
+
+message guild_clash_query_rune_summary {
+    optional  uint32       _wave = 1; // 波次
+}
+
+message guild_clash_query_battle_teams {
+    optional   uint32     _line_id  = 1; // 线路
+}
+
+message guild_clash_set_declare {
+    optional string         _declare    = 1; // 战场宣言
+}
+
+message guild_clash_guild_liveness {
+
+}
+
+message guild_clash_query_history {
+
+}
+
+message  guild_clash_query_battle_info {
+
+}
+
+message guild_clash_query_goods {
+
+}
+
+message guild_clash_buy_goods {
+    optional   uint32     _group_id     = 1; // 商品组
+    optional   uint32     _goods_index  = 2; // 商品下标
+    optional   uint32     _amount       = 3; // 数量
+}
+
+message guild_clash_query_last_summarys {
+
+}
+
+message guild_clash_start_chair_operate {
+
+}
+
+message guild_clash_end_chair_operate {
+
+}
+
+// 奖励找回
+message retrieval_reward_req {
+    optional retrieval_reward_open_panel     _open_panel     = 1; // 打开界面
+    optional retrieval_reward_take_reward    _take_reward    = 2; // 领取奖励
+}
+
+// 奖励找回打开
+message retrieval_reward_open_panel {
+}
+
+// 奖励找回奖励
+message retrieval_reward_take_reward {
+    repeated retrieval_reward_type    _type  = 1; // 领取的奖励类型
+}
+
+// 手动触发
+message manual_trigger_req {
+    optional string     _type   = 1; // 触发器类型,activity_webchat_official=微信公众号绑定活动
+    optional string     _param  = 2; // 参数
+}
+
+
+//=========================================================
+// 外观商店 cosmetic_shop_req
+//=========================================================
+message cosmetic_shop_req {
+    optional cosmetic_shop_open_panel    _open_panel   = 1; // 打开面板
+    optional cosmetic_shop_exchange      _exchange     = 2; // 道具兑换
+    optional cosmetic_shop_view_flag     _view_flag    = 3; // 查看红点
+}
+
+message cosmetic_shop_open_panel {
+
+}
+
+message cosmetic_shop_exchange {
+    enum coin_type {
+        orange = 1; // 金色道具
+        blue   = 2; // 银色道具
+    }
+    optional uint32      _goods_id              = 1; // 商品ID
+    optional coin_type   _coin_type             = 2; // 付款方式
+}
+
+message cosmetic_shop_view_flag {
+    enum type {
+        skin = 1;         // 金色皮肤
+        avatar   = 2;     // 头像
+        avatar_frame = 3; // 头像款
+    }
+    optional type   _type             = 1; // 查看页签
+}
+
+//=========================================================
+// 关卡自选奖励 select_stage_reward_req
+//=========================================================
+message select_stage_reward_req {
+    optional uint32 _stage_id         = 1; // 关卡id
+    optional uint32 _reward_id        = 2; // 奖励id
+}
+//=========================================================
+// 魔力豫州 rogue_req
+//=========================================================
+message rogue_req {
+    optional rogue_open_panel    _open_panel    = 1; // 打开面板
+    optional rogue_enter_chapter _enter_chapter = 2; // 进入副本
+    optional rogue_enter_room    _enter_room    = 3; // 进入房间
+    optional rogue_start_battle    _start_battle    = 4; // 进入战斗
+    optional rogue_end_battle    _end_battle    = 5; // 进入战斗
+    optional rogue_choose_reward _choose_reward = 6; // 选择奖励
+    optional rogue_choose_choice _choose_choice = 7; // 进行选择
+    optional rogue_shop_buy_bless _shop_buy_bless      = 8; // 商店购买祝福
+    optional rogue_refresh_bless  _refresh_bless       = 9; // 商店购买祝福
+    optional rogue_enter_next_round _enter_next_round = 10; // 进入下一张图
+    optional rogue_skip_battle   _skip_battle   = 11; // 跳过战斗
+    optional rogue_end_chapter   _end_chapter   = 12; // 退出副本：可以领蛋，无法战斗
+    optional rogue_view_result   _view_result   = 13; // 已看过的结果
+    optional rogue_exit_chapter  _exit_chapter  = 14; // 结算副本
+    optional rogue_open_tech     _open_tech     = 15; // 打开天赋树
+    optional rogue_buy_tech      _buy_tech      = 16; // 加天赋
+    optional rogue_golden_reward  _golden_reward  = 17; // 黄金屋奖励
+    optional rogue_view_bless_reward  _view_bless_reward  = 18; // 祝福奖励
+    optional rogue_view_event_reward  _view_event_reward  = 19; // 事件奖励
+    optional rogue_query_rankboard    _query_rankboard    = 20; // 排行榜
+    optional rogue_open_script        _open_script        = 21; // 演绎法
+    optional rogue_script_reward      _script_reward      = 22; // 演绎法奖励
+    optional rogue_query_charm        _query_charm        = 23; // 护符信息
+    optional rogue_refresh_room       _refresh_room       = 24; // 刷新房间
+    optional rogue_sync_hero_infos    _sync_hero_infos    = 25; // 同步英雄信息
+}
+
+message rogue_open_panel {
+
+}
+
+message rogue_enter_chapter {
+    optional uint32   _chapter_id   = 1; // 章节ID
+    optional uint32   _difficulty   = 2; // 难度
+    optional uint32   _crisis       = 3; // 危机
+    repeated uint32   _hero_ids     = 4; // 英雄ID
+    optional uint32   _destiny_id   = 5; // 命途ID
+    repeated uint32   _charm_ids    = 6; // 携带进去的护符ID
+}
+
+message rogue_enter_room {
+    optional uint32    _round_id  = 1; // 第几张图（回合
+    optional uint32    _room_id   = 2; // 房间ID
+}
+
+message rogue_start_battle {
+    repeated   uint32   _heroes = 1; // 上阵英雄
+}
+
+message rogue_end_battle {
+    optional battle_result      _result           = 1; // 战斗结果
+    repeated operation          _operations       = 2; // 战斗操作
+    repeated rogue_hero_info    _heroes           = 3; // 英雄信息
+    optional uint32             _des_energy       = 4; // 启示能量
+}
+
+message rogue_choose_reward {
+    optional  uint32   _result_index = 1; // result的槽位
+    repeated  uint32   _pos  = 2; // 选择的奖励槽位
+}
+
+message rogue_choose_choice {
+    optional  uint32   _choice_index = 1; // choice的槽位
+    optional  uint32   _choose       = 2; // 选择
+}
+
+message rogue_shop_buy_bless {
+    enum type {
+        buy_shop    = 1; // 购买商店
+        enhance_shop = 2; // 强化商店
+    }
+    optional type     _type      = 1; // 类型
+    optional uint32   _bless_id  = 2; // 祝福ID
+}
+
+message rogue_refresh_bless {
+    optional  uint32   _result_index = 1; // result的槽位
+}
+
+message rogue_vitality_exchange_reward {
+    enum type {
+        vitality = 1; // 体力交换
+        item     = 2; // 道具交换
+    }
+    optional type     _type   = 1; // 类型
+    optional uint32   _wave   = 2; // 波次
+    optional uint32   _times  = 3; // 次数
+}
+
+message rogue_enter_next_round {
+
+}
+
+message rogue_skip_battle {
+
+}
+
+message rogue_end_chapter {
+
+}
+
+message rogue_view_result {
+    optional uint32   _round_id = 1; // 第几张图
+    optional uint32   _room_id  = 2; // 房间ID
+    repeated uint32   _result_index    = 3; // result_index
+}
+
+message rogue_exit_chapter {
+
+}
+
+message rogue_open_tech {
+    optional uint32   _chapter_id   = 1; // 章节ID
+}
+
+message rogue_buy_tech {
+    optional uint32   _chapter_id   = 1; // 章节ID
+    optional uint32   _tech_id      = 2; // 天赋ID
+}
+
+message rogue_golden_reward {
+    optional uint32   _level   = 1; // 等级
+}
+
+message rogue_view_bless_reward {
+    optional uint32   _index   = 1; // 索引Index
+}
+
+message rogue_view_event_reward {
+    optional uint32   _id   = 1; // ID
+}
+
+message rogue_query_rankboard {
+    enum rb_type {
+        rogue_first_kill = 1; // 首杀
+        rogue_damage     = 2; // 极限伤害
+        rogue_pearl      = 3; // 大富翁
+        rogue_bless      = 4; // 命运之子
+    }
+    optional  rb_type  _type       = 1; // 排行榜类型
+    optional  uint32   _chapter_id = 2; // 章节ID
+}
+
+message rogue_open_script {
+
+}
+
+message rogue_script_reward {
+    optional uint32   _script_id = 1; // 剧本ID
+}
+
+message rogue_query_charm {
+    optional uint32   _chapter_id = 1; // 章节ID
+}
+
+message rogue_refresh_room {
+    optional uint32    _round_id  = 1; // 第几张图（回合
+    optional uint32    _room_id   = 2; // 房间ID
+}
+
+message rogue_sync_hero_infos {
+
+}
+
+//=========================================================
+// 信使 pet_req
+//=========================================================
+message pet_req {
+    optional pet_open_panel             _open_panel             = 1;
+    optional pet_hatch_egg              _hatch_egg              = 2;
+    optional pet_accelerate_hatch       _accelerate_hatch       = 3;
+    optional pet_open_egg               _open_egg               = 4;
+    optional pet_equip_pet              _equip_pet              = 5;
+    optional pet_unequip_pet            _unequip_pet            = 6;
+    optional pet_levelup_skill          _levelup_skill          = 7;
+    optional pet_levelup                _levelup                = 8;
+    optional pet_decompose              _decompose              = 9; //分解宠物
+}
+
+message pet_open_panel
+{
+
+}
+
+message pet_hatch_egg {
+    optional uint32 _index  = 1;
+    optional uint32 _egg_id = 2;
+}
+
+message pet_accelerate_hatch {
+    enum accelerate_type{
+        diamond = 1;
+        item = 2;
+    }
+    optional accelerate_type    _type           = 1;
+    optional uint32             _index          = 2;
+    repeated item               _consume_items  = 3;
+}
+
+message pet_open_egg {
+    optional uint32 _index = 1;
+}
+
+message pet_equip_pet {
+    optional uint32 _hero_id = 1;
+    optional uint32 _pet_id  = 2;
+}
+
+message pet_unequip_pet {
+    optional uint32 _hero_id        = 1;
+    optional bool   _is_use_item    = 2;
+}
+
+message pet_levelup_skill {
+    optional uint32          _pet_id     = 1;
+    repeated pet_skill_pair  _skill_pair = 2;
+}
+
+message pet_skill_pair {
+    optional uint32 _amount = 1;
+    optional uint32 _index  = 2;
+}
+
+message pet_levelup {
+    optional uint32   _pet_id       = 1;
+    optional uint32   _add_level    = 2; // 升xx级
+}
+
+message pet_decompose {
+    repeated uint32 _pet_ids = 1;
+}
+
+//=========================================================
+// 星盘 astrolabe_req
+//=========================================================
+message astrolabe_req {
+    optional  astrolabe_unlock    _unlock   = 1; // 祈福
+    optional  astrolabe_pray      _pray     = 2; // 祈福
+    optional  astrolabe_confirm   _confirm  = 3; // 保存
+    optional  astrolabe_clear_cache   _clear_cache    = 4; // 不保存，清除替换词条
+    optional  astrolabe_buy_times     _buy_times      = 5; // 购买次数
+    optional  astrolabe_buy_stone     _buy_stone      = 6; // 购买石头
+    optional  astrolabe_pull          _pull           = 7; // 拉取星盘信息
+}
+
+message astrolabe_unlock {
+    optional uint32  _hero_id  = 1; // 祈福的英雄ID
+}
+
+message astrolabe_pray {
+    optional uint32  _hero_id  = 1; // 祈福的英雄ID
+    repeated uint32  _lock_index_list = 2; // 锁定的词条index
+}
+
+message astrolabe_confirm {
+    optional uint32  _hero_id = 1; // 淬炼的英雄ID
+}
+
+message astrolabe_clear_cache {
+    optional uint32  _hero_id = 1; // 淬炼的英雄ID
+}
+
+message astrolabe_buy_times {
+    optional uint32  _hero_id = 1; // 购买次数的英雄ID
+}
+
+message astrolabe_buy_stone {
+    optional uint32  _hero_id   = 1; // 购买次数的英雄ID
+    optional uint32  _buy_times = 2; // 购买的石头次数
+}
+
+message astrolabe_pull {
+
+}
+
+//=========================================================
+// 送花 all_star_req
+//=========================================================
+message all_star_req {
+    optional  all_star_query_rankboard  _query_rankboard  = 1; // 全服获赠排行榜
+    optional  all_star_give_record      _give_record      = 2; // 赠送记录
+    optional  all_star_get_rank         _get_rank         = 3; // 获赠排行榜
+    optional  all_star_give             _give         = 4; // 送花
+}
+
+message all_star_query_rankboard {
+    optional uint32   _rank_left   = 1; // 获取排名的左区间
+    optional uint32   _rank_right  = 2; // 获取排名的右区间
+}
+
+message all_star_give_record {
+
+}
+
+message all_star_get_rank {
+
+}
+
+message all_star_give {
+    optional string _role_id  = 1; // 角色码
+    optional uint32 _star_num = 2; // 赠送多少花
+}
+
+// 甜心派对
+message sweet_party_req {
+    optional sweet_party_open_panel             _open_panel             = 1; // 打开面板
+    optional sweet_party_get_task_rewards       _get_task_rewards       = 2; // 领取任务奖励
+    optional sweet_party_get_line_rewards       _get_line_rewards       = 3; // 领取进度奖励
+}
+
+
+message sweet_party_open_panel {
+
+}
+
+message sweet_party_get_task_rewards {
+    optional uint32      _task_id             = 1;
+}
+
+message sweet_party_get_line_rewards {
+    optional uint32      _line_id             = 1;
+}
+
+//=========================================================
+// 时空回廊 time_corridor_req
+//=========================================================
+message time_corridor_req {
+    optional  time_corridor_open_panel  _open_panel  = 1; // 打开界面
+    optional  time_corridor_summon      _summon      = 2; // 召唤
+    optional  time_corridor_buy_goods   _buy_goods   = 3; // 购买商品
+    optional  time_corridor_query_records   _query_records        = 4; // 记录
+}
+
+message time_corridor_open_panel {
+
+}
+
+message time_corridor_summon {
+    enum type {
+        free  = 0; // 免费抽
+        once  = 1; // 单抽
+        combo = 2; // 十连
+    }
+    optional type   _type = 1; // 抽奖类型
+}
+
+message time_corridor_buy_goods {
+    optional uint32  _index  = 1; // 商品下表
+    optional uint32  _amount = 2; // 数量
+}
+
+message time_corridor_query_records {
+
+}
+
+//=========================================================
+// 天下角逐 guild_contest_req
+//=========================================================
+message guild_contest_req {
+    optional  guild_contest_open_panel       _open_panel        = 1; // 打开界面
+    optional  guild_contest_query_members    _query_members     = 2; // 查询成员列表
+}
+
+message guild_contest_open_panel {
+
+}
+
+message guild_contest_query_members {
+
+}
+
+message guild_contest_query_guild {
+    optional uint32 guild_id = 1;   // 公会ID
+}
+
+message point_sync_req{
+    repeated user_point_type     _type  = 1;
+}
+
+//=========================================================
+// 永生梦境新年活动 dreamland_new_year
+//=========================================================
+message dreamland_new_year_req {
+    optional dreamland_new_year_query_rankboard  _query_rankboard  = 1; // 全服排行榜
+    optional dreamland_new_year_daily_record     _daily_record     = 2; // 每日记录
+}
+
+message dreamland_new_year_query_rankboard {
+    enum type {
+        local       = 1; // 本服
+        global      = 2; // 全服
+    }
+    optional uint32   _rank_left   = 1; // 获取排名的左区间
+    optional uint32   _rank_right  = 2; // 获取排名的右区间
+    optional type     _type        = 3; // 排行榜类型
+}
+
+message dreamland_new_year_daily_record {
+
+}
+
+
+message sync_tiger_tool {
+    optional  bool    _state   = 1; // 状态
+    optional  uint32  _speed   = 2; // 倍速
+}
+
+//=========================================================
+// 传奇装备
+//=========================================================
+message legend_equip_req {
+    optional legend_equip_equip             _equip              = 1; // 穿戴装备
+    optional legend_equip_unequip           _unequip            = 2; // 卸下装备
+    optional legend_equip_starup            _starup             = 3; // 装备升星
+    optional legend_equip_rankup            _rankup             = 4; // 装备升阶
+    optional legend_equip_recycle           _recycle            = 5; // 分解装备
+    optional legend_equip_forge_equip       _forge_equip        = 6; // 锻造装备
+    optional legend_equip_unlock_queue      _unlock_queue       = 7; // 解锁锻造队列
+    optional legend_equip_unlock_pos        _unlock_pos         = 8; // 解锁锻造队列槽位
+    optional legend_equip_forge_panel       _forge_panel        = 9; // 打开锻造界面
+    optional legend_equip_lottery           _lottery            = 10; // 开启锻造装备
+    optional legend_equip_accelerate        _accelerate         = 11; // 锻造加速
+    optional legend_equip_one_key_forge     _one_key_forge      = 12; // 一键锻造
+    optional legend_equip_one_key_lottery   _one_key_open       = 13; // 一键开启
+    optional legend_equip_one_key_accelerate _one_key_accelerate    = 14; // 一键加速
+    optional legend_equip_discard           _discard            = 15; // 装备丢弃
+    optional legend_equip_open_shop         _open_shop          = 16; // 打开商店
+    optional legend_equip_buy_goods         _buy_goods          = 17; // 购买商品
+    optional legend_equip_synthesize        _synthesize         = 18; // 碎片合成
+    optional legend_equip_submit_task       _submit_task        = 19; // 提交任务
+    optional legend_equip_set_wish          _set_wish           = 20; // 设定心愿单
+    optional legend_equip_sell_fragement    _sell_fragement     = 21; // 出售碎片
+    optional legend_equip_query_task        _query_task         = 22; // 查询任务
+    optional legend_equip_handbook          _handbook           = 23; // 打开图鉴
+    optional legend_equip_query_records      _query_records      = 24; // 查询抽奖记录
+    optional legend_equip_reset             _reset              = 25; // 传奇装备重置
+    optional legend_equip_buy_reset_times   _buy_reset_times    = 26; // 传奇装备重置
+}
+
+message legend_equip_equip {
+    optional uint32     _hero_id    = 1; // 英雄id
+    optional uint32     _id         = 2; // 装备id
+}
+
+message legend_equip_unequip {
+    optional uint32     _hero_id    = 1; // 英雄id
+}
+
+message legend_equip_starup {
+    optional uint32     _id   = 1; // 装备id
+}
+
+message legend_equip_rankup {
+    optional uint32     _id   = 1; // 装备id
+}
+
+message legend_equip_recycle {
+    repeated uint32     _id   = 1; // 装备id
+}
+
+message legend_equip_forge_equip {
+    optional uint32     _queue_id   = 1; // 队列id
+}
+
+message legend_equip_unlock_queue {
+    optional uint32     _queue_id   = 1; // 队列id
+}
+
+message legend_equip_unlock_pos {
+    optional uint32     _queue_id   = 1; // 队列id
+    optional uint32     _pos        = 2; // 槽位
+}
+
+message legend_equip_forge_panel {
+
+}
+
+message legend_equip_lottery {
+    optional uint32     _queue_id   = 1; // 队列id
+}
+
+message legend_equip_accelerate {
+    optional uint32     _queue_id           = 1; // 队列id
+    optional item       _consume_items      = 2; // 消耗物品
+}
+
+message legend_equip_one_key_forge {
+
+}
+
+message legend_equip_one_key_lottery {
+
+}
+
+message legend_equip_one_key_accelerate {
+    optional uint32     _queue_id           = 1; // 队列id
+    optional item       _consume_items      = 2; // 消耗物品
+}
+
+message legend_equip_discard {
+    optional uint32     _id             = 1; // 装备编号
+    optional bool       _is_discard     = 2; // 是否丢弃
+}
+
+message legend_equip_open_shop {
+
+}
+
+message legend_equip_buy_goods {
+    optional uint32     _group_id         = 1; // 商品组
+    optional uint32     _index            = 2; // 商品索引
+    optional uint32     _amount           = 3; // 购买数量
+}
+
+message legend_equip_synthesize {
+    repeated item       _items            = 1; // 碎片信息
+}
+
+message legend_equip_submit_task {
+    optional uint32     _task_id          = 1; // 任务id
+}
+
+message legend_equip_set_wish {
+    optional legend_equip_wish_type     _wish_type     = 1; // 心愿单类型
+    repeated legend_equip_wish_pos      _wish_list     = 2; // 装备id
+}
+
+message legend_equip_wish_pos {
+    optional uint32     _index          = 1; // 槽位索引
+    optional uint32     _equip_id       = 2; // 装备id
+}
+
+message legend_equip_sell_fragement {
+    repeated item       _items            = 1; // 碎片信息
+}
+
+message legend_equip_query_task {
+
+}
+
+// 购买传奇装备锻造队列
+message forge_queue_buy {
+    optional uint32     _queue_id           = 1; // 队列id
+}
+
+message legend_equip_handbook {
+
+}
+
+message legend_equip_query_records {
+
+}
+
+message legend_equip_reset {
+    optional uint32     _id   = 1; // 装备id
+}
+
+message legend_equip_buy_reset_times {
+
+}
+
+// 海盗商店 pirate_shop
+//=========================================================
+message pirate_shop_req {
+    optional  pirate_shop_open_panel  _open_panel = 1; // 打开界面
+    optional  pirate_shop_take_map    _take_map   = 2; // 领取藏宝图
+    optional  pirate_shop_refresh_shop _refresh_shop = 3; // 刷新商店
+    optional  pirate_shop_buy_goods   _buy_goods  = 4; // 购买商品
+}
+
+message pirate_shop_open_panel {
+
+}
+
+message pirate_shop_take_map {
+
+}
+
+message pirate_shop_refresh_shop {
+
+}
+
+message pirate_shop_buy_goods {
+    optional uint32   _index = 1; // 购买下标
+}
+
+
+//=========================================================
+// 简单助力 simple_assist_req
+//=========================================================
+message simple_assist_req {
+    optional simple_assist_open_panel             _open_panel             = 1; // 打开面板
+    optional simple_assist_get_task_rewards       _get_task_rewards       = 2; // 领取任务奖励
+    optional simple_assist_get_line_rewards       _get_line_rewards       = 3; // 领取进度奖励
+
+    optional simple_assist_query_goods            _query_goods            = 4; // 查询商店
+    optional simple_assist_choose_rewards         _choose_rewards         = 5; // 选择奖励
+    optional simple_assist_buy_goods              _buy_goods              = 6; // 购买商品
+}
+
+message simple_assist_open_panel {
+    optional simple_assist_type  _type = 1; // 助力类型
+}
+
+message simple_assist_get_task_rewards {
+    optional simple_assist_type  _type      = 1; // 助力类型
+    optional uint32              _task_id   = 2; // 任务ID
+}
+
+message simple_assist_get_line_rewards {
+    optional simple_assist_type  _type      = 1; // 助力类型
+    optional uint32              _line_id   = 2; // 进度ID
+}
+
+message simple_assist_query_goods {
+    optional simple_assist_type  _type      = 1; // 助力类型
+}
+
+message  simple_assist_choose_rewards {
+    optional simple_assist_type  _type      = 1; // 助力类型
+    optional uint32              _group_id    = 2; // 商品组
+    optional uint32              _group_index = 3; // 商品下标
+    optional uint32              _choose_group  = 4; // 可选组
+    optional uint32              _choose_index  = 5; // 可选下标
+}
+
+message simple_assist_buy_goods {
+    optional simple_assist_type  _type        = 1; // 助力类型
+    optional uint32              _group_id    = 2; // 商品组
+    optional uint32              _group_index = 3; // 商品下标
+    optional uint32              _amount      = 4; // 购买数量
+}
+
+//=========================================================
+// 收藏排行榜 collection_point_req
+//=========================================================
+message collection_point_req {
+    optional collection_point_role_info       _role_info = 1;     // 目标角色信息
+    optional collection_point_set_show        _set_show  = 2; // 设置展示英雄
+}
+
+message collection_point_role_info {
+    optional string _role_id = 1; // 角色ID
+}
+
+message collection_point_set_show {
+    optional uint32 _hero_id = 1; // 英雄ID
+}
+
+//=========================================================
+// 导流功能 player_shift_req
+//=========================================================
+// 导流功能
+message player_shift_req {
+    optional player_shift_open_panel    _open_panel    = 1; // 打开面板
+    optional player_shift_server_list   _server_list   = 2; // 查看服务器列表
+    optional player_shift_select_server _select_server = 3; // 选择服务器
+    optional player_shift_send_code     _send_code     = 4; // 发送验证码
+    optional player_shift_auth_code     _auth_code     = 5; // 验证验证码
+    optional player_shift_gain_reward   _gain_reward   = 6; // 领取奖励
+}
+
+// 导流打开面板
+message player_shift_open_panel {
+}
+
+// 导流服务器列表
+message player_shift_server_list {
+    optional string     _zone = 1; // 服务器区域
+}
+
+// 导流选择服务器
+message player_shift_select_server {
+    optional uint32     _server_id  = 1; // 服务器ID
+}
+
+// 导流发送验证码
+message player_shift_send_code {
+    optional uint32     _user_id    = 1; // 用户ID
+}
+
+// 导流验证验证码
+message player_shift_auth_code {
+    optional string     _code       = 1; // 验证码
+}
+
+// 导流领取奖励
+message player_shift_gain_reward {
+
+}
+
+//=========================================================
+// 划龙舟 dragon_boat_req
+//=========================================================
+message dragon_boat_req {
+    optional dragon_boat_open_panel             _open_panel       = 1;     // 打开面板
+    optional dragon_boat_start                  _start            = 2;     // 开始划龙舟
+    optional dragon_boat_buy_skin               _buy_skin         = 3;     // 钻石购买皮肤
+    optional dragon_boat_use                    _use              = 4;     // 使用道具加速
+    optional dragon_boat_race                   _race             = 5;     // 定时同步玩家比赛信息
+    optional dragon_boat_period_reward          _period_reward    = 6;     // 领取阶段奖励
+    optional dragon_boat_give                   _give             = 7;     // 赠送
+    optional dragon_boat_give_record            _give_record      = 8;     // 赠送记录
+    optional dragon_boat_give_record_rank       _give_record_rank = 9;     // 获赠排行榜
+    optional dragon_boat_query_rankboard        _query_rankboard  = 10;    // 全服排行榜
+    optional dragon_boat_give_status            _give_status      = 11;    // 是否可以赠送道具
+    optional dragon_boat_skin_add_feet          _add_feet         = 12;    // 获取升级皮肤后可多划行的距离
+}
+
+message dragon_boat_open_panel {
+}
+
+message dragon_boat_start {
+}
+
+message dragon_boat_buy_skin {
+    optional uint32    _skin = 1;    // 皮肤id
+}
+
+message dragon_boat_use {
+    optional string    _front_role_id   = 1;    // 前一名角色ID
+    optional string    _behind_role_id  = 2;    // 后一名角色ID
+    optional uint32    _num = 3;                // 使用数量
+}
+
+message dragon_boat_race {
+    optional string    _front_role_id   = 1;    // 前一名角色ID
+    optional string    _behind_role_id  = 2;    // 后一名角色ID
+}
+message dragon_boat_period_reward {
+}
+
+message dragon_boat_give {
+    optional string    _role_id  = 1;    // 角色ID
+    optional uint32    _give_num = 2;    // 赠送数量
+}
+
+message dragon_boat_give_record {
+}
+
+
+message dragon_boat_give_record_rank {
+}
+
+
+message dragon_boat_query_rankboard {
+}
+
+message dragon_boat_give_status {
+    optional string _role_id = 1; // 角色ID
+}
+
+message dragon_boat_skin_add_feet {
+}
+
+//=========================================================
+// 多队梦境 crevice_defend_req
+//=========================================================
+message crevice_defend_req {
+    optional crevice_defend_open_panel             _open_panel            = 1;     // 打开面板
+    optional crevice_defend_challenge              _challenge             = 2;     // 挑战
+    optional crevice_defend_zone_rankboard         _zone_rankboard        = 3;     // 赛区排行榜
+    optional crevice_defend_open_recommend         _open_recommend        = 4;     // 打开推荐界面
+    optional crevice_defend_recommend_lineup       _recommend_lineup      = 5;     // 推荐阵容
+    optional crevice_defend_query_summary          _query_summary         = 6;     // 查询战斗简报
+    optional crevice_defend_query_records          _query_records         = 7;     // 查询录像
+    optional crevice_defend_buy_challenge_count    _buy_challenge_count   = 8;     // 购买挑战次数
+    optional crevice_defend_task_reward            _task_reward           = 9;     // 领取任务奖励
+    optional crevice_defend_challenge_record       _challenge_record      = 10;    // 查询挑战记录
+}
+
+message crevice_defend_open_panel {
+
+}
+
+message crevice_defend_challenge {
+    repeated lineup _lineups = 1; // 队伍信息
+}
+
+message crevice_defend_zone_rankboard {
+
+}
+
+message crevice_defend_recommend_lineup {
+    optional string _role_id  = 1; // 角色ID
+}
+
+message crevice_defend_query_summary {
+    optional uint32 _replay_id  = 1; // 录像ID
+    optional uint32 _round_id   = 2; // 第几轮战斗
+}
+
+message crevice_defend_query_records {
+    optional uint32 _replay_id  = 1; // 录像ID
+}
+
+message crevice_defend_buy_challenge_count {
+
+}
+
+message crevice_defend_open_task {
+
+}
+
+message crevice_defend_task_reward {
+    optional uint32 _task_id = 1; // 任务ID
+}
+
+message crevice_defend_challenge_record {
+
+}
+
+message crevice_defend_open_recommend {
+
+}
+
+//=========================================================
+// 英雄砍一刀 hero_haggle_req
+//=========================================================
+message hero_haggle_req {
+    optional hero_haggle_open_panel             _open_panel       = 1;     // 打开面板
+    optional hero_haggle_select_hero            _select_hero      = 2;     // 选择英雄
+    optional hero_haggle_price                  _haggle_price     = 3;     // 砍一刀
+}
+
+message hero_haggle_open_panel {
+}
+
+message hero_haggle_select_hero {
+    optional uint32    _hero_id = 1;    // 英雄ID
+}
+
+message hero_haggle_price {
+}
+
+message hero_haggle_buy_hero {
+    optional uint32    _hero_id = 1;    // 英雄ID
+}
+
+
+//=========================================================
+// + 选技
+//=========================================================
+
+// 选技
+message solo_req {
+    optional solo_open_panel       _open_panel     = 1; // 打开面板
+    optional solo_match_start      _match_start    = 2; // 开始匹配
+    optional solo_match_cancel     _match_cancel   = 3; // 取消匹配
+    optional solo_resolve_rookie   _resolve_rookie = 4; // 跳过引导
+    optional solo_rookie_start     _rookie_start   = 5; // 开始新手引导
+    optional solo_rookie_finish    _rookie_finish  = 6; // 完成新手引导
+    optional solo_query_records    _query_records  = 7; // 查询记录
+    optional solo_record_detail    _record_detail  = 8; // 游戏请求
+    optional solo_grade_rewards    _grade_rewards  = 9; // 领取段位奖励
+}
+
+// 打开面板
+message solo_open_panel {
+
+}
+
+// 开始匹配
+message solo_match_start {
+    optional string             _version    = 1; // 客户端版本号
+    optional solo_game_type    _game_type  = 2; // 游戏类型
+}
+
+// 取消匹配
+message solo_match_cancel {
+
+}
+
+// 跳过引导
+message solo_resolve_rookie {
+
+}
+
+// 开始新手引导
+message solo_rookie_start {
+
+}
+
+// 完成新手引导
+message solo_rookie_finish {
+    optional string             _version    = 1; // 客户端版本号
+    repeated uint32             _hero_ids   = 2; // 上阵英雄ID列表
+    repeated uint32             _positions  = 3; // 上阵英雄位置列表
+}
+
+// 记录查询
+message solo_query_records {
+
+}
+
+// 记录查询
+message solo_record_detail {
+    optional uint32            _record_id = 1; // 记录ID
+}
+
+// 领取段位奖励
+message solo_grade_rewards {
+    optional uint32            _grade     = 2; // 段位ID
+}
+
+
+// 选技游戏中请求(长连接)
+message solo_game_req {
+    optional solo_join                  _join               = 1;  // 加入游戏
+    optional solo_loading               _loading            = 2;  // 加载同步
+    optional solo_choose_hero           _choose_hero        = 3;  // 选择英雄
+    optional solo_choose_power          _choose_power       = 4;  // 选择能力
+    optional solo_use_power             _use_power          = 5;  // 使用能力
+    optional solo_buy_card              _buy_card           = 6;  // 购买卡片
+    optional solo_shop_refresh          _shop_refresh       = 7;  // 商店刷新
+    optional solo_quit                  _quit               = 8;  // 退出游戏
+    optional solo_battle_confirm        _battle_confirm     = 9;  // 战斗确认
+    optional solo_heartbeat             _heartbeat          = 10; // 心跳
+    optional solo_refresh_choices       _refresh_choices    = 11; // 刷新选项
+    optional solo_monitor_player        _monitor_player     = 12; // 查看玩家信息
+    optional solo_spectate_enter        _spectate_enter     = 13; // 进入观战模式
+    optional solo_emoji                 _emoji              = 14; // 发表情包
+    optional solo_view_journal          _view_journal       = 15; // 查看对战日志
+    optional solo_view_dashboard        _view_dashboard     = 16; // 查看数据面板
+}
+
+// 加入游戏
+message solo_join {
+    optional solo_user_key          _user_key       = 1; // 玩家Key
+    optional uint32                 _game_id        = 2; // 游戏ID
+    optional string                 _version        = 3; // 版本号
+    optional bool                   _is_reconnect   = 4; // 是否是重连
+}
+
+// 加载
+message solo_loading {
+    optional solo_user_key          _user_key   = 1; // 玩家Key
+    optional uint32                 _progress   = 2; // 进度
+    optional bool                   _is_finish  = 3; // 是否加载完成
+}
+
+
+// 选择英雄
+message solo_choose_hero {
+    optional solo_user_key          _user_key           = 1; // 玩家Key
+    optional uint32                 _choose_id          = 2; // 选择ID
+    optional uint32                 _option_index       = 3; // 选项索引
+    optional bool                   _is_confirmed       = 4; // 是否确认
+}
+
+
+// 选择能力
+message solo_choose_power {
+    optional solo_user_key          _user_key           = 1; // 玩家Key
+    optional uint32                 _power_pos          = 2; // 第几个英雄能力
+    optional uint32                 _option_index       = 3; // 选项索引
+    optional bool                   _is_confirmed       = 4; // 是否确认
+}
+
+
+// 使用英雄能力
+message solo_use_power {
+    optional solo_user_key          _user_key           = 1; // 玩家Key
+    optional uint32                 _power_pos          = 2; // 第几个英雄能力
+    optional uint32                 _power_id           = 3; // 能力ID
+    repeated common_config          _params             = 21; // 参数, 如果需要指定流派则，specify_faction, int参数为流派ID
+}
+
+// 购买卡片
+message solo_buy_card {
+    optional solo_user_key          _user_key       = 1; // 玩家Key
+    optional bool                   _random         = 2; // 是否随机
+    optional uint32                 _card_index     = 3; // 索引
+}
+
+// 商店刷新
+message solo_shop_refresh {
+    optional solo_user_key         _user_key       = 1; // 玩家Key
+}
+
+// 退出游戏（永久）
+message solo_quit {
+    optional solo_user_key         _user_key       = 1; // 玩家Key
+}
+
+
+// 选技战斗结果
+message solo_battle_result {
+    optional battle_result  _result         = 1; // 战斗结果
+    optional uint32         _battle_time    = 2; // 战斗时间, 毫秒
+}
+
+// 战斗确认
+message solo_battle_confirm {
+    optional solo_user_key          _user_key       = 1; // 玩家Key
+    optional uint32                 _round          = 2; // 回合数
+    optional solo_battle_result     _result         = 3; // 战斗结果
+}
+
+// 心跳
+message solo_heartbeat {
+    optional solo_user_key         _user_key       = 1; // 玩家Key
+}
+
+// 刷新选项
+message solo_refresh_choices {
+    optional solo_user_key          _user_key       = 1; // 玩家Key
+    optional bool                   _is_pay         = 2; // 是否付费刷新
+}
+
+// 查看玩家信息
+message solo_monitor_player {
+    optional solo_user_key         _user_key       = 1; // 玩家Key
+    optional solo_user_key         _target_key     = 2; // 观战目标的key
+}
+
+// 进入观战模式
+message solo_spectate_enter {
+    optional solo_user_key         _user_key       = 1; // 玩家Key
+    optional solo_user_key         _target_key     = 2; // 观战目标的key
+}
+
+
+// 表情包
+message solo_emoji {
+    optional solo_user_key      _user_key  = 1; // 玩家Key
+    optional string              _content   = 2; // 内容
+}
+
+// 查看对战日志
+message solo_view_journal {
+    optional solo_user_key      _user_key       = 1; // 玩家Key
+    optional uint32             _begin_round    = 2; // 起始回合
+}
+
+// 查看数据面板
+message solo_view_dashboard {
+    optional solo_user_key      _user_key  = 1; // 玩家Key
+}
+
+// 功能预告
+message feature_preview_req {
+    optional feature_preview_open_panel  _open_panel  = 1; // 打开面板
+    optional feature_preview_reward      _reward      = 2; // 领取奖励
+}
+
+// 功能预告面板
+message feature_preview_open_panel {
+
+}
+
+// 功能预告领取奖励
+message feature_preview_reward {
+    repeated uint32  _ids         = 1; // 功能ID
+}
+
+//=========================================================
+// - 选技
+//=========================================================

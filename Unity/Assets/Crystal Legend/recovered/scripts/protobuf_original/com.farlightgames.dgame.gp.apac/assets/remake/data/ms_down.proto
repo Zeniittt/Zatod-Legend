@@ -1,0 +1,31 @@
+package ms_down;
+
+message ms_down_msg {
+    optional charge_query_reply  charge_query_reply      = 1;
+    optional login_query_reply   login_query_reply       = 2;
+}
+
+message charge_query_reply{
+    enum platform_charge_status {
+        open      = 2; 
+        close     = 1; 
+    }
+    required platform_charge_status status    = 1;
+    required string                 show_text = 2;
+}
+
+
+message login_query_reply{
+    enum login_status {
+        old      = 1;
+        new      = 2;
+        openllh  = 3;
+        update   = 4;
+    }
+    required login_status status    = 1;
+    optional string svr_ip          = 2;
+    optional uint32 svr_port        = 3;
+    optional string show_text       = 4;
+    optional string url             = 5;
+}
+
