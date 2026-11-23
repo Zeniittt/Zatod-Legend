@@ -5,6 +5,8 @@ Unity 6000.6.2f1, URP2D, Mirror/Telepathy. Đọc [Design.md](Design.md), [AGENT
 Project hiện dùng bộ Crystal: 25 Hero, 14 quái, 39 ải/117 wave trong hai chương; combat core8Hz. Phó bản client mô phỏng và server validate, Arena tự động và PvP realtime dùng chung core. Kho, Hero và lịch sử GUID lưu riêng theo development profile; tiến độ ải reset mỗi lần mở ứng dụng.
 
 - Chơi/server/hai client: [docs/zatod-prototype-play.md](docs/zatod-prototype-play.md).
+- LAN Windows/Android: [hướng dẫn bản LAN](docs/zatod-lan-login-android-implementation.md). Login cóTên vàServer IP; Android/desktop tựdòđiềnIP vàcho nhập tay.
+- iOS: [xuấtXcode → Mac → cài iPhone](docs/zatod-ios-build-and-install.md). Script `Scripts/Export-ZatodXcode.ps1`; iOS dùngIP trực tiếp, bảnxuất/ZIP tạiDesktop/Zatod Legend LAN Test/iOS.
 - Scene: `Unity/Assets/Zatod/Scenes/ZatodPrototype.unity` và `ZatodBattle.unity`.
 - Config: `GameEditor > Open`, các bảng Hero/Monster/Items/Stats/Skills/Buffs/Campaign, craft, sao, progression và maps.
 - BuildWindows: `Zatod > Tools > Build Windows Prototype`; bản chuẩn `Builds/ZatodPrototype/ZatodLegend.exe`, serverTCP7788.

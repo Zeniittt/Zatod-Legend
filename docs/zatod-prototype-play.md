@@ -1,5 +1,7 @@
 # Chơi thử Zatod Legend prototype
 
+Cập nhật23/11/2026: bản LAN Windows/Android được xuất ở `Desktop/Zatod Legend LAN Test`, server chạy bằng `Server/Start-Server.cmd`, Windowsclient bằng `Windows/Play-Zatod.cmd`. Login nguồn mới cóTên vàServer IP; Android/desktop tựdòđiềnđịa chỉ vàcóFind LAN, vẫn nhập tayđược. iOS dùngIPv4 PC trực tiếp/port7788. Xem [hướng dẫn Xcode/Mac/iPhone](zatod-ios-build-and-install.md); WindowsbuildD32 đãphát trước23/11 chưađược rebuildUI này trongphaseiOS. Các hướngdẫn21/11 bên dưới là luồngdev trướcD32.
+
 Scene mới: `Unity/Assets/Zatod/Scenes/ZatodPrototype.unity`. Menu build: **Zatod > Tools > Build Windows Prototype**. Bản Windows ở `Builds/ZatodPrototype/ZatodLegend.exe`.
 
 Cập nhật21/11/2026: mở/chạy **ZatodPrototype** làm scene chính. Game tự nạp **ZatodBattle** additive khi vào Phó bản/Arena/PvP/replay, dùng renderer2D cho chiến trường và Canvas cho HUD; không cần tự mở scene Battle để chơi.
