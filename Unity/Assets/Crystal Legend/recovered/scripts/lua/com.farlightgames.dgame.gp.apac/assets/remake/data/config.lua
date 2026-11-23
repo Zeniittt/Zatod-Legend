@@ -1,0 +1,9 @@
+local config = {}
+ed.config = config
+config.server = ed.storage.getString("game-server-ip")
+config.port = ed.storage.getInt("game-server-port")
+config.bluetooth_test = 0
+config.vsmodedebug = 0
+config.user_id = nil
+config.device_id = "z-181"
+config.device_id = "z-183"

@@ -1,0 +1,382 @@
+ed.uieditor = ed.uieditor or {}
+ed.uieditor.custom_photo_panel = {
+  {
+    config = {
+      rotation = 0,
+      flip = "",
+      opacity = 255,
+      visible = true,
+      scaleSize = CCSizeMake(275, 220)
+    },
+    t = "Scale9Sprite",
+    base = {
+      capInsets = CCRectMake(25, 15, 0.5, 0.5),
+      res = "UI/alpha/1080P/common/main_vit_tips.png",
+      name = "image_bg1",
+      z = 0
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(176, 153.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      flip = "",
+      opacity = 255,
+      visible = true,
+      scaleSize = CCSizeMake(165, 220)
+    },
+    t = "Scale9Sprite",
+    base = {
+      capInsets = CCRectMake(25, 15, 0.5, 0.5),
+      res = "UI/alpha/1080P/common/main_vit_tips.png",
+      name = "image_bg2",
+      z = 0
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(395, 153.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      fix_scale = {y = 1, x = 1},
+      fix_wh = {w = 31.5, h = 33.5},
+      flip = "",
+      labelConfig = {
+        color = ccc3(255, 255, 255)
+      },
+      opacity = 255,
+      visible = true,
+      pressConfig = {flip = ""}
+    },
+    t = "DGButton",
+    base = {
+      normal = "UI/alpha/1080P/common/common_tips_button_close_1.png",
+      name = "btn_close",
+      z = 0,
+      text = "",
+      press = "UI/alpha/1080P/common/common_tips_button_close_2.png",
+      size = 7
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(474.5, 260)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      flip = "",
+      opacity = 255,
+      visible = true,
+      scaleSize = CCSizeMake(155, 195)
+    },
+    t = "Layer",
+    base = {
+      parent = "image_bg2",
+      name = "node_frame_list",
+      z = 0
+    },
+    layout = {
+      anchor = ccp(0, 0),
+      position = ccp(5, 8)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      scaleSize = CCSizeMake(75, 35),
+      flip = "",
+      labelConfig = {
+        color = ccc3(252, 231, 200)
+      },
+      opacity = 255,
+      visible = true,
+      pressConfig = {flip = ""}
+    },
+    t = "DGButton",
+    base = {
+      normal = "UI/alpha/1080P/common/break_butt_bj.png",
+      capInsets = CCRectMake(10, 10, 12.5, 10),
+      name = "btn_save",
+      z = 0,
+      parent = "image_bg1",
+      text = T("\228\191\157 \229\173\152"),
+      press = "UI/alpha/1080P/common/break_butt_bj.png",
+      size = 12
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(196.5, 34)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      scaleSize = CCSizeMake(75, 35),
+      flip = "",
+      labelConfig = {
+        color = ccc3(252, 231, 200)
+      },
+      opacity = 255,
+      visible = true,
+      pressConfig = {flip = ""}
+    },
+    t = "DGButton",
+    base = {
+      normal = "UI/alpha/1080P/common/break_butt_bj.png",
+      capInsets = CCRectMake(10, 10, 12.5, 10),
+      name = "btn_upload",
+      z = 0,
+      parent = "image_bg1",
+      text = T("\233\128\137\230\139\169\229\164\180\229\131\143"),
+      press = "UI/alpha/1080P/common/break_butt_bj.png",
+      size = 12
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(84, 34)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      scalexy = {y = 1, x = 1},
+      horizontalAlignment = 0,
+      flip = "",
+      color = ccc3(255, 215, 0),
+      opacity = 255,
+      verticalAlignment = 0,
+      visible = true
+    },
+    t = "Label",
+    base = {
+      name = "label_title",
+      z = 0,
+      parent = "image_bg2",
+      text = T("\233\128\137\230\139\169\232\129\138\229\164\169\230\144\186\229\184\166\229\164\180\229\131\143\230\161\134"),
+      size = 10
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(82.5, 210)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      scalexy = {y = 1, x = 1},
+      horizontalAlignment = 0,
+      flip = "",
+      color = ccc3(252, 231, 200),
+      opacity = 255,
+      verticalAlignment = 0,
+      visible = true
+    },
+    t = "Label",
+    base = {
+      name = "label_tip1",
+      z = 0,
+      parent = "image_bg1",
+      text = T("\230\156\128\231\187\136\233\162\132\232\167\136\239\188\154"),
+      size = 12
+    },
+    layout = {
+      anchor = ccp(0, 0.5),
+      position = ccp(154, 188.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      scalexy = {y = 1, x = 1},
+      horizontalAlignment = 0,
+      flip = "",
+      color = ccc3(255, 215, 0),
+      opacity = 255,
+      verticalAlignment = 0,
+      visible = true
+    },
+    t = "Label",
+    base = {
+      name = "label_tip3",
+      z = 0,
+      parent = "image_bg1",
+      text = T("\230\143\144\231\164\186\239\188\154"),
+      size = 10
+    },
+    layout = {
+      anchor = ccp(0, 1),
+      position = ccp(155, 169.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      flip = "",
+      opacity = 255,
+      visible = true,
+      scaleSize = CCSizeMake(25, 25)
+    },
+    t = "Layer",
+    base = {
+      parent = "image_bg1",
+      name = "node_avatar",
+      z = 0
+    },
+    layout = {
+      anchor = ccp(0, 0),
+      position = ccp(241.5, 189.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      flip = "",
+      opacity = 255,
+      visible = true,
+      scaleSize = CCSizeMake(120, 25)
+    },
+    t = "Layer",
+    base = {
+      parent = "image_bg1",
+      name = "node_checkbox",
+      z = 0
+    },
+    layout = {
+      anchor = ccp(0, 0),
+      position = ccp(149, 66.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      fix_scale = {y = 1, x = 1},
+      flip = "",
+      opacity = 255,
+      fix_wh = {w = 127, h = 127},
+      visible = true
+    },
+    t = "Sprite",
+    base = {
+      parent = "image_bg1",
+      res = "UI/alpha/HVGA/chat/chat_customAvatar_bg.png",
+      name = "image_photo_bg",
+      z = 0
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(81, 133)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      fix_scale = {y = 1, x = 1},
+      flip = "",
+      opacity = 255,
+      fix_wh = {w = 20.5, h = 21.5},
+      visible = true
+    },
+    t = "Sprite",
+    base = {
+      parent = "node_checkbox",
+      res = "UI/alpha/1080P/common/account_sifting_1.png",
+      name = "image_checkbox_bg",
+      z = 1
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(16, 11.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      scalexy = {y = 1, x = 1},
+      horizontalAlignment = 0,
+      flip = "",
+      color = ccc3(252, 231, 200),
+      opacity = 255,
+      verticalAlignment = 0,
+      visible = true
+    },
+    t = "Label",
+    base = {
+      name = "label_tip2",
+      z = 0,
+      parent = "node_checkbox",
+      text = T("\229\188\128\229\144\175\232\135\170\229\174\154\228\185\137\229\164\180\229\131\143"),
+      size = 11
+    },
+    layout = {
+      anchor = ccp(0, 0.5),
+      position = ccp(34, 12.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      flip = "",
+      opacity = 255,
+      visible = true,
+      scaleSize = CCSizeMake(100, 100)
+    },
+    t = "Layer",
+    base = {
+      parent = "image_photo_bg",
+      name = "node_photo",
+      z = 1
+    },
+    layout = {
+      anchor = ccp(0, 0),
+      position = ccp(63.5, 63.5)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      fix_scale = {y = 1, x = 1},
+      flip = "",
+      opacity = 255,
+      fix_wh = {w = 20.5, h = 21.5},
+      visible = true
+    },
+    t = "Sprite",
+    base = {
+      parent = "image_checkbox_bg",
+      res = "UI/alpha/1080P/common/account_sifting_2.png",
+      name = "image_checkbox",
+      z = 0
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(10.25, 11.25)
+    }
+  },
+  {
+    config = {
+      rotation = 0,
+      fix_scale = {y = 1, x = 1},
+      flip = "",
+      opacity = 255,
+      fix_wh = {w = 15.5, h = 15},
+      visible = true
+    },
+    t = "Sprite",
+    base = {
+      parent = "image_checkbox",
+      res = "UI/alpha/1080P/common/account_sifting_mark.png",
+      name = "ImageView_6444",
+      z = 0
+    },
+    layout = {
+      anchor = ccp(0.5, 0.5),
+      position = ccp(10.25, 10.75)
+    }
+  }
+}

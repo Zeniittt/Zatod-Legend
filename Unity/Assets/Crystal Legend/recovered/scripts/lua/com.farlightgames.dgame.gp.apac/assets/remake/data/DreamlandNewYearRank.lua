@@ -1,0 +1,53 @@
+return {
+  {
+    [1] = {
+      [1] = {
+        1,
+        1,
+        1000,
+        "Item",
+        20522,
+        1,
+        nil,
+        0,
+        0,
+        nil,
+        0,
+        0,
+        nil,
+        0,
+        0,
+        nil,
+        0,
+        0,
+        nil,
+        0,
+        0
+      }
+    }
+  },
+  {
+    Season = 1,
+    ID = 2,
+    ["Top Rank"] = 3,
+    ["Reward Type 1"] = 4,
+    ["Reward ID 1"] = 5,
+    ["Reward Amount 1"] = 6,
+    ["Reward Type 2"] = 7,
+    ["Reward ID 2"] = 8,
+    ["Reward Amount 2"] = 9,
+    ["Reward Type 3"] = 10,
+    ["Reward ID 3"] = 11,
+    ["Reward Amount 3"] = 12,
+    ["Reward Type 4"] = 13,
+    ["Reward ID 4"] = 14,
+    ["Reward Amount 4"] = 15,
+    ["Reward Type 5"] = 16,
+    ["Reward ID 5"] = 17,
+    ["Reward Amount 5"] = 18,
+    ["Reward Type 6"] = 19,
+    ["Reward ID 6"] = 20,
+    ["Reward Amount 6"] = 21
+  },
+  2
+}

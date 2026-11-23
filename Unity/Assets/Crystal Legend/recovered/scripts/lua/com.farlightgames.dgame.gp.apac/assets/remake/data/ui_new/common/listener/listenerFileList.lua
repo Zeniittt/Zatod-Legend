@@ -1,0 +1,34 @@
+local moduleNameList = {
+  "ui_new/common/listener/baselsr",
+  "ui_new/common/listener/eatexplistlsr",
+  "ui_new/common/listener/popherocardlsr",
+  "ui_new/common/listener/poptavernlootlsr",
+  "ui_new/common/listener/frameworklsr",
+  "ui_new/common/listener/mainlsr",
+  "ui_new/common/listener/shoplsr",
+  "ui_new/common/listener/equipcraftlsr",
+  "ui_new/common/listener/equipdetaillsr",
+  "ui_new/common/listener/battlepreparelsr",
+  "ui_new/common/listener/battlepreparealternationlsr",
+  "ui_new/common/listener/battlepreparepeakarenalsr",
+  "ui_new/common/listener/fragmentcomposelsr",
+  "ui_new/common/listener/packagelsr",
+  "ui_new/common/listener/handbooklsr",
+  "ui_new/common/listener/heropackagelsr",
+  "ui_new/common/listener/stageselectlsr",
+  "ui_new/common/listener/stagedetaillsr",
+  "ui_new/common/listener/stagedonelsr",
+  "ui_new/common/listener/stagefailedlsr",
+  "ui_new/common/listener/tasklsr",
+  "ui_new/common/listener/tavernlsr",
+  "ui_new/common/listener/rechargelsr",
+  "ui_new/common/listener/equipstrengthenlsr",
+  "ui_new/common/listener/heroselectlsr",
+  "ui_new/common/listener/exerciselsr",
+  "ui_new/common/listener/awakelsr",
+  "ui_new/common/listener/superawakelsr",
+  "ui_new/common/listener/localbattlelsr"
+}
+for _, v in ipairs(moduleNameList) do
+  require(v)
+end

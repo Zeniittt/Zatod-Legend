@@ -1,0 +1,2 @@
+EDLanguageArea = "native"
+EDLoginLanguage = "cn"

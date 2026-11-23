@@ -1,0 +1,51 @@
+return {
+  {
+    [1] = {
+      1,
+      50,
+      1200,
+      35,
+      60,
+      4,
+      0.95,
+      60,
+      125,
+      4,
+      0.05,
+      2,
+      8,
+      1.2,
+      1.5,
+      2,
+      0.1,
+      10,
+      3,
+      1,
+      42
+    }
+  },
+  {
+    ["Config ID"] = 1,
+    ["Max Bread"] = 2,
+    ["Bread Recovery Duration"] = 3,
+    ["Diamond Min 1"] = 4,
+    ["Diamond Max 1"] = 5,
+    ["Diamond Parameter 1"] = 6,
+    ["Diamond Weight 1"] = 7,
+    ["Diamond Min 2"] = 8,
+    ["Diamond Max 2"] = 9,
+    ["Diamond Parameter 2"] = 10,
+    ["Diamond Weight 2"] = 11,
+    ["Max Diamond Quest Amount"] = 12,
+    ["Hero Number Ratio 1"] = 13,
+    ["Hero Level Ratio 1"] = 14,
+    ["Hero Rank Ratio 1"] = 15,
+    ["Hero Star Ratio 1"] = 16,
+    ["Hero Number Ratio 2"] = 17,
+    ["Hero Level Ratio 2"] = 18,
+    ["Hero Rank Ratio 2"] = 19,
+    ["Hero Star Ratio 2"] = 20,
+    ["Diamond Quest Need Level"] = 21
+  },
+  1
+}

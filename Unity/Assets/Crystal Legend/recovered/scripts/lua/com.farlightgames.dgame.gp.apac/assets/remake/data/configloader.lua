@@ -1,0 +1,1 @@
+require("dgame-config")
