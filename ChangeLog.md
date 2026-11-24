@@ -2,6 +2,7 @@
 
 Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi sửa lỗi. Chỉ ghi nguyên nhân đã có bằng chứng; giả thuyết ghi riêng. Design.md là nguồn quyết định thiết kế.
 
+
 ## BUG-066 — Tab Skill lệch bố cục ảnh tham chiếu
 
 - **Ngày:** 24/11/2026. **Trạng thái:** đã sửa, kiểm trong Unity; chưa kiểm thiết bị.
@@ -68,6 +69,7 @@ Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 - **Đã dọn:** gỡ staged riêng `Unity/Assets/Crystal Legend/`, xóa bộ tải dở 4.623.803.432 byte và 7 file `.git/objects/pack/tmp_pack_*` bỏ lại 9.685.749.711 byte. Kiểm không có tiến trình Git đang chạy và lsof xác nhận các pack tạm không được mở trước khi xóa. Tổng 14.309.553.143 byte; giữ toàn bộ pack hoàn chỉnh, lịch sử Git và script Fetch-CrystalBatches.sh.
 - **Kiểm chứng:** 9.321 entry Git index ngoài Crystal giữ nguyên chính xác; SHA256 của 67 file tài liệu/skill/ignore được bảo vệ không đổi qua bước dọn. Sau đó bổ sung phạm vi dọn vào D04/D36 và khôi phục quy tắc build D37/AGENTS/phase-plan/iOS đang thiếu trong checkout; giữ các mục REVIEW-010/011 hiện hành. Skill/global AGENTS trên Mac vẫn còn. Không sửa gameplay/asset Zatod, commit/push hoặc nghiệm thu runtime.
 - **Lưu ý tại lượt dọn:** reference Crystal còn thiếu ở clone Mac và cần pull lại trước công việc cần nguồn; REVIEW-013 ghi kết quả lấy lại sau đó. Các thay đổi tài liệu local vẫn được giữ, chưa coi working tree sạch để chạy script fetch. Không dùng dọn pull làm lý do xóa Design/ChangeLog/docs/skill, reset toàn repository hoặc xóa pack Git hoàn chỉnh.
+
 
 **Vị trí reference hiện hành:** từ23/11/2026, người dùng chuyển nguồn sang `Unity/Assets/Crystal Legend/` tính từ repository root. Các mục trước REVIEW-010 có thể ghi root cũ hoặc trạng tháiGitignore ở thời điểm lịch sử; tra dữ liệu tương ứng dưới vị trí mới. Script import/bake còn đường cũ chưa được sửa trong task tài liệu này.
 
@@ -178,6 +180,10 @@ Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 
 ## BUG-018 — UI dùng asset chưa đầy đủ, hình thức còn giống prototype
 
+- **Bổ sung24/11/2026 — HUDultimate/thanhmáu:** người dùng yêu cầu kiểm lại vì portraitultimate vàHPbar chưa giốngCrystal. Đọcsource xácnhận actor dùngFloatingBarHPsmall nềnđen/lớpvàng/foregroundxanhđỏ, auto-hide theo chuyểnđộngbar+hide_delay1,5s; groupHP/shield cótimerchung, mode/đơnvịđặcbiệt cóngoạilệ. PortraitHUD dùngHpBar riêng vớiauto_hide=false. CodeStageZatod hiện tạoHP bằngspritewhite tint/scale vàkhôngẩn; HUD dùngviềnreadyImage màu/energyđầy, thiếueffectcast/ready vàcheckkhảnăngcastthật từcore. Đây là nguyênnhânxácnhận bằngcode, chưa nghiệmthu sửa.
+- **Nguồn/asset đãkiểm24/11:** actor.lua/useBar, battleui/hp_bar.lua/FloatingBar/FloatingBarGroup, hero_panel.lua/checkManulCanCast/castHandler; PNGHPsmall/herobucket đãxemảnh.4containerwill_ready/cast/full_power/skill_cost trongpatch/pfca/effect đọccha/plist/sheet.pvr vàCRC PASS; chưarecover/bake/import4effect. Báocáo `docs/crystal-battle-presentation-review.md` mụcUIultimate/thanhmáu. Người dùng đãduyệt6nhómfeelingcombat vàtestleveldesign; lượtcheckchỉcậpnhậtDesign/review, khôngsửaC#/scene/prefab/Owned.
+- **Lưu ý nghiệmthu tiếp:** thửHPổnđịnh/mất/hồi/liêntục/MaxHP/shield/death, phânbiệtportraitluônhiện vàfloatingauto-hide; ready/cast/pending/clicklặp/silence/stun/range/target/replay/safearea. Khôngẩnthanhportraittheotimeractor, khôngngẫu nhiên/RNG ởview. BUG-014 nhắc giữblendFCA, khôngđưa texturefullenergycheportraittrởlại.
+
 - **Ngày:** 19/11/2026. **Trạng thái:** đã xác nhận qua code sau phản hồi người dùng; chưa sửa giao diện trong lượt giải thích này.
 - **Triệu chứng:** người dùng thấy UI giống control dựng tạm, chưa giống UI game dù có bộ asset nguồn; đặt câu hỏi có phải dùng UI Toolkit thay asset hay không.
 - **Nguyên nhân xác nhận:** HUD runtime dùng uGUI Canvas/Image/TMP, có sprite portrait/HP/energy/gold/chest/star và background Auto nguồn. Tuy nhiên helper Button dùng chung `battle_auto_bg_2` cho cả Thoát/Tiếp tục/Xem lại, chữ timer/wave/Auto vẫn là TMP, full-energy dùng viền màu dựng tạm theo BUG-014. Menu ngoài trận và replay controls vẫn dùng Image màu/chữ tạm. GameEditor mới là UI Toolkit; lựa chọn framework không phải nguyên nhân ngăn dùng sprite.
@@ -206,6 +212,8 @@ Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 - **Lưu ý tool:** có một script eval timeout trong lượt Editor auto-tick tắt; trạng thái sau đó là stopped, process vẫn responding. Chưa đủ chứng cứ chốt nguyên nhân timeout; đã bật auto-tick cho phiên Play do agent chạy và xác minh frame tăng. Kết thúc trả auto-tick=false; không kill Editor hay clear console. Nếu tái diễn, đọc trạng thái lifecycle/Play và log thật trước khi thử lại.
 
 ## BUG-014 — Texture full-energy che chân dung trong HUD uGUI
+
+- **Lưu ý24/11 khi mởlạiHUDultimate:** viềnvàng làworkaround19/11 đượcchấpnhận tạm, người dùng naymuốnready/castđúngCrystal trongD34. ĐãkiểmcontainerFCA nguồn cósẵn ởfoldergiảinén; chưabake hoặcđổiruntime. Phảigiữalpha/blend/scale/layer, khôngápPNGfullenergyvàoImagealpha mặcđịnh đểtáihiệnlỗi cũ. ĐốichiếuBUG-018 vàreviewcombat24/11; chưađánhdấuđãhoànthiệnUI mới.
 
 - **Ngày:** 19/11/2026. **Trạng thái:** đã sửa, xem screenshot HUD live.
 - **Nguyên nhân:** `battle_hero_energy_full.png` của nguồn dùng cách blend khác; đặt thẳng vào Image với blend alpha mặc định tạo mảng đỏ che portrait.
@@ -857,6 +865,16 @@ Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 - **Nếu vẫn lỗi:** kiểm effectiveENABLE_MODULE_VERIFIER ởUnityFramework/ReleaseForRunning; xemcommandgây lỗi cóVerifyModule hayCompileC/CompileSwift thật. Compilererror ngoàiverifier cầnchẩnđoán riêng, khôngcoiNo làđãsửahết hoặcchépheader tùytiện vàoumbrella.
 
 ## REVIEW-008 — Khoảng trống trước phase Tím/PvP và presentation Crystal
+
+- **Đối chiếu bổ sung24/11 sau phản hồi người dùng:** chi tiết skill/hook đợi codeD35; cơ chế STR/AGI/INT tạm bỏ khỏiD34, không còn yêu cầu chốt ánhxạ ngay. Mapchương3–8 xanh/tím xen kẽ, configải nguồnCrystal theo ngoại lệZatod; PvPrealtime free40Hero Tím. Artifacts chỉ làoutput/evidence, phụthuộcmappinglocal ởhelper làgiớihạn cần sửa khi triểnkhai, không là nguồndesign hoặc đầu vào bắtbuộc hợp lệ chohandoff.
+- **Feelingcombat, khácbiệt xácnhận bằngcode24/11:** Crystal `unit.hurt` chuyểnDamaged/Hurt, trongkhi Zatodinterrupt vềIdle; buffnguồn cóShader/EffectZorder/ActorScale màmodel/presentationZatod chưa giữđủ; stage đặtmọieffect2000-Y trênactor1000-Y. Corechuyểnwave ngay bằngSupply/SpawnWave, chưa có nhịpchạy/wait/Cheer nhưđường client nguồn. HUD códamage/heal thật nhưngmotion/font/textmiss/immune khác; chưa cóbattlemusic flow vàchưađọc AudioCues trongvòngeffect (114effectsets có15cue). Đâylà khoảngtrống so với nguồn đãđọc, chưa làlỗi đãtáihiện hoặc đãsửa trênthiếtbị.
+- **Bằngchứng/giớihạn24/11:** source `actor.lua`, `entity.lua`, `unit.lua`, `buff.lua`, `popup.lua`, `battle_scene.lua`, `battle_sceneui.lua`, `battle_engine.lua`, `sound.lua`; codeStage/Sprite/Hud/PresentationState/Simulation/SkillEffects vàAnimationSet. Quét40fileHero khôngthấycallrung/zoomtrựctiếp; chưabaoquát mọihelper/assetevent hoặcencounter, khôngtựthêmrungchung. Chỉđọcsource/code/config, chưa chạyAPKCrystal/Unity/build/testthiếtbị hoặc chấm mứcgiống quaA/B. Report `docs/crystal-battle-presentation-review.md` cậpnhật24/11 phânbiệt nềnđãcó/thiếu/đềxuất; giữBUG-001/048 làcácsửa đãkiểmchứng, fade vẫnchưaduyệt. BảngCanvas21/11 đượcđánhdấu lịch sử trướcD25, tránh mởlại refactorđãhoànthành.
+- **Workaround/quy trình:** khi cólệnh thựcthi, nhậnbaselineD35 mới, đốichiếu từngkhoảngtrống rồi triểnkhai theo nguồn vàngoạilệ đãchốt. NếuđụnglogicHurt/transition phải kiểmRNG/timing/rules/checker/replay; eventview khôngrandom/thêmhit hoặcghiOwned. Lượtnày chỉsửaDesign/review/ChangeLog, khôngsửa runtime/helper; chưađánh dấu khắcphục.
+
+- **Rà lại 24/11/2026, chỉ khảo sát trước triển khai cả5 mục D34:** checkout vẫn có25Hero/14Monster/142item/131skill/52buff, 2chương/39ải/117wave, rank tớiBlue/3slot. Người dùng giả địnhD35 hoàn thành để bàn phase, chưa xác nhận nghiệm thuD35 trên checkout này. Không sửa runtime/import/build.
+- **Giới hạn helper xác nhận thêm:** `Import-ZatodChapterTwo.py` bắt buộc đọc mapping trongArtifacts bịignore rồi sinh lại `ZatodContentIds.cs`; clone cófullreference vẫn có thể thiếu đầu vào. `Import-CrystalConfig.py` lọc rank1–4/Unlock<=4, gán RankId rỗng cho spawn rank ngoài phạm vi, chưa tạo modelEvoD35. Cần sửa resolver/giới hạn và merge bảo toàn alias/configD35 trước import mới; không chạy helper để dò vì có ghi file. Đây là giới hạn công cụ phase trước, chưa có ca importerD34 đã chạy lỗi hoặc đã sửa.
+- **Nguồn skill mới xác nhận:** `battle/heroes/OD.lua` có chuyểnINT và ultimate kiểm MainAttribINT; `Sil.lua` có nhánhEvo chuyểnINT; `Naga.lua` tạoNagaMirror `_tid=145` từpassive. Cần lọc nhánh active rồi chốt ánh xạ stat/dependency, không tự coi AP thay INT đã được duyệt. UI chọn đội và server queue/Pair đều dùngHeroDesk/session.Team, cần đổi đồng bộ projection và xác thực preset.
+- **Cách xử lý/bằng chứng:** ghi lưu ý và chi tiết còn mở tại mục6 `docs/zatod-purple-pvp-phase-review.md`; cập nhậtD34 về phạm vi cả5 mục. Đã đọc helper, code và config, đối chiếuD05/D08/D21/D26/D34/D35, BUG-056/059. Chưa kiểm parity/farm/mobile hoặc đánh dấu sửa; khi triển khai nhận baselineD35 mới, dùng profile test, giữ Owned/replay và không áp config trướcD35 đè Evo/save.
 
 - **Ngày:**23/11/2026. **Trạng thái:** xác nhận bằng đọc source/config, chưa kiểm live hoặc sửa runtime. Yêu cầu hiện tại là khảo sát phase, không phải lỗi mới được người dùng báo tái hiện.
 - **Hiện trạng:** config25 Hero/14 Monster/142 item/131 skill/52 buff,2 chương39 ải117 wave. PvP UI và server lấy HeroDesk sở hữu; chưa có pool40 Hero Tím độc lập theo yêu cầu mớiD34. Account mới cấp5 Hero, không suy25 định nghĩa thành25 Hero sở hữu mỗi account.
