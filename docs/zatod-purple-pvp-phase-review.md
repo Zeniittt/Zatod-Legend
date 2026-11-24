@@ -8,13 +8,15 @@ Cập nhật: **24/11/2026, Asia/Saigon**. Đây là phạm vi nội dung tiếp
 - Mở đủ đảo/map/portal/điểm tương tác, preview/cost/reward, art/animation/effect/hook và authoring. Giữ ID/lịch sử Hero và item theo D05/D08.
 - Pool chọnPvP riêng khoảng40 Hero, giữ HeroDesk hiện có; không cấp40 Hero hoặc tự nângHero sở hữu. Mỗi đội vẫn tối đa5, chưa đổi Arena auto.
 - Bộ40:25 hiện có cộng Razor,WR,CM,Naga,SG,TH,OD,Ursa,Sil,Luna,VS,POM,Huskar,Lich,KOTL. Tổng định nghĩa có thể vượt40 do Hero địch của chương mới.
-- Preset đã đồng ý:Lv60/3sao/Tím thường/chưa mặc các ôTím, có đóng góp bậc và đồ bậc trước đúng D08. Level skillPvP theohelpernguồn=HeroLevel/basic1 là hướng đã đề xuất, cần ghi rõ khi lập phase-plan D34; không lấy tiến trình HeroDesk làm giới hạn pool.
+- Preset đã đồng ý:Lv60/3sao/Tím thường/chưa mặc các ôTím, có đóng góp bậc và đồ bậc trước đúng D08. Đã chốt sau pullD35: cả4skillchính đều SkillLevel60, Evo mở theo ngưỡng; đònthường giữformula/statnguồn. Không lấy tiến trình HeroDesk làm giới hạn pool.
 - Tối nền theo manual ultimate/freeze đã được đồng ý. Bổ sung24/11: đã duyệt cả6 nhóm feelingcombat trong review, gồm Death/fade với các ngoại lệ nguồn; thêm rà/hoàn thiện UIportraitultimate và thanh máu theo nguồn. Chưa triển khai runtime.
 - Chưa cần lưu sao/unlock Campaign qua launch; giữ D11. Nângskill/Evo/Promote/QuickEquip đã tách sang D35 làm trước.
 
-**Làm rõ hiện hành24/11:** chi tiết skill/hook đợi codeD35 rồi bàn tiếp; các cơ chế phụ thuộc STR/AGI/INT nêu trong khảo sát tạm chưa làm trong phase này. Sáu map chương3–8 xanh/tím xen kẽ (3/5/7 xanh,4/6/8 tím), config ải lấy Crystal theo các ngoại lệ Zatod đã chốt. PvPrealtime dùng free toàn bộ40Hero Tím, tách sở hữu; không tự coi câu này chốt thêm level skill. Markdown giữ quyết định, Crystal giữ nguồn tham chiếu, Artifacts chỉ là output/evidence; importer không được phụ thuộc duy nhất vào file local trongArtifacts. Khảo sát feelingcombat mới tại [crystal-battle-presentation-review.md](crystal-battle-presentation-review.md). Lưu ý khảo sát cũ bên dưới chỉ còn hiệu lực trong phạm vi không bị làm rõ này thay thế.
+**Làm rõ hiện hành24/11:** chi tiết skill/hook đã được duyệt sau pullD35 ở mục7; các cơ chế phụ thuộc STR/AGI/INT nêu trong khảo sát tạm chưa làm trong phase này. Sáu map chương3–8 xanh/tím xen kẽ (3/5/7 xanh,4/6/8 tím), config ải lấy Crystal theo các ngoại lệ Zatod đã chốt. PvPrealtime dùng free toàn bộ40Hero Tím, tách sở hữu; level4skillchính đã được chốt60 ở mục7. Markdown giữ quyết định, Crystal giữ nguồn tham chiếu, Artifacts chỉ là output/evidence; importer không được phụ thuộc duy nhất vào file local trongArtifacts. Khảo sát feelingcombat mới tại [crystal-battle-presentation-review.md](crystal-battle-presentation-review.md). Lưu ý khảo sát cũ bên dưới chỉ còn hiệu lực trong phạm vi không bị làm rõ này thay thế.
 
 ## 2. Baseline khi khảo sát
+
+**Đã nhận codeD35 trênWindows24/11:** HEAD `5a6ab40ec`, implementation `0085e337c`. Baseline mới là25Hero/14Monster/142item/131skill/**66buff**, 75skill chính/225mốcEvo, rank vẫn tớiBlue/3slot save; slotTím chỉ metadata/icon khóa trongUI. Phần52buff và trạng thái thiếu hệ nângskill bên dưới là khảo sát trướcD35. Đã chạy lại D35Checks745/HeroChecks112/toàncore7973PASS; không chạyUnity/UI/network/thiếtbị ở lượt nhậncode. Báo cáoD35 ghi đãkiểmEditor/network ởMac vànativeARM64 unsignedIPA, chưa kiểmthiếtbị.
 
 Config có25 Hero,14 Monster,142 item,131 skill,52 buff;2 chương/39 ải/117 wave. Rank sở hữu hiện tớiBlue. Account mới cấp5 Hero Coco/DR/Lina/Zeus/Ench; số định nghĩa không phải số Hero sở hữu của từng account.
 
@@ -106,7 +108,7 @@ Khi chuyển sangD34, lập phase-plan riêng từ các quyếtđịnh này và 
 
 - `ZatodFormationView` hiện lấy account.HeroDesk; server ở queue và Pair đều gọi `session.Team`. Cần projection riêng ở UI và allowlist/preset server; server tự dựng snapshot từ ID hợp lệ. Giữ đường Campaign/Arena theo sở hữu, không nới guard chung để biến mọi Hero catalog thành Hero sở hữu.
 - Chặn ngoài pool/trùng Hero trong cùng đội, giữ tối đa5; selection PvP tách Formation sở hữu. Queue/cancel/retry/disconnect không ghi preset vào Owned hoặc phụ thuộc account cap/rank sở hữu. Chụp dữ liệu trận xác định, không đọc config live giữa trận.
-- Preset đã chốt Lv60/3sao/Tím/chưa mặc ô Tím. **Level skill cần chốt rõ:** đề xuất theo helper nguồn là 4 skill chính Lv60/basic1, tự nhận các Evo đủ level theo D35. InitialLevel1/1/21/41 không phải level preset; không tự mở mọi Evo. Preset/pool nên chỉnh và validate được trong GameEditor.
+- Preset đã chốt Lv60/3sao/Tím/chưa mặc ô Tím. **Level skill đã chốt24/11:** cả4skillchínhLv60, tự nhận các Evo đủ level theo D35; đònthường theoformula/statnguồn. InitialLevel1/1/21/41 không phải level preset; không tự mở mọi Evo. Preset/pool nên chỉnh và validate được trong GameEditor.
 
 ### Tối nền và nghiệm thu
 
@@ -116,3 +118,26 @@ Khi chuyển sangD34, lập phase-plan riêng từ các quyếtđịnh này và 
 - Mỗi Hero/skill active cần case target/timing/Evo; thêm tương tác buff/aura/summon/projectile/freeze lồng và client/checker/replay parity. Kiểm LAN Windows–Android–iOS trên thiết bị phù hợp, phân biệt build thành công với đã thử battle. Dùng profile/port/Owned test riêng, giữ dữ liệu chính.
 
 **Thứ tự đề nghị trong cùng phase:** nhận baseline D35 → sửa đầu vào helper/lập coverage/chốt công thức còn mở → kiểm một đường xuyên suốt chương3/Blue+1/skill mới/PvP roster → mở đủ chương3–8/Tím/pool40 → rà farm/độ khó → hoàn thiện tối nền và nghiệm thu toàn phase. Đây là mốc kỹ thuật, không giảm phạm vi đã chọn. Chưa tạo phase-plan D34 hoặc triển khai runtime trong lượt khảo sát này.
+
+## 7. Rà sau khi pull Skill/Promote — 24/11/2026
+
+### Nền D35 đã có, không cần bàn lại model
+
+- Đã đọc code SkillProgression/SkillEvolution/HeroOperations, server/client, migration, UI và tests. InitialLevel/cap80/curveGold, chỉ thêm slotthiếu, giữ tiếntrìnhcũ, QuickEquip/Promote cùngnút, receipt/revision/retry/rollback đã có và qua core. Không coi báo cáo kỹthuật là nghiệmthuvisual/mobile mới.
+- `HeroCatalog.ValidateCharacter` gọi AddMissingSlots trước ValidateHero, vìvậy có nền migration3→4slot khiD34 nhập địnhnghĩa thật. PurpleSlot trong `ZatodHeroSkillPanel` hiện chỉ là UIkhóa; không biến icon thành slotcombat bằng cáchbỏkhóa. Hệschema cósẵn không tựport skill4/hook/Evo hoặc15Hero mới.
+- Các handlerEvo có whitelist tham số/SourceId và hooknative riêng; mởcatalog phải thêm hànhvi thật vàvalidation tươngứng cho dependency cầnthiết. Tiếp tục giữ cơchế STR/AGI/INT đãtạm bỏ, không tựđưa trởlại đểchạyLua.
+
+### Điểm thiết kế đã chốt sau pull — 24/11/2026
+
+1. **Level skillPvP:** người dùng chốt cả4skillchính đều SkillLevel60; Hero vẫnLv60/3sao/Tím/chưa mặcôTím, free40Hero nhưđãchốt. ActiveEvo theo ngưỡngtừngskill; mốc70 khôngmở ởLv60. Khônglấy InitialLevel củaHero sởhữu làmlevelpreset. Basic làđònthường theoformula/statnguồn; helperCrystal dùngslot5=1, khôngcó nghĩa AD ởLv1. Chưa áp preset mới vào runtime tronglượtghi nhận.
+2. **Phạm vi skill/hook/Evo mới:** người dùng đãduyệt đủskillthứ4 của25Hero, đủ4skill/dependency của15Hero mới vàcácmốcEvo trongcap80 cho nội dungđượcmở. Triệuhồi, phânthân, aura, projectile vàbuffđặcthù phải có hànhvi/coverage thật. Khôngmở cácnhánh awake/shard/skin ngoài phạmvi hoặc cơchếSTR/AGI/INT đãtạmbỏ. Đây thay trạngthái đểngỏ/đềxuất ởcácmục khảo sát trước; cácdesignkhác giữnguyên, chưacó lệnh code/build/deploy.
+
+### Lưu ý kỹ thuật và nghiệm thu
+
+- **ReplayV4 cần được bảo vệ:** D35 dùng `zatod-skill-evo-4` và nhận V3. `EvolutionRules` hiện so sánhtrực tiếp với hằngRules hiệnhành. NếuD34 thay simulation vàbumpversion, khôngchỉđổi hằngRules khiếnV4 bịtừchối hoặc mấtEvo. Giữ đầyđủ semanticsV3/V4, thêmfixtureV4 trướcD34 khi thaylogic; purepresentation khôngtựcần đổi rules. Đây làrủiro mởrộng, chưa phải lỗi replayV4 hiệnđãtáihiện.
+- **Khôngcần copyArtifacts đểtest:** helpermới `scripts/Prepare-ZatodCheckFixtures.py` chỉđọc nguồnCrystal vàaliascode, tạo lại600statcase/323alias; đãchạy lại thànhcông trênWindows bằng `python -B -X utf8`. Bảnoraclelocal cũ chỉ384case/16Hero đượcgiữ tạiArtifacts/ZatodD35PullReview/BeforeFixtures trước khi tạo mới. Fullsuite banđầu5846PASS, sau đủfixture7973PASS; chênh3 so vớibáocáoMac7970 là3archive19/11local thêm ngoài25goldensV3 đi theoGit. Không sửafixtuređểépPASS hoặc đổi configgame.
+- **Importer chưa đồngnhất hết:** Bake-CrystalAnimations/Bake_CrystalSupport và Bake-CrystalEffects đã dùngrootmới/foldergiảinén cho cácđườngđãđọc; Import-CrystalConfig và Import-ZatodChapterTwo vẫn cònrootcũ/giớihạnBlue vàhelperChapterTwo vẫnđọcArtifacts. Không suy cóhelpermới là mọiimporter cũ antoàn đểchạy lại hoặcmergeEvoD35.
+- **Visual/thiếtbị:** báo cáoD35 ghi chưakiểm iPhone/Android thật vàchưakiểmriêngEvo bằngmắt trongcombat. CácbổsungultimateHUD/HPbar/tốinền/Damaged/fade/chuyểnwave đãduyệt ởD34 vẫnchưa nằmtrongcode đãpull; giữđúngphạmvi đểkhôngcoilàregressionD35. Cần testdevice/castertarget/effect/camera/layer khi triểnkhai.
+- **Tài liệu cómốc cũ:** implementationreport cómục cậpnhậttiếpquản thay trạngthái cũ, cònJSONcoverage ghi runtimeverificationpending vàmột sốcheckbox chưađồngbộ. Dùngcode/test vàmốc mới nhất; cần dọn trạngthái bàn giao đểagent saukhôngmởlại việccũ hoặcđánhnhầmlàmọithiếtbịđãđạt.
+
+Lượt nhậncode này chỉkiểm vàcậpnhật tàiliệu/fixturekiểmignored; khôngsửa runtime, helper, configgame, save, scene hoặcbuild/deploy.

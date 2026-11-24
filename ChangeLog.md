@@ -23,6 +23,9 @@ Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 
 ## REVIEW-014 — Preflight D35 và dữ liệu kiểm chứng chưa đi cùng clone
 
+- **Kiểm lại checkoutWindows24/11 saupullD35:** code `0085e337c`, HEAD `5a6ab40ec`. Oraclelocal trướccheck chỉ384case/16Hero, fullsuite5846PASS; đãgiữ2fixturegốc tạiArtifacts/ZatodD35PullReview/BeforeFixtures rồichạyhelperđãtrack `python -B -X utf8 scripts/Prepare-ZatodCheckFixtures.py`, tạo600sourcecase/323alias màkhôngđổi configgame. Fullsuite7973PASS, D35riêng745/Hero112PASS; thêm3assertions soMac7970 là3archivenetwork19/11local ngoài25goldensV3. Đây xácnhận khôngcầncopyArtifacts cũ làmđầuvào duy nhất; helpercũChapterTwo/CrystalConfig chưađượcthửchạy hoặc sửaresolver.
+- **Giới hạnlượtkiểm:** khôngchạyUnity/UI/network/thiếtbị/build, khôngsửaC#/configgame/save/scene/asset. ReportD35 ghiUI/Editor/nativeIPA đãquaởMac nhưng chưatestthiếtbị; JSONcoverage/checkbox còntrạngtháilịch sử cầnđốichiếumốcmới. ReviewD34 mục7 ghibaseline25Hero/75skill/225Evo/66buff, slotTímchỉUIkhóa vàrủirotươngthíchV4 khimởrộngrules; chưacoi75skillđãbaophủ40Hero/Tím.
+
 - **Ngày:** 24/11/2026. **Trạng thái:** đang xử lý đầu vào kiểm chứng, chưa đánh dấu D35 hoàn tất.
 - **Bằng chứng:** baseline HeroChecks PASS112; CrystalChecks compile được nhưng dừng tại ImportedData với DirectoryNotFoundException cho `Artifacts/CrystalPhaseChecks/stat-oracle.json`. Test CanonicalContent còn đọc `zatod-id-mapping.json` trong cùng thư mục bị Git ignore. Đây là thiếu fixture của clone, không phải lỗi gameplay đã tái hiện.
 - **Hướng xử lý đang thực hiện:** tạo lại dữ liệu kiểm chứng từ Lua/cấu hình nguồn bằng helper chỉ sinh fixture, không chạy importer cũ làm đổi config/Owned. Giữ test đối chiếu stats; không bỏ qua để báo PASS. Source reference tại Unity/Assets/Crystal Legend đã có, nhưng helper còn resolver root cũ và có nhánh đọc ZIP vắng mặt; rà trước khi chạy.
@@ -123,6 +126,8 @@ Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 - **Tái diễn20/11/2026 khi chốt Hero UI:** D22 và D23 mỗi mục có hai bản giống hệt nhau; đã so chuỗi, giữ một bản rồi cập nhật các điểm người dùng vừa duyệt. Kiểm tra mỗi heading D22/D23 còn đúng một lần. Không xác nhận nguyên nhân công cụ ghi; không ảnh hưởng runtime/config.
 
 ## BUG-024 — Lệnh dotnet test config bị chặn đọc NuGet.Config người dùng
+
+- **Tái diễn24/11 khi reviewcodeD35 trênWindows:** restoremặcđịnh vàrestore vớiconfigpackageSourcesclear riêng ởArtifacts đều cònchạmtớiNuGet.Config bịchặn trongprofile. KhôngđổiACL/configmáy, khôngyêucầunângquyền. `dotnet run --no-restore` dùngassets hiệncó chạyD35Checks745/Hero112/fullcore7973PASS; NuGet.Config thửnghiệm chỉởArtifacts/ZatodD35PullReview, khôngđitrongGit. Khôngcoilàlỗigamehoặcthaycodeđểnérestore.
 
 - **Ngày:** 20/11/2026. **Trạng thái:** có workaround đã kiểm tra; không thay cấu hình NuGet hoặc quyền máy.
 - **Triệu chứng:** `dotnet run --project Tests/CrystalChecks/CrystalChecks.csproj` dừng ở restore, báo UnauthorizedAccess với `C:/Users/tinnq/AppData/Roaming/NuGet/NuGet.Config`.
