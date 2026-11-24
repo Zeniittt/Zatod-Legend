@@ -2,6 +2,12 @@
 
 Ngày 24/11/2026, Asia/Saigon. **Code/UI và kiểm Editor đã hoàn tất; Unity export + native ARM64 build PASS, IPA đã đóng gói/kiểm thành công; chưa kiểm thiết bị.**
 
+## Kiểm chơi thử Windows/server — 24/11/2026
+
+- Người dùng báoQuickEquip vànângskill khôngđược. Đãđọcprocess/log/DLL: serverDesktopWindows đangchạy bản22/11, logUnknownCrystalcommand, chưa hỗtrợskill_up/quick_equip củaD35. NguồnD35 vàIPA mới khôngtựcậpnhật serverWindows. Chưa rebuild/restart tronglượtkiểmtra; theo dõiBUG-067, khôngquy lạilàgatePlayerLv7.
+- Chỉđọc saveTinBoPlayerLv3/Gold4334/HeroLv4 vàconfig: cóitemQuickEquip hợp lệ, skillđãmởLv1 đủđiềukiện nânglên2/100Gold dướicap4. Khôngchạygiaodịch trênkho thật. Skillkhóa theoRank vàcapHero vẫn làrulehiệnhành, kháccổngPlayerLv7 đãbỏ.
+- Người dùng chốtEquipthànhcông tựđóngpanelitem, thay flowEquip→OK hiệncó trongZatodEquipmentView; chưa sửaUI tronglượtkiểmtra. GhiD28/UX-001 vàcần kiểmreceipt/context trướcautoclose khi triểnkhai.
+
 ## Cập nhật tiếp quản 24/11/2026
 
 Mục này thay trạng thái chờ Editor/dung lượng trong nhật ký cũ bên dưới.

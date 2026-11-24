@@ -2,6 +2,41 @@
 
 Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi sửa lỗi. Chỉ ghi nguyên nhân đã có bằng chứng; giả thuyết ghi riêng. Design.md là nguồn quyết định thiết kế.
 
+## REVIEW-017 — Selector chương, art thị trấn và policy đánh lại ải Crystal
+
+- **Ngày:** 24/11/2026. **Trạng thái:** đã khảo sát và chốt D38; chưa sửa runtime/import/bake/build.
+- **Triệu chứng/yêu cầu:** điểm Phó bản ở làng đi thẳng chapter1; object tính năng còn art world cũ, điểm ải có hai kiếm; người dùng muốn selector Legend World, portal hai đầu, boss đại diện và Passed nhưng vẫn xem preview.
+- **Nguyên nhân/xác nhận từ code:** WorldIntegration gọi WorldTravel ngay cho portal, WorldNetwork chưa gate chapter level/progress. CampaignStageDefinition chưa có KeyStage; StagePreview chỉ gate connected/unlocked nên chưa biểu diễn minor đã clear không được đánh. Đây là khoảng trống với thiết kế mới, không quy kết server binary cũ là nguyên nhân của layout này.
+- **Bằng chứng nguồn:** legendaryContinent.lua có selector, art nền/đảo1–8/outline/khóa có trên đĩa; mainSceneMapConfig ánh xạ Pve/Guild/Pvp/fancytower/PeakArena sang container Crystal. Stage.lua và stageselect.lua/stagedetail.lua phân biệt ải nhỏ một lần với ải chính đánh lại. Normal1–8 có154ải=55key+99minor; không khóa đánh lại tất cả Normal. Đây là bằng chứng client, backend Crystal chưa phục hồi đầy đủ.
+- **Chốt người dùng:** giữ phân biệt minor/key; mở chương cần qua chương trước và đủ account level. PlayerLevel.Chapter nguồn cho1–8: Lv1/5/8/16/26/36/46/56. Minor passed vẫn preview được là yêu cầu riêng Zatod. D38 thay travel tự do củaD21 và art điểm ảiD29 trong phạm vi này; D11 reset Campaign theo launch giữ nguyên.
+- **Kiểm tra chỉ đọc:**39ải hiện hành đều có boss (26DefinitionId), AnimationSet resource đều tồn tại; pool20 loại item đều có nguồn tại13key stage, không có loại chỉ ởminor. Chưa kiểm balance/độ phủ115ải mở rộng hoặc render building FCA/Spine; chưa gọi đó là nghiệm thu gameplay.
+- **Bàn giao/lưu ý:** `docs/zatod-world-chapter-selector-review.md` ghi asset/source, mốc unlock, phạm vi, migration/giao dịch và ma trận nghiệm thu. Gate phải ở server cho cả portal/selector/bắt đầu ải; Passed là cá nhân trong map chung, không tạo thêm loot hoặc resetOwned. Giữ BUG-067/UX-001 và các thay đổi đang có.
+- **Làm rõ tiếp 24/11:** người dùng giữ reset Campaign ở phase này, save progress phase sau; duyệt selector tự cuộn tới chương đang chơi/cao nhất đã mở và lý do khóa rõ, kiểm bộ client/server mới cùng UX-001. Agent đã diễn đạt lưu ý combat quá rộng khiến có thể hiểu phải làm lại phần phase trước; đã làm rõ đây là hồi quy nền simulation/input/checker/replay hiện có, còn presentation D34 giữ checklist đã duyệt. Chưa thêm runtime, kiến trúc tối ưu asset hoặc build trong lượt làm rõ.
+
+- **Hiệu năng — bổ sung phương án 24/11:** người dùng xác nhận cần nghiệm thu performance và hỏi cách làm. Đọc code xác nhận WorldView tạo toàn bộ map trước, BattleSprite load cả AnimationSet, BattleStage tạo/hủy visual theo phát sinh; đây là điểm cần đo khi mở rộng, chưa chứng minh lag/leak hiện tại. Đã ghi baseline, load theo map/trận, world Idle riêng, dependency preload, cache/pool có giới hạn, audit BUG-056 và test20vòng/20phút trong review; chi tiết là đề xuất, chưa sửa runtime hoặc đo FPS/RAM/build.
+
+- **Chốt thay phương án hiệu năng 24/11:** người dùng yêu cầu ignore mục1 baseline trước sửa và mục2 tải/cache map riêng; duyệt mục3 chuẩn bị asset trước trận, mục4 dùng **PoolManager** cho object lặp cùng kiểm texture, mục5 test20vòng/20phút. Đã thay nội dung hiện hành trong D34/review để agent sau không áp lại đề xuất bị bỏ. Pool phải reset sạch trạng thái/callback/context, có giới hạn và cleanup; không thay logic combat/checker. Chưa code/test/build hoặc chốt60FPS.
+
+- **Sửa nhầm ranh giới phase 24/11:** agent đã trình bày gộp D34 (mởTím/chương3–8/PvP40Hero/combat presentation) vào phase sau; người dùng sửa rõ phase hiện tại bắt đầu từ yêu cầu sửa nútOK. Đã ghi phạm vi D38 từ UX-001 trở đi, chuyển quyết định hiệu năng khỏi D34 sang D38 và sửa checklist để không giao lại phần phase trước. Giữ dữ liệu khảo sát và trạng thái kiểm chứng cũ, không suy lời sửa phạm vi thành bằng chứng mới mọi phần cũ đã nghiệm thu. Chỉ cập nhật Markdown.
+
+- **Bàn giao Markdown 24/11 theo yêu cầu người dùng:** tạo `docs/zatod-world-ui-polish-phase-plan.md` riêng cho D38, đủ phạm vi/ngoài phạm vi/source-ignore/migration/giao dịch/checklistA–G/trạng thái và D37. Gắn link ở đầu Design/README/review D38, đánh dấu D34 review và world-battle plan là phase trước. Lưu nguyên byte3ảnh người dùng dưới `docs/reference/d38-world-ui/` (kiểm SHA256 khớp bảnTemp) để clone khác có ref. Không sửa code/config/asset runtime, không mở Unity hoặc build; chưa commit/push trong nhiệm vụ tài liệu.
+
+## BUG-067 — Quick Equip/nâng skill bị server Windows trướcD35 từ chối
+
+- **Ngày:**24/11/2026. **Trạng thái:** đã xác nhận nguyên nhân triển khai, chưa rebuild/restart/sửa runtime trong lượt kiểm tra.
+- **Triệu chứng người dùng:** bấmQuickEquip khôngđược, nângskill khôngđược dù đãbỏ gatePlayerLv7. Log `Artifacts/ZatodServer/server.log` hiện nhiều dòng `[ZatodServer] REJECTED connection=1 Unknown Crystal command.`.
+- **Bằng chứng:** processZatodLegend PID3248 chạy từDesktop/Zatod Legend LAN Test/Windows/ZatodLegend.exe, start24/11 lúc14:54:55; executable ởDesktop vàBuilds/ZatodPrototype vẫn từ22/11. Log xácnhậnMonoManaged từfolderDesktop. KiểmDLLDesktop `Zatod.Runtime.dll` cóchuỗiUnknownCrystalcommand nhưng khôngcó chuỗiUTF16skill_up/quick_equip, timestamp22/11; codeD35 mới cócase cho cảhai ởZatodServer. KhôngcoiCIMaccessdenied làbằngchứng servertắt; dùngGet-Process đãđọcđượcdúngpath.
+- **Đối chiếu điều kiện chỉ đọc:** savegầnnhấtTinBo: PlayerLv3,Gold4334, cả5HeroLv4/skill1Lv1. Theo config hiệnhành, skill đãmở cóthể nâng1→2 với100Gold vàcap4; CocoGreen mởslot1/2, cácHeroWhite mởultimate. QuickEquip cóứngviên thật: CocoBranches1ô; DR/Lina/EnchBranches2ô; ZeusBranches2ô+RingofRegen1ô. Khôngthiếulevel/khôngcókho hợp lệ trongcácứngviên này. Chỉđọc/tính điều kiện, khôngthực hiệnEquip/Upgrade trênaccountthật; hashsave giữnguyên tronglượtđọc.
+- **Kết luận/phạmvi:** server đang dùng chưa hỗ trợ hai commandD35, lànguyênnhân xácnhận củarequestbịreject; khôngcógatePlayerLv7 trongSkillProgression.Plan/ZatodHeroSkillPanel hiệnhành. Chưaquan sátUIbằngmắt hoặc bắttừngpacket đểgắn mỗilầnclick vớitừnglogreject; nếu sauđồngbộbuild còn nútkhóa thì kiểmthêm rankunlock,capHero,Gold vàbusy/battle/queue theo reasonUI, khôngbỏ cácguard đãchốt.
+- **Cách xử lý cần làm:** build/cậpnhật đúngWindows/server lênD35; chúýStart-ZatodServer.ps1 ưu tiênDesktopWindows trướcBuilds/ZatodPrototype. GiữDataDirectory/Owned/GUID, client/servercùngconfig/rules, thửlạihai command vàreceipt/save/reconnect trướcđánhdấuđãsửa. Người dùng hiệnchỉyêucầu kiểmcase, chưa có lệnhbuild/deploy hoặc tắtserverđangdùng.
+
+## UX-001 — Equip thành công còn phải bấmOK để đóng panelitem
+
+- **Ngày:**24/11/2026. **Trạng thái:** đã xácnhận flowcode vàghi quyếtđịnh mớiD28, chưa thayruntime.
+- **Triệu chứng/nguyênnhân:** `ZatodEquipmentView.Act` gửiconnection.Equip, `ZatodPrototypeView.OnChanged` gọiRefresh; Refresh thấyEquippedItems cóitem thì đổiActionButton thànhOK, vẫngiữGameObjectactive. `Act` ởtrạngtháiequipped chỉHide khi bấmlầnnữa. Đây làhànhvi code hiệncó, khôngphải equip chưađượclưu.
+- **Yêu cầu đãchốt:** tựđóng panel đangEquip saureceipt/snapshot xácnhậnđúngoperation/hero/slot/GUID, cậpnhậtHeroDetail; lỗi/thấthại giữpanel vàreason. Khôngđóngpopupmớiđãmởkháccontext bởireplycũ; khôngsuy mọirefresh/equipped=true thànhoperationvừathànhcông. Xemitemđãmặc hoặccraft khôngtựđổi thànhEquip mới/Promote.
+- **File/kiểmtra tiếp:** ZatodEquipmentView.cs, ZatodPrototypeView.cs, ZatodConnection.cs; khi sửa kiểmsuccess/fail/doubleclick/receiptlặp/reconnect/đóngmởpaneltrướcreply, giữGUID vàOwned. Lượtnày chỉđọcsource/log/save, khôngsửaC#/prefab/scene hoặcchạygiaodịch.
+
 
 ## BUG-066 — Tab Skill lệch bố cục ảnh tham chiếu
 
@@ -33,6 +68,10 @@ Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 - **Cập nhật kiểm tra:** helper `Prepare-ZatodCheckFixtures.py` đã tạo 600 ca stat từ Lua và mapping ID. Thư mục replay network 19/11 cũng không có trong clone; giữ kiểm tra archive này khi có, đồng thời thêm 25 replay goldens có provenance từ code Git `3d774252d`, không tạo bằng simulation mới. Core đầy đủ PASS7.255 assertions sau transaction và bước nối runtime Evo; các test Evo chi tiết đang bổ sung, chưa phải nghiệm thu D35.
 
 ## REVIEW-015 — Import kho reverse trong UnityAssets gây áp lực dung lượng
+
+- **Tái diễn Windows 24/11/2026 — kiểm Git theo yêu cầu người dùng:** `git status --porcelain=v1 -uall -z` ghi nhận100.037untracked:100.032file `.meta`,2Markdown và3PNG bàn giao D38; thêm6tracked Markdown đang sửa. Trong100.032meta có100.031dưới `Unity/Assets/Crystal Legend/` và1file `Unity/Assets/Crystal Legend.meta`. Tổng kích thước100.031meta trong reference270.561.560byte (~258MiB), mtime quan sát15:19–16:52 ngày24/11 theo Windows local. Các con số là snapshot lúc kiểm, Editor đang chạy có thể tiếp tục sinh file.
+- **Nguyên nhân xác nhận:** kho reference raw ở trongUnityAssets theoD04, EditorInstance của project làPID6044/Unity6000.6.2f1 đang mở; mẫumeta có `fileFormatVersion`,GUID vàDefaultImporter doUnity tạo. Gitignore chỉ có `/Crystal Legend/` root cũ và các ngoại lệ archive/diagnostic, chưa ignore metadata dưới reference mới. `git ls-files` cho meta của reference trả rỗng; đây làfileuntracked, không phải100kfilegameplay mới hoặc thay đổisourceRaw đãtrack. Không dùng lần kiểm này để khẳng định cacheLibrary chiếm thêm bao nhiêu.
+- **Xử lý tại lượt kiểm:** chỉ kiểm status/phân nhóm/stat/mẫumeta/process và ghi nhận tái diễn; chưa xóa `.meta`, đóngEditor, di chuyển reference, đổiGitignore hoặc stage/commit/push. Phương án đề xuất tiếp theo là ignore riêng metadata tựsinh của kho reference (kèmmeta root), giữ source/art vàmetadata củaassetgame đãimport. Nếu chỉxóa khiEditorcònquét thìUnitycóthểsinh lại; việcẩnGitkhônggiảmchi phínạp/import/cache, khôngtựthay vịtríD04.
 
 - **Kiểm tiếp 24/11:** Editor build Mac development phục vụ fixture thoát giữa build; ổ còn 1,9 GiB, Temp của đúng workspace kiểm thử chiếm 7,3 GiB. Log chưa xác nhận crash do disk nên đây chỉ là điều kiện quan sát. Đã dọn riêng Temp sinh từ lượt lỗi khi không còn Editor; giữ Assets, reference, Owned, build cũ. Chuyển fixture sang TCP loopback trong cùng Editor, rồi xuất iOS trực tiếp để tránh thêm bản Mac trung gian.
 

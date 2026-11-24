@@ -1,5 +1,7 @@
 # D34 — Tham chiếu mở rộng tới Tím và pool PvP
 
+**Phân định phase mới nhất 24/11/2026:** đây là khảo sát D34 của **phase trước**. Phase hiện tại bắt đầu từ sửaOK sauEquip, theo [phase-plan D38](zatod-world-ui-polish-phase-plan.md). Các cụm “phase tiếp theo”/“chưa triển khai” bên dưới ghi bối cảnh khảo sát lịch sử, không giao lại D34 khi triển khai D38; trạng thái thực tế phần cũ phải đối chiếu code/report tương ứng.
+
 Cập nhật: **24/11/2026, Asia/Saigon**. Đây là phạm vi nội dung tiếp theo, **sau phase nền D35**. Quyết định hiện hành: [Design.md — D34/D35](../Design.md). Người dùng chọn cả5 mục trong cùng phaseD34 và yêu cầu rà lưu ý trước triển khai; chưa có lệnh code/build/deploy. Giả địnhD35 hoàn thành để bàn kế hoạch không thay trạng thái nghiệm thu thực tế. Agent đang thực thi [phase plan D35](zatod-skill-promote-phase-plan.md) không tự mở thêm các phần ở đây.
 
 ## 1. Phạm vi đã đồng ý

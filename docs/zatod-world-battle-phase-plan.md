@@ -1,5 +1,7 @@
 # Zatod — Kế hoạch phase world đảo và scene battle
 
+**Lưu ý bàn giao 24/11/2026:** đây là phase world/battle trước đây (D21/D25). Phase hiện tại từ sửaOK sauEquip theo [D38](zatod-world-ui-polish-phase-plan.md); không triển khai lại renderer/scene battle từ checklist lịch sử này. Quy tắc travel tự do cũ được D38 thay bằng unlock chapter, còn các map cùng tồn tại được giữ.
+
 **Cập nhật21/11/2026:** người dùng đã yêu cầu thực thi, phạm vi bắt buộc đã nghiệm thu. Nội dung dưới là kế hoạch gốc; trạng thái thực tế và giới hạn ở [báo cáo triển khai](zatod-world-battle-implementation.md), quyết định ở Design.md D21/D25.
 
 Ngày21/11/2026. Nguồn quyết định: Design.md D21/D25; rendering đối chiếu Crystal ở crystal-battle-presentation-review.md. User duyệt scene battle riêng và yêu cầu tổng hợp phase. Đây là kế hoạch để rà/chốt trước triển khai, không phải báo cáo đã thực hiện. Không đổi runtime trong lượt lập kế hoạch.

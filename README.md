@@ -1,5 +1,7 @@
 # Zatod Legend
 
+**Phase bàn giao hiện tại — D38:** [Equip/world/UI/PoolManager](docs/zatod-world-ui-polish-phase-plan.md), tính từ yêu cầu bỏOK sauEquip. Phần mởTím/chương3–8/PvP40Hero/combat feeling thuộc phase trước. Đây là kế hoạch đã chốt, chưa là báo cáo triển khai.
+
 Unity 6000.6.2f1, URP2D, Mirror/Telepathy. Đọc [Design.md](Design.md), [AGENTS.md](AGENTS.md) và [ChangeLog.md](ChangeLog.md) trước khi làm việc.
 
 Project hiện dùng bộ Crystal: 25 Hero, 14 quái, 39 ải/117 wave trong hai chương; combat core8Hz. Phó bản client mô phỏng và server validate, Arena tự động và PvP realtime dùng chung core. Kho, Hero và lịch sử GUID lưu riêng theo development profile; tiến độ ải reset mỗi lần mở ứng dụng.
