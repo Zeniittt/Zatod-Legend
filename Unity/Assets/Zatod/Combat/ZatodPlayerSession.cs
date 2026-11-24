@@ -99,7 +99,7 @@ namespace Zatod.Combat
         }
         public void DevItem(string itemId,int amount){if(issued.Count>0)throw new ArgumentException("Finish the battle before changing equipment.");new ItemInventory(Account,catalog).AddItemByItemId(itemId,amount);Account.Revision++;}
         public void Equip(string heroId,string slotId,string guid){EquipItem(heroId,slotId,guid,Guid.NewGuid().ToString("D"));}
-        public void Promote(string heroId){if(issued.Count>0)throw new ArgumentException("Finish the battle before promoting.");new ItemInventory(Account,catalog).Promote(heroId);Account.Revision++;}
+        public void Promote(string heroId){PromoteHero(heroId,Account.Revision,Guid.NewGuid().ToString("D"));}
         public void DevLevel(string heroId,int level)
         {
             if(issued.Count>0 || level<1 || level>40)throw new ArgumentException("Prototype level must be 1-40, outside combat.");

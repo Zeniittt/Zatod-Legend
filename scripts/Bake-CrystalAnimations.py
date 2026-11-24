@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,sys,math,concurrent.futures
 ROOT=Path(__file__).resolve().parent.parent
-REF=ROOT/'Crystal Legend'
+REF=ROOT/'Unity/Assets/Crystal Legend'
 sys.path.insert(0,str(REF/'recovery_tools'))
 sys.path.insert(0,str(REF/'.recovery-deps'))
 from PIL import Image
@@ -13,7 +13,12 @@ units=[]
 for section in ['Heroes','Monsters']:
  units.extend(x for x in json.loads((DATA/(section+'.txt')).read_text(encoding='utf8'))[section] if x.get('SourceUnitId'))
 def bake(unit):
- resource=unit['SourceResource'];folder,animation,sprites=load_hero(resource)
+ resource=unit['SourceResource']
+ if unit.get('RecoveredFolder'):
+  folder=Path(unit['RecoveredFolder']);animation=json.loads((folder/'animation.json').read_text(encoding='utf-8'));sprites={}
+  for element in animation['elements']:
+   with Image.open(folder/element['sprite_file']) as image:sprites[element['id']]=image.convert('RGBA')
+ else:folder,animation,sprites=load_hero(resource)
  target=ART/resource;target.mkdir(parents=True,exist_ok=True)
  manifest={'UnitId':unit['Id'],'Resource':resource,'Sheets':[],'Actions':[]}
  scale=animation['translation_scale_for_atlas_pixels']

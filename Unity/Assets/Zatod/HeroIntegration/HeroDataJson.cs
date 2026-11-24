@@ -57,7 +57,7 @@ namespace Zatod.Heroes
             {
                 case HeroConfigSection.Stats: table = new StatsConfigData { Stats = data.Stats }; break;
                 case HeroConfigSection.Items: table = new ItemsConfigData { Items = data.Items }; break;
-                case HeroConfigSection.Skills: table = new SkillsConfigData { Skills = data.Skills }; break;
+                case HeroConfigSection.Skills: table = new SkillsConfigData { Skills = data.Skills, SkillProgression = data.SkillProgression }; break;
                 case HeroConfigSection.Heroes: table = new HeroesConfigData { Heroes = data.Heroes }; break;
                 case HeroConfigSection.Monsters: table = new MonstersConfigData { Monsters = data.Monsters }; break;
                 case HeroConfigSection.Buffs: table = new BuffsConfigData { Buffs = data.Buffs }; break;
@@ -113,7 +113,7 @@ namespace Zatod.Heroes
             {
                 case HeroConfigSection.Stats: data.Stats = ((StatsConfigData)table).Stats; break;
                 case HeroConfigSection.Items: data.Items = ((ItemsConfigData)table).Items; break;
-                case HeroConfigSection.Skills: data.Skills = ((SkillsConfigData)table).Skills; break;
+                case HeroConfigSection.Skills: data.Skills = ((SkillsConfigData)table).Skills; data.SkillProgression = ((SkillsConfigData)table).SkillProgression ?? new SkillProgressionDefinition(); break;
                 case HeroConfigSection.Heroes: data.Heroes = ((HeroesConfigData)table).Heroes; break;
                 case HeroConfigSection.Monsters: data.Monsters = ((MonstersConfigData)table).Monsters; break;
                 case HeroConfigSection.Buffs: data.Buffs = ((BuffsConfigData)table).Buffs; break;

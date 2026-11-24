@@ -27,8 +27,8 @@ namespace Zatod.Combat
     }
     [Serializable] public sealed class ZatodMatchDefinition
     {
-        public const string Rules="zatod-prototype-3";
-        public static bool SupportedRules(string value)=>value==Rules || value=="crystal-prototype-3";
+        public const string Rules="zatod-skill-evo-4";
+        public static bool SupportedRules(string value)=>value==Rules || value=="zatod-prototype-3" || value=="crystal-prototype-3";
         public string BattleId, StageId, ConfigVersion, RulesVersion=Rules;
         public uint Seed;
         public ZatodMode Mode;
@@ -36,6 +36,7 @@ namespace Zatod.Combat
         public List<ZatodUnitData> Players=new List<ZatodUnitData>();
         public List<ZatodWaveData> Waves=new List<ZatodWaveData>();
         public List<ZatodBuffDefinition> Buffs=new List<ZatodBuffDefinition>();
+        public List<SkillDefinition> SkillDependencies=new List<SkillDefinition>();
         public List<ZatodLootDrop> LootDrops=new List<ZatodLootDrop>();
     }
     [Serializable] public sealed class ZatodInput
@@ -138,7 +139,7 @@ namespace Zatod.Combat
                 foreach(var spawn in wave.Enemies)data.Enemies.Add(Spawn(spawn,catalog,++enemyId));
                 match.Waves.Add(data);
             }
-            match.Buffs=catalog.Data.Buffs.Select(CopyBuff).ToList();return match;
+            match.Buffs=catalog.Data.Buffs.Select(CopyBuff).ToList();match.SkillDependencies=catalog.Data.Skills.Select(x=>x.Copy()).ToList();return match;
         }
         public static ZatodMatchDefinition Versus(HeroCatalog catalog,IEnumerable<HeroData> left,IEnumerable<HeroData> right,uint seed,string id,bool realtime)
         {
@@ -146,7 +147,7 @@ namespace Zatod.Combat
             int actor=1;foreach(var hero in left)match.Players.Add(Owned(hero,catalog,actor++,0));
             var wave=new ZatodWaveData{Id="arena",Background="battle_bg/bbg_arena.jpg"};actor=101;foreach(var hero in right)wave.Enemies.Add(Owned(hero,catalog,actor++,1));
             if(match.Players.Count<1 || match.Players.Count>5 || wave.Enemies.Count<1 || wave.Enemies.Count>5)throw new ArgumentException("Invalid team size.");
-            match.Waves.Add(wave);match.Buffs=catalog.Data.Buffs.Select(CopyBuff).ToList();return match;
+            match.Waves.Add(wave);match.Buffs=catalog.Data.Buffs.Select(CopyBuff).ToList();match.SkillDependencies=catalog.Data.Skills.Select(x=>x.Copy()).ToList();return match;
         }
         public static ZatodBuffDefinition CopyBuff(ZatodBuffDefinition value)
             =>new ZatodBuffDefinition{Id=value.Id,SourceId=value.SourceId,Name=value.Name,Control=value.Control,StackRule=value.StackRule,Dispel=value.Dispel,Tenacity=value.Tenacity,Effect=value.Effect,ImpactEffect=value.ImpactEffect,Mod=value.Mod,Duration=value.Duration,ShieldValue=value.ShieldValue,ShieldType=value.ShieldType,ClearOnDeath=value.ClearOnDeath,MaximumStacks=value.MaximumStacks,Stats=value.Stats.ConvertAll(x=>x.Copy()),Scaling=value.Scaling.ConvertAll(x=>new ZatodBuffScaling{StatId=x.StatId,Attribute=x.Attribute,Ratio=x.Ratio})};

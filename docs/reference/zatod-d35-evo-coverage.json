@@ -1,0 +1,3516 @@
+{
+  "Status": "Mapped; runtime verification pending",
+  "ActiveSkills": [
+    {
+      "Hero": "coco",
+      "SkillId": "coco_spectral_ship",
+      "SourceId": 10,
+      "SourceHook": "Coco.lua",
+      "Milestones": [
+        {
+          "Id": "coco_spectral_ship_evo_1",
+          "Level": 35,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 1,
+              "Target": 2,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10000104
+            }
+          ]
+        },
+        {
+          "Id": "coco_spectral_ship_evo_2",
+          "Level": 50,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "coco_spectral_ship_evo_3",
+          "Level": 70,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 5,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "coco",
+      "SkillId": "coco_flood_surge",
+      "SourceId": 13,
+      "SourceHook": "Coco.lua",
+      "Milestones": [
+        {
+          "Id": "coco_flood_surge_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.4
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "coco_flood_surge_evo_2",
+          "Level": 50,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 3,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "coco_flood_surge_evo_3",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.6
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "coco",
+      "SkillId": "coco_aquatic_blade",
+      "SourceId": 12,
+      "SourceHook": "Coco.lua",
+      "Milestones": [
+        {
+          "Id": "coco_aquatic_blade_evo_1",
+          "Level": 40,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10000103
+            }
+          ]
+        },
+        {
+          "Id": "coco_aquatic_blade_evo_2",
+          "Level": 50,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "coco_aquatic_blade_evo_3",
+          "Level": 70,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.4
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "dr",
+      "SkillId": "dr_arrow_volley",
+      "SourceId": 20,
+      "SourceHook": "DR.lua",
+      "Milestones": [
+        {
+          "Id": "dr_arrow_volley_evo_1",
+          "Level": 35,
+          "Parameters": [
+            {
+              "Field": "ExtraVolleyProjectiles",
+              "Mode": 0,
+              "Value": 1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "dr_arrow_volley_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.35
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "dr_arrow_volley_evo_3",
+          "Level": 70,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.4
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "dr",
+      "SkillId": "dr_frost_arrow",
+      "SourceId": 22,
+      "SourceHook": "DR.lua",
+      "Milestones": [
+        {
+          "Id": "dr_frost_arrow_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.15
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "dr_frost_arrow_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "dr_frost_arrow_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "dr",
+      "SkillId": "dr_silencer",
+      "SourceId": 23,
+      "SourceHook": "DR.lua",
+      "Milestones": [
+        {
+          "Id": "dr_silencer_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffDurationBonus",
+              "Mode": 1,
+              "Value": 0.5,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "dr_silencer_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffDurationBonus",
+              "Mode": 1,
+              "Value": 0.5,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "dr_silencer_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "ShapeArg1",
+              "Mode": 0,
+              "Value": 120
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "lina",
+      "SkillId": "lina_deity_slash",
+      "SourceId": 30,
+      "SourceHook": "Lina.lua",
+      "Milestones": [
+        {
+          "Id": "lina_deity_slash_evo_1",
+          "Level": 35,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.9
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lina_deity_slash_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lina_deity_slash_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 2.2
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "lina",
+      "SkillId": "lina_draco_strike",
+      "SourceId": 32,
+      "SourceHook": "Lina.lua",
+      "Milestones": [
+        {
+          "Id": "lina_draco_strike_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lina_draco_strike_evo_2",
+          "Level": 60,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10000301
+            }
+          ]
+        },
+        {
+          "Id": "lina_draco_strike_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.7
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "lina",
+      "SkillId": "lina_radiant_array",
+      "SourceId": 33,
+      "SourceHook": "Lina.lua",
+      "Milestones": [
+        {
+          "Id": "lina_radiant_array_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.45
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lina_radiant_array_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lina_radiant_array_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 3,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "zeus",
+      "SkillId": "zeus_celestial_wrath",
+      "SourceId": 40,
+      "SourceHook": "Zeus.lua",
+      "Milestones": [
+        {
+          "Id": "zeus_celestial_wrath_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "zeus_celestial_wrath_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "zeus_celestial_wrath_evo_3",
+          "Level": 70,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "zeus",
+      "SkillId": "zeus_lightning_chain",
+      "SourceId": 42,
+      "SourceHook": "Zeus.lua",
+      "Milestones": [
+        {
+          "Id": "zeus_lightning_chain_evo_1",
+          "Level": 35,
+          "Parameters": [
+            {
+              "Field": "ChainJumps",
+              "Mode": 0,
+              "Value": 5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "zeus_lightning_chain_evo_2",
+          "Level": 50,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "zeus_lightning_chain_evo_3",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "zeus",
+      "SkillId": "zeus_fallen_bolt",
+      "SourceId": 43,
+      "SourceHook": "Zeus.lua",
+      "Milestones": [
+        {
+          "Id": "zeus_fallen_bolt_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "zeus_fallen_bolt_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.7
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "zeus_fallen_bolt_evo_3",
+          "Level": 70,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 2,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "lion",
+      "SkillId": "lion_mortal_touch",
+      "SourceId": 60,
+      "SourceHook": "Lion.lua",
+      "Milestones": [
+        {
+          "Id": "lion_mortal_touch_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lion_mortal_touch_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.7
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lion_mortal_touch_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.9
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "lion",
+      "SkillId": "lion_piercing_strike",
+      "SourceId": 62,
+      "SourceHook": "Lion.lua",
+      "Milestones": [
+        {
+          "Id": "lion_piercing_strike_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.9
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lion_piercing_strike_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 1.2,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lion_piercing_strike_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 1.8,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "lion",
+      "SkillId": "lion_wizardry",
+      "SourceId": 63,
+      "SourceHook": "Lion.lua",
+      "Milestones": [
+        {
+          "Id": "lion_wizardry_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffDurationBonus",
+              "Mode": 1,
+              "Value": 0.5,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "lion_wizardry_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffDurationBonus",
+              "Mode": 1,
+              "Value": 1,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": [
+            {
+              "Effect": 1,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "Amount": 100
+            }
+          ]
+        },
+        {
+          "Id": "lion_wizardry_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 0,
+              "Value": -10,
+              "StatId": "physical_immunity"
+            },
+            {
+              "Field": "BuffStat",
+              "Mode": 0,
+              "Value": -10,
+              "StatId": "magic_immunity"
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "qop",
+      "SkillId": "qop_ultrasonic_wave",
+      "SourceId": 70,
+      "SourceHook": "QOP.lua",
+      "Milestones": [
+        {
+          "Id": "qop_ultrasonic_wave_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.35
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "qop_ultrasonic_wave_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.45
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "qop_ultrasonic_wave_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "KnockBack",
+              "Mode": 0,
+              "Value": 100
+            },
+            {
+              "Field": "KnockUp",
+              "Mode": 0,
+              "Value": 0.1
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "qop",
+      "SkillId": "qop_poison_dart",
+      "SourceId": 72,
+      "SourceHook": "QOP.lua",
+      "Milestones": [
+        {
+          "Id": "qop_poison_dart_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "qop_poison_dart_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": -300,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "qop_poison_dart_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "DotHealPercent",
+              "Mode": 0,
+              "Value": 50
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "qop",
+      "SkillId": "qop_painful_howl",
+      "SourceId": 73,
+      "SourceHook": "QOP.lua",
+      "Milestones": [
+        {
+          "Id": "qop_painful_howl_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.75
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "qop_painful_howl_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "qop_painful_howl_evo_3",
+          "Level": 80,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10000703
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "ok",
+      "SkillId": "ok_chivalry_guardian",
+      "SourceId": 80,
+      "SourceHook": "OK.lua",
+      "Milestones": [
+        {
+          "Id": "ok_chivalry_guardian_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "ShieldBonus",
+              "Mode": 1,
+              "Value": 500
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ok_chivalry_guardian_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "ShieldBonus",
+              "Mode": 1,
+              "Value": 2000
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ok_chivalry_guardian_evo_3",
+          "Level": 70,
+          "Parameters": [
+            {
+              "Field": "ShieldBonus",
+              "Mode": 1,
+              "Value": 4000
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "ok",
+      "SkillId": "ok_divine_glow",
+      "SourceId": 82,
+      "SourceHook": "OK.lua",
+      "Milestones": [
+        {
+          "Id": "ok_divine_glow_evo_1",
+          "Level": 35,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ok_divine_glow_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.4
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ok_divine_glow_evo_3",
+          "Level": 70,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 3,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "SkillId": "ok_ok_evolution",
+              "UseSkillPower": true,
+              "Ratio": 0.8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "ok",
+      "SkillId": "ok_dispel",
+      "SourceId": 83,
+      "SourceHook": "OK.lua",
+      "Milestones": [
+        {
+          "Id": "ok_dispel_evo_1",
+          "Level": 40,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 2,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100
+            }
+          ]
+        },
+        {
+          "Id": "ok_dispel_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "ShieldBonus",
+              "Mode": 1,
+              "Value": 1000
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ok_dispel_evo_3",
+          "Level": 70,
+          "Parameters": [
+            {
+              "Field": "ShieldBonus",
+              "Mode": 1,
+              "Value": 2000
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "tk",
+      "SkillId": "tk_extreme_charge",
+      "SourceId": 90,
+      "SourceHook": "TK.lua",
+      "Milestones": [
+        {
+          "Id": "tk_extreme_charge_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tk_extreme_charge_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tk_extreme_charge_evo_3",
+          "Level": 75,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 3,
+              "Target": 1,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10000901
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "tk",
+      "SkillId": "tk_optic_blast",
+      "SourceId": 92,
+      "SourceHook": "TK.lua",
+      "Milestones": [
+        {
+          "Id": "tk_optic_blast_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.7
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tk_optic_blast_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tk_optic_blast_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "AoeOrigin",
+              "Mode": 0,
+              "Value": 0,
+              "Text": "target"
+            },
+            {
+              "Field": "AoeShape",
+              "Mode": 0,
+              "Value": 0,
+              "Text": "circle"
+            },
+            {
+              "Field": "ShapeArg1",
+              "Mode": 0,
+              "Value": 100
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "tk",
+      "SkillId": "tk_goblin_bomb",
+      "SourceId": 93,
+      "SourceHook": "TK.lua",
+      "Milestones": [
+        {
+          "Id": "tk_goblin_bomb_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tk_goblin_bomb_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tk_goblin_bomb_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "sniper",
+      "SkillId": "sniper_precision_shot",
+      "SourceId": 100,
+      "SourceHook": "Sniper.lua",
+      "Milestones": [
+        {
+          "Id": "sniper_precision_shot_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 2.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sniper_precision_shot_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 2.3
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sniper_precision_shot_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "KillEnergy",
+              "Mode": 0,
+              "Value": 225
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "sniper",
+      "SkillId": "sniper_headshot",
+      "SourceId": 102,
+      "SourceHook": "Sniper.lua",
+      "Milestones": [
+        {
+          "Id": "sniper_headshot_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 1,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sniper_headshot_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.9
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sniper_headshot_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "sniper",
+      "SkillId": "sniper_grenade",
+      "SourceId": 103,
+      "SourceHook": "Sniper.lua",
+      "Milestones": [
+        {
+          "Id": "sniper_grenade_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "SlowCap",
+              "Mode": 0,
+              "Value": 3.5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sniper_grenade_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.7
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sniper_grenade_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.9
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "bone",
+      "SkillId": "bone_fatal_contract",
+      "SourceId": 170,
+      "SourceHook": "Bone.lua",
+      "Milestones": [
+        {
+          "Id": "bone_fatal_contract_evo_1",
+          "Level": 35,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 20,
+              "StatId": "damage"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "bone_fatal_contract_evo_2",
+          "Level": 50,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 50,
+              "StatId": "damage"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "bone_fatal_contract_evo_3",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.1
+            }
+          ],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 0,
+              "Target": 1,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10001703,
+              "Amount": 1500,
+              "Ratio": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "bone",
+      "SkillId": "bone_flame_arrow",
+      "SourceId": 172,
+      "SourceHook": "Bone.lua",
+      "Milestones": [
+        {
+          "Id": "bone_flame_arrow_evo_1",
+          "Level": 35,
+          "Parameters": [
+            {
+              "Field": "RepeatHitRatio",
+              "Mode": 0,
+              "Value": 0.1
+            },
+            {
+              "Field": "RepeatHitMaximum",
+              "Mode": 0,
+              "Value": 5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "bone_flame_arrow_evo_2",
+          "Level": 50,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "bone_flame_arrow_evo_3",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "bone",
+      "SkillId": "bone_rapid_fire",
+      "SourceId": 173,
+      "SourceHook": "Bone.lua",
+      "Milestones": [
+        {
+          "Id": "bone_rapid_fire_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 30,
+              "StatId": "haste"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "bone_rapid_fire_evo_2",
+          "Level": 55,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 30,
+              "StatId": "haste"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "bone_rapid_fire_evo_3",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 12,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "pugna",
+      "SkillId": "pugna_vitality_drain",
+      "SourceId": 180,
+      "SourceHook": "Pugna.lua",
+      "Milestones": [
+        {
+          "Id": "pugna_vitality_drain_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.55
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "pugna_vitality_drain_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 0,
+              "Target": 1,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10001803
+            }
+          ]
+        },
+        {
+          "Id": "pugna_vitality_drain_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "ScriptArg2",
+              "Mode": 1,
+              "Value": 20
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "pugna",
+      "SkillId": "pugna_magic_burst",
+      "SourceId": 182,
+      "SourceHook": "Pugna.lua",
+      "Milestones": [
+        {
+          "Id": "pugna_magic_burst_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.75
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "pugna_magic_burst_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "pugna_magic_burst_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.85
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "pugna",
+      "SkillId": "pugna_exile",
+      "SourceId": 183,
+      "SourceHook": "Pugna.lua",
+      "Milestones": [
+        {
+          "Id": "pugna_exile_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": -10,
+              "StatId": "magic_immunity"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "pugna_exile_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": -10,
+              "StatId": "magic_immunity"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "pugna_exile_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "MagicHitRatio",
+              "Mode": 0,
+              "Value": 0.06
+            },
+            {
+              "Field": "MagicHitMaximum",
+              "Mode": 0,
+              "Value": 5
+            }
+          ],
+          "Triggers": [
+            {
+              "Effect": 6,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "snk",
+      "SkillId": "snk_aerial_hammer",
+      "SourceId": 190,
+      "SourceHook": "SNK.lua",
+      "Milestones": [
+        {
+          "Id": "snk_aerial_hammer_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.9
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "snk_aerial_hammer_evo_2",
+          "Level": 60,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 4,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10001904
+            }
+          ]
+        },
+        {
+          "Id": "snk_aerial_hammer_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 5,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "snk",
+      "SkillId": "snk_crit",
+      "SourceId": 192,
+      "SourceHook": "SNK.lua",
+      "Milestones": [
+        {
+          "Id": "snk_crit_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.25
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "snk_crit_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.35
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "snk_crit_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "MissingHealthRatio",
+              "Mode": 0,
+              "Value": 0.3
+            },
+            {
+              "Field": "CritPercent",
+              "Mode": 0,
+              "Value": 100
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "snk",
+      "SkillId": "snk_vampire_aura",
+      "SourceId": 194,
+      "SourceHook": "SNK.lua",
+      "Milestones": [
+        {
+          "Id": "snk_vampire_aura_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BasicAmount",
+              "Mode": 1,
+              "Value": 5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "snk_vampire_aura_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BasicAmount",
+              "Mode": 1,
+              "Value": 7
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "snk_vampire_aura_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "BasicAmount",
+              "Mode": 1,
+              "Value": 9
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "nec",
+      "SkillId": "nec_reaper_summon",
+      "SourceId": 200,
+      "SourceHook": "NEC.lua",
+      "Milestones": [
+        {
+          "Id": "nec_reaper_summon_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "ScriptArg4",
+              "Mode": 1,
+              "Value": 1000
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "nec_reaper_summon_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "ScriptArg3",
+              "Mode": 1,
+              "Value": 6000
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "nec_reaper_summon_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "ScriptArg2",
+              "Mode": 1,
+              "Value": 0.1
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "nec",
+      "SkillId": "nec_vitality_pulse",
+      "SourceId": 202,
+      "SourceHook": "NEC.lua",
+      "Milestones": [
+        {
+          "Id": "nec_vitality_pulse_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.45
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "nec_vitality_pulse_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "nec_vitality_pulse_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "nec",
+      "SkillId": "nec_life_insight",
+      "SourceId": 203,
+      "SourceHook": "NEC.lua",
+      "Milestones": [
+        {
+          "Id": "nec_life_insight_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 240,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "nec_life_insight_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 10,
+              "StatId": "magic_immunity"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "nec_life_insight_evo_3",
+          "Level": 80,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 7,
+              "Trigger": 7,
+              "Target": 1,
+              "Duration": -1,
+              "Chance": 100,
+              "SkillId": "nec_vitality_pulse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "tiny",
+      "SkillId": "tiny_casual_toss",
+      "SourceId": 290,
+      "SourceHook": "Tiny.lua",
+      "Milestones": [
+        {
+          "Id": "tiny_casual_toss_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "ScriptArg3",
+              "Mode": 0,
+              "Value": 1.5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tiny_casual_toss_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "ScriptArg3",
+              "Mode": 0,
+              "Value": 1.7
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tiny_casual_toss_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 4,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "tiny",
+      "SkillId": "tiny_yank_tree",
+      "SourceId": 292,
+      "SourceHook": "Tiny.lua",
+      "Milestones": [
+        {
+          "Id": "tiny_yank_tree_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.25
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tiny_yank_tree_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tiny_yank_tree_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.4
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "tiny",
+      "SkillId": "tiny_rockslide",
+      "SourceId": 293,
+      "SourceHook": "Tiny.lua",
+      "Milestones": [
+        {
+          "Id": "tiny_rockslide_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tiny_rockslide_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "tiny_rockslide_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 3,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "viper",
+      "SkillId": "viper_toxic_bite",
+      "SourceId": 370,
+      "SourceHook": "Viper.lua",
+      "Milestones": [
+        {
+          "Id": "viper_toxic_bite_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "viper_toxic_bite_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "viper_toxic_bite_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": -400,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "viper",
+      "SkillId": "viper_venom_sphere",
+      "SourceId": 372,
+      "SourceHook": "Viper.lua",
+      "Milestones": [
+        {
+          "Id": "viper_venom_sphere_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "viper_venom_sphere_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "viper_venom_sphere_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 0,
+              "StatId": "health_regen",
+              "ScalingAttribute": "ability_power",
+              "ScalingRatio": -0.3
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "viper",
+      "SkillId": "viper_venomous_skin",
+      "SourceId": 374,
+      "SourceHook": "Viper.lua",
+      "Milestones": [
+        {
+          "Id": "viper_venomous_skin_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BasicAmount",
+              "Mode": 1,
+              "Value": 15
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "viper_venomous_skin_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BasicAmount",
+              "Mode": 1,
+              "Value": 25
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "viper_venomous_skin_evo_3",
+          "Level": 80,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 6,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10003703
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "ench",
+      "SkillId": "ench_revival",
+      "SourceId": 450,
+      "SourceHook": "Ench.lua",
+      "Milestones": [
+        {
+          "Id": "ench_revival_evo_1",
+          "Level": 35,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.3
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ench_revival_evo_2",
+          "Level": 60,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 5,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10004502,
+              "Maximum": 10000
+            }
+          ]
+        },
+        {
+          "Id": "ench_revival_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.4
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "ench",
+      "SkillId": "ench_advance",
+      "SourceId": 452,
+      "SourceHook": "Ench.lua",
+      "Milestones": [
+        {
+          "Id": "ench_advance_evo_1",
+          "Level": 35,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ench_advance_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.9
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ench_advance_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "ench",
+      "SkillId": "ench_charm",
+      "SourceId": 453,
+      "SourceHook": "Ench.lua",
+      "Milestones": [
+        {
+          "Id": "ench_charm_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 3.5,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ench_charm_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 4,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "ench_charm_evo_3",
+          "Level": 70,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 5,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "med",
+      "SkillId": "med_petrifying_stare",
+      "SourceId": 160,
+      "SourceHook": "Med.lua",
+      "Milestones": [
+        {
+          "Id": "med_petrifying_stare_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "med_petrifying_stare_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "med_petrifying_stare_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 0,
+              "Value": -15,
+              "StatId": "physical_immunity"
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "med",
+      "SkillId": "med_split_arrow",
+      "SourceId": 162,
+      "SourceHook": "Med.lua",
+      "Milestones": [
+        {
+          "Id": "med_split_arrow_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "SplitRatioBonus",
+              "Mode": 1,
+              "Value": 0.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "med_split_arrow_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "SplitRatioBonus",
+              "Mode": 1,
+              "Value": 0.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "med_split_arrow_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "SplitTargets",
+              "Mode": 0,
+              "Value": 4
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "med",
+      "SkillId": "med_arcane_serpent",
+      "SourceId": 163,
+      "SourceHook": "Med.lua",
+      "Milestones": [
+        {
+          "Id": "med_arcane_serpent_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "ScriptArg2",
+              "Mode": 1,
+              "Value": 5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "med_arcane_serpent_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "ScriptArg2",
+              "Mode": 1,
+              "Value": 15
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "med_arcane_serpent_evo_3",
+          "Level": 80,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10001603
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "sp",
+      "SkillId": "sp_shadow_wave",
+      "SourceId": 220,
+      "SourceHook": "SP.lua",
+      "Milestones": [
+        {
+          "Id": "sp_shadow_wave_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sp_shadow_wave_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sp_shadow_wave_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "ChainJumps",
+              "Mode": 0,
+              "Value": 5
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "sp",
+      "SkillId": "sp_toxic_grasp",
+      "SourceId": 222,
+      "SourceHook": "SP.lua",
+      "Milestones": [
+        {
+          "Id": "sp_toxic_grasp_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sp_toxic_grasp_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": -300,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sp_toxic_grasp_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.8
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "sp",
+      "SkillId": "sp_shallow_burial",
+      "SourceId": 223,
+      "SourceHook": "SP.lua",
+      "Milestones": [
+        {
+          "Id": "sp_shallow_burial_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 8,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sp_shallow_burial_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 10,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sp_shallow_burial_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 12,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "om",
+      "SkillId": "om_magic_burst",
+      "SourceId": 240,
+      "SourceHook": "OM.lua",
+      "Milestones": [
+        {
+          "Id": "om_magic_burst_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.95
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "om_magic_burst_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "om_magic_burst_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "MulticastFourChance",
+              "Mode": 0,
+              "Value": 20
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "om",
+      "SkillId": "om_flame_vial",
+      "SourceId": 242,
+      "SourceHook": "OM.lua",
+      "Milestones": [
+        {
+          "Id": "om_flame_vial_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.35
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "om_flame_vial_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.45
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "om_flame_vial_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "MulticastFourChance",
+              "Mode": 0,
+              "Value": 20
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "om",
+      "SkillId": "om_bloodthirst",
+      "SourceId": 243,
+      "SourceHook": "OM.lua",
+      "Milestones": [
+        {
+          "Id": "om_bloodthirst_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 10,
+              "StatId": "haste"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "om_bloodthirst_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 10,
+              "StatId": "haste"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "om_bloodthirst_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "MulticastFourChance",
+              "Mode": 0,
+              "Value": 20
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "sf",
+      "SkillId": "sf_elegy_of_souls",
+      "SourceId": 250,
+      "SourceHook": "SF.lua",
+      "Milestones": [
+        {
+          "Id": "sf_elegy_of_souls_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sf_elegy_of_souls_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": [
+            {
+              "Effect": 0,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "BuffId": 10002503
+            }
+          ]
+        },
+        {
+          "Id": "sf_elegy_of_souls_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "DistanceDamageCap",
+              "Mode": 0,
+              "Value": 3
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "sf",
+      "SkillId": "sf_darkness_press",
+      "SourceId": 252,
+      "SourceHook": "SF.lua",
+      "Milestones": [
+        {
+          "Id": "sf_darkness_press_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.7
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sf_darkness_press_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sf_darkness_press_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.9
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "sf",
+      "SkillId": "sf_undead_domination",
+      "SourceId": 253,
+      "SourceHook": "SF.lua",
+      "Milestones": [
+        {
+          "Id": "sf_undead_domination_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 20,
+              "StatId": "damage"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sf_undead_domination_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 40,
+              "StatId": "damage"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "sf_undead_domination_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 40,
+              "StatId": "damage"
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "jugg",
+      "SkillId": "jugg_invincible_slash",
+      "SourceId": 270,
+      "SourceHook": "JUGG.lua",
+      "Milestones": [
+        {
+          "Id": "jugg_invincible_slash_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.75
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "jugg_invincible_slash_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.85
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "jugg_invincible_slash_evo_3",
+          "Level": 75,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 4,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "jugg",
+      "SkillId": "jugg_blade_storm",
+      "SourceId": 272,
+      "SourceHook": "JUGG.lua",
+      "Milestones": [
+        {
+          "Id": "jugg_blade_storm_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.3
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "jugg_blade_storm_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.4
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "jugg_blade_storm_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "Cooldown",
+              "Mode": 0,
+              "Value": 12
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "jugg",
+      "SkillId": "jugg_healing_totem",
+      "SourceId": 273,
+      "SourceHook": "JUGG.lua",
+      "Milestones": [
+        {
+          "Id": "jugg_healing_totem_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 100,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "jugg_healing_totem_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 150,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "jugg_healing_totem_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": 200,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "axe",
+      "SkillId": "axe_axe_of_purge",
+      "SourceId": 280,
+      "SourceHook": "Axe.lua",
+      "Milestones": [
+        {
+          "Id": "axe_axe_of_purge_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "axe_axe_of_purge_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "axe_axe_of_purge_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "ExecuteDamageRatio",
+              "Mode": 0,
+              "Value": 3
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "axe",
+      "SkillId": "axe_warlust",
+      "SourceId": 282,
+      "SourceHook": "Axe.lua",
+      "Milestones": [
+        {
+          "Id": "axe_warlust_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": -150,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "axe_warlust_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "BuffStat",
+              "Mode": 1,
+              "Value": -200,
+              "StatId": "health_regen"
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "axe_warlust_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 5,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "axe",
+      "SkillId": "axe_counter_spiral",
+      "SourceId": 283,
+      "SourceHook": "Axe.lua",
+      "Milestones": [
+        {
+          "Id": "axe_counter_spiral_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "axe_counter_spiral_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "axe_counter_spiral_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "CounterChance",
+              "Mode": 0,
+              "Value": 50
+            },
+            {
+              "Field": "CounterCooldown",
+              "Mode": 0,
+              "Value": 0.325
+            },
+            {
+              "Field": "CounterHealPercent",
+              "Mode": 0,
+              "Value": 3
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "es",
+      "SkillId": "es_gully",
+      "SourceId": 300,
+      "SourceHook": "ES.lua",
+      "Milestones": [
+        {
+          "Id": "es_gully_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "es_gully_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.4
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "es_gully_evo_3",
+          "Level": 75,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 3,
+              "Trigger": 1,
+              "Target": 1,
+              "Duration": -1,
+              "Chance": 100,
+              "SkillId": "es_es_evo",
+              "ScaleByEnemyCount": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "es",
+      "SkillId": "es_empowerment",
+      "SourceId": 302,
+      "SourceHook": "ES.lua",
+      "Milestones": [
+        {
+          "Id": "es_empowerment_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "es_empowerment_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.3
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "es_empowerment_evo_3",
+          "Level": 75,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 3,
+              "Trigger": 1,
+              "Target": 1,
+              "Duration": -1,
+              "Chance": 100,
+              "SkillId": "es_es_evo",
+              "ScaleByEnemyCount": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "es",
+      "SkillId": "es_echo_strike",
+      "SourceId": 303,
+      "SourceHook": "ES.lua",
+      "Milestones": [
+        {
+          "Id": "es_echo_strike_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "es_echo_strike_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "es_echo_strike_evo_3",
+          "Level": 80,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 3,
+              "Trigger": 1,
+              "Target": 1,
+              "Duration": -1,
+              "Chance": 100,
+              "SkillId": "es_es_evo",
+              "ScaleByEnemyCount": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "av",
+      "SkillId": "av_atomic_hit",
+      "SourceId": 360,
+      "SourceHook": "AV.lua",
+      "Milestones": [
+        {
+          "Id": "av_atomic_hit_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "av_atomic_hit_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.8
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "av_atomic_hit_evo_3",
+          "Level": 75,
+          "Parameters": [],
+          "Triggers": [
+            {
+              "Effect": 3,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "SkillId": "av_av_evo1"
+            },
+            {
+              "Effect": 3,
+              "Trigger": 2,
+              "Target": 0,
+              "Duration": -1,
+              "Chance": 100,
+              "SkillId": "av_av_evo2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Hero": "av",
+      "SkillId": "av_infernal_missile",
+      "SourceId": 362,
+      "SourceHook": "AV.lua",
+      "Milestones": [
+        {
+          "Id": "av_infernal_missile_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.1
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "av_infernal_missile_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 1.2
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "av_infernal_missile_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 4,
+              "BuffId": 0
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "av",
+      "SkillId": "av_gatling_gun",
+      "SourceId": 363,
+      "SourceHook": "AV.lua",
+      "Milestones": [
+        {
+          "Id": "av_gatling_gun_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.12
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "av_gatling_gun_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.14
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "av_gatling_gun_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.18
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "thd",
+      "SkillId": "thd_glacier_trail",
+      "SourceId": 380,
+      "SourceHook": "THD.lua",
+      "Milestones": [
+        {
+          "Id": "thd_glacier_trail_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 2.5,
+              "BuffId": 10003803
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "thd_glacier_trail_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 3,
+              "BuffId": 10003803
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "thd_glacier_trail_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "BuffDuration",
+              "Mode": 0,
+              "Value": 3.5,
+              "BuffId": 10003803
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "thd",
+      "SkillId": "thd_pyrofreeze",
+      "SourceId": 382,
+      "SourceHook": "THD.lua",
+      "Milestones": [
+        {
+          "Id": "thd_pyrofreeze_evo_1",
+          "Level": 40,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.35
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "thd_pyrofreeze_evo_2",
+          "Level": 60,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.4
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "thd_pyrofreeze_evo_3",
+          "Level": 75,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.5
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    },
+    {
+      "Hero": "thd",
+      "SkillId": "thd_flame_storm",
+      "SourceId": 383,
+      "SourceHook": "THD.lua",
+      "Milestones": [
+        {
+          "Id": "thd_flame_storm_evo_1",
+          "Level": 45,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.5
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "thd_flame_storm_evo_2",
+          "Level": 65,
+          "Parameters": [
+            {
+              "Field": "PlusRatio",
+              "Mode": 0,
+              "Value": 0.6
+            }
+          ],
+          "Triggers": []
+        },
+        {
+          "Id": "thd_flame_storm_evo_3",
+          "Level": 80,
+          "Parameters": [
+            {
+              "Field": "DamageType",
+              "Mode": 0,
+              "Value": 0,
+              "Text": "Holy"
+            }
+          ],
+          "Triggers": []
+        }
+      ]
+    }
+  ],
+  "LockedPurpleRows": 75
+}

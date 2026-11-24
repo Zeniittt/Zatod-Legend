@@ -14,6 +14,7 @@ namespace Zatod.Heroes
         public List<CraftRecipeDefinition> CraftRecipes = new List<CraftRecipeDefinition>();
         public List<StarRuleDefinition> StarRules = new List<StarRuleDefinition>();
         public List<SkillDefinition> Skills = new List<SkillDefinition>();
+        public SkillProgressionDefinition SkillProgression = new SkillProgressionDefinition();
         public List<HeroDefinition> Heroes = new List<HeroDefinition>();
         public List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
         public List<ZatodBuffDefinition> Buffs = new List<ZatodBuffDefinition>();
@@ -101,7 +102,7 @@ namespace Zatod.Heroes
     }
 
     [Serializable] public sealed class EquipmentSlotDefinition { public string Id, RequiredItemId; }
-    [Serializable] public sealed class HeroSkillSlotDefinition { public string Id, SkillId; public bool IsUltimate; }
+    [Serializable] public sealed class HeroSkillSlotDefinition { public string Id, SkillId; public bool IsUltimate; public int InitialLevel = 1; }
     public enum SkillKind { Active, Passive }
     public enum SkillActivation { Automatic, UltimateIntent, BattleStart, AfterBasicAttack, OnDeath }
     public enum SkillTarget { Self, FrontEnemy, LowestHealthEnemy, AllEnemies, LowestHealthAlly, AllAllies, NearestEnemy, EnemiesInRange, NearestEnemies, EnemiesInLine, FarthestEnemy, LowestHealthAndBehind }
@@ -113,6 +114,8 @@ namespace Zatod.Heroes
     public sealed class SkillDefinition
     {
         public string Id, Name;
+        public string Description, IconResource;
+        public List<SkillEvolutionDefinition> Evolutions=new List<SkillEvolutionDefinition>();
         public ZatodSkillDefinition Crystal;
         public SkillKind Kind;
         // UltimateIntent is supplied by offline AI or a live player's accepted command.
@@ -149,6 +152,7 @@ namespace Zatod.Heroes
         {
             var copy = (SkillDefinition)MemberwiseClone();
             copy.Crystal = Crystal?.Copy();
+            copy.Evolutions = (Evolutions??new List<SkillEvolutionDefinition>()).ConvertAll(x=>x.Copy());
             copy.Effects = Effects.ConvertAll(effect => effect.Copy());
             copy.CasterVisuals = CasterVisuals.ConvertAll(cue => cue.Copy());
             copy.CastSequences = CastSequences.ConvertAll(sequence => sequence.Copy());

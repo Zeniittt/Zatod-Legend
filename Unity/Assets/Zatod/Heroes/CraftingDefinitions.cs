@@ -15,6 +15,9 @@ namespace Zatod.Heroes
         public string OperationId,Command,HeroId,SlotId,ItemInstanceId,RecipeId;
         public long Revision,GoldCharged,GoldReceived;
         public string RequestKey; public ExperienceChange Experience;
+        public int PreviousSkillLevel, SkillLevel;
+        public string PreviousRankId, RankId;
+        public List<EquippedItemData> Equipped = new List<EquippedItemData>();
         public List<ItemData> Consumed=new List<ItemData>(),Created=new List<ItemData>();
     }
     // A recipe names types. Executing it consumes distinct, owned instances.

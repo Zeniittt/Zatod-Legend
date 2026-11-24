@@ -82,6 +82,13 @@ namespace Zatod.Heroes
                     validate(item.Id, item.ItemId);
                 }
             }
+            // Retired records remain history, but their instance GUIDs cannot be reused.
+            var retired=(character.RetiredInventory??new List<ItemData>()).Where(x=>x!=null).Select(x=>x.Id)
+                .Concat((character.RetiredHeroDesk??new List<HeroData>()).Where(x=>x!=null).SelectMany(h=>
+                    (h.EquippedItems??new List<EquippedItemData>()).Select(x=>x.Id)
+                    .Concat((h.AbsorbedItems??new List<AbsorbedItemData>()).Select(x=>x.Id))));
+            foreach(var id in retired)
+                if(Guid.TryParseExact(id,"D",out var guid))HeroCatalog.Require(!ids.Contains(guid),"An active item GUID is reserved by retired history.");
         }
     }
 }

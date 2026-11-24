@@ -26,6 +26,9 @@ namespace Zatod.Combat
             public double Elapsed;
             public double Remaining;
             public Dictionary<string,double> Modifiers;
+            public BattleSkillData SourceSkill;
+            public bool MainSkillBuff;
+            public double FearX,FearY;
         }
         sealed class Unit
         {
@@ -37,10 +40,14 @@ namespace Zatod.Combat
             public List<ActiveBuff> Buffs=new List<ActiveBuff>();
             public Cast Cast;
             public double GlobalCooldown,VerticalSpeed,KnockRemaining,KnockVelocity,PreviousX;
-            public bool QueuedUltimate;
+            public bool QueuedUltimate, LifeInsightUsed;
+            public double CounterCooldown;
+            public int MagicHits;
+            public readonly Dictionary<string,int> HitCounts=new Dictionary<string,int>();
         }
         sealed class Shot
         {
+            public double DamageMultiplier=1;
             public int ActorId,TargetId,PhaseEvent,VisualId,BirthTick;
             public double Elapsed;
             public BattleSkillData Skill;
@@ -77,7 +84,7 @@ namespace Zatod.Combat
             SpawnWave();
         }
         static ZatodMatchDefinition Freeze(ZatodMatchDefinition value)
-            =>new ZatodMatchDefinition{BattleId=value.BattleId,StageId=value.StageId,ConfigVersion=value.ConfigVersion,RulesVersion=value.RulesVersion,Seed=value.Seed,Mode=value.Mode,EnergyGainMultiplier=value.EnergyGainMultiplier,EnergySupplyPercent=value.EnergySupplyPercent,Players=value.Players.ConvertAll(x=>x.Copy()),Buffs=value.Buffs.ConvertAll(ZatodMatchFactory.CopyBuff),LootDrops=(value.LootDrops??new List<ZatodLootDrop>()).ConvertAll(d=>d.Copy()),Waves=value.Waves.ConvertAll(w=>new ZatodWaveData{Id=w.Id,Background=w.Background,FlipBackground=w.FlipBackground,TimeLimitSeconds=w.TimeLimitSeconds,Enemies=w.Enemies.ConvertAll(x=>x.Copy()),Hooks=w.Hooks.ConvertAll(h=>new WaveHookDefinition{Id=h.Id,TargetDefinitionId=h.TargetDefinitionId,Action=h.Action,BossOnly=h.BossOnly,PlayerSide=h.PlayerSide,Amount=h.Amount})})};
+            =>new ZatodMatchDefinition{BattleId=value.BattleId,StageId=value.StageId,ConfigVersion=value.ConfigVersion,RulesVersion=value.RulesVersion,Seed=value.Seed,Mode=value.Mode,EnergyGainMultiplier=value.EnergyGainMultiplier,EnergySupplyPercent=value.EnergySupplyPercent,Players=value.Players.ConvertAll(x=>x.Copy()),Buffs=value.Buffs.ConvertAll(ZatodMatchFactory.CopyBuff),SkillDependencies=(value.SkillDependencies??new List<SkillDefinition>()).ConvertAll(x=>x.Copy()),LootDrops=(value.LootDrops??new List<ZatodLootDrop>()).ConvertAll(d=>d.Copy()),Waves=value.Waves.ConvertAll(w=>new ZatodWaveData{Id=w.Id,Background=w.Background,FlipBackground=w.FlipBackground,TimeLimitSeconds=w.TimeLimitSeconds,Enemies=w.Enemies.ConvertAll(x=>x.Copy()),Hooks=w.Hooks.ConvertAll(h=>new WaveHookDefinition{Id=h.Id,TargetDefinitionId=h.TargetDefinitionId,Action=h.Action,BossOnly=h.BossOnly,PlayerSide=h.PlayerSide,Amount=h.Amount})})};
         Unit Create(ZatodUnitData data)
         {
             var stats=data.Battle.PreciseStats.Count>0?data.Battle.PreciseStats.ToDictionary(x=>x.StatId,x=>x.Value,StringComparer.Ordinal):data.Battle.Stats.ToDictionary(x=>x.StatId,x=>(double)x.Value,StringComparer.Ordinal);
@@ -90,10 +97,17 @@ namespace Zatod.Combat
                 foreach(var growth in skill.Definition.Crystal.Growth)
                     if(growth.Field.StartsWith("Script Arg",StringComparison.Ordinal) && int.TryParse(growth.Field.Substring(10),out int arg) && arg>0 && arg<=skill.Definition.Crystal.ScriptArgs.Count)
                         skill.Definition.Crystal.ScriptArgs[arg-1]+=(skill.Level-1)*growth.Amount;
+                if(EvolutionRules)SkillEvolution.ApplyParameters(skill.Definition,skill.Level);
                 runtime.Cooldowns[skill.Definition.Id]=skill.Definition.Crystal.InitialCooldown;
             }
             runtime.State.MaxHp=Get(runtime,"health");runtime.State.Hp=data.InitialHealth<0?runtime.State.MaxHp:Math.Min(runtime.State.MaxHp,data.InitialHealth);
             runtime.State.MaxEnergy=Get(runtime,"energy_max",1000);runtime.State.Energy=Math.Min(runtime.State.MaxEnergy,data.InitialEnergy);
+            if(EvolutionRules)
+            {
+                // These source skills are triggered/replacements, not autonomous extra casts.
+                if(Native(runtime,162)!=null)runtime.Skills.RemoveAll(x=>x.SlotId=="basic");
+                var counter=Native(runtime,283);if(counter!=null)counter.Definition.Crystal.Cooldown=999;
+            }
             RegisterStatistics(data);return runtime;
         }
         Unit Find(int id)=>units.FirstOrDefault(x=>x.State.EntityId==id);
@@ -117,7 +131,7 @@ namespace Zatod.Combat
             return value;
         }
         bool Controlled(Unit unit,string effect)=>unit.Buffs.Any(b=>(b.Definition.Control??"").Split(new[]{',',' ',';'},StringSplitOptions.RemoveEmptyEntries).Contains(effect));
-        bool CanAct(Unit unit)=>unit.State.Alive && !Controlled(unit,"stun") && !Controlled(unit,"stone") && !Controlled(unit,"sleep") && unit.State.Height<=.0001;
+        bool CanAct(Unit unit)=>unit.State.Alive && !Controlled(unit,"stun") && !Controlled(unit,"stone") && !Controlled(unit,"sleep") && (!EvolutionRules || !Controlled(unit,"frozen") && !Controlled(unit,"icefrozen") && !Controlled(unit,"fear")) && unit.State.Height<=.0001;
         bool Manual(Unit unit)=>initial.Mode==ZatodMode.RealtimePvp || initial.Mode==ZatodMode.Campaign && unit.Data.Team==0;
         public bool RequestUltimate(int actorId)
         {
@@ -198,8 +212,10 @@ namespace Zatod.Combat
                 double dtAction=StepSeconds*Factor(Math.Max(actor.Data.Boss?-75:double.MinValue,Get(actor,"action_speed")));
                 double dtCooldown=StepSeconds*Factor(Math.Max(actor.Data.Boss?-50:double.MinValue,Get(actor,"haste")));actor.State.ActionSpeed=dtAction/StepSeconds;
                 actor.GlobalCooldown-=dtCooldown;
+                if(EvolutionRules)actor.CounterCooldown-=StepSeconds;
                 foreach(var skill in actor.Skills)
                     if(actor.Cast==null || actor.Cast.Skill!=skill)actor.Cooldowns[skill.Definition.Id]-=dtCooldown;
+                if(EvolutionRules && MoveInFear(actor,dtAction))continue;
                 if(!CanAct(actor)){actor.State.ActionElapsed+=dtAction;continue;}
                 if(actor.Cast!=null){AdvanceCast(actor,dtAction);continue;}
                 var enemy=ClosestEnemy(actor);if(enemy==null)continue;
@@ -293,6 +309,7 @@ namespace Zatod.Combat
             if(info.SourceId==100){SpecialBuff(actor,target,skill,10001004);Effect("eff_point_Sniper_ult.cha","point",target);}
             if(info.SourceId==200)SpecialBuff(actor,target,skill,10002001);
             if(info.SourceId==40)foreach(var enemy in units.Where(u=>u.State.Alive && u.State.Team!=actor.State.Team))SpecialBuff(actor,enemy,skill,10000402);
+            if(EvolutionRules)EvolutionEvent(actor,target,skill,SkillEvolutionEvent.CastStart);
             if(skill.IsUltimate)actor.QueuedUltimate=false;
         }
         void AdvanceCast(Unit actor,double dt)
@@ -313,7 +330,7 @@ namespace Zatod.Combat
             {
                 cast.Phase++;cast.Elapsed=0;cast.Event=0;actor.State.Action=info.Phases[cast.Phase].Action;actor.State.ActionElapsed=0;
             }
-            else {FinishSpecial(actor);actor.Cast=null;actor.State.Action="Idle";actor.State.ActionElapsed=0;}
+            else {if(EvolutionRules)EvolutionCastFinished(actor,cast.Skill);FinishSpecial(actor);actor.Cast=null;actor.State.Action="Idle";actor.State.ActionElapsed=0;}
         }
         double Power(Unit actor,BattleSkillData skill)
         {

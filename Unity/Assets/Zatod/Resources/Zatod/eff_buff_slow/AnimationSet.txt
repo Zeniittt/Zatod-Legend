@@ -1,0 +1,68 @@
+{
+    "HeroId": "effect_eff_buff_slow",
+    "CanvasWidth": 215,
+    "CanvasHeight": 66,
+    "PixelsPerUnit": 100,
+    "AnchorPixelX": 576.0,
+    "AnchorPixelY": 28.0,
+    "Clips": [
+        {
+            "StabilizeHorizontalAnchor": false,
+            "State": "Start",
+            "SourceFolder": "Zatod/eff_buff_slow",
+            "ClipResource": "Zatod/eff_buff_slow/Animations/Start",
+            "FramesPerSecond": 24,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "Assets/Zatod/Art/Imported/eff_buff_slow/Start_0.png#eff_buff_slow_Start_0000",
+                "Assets/Zatod/Art/Imported/eff_buff_slow/Start_0.png#eff_buff_slow_Start_0001",
+                "Assets/Zatod/Art/Imported/eff_buff_slow/Start_0.png#eff_buff_slow_Start_0002"
+            ],
+            "Frames": [],
+            "ContentBounds": [],
+            "UseProjectileOrigin": false,
+            "PreserveSpritePivot": true,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0,
+            "PresentationHeight": 0,
+            "SourceDurationSeconds": 0.125,
+            "VisualReferenceWidthPixels": 0,
+            "FrameTimes": [
+                0.0,
+                0.0416666679084301,
+                0.0833333358168602
+            ],
+            "AudioCues": []
+        },
+        {
+            "StabilizeHorizontalAnchor": false,
+            "State": "Loop",
+            "SourceFolder": "Zatod/eff_buff_slow",
+            "ClipResource": "Zatod/eff_buff_slow/Animations/Loop",
+            "FramesPerSecond": 24,
+            "Loop": true,
+            "Projectile": false,
+            "SourceFrames": [
+                "Assets/Zatod/Art/Imported/eff_buff_slow/Loop_0.png#eff_buff_slow_Loop_0000",
+                "Assets/Zatod/Art/Imported/eff_buff_slow/Loop_0.png#eff_buff_slow_Loop_0001",
+                "Assets/Zatod/Art/Imported/eff_buff_slow/Loop_0.png#eff_buff_slow_Loop_0002"
+            ],
+            "Frames": [],
+            "ContentBounds": [],
+            "UseProjectileOrigin": false,
+            "PreserveSpritePivot": true,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0,
+            "PresentationHeight": 0,
+            "SourceDurationSeconds": 0.125,
+            "VisualReferenceWidthPixels": 0,
+            "FrameTimes": [
+                0.0,
+                0.0416666679084301,
+                0.0833333358168602
+            ],
+            "AudioCues": []
+        }
+    ]
+}

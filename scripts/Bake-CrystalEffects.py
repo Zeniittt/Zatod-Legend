@@ -19,8 +19,12 @@ for path in (REF/'recovered/heroes').glob('*/animation.json'):
     value=event.get('argument','')
     if value.endswith('.cha'):wanted.add(Path(value).stem)
 wanted.update(['eff_point_NEC_ult','eff_point_Sniper_ult','eff_point_Tiny_atk3','eff_impact_Coco_ult'])
-with zipfile.ZipFile(PACK) as archive:
- containers={Path(n).stem:n for n in archive.namelist() if n.startswith('patch/pfca/effect/') and n.endswith('.fca')}
+extracted=REF/'recovered/downloads/aab_1.1.100312'
+if (extracted/'patch/pfca/effect').is_dir():
+ containers={p.stem:p.relative_to(extracted).as_posix() for p in (extracted/'patch/pfca/effect').rglob('*.fca')}
+else:
+ with zipfile.ZipFile(PACK) as archive:
+  containers={Path(n).stem:n for n in archive.namelist() if n.startswith('patch/pfca/effect/') and n.endswith('.fca')}
 def work(resource):
  if resource not in containers:raise ValueError('Missing selected effect: '+resource)
  if not (REF/'recovered/heroes'/resource/'animation.json').exists():

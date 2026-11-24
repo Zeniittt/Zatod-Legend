@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-inventory-1",
+  "ConfigVersion": "zatod-skill-promote-1",
   "Buffs": [
     {
       "SourceId": 1415,
@@ -1194,6 +1194,340 @@
       ],
       "Stats": [],
       "Id": "thd_atk3"
+    },
+    {
+      "Id": "skill_evo_buff_10000103",
+      "SourceId": 10000103,
+      "Name": "Coco_atk3Evobuff",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_slow.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [
+        {
+          "StatId": "haste",
+          "Value": -25.0
+        },
+        {
+          "StatId": "action_speed",
+          "Value": -25.0
+        }
+      ],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10000104",
+      "SourceId": 10000104,
+      "Name": "Coco_ultEvobuff",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_Coco_ult.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 9,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [
+        {
+          "StatId": "physical_immunity",
+          "Value": 20.0
+        },
+        {
+          "StatId": "magic_immunity",
+          "Value": 20.0
+        }
+      ],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10000301",
+      "SourceId": 10000301,
+      "Name": "Lina_atk2Evobuff",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_burn.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 3,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": -500.0
+        }
+      ],
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "ability_power",
+          "Ratio": -0.1
+        }
+      ]
+    },
+    {
+      "Id": "skill_evo_buff_10000703",
+      "SourceId": 10000703,
+      "Name": "QOP_atk3Evobuff",
+      "Control": "silence",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_silence.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10000901",
+      "SourceId": 10000901,
+      "Name": "TK_ultEvobuff",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 10,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [
+        {
+          "StatId": "haste",
+          "Value": 20.0
+        },
+        {
+          "StatId": "action_speed",
+          "Value": 20.0
+        }
+      ],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10001603",
+      "SourceId": 10001603,
+      "Name": "Med_Evoatk3stone",
+      "Control": "frozen",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 1,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10001703",
+      "SourceId": 10001703,
+      "Name": "Bone_ult_evo",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_OK_ult.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 30,
+      "ShieldValue": 1,
+      "ShieldType": "all",
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10001803",
+      "SourceId": 10001803,
+      "Name": "Pugna_ult_evo",
+      "Control": "uncontrollable",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 10,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10001904",
+      "SourceId": 10001904,
+      "Name": "SNK_Evoultbuff",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_burn.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 5,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": -300.0
+        },
+        {
+          "StatId": "haste",
+          "Value": -15.0
+        },
+        {
+          "StatId": "action_speed",
+          "Value": -15.0
+        }
+      ],
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "damage",
+          "Ratio": -0.2
+        }
+      ]
+    },
+    {
+      "Id": "skill_evo_buff_10002005",
+      "SourceId": 10002005,
+      "Name": "NEC_birth_inv",
+      "Control": "invulnerable",
+      "StackRule": "",
+      "Dispel": "",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 0.5,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10002503",
+      "SourceId": 10002503,
+      "Name": "SF_ultEvobuff",
+      "Control": "fear",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_NS_atk3b.cha",
+      "ImpactEffect": null,
+      "Mod": "fear_buff",
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10003703",
+      "SourceId": 10003703,
+      "Name": "Viper_pasvEvobuff",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": null,
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 4,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [
+        {
+          "StatId": "health_regen",
+          "Value": -200.0
+        }
+      ],
+      "Scaling": [
+        {
+          "StatId": "health_regen",
+          "Attribute": "damage",
+          "Ratio": -0.3
+        }
+      ]
+    },
+    {
+      "Id": "skill_evo_buff_10003803",
+      "SourceId": 10003803,
+      "Name": "THD_ult2",
+      "Control": "icefrozen,antistealth",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": "TEN",
+      "Effect": "eff_buff_frozen_atk2.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 2,
+      "ShieldValue": 0,
+      "ShieldType": null,
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [],
+      "Scaling": []
+    },
+    {
+      "Id": "skill_evo_buff_10004502",
+      "SourceId": 10004502,
+      "Name": "Ench_ultEvobuff",
+      "Control": "",
+      "StackRule": "",
+      "Dispel": "YES",
+      "Tenacity": null,
+      "Effect": "eff_buff_Ench_awake.cha",
+      "ImpactEffect": null,
+      "Mod": null,
+      "Duration": 12,
+      "ShieldValue": 1,
+      "ShieldType": "all",
+      "ClearOnDeath": true,
+      "MaximumStacks": 0,
+      "Stats": [],
+      "Scaling": []
     }
   ]
 }

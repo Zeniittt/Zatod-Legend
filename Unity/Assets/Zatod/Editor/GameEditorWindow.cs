@@ -127,6 +127,11 @@ namespace Zatod.Editor
             page.Add(new Label(HeroDataJson.AssetPath(activeTab)) { name = "section-path" });
             if (draft != null)
             {
+                if(activeTab==HeroConfigSection.Skills)
+                {
+                    var rules=new Foldout{text="Skill progression: level cap and gold per upgrade",value=false,name="skill-progression-rules"};
+                    page.Add(rules);DrawObject(rules,draft.SkillProgression);
+                }
                 var field = typeof(HeroCatalogData).GetField(activeTab.ToString());
                 var list = (IList)field.GetValue(draft);
                 if (list == null) { list = (IList)Activator.CreateInstance(field.FieldType); field.SetValue(draft, list); }

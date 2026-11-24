@@ -2,7 +2,7 @@
 
 Cập nhật: **23/11/2026, Asia/Saigon**.
 
-**Trạng thái: thiết kế đã duyệt, chưa triển khai.** Đây là bản bàn giao thực thi; [Design.md — D35](../Design.md#d35--hoàn-thiện-hệ-thống-skill-và-promote-trước-mở-rộng-nội-dung) là nguồn quyết định. Người dùng sẽ giao một agent khác thực thi. Việc tạo/cập nhật tài liệu này không tự khởi động implementation, build hoặc deploy.
+**Trạng thái: đang triển khai theo lệnh ngày 24/11/2026, chưa nghiệm thu.** [Design.md — D35](../Design.md#d35--hoàn-thiện-hệ-thống-skill-và-promote-trước-mở-rộng-nội-dung) là nguồn quyết định. Người dùng đã yêu cầu thực thi và build IPA chưa ký sau kiểm tra. Tiến độ/bằng chứng ở [báo cáo thực thi](zatod-skill-promote-implementation.md); các checklist bên dưới chỉ được đánh dấu sau kiểm chứng thực tế.
 
 ## 1. Đọc và kiểm tra đầu vào
 
@@ -113,13 +113,13 @@ Buff nguồn10000104 và hook Coco là bằng chứng, không phải damage/heal
 
 ## 9. Tiêu chí nghiệm thu
 
-- [ ] Core/model: load catalog cũ/mới, slot khóa/mở, InitialLevel, capHero/cap80, chi phí từng bước/batch, không tiêu sách hoặc yêu cầu PlayerLv7.
+- [x] Core/model: load catalog cũ/mới, slot khóa/mở, InitialLevel, capHero/cap80, chi phí từng bước/batch, không tiêu sách hoặc yêu cầu PlayerLv7. Kiểm core24/11; chưa thay nghiệm thu UI/server.
 - [ ] Evo: ranh giới trước/đúng/sau mốc, cộng dồn, add/replace, buff hết hạn/dispel/death theo nguồn, hook đúng caster/target; Coco35/50/70 đạt và có coverage cho các skill đang hoạt động khác.
 - [ ] Giao dịch: thiếu Gold, GUID sai/thiếu/được dùng haiô, savefail rollback, request lặp/stale, reconnect và guard trận/queue. Không có thu phí/cấp effect/tiến bậc lặp.
-- [ ] Migration: save3slot đọc được sau bổsungslot, các level/GUID/history cũ giữ nguyên; thêm slot khóa không thành skill dùng được.
-- [ ] Snapshot/replay: deep-copy không chia sẻ danh sách, chỉnh config/Hero sau khi cấp trận không đổi trận đó; archive cũ giữ outcome/digest/rules thích hợp; không dựa vào copy JSON nông để khẳngđịnh đạt.
-- [ ] UI thật:25 Hero hiện có, locked/unlocked/max/thiếu tiền, hold nâng, cùngnút QuickEquip/Promote, trở về world đúng;16:9,19.5:9/20:9,4:3 vàsafearea. Có ảnh đã xem, không chỉ đếmassertion.
-- [ ] GameEditor: chỉnh/lưu/đọc lại rule/curve/Evo, validate reference, draft/stale handling; không ghi config ngoài thao tác Save.
+- [x] Migration: save3slot đọc được sau bổsungslot, các level/GUID/history cũ giữ nguyên; thêm slot khóa không thành skill dùng được. Fixture core24/11, không migration trên Owned thật để thử.
+- [x] Snapshot/replay: deep-copy không chia sẻ danh sách, chỉnh config/Hero sau khi cấp trận không đổi trận đó; archive cũ giữ outcome/digest/rules thích hợp; không dựa vào copy JSON nông để khẳngđịnh đạt. 25 goldens V3 từ baseline và replay V4 của25 Hero đã qua; archive network19/11 riêng vẫn không có ở clone.
+- [x] UI thật:25 Hero hiện có, locked/unlocked/max/thiếu tiền, hold nâng, cùngnút QuickEquip/Promote, trở về world đúng;16:9,19.5:9/20:9,4:3 vàsafearea. Có ảnh đã xem, không chỉ đếmassertion.
+- [x] GameEditor: chỉnh/lưu/đọc lại rule/curve/Evo, validate reference, draft/stale handling; không ghi config ngoài thao tác Save.
 - [ ] Kiểmtra phùhợp từ Tests/HeroChecks, Tests/CrystalChecks và các harness Editor/network hiện có; chỉ sửa/viết ca liên quan D35. Không coi harness prototype cũ là bằngchứng active content nếu đã bị retire.
 - [ ] Client-server thật với profile/port riêng và smoke hành vi mới. Đóng gói theo D37: macOS tự tạo IPA chưa ký; Windows hỏi trước nếu chưa được yêu cầu build. Mobile kiểm responsive và thiết bị khi môi trường sẵn; phần chưa kiểm vật lý phải ghi rõ, không báo đã nghiệm thu Android/iOS chỉ từ GameView.
 - [ ] Owned/mainserver/scene/art không liên quan được bảo toàn; console không lỗi mới. Không tự publish/deploy lên môi trường đang dùng chỉ để kết thúc checklist.

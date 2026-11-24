@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-inventory-1",
+  "ConfigVersion": "zatod-skill-promote-1",
   "Heroes": [
     {
       "Id": "coco",
@@ -692,17 +692,20 @@
         {
           "Id": "skill_1",
           "SkillId": "coco_spectral_ship",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "coco_flood_surge",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "coco_aquatic_blade",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_coco",
@@ -1374,17 +1377,20 @@
         {
           "Id": "skill_1",
           "SkillId": "dr_arrow_volley",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "dr_frost_arrow",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "dr_silencer",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_dr",
@@ -2048,17 +2054,20 @@
         {
           "Id": "skill_1",
           "SkillId": "lina_deity_slash",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "lina_draco_strike",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "lina_radiant_array",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_lina",
@@ -2754,17 +2763,20 @@
         {
           "Id": "skill_1",
           "SkillId": "zeus_celestial_wrath",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "zeus_lightning_chain",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "zeus_fallen_bolt",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_zeus",
@@ -3460,17 +3472,20 @@
         {
           "Id": "skill_1",
           "SkillId": "lion_mortal_touch",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "lion_piercing_strike",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "lion_wizardry",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_lion",
@@ -4166,17 +4181,20 @@
         {
           "Id": "skill_1",
           "SkillId": "qop_ultrasonic_wave",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "qop_poison_dart",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "qop_painful_howl",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_qop",
@@ -4896,17 +4914,20 @@
         {
           "Id": "skill_1",
           "SkillId": "ok_chivalry_guardian",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "ok_divine_glow",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "ok_dispel",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_ok",
@@ -5602,17 +5623,20 @@
         {
           "Id": "skill_1",
           "SkillId": "tk_extreme_charge",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "tk_optic_blast",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "tk_goblin_bomb",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_tk",
@@ -6268,17 +6292,20 @@
         {
           "Id": "skill_1",
           "SkillId": "sniper_precision_shot",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "sniper_headshot",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "sniper_grenade",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_sniper",
@@ -6974,17 +7001,20 @@
         {
           "Id": "skill_1",
           "SkillId": "bone_fatal_contract",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "bone_flame_arrow",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "bone_rapid_fire",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_bone",
@@ -7712,17 +7742,20 @@
         {
           "Id": "skill_1",
           "SkillId": "pugna_vitality_drain",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "pugna_magic_burst",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "pugna_exile",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_pugna",
@@ -8386,17 +8419,20 @@
         {
           "Id": "skill_1",
           "SkillId": "snk_aerial_hammer",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "snk_crit",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "snk_vampire_aura",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_snk",
@@ -9116,17 +9152,20 @@
         {
           "Id": "skill_1",
           "SkillId": "nec_reaper_summon",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "nec_vitality_pulse",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "nec_life_insight",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_nec",
@@ -9822,17 +9861,20 @@
         {
           "Id": "skill_1",
           "SkillId": "tiny_casual_toss",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "tiny_yank_tree",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "tiny_rockslide",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_tiny",
@@ -10496,17 +10538,20 @@
         {
           "Id": "skill_1",
           "SkillId": "viper_toxic_bite",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "viper_venom_sphere",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "viper_venomous_skin",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_viper",
@@ -11218,17 +11263,20 @@
         {
           "Id": "skill_1",
           "SkillId": "ench_revival",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "ench_advance",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "ench_charm",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_ench",
@@ -11932,17 +11980,20 @@
         {
           "Id": "skill_1",
           "SkillId": "med_petrifying_stare",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "med_split_arrow",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "med_arcane_serpent",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_med",
@@ -12662,17 +12713,20 @@
         {
           "Id": "skill_1",
           "SkillId": "sp_shadow_wave",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "sp_toxic_grasp",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "sp_shallow_burial",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_sp",
@@ -13368,17 +13422,20 @@
         {
           "Id": "skill_1",
           "SkillId": "om_magic_burst",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "om_flame_vial",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "om_bloodthirst",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_om",
@@ -14058,17 +14115,20 @@
         {
           "Id": "skill_1",
           "SkillId": "sf_elegy_of_souls",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "sf_darkness_press",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "sf_undead_domination",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_sf",
@@ -14756,17 +14816,20 @@
         {
           "Id": "skill_1",
           "SkillId": "jugg_invincible_slash",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "jugg_blade_storm",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "jugg_healing_totem",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_jugg",
@@ -15430,17 +15493,20 @@
         {
           "Id": "skill_1",
           "SkillId": "axe_axe_of_purge",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "axe_warlust",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "axe_counter_spiral",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_axe",
@@ -16136,17 +16202,20 @@
         {
           "Id": "skill_1",
           "SkillId": "es_gully",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "es_empowerment",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "es_echo_strike",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_es",
@@ -16842,17 +16911,20 @@
         {
           "Id": "skill_1",
           "SkillId": "av_atomic_hit",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "av_infernal_missile",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "av_gatling_gun",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_av",
@@ -17548,17 +17620,20 @@
         {
           "Id": "skill_1",
           "SkillId": "thd_glacier_trail",
-          "IsUltimate": true
+          "IsUltimate": true,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_2",
           "SkillId": "thd_pyrofreeze",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 1
         },
         {
           "Id": "skill_3",
           "SkillId": "thd_flame_storm",
-          "IsUltimate": false
+          "IsUltimate": false,
+          "InitialLevel": 21
         }
       ],
       "SoulstoneItemId": "soulstone_thd",

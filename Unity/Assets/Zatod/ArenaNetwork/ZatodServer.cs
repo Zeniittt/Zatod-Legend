@@ -51,7 +51,11 @@ namespace Zatod.Networking
             }
             catch(Exception error)
             {
-                uploads.Remove(connection.connectionId);Send(connection,"error",new ZatodNotice{Text=error.Message});
+                uploads.Remove(connection.connectionId);
+                // A stale Hero request needs the current revision before the player can retry it.
+                if(sessions.TryGetValue(connection.connectionId,out var current))
+                    try{SendAccount(connection,current,false);}catch(Exception snapshotError){Debug.LogWarning("[ZatodServer] Snapshot after rejection failed: "+snapshotError.Message);}
+                Send(connection,"error",new ZatodNotice{Text=error.Message});
                 Debug.LogWarning("[ZatodServer] REJECTED connection="+connection.connectionId+" "+error.Message);
             }
         }
@@ -87,7 +91,10 @@ namespace Zatod.Networking
             {
                 session.CancelCampaign();RemoveFromQueue(id);AbortRoom(id,"Battle cancelled by a player.");SendAccount(connection,session);return;
             }
-            if(rooms.Any(r=>r.Left==id || r.Right==id) || queue.Contains(id))throw new ArgumentException("Cancel PvP before changing mode or loadout.");
+            bool heroReceiptRetry=(request.Command=="skill_up" || request.Command=="quick_equip" || request.Command=="promote")
+                && Guid.TryParseExact(request.OperationId,"D",out var retryId)
+                && (session.Account.ItemOperations?.Any(r=>r.OperationId==retryId.ToString("D") && r.Command==request.Command)??false);
+            if(!heroReceiptRetry && (rooms.Any(r=>r.Left==id || r.Right==id) || queue.Contains(id)))throw new ArgumentException("Cancel PvP before changing mode or loadout.");
             switch(request.Command)
             {
                 case "campaign":
@@ -106,7 +113,9 @@ namespace Zatod.Networking
                 case "craft":session.Craft(request.A,request.OperationId,()=>SaveOwned(session));SendAccount(connection,session,false);break;
                 case "sell":case "quick_craft":case "use_exp":case "recruit":case "star_up":
                     session.ExecuteInventory(request.Command,request.A,request.Number,request.B,request.OperationId,()=>SaveOwned(session));SendAccount(connection,session,false);break;
-                case "promote":session.Promote(request.A);SendAccount(connection,session);break;
+                case "skill_up":session.UpgradeSkill(request.A,request.B,request.ExpectedLevel,request.Number,request.ExpectedRevision,request.OperationId,()=>SaveOwned(session));SendAccount(connection,session,false);break;
+                case "quick_equip":session.QuickEquip(request.A,request.ExpectedRevision,request.OperationId,()=>SaveOwned(session));SendAccount(connection,session,false);break;
+                case "promote":session.PromoteHero(request.A,request.ExpectedRevision,request.OperationId,()=>SaveOwned(session));SendAccount(connection,session,false);break;
                 case "level":session.DevLevel(request.A,request.Number);SendAccount(connection,session);break;
                 default:throw new ArgumentException("Unknown Crystal command.");
             }

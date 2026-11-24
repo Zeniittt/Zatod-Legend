@@ -8,9 +8,13 @@ from hero_animation import recover_container, PACK
 import io,json,plistlib,re,zipfile
 from hero_animation import ChaReader,encode_cha,decode_atlas
 from assets import pvr_image
-def recover_effect(entry):
- name=Path(entry).stem;output=REF/'recovered/heroes'/name
- with zipfile.ZipFile(PACK) as outer,zipfile.ZipFile(io.BytesIO(outer.read(entry))) as archive:
+def container_bytes(entry):
+ extracted=REF/'recovered/downloads/aab_1.1.100312'/entry
+ if extracted.is_file():return extracted.read_bytes()
+ with zipfile.ZipFile(PACK) as outer:return outer.read(entry)
+def recover_effect(entry,output=None):
+ name=Path(entry).stem;output=Path(output) if output is not None else REF/'recovered/heroes'/name
+ with zipfile.ZipFile(io.BytesIO(container_bytes(entry))) as archive:
   raw=archive.read('cha');animation=ChaReader(raw).parse()
   if encode_cha(animation)!=raw or Path(animation['name']).name!=name:raise ValueError('Effect timeline roundtrip/name mismatch')
   sprites={}

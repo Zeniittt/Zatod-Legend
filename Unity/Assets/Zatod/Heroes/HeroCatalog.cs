@@ -29,8 +29,10 @@ namespace Zatod.Heroes
             foreach (var item in data.Items) { Require(Enum.IsDefined(typeof(ItemKind),item.ItemKind),"Invalid ItemKind: "+item.DefinitionId); ValidateStats(item.Stats, "Item " + item.Id); }
             _ = new CraftingCatalog(this);
             InventoryCatalog.Validate(this);
+            SkillProgression.Validate(data.SkillProgression);
             foreach (var skill in data.Skills)
             {
+                SkillEvolution.Validate(skill,data);
                 if (skill.Crystal != null && skill.Crystal.SourceId > 0)
                 {
                     Require(skill.Crystal.SourceId > 0 && skill.Crystal.Cooldown >= 0 && skill.Crystal.Phases != null, "Invalid Crystal skill: " + skill.Id);
@@ -113,6 +115,7 @@ namespace Zatod.Heroes
                         && skill.AnimationDurationMilliseconds>=effect.ReviveDelayMilliseconds, "Invalid resurrection: "+skill.Id);
                 }
             }
+            SkillEvolution.ValidateDependencies(data);
             ValidateCrystalData(data);
             foreach (var hero in data.Heroes) ValidateDefinition(hero);
             foreach (var monster in data.Monsters) ValidateMonster(monster);
@@ -172,7 +175,7 @@ namespace Zatod.Heroes
             {
                 HeroInstanceId = instanceId, HeroDefinitionId = definition.Id,
                 RankId = definition.StartingRankId, Definition = definition,
-                Skills = definition.SkillSlots.Select(s => new HeroSkillData { SlotId = s.Id, Level = 1 }).ToList()
+                Skills = definition.SkillSlots.Select(s => new HeroSkillData { SlotId = s.Id, Level = s.InitialLevel }).ToList()
             };
         }
 
@@ -185,6 +188,7 @@ namespace Zatod.Heroes
             var ids = new HashSet<string>(StringComparer.Ordinal);
             foreach (var hero in character.HeroDesk)
             {
+                SkillProgression.AddMissingSlots(hero, Hero(hero.HeroDefinitionId));
                 ValidateHero(hero);
                 Require(ids.Add(hero.HeroInstanceId), "Duplicate owned hero: " + hero.HeroInstanceId);
             }
@@ -247,6 +251,7 @@ namespace Zatod.Heroes
             Require(slots.Count > 0 && slots.Values.Count(s => s.IsUltimate) == 1, "Hero needs exactly one ultimate slot: " + hero.Id);
             foreach (var slot in slots.Values)
             {
+                Require(slot.InitialLevel >= 1 && slot.InitialLevel <= 10000, "Invalid initial skill level: " + slot.Id);
                 var skill = Skill(slot.SkillId);
                 Require(!slot.IsUltimate || (skill.Kind == SkillKind.Active && skill.Activation == SkillActivation.UltimateIntent),
                     "Ultimate must be active with UltimateIntent: " + slot.Id);

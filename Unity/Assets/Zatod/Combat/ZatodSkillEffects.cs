@@ -11,6 +11,7 @@ namespace Zatod.Combat
         void Release(Unit actor,Unit target,BattleSkillData skill,int index)
         {
             var info=skill.Definition.Crystal;
+            if(EvolutionRules)EvolutionEvent(actor,target,skill,SkillEvolutionEvent.AttackFrame);
             if(info.TrackType=="chain")Effect(info.ChainEffect,"chain",actor,target,48*actor.Data.ArtScale);
             int counter=actor.Cast?.AttackCounter??1;
             if(info.SourceId==73)
@@ -21,14 +22,27 @@ namespace Zatod.Combat
             if(info.SourceId==293)Effect("eff_point_Tiny_atk3.cha","point",actor);
             if(info.TrackType=="projectile")
             {
-                if(info.SourceId==202)
+                if(EvolutionRules && info.SourceId==162)
+                {
+                    CreateShot(actor,target,skill,index,true);
+                    foreach(var victim in units.Where(u=>u!=target && u.State.Alive && u.State.Team!=actor.State.Team && !Controlled(u,"untargetable")).OrderBy(u=>u.State.EntityId).Take((int)Evo(skill,"SplitTargets",3)))
+                        CreateShot(actor,victim,skill,index,true).DamageMultiplier=Arg(info,2)/100+Evo(skill,"SplitRatioBonus");
+                }
+                else if(EvolutionRules && info.SourceId==242)
+                {
+                    foreach(var victim in MulticastTargets(actor,skill))
+                    {
+                        var shot=CreateShot(actor,victim,skill,index,false);Ballistic(shot,actor,victim,0,0);
+                    }
+                }
+                else if(info.SourceId==202)
                 {
                     ApplySkill(actor,actor,skill);
                     foreach(var unit in units.Where(u=>u!=actor && u.State.Alive && Distance(actor,u)<=220 && !Controlled(u,"untargetable")).ToArray())CreateShot(actor,unit,skill,index,true);
                 }
                 else if(info.SourceId==20)
                 {
-                    int count=Math.Min(5,(int)((Arg(info,2)-counter)/5+1));
+                    int count=Math.Min(5,(int)((Arg(info,2)-counter)/5+1+Evo(skill,"ExtraVolleyProjectiles")));
                     for(int i=0;i<count;i++)
                     {
                         var victim=i==0?target:Target(actor,info,target);if(victim==null)break;
@@ -45,7 +59,7 @@ namespace Zatod.Combat
             }
             else
             {
-                foreach(var victim in Affected(actor,target,info).ToArray())ApplySkill(actor,victim,skill);
+                foreach(var victim in EvolutionRules && info.SourceId==243?MulticastTargets(actor,skill):Affected(actor,target,info).ToArray())ApplySkill(actor,victim,skill);
                 if(info.TrackType=="chain" && info.ChainJumps>1)
                 {
                     chains.Add(new Chain{BirthTick=tick,ActorId=actor.State.EntityId,PreviousId=target.State.EntityId,Skill=skill,Remaining=info.ChainJumps-1,Timer=info.ChainGap,Hit=new HashSet<int>{target.State.EntityId}});
@@ -84,6 +98,8 @@ namespace Zatod.Combat
         }
         void FinishSpecial(Unit actor)
         {
+            if(EvolutionRules && actor.Cast?.Skill.Definition.Crystal.SourceId==180)
+                foreach(var buff in actor.Buffs.Where(b=>b.Definition.SourceId==10001803).ToArray())RemoveEvolutionBuff(actor,buff,false);
             if(actor.Cast?.Skill.Definition.Crystal.SourceId==73)
             {actor.State.X=actor.Cast.OriginX;actor.State.Y=actor.Cast.OriginY;actor.Buffs.RemoveAll(b=>b.Definition.SourceId==10000701);}
         }
@@ -171,7 +187,7 @@ namespace Zatod.Combat
                     var victim=collision.Unit;
                     if(shot.Height>info.ProjectileOverHeight && info.ProjectileOverHeight>0)continue;
                     shot.Hit.Add(victim.State.EntityId);
-                    foreach(var hit in Affected(caster,victim,info))ApplySkill(caster,hit,shot.Skill);
+                    foreach(var hit in Affected(caster,victim,info))ApplySkill(caster,hit,shot.Skill,false,shot.DamageMultiplier);
                     Effect(info.PointEffect,"point",victim);
                     if(!info.Piercing){if(info.SourceId==10)EffectAt("eff_impact_Coco_ult.cha","impact",caster,shot.X,shot.Y,0);shots.Remove(shot);break;}
                 }
@@ -199,33 +215,39 @@ namespace Zatod.Combat
             return Math.Abs(d-old)<1e-12?double.NaN:-old/(d-old);
         }
         static double Arg(ZatodSkillDefinition skill,int index)=>skill.ScriptArgs.Count>=index?skill.ScriptArgs[index-1]:0;
-        void ApplySkill(Unit actor,Unit target,BattleSkillData skill)
+        void ApplySkill(Unit actor,Unit target,BattleSkillData skill,bool repeated=false,double damageMultiplier=1)
         {
             if(!target.State.Alive)return;
             var info=skill.Definition.Crystal;
             if(Controlled(target,"invulnerable") && target!=actor && info.DamageType!="Heal" || target.Cast!=null && target.Cast.ManualStartup && target.State.Team!=actor.State.Team)return;
+            if(EvolutionRules && info.SourceId==240 && !repeated){int casts=Multicast(skill);for(int i=0;i<casts && target.State.Alive;i++)ApplySkill(actor,target,skill,true);return;}
             Effect(info.ImpactEffect,"impact",target);
             if(info.BuffId>0)ApplyBuff(actor,target,skill);
             double power=Power(actor,skill);
+            if(EvolutionRules)power=EvolutionPower(actor,target,skill,power);
+            power*=damageMultiplier;
             if(info.SourceId==200)
             {
                 double missing=target.State.MaxHp-target.State.Hp;
                 power=Math.Clamp(missing*Arg(info,2),Arg(info,4)+Arg(info,5)*Get(actor,"ability_power"),Arg(info,3)+Arg(info,5)*Get(actor,"ability_power"));
             }
+            if(EvolutionRules && info.DamageType=="Heal")EvolutionHeal(actor,target,skill,power);
             if(info.SourceId==202 && actor.State.Team==target.State.Team)Heal(target,power,actor);
             else if(info.DamageType=="Heal")Heal(target,power,actor);
             else if(!string.IsNullOrEmpty(info.DamageType))
             {
                 double dodge=info.DamageType=="AD"?Math.Max(0,Get(target,"dodge")-Get(actor,"accuracy")):Get(target,"mdodg");
                 double chance=info.DamageType=="AD"?dodge/(100+dodge):dodge/100;
-                if(info.SourceId!=100 && Random()<chance)return;
+                if(info.SourceId!=100 && !(EvolutionRules && info.SourceId==280 && target.State.Hp/target.State.MaxHp<.3) && Random()<chance)return;
                 double lost=Damage(actor,target,power,info.DamageType,info.CritPercent/100);
-                if(info.SourceId==100 && !target.State.Alive)GainEnergy(actor,150);
+                if(info.SourceId==100 && !target.State.Alive)GainEnergy(actor,Evo(skill,"KillEnergy",150));
+                if(EvolutionRules && info.SourceId==280 && !target.State.Alive)GainEnergy(actor,300);
                 if(info.SourceId==180)Heal(actor,lost*Arg(info,2)/100,actor);
                 double lfs=Get(actor,"lifesteal");
                 if(info.LifestealPercent>0 && lfs>0)Heal(actor,lost*lfs/(100+lfs+target.Data.Level)*info.LifestealPercent/100*(1+Math.Max(-100,Get(actor,"lfsratio"))/100),actor);
             }
 
+            if(EvolutionRules)EvolutionHit(actor,target,skill,power);
             if(info.KnockUp>0 && target.State.Alive){target.VerticalSpeed=info.KnockUp*1800/2;target.State.Height=Math.Max(.001,target.State.Height);}
             if(info.KnockBack!=0 && target.State.Alive){target.KnockRemaining=Math.Max(StepSeconds,info.KnockUp);target.KnockVelocity=Math.Sign(target.State.X-actor.State.X)*info.KnockBack/target.KnockRemaining;}
             if(info.SourceId==290 && target.State.Alive)landings.Add(new LandingImpact{ActorId=actor.State.EntityId,TargetId=target.State.EntityId,Skill=skill});
@@ -257,13 +279,17 @@ namespace Zatod.Combat
             {
                 double absorbed=Math.Min(amount,shield.Definition.ShieldValue);shield.Definition.ShieldValue-=absorbed;amount-=absorbed;if(amount<=0)break;
             }
+            if(EvolutionRules)amount=ShallowGrave(target,amount,immunity);
             amount*=Math.Max(0,1-immunity/100);
+            if(EvolutionRules && Controlled(target,"undead"))amount=Math.Min(amount,Math.Max(0,target.State.Hp-1));
             double lost=Math.Min(target.State.Hp,amount);target.State.Hp-=lost;
             RecordDamage(actor,target,lost);CombatEvent(target,"damage",lost,type,critical,actor.Data.EntityId);
             GainEnergy(target,lost/Math.Max(1,target.State.MaxHp)*Get(target,"damage_energy_rate",1000)*(1+Get(target,"mpratio")/100)*initial.EnergyGainMultiplier);
 
+            if(EvolutionRules){EvolutionDamaged(actor,target,type);if(!target.State.Alive && LifeInsight(target))return lost;}
             if(!target.State.Alive)
             {
+                if(EvolutionRules)SoulOnDeath();
                 RecordDeath(actor,target);
                 bool reduced=Random()<Get(target,"kill_energy")/100;
                 if(actor.Data.Hero && actor.State.Alive)GainEnergy(actor,reduced?150:300,"last_hit");
@@ -277,13 +303,14 @@ namespace Zatod.Combat
             }
             return lost;
         }
-        void ApplyBuff(Unit actor,Unit target,BattleSkillData skill)
+        void ApplyBuff(Unit actor,Unit target,BattleSkillData skill,int overrideId=0,double overrideDuration=-1,double overrideShield=-1)
         {
             var info=skill.Definition.Crystal;
-            if(!buffs.TryGetValue(info.BuffId,out var source))throw new InvalidOperationException("Missing Crystal buff: "+info.BuffId);
+            int buffId=overrideId==0?info.BuffId:overrideId;
+            if(!buffs.TryGetValue(buffId,out var source))throw new InvalidOperationException("Missing Crystal buff: "+info.BuffId);
             var definition=ZatodMatchFactory.CopyBuff(source);
-            if(Controlled(target,"uncontrollable") && !string.IsNullOrEmpty(definition.Control))return;
-            foreach(var field in info.Growth)
+            if(Controlled(target,"uncontrollable") && (EvolutionRules?actor!=target && ConflictsWithUncontrollable(definition):!string.IsNullOrEmpty(definition.Control)))return;
+            foreach(var field in overrideId==0?info.Growth:new List<ZatodGrowthField>())
             {
                 double growth=(skill.Level-1)*field.Amount;
                 if(field.Field=="Time")definition.Duration+=growth;
@@ -296,26 +323,33 @@ namespace Zatod.Combat
             }
             var modifiers=definition.Stats.ToDictionary(x=>x.StatId,x=>x.Value,StringComparer.Ordinal);
             foreach(var scaling in definition.Scaling)modifiers[scaling.StatId]=(modifiers.TryGetValue(scaling.StatId,out double old)?old:0)+Get(actor,scaling.Attribute)*scaling.Ratio;
+            if(EvolutionRules)ModifyEvolutionBuff(actor,skill,definition,modifiers);
+            if(overrideDuration>=0)definition.Duration=overrideDuration;
+            if(overrideShield>=0)definition.ShieldValue=overrideShield;
             if(definition.SourceId==10001002)
             {
                 double ratio=Get(target,"damage")>0?Get(actor,"damage")/Get(target,"damage"):9999;
-                double coefficient=ratio>1?Math.Min(ratio*1.1,2.5):1;
+                double coefficient=ratio>1?Math.Min(ratio*1.1,Evo(skill,"SlowCap",2.5)):1;
                 foreach(var stat in new[]{"action_speed","haste"})if(modifiers.ContainsKey(stat))modifiers[stat]*=coefficient;
             }
             if(modifiers.TryGetValue("health_regen",out double hprValue))
                 modifiers["health_regen"]=hprValue*(hprValue>0?1+Math.Max(0,Get(actor,"healing_bonus"))/100:1+Get(actor,"dotdratio")/100);
             double resistance=actor.State.Team==target.State.Team?0:Get(target,Attribute(definition.Tenacity))-Get(actor,"con");
             double duration=definition.Duration>0?definition.Duration*Math.Max(.01,1-resistance/100):double.MaxValue;
-            var existing=target.Buffs.FirstOrDefault(x=>x.Definition.SourceId==definition.SourceId);
+            var existing=target.Buffs.FirstOrDefault(x=>x.Definition.SourceId==definition.SourceId && (!EvolutionRules || definition.StackRule=="True"));
             if(existing!=null)
             {
                 existing.Remaining=duration;
                 if(definition.StackRule=="True" && existing.Stacks<definition.MaximumStacks)foreach(var pair in modifiers)existing.Modifiers[pair.Key]=(existing.Modifiers.TryGetValue(pair.Key,out double value)?value:0)+pair.Value;
                 if(definition.StackRule=="True")existing.Stacks=Math.Min(definition.MaximumStacks,existing.Stacks+1);
+                if(EvolutionRules && definition.StackRule!="True")
+                {existing.Definition=definition;existing.Modifiers=modifiers;existing.SourceSkill=skill;existing.MainSkillBuff=overrideId==0;existing.CasterId=actor.State.EntityId;existing.Elapsed=0;}
                 return;
             }
-            target.Buffs.Add(new ActiveBuff{VisualId=++visualId,Definition=definition,CasterId=actor.State.EntityId,OriginalTeam=target.State.Team,Remaining=duration,Modifiers=modifiers});
-            if((definition.Control??"").Contains("stun")){target.Cast=null;target.State.Action="Idle";target.State.ActionElapsed=0;}
+            var added=new ActiveBuff{VisualId=++visualId,Definition=definition,CasterId=actor.State.EntityId,OriginalTeam=target.State.Team,Remaining=duration,Modifiers=modifiers,SourceSkill=skill,MainSkillBuff=overrideId==0};
+            target.Buffs.Add(added);
+            if(EvolutionRules)EvolutionBuffAdded(target,added);
+            if((definition.Control??"").Contains("stun") || EvolutionRules && new[]{"frozen","icefrozen","fear"}.Any(c=>(definition.Control??"").Split(',').Contains(c))){target.Cast=null;target.State.Action="Idle";target.State.ActionElapsed=0;}
             if(info.SourceId==453)
             {
                 target.State.Team=actor.State.Team;target.Cast=null;
@@ -337,12 +371,20 @@ namespace Zatod.Combat
             {
                 if(!actor.State.Alive && buff.Definition.ClearOnDeath){actor.Buffs.Remove(buff);continue;}
                 buff.Elapsed+=StepSeconds;buff.Remaining-=StepSeconds;
+                if(EvolutionRules && buff.SourceSkill!=null)
+                {
+                    var caster=Find(buff.CasterId);
+                    double ratio=Evo(buff.SourceSkill,"DotHealPercent")/100;
+                    if(ratio>0 && caster!=null && buff.Modifiers.TryGetValue("health_regen",out double poison) && poison<0)
+                        Heal(caster,Math.Min(-poison*StepSeconds,actor.State.Hp)*ratio,caster);
+                    if(buff.Definition.SourceId==10003803 && Controlled(actor,"uncontrollable"))buff.Remaining=0;
+                }
                 if(buff.Definition.SourceId==10001002 && buff.Remaining>0)
                 {double ratio=Math.Max(0,(buff.Remaining-StepSeconds)/buff.Remaining);foreach(var stat in new[]{"action_speed","haste"})if(buff.Modifiers.ContainsKey(stat))buff.Modifiers[stat]*=ratio;}
                 if(buff.Remaining<=0)
                 {
-                    actor.Buffs.Remove(buff);
-                    if(buff.Definition.SourceId==10004501)actor.State.Team=buff.OriginalTeam;
+                    if(EvolutionRules)RemoveEvolutionBuff(actor,buff,true);
+                    else {actor.Buffs.Remove(buff);if(buff.Definition.SourceId==10004501)actor.State.Team=buff.OriginalTeam;}
                 }
             }
         }

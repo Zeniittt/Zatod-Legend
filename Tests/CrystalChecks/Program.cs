@@ -13,9 +13,9 @@ static partial class Program
     static int checks;
     static void Check(bool value,string why){checks++;if(!value)throw new Exception(why);}
     static void Reject(Action action,string why){bool rejected=false;try{action();}catch(ArgumentException){rejected=true;}Check(rejected,why);}
-    static void Main()
+    static void Main(string[] args)
     {
-        try { Inventory(); ImportedData(); CampaignDropConfig(); CampaignLootChecks(); BattleStatisticsChecks(); CraftingChecks(); ProgressionChecks();InventoryChecks(); SharedWorld(); ZatodBattles(); Sessions(); SourceCombatRules(); PresentationMotion(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); }
+        try { if(args.Contains("--d35")){SkillPromoteChecks();SkillEvolutionChecks();Console.WriteLine("[D35Checks] PASS / "+checks+" assertions");return;} Inventory(); ImportedData(); CampaignDropConfig(); CampaignLootChecks(); BattleStatisticsChecks(); CraftingChecks(); ProgressionChecks();InventoryChecks();SkillPromoteChecks();SkillEvolutionChecks(); SharedWorld(); ZatodBattles(); Sessions(); SourceCombatRules(); PresentationMotion(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); }
         catch(Exception error) { Console.Error.WriteLine(error.ToString());Environment.ExitCode=1; }
     }
     sealed class Oracle { public List<OracleRow> Rows; }
@@ -27,7 +27,7 @@ static partial class Program
         const string root="Unity/Assets/Zatod/Resources/Data/";
         var data=new HeroCatalogData{ConfigVersion=Read<StatsConfigData>(root+"Stats.txt").ConfigVersion,
             Stats=Read<StatsConfigData>(root+"Stats.txt").Stats,Items=Read<ItemsConfigData>(root+"Items.txt").Items,
-            Skills=Read<SkillsConfigData>(root+"Skills.txt").Skills,Heroes=Read<HeroesConfigData>(root+"Heroes.txt").Heroes,
+            Skills=Read<SkillsConfigData>(root+"Skills.txt").Skills,SkillProgression=Read<SkillsConfigData>(root+"Skills.txt").SkillProgression,Heroes=Read<HeroesConfigData>(root+"Heroes.txt").Heroes,
             Monsters=Read<MonstersConfigData>(root+"Monsters.txt").Monsters,Buffs=Read<BuffsConfigData>(root+"Buffs.txt").Buffs,CraftRecipes=Read<CraftRecipesConfigData>(root+"CraftRecipes.txt").CraftRecipes,StarRules=Read<StarRulesConfigData>(root+"StarRules.txt").StarRules};
         return new HeroCatalog(data);
     }
@@ -309,7 +309,10 @@ static partial class Program
         Check(freezing.Frame().Units.Single(u=>u.Team==1).Motion.VX==0 && freezing.Frame().Units.Single(u=>u.Team==1).ActionSpeed==0,"Manual ultimate freeze did not stop enemy presentation");
         // Fixed pre-change recordings verify that added render metadata does not change combat.
         const string archiveRoot="Artifacts/CrystalPhaseChecks/network-20261119-185731/Server";
-        foreach(string path in Directory.GetFiles(archiveRoot,"*.crystal.gz"))
+        var archives=Directory.GetFiles("Tests/CrystalChecks/Fixtures/replays-v3","*.json.gz").ToList();
+        Check(archives.Count==25,"Missing tracked pre-D35 replay coverage");
+        if(Directory.Exists(archiveRoot))archives.AddRange(Directory.GetFiles(archiveRoot,"*.crystal.gz"));
+        foreach(string path in archives)
         {
             using var input=File.OpenRead(path);using var gzip=new System.IO.Compression.GZipStream(input,System.IO.Compression.CompressionMode.Decompress);
             var old=JsonSerializer.Deserialize<ZatodReplay>(gzip,Json);var repeated=ZatodBattleSimulation.Resimulate(old);

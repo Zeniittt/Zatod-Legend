@@ -2,6 +2,53 @@
 
 Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi sửa lỗi. Chỉ ghi nguyên nhân đã có bằng chứng; giả thuyết ghi riêng. Design.md là nguồn quyết định thiết kế.
 
+## BUG-066 — Tab Skill lệch bố cục ảnh tham chiếu
+
+- **Ngày:** 24/11/2026. **Trạng thái:** đã sửa, kiểm trong Unity; chưa kiểm thiết bị.
+- **Triệu chứng/nguyên nhân:** tab vẫn giữ cột illustration của Base, đặt skill thành hàng ngang trên mô tả; chưa có Hero idle giữa bốn vị trí skill, Intro/Details. Chọn nhầm sprite viền chữ nhật và nút có chữ Trung Quốc nằm trong texture.
+- **Sửa:** Skill chiếm toàn thân panel, tách trái/phải theo ref, Hero idle và bốn vị trí skill, badge Evo/khóa, viền tròn chọn, Intro/Details dùng bản dịch nguồn và cùng resolver level, mô tả cuộn, footer vàng/Lvl Up. Dùng đúng sprite Crystal không có chữ nhúng; Purple chỉ khóa hiển thị, không thêm tiến trình/config combat.
+- **File:** ZatodHeroSkillPanel.cs, ZatodHeroDetailView.cs, ZatodSkillUiAssets.cs, scripts/Import-ZatodSkillUi.py, Resources/Zatod/UI/Hero/Skills, Tests/Unity/D35EditorChecks.cs.
+- **Kiểm:** Unity compile PASS; 25 Hero Intro/Details/Base/locked Purple PASS; 125 kiểm bounds/text/state ở 16:9, 19.5:9, 20:9, 4:3 + safe area; đã xem ảnh thực tế. Core PASS7.970/HeroChecks112. Evidence local: Artifacts/D35BuildWorkspace/Evidence/UI. Khôi phục bản trước chỉnh UI từ Artifacts/D35UiRestore; baseline D35 ở3d774252d.
+- **Lưu ý công cụ:** gọi nhầm `console read` ghi một lỗi Pipeline; lệnh đúng `console get --since`. Không có lỗi C#/runtime mới trong UI; không xóa Console. Unity export có7 warning, không có lỗi.
+
+## BUG-065 — Mô tả Skill/Evo bị cắt ngang trên màn hẹp
+
+- **Ngày:** 24/11/2026. **Trạng thái:** đã kiểm lại trong Unity sau sửa bố cục BUG-066.
+- **Triệu chứng:** ảnh GameView D35 tại 16:9/4:3 cắt cuối mô tả skill/Evo; kiểm RectTransform vẫn qua nên không đủ để phát hiện.
+- **Nguyên nhân xác nhận:** Text helper dùng chế độ không xuống dòng; SkillPanel kế thừa cho mô tả dài trong viewport cuộn dọc.
+- **Sửa:** bật `TextWrappingModes.Normal` riêng cho mô tả và đoạn Evo; tính lại chiều cao bằng preferred size, giữ ScrollRect.
+- **File:** `Unity/Assets/Zatod/Presentation/ZatodHeroSkillPanel.cs`, `Tests/Unity/D35EditorChecks.cs`.
+- **Kiểm:** đã chụp/xem ảnh 4 tỷ lệ và safe area; text xuống dòng, nội dung vượt viewport cuộn dọc. 125 kiểm bounds/text/state PASS. Chưa kiểm iPhone vật lý.
+
+## REVIEW-014 — Preflight D35 và dữ liệu kiểm chứng chưa đi cùng clone
+
+- **Ngày:** 24/11/2026. **Trạng thái:** đang xử lý đầu vào kiểm chứng, chưa đánh dấu D35 hoàn tất.
+- **Bằng chứng:** baseline HeroChecks PASS112; CrystalChecks compile được nhưng dừng tại ImportedData với DirectoryNotFoundException cho `Artifacts/CrystalPhaseChecks/stat-oracle.json`. Test CanonicalContent còn đọc `zatod-id-mapping.json` trong cùng thư mục bị Git ignore. Đây là thiếu fixture của clone, không phải lỗi gameplay đã tái hiện.
+- **Hướng xử lý đang thực hiện:** tạo lại dữ liệu kiểm chứng từ Lua/cấu hình nguồn bằng helper chỉ sinh fixture, không chạy importer cũ làm đổi config/Owned. Giữ test đối chiếu stats; không bỏ qua để báo PASS. Source reference tại Unity/Assets/Crystal Legend đã có, nhưng helper còn resolver root cũ và có nhánh đọc ZIP vắng mặt; rà trước khi chạy.
+- **File liên quan:** Tests/CrystalChecks/Program.cs, scripts/Import-CrystalConfig.py, docs/zatod-skill-promote-phase-plan.md. Lệnh triển khai và đầu ra IPA được ghi tại D35/D37; chưa build ở bước preflight.
+- **Cập nhật kiểm tra:** helper `Prepare-ZatodCheckFixtures.py` đã tạo 600 ca stat từ Lua và mapping ID. Thư mục replay network 19/11 cũng không có trong clone; giữ kiểm tra archive này khi có, đồng thời thêm 25 replay goldens có provenance từ code Git `3d774252d`, không tạo bằng simulation mới. Core đầy đủ PASS7.255 assertions sau transaction và bước nối runtime Evo; các test Evo chi tiết đang bổ sung, chưa phải nghiệm thu D35.
+
+## REVIEW-015 — Import kho reverse trong UnityAssets gây áp lực dung lượng
+
+- **Kiểm tiếp 24/11:** Editor build Mac development phục vụ fixture thoát giữa build; ổ còn 1,9 GiB, Temp của đúng workspace kiểm thử chiếm 7,3 GiB. Log chưa xác nhận crash do disk nên đây chỉ là điều kiện quan sát. Đã dọn riêng Temp sinh từ lượt lỗi khi không còn Editor; giữ Assets, reference, Owned, build cũ. Chuyển fixture sang TCP loopback trong cùng Editor, rồi xuất iOS trực tiếp để tránh thêm bản Mac trung gian.
+
+- **Tiếp tục theo yêu cầu build24/11:** giữ nguyên reference; tạo bản sao APFS riêng ở `Artifacts/D35BuildWorkspace/Unity` gồm game Assets, Packages và ProjectSettings, loại raw Crystal khỏi bản sao kiểm/build. Khi cả hai Editor đều đóng, chỉ xóa 5 cache import tái tạo được (`Library/DataStore`, ArtifactDB/lock, SourceAssetDB/lock) của project chính; giữ PackageCache, thiết lập Editor, restore point, Owned và build cũ. Ổ tăng từ3,3GB lên24GB. Helper art nhận `ZATOD_CRYSTAL_REFERENCE` trỏ read-only về source gốc. Đây là bản sao build, không phải di chuyển reference; kiểm tra UI/network/IPA đang tiếp tục.
+- **Cập nhật mới nhất24/11:** người dùng hủy phương án chuyển ngay sau khi lệnh git mv hoàn tất. Đã git mv ngược đủ 96.077 file từ `Reference/Crystal Legend` về `Unity/Assets/Crystal Legend`, đối chiếu inode/kích thước/mtime với inventory trước chuyển; staged và working diff của reference đều bằng0. Không sửa đường dẫn/Gitignore, không xóa cache trong lượt này. Evidence: `Artifacts/D35ReferenceMove/cancelled-and-restored.json`. Giữ nguyên code D35; không mở lại Editor khi dung lượng vẫn thiếu.
+- **Ngày:** 24/11/2026. **Trạng thái:** đang xử lý; đã hỏi người dùng về việc chuyển reference ra ngoài Assets, chưa được tự coi là đồng ý.
+- **Quan sát xác nhận:** lần mở Unity6000.6.2f1 sau pull tạo khoảng100.000 meta cho kho Crystal và tăng cache import; ổ còn15GB xuống5,1GB. Không phải source bị mất. CLI open trả thành công nhưng Editor khởi động cần giữ tiến trình `--wait`; compile giữa lúc đang viết overload gây SafeMode, sau hoàn thiện core đã PASS và Editor bắt đầu import.
+- **Bảo toàn:** chưa chuyển/xóa reference, chưa sửa Gitignore. `unity close --if-saved` từ chối vì import khiến không kiểm được trạng thái save. Đã tạm suspend đúng Editor/import process của lượt này (PID40720 và các worker), không kill hoặc đóng server chính. Cần resume có kiểm soát sau khi có phương án dung lượng; không để editor bị suspend khi bàn giao cuối.
+- **Liên quan:** phase-plan mục1.8, `Unity/Assets/Crystal Legend`, cache UnityLibrary, log ngoài project `/Users/bloom/Desktop/Zatod-Unity-D35.log`. Tiếp tục code và .NET test độc lập; UI/build chưa kiểm chứng.
+- **Trạng thái cuối lượt thực thi độc lập:** đã đóng đúng Editor/import tree do agent mở bằng SIGTERM rồi resume để tiến trình thoát; không còn process bị suspend. Đã backup nguyên văn rồi xóa đúng 100.004 `.meta` mới/untracked trong kho reference, không xóa source. Backup: `Artifacts/D35Assets/generated-reference-metadata.json`. Git diff tracked của reference bằng 0; Library và các bản build cũ giữ nguyên. Còn khoảng 5 GB, chờ người dùng chọn phương án; chưa build IPA.
+
+## REVIEW-016 — Dependency combat và art cần bổ sung cho Evo D35
+
+- **Ngày:** 24/11/2026. **Trạng thái:** core đã kiểm; Editor, UI, network và IPA chưa nghiệm thu.
+- **Nguyên nhân đã đối chiếu:** model cũ refresh buff cùng ID dù source `unit.addBuff` giữ nhiều instance khi không Stack-and-Refresh; làm SF không cộng dồn soul. Shield generic bỏ qua loại `shallowGrave` của SP; Fear chỉ khóa hành động mà chưa đi ngược hướng. Pugna channel cần gỡ control/debuff theo `unit.addBuff`. Đây là các dependency của skill active/Evo, giới hạn nhánh rules V4 để giữ replay V3.
+- **Cách xử lý:** runtime handler theo hook nguồn; scope buff-duration cho đúng BuffId trong preview (THD freeze không được đổi thời lượng slow), thêm HIT→accuracy, validate parameter/event có handler và dependency cycle. Guard Retired GUID trước QuickEquip; version config 8 bảng đồng bộ.
+- **Art:** 5 effect thiếu bake có đủ container giải nén trong `patch/pfca/effect`; loader mới đọc thư mục này trước ZIP. Đã bake 200 frame và copy 84 ảnh UI gốc. Một số Icon nguồn chỉ tên `.png` nhưng file thật `.jpg`; importer resolve đúng cùng stem và kiểm tồn tại. Recovery trung gian ở Artifacts, không ghi lại reference. Unity import/slice/clip chưa chạy.
+- **Bằng chứng:** CrystalChecks PASS 7.970, HeroChecks PASS 112; compile offline cả 5 assembly bằng references/compiler Unity 6000.6.2f1. `SkillEvolutionChecks.cs` chứa ca source-specific; 25 goldens V3 vẫn giữ digest/outcome. Chi tiết trong `docs/zatod-skill-promote-implementation.md`; không dùng số assertion làm bằng chứng UI/thiết bị.
+- **Nếu tiếp tục:** giải quyết REVIEW-015 trước khi mở Editor; chạy `ZatodEvolutionArt.Prepare`, kiểm UI/Editor/network fixture rồi mới build. Không regenerate goldens cũ bằng simulation mới.
+
 ## REVIEW-013 — Kéo đủ 28 commit Crystal và giữ thay đổi tài liệu local
 
 - **Ngày:** 24/11/2026. **Trạng thái:** hoàn tất fetch/fast-forward 28 commit và xử lý conflict; main/remote main cùng `46d197182c1d9e5743fa0e40f62d6a90bf3ab500`, ahead/behind 0/0 tại mốc kiểm. Không tạo commit mới hoặc push.

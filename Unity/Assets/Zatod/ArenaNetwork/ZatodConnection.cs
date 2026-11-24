@@ -122,7 +122,16 @@ namespace Zatod.Networking
             if(!Connected||ItemOperationBusy)return;request.OperationId=Guid.NewGuid().ToString("D");pendingItemOperation=request;PendingItemOperationId=request.OperationId;ItemOperationBusy=true;Request(request);SetStatus("Updating items...");
         }
         public void RetryItemOperation(){if(Connected && pendingItemOperation!=null){ItemOperationBusy=true;Request(pendingItemOperation);}}
-        public void Promote(string heroId)=>Request(new ZatodRequest{Command="promote",A=heroId});
+        public void UpgradeSkill(string heroId,string slotId,int count=1)
+        {
+            var hero=Snapshot?.Account?.HeroDesk.SingleOrDefault(h=>h.HeroInstanceId==heroId);
+            var skill=hero?.Skills.SingleOrDefault(s=>s.SlotId==slotId);if(skill==null)return;
+            SendItemOperation(new ZatodRequest{Command="skill_up",A=heroId,B=slotId,Number=count,ExpectedLevel=skill.Level,ExpectedRevision=Snapshot.Account.Revision});
+        }
+        public void QuickEquip(string heroId)
+        {if(Snapshot!=null)SendItemOperation(new ZatodRequest{Command="quick_equip",A=heroId,ExpectedRevision=Snapshot.Account.Revision});}
+        public void Promote(string heroId)
+        {if(Snapshot!=null)SendItemOperation(new ZatodRequest{Command="promote",A=heroId,ExpectedRevision=Snapshot.Account.Revision});}
         public void DevLevel(string heroId,int level)=>Request(new ZatodRequest{Command="level",A=heroId,Number=level});
         public bool Ultimate(int actorId)
         {

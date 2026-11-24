@@ -1,0 +1,118 @@
+{
+  "UnitId": "effect_eff_buff_slow",
+  "Resource": "eff_buff_slow",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_buff_slow/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_buff_slow_Start_0000",
+          "X": 0,
+          "Y": 66,
+          "Width": 215,
+          "Height": 66,
+          "PivotX": 0.4930232558139535,
+          "PivotY": 0.4393939393939394
+        },
+        {
+          "Name": "eff_buff_slow_Start_0001",
+          "X": 215,
+          "Y": 66,
+          "Width": 215,
+          "Height": 66,
+          "PivotX": 0.4930232558139535,
+          "PivotY": 0.4393939393939394
+        },
+        {
+          "Name": "eff_buff_slow_Start_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 215,
+          "Height": 66,
+          "PivotX": 0.4930232558139535,
+          "PivotY": 0.4393939393939394
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_buff_slow/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_buff_slow_Loop_0000",
+          "X": 0,
+          "Y": 66,
+          "Width": 215,
+          "Height": 66,
+          "PivotX": 0.4930232558139535,
+          "PivotY": 0.4393939393939394
+        },
+        {
+          "Name": "eff_buff_slow_Loop_0001",
+          "X": 215,
+          "Y": 66,
+          "Width": 215,
+          "Height": 66,
+          "PivotX": 0.4930232558139535,
+          "PivotY": 0.4393939393939394
+        },
+        {
+          "Name": "eff_buff_slow_Loop_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 215,
+          "Height": 66,
+          "PivotX": 0.4930232558139535,
+          "PivotY": 0.4393939393939394
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.125,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_slow/Start_0.png",
+          "Name": "eff_buff_slow_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_slow/Start_0.png",
+          "Name": "eff_buff_slow_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_slow/Start_0.png",
+          "Name": "eff_buff_slow_Start_0002"
+        }
+      ],
+      "Loop": false,
+      "Width": 215,
+      "Height": 66,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.125,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_slow/Loop_0.png",
+          "Name": "eff_buff_slow_Loop_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_slow/Loop_0.png",
+          "Name": "eff_buff_slow_Loop_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_slow/Loop_0.png",
+          "Name": "eff_buff_slow_Loop_0002"
+        }
+      ],
+      "Loop": true,
+      "Width": 215,
+      "Height": 66,
+      "AudioCues": []
+    }
+  ]
+}

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zatod.Heroes;
+using Zatod.Networking;
 using static Zatod.Presentation.ZatodHeroUi;
 
 namespace Zatod.Presentation
@@ -24,7 +25,29 @@ namespace Zatod.Presentation
         public HeroStatResult DisplayedStats{get;private set;}
         HeroCatalog catalog;CharacterData account;HeroData hero;Action close;Vector2 size;
         RectTransform idleRoot;ReplaySprite idle;float opened;Vector2 idleNativeSize=new Vector2(250,300);
-        void Awake(){Close.onClick.AddListener(()=>close?.Invoke());}
+        ZatodConnection connection;ZatodHeroSkillPanel skillPanel;bool skillsSelected,wired;
+        void Awake(){if(Close!=null)Close.onClick.AddListener(()=>close?.Invoke());}
+        public void Configure(ZatodConnection client)
+        {
+            connection=client;if(wired)return;wired=true;
+            TabButtons[0].onClick.AddListener(()=>SelectTab(false));TabButtons[1].onClick.AddListener(()=>SelectTab(true));
+            QuickEquip.onClick.AddListener(()=>
+            {
+                if(hero==null || connection==null || !QuickEquip.interactable)return;
+                var rank=HeroProgression.CurrentRank(hero,catalog);
+                if(rank.EquipmentSlots.All(s=>hero.EquippedItems.Any(i=>i.SlotId==s.Id)) && !string.IsNullOrEmpty(rank.NextRankId))connection.Promote(hero.HeroInstanceId);
+                else connection.QuickEquip(hero.HeroInstanceId);
+            });
+        }
+        public void SelectTab(bool skills)
+        {
+            skillsSelected=skills;ArtPanel.gameObject.SetActive(!skills);CenterPanel.gameObject.SetActive(!skills);InfoPanel.gameObject.SetActive(!skills);
+            if(skillPanel==null)skillPanel=ZatodHeroSkillPanel.Create(Body,Font);
+            skillPanel.gameObject.SetActive(skills);
+            TabButtons[0].image.sprite=Art(skills?"hero_tab_unchoose":"hero_tab_choose");TabButtons[1].image.sprite=Art(skills?"hero_tab_choose":"hero_tab_unchoose");
+            if(skills && hero!=null)skillPanel.Bind(catalog,account,HeroId,connection);
+            size=Vector2.zero;Fit();
+        }
         public void Open(HeroCatalog definitions,CharacterData owned,string id,Action onClose)
         {
             catalog=definitions;close=onClose;HeroId=id;account=owned;RefreshCurrencies(CurrencyRow,owned);hero=owned.HeroDesk.Single(h=>h.HeroInstanceId==id);
@@ -58,6 +81,11 @@ namespace Zatod.Presentation
                 index++;
             }
             StatsContent.sizeDelta=new Vector2(0,index*49);size=Vector2.zero;Fit();
+            bool full=rank.EquipmentSlots.All(s=>hero.EquippedItems.Any(e=>e.SlotId==s.Id)),max=string.IsNullOrEmpty(rank.NextRankId);
+            var caption=QuickEquip.GetComponentInChildren<TextMeshProUGUI>();caption.text=full?(max?"Max Rank":"Promote"):"Quick Equip";
+            bool available=full?!max:SkillProgression.QuickEquipPlan(account,hero,catalog).Count>0;
+            QuickEquip.interactable=available && connection!=null && connection.Connected && !connection.ItemOperationBusy && !connection.FindingPvp && (connection.Battle==null || connection.Battle.Finished);
+            if(skillsSelected && skillPanel!=null)skillPanel.Bind(catalog,account,HeroId,connection);
         }
         public static string StatName(string id)
         {
@@ -88,6 +116,7 @@ namespace Zatod.Presentation
             Fill(ArtPanel,Vector2.zero,new Vector2(.265f,1),new Vector2(12,12),new Vector2(-4,-12));
             Fill(CenterPanel,new Vector2(.265f,0),new Vector2(.715f,1),new Vector2(4,12),new Vector2(-4,-12));
             Fill(InfoPanel,new Vector2(.715f,0),Vector2.one,new Vector2(4,12),new Vector2(-12,-12));
+            if(skillPanel!=null)Fill((RectTransform)skillPanel.transform,Vector2.zero,Vector2.one,new Vector2(12,12),new Vector2(-12,-12));
             float cw=CenterPanel.rect.width,ch=CenterPanel.rect.height;float fit=Mathf.Min(cw/558f,ch/700f);
             Place(EquipmentLayer,(cw-518*fit)/2,60,518,550);EquipmentLayer.localScale=Vector3.one*fit;
             Place(RankFrame.rectTransform,20,12,cw-40,64);Place(HeroName.rectTransform,24,14,cw-48,60);

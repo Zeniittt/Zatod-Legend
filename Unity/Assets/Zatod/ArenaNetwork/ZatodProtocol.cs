@@ -6,7 +6,7 @@ using Zatod.Combat;
 namespace Zatod.Networking
 {
     public struct ZatodPacket : NetworkMessage { public string id,kind;public int index,length;public byte[] bytes; }
-    [Serializable] public sealed class ZatodRequest { public string Command,A,B,C,OperationId;public int Number;public string[] Heroes; }
+    [Serializable] public sealed class ZatodRequest { public string Command,A,B,C,OperationId;public int Number,ExpectedLevel;public long ExpectedRevision;public string[] Heroes; }
     [Serializable] public sealed class ZatodStageStars { public string StageId;public int Stars; }
     [Serializable] public sealed class ZatodAccountSnapshot
     {

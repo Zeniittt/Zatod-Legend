@@ -13,6 +13,7 @@ namespace Zatod.Presentation
         {
             heroRoster=Instantiate(Resources.Load<GameObject>("Zatod/UI/Hero/ZatodHeroRosterView"),root,false).GetComponent<ZatodHeroRosterView>();heroRoster.gameObject.SetActive(false);
             heroDetail=Instantiate(Resources.Load<GameObject>("Zatod/UI/Hero/ZatodHeroDetailView"),root,false).GetComponent<ZatodHeroDetailView>();heroDetail.gameObject.SetActive(false);
+            heroDetail.Configure(connection);
             var equipmentPrefab=Resources.Load<GameObject>("Zatod/UI/Crafting/ZatodEquipmentView");equipmentWindow=equipmentPrefab==null?ZatodEquipmentView.Create(root,Font):Instantiate(equipmentPrefab,root,false).GetComponent<ZatodEquipmentView>();equipmentWindow.gameObject.SetActive(false);
             heroRoster.OnEquipment=OpenEquipment;heroDetail.OnEquipment=OpenEquipment;
             inventoryView=ZatodInventoryView.Create(root,world.MapLabel.font);
