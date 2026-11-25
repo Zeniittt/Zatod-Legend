@@ -1,0 +1,63 @@
+{
+  "UnitId": "effect_eff_impact_Pudge_atk3",
+  "Resource": "eff_impact_Pudge_atk3",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_impact_Pudge_atk3/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_impact_Pudge_atk3_Start_0000",
+          "X": 0,
+          "Y": 335,
+          "Width": 342,
+          "Height": 335,
+          "PivotX": 0.4064327485380117,
+          "PivotY": 0.18208955223880596
+        },
+        {
+          "Name": "eff_impact_Pudge_atk3_Start_0001",
+          "X": 342,
+          "Y": 335,
+          "Width": 342,
+          "Height": 335,
+          "PivotX": 0.4064327485380117,
+          "PivotY": 0.18208955223880596
+        },
+        {
+          "Name": "eff_impact_Pudge_atk3_Start_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 342,
+          "Height": 335,
+          "PivotX": 0.4064327485380117,
+          "PivotY": 0.18208955223880596
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.125,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_impact_Pudge_atk3/Start_0.png",
+          "Name": "eff_impact_Pudge_atk3_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_impact_Pudge_atk3/Start_0.png",
+          "Name": "eff_impact_Pudge_atk3_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_impact_Pudge_atk3/Start_0.png",
+          "Name": "eff_impact_Pudge_atk3_Start_0002"
+        }
+      ],
+      "Loop": false,
+      "Width": 342,
+      "Height": 335,
+      "AudioCues": []
+    }
+  ]
+}
