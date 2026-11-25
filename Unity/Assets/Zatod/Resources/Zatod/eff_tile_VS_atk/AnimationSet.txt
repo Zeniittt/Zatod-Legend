@@ -1,0 +1,64 @@
+{
+    "HeroId": "effect_eff_tile_VS_atk",
+    "CanvasWidth": 473,
+    "CanvasHeight": 217,
+    "PixelsPerUnit": 100,
+    "AnchorPixelX": 576.0,
+    "AnchorPixelY": 28.0,
+    "Clips": [
+        {
+            "StabilizeHorizontalAnchor": false,
+            "State": "Start",
+            "SourceFolder": "Zatod/eff_tile_VS_atk",
+            "ClipResource": "Zatod/eff_tile_VS_atk/Animations/Start",
+            "FramesPerSecond": 24,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Start_0.png#eff_tile_VS_atk_Start_0000",
+                "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Start_0.png#eff_tile_VS_atk_Start_0001",
+                "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Start_0.png#eff_tile_VS_atk_Start_0002"
+            ],
+            "Frames": [],
+            "ContentBounds": [],
+            "UseProjectileOrigin": false,
+            "PreserveSpritePivot": true,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0,
+            "PresentationHeight": 0,
+            "SourceDurationSeconds": 0.125,
+            "VisualReferenceWidthPixels": 0,
+            "FrameTimes": [
+                0.0,
+                0.0416666679084301,
+                0.0833333358168602
+            ],
+            "AudioCues": []
+        },
+        {
+            "StabilizeHorizontalAnchor": false,
+            "State": "Loop",
+            "SourceFolder": "Zatod/eff_tile_VS_atk",
+            "ClipResource": "Zatod/eff_tile_VS_atk/Animations/Loop",
+            "FramesPerSecond": 24,
+            "Loop": true,
+            "Projectile": false,
+            "SourceFrames": [
+                "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Loop_0.png#eff_tile_VS_atk_Loop_0000"
+            ],
+            "Frames": [],
+            "ContentBounds": [],
+            "UseProjectileOrigin": false,
+            "PreserveSpritePivot": true,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0,
+            "PresentationHeight": 0,
+            "SourceDurationSeconds": 0.0416666679084301,
+            "VisualReferenceWidthPixels": 0,
+            "FrameTimes": [
+                0.0
+            ],
+            "AudioCues": []
+        }
+    ]
+}

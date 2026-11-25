@@ -1,0 +1,118 @@
+{
+  "UnitId": "effect_eff_tile_Luna_atk",
+  "Resource": "eff_tile_Luna_atk",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_Luna_atk/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Luna_atk_Start_0000",
+          "X": 0,
+          "Y": 115,
+          "Width": 183,
+          "Height": 115,
+          "PivotX": 0.4644808743169399,
+          "PivotY": 0.43478260869565216
+        },
+        {
+          "Name": "eff_tile_Luna_atk_Start_0001",
+          "X": 183,
+          "Y": 115,
+          "Width": 183,
+          "Height": 115,
+          "PivotX": 0.4644808743169399,
+          "PivotY": 0.43478260869565216
+        },
+        {
+          "Name": "eff_tile_Luna_atk_Start_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 183,
+          "Height": 115,
+          "PivotX": 0.4644808743169399,
+          "PivotY": 0.43478260869565216
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_Luna_atk/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Luna_atk_Loop_0000",
+          "X": 0,
+          "Y": 115,
+          "Width": 183,
+          "Height": 115,
+          "PivotX": 0.4644808743169399,
+          "PivotY": 0.43478260869565216
+        },
+        {
+          "Name": "eff_tile_Luna_atk_Loop_0001",
+          "X": 183,
+          "Y": 115,
+          "Width": 183,
+          "Height": 115,
+          "PivotX": 0.4644808743169399,
+          "PivotY": 0.43478260869565216
+        },
+        {
+          "Name": "eff_tile_Luna_atk_Loop_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 183,
+          "Height": 115,
+          "PivotX": 0.4644808743169399,
+          "PivotY": 0.43478260869565216
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.125,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Luna_atk/Start_0.png",
+          "Name": "eff_tile_Luna_atk_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Luna_atk/Start_0.png",
+          "Name": "eff_tile_Luna_atk_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Luna_atk/Start_0.png",
+          "Name": "eff_tile_Luna_atk_Start_0002"
+        }
+      ],
+      "Loop": false,
+      "Width": 183,
+      "Height": 115,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.125,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Luna_atk/Loop_0.png",
+          "Name": "eff_tile_Luna_atk_Loop_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Luna_atk/Loop_0.png",
+          "Name": "eff_tile_Luna_atk_Loop_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Luna_atk/Loop_0.png",
+          "Name": "eff_tile_Luna_atk_Loop_0002"
+        }
+      ],
+      "Loop": true,
+      "Width": 183,
+      "Height": 115,
+      "AudioCues": []
+    }
+  ]
+}

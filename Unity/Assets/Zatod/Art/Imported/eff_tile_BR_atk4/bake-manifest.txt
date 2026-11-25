@@ -1,0 +1,66 @@
+{
+  "UnitId": "effect_eff_tile_BR_atk4",
+  "Resource": "eff_tile_BR_atk4",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_BR_atk4/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_BR_atk4_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 196,
+          "Height": 112,
+          "PivotX": 0.7857142857142857,
+          "PivotY": 0.5
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_BR_atk4/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_BR_atk4_Start_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 196,
+          "Height": 112,
+          "PivotX": 0.7857142857142857,
+          "PivotY": 0.5
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_BR_atk4/Loop_0.png",
+          "Name": "eff_tile_BR_atk4_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 196,
+      "Height": 112,
+      "AudioCues": []
+    },
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_BR_atk4/Start_0.png",
+          "Name": "eff_tile_BR_atk4_Start_0000"
+        }
+      ],
+      "Loop": false,
+      "Width": 196,
+      "Height": 112,
+      "AudioCues": []
+    }
+  ]
+}

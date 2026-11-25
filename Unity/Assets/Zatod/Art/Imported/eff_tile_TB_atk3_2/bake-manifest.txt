@@ -1,0 +1,131 @@
+{
+  "UnitId": "effect_eff_tile_TB_atk3_2",
+  "Resource": "eff_tile_TB_atk3_2",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_TB_atk3_2_Start_0000",
+          "X": 0,
+          "Y": 121,
+          "Width": 226,
+          "Height": 121,
+          "PivotX": 0.8672566371681416,
+          "PivotY": 0.4462809917355372
+        },
+        {
+          "Name": "eff_tile_TB_atk3_2_Start_0001",
+          "X": 226,
+          "Y": 121,
+          "Width": 226,
+          "Height": 121,
+          "PivotX": 0.8672566371681416,
+          "PivotY": 0.4462809917355372
+        },
+        {
+          "Name": "eff_tile_TB_atk3_2_Start_0002",
+          "X": 452,
+          "Y": 121,
+          "Width": 226,
+          "Height": 121,
+          "PivotX": 0.8672566371681416,
+          "PivotY": 0.4462809917355372
+        },
+        {
+          "Name": "eff_tile_TB_atk3_2_Start_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 226,
+          "Height": 121,
+          "PivotX": 0.8672566371681416,
+          "PivotY": 0.4462809917355372
+        },
+        {
+          "Name": "eff_tile_TB_atk3_2_Start_0004",
+          "X": 226,
+          "Y": 0,
+          "Width": 226,
+          "Height": 121,
+          "PivotX": 0.8672566371681416,
+          "PivotY": 0.4462809917355372
+        },
+        {
+          "Name": "eff_tile_TB_atk3_2_Start_0005",
+          "X": 452,
+          "Y": 0,
+          "Width": 226,
+          "Height": 121,
+          "PivotX": 0.8672566371681416,
+          "PivotY": 0.4462809917355372
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_TB_atk3_2_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 222,
+          "Height": 108,
+          "PivotX": 0.8828828828828829,
+          "PivotY": 0.4444444444444444
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.25,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Start_0.png",
+          "Name": "eff_tile_TB_atk3_2_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Start_0.png",
+          "Name": "eff_tile_TB_atk3_2_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Start_0.png",
+          "Name": "eff_tile_TB_atk3_2_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Start_0.png",
+          "Name": "eff_tile_TB_atk3_2_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Start_0.png",
+          "Name": "eff_tile_TB_atk3_2_Start_0004"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Start_0.png",
+          "Name": "eff_tile_TB_atk3_2_Start_0005"
+        }
+      ],
+      "Loop": false,
+      "Width": 226,
+      "Height": 121,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_TB_atk3_2/Loop_0.png",
+          "Name": "eff_tile_TB_atk3_2_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 222,
+      "Height": 108,
+      "AudioCues": []
+    }
+  ]
+}

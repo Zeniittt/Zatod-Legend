@@ -1,0 +1,131 @@
+{
+  "UnitId": "effect_eff_tile_Naga_atk3",
+  "Resource": "eff_tile_Naga_atk3",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Naga_atk3_Start_0000",
+          "X": 0,
+          "Y": 146,
+          "Width": 93,
+          "Height": 146,
+          "PivotX": 0.6666666666666666,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_tile_Naga_atk3_Start_0001",
+          "X": 93,
+          "Y": 146,
+          "Width": 93,
+          "Height": 146,
+          "PivotX": 0.6666666666666666,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_tile_Naga_atk3_Start_0002",
+          "X": 186,
+          "Y": 146,
+          "Width": 93,
+          "Height": 146,
+          "PivotX": 0.6666666666666666,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_tile_Naga_atk3_Start_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 93,
+          "Height": 146,
+          "PivotX": 0.6666666666666666,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_tile_Naga_atk3_Start_0004",
+          "X": 93,
+          "Y": 0,
+          "Width": 93,
+          "Height": 146,
+          "PivotX": 0.6666666666666666,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_tile_Naga_atk3_Start_0005",
+          "X": 186,
+          "Y": 0,
+          "Width": 93,
+          "Height": 146,
+          "PivotX": 0.6666666666666666,
+          "PivotY": 0.5
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_Naga_atk3_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 60,
+          "Height": 146,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.25,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Start_0.png",
+          "Name": "eff_tile_Naga_atk3_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Start_0.png",
+          "Name": "eff_tile_Naga_atk3_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Start_0.png",
+          "Name": "eff_tile_Naga_atk3_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Start_0.png",
+          "Name": "eff_tile_Naga_atk3_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Start_0.png",
+          "Name": "eff_tile_Naga_atk3_Start_0004"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Start_0.png",
+          "Name": "eff_tile_Naga_atk3_Start_0005"
+        }
+      ],
+      "Loop": false,
+      "Width": 93,
+      "Height": 146,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_Naga_atk3/Loop_0.png",
+          "Name": "eff_tile_Naga_atk3_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 60,
+      "Height": 146,
+      "AudioCues": []
+    }
+  ]
+}

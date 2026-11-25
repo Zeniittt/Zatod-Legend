@@ -1,0 +1,92 @@
+{
+  "UnitId": "effect_eff_tile_VS_atk",
+  "Resource": "eff_tile_VS_atk",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_VS_atk_Start_0000",
+          "X": 0,
+          "Y": 217,
+          "Width": 473,
+          "Height": 217,
+          "PivotX": 0.46511627906976744,
+          "PivotY": 0.511520737327189
+        },
+        {
+          "Name": "eff_tile_VS_atk_Start_0001",
+          "X": 473,
+          "Y": 217,
+          "Width": 473,
+          "Height": 217,
+          "PivotX": 0.46511627906976744,
+          "PivotY": 0.511520737327189
+        },
+        {
+          "Name": "eff_tile_VS_atk_Start_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 473,
+          "Height": 217,
+          "PivotX": 0.46511627906976744,
+          "PivotY": 0.511520737327189
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_VS_atk_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 383,
+          "Height": 217,
+          "PivotX": 0.3394255874673629,
+          "PivotY": 0.511520737327189
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.125,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Start_0.png",
+          "Name": "eff_tile_VS_atk_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Start_0.png",
+          "Name": "eff_tile_VS_atk_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Start_0.png",
+          "Name": "eff_tile_VS_atk_Start_0002"
+        }
+      ],
+      "Loop": false,
+      "Width": 473,
+      "Height": 217,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_VS_atk/Loop_0.png",
+          "Name": "eff_tile_VS_atk_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 383,
+      "Height": 217,
+      "AudioCues": []
+    }
+  ]
+}

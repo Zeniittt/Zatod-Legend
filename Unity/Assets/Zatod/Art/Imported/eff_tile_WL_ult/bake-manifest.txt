@@ -1,0 +1,144 @@
+{
+  "UnitId": "effect_eff_tile_WL_ult",
+  "Resource": "eff_tile_WL_ult",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_WL_ult_Start_0000",
+          "X": 0,
+          "Y": 345,
+          "Width": 949,
+          "Height": 345,
+          "PivotX": 0.8187565858798735,
+          "PivotY": 0.48695652173913045
+        },
+        {
+          "Name": "eff_tile_WL_ult_Start_0001",
+          "X": 949,
+          "Y": 345,
+          "Width": 949,
+          "Height": 345,
+          "PivotX": 0.8187565858798735,
+          "PivotY": 0.48695652173913045
+        },
+        {
+          "Name": "eff_tile_WL_ult_Start_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 949,
+          "Height": 345,
+          "PivotX": 0.8187565858798735,
+          "PivotY": 0.48695652173913045
+        },
+        {
+          "Name": "eff_tile_WL_ult_Start_0003",
+          "X": 949,
+          "Y": 0,
+          "Width": 949,
+          "Height": 345,
+          "PivotX": 0.8187565858798735,
+          "PivotY": 0.48695652173913045
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_tile_WL_ult_Loop_0000",
+          "X": 0,
+          "Y": 345,
+          "Width": 949,
+          "Height": 345,
+          "PivotX": 0.8187565858798735,
+          "PivotY": 0.48695652173913045
+        },
+        {
+          "Name": "eff_tile_WL_ult_Loop_0001",
+          "X": 949,
+          "Y": 345,
+          "Width": 949,
+          "Height": 345,
+          "PivotX": 0.8187565858798735,
+          "PivotY": 0.48695652173913045
+        },
+        {
+          "Name": "eff_tile_WL_ult_Loop_0002",
+          "X": 0,
+          "Y": 0,
+          "Width": 949,
+          "Height": 345,
+          "PivotX": 0.8187565858798735,
+          "PivotY": 0.48695652173913045
+        },
+        {
+          "Name": "eff_tile_WL_ult_Loop_0003",
+          "X": 949,
+          "Y": 0,
+          "Width": 949,
+          "Height": 345,
+          "PivotX": 0.8187565858798735,
+          "PivotY": 0.48695652173913045
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.16666666666666666,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Start_0.png",
+          "Name": "eff_tile_WL_ult_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Start_0.png",
+          "Name": "eff_tile_WL_ult_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Start_0.png",
+          "Name": "eff_tile_WL_ult_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Start_0.png",
+          "Name": "eff_tile_WL_ult_Start_0003"
+        }
+      ],
+      "Loop": false,
+      "Width": 949,
+      "Height": 345,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.16666666666666666,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Loop_0.png",
+          "Name": "eff_tile_WL_ult_Loop_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Loop_0.png",
+          "Name": "eff_tile_WL_ult_Loop_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Loop_0.png",
+          "Name": "eff_tile_WL_ult_Loop_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_tile_WL_ult/Loop_0.png",
+          "Name": "eff_tile_WL_ult_Loop_0003"
+        }
+      ],
+      "Loop": true,
+      "Width": 949,
+      "Height": 345,
+      "AudioCues": []
+    }
+  ]
+}
