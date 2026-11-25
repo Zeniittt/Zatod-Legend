@@ -1,10 +1,10 @@
 # Zatod Legend — Thiết kế đã thống nhất
 
-Cập nhật: **24/11/2026, Asia/Saigon**.
+Cập nhật: **25/11/2026, Asia/Saigon**.
 
 Đây là nguồn quyết định chung của project. Mỗi chat cần đọc file này trước khi làm việc và cập nhật khi người dùng chốt thêm. Đồng ý về thiết kế không đồng nghĩa thay đổi đó đã được triển khai hoặc được yêu cầu triển khai ngay.
 
-**Phase đang bàn — D38:** bắt đầu từ yêu cầu bỏ nútOK sauEquip. Đọc [phase-plan D38](docs/zatod-world-ui-polish-phase-plan.md) để thực thi/nghiệm thu; mởTím/chương3–8/PvP40Hero/combat feeling thuộc phase trước, không gộp lại. Lượt hiện tại là bàn giao Markdown, chưa là lệnh code/build.
+**Phase D38 — đã triển khai/kiểm trên Mac ngày25/11/2026.** Phạm vi từ sửa Equip tới world/UI/preload/PoolManager; báo cáo [implementation D38](docs/zatod-world-ui-polish-implementation.md), checklist [phase-plan D38](docs/zatod-world-ui-polish-phase-plan.md). IPA chưa ký đã kiểm thành công; thiết bị thật/Windows/Android chưa chạy lại. D34 là phase trước, không nhập lại nội dung.
 
 ## Quyết định đã chốt
 
@@ -554,6 +554,11 @@ Yêu cầu ngày20/11/2026. **Trạng thái:** đã triển khai Fixed joystick/
 - **Trạng thái:** skill `local-build-handoff` và AGENTS ở Codex home trên Mac đã có; cập nhật chỉ dẫn project/phase-plan/iOS. Chưa thêm menu/helper IPA mới trong Unity, chưa chạy build từ nhiệm vụ tài liệu này.
 
 ### D38 — Art thị trấn Crystal, chọn chương và boss đại diện ải
+
+- **Nghiệm thu Mac 25/11/2026:** đã triển khai Equip tự đóng theo receipt/context; art Crystal cho7điểmTown; selector8chương/gateaccount; portaltrái/phải; boss154ải/55key+99minorPassed; preload dependency vàpoolFX/projectile/sốcombat. Core8.051/native3.017/Hero112/policy46; UI/pointer/TCP/replay vàfarm154ải/5Tím đạt; stress39vòng/1.205,61s,2.011reuseFX. Sửa thêm hit-area đảo, selection fake-null vàcleanuptext; kiểmcuốipoolUIactive0. Không đổi simulation/replay rules hoặc Owned thật.
+- **IPA D38:** `/Users/bloom/Desktop/Zatod Legend/Builds/D38/20261125-105521/ZatodLegend-D38-unsigned.ipa` (1.54GiB), Releasearm64unsignedchoSideloadly. ZIP64/CRC/plist/LAN/framework/20TextAsset vàchữkýđạt. Chưa ký/cài/chạy iPhone hoặc chạy lạiWindows/OPPO; client/server cần cùngD38. Báo cáo triển khai giữ giới hạn nguồn/balance và evidence; các bullet chưatriểnkhai bên dưới là lịch sử bàn giao24/11.
+
+- **Lệnh triển khai 25/11/2026:** người dùng giao thực thi toàn bộ phase-plan D38 và bàn giao theo D37. Bắt đầu từ baseline `522721a34` trên nhánh `codex/d38-world-ui`; đang triển khai, chưa nghiệm thu. Báo cáo tiến độ: `docs/zatod-world-ui-polish-implementation.md`.
 
 - **Bàn giao 24/11/2026:** [phase-plan D38](docs/zatod-world-ui-polish-phase-plan.md) là checklist triển khai/nghiệm thu riêng, gồm UX-001, world/UI, policy ải, preload/PoolManager và kiểm thử. Review chỉ giữ bằng chứng; không dùng checklist D34/D35 thay phạm vi này. Ba ảnh đã lưu trong `docs/reference/d38-world-ui/`, không phụ thuộc Temp/Artifacts. Trạng thái: chỉ cập nhật tài liệu, chưa thực thi runtime trong nhiệm vụ này.
 

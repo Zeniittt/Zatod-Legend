@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -103,7 +103,7 @@ namespace Zatod.Networking
             return account;
         }
         void OnConnected(){Request(new ZatodRequest{Command="hello",A=launchId,B=AccountKey(),C=requestedName});}
-        void OnDisconnected(){FindingPvp=false;StopLogin();ItemOperationBusy=false;ClearClientWorld();Battle=null;PendingCampaignLoot=Array.Empty<string>();SetStatus("Disconnected. Reconnect within this launch to keep its campaign run.");}
+        void OnDisconnected(){ReleaseBattleAssets();FindingPvp=false;StopLogin();ItemOperationBusy=false;ClearClientWorld();Battle=null;PendingCampaignLoot=Array.Empty<string>();SetStatus("Disconnected. Reconnect within this launch to keep its campaign run.");}
         void OnError(TransportError error,string reason){SetStatus(error+": "+reason);}
         public void Disconnect(){if(!IsServer)NetworkClient.Disconnect();}
         public void Request(ZatodRequest request)
@@ -122,9 +122,11 @@ namespace Zatod.Networking
         }
         public void Cancel()
         {
-            FindingPvp=false;Request(new ZatodRequest{Command="cancel"});Battle=null;PendingCampaignLoot=Array.Empty<string>();intents.Clear();submitted=false;Changed?.Invoke();
+            ReleaseBattleAssets();FindingPvp=false;Request(new ZatodRequest{Command="cancel"});Battle=null;PendingCampaignLoot=Array.Empty<string>();intents.Clear();submitted=false;Changed?.Invoke();
         }
         public void AddItemByItemId(string itemId,int amount=1)=>Request(new ZatodRequest{Command="item",A=itemId,Number=amount});
+        public Zatod.Presentation.ZatodBattleAssets PreparedAssets{get;private set;}
+        void ReleaseBattleAssets(){PreparedAssets?.Dispose();PreparedAssets=null;}
         public bool ItemOperationBusy {get;private set;}
         public string PendingItemOperationId {get;private set;}
         ZatodRequest pendingItemOperation;
@@ -178,7 +180,10 @@ namespace Zatod.Networking
                 {
                     case "account":accountReceivedAt=Time.realtimeSinceStartupAsDouble;Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);FinishLogin();if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Campaign progress belongs to this app launch.");break;
                     case "start":FindingPvp=false;
-                        var start=ReplayArchive.DecodePayload<ZatodStart>(bytes);Battle=new ZatodBattleSimulation(start.Match);Team=start.Team;elapsed=0;submitted=false;intents.Clear();sentIntents.Clear();LastReplay=null;
+                        var start=ReplayArchive.DecodePayload<ZatodStart>(bytes);ReleaseBattleAssets();
+                        SetStatus("Preparing battle assets...");
+                        try{PreparedAssets=Zatod.Presentation.ZatodBattleAssets.Prepare(start.Match);}catch{Cancel();throw;}
+                        Battle=new ZatodBattleSimulation(start.Match);Team=start.Team;elapsed=0;submitted=false;intents.Clear();sentIntents.Clear();LastReplay=null;
                         PendingCampaignLoot=start.Match.Mode==ZatodMode.Campaign?(start.LootItems??new List<string>()).AsReadOnly():Array.Empty<string>();
                         SetStatus(start.Match.Mode+" Â· "+start.Match.BattleId);MatchStarted?.Invoke();FrameReceived?.Invoke();
                         if(start.Match.Mode==ZatodMode.RealtimePvp)SendOperation(1);break;

@@ -36,7 +36,8 @@ namespace Zatod.Combat
         }
         public ZatodMatchDefinition BeginCampaign(string stageId,IEnumerable<string> selected,uint seed,string battleId,Action persistOwned=null)
         {
-            if(!Run.IsUnlocked(stageId))throw new ArgumentException("Stage is locked in this application run.");
+            string lockReason=campaign.StageLockReason(stageId,Account.Level,Run.Stars.Keys);
+            if(lockReason!=null)throw new ArgumentException(lockReason);
             var heroIds=Team(selected).Select(x=>x.HeroInstanceId).ToArray();
             var match=ZatodMatchFactory.Campaign(campaign,catalog,Account,stageId,heroIds,seed,battleId);
             if(issued.Count>0)throw new ArgumentException("Finish or cancel the current campaign first.");

@@ -10,7 +10,7 @@ namespace Zatod.World
     [Serializable] public sealed class WorldPropDefinition {public string Id,VisualResource;public float X,Y,Height=2,HalfWidth,HalfDepth;}
     [Serializable] public sealed class WorldInteractionDefinition
     {
-        public string Id,Label,VisualResource,TargetId,DestinationSpawnId="entry";
+        public string Id,Label,VisualResource,AnimationSetResource,TargetId,DestinationSpawnId="entry";
         public WorldInteractionKind Kind;public float X,Y,Radius=2.5f,Height=1.7f,HalfWidth=.4f,HalfDepth=.25f;
     }
     [Serializable] public sealed class WorldMapDefinition
@@ -117,7 +117,7 @@ namespace Zatod.World
                 MinX=m.MinX+m.OriginX,MaxX=m.MaxX+m.OriginX,MinY=m.MinY+m.OriginY,MaxY=m.MaxY+m.OriginY,
                 Spawns=m.Spawns?.Select(p=>p==null?null:new WorldSpawnPoint{Id=p.Id,X=p.X+m.OriginX,Y=p.Y+m.OriginY}).ToList(),
                 Props=m.Props?.Select(p=>p==null?null:new WorldPropDefinition{Id=p.Id,VisualResource=p.VisualResource,X=p.X+m.OriginX,Y=p.Y+m.OriginY,Height=p.Height,HalfWidth=p.HalfWidth,HalfDepth=p.HalfDepth}).ToList(),
-                Interactions=m.Interactions?.Select(p=>p==null?null:new WorldInteractionDefinition{Id=p.Id,Label=p.Label,VisualResource=p.VisualResource,TargetId=p.TargetId,DestinationSpawnId=p.DestinationSpawnId,Kind=p.Kind,X=p.X+m.OriginX,Y=p.Y+m.OriginY,Radius=p.Radius,Height=p.Height,HalfWidth=p.HalfWidth,HalfDepth=p.HalfDepth}).ToList()};
+                Interactions=m.Interactions?.Select(p=>p==null?null:new WorldInteractionDefinition{Id=p.Id,Label=p.Label,VisualResource=p.VisualResource,AnimationSetResource=p.AnimationSetResource,TargetId=p.TargetId,DestinationSpawnId=p.DestinationSpawnId,Kind=p.Kind,X=p.X+m.OriginX,Y=p.Y+m.OriginY,Radius=p.Radius,Height=p.Height,HalfWidth=p.HalfWidth,HalfDepth=p.HalfDepth}).ToList()};
         }
         public static bool Finite(params float[] values)=>values.All(v=>!float.IsNaN(v) && !float.IsInfinity(v));
         public static bool Inside(WorldMapDefinition m,float x,float y)=>Finite(x,y) && x>=m.MinX && x<=m.MaxX && y>=m.MinY && y<=m.MaxY;

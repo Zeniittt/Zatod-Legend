@@ -25,6 +25,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--build-root', type=Path, required=True)
     parser.add_argument('--data', type=Path, required=True)
+    parser.add_argument('--artifact-name', default='ZatodLegend-D34Complete-unsigned.ipa', help='Output IPA basename for this milestone.')
     parser.add_argument('--package-only', action='store_true', help='Reuse this task\'s successful native build; reverify the product and package with ZIP64.')
     args = parser.parse_args()
     root, data = args.build_root.resolve(), args.data.resolve()
@@ -96,7 +97,9 @@ def main():
     else:
         payload.mkdir(parents=True, exist_ok=False)
         subprocess.run(['ditto', str(product), str(payload / product.name)], check=True)
-    ipa = root / 'ZatodLegend-D34Complete-unsigned.ipa'
+    if Path(args.artifact_name).name != args.artifact_name or not args.artifact_name.endswith('.ipa'):
+        raise ValueError('Artifact name must be an IPA basename.')
+    ipa = root / args.artifact_name
     assert not ipa.exists(), 'Preserve or move the previous IPA before repackaging.'
     # ditto's ZIP32 size field wraps for resources.assets.resS above 4 GiB.
     # zipfile writes ZIP64 headers and streams files while preserving Unix modes.

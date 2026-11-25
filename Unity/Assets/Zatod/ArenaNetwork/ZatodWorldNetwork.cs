@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Mirror;
@@ -54,14 +54,31 @@ namespace Zatod.Networking
                 }
             }
         }
-        void UseWorldPortal(NetworkConnectionToClient connection,string interactionId)
+        void UseWorldTravel(NetworkConnectionToClient connection,ZatodPlayerSession session,ZatodRequest request)
         {
             if(!worldPlayers.TryGetValue(connection.connectionId,out var player))throw new ArgumentException("World player is missing.");
-            var point=worldCatalog.Interaction(player.MapId,interactionId);
-            if(point.Kind!=WorldInteractionKind.Portal)throw new ArgumentException("This point is not a portal.");
-            var destination=worldCatalog.Spawn(point.TargetId,point.DestinationSpawnId);player.MapId=point.TargetId;player.X=destination.X;player.Y=destination.Y;player.Walking=false;player.MapRevision++;nextWorldSnapshot=0;
+            if(request.Number!=(int)player.MapRevision)throw new ArgumentException("World changed. Select the destination again.");
+            string target,spawn;
+            if(request.Command=="world_chapter")
+            {
+                if(player.MapId!="town")throw new ArgumentException("Open chapter selection from Town.");
+                var selected=campaign.Data.Chapters.SingleOrDefault(ch=>ch.Id==request.A)??throw new ArgumentException("Chapter is unavailable.");
+                target=selected.WorldMapId;spawn="entry";
+            }
+            else
+            {
+                var point=worldCatalog.Interaction(player.MapId,request.A);
+                if(point.Kind!=WorldInteractionKind.Portal)throw new ArgumentException("This point is not a portal.");
+                target=point.TargetId;spawn=point.DestinationSpawnId;
+            }
+            var chapter=campaign.Data.Chapters.SingleOrDefault(ch=>ch.WorldMapId==target);
+            if(target!="town" && chapter==null)throw new ArgumentException("Chapter is unavailable.");
+            if(chapter!=null){var reason=campaign.ChapterLockReason(chapter.Id,session.Account.Level,session.Run.Stars.Keys);if(reason!=null)throw new ArgumentException(reason);}
+            var destination=worldCatalog.Spawn(target,spawn);
+            player.MapId=target;player.X=destination.X;player.Y=destination.Y;player.Walking=false;player.MapRevision++;nextWorldSnapshot=0;
         }
-        public void WorldTravel(string portalId)=>Request(new ZatodRequest{Command="world_portal",A=portalId});
+        public void WorldTravel(string portalId)=>Request(new ZatodRequest{Command="world_portal",A=portalId,Number=(int)(WorldSelf?.MapRevision??0)});
+        public void ChapterTravel(string chapterId)=>Request(new ZatodRequest{Command="world_chapter",A=chapterId,Number=(int)(WorldSelf?.MapRevision??0)});
         public void SendWorldPose(float x,float y,float facing,bool walking)
         {
             var self=WorldSelf;if(!Connected || self==null)return;

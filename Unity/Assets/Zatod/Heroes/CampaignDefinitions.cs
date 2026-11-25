@@ -15,12 +15,14 @@ namespace Zatod.Heroes
     [Serializable] public sealed class CampaignChapterDefinition
     {
         public string Id,Name,WorldMapId,BattleMusicResource;
+        public int RequiredAccountLevel=1;
         public List<CampaignStageDefinition> Stages=new List<CampaignStageDefinition>();
     }
     [Serializable] public sealed class CampaignStageDefinition
     {
-        public string Id,Name,Description;
+        public string Id,Name,Description,WorldBossEnemyId;
         public int SourceStageId, Difficulty = 1;
+        public bool KeyStage=true;
         public int VitalityCost;
         public int VitalityReturn;
         public long PlayerExpReward, HeroExpReward, GoldReward, FailPlayerExpReward;
@@ -60,14 +62,18 @@ namespace Zatod.Heroes
             var chapters=new HashSet<string>();string previous=null;
             foreach(var chapter in data.Chapters)
             {
-                if(chapter==null || string.IsNullOrWhiteSpace(chapter.Id) || !chapters.Add(chapter.Id) || string.IsNullOrWhiteSpace(chapter.Name) || chapter.Stages==null || chapter.Stages.Count==0)
+                if(chapter==null || string.IsNullOrWhiteSpace(chapter.Id) || !chapters.Add(chapter.Id) || string.IsNullOrWhiteSpace(chapter.Name) || chapter.Stages==null || chapter.Stages.Count==0 || chapter.RequiredAccountLevel<1)
                     throw new ArgumentException("Invalid Campaign chapter.");
                 foreach(var stage in chapter.Stages)
                 {
                     if(stage==null || string.IsNullOrWhiteSpace(stage.Id) || stages.ContainsKey(stage.Id) || string.IsNullOrWhiteSpace(stage.Name)
                         || float.IsNaN(stage.MapX) || float.IsNaN(stage.MapY) || stage.MapX<0 || stage.MapX>1 || stage.MapY<0 || stage.MapY>1
                         || stage.VitalityCost<0 || stage.VitalityReturn<0 || stage.VitalityReturn>stage.VitalityCost || stage.PlayerExpReward<0 || stage.HeroExpReward<0 || stage.GoldReward<0 || stage.FailPlayerExpReward<0 || stage.Monsters==null || ((stage.Waves==null || stage.Waves.Count==0) && (stage.Monsters.Count<1 || stage.Monsters.Count>5)))throw new ArgumentException("Invalid Campaign stage.");
-                    if (stage.Waves!=null && stage.Waves.Count>0) WaveValidation.Validate(stage,heroes);
+                    if (stage.Waves!=null && stage.Waves.Count>0)
+                    {
+                        WaveValidation.Validate(stage,heroes);
+                        if(!string.IsNullOrEmpty(stage.WorldBossEnemyId) && !stage.Waves.Last().Enemies.Any(e=>e.Id==stage.WorldBossEnemyId))throw new ArgumentException("World boss must belong to the final wave: "+stage.Id);
+                    }
                     if(stage.MaxDropAmount<0 || stage.MaxDropAmount==int.MaxValue)throw new ArgumentException("Invalid MaxDropAmount: "+stage.Id);
                     if(stage.DropItems==null || stage.DropItems.Count==0)throw new ArgumentException("Stage needs a drop list totaling 100%: "+stage.Id);
                     var dropIds=new HashSet<string>(StringComparer.Ordinal);
@@ -105,6 +111,27 @@ namespace Zatod.Heroes
         }
         public CampaignStageDefinition Stage(string id)
         {if(id==null || !stages.TryGetValue(id,out var stage))throw new ArgumentException("Unknown Campaign stage.");return stage;}
+        public CampaignChapterDefinition ChapterFor(string stageId){Stage(stageId);return chapterByStage[stageId];}
+        public string ChapterLockReason(string chapterId,int accountLevel,IEnumerable<string> cleared)
+        {
+            int index=Data.Chapters.FindIndex(c=>c.Id==chapterId);
+            if(index<0)return "Chapter is unavailable";
+            if(index==0)return null;
+            var chapter=Data.Chapters[index];var passed=new HashSet<string>(cleared??Enumerable.Empty<string>(),StringComparer.Ordinal);
+            var reasons=new List<string>();
+            if(accountLevel<chapter.RequiredAccountLevel)reasons.Add("Account Lv"+chapter.RequiredAccountLevel+" required");
+            if(!passed.Contains(Data.Chapters[index-1].Stages.Last().Id))reasons.Add("Complete "+Data.Chapters[index-1].Name+" first");
+            return reasons.Count==0?null:string.Join(" · ",reasons);
+        }
+        public string StageLockReason(string stageId,int accountLevel,IEnumerable<string> cleared)
+        {
+            var stage=Stage(stageId);var passed=new HashSet<string>(cleared??Enumerable.Empty<string>(),StringComparer.Ordinal);
+            var reason=ChapterLockReason(ChapterFor(stageId).Id,accountLevel,passed);
+            if(reason!=null)return reason;
+            if(!IsUnlocked(stageId,passed))return "Clear the previous stage first";
+            if(!stage.KeyStage && passed.Contains(stageId))return "Passed — minor stages can only be cleared once per launch";
+            return null;
+        }
         public string BattleMusicFor(string id){Stage(id);return chapterByStage[id].BattleMusicResource;}
         public bool IsUnlocked(string id,IEnumerable<string> cleared)
         {Stage(id);return prerequisites[id]==null || cleared.Contains(prerequisites[id]);}

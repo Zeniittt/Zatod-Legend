@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -82,7 +82,11 @@ namespace Zatod.Networking
             }
             if(!sessions.TryGetValue(id,out var session))throw new ArgumentException("Initialize the launch first.");
             session.RefreshEconomy(()=>SaveOwned(session));
-            if(request.Command=="world_portal"){UseWorldPortal(connection,request.A);return;}
+            if(request.Command=="world_portal" || request.Command=="world_chapter")
+            {
+                if(session.CampaignInProgress || rooms.Any(r=>r.Left==id || r.Right==id) || queue.Contains(id))throw new ArgumentException("Finish or cancel the battle/queue before travelling.");
+                UseWorldTravel(connection,session,request);return;
+            }
             if(request.Command=="replay")
             {
                 if(!archives.TryGetValue(request.A??"",out var record))throw new ArgumentException("Replay is unavailable.");Send(connection,"replay",record);return;
@@ -91,7 +95,7 @@ namespace Zatod.Networking
             {
                 session.CancelCampaign();RemoveFromQueue(id);AbortRoom(id,"Battle cancelled by a player.");SendAccount(connection,session);return;
             }
-            bool heroReceiptRetry=(request.Command=="skill_up" || request.Command=="quick_equip" || request.Command=="promote")
+            bool heroReceiptRetry=(request.Command=="equip" || request.Command=="craft" || request.Command=="skill_up" || request.Command=="quick_equip" || request.Command=="promote")
                 && Guid.TryParseExact(request.OperationId,"D",out var retryId)
                 && (session.Account.ItemOperations?.Any(r=>r.OperationId==retryId.ToString("D") && r.Command==request.Command)??false);
             if(!heroReceiptRetry && (rooms.Any(r=>r.Left==id || r.Right==id) || queue.Contains(id)))throw new ArgumentException("Cancel PvP before changing mode or loadout.");

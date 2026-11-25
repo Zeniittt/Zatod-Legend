@@ -17,7 +17,7 @@ namespace Zatod.Presentation
         SpriteRenderer source;PlayableGraph graph;AnimationPlayableOutput output;
         readonly Dictionary<string,AnimationClipPlayable> playables=new Dictionary<string,AnimationClipPlayable>();
         readonly Dictionary<string,HeroAnimationClipData> definitions=new Dictionary<string,HeroAnimationClipData>();
-        public void Initialize(string resource)
+        public void Initialize(string resource,string onlyState=null)
         {
             var asset=Resources.Load<TextAsset>(resource);if(asset==null)throw new System.IO.FileNotFoundException("Missing battle animation: "+resource);
             if(graph.IsValid())graph.Destroy();
@@ -32,6 +32,7 @@ namespace Zatod.Presentation
             graph=PlayableGraph.Create("ZatodBattleSprite");graph.SetTimeUpdateMode(DirectorUpdateMode.Manual);output=AnimationPlayableOutput.Create(graph,"Sprite",animator);
             foreach(var entry in Set.Clips)
             {
+                if(onlyState!=null && entry.State!=onlyState)continue;
                 var clip=Resources.Load<AnimationClip>(entry.ClipResource);if(clip==null)throw new System.IO.FileNotFoundException(entry.ClipResource);
                 definitions.Add(entry.State,entry);playables.Add(entry.State,AnimationClipPlayable.Create(graph,clip));
             }
@@ -73,6 +74,14 @@ namespace Zatod.Presentation
             float width=Mathf.Max(.01f,canvasWidth/100*fraction);var scale=Renderer.transform.localScale;
             scale.x=Mathf.Sign(scale.x)*width/Renderer.sprite.bounds.size.x;Renderer.transform.localScale=scale;
         }
+        public void ResetForReuse()
+        {
+            CurrentState=null;SampleSeconds=0;
+            if(Renderer!=null){Renderer.enabled=false;Renderer.sprite=null;Renderer.color=Color.white;Renderer.sharedMaterial=Resources.Load<Material>("Zatod/World/ZatodWorldSprite");Renderer.SetPropertyBlock(null);Renderer.transform.localPosition=Vector3.zero;Renderer.transform.localRotation=Quaternion.identity;Renderer.transform.localScale=Vector3.one;}
+            foreach(var playable in playables.Values)playable.SetTime(0);
+        }
+        void OnDisable(){if(graph.IsValid())graph.Stop();}
+        void OnEnable(){if(graph.IsValid())graph.Play();}
         void OnDestroy(){if(graph.IsValid())graph.Destroy();}
         static void ReleaseObject(GameObject value){if(Application.isPlaying)Destroy(value);else DestroyImmediate(value);}
     }

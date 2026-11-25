@@ -57,6 +57,7 @@ static partial class Program
                 stop = campaignComplete ? (targetRank == null ? "catalog-complete" : "catalog-and-rank-complete") : "no-unlocked-encounter";
                 break;
             }
+            bool gateBlocksFrontier=next!=null && campaign.ChapterLockReason(campaign.ChapterFor(next.Id).Id,account.Level,session.Run.Stars.Keys)!=null;
             bool capBlocksFrontier = next != null && next.VitalityCost > staminaCap;
             if (capBlocksFrontier && !progression.Data.PlayerLevels.Any(level =>
                 level.Level >= account.Level && open.Any(s => s.VitalityCost <= level.MaxStamina)))
@@ -64,7 +65,7 @@ static partial class Program
                 stop = "entry-exceeds-maximum-stamina";
                 break;
             }
-            var stage = next == null || capBlocksFrontier || farmBeforeRetry > 0 ? FarmStage(capBlocksFrontier) ?? next : next;
+            var stage = next == null || capBlocksFrontier || gateBlocksFrontier || farmBeforeRetry > 0 ? FarmStage(capBlocksFrontier || gateBlocksFrontier) ?? next : next;
             if (stage == null || stage.VitalityCost > staminaCap)
             {
                 stop = capBlocksFrontier ? "entry-exceeds-stamina-cap" : "no-farmable-encounter";
@@ -223,7 +224,7 @@ static partial class Program
         CampaignStageDefinition FarmStage(bool forStaminaCap)
         {
             int minimumLevel=account.HeroDesk.Min(h=>h.Level);
-            var cleared = stages.Where(s => clears.Contains(s.Id) && s.VitalityCost <= progression.Player(account.Level).MaxStamina);
+            var cleared = stages.Where(s => clears.Contains(s.Id) && s.KeyStage && campaign.StageLockReason(s.Id,account.Level,session.Run.Stars.Keys)==null && s.VitalityCost <= progression.Player(account.Level).MaxStamina);
             var eligible=cleared.Where(s=>!farmBlockedAtLevel.TryGetValue(s.Id,out int blocked) || minimumLevel>blocked || attempts.Count>=farmRetryAtBattle[s.Id]).ToArray();
             if(eligible.Length==0)eligible=cleared.Take(1).ToArray();
             if (forStaminaCap)

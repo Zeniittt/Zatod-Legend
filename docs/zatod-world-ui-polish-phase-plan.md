@@ -4,7 +4,9 @@ Ngày chốt/cập nhật: **24/11/2026, Asia/Saigon**.
 
 **Mốc bắt đầu phase: yêu cầu bỏ bước bấm OK sau khi Equip thành công.** Những việc mở Tím, nhập chương3–8, mở40HeroPvP và cải thiện feeling combat thuộc phase trước, không được gộp lại vào checklist này.
 
-**Trạng thái:** phạm vi đã được người dùng duyệt; bản này là checklist bàn giao. Lượt hiện tại chỉ cập nhật Markdown và lưu ảnh tham chiếu, chưa code/import/bake/test gameplay/build/deploy. Khi được giao thực thi D38, làm theo phạm vi đã chốt; không xin lại các quyết định ở đây. Chỉnh tài liệu riêng không phải lệnh thực thi runtime.
+**Trạng thái cập nhật 25/11/2026:** đã triển khai và kiểm trên Mac, IPA arm64 chưa ký đã đóng gói và kiểm thành công. Báo cáo thực tế: [implementation D38](zatod-world-ui-polish-implementation.md). Các mục thiết bị thật chưa được nghiệm thu.
+
+**Mốc bàn giao 24/11 (lịch sử):** phạm vi đã được người dùng duyệt; bản này là checklist bàn giao. Lượt hiện tại chỉ cập nhật Markdown và lưu ảnh tham chiếu, chưa code/import/bake/test gameplay/build/deploy. Khi được giao thực thi D38, làm theo phạm vi đã chốt; không xin lại các quyết định ở đây. Chỉnh tài liệu riêng không phải lệnh thực thi runtime.
 
 ## 1. Đọc trước khi tiếp quản
 
@@ -42,66 +44,66 @@ Phạm vi áp dụng trên **catalog và runtime đang có từ phase trước**
 
 ### A. Equip thành công tự đóng panel
 
-- [ ] Đối chiếu `ZatodEquipmentView`, luồng connection/receipt/snapshot và HeroDetail hiện hành; thực hiện UX-001.
-- [ ] Sau đúng thao tác Equip được server xác nhận, đóng panel item và hiện HeroDetail đã cập nhật. Không yêu cầu bấmOK thêm.
-- [ ] Lỗi, thiếu điều kiện hoặc persist fail: panel còn mở với reason, Owned không đổi sai. Không đóng ngay lúc gửi request.
-- [ ] Ghép đúng operation/Hero/slot/itemGUID/context; reply trễ không đóng popup mới của một món/Hero khác. Nhấn kép/retry/receipt lặp/reconnect không thực hiện giao dịch hai lần.
-- [ ] Xem đồ đang mặc hoặc craft vẫn giữ flow riêng; không tự Equip/Promote tiếp.
+- [x] Đối chiếu `ZatodEquipmentView`, luồng connection/receipt/snapshot và HeroDetail hiện hành; thực hiện UX-001.
+- [x] Sau đúng thao tác Equip được server xác nhận, đóng panel item và hiện HeroDetail đã cập nhật. Không yêu cầu bấmOK thêm.
+- [x] Lỗi, thiếu điều kiện hoặc persist fail: panel còn mở với reason, Owned không đổi sai. Không đóng ngay lúc gửi request.
+- [x] Ghép đúng operation/Hero/slot/itemGUID/context; reply trễ không đóng popup mới của một món/Hero khác. Nhấn kép/retry/receipt lặp/reconnect không thực hiện giao dịch hai lần.
+- [x] Xem đồ đang mặc hoặc craft vẫn giữ flow riêng; không tự Equip/Promote tiếp.
 
 ### B. Art object tính năng làng
 
-- [ ] Dùng đúng asset Crystal cho các interaction tính năng hiện có: Phó bản, Bang hội, Arena, PvP realtime và các điểm tương ứng; giữ IDs/targets.
-- [ ] Import/bake dependency, action, layer/alpha/bóng phù hợp. Container FCA/Spine không được coi mặc định là một PNG tĩnh hoặc cùng một loader.
-- [ ] Căn chân, scale, sorting, label và vùng tương tác để avatar đi lại/bấm được. Hai điểm Arena/realtime phân biệt rõ; không khẳng định PeakArena là realtime chỉ từ tên asset.
-- [ ] Feature chưa có logic giữ trạng thái hiện hành; thay art không mở phạm vi xây Guild/Tower.
+- [x] Dùng đúng asset Crystal cho các interaction tính năng hiện có: Phó bản, Bang hội, Arena, PvP realtime và các điểm tương ứng; giữ IDs/targets.
+- [x] Import/bake dependency, action, layer/alpha/bóng phù hợp. Container FCA/Spine không được coi mặc định là một PNG tĩnh hoặc cùng một loader.
+- [x] Căn chân, scale, sorting, label và vùng tương tác để avatar đi lại/bấm được. Hai điểm Arena/realtime phân biệt rõ; không khẳng định PeakArena là realtime chỉ từ tên asset.
+- [x] Feature chưa có logic giữ trạng thái hiện hành; thay art không mở phạm vi xây Guild/Tower.
 
 ### C. Selector chương và quyền mở
 
-- [ ] Tương tác Phó bản tại làng mở selector trước; không tự WorldTravel tới chapter1.
-- [ ] Ghép nền, đảo, nhãn, outline và khóa bằng asset Crystal như hình1, kéo ngang/responsive/safe area theo UI hiện có. Đường resource có chữ nguồn `norlmal`, không tự sửa thành `normal`.
-- [ ] Chương đã mở sáng/chương khóa tối; hiển thị tên/trạng thái từ dữ liệu thật. Lý do khóa gồm thiếu level, chưa qua chương trước hoặc cả hai.
-- [ ] Đưa chương đang chơi trong phiên vào khung nhìn; từ làng không có context thì dùng chương cao nhất đã mở. Chỉ chọn mới travel; kéo không bị nhận thành chọn, đóng view trả input đúng.
-- [ ] Chương1 mặc định mở; chương sau cần hoàn tất ải cuối chương trước và đủ **account level**. Mốc Crystal chương1..8 là **Lv1/5/8/16/26/36/46/56**. Chỉ chapter có catalog/world hợp lệ mới có thể tới.
-- [ ] Server dùng chung điều kiện cho selector, portal và bắt đầu ải. Reject request sai/khóa/stale không đổi map, trừ thể lực hoặc tạo loot; không chỉ gate bằng màu client.
-- [ ] Tab Elite trong ảnh không tự mở Elite; không hiển thị phần chưa có như một đích travel hợp lệ.
+- [x] Tương tác Phó bản tại làng mở selector trước; không tự WorldTravel tới chapter1.
+- [x] Ghép nền, đảo, nhãn, outline và khóa bằng asset Crystal như hình1, kéo ngang/responsive/safe area theo UI hiện có. Đường resource có chữ nguồn `norlmal`, không tự sửa thành `normal`.
+- [x] Chương đã mở sáng/chương khóa tối; hiển thị tên/trạng thái từ dữ liệu thật. Lý do khóa gồm thiếu level, chưa qua chương trước hoặc cả hai.
+- [x] Đưa chương đang chơi trong phiên vào khung nhìn; từ làng không có context thì dùng chương cao nhất đã mở. Chỉ chọn mới travel; kéo không bị nhận thành chọn, đóng view trả input đúng.
+- [x] Chương1 mặc định mở; chương sau cần hoàn tất ải cuối chương trước và đủ **account level**. Mốc Crystal chương1..8 là **Lv1/5/8/16/26/36/46/56**. Chỉ chapter có catalog/world hợp lệ mới có thể tới.
+- [x] Server dùng chung điều kiện cho selector, portal và bắt đầu ải. Reject request sai/khóa/stale không đổi map, trừ thể lực hoặc tạo loot; không chỉ gate bằng màu client.
+- [x] Tab Elite trong ảnh không tự mở Elite; không hiển thị phần chưa có như một đích travel hợp lệ.
 
 ### D. Portal trái/phải và Town
 
-- [ ] Mỗi map chương có điểm chuyển ở đầu trái/phải tới chương liền trước/sau tồn tại và đã mở. Chương đầu/cuối không trỏ sai map hoặc wrap vòng.
-- [ ] Tương tác portal theo flow hiện hành, giữ nútTown góc trái trên. Spawn đích tránh vùng gây vừa tới đã chuyển ngược lại.
-- [ ] Giữ MapRevision, world interest/presence, reset input/interpolation và camera đúng sau travel. Kết thúc trận quay lại map/điểm đã vào, không bị selector mới đưa về chapter1.
-- [ ] Giữ các map cùng tồn tại theo D21/D25. **Không thay sang chỉ tải map đang đứng/cache map/lazy-load/unload world** dưới danh nghĩa tối ưu D38.
+- [x] Mỗi map chương có điểm chuyển ở đầu trái/phải tới chương liền trước/sau tồn tại và đã mở. Chương đầu/cuối không trỏ sai map hoặc wrap vòng.
+- [x] Tương tác portal theo flow hiện hành, giữ nútTown góc trái trên. Spawn đích tránh vùng gây vừa tới đã chuyển ngược lại.
+- [x] Giữ MapRevision, world interest/presence, reset input/interpolation và camera đúng sau travel. Kết thúc trận quay lại map/điểm đã vào, không bị selector mới đưa về chapter1.
+- [x] Giữ các map cùng tồn tại theo D21/D25. **Không thay sang chỉ tải map đang đứng/cache map/lazy-load/unload world** dưới danh nghĩa tối ưu D38.
 
 ### E. Boss đại diện và Passed
 
-- [ ] Thay visual điểm ải bằng actor boss Crystal đứngIdle, không chỉ thay một phần node hai kiếm rồi giữ những điểm khác sai phạm vi. Boss phải khớp encounter/preview, ưu tiên boss wave cuối theo D20; cấu hình rõ trường hợp nhiều boss.
-- [ ] Resolve Hero/Monster/resource từ ID thật. MageBone là ví dụ của người dùng, không hardcode asset vào Candidate? hoặc sửa encounter chỉ vì ví dụ. Giữ StageId/SourceStageId/TargetId và tọa độ tương tác.
-- [ ] Nhập/validate phân loại **Key Stage** từ source cho catalog hiện có, có đường authoring tương ứng; không phân loại bằng hình marker hoặc việc có enemy gắn Boss.
-- [ ] Minor (`Key Stage=false`) chỉ đánh một lần: thắng hợp lệ mới clear; sau đó hiệnPassed trên đầu boss, vẫn preview được, Challenge khóa với reason. Server chặn begin lại kể cả request trực tiếp/popup cũ.
-- [ ] Key (`Key Stage=true`) đã clear vẫn đánh lại để farm, giữ các điều kiện hợp lệ khác. Không thêm Raid/Raidx3.
-- [ ] Passed/sao/unlock là cá nhân; hai người chung điểm ải có thể thấy trạng thái khác nhau. Actor world chỉ là visual, không có AI/combat/stat hoặc thêm vào sở hữu.
-- [ ] Thua/load fail/disconnect chưa được xác nhận clear không biến thànhPassed. Replay không cấp thưởng hoặc mở khóa phiên mới.
+- [x] Thay visual điểm ải bằng actor boss Crystal đứngIdle, không chỉ thay một phần node hai kiếm rồi giữ những điểm khác sai phạm vi. Boss phải khớp encounter/preview, ưu tiên boss wave cuối theo D20; cấu hình rõ trường hợp nhiều boss.
+- [x] Resolve Hero/Monster/resource từ ID thật. MageBone là ví dụ của người dùng, không hardcode asset vào Candidate? hoặc sửa encounter chỉ vì ví dụ. Giữ StageId/SourceStageId/TargetId và tọa độ tương tác.
+- [x] Nhập/validate phân loại **Key Stage** từ source cho catalog hiện có, có đường authoring tương ứng; không phân loại bằng hình marker hoặc việc có enemy gắn Boss.
+- [x] Minor (`Key Stage=false`) chỉ đánh một lần: thắng hợp lệ mới clear; sau đó hiệnPassed trên đầu boss, vẫn preview được, Challenge khóa với reason. Server chặn begin lại kể cả request trực tiếp/popup cũ.
+- [x] Key (`Key Stage=true`) đã clear vẫn đánh lại để farm, giữ các điều kiện hợp lệ khác. Không thêm Raid/Raidx3.
+- [x] Passed/sao/unlock là cá nhân; hai người chung điểm ải có thể thấy trạng thái khác nhau. Actor world chỉ là visual, không có AI/combat/stat hoặc thêm vào sở hữu.
+- [x] Thua/load fail/disconnect chưa được xác nhận clear không biến thànhPassed. Replay không cấp thưởng hoặc mở khóa phiên mới.
 
 ### F. Chuẩn bị tài nguyên và PoolManager
 
-- [ ] Chuẩn bị Hero/Monster/background/audio và dependency effect/buff/projectile/summon của trận trong bước loading hiện có; body theo đội hình/encounter thực tế, dùng lại catalog của phase trước.
-- [ ] Xử lý preload lỗi/hủy/stale context; hoàn tất chuẩn bị nối đúng điều kiện bắt đầu trận/PvP hiện có, không tự dừng tick hoặc thay timing/input/checker để chờ asset giữa trận.
-- [ ] Dùng **PoolManager** cho effect, projectile visual, damage/heal/crit text và các object dùng thường xuyên có thể tái sử dụng; acquire/release thay tạo rồi xóa lặp.
-- [ ] Prewarm phù hợp và giới hạn object giữ lại. Reset animation/time, transform/parent, scale/facing, renderer/material/alpha/sorting, text, target/entity/battle context, coroutine/tween/event/callback; chặn double-release/callback trễ tác động lượt dùng mới.
-- [ ] Cleanup/reset đúng khi hết trận, hủy vào trận hoặc thoát scene; tài nguyên shared chỉ giải phóng khi hết reference. Pool presentation không pool/chuyển state simulation hoặc làm thay kết quả checker/replay.
-- [ ] Kiểm texture nén thực theo nền tảng. Nếu sửa padding/BUG-056, giữ frame pixels/rect/pivot/GUID/FPS/timeline và kiểm art; không tự giảm chất lượng/cắt frame/bỏ effect.
-- [ ] **Không làm mục1 baseline riêng trước sửa hoặc mục2 tải/cache map** đã bị người dùng bỏ. Không tự đặt60FPS thành ngưỡng nghiệm thu đã duyệt.
+- [x] Chuẩn bị Hero/Monster/background/audio và dependency effect/buff/projectile/summon của trận trong bước loading hiện có; body theo đội hình/encounter thực tế, dùng lại catalog của phase trước.
+- [x] Xử lý preload lỗi/hủy/stale context; hoàn tất chuẩn bị nối đúng điều kiện bắt đầu trận/PvP hiện có, không tự dừng tick hoặc thay timing/input/checker để chờ asset giữa trận.
+- [x] Dùng **PoolManager** cho effect, projectile visual, damage/heal/crit text và các object dùng thường xuyên có thể tái sử dụng; acquire/release thay tạo rồi xóa lặp.
+- [x] Prewarm phù hợp và giới hạn object giữ lại. Reset animation/time, transform/parent, scale/facing, renderer/material/alpha/sorting, text, target/entity/battle context, coroutine/tween/event/callback; chặn double-release/callback trễ tác động lượt dùng mới.
+- [x] Cleanup/reset đúng khi hết trận, hủy vào trận hoặc thoát scene; tài nguyên shared chỉ giải phóng khi hết reference. Pool presentation không pool/chuyển state simulation hoặc làm thay kết quả checker/replay.
+- [x] Kiểm texture nén thực theo nền tảng. Nếu sửa padding/BUG-056, giữ frame pixels/rect/pivot/GUID/FPS/timeline và kiểm art; không tự giảm chất lượng/cắt frame/bỏ effect.
+- [x] **Không làm mục1 baseline riêng trước sửa hoặc mục2 tải/cache map** đã bị người dùng bỏ. Không tự đặt60FPS thành ngưỡng nghiệm thu đã duyệt.
 
 ### G. Kiểm tra tổng hợp và chơi lâu
 
-- [ ] Dùng client/server cùng code/config phù hợp. Với QuickEquip/nângskill, đọc BUG-067: trước đây server binary cũ không nhận command; xác nhận vận hành bản mới trước khi quy lỗi gameplay/gỡ guard. Đây là kiểm hồi quy, không làm lại Skill/QuickEquip.
-- [ ] Kiểm Equip thành công/thất bại/nhấn kép/reply trễ/reconnect; selector/portal với thiếu clear, thiếu level, thiếu cả hai, vừa đủ điều kiện, request sai và context cũ.
-- [ ] Hai client cùng/khác map, tiến trình khác nhau, join muộn, một người vào battle; camera/input/presence/return context đúng.
-- [ ] Minor trước/sau thắng, key farm sau clear, thua/disconnect/replay; reject không tiêu tài nguyên hoặc nhận thưởng thêm. Rà tác động minor một lần và gate chương lên đường farm hiện có, không dùng dev cấp đồ/level che vòng kẹt, không thiết kế lại toàn bộ progressionD34.
+- [x] Dùng client/server cùng code/config phù hợp. Với QuickEquip/nângskill, đọc BUG-067: trước đây server binary cũ không nhận command; xác nhận vận hành bản mới trước khi quy lỗi gameplay/gỡ guard. Đây là kiểm hồi quy, không làm lại Skill/QuickEquip.
+- [x] Kiểm Equip thành công/thất bại/nhấn kép/reply trễ/reconnect; selector/portal với thiếu clear, thiếu level, thiếu cả hai, vừa đủ điều kiện, request sai và context cũ.
+- [x] Hai client cùng/khác map, tiến trình khác nhau, join muộn, một người vào battle; camera/input/presence/return context đúng.
+- [x] Minor trước/sau thắng, key farm sau clear, thua/disconnect/replay; reject không tiêu tài nguyên hoặc nhận thưởng thêm. Rà tác động minor một lần và gate chương lên đường farm hiện có, không dùng dev cấp đồ/level che vòng kẹt, không thiết kế lại toàn bộ progressionD34.
 - [ ] Giữ UI landscape/safe area, tương tác/kéo/joystick/khóa modal trên thiết bị phù hợp.
-- [ ] Chạy **20 vòng làng→chương→trận→làng** và phiên liên tục **ít nhất20phút**, nhiều ultimate/summon/effect; kiểm pool thật sự tái sử dụng, object/callback không sót, bộ nhớ không tăng vô hạn/độ mượt không xấu dần và quay về world tiếp tục được.
+- [x] Chạy **20 vòng làng→chương→trận→làng** và phiên liên tục **ít nhất20phút**, nhiều ultimate/summon/effect; kiểm pool thật sự tái sử dụng, object/callback không sót, bộ nhớ không tăng vô hạn/độ mượt không xấu dần và quay về world tiếp tục được.
 - [ ] Kiểm Windows và OPPO Pad Air/iPhone11 khi có thiết bị; ghi rõ nền tảng/cảnh thực tế đã thử và phần thiếu. Quan sát FPS/RAM trong bài chơi lâu không mở lại bước baseline riêng đã bỏ; không hứa ngưỡng số chưa được duyệt.
-- [ ] Chạy core/model/UI/network/replay checks phù hợp phần đổi; bảo vệ snapshot/replay rules cũ. Chỉ thêm test cần thiết cho policy/travel/receipt/pool lifecycle, không viết lại suite phase trước nếu không có thay đổi cần hồi quy.
+- [x] Chạy core/model/UI/network/replay checks phù hợp phần đổi; bảo vệ snapshot/replay rules cũ. Chỉ thêm test cần thiết cho policy/travel/receipt/pool lifecycle, không viết lại suite phase trước nếu không có thay đổi cần hồi quy.
 
 ## 5. Dữ liệu, migration và giao dịch
 
@@ -117,4 +119,4 @@ Khi được giao triển khai, report phải ghi từng nhómA–G: đã sửa 
 
 Build theo D37: macOS sau nhiệm vụ triển khai/kiểm tra phù hợp tự tạoIPA chưa ký choSideloadly, USB riêng khi người dùng chọn; Windows hỏi trước đóng gói nếu chưa được yêu cầu build. **Lượt Markdown này không kích hoạt build/deploy.** Không gỡ app/resetOwned để cập nhật bản mới.
 
-**Tại lúc lập bản bàn giao:** chỉ tài liệu và ba ảnh nguồn tham chiếu đã được cập nhật/lưu; mọi checkbox triển khai còn trống. Không có Unity/gameplay/network/device test hoặc build mới từ nhiệm vụ này.
+**Tại lúc lập bản bàn giao 24/11 (lịch sử):** chỉ tài liệu và ba ảnh nguồn tham chiếu đã được cập nhật/lưu; mọi checkbox triển khai còn trống. Không có Unity/gameplay/network/device test hoặc build mới từ nhiệm vụ này.

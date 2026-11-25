@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -43,7 +43,7 @@ namespace Zatod.Presentation
             catalog=connection.ClientCatalog;campaign=CampaignDataJson.LoadZatod(catalog);
             if(Font==null)Font=Resources.Load<TMP_FontAsset>("UI/FormationFont");
             battleScene=gameObject.AddComponent<ZatodBattleSceneController>();
-            battleScene.Changed+=OnBattleSceneChanged;
+            battleScene.PrepareAssets=()=>replay==null && connection.PreparedAssets!=null?connection.PreparedAssets:ZatodBattleAssets.Prepare((replay??connection.Battle)?.Replay().Initial??record.Initial);battleScene.Changed+=OnBattleSceneChanged;
             battleScene.Failed+=reason=>{connection.Cancel();status.text=reason;Show("campaign");};
             Build();connection.Changed+=OnChanged;connection.MatchStarted+=OnMatch;connection.FrameReceived+=DrawBattle;connection.ReplayReceived+=OnReplay;
             OnChanged();
@@ -139,7 +139,7 @@ namespace Zatod.Presentation
             if(heroRoster!=null && heroRoster.gameObject.activeSelf && connection.Snapshot!=null){heroRoster.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}
             if(heroDetail!=null && heroDetail.gameObject.activeSelf && connection.Snapshot!=null){heroDetail.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}
             if(stagePreview!=null && stagePreview.gameObject.activeSelf && connection.Snapshot!=null)
-                stagePreview.Refresh(connection.Snapshot.StarsFor(stagePreview.StageId),connection.Connected,campaign.IsUnlocked(stagePreview.StageId,connection.Snapshot.Cleared));
+                stagePreview.Refresh(connection.Snapshot.StarsFor(stagePreview.StageId),connection.Connected,StageAccessReason(stagePreview.StageId)==null,StageAccessReason(stagePreview.StageId));
             else if(formation!=null && formation.gameObject.activeSelf && connection.Snapshot!=null)
                 formation.RefreshAccount(connection.Snapshot.Account,connection.Connected,connection.Status,connection.FindingPvp);
             else if(!stage.gameObject.activeSelf)RenderMenu();
@@ -147,7 +147,7 @@ namespace Zatod.Presentation
         void Show(string mode)
         {
             if(mode=="heroes"){OpenHeroRoster();return;}
-            featureView?.gameObject.SetActive(false);
+            featureView?.gameObject.SetActive(false);ClearFloating();
             ClearBattleResult();inventoryView?.gameObject.SetActive(false);equipmentWindow?.Hide();
             battleScene?.Leave();
             if(heroRoster!=null)heroRoster.gameObject.SetActive(false);if(heroDetail!=null)heroDetail.gameObject.SetActive(false);
@@ -159,16 +159,18 @@ namespace Zatod.Presentation
             Clear(menu);menu.gameObject.SetActive(false);RefreshWorldChrome();
             if(connection.Snapshot!=null&&connection.Connected&&(screen=="arena"||screen=="pvp"||screen=="history"))OpenNpcFeature();
         }
+        string StageAccessReason(string stageId)=>campaign.StageLockReason(stageId,connection.Snapshot.Account.Level,connection.Snapshot.Cleared);
         void OpenStagePreview(string stageId)
         {
             if(connection.Snapshot==null)return;
             replay=null;record=null;formation.gameObject.SetActive(false);stage.gameObject.SetActive(false);menu.gameObject.SetActive(true);
             RefreshWorldChrome();stagePreview.Open(campaign.Stage(stageId),catalog,connection.Snapshot.StarsFor(stageId),connection.Connected,
-                ()=>Show("campaign"),()=>OpenFormation(stageId),campaign.IsUnlocked(stageId,connection.Snapshot.Cleared));
+                ()=>Show("campaign"),()=>OpenFormation(stageId),StageAccessReason(stageId)==null,StageAccessReason(stageId));
         }
         void OpenFormation(string stageId)
         {
             replay=null;record=null;stagePreview.gameObject.SetActive(false);menu.gameObject.SetActive(false);
+            if(StageAccessReason(stageId)!=null){OpenStagePreview(stageId);return;}
             formation.Open(campaign.Stage(stageId),catalog,connection.Snapshot.Account,selected,()=>OpenStagePreview(stageId),
                 (id,heroes)=>connection.Campaign(id,heroes));
         }

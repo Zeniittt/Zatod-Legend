@@ -14,6 +14,8 @@ namespace Zatod.Presentation
         public ZatodScenePhase Phase{get;private set;}
         public ZatodBattleStage Stage{get;private set;}
         public bool OccupiesClient=>Phase!=ZatodScenePhase.World;
+        public Func<ZatodBattleAssets> PrepareAssets;
+        ZatodBattleAssets assets;
         public event Action Changed;
         public event Action<string> Failed;
         bool wanted,running;
@@ -39,11 +41,15 @@ namespace Zatod.Presentation
                     {
                         wanted=false;yield return SceneManager.UnloadSceneAsync(loaded);running=false;SetPhase(ZatodScenePhase.World);Failed?.Invoke("Battle scene has no ZatodBattleStage.");yield break;
                     }
-                    if(wanted)SetPhase(ZatodScenePhase.InBattle);
+                    if(wanted)
+                    {
+                        try{assets=PrepareAssets?.Invoke();Stage.Prewarm(assets);}catch(Exception e){wanted=false;Failed?.Invoke(e.Message);}
+                        if(wanted)SetPhase(ZatodScenePhase.InBattle);
+                    }
                 }
                 if(!wanted && Stage!=null)
                 {
-                    Stage.Clear();SetPhase(ZatodScenePhase.ReturningWorld);var scene=Stage.gameObject.scene;Stage=null;
+                    Stage.Clear();assets?.Dispose();assets=null;SetPhase(ZatodScenePhase.ReturningWorld);var scene=Stage.gameObject.scene;Stage=null;
                     yield return SceneManager.UnloadSceneAsync(scene);
                 }
                 else break;
@@ -52,7 +58,7 @@ namespace Zatod.Presentation
         }
         void OnDestroy()
         {
-            wanted=false;
+            wanted=false;assets?.Dispose();assets=null;
             if(Application.isPlaying && Stage!=null && Stage.gameObject.scene.IsValid() && Stage.gameObject.scene.isLoaded)SceneManager.UnloadSceneAsync(Stage.gameObject.scene);
         }
     }

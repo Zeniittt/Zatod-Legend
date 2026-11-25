@@ -25,6 +25,7 @@ namespace Zatod.Presentation
         public readonly List<UnityEngine.UI.Button> IngredientButtons=new List<UnityEngine.UI.Button>();
         HeroCatalog catalog;CharacterData account;ZatodConnection connection;HeroData hero;string heroId,slotId;
         CampaignCatalog campaign;readonly List<string> history=new List<string>();CraftingCatalog crafting;bool equipped;bool inventoryContext;
+        int context;int equipContext;string equipOperation,equipGuid;
         RectTransform icon,sourceIcon;Vector2 lastSize;int lastHistory=-1;
         public const string ArtPath="Zatod/UI/Crafting/";
         public static Sprite Native(string key)=>Resources.Load<Sprite>(ArtPath+key) ?? ZatodInventoryView.Native(key);
@@ -35,18 +36,25 @@ namespace Zatod.Presentation
         }
         public void Open(HeroCatalog definitions,CharacterData owned,ZatodConnection client,CampaignCatalog stages,string ownedHeroId,string slot)
         {
-            inventoryContext=false;catalog=definitions;account=owned;connection=client;campaign=stages;heroId=ownedHeroId;slotId=slot;crafting=new CraftingCatalog(catalog);history.Clear();Right.gameObject.SetActive(false);Message.text="";
+            context++;equipOperation=null;inventoryContext=false;catalog=definitions;account=owned;connection=client;campaign=stages;heroId=ownedHeroId;slotId=slot;crafting=new CraftingCatalog(catalog);history.Clear();Right.gameObject.SetActive(false);Message.text="";
             gameObject.SetActive(true);transform.SetAsLastSibling();Refresh(owned);Fit();
         }
         public void OpenItem(HeroCatalog definitions,CharacterData owned,ZatodConnection client,CampaignCatalog stages,string itemId)
         {
-            inventoryContext=true;catalog=definitions;account=owned;connection=client;campaign=stages;crafting=new CraftingCatalog(catalog);hero=null;DisplayedItemId=itemId;history.Clear();history.Add(itemId);Right.gameObject.SetActive(true);gameObject.SetActive(true);transform.SetAsLastSibling();Refresh(owned);
+            context++;equipOperation=null;inventoryContext=true;catalog=definitions;account=owned;connection=client;campaign=stages;crafting=new CraftingCatalog(catalog);hero=null;DisplayedItemId=itemId;history.Clear();history.Add(itemId);Right.gameObject.SetActive(true);gameObject.SetActive(true);transform.SetAsLastSibling();Refresh(owned);
         }
-        public void Hide(){gameObject.SetActive(false);history.Clear();}
+        public void Hide(){context++;equipOperation=null;gameObject.SetActive(false);history.Clear();}
         static void ClearChildren(Transform root){foreach(Transform c in root){c.gameObject.SetActive(false);Destroy(c.gameObject);}}
         public void Refresh(CharacterData owned)
         {
-            account=owned;if(inventoryContext){RefreshInventoryItem();return;}hero=account.HeroDesk.SingleOrDefault(h=>h.HeroInstanceId==heroId);if(hero==null){Hide();return;}
+            account=owned;
+            if(!inventoryContext && equipOperation!=null && equipContext==context && gameObject.activeSelf)
+            {
+                var receipt=account.ItemOperations?.SingleOrDefault(r=>r.OperationId==equipOperation && r.Command=="equip" && r.HeroId==heroId && r.SlotId==slotId && r.ItemInstanceId==equipGuid);
+                var equippedNow=account.HeroDesk.SingleOrDefault(h=>h.HeroInstanceId==heroId)?.EquippedItems.SingleOrDefault(i=>i.SlotId==slotId);
+                if(receipt!=null && equippedNow?.Id==equipGuid){Hide();return;}
+            }
+            if(inventoryContext){RefreshInventoryItem();return;}hero=account.HeroDesk.SingleOrDefault(h=>h.HeroInstanceId==heroId);if(hero==null){Hide();return;}
             var slot=HeroProgression.CurrentRank(hero,catalog).EquipmentSlots.SingleOrDefault(s=>s.Id==slotId);if(slot==null){Hide();return;}
             var current=hero.EquippedItems.SingleOrDefault(i=>i.SlotId==slotId);equipped=current!=null;DisplayedItemId=current?.ItemId??slot.RequiredItemId;var item=catalog.Item(DisplayedItemId);
             if(icon!=null){icon.gameObject.SetActive(false);Destroy(icon.gameObject);}icon=ItemIcon(Left,"SelectedItem",item,178,28,164);
@@ -80,6 +88,7 @@ namespace Zatod.Presentation
             if(item==null){if(!RecipeVisible)ToggleRecipe();return;}
             if(hero.Level<catalog.Item(item.ItemId).LevelRequirement){Message.text="Requires hero level "+catalog.Item(item.ItemId).LevelRequirement;return;}
             connection.Equip(heroId,slotId,item.Id);
+            if(connection.ItemOperationBusy){equipOperation=connection.PendingItemOperationId;equipGuid=item.Id;equipContext=context;}
         }
         void Craft()
         {
@@ -116,12 +125,12 @@ namespace Zatod.Presentation
                 chapterNumber++;
                 foreach(var stage in chapter.Stages.Where(s=>s.DropItems.Any(d=>d.ItemId==itemId)))
                 {
-                    bool unlocked=campaign.IsUnlocked(stage.Id,cleared);
+                    bool unlocked=campaign.StageLockReason(stage.Id,account.Level,cleared)==null;
                     var cell=NativePicture(SourceScroll.content,"Source_"+stage.Id,"package/access_"+(unlocked?"normal":"unlock"),10,count*100,529,92).rectTransform;
                     var marker=Box(cell,"StageIcon",12,8,76,76).gameObject.AddComponent<UnityEngine.UI.Image>();marker.sprite=ZatodStageVisuals.Icon(stage,unlocked);marker.preserveAspect=true;marker.raycastTarget=false;
                     var title=Text(cell,"StageName",ZatodStageVisuals.SourceLabel(chapterNumber,stage),Font,26);Place(title.rectTransform,101,6,316,80);title.alignment=TextAlignmentOptions.MidlineLeft;title.textWrappingMode=TextWrappingModes.NoWrap;title.color=new Color(.263f,.224f,.204f);
                     if(unlocked)NativePicture(cell,"Arrow","package/access_arrow",479,23,37,47);
-                    else{var locked=Text(cell,"Locked","Locked",Font,22);Place(locked.rectTransform,424,6,96,80);locked.alignment=TextAlignmentOptions.Center;locked.color=new Color(.38f,.33f,.29f);}
+                    else{var locked=Text(cell,"Locked",!stage.KeyStage && cleared.Contains(stage.Id)?"Passed":account.Level<chapter.RequiredAccountLevel?"Lv"+chapter.RequiredAccountLevel:"Locked",Font,22);Place(locked.rectTransform,424,6,96,80);locked.alignment=TextAlignmentOptions.Center;locked.color=new Color(.38f,.33f,.29f);}
                     // Source rows are deliberately display-only in this phase: no Button or click handler.
                     SourceCells.Add(cell);count++;
                 }

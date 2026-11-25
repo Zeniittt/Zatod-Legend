@@ -20,6 +20,16 @@
       "Id": "from_next",
       "X": 53,
       "Y": 35
+    },
+    {
+      "Id": "from_left",
+      "X": 6,
+      "Y": 21
+    },
+    {
+      "Id": "from_right",
+      "X": 56,
+      "Y": 21
     }
   ],
   "Interactions": [
@@ -38,34 +48,6 @@
       "HalfDepth": 0.25
     },
     {
-      "Id": "previous",
-      "Label": "Chapter 5",
-      "VisualResource": "goddess",
-      "X": 3,
-      "Y": 35,
-      "Kind": 1,
-      "TargetId": "chapter_five",
-      "DestinationSpawnId": "from_next",
-      "Height": 2.3,
-      "Radius": 2.8,
-      "HalfWidth": 0.45,
-      "HalfDepth": 0.25
-    },
-    {
-      "Id": "next",
-      "Label": "Chapter 7",
-      "VisualResource": "goddess",
-      "X": 56,
-      "Y": 4,
-      "Kind": 1,
-      "TargetId": "chapter_seven",
-      "DestinationSpawnId": "entry",
-      "Height": 2.3,
-      "Radius": 2.8,
-      "HalfWidth": 0.45,
-      "HalfDepth": 0.25
-    },
-    {
       "Id": "stage_1",
       "Label": "Sky Bandits",
       "VisualResource": "crystal_stage_95",
@@ -74,7 +56,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_1",
       "DestinationSpawnId": "entry",
-      "Height": 2.8,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -88,7 +70,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_2",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -102,7 +84,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_3",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -116,7 +98,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_4",
       "DestinationSpawnId": "entry",
-      "Height": 2.8,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -130,7 +112,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_5",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -144,7 +126,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_6",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -158,7 +140,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_7",
       "DestinationSpawnId": "entry",
-      "Height": 2.8,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -172,7 +154,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_8",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -186,7 +168,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_9",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -200,7 +182,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_10",
       "DestinationSpawnId": "entry",
-      "Height": 2.8,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -214,7 +196,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_11",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -228,7 +210,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_12",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -242,7 +224,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_13",
       "DestinationSpawnId": "entry",
-      "Height": 2.8,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -256,7 +238,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_14",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -270,7 +252,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_15",
       "DestinationSpawnId": "entry",
-      "Height": 2.8,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -284,7 +266,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_16",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -298,7 +280,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_17",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -312,7 +294,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_18",
       "DestinationSpawnId": "entry",
-      "Height": 2.8,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -326,7 +308,7 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_19",
       "DestinationSpawnId": "entry",
-      "Height": 1.0,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
       "HalfDepth": 0.25
@@ -340,9 +322,37 @@
       "Kind": 0,
       "TargetId": "chapter_six_stage_20",
       "DestinationSpawnId": "entry",
-      "Height": 2.8,
+      "Height": 2.5,
       "Radius": 2.8,
       "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "previous",
+      "Label": "Previous: Sunlit Grove",
+      "VisualResource": "goddess",
+      "X": 2,
+      "Y": 21,
+      "Kind": 1,
+      "TargetId": "chapter_five",
+      "DestinationSpawnId": "from_right",
+      "Height": 2.3,
+      "Radius": 2.5,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "next",
+      "Label": "Next: Vigrid",
+      "VisualResource": "goddess",
+      "X": 60,
+      "Y": 21,
+      "Kind": 1,
+      "TargetId": "chapter_seven",
+      "DestinationSpawnId": "from_left",
+      "Height": 2.3,
+      "Radius": 2.5,
+      "HalfWidth": 0.35,
       "HalfDepth": 0.25
     }
   ],

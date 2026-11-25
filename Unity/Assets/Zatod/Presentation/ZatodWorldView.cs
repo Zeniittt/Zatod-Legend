@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -28,6 +28,14 @@ namespace Zatod.Presentation
         public ZatodFixedJoystick Joystick{get;private set;}
         Camera cameraView;Vector3 cameraBefore;float sizeBefore;float x,y,facing=1,nextPose;uint revision;
         Material worldMaterial;
+        readonly Dictionary<string,TextMeshPro> stageLabels=new Dictionary<string,TextMeshPro>();
+        Zatod.Heroes.CampaignCatalog campaign;
+        readonly List<ZatodWorldIdleVisual> worldActors=new List<ZatodWorldIdleVisual>();
+        void RefreshStages()
+        {
+            if(connection.Snapshot==null)return;
+            foreach(var pair in stageLabels){var definition=campaign.Stage(pair.Key);pair.Value.text=definition.Name+(!definition.KeyStage && connection.Snapshot.Cleared.Contains(pair.Key)?"\n<color=#8dff79>Passed</color>":"");}
+        }
         public void Initialize(ZatodConnection c,WorldCatalog data,Transform canvas,TMP_FontAsset font)
         {
             connection=c;catalog=data;cameraView=Camera.main;cameraBefore=cameraView.transform.position;sizeBefore=cameraView.orthographicSize;cameraView.cullingMask=1<<WorldLayer;
@@ -44,7 +52,7 @@ namespace Zatod.Presentation
             var ir=(RectTransform)InteractionButton.transform;ir.anchorMin=ir.anchorMax=ir.pivot=new Vector2(.5f,0);ir.anchoredPosition=new Vector2(0,24);
             InteractionLabel=ZatodStageUi.Text(InteractionButton.transform,"Caption","",12,5,366,64,25,font);InteractionLabel.alignment=TextAlignmentOptions.Center;InteractionLabel.enableAutoSizing=true;InteractionLabel.fontSizeMin=18;InteractionLabel.fontSizeMax=25;InteractionLabel.textWrappingMode=TextWrappingModes.NoWrap;
             InteractionButton.onClick.AddListener(()=>{if(Nearby!=null && !InputLocked())Interact?.Invoke(Nearby);});InteractionButton.gameObject.SetActive(false);
-            BuildMaps();connection.WorldChanged+=Snapshot;
+            campaign=Zatod.Heroes.CampaignDataJson.Load(connection.ClientCatalog);BuildMaps();connection.WorldChanged+=Snapshot;connection.Changed+=RefreshStages;
         }
         void Snapshot()
         {
@@ -101,13 +109,28 @@ namespace Zatod.Presentation
                 foreach(var p in map.Props)Place(p.Id,p.VisualResource,p.X,p.Y,p.Height);
                 foreach(var p in map.Interactions)
                 {
-                    var point=Place(p.Id,p.VisualResource,p.X,p.Y,p.Height);
+                    Transform point;
+                    if(p.Kind==WorldInteractionKind.Stage)
+                    {
+                        var stage=campaign.Stage(p.TargetId);var enemies=stage.Waves.Last().Enemies;
+                        var boss=enemies.FirstOrDefault(e=>e.Id==stage.WorldBossEnemyId)??enemies.OrderByDescending(e=>e.Boss).First();
+                        string resource=boss.Kind==Zatod.Heroes.SpawnKind.Hero?connection.ClientCatalog.Hero(boss.DefinitionId).AnimationSetResource:connection.ClientCatalog.Monster(boss.DefinitionId).AnimationSetResource;
+                        point=PlaceActor(p,resource);
+                    }
+                    else if(!string.IsNullOrEmpty(p.AnimationSetResource))point=PlaceActor(p,p.AnimationSetResource);
+                    else point=Place(p.Id,p.VisualResource,p.X,p.Y,p.Height);
                     var label=new GameObject("PointLabel").AddComponent<TextMeshPro>();label.gameObject.layer=WorldLayer;label.transform.SetParent(point,false);
                     label.transform.localPosition=new Vector3(0,p.Height+.35f,0);label.text=p.Label;label.font=MapLabel.font;label.fontSize=2.4f;
-                    label.alignment=TextAlignmentOptions.Center;label.rectTransform.sizeDelta=new Vector2(8,.6f);label.enableAutoSizing=true;label.fontSizeMin=1.4f;label.fontSizeMax=2.4f;label.textWrappingMode=TextWrappingModes.NoWrap;label.GetComponent<MeshRenderer>().sortingOrder=25000;
+                    label.alignment=TextAlignmentOptions.Center;label.rectTransform.sizeDelta=new Vector2(8,.6f);label.enableAutoSizing=true;label.fontSizeMin=1.4f;label.fontSizeMax=2.4f;label.textWrappingMode=TextWrappingModes.NoWrap;label.GetComponent<MeshRenderer>().sortingOrder=25000;if(p.Kind==WorldInteractionKind.Stage)stageLabels.Add(p.TargetId,label);
                 }
             }
             map=null;landscape=null;
+        }
+        Transform PlaceActor(WorldInteractionDefinition point,string resource)
+        {
+            var root=new GameObject(point.Id).transform;root.SetParent(landscape.transform,false);root.position=new Vector3(point.X,point.Y,0);root.gameObject.layer=WorldLayer;
+            var actor=root.gameObject.AddComponent<ZatodWorldIdleVisual>();actor.Initialize(resource,point.Height);worldActors.Add(actor);
+            root.gameObject.AddComponent<SortingGroup>().sortingOrder=Depth(point.Y);return root;
         }
         void LoadMap(WorldMapDefinition definition)
         {
@@ -163,6 +186,6 @@ namespace Zatod.Presentation
             InteractionButton.gameObject.SetActive(Nearby!=null);if(Nearby!=null)InteractionLabel.text=Nearby.Label;
             if(!Suspended)cameraView.transform.position=Vector3.Lerp(cameraView.transform.position,CameraTarget(),1-Mathf.Exp(-10*Time.unscaledDeltaTime));
         }
-        void OnDestroy(){if(connection!=null)connection.WorldChanged-=Snapshot;if(cameraView!=null){cameraView.enabled=true;cameraView.cullingMask=-1;cameraView.transform.position=cameraBefore;cameraView.orthographicSize=sizeBefore;}}
+        void OnDestroy(){if(connection!=null){connection.WorldChanged-=Snapshot;connection.Changed-=RefreshStages;}if(cameraView!=null){cameraView.enabled=true;cameraView.cullingMask=-1;cameraView.transform.position=cameraBefore;cameraView.orthographicSize=sizeBefore;}}
     }
 }

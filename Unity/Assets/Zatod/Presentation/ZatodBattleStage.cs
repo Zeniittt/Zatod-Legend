@@ -40,6 +40,7 @@ namespace Zatod.Presentation
         }
         sealed class EffectVisual
         {
+            public ZatodPoolManager.Lease Lease;
             public ZatodBattleSprite Sprite;
             public readonly AnimationAudio Audio=new AnimationAudio();
         }
@@ -47,6 +48,7 @@ namespace Zatod.Presentation
         readonly Dictionary<int,EffectVisual> effects=new Dictionary<int,EffectVisual>();
         readonly Dictionary<string,Sprite> backgrounds=new Dictionary<string,Sprite>();
         readonly HashSet<string> playedCues=new HashSet<string>(StringComparer.Ordinal);
+        public ZatodPoolManager Pool{get;private set;}
         MaterialPropertyBlock buffProperties;
         Material buffMaterial,normalMaterial;
         static readonly Color DimBackground=new Color(.38f,.38f,.38f);
@@ -66,6 +68,7 @@ namespace Zatod.Presentation
         }
         void Awake()
         {
+            Pool=gameObject.AddComponent<ZatodPoolManager>();
             buffProperties=new MaterialPropertyBlock();
             gameObject.layer=BattleLayer;
             var cam=new GameObject("ZatodBattleCamera",typeof(Camera),typeof(Physics2DRaycaster));cam.layer=BattleLayer;cam.transform.SetParent(transform,false);
@@ -191,6 +194,11 @@ namespace Zatod.Presentation
             audioSource?.Stop();music?.Stop();
             foreach(var actor in units.Values)actor.Audio.Source?.Stop();
             audioPaused=false;
+        }
+        public void Prewarm(ZatodBattleAssets assets)
+        {
+            if(assets==null)return;
+            foreach(var resource in assets.Effects.Take(12))Pool.Prewarm(resource,1,()=>Sprite("Effect",resource).gameObject);
         }
         void RemoveActor(int id)
         {
@@ -321,8 +329,10 @@ namespace Zatod.Presentation
                 if(string.IsNullOrEmpty(state.Resource))continue;
                 if(!effects.TryGetValue(state.Id,out var entry))
                 {
-                    var sprite=Sprite("Effect_"+state.Id,"Zatod/"+System.IO.Path.GetFileNameWithoutExtension(state.Resource)+"/AnimationSet");
-                    entry=new EffectVisual{Sprite=sprite};effects.Add(state.Id,entry);
+                    string effectResource="Zatod/"+System.IO.Path.GetFileNameWithoutExtension(state.Resource)+"/AnimationSet";
+                    var lease=Pool.Acquire(effectResource,transform,()=>Sprite("Effect",effectResource).gameObject);
+                    var sprite=lease.Object.GetComponent<ZatodBattleSprite>();sprite.name="Effect_"+state.Id;
+                    entry=new EffectVisual{Sprite=sprite,Lease=lease};effects.Add(state.Id,entry);
                 }
                 var effect=entry.Sprite;
                 var first=effect.Set.Clips.FirstOrDefault(c=>c.State=="Start")??effect.Set.Clips[0];var loop=effect.Set.Clips.FirstOrDefault(c=>c.State=="Loop");
@@ -352,14 +362,14 @@ namespace Zatod.Presentation
                     effect.StretchWidth(Mathf.Sqrt(dx*dx+dy*dy));effect.transform.localRotation=Quaternion.Euler(0,0,Mathf.Atan2(dy,dx)*Mathf.Rad2Deg);
                 }
             }
-            foreach(int id in effects.Keys.Where(id=>!frame.Visuals.Any(v=>v.Id==id)).ToArray()){Retire(effects[id].Sprite.gameObject);effects.Remove(id);}
+            foreach(int id in effects.Keys.Where(id=>!frame.Visuals.Any(v=>v.Id==id)).ToArray()){effects[id].Audio.Source?.Stop();Pool.Release(effects[id].Lease);effects.Remove(id);}
         }
         public void Clear()
         {
             presentationSimulation=null;finishElapsed=0;audioWave=0;StopAudio();
             GetComponent<ZatodBattleLootView>()?.Clear();
             foreach(int id in units.Keys.ToArray())RemoveActor(id);
-            foreach(var e in effects.Values)if(e.Sprite!=null)Retire(e.Sprite.gameObject);effects.Clear();
+            foreach(var e in effects.Values){e.Audio.Source?.Stop();Pool.Release(e.Lease);}effects.Clear();
             if(music!=null)music.clip=null;
         }
         void OnDestroy(){foreach(var sprite in backgrounds.Values)if(sprite!=null)Destroy(sprite);if(white!=null)Destroy(white);}

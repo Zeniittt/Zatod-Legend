@@ -15,16 +15,20 @@ namespace Zatod.Presentation
         AudioSource readySound;
         AudioClip readyClip;
         int hudSoundTick=-1;
+        ZatodPoolManager floatingPool;readonly Dictionary<int,ZatodPoolManager.Lease> floatingLeases=new Dictionary<int,ZatodPoolManager.Lease>();
         readonly Dictionary<int,TextMeshProUGUI> floatingText=new Dictionary<int,TextMeshProUGUI>();
         static Vector2 BattlePoint(double x,double y,double height)=>new Vector2(100+(float)x*1.75f,-520+(float)y*.875f+(float)height*1.75f);
         void ActivateUltimate(int actorId)
         {
             if(replay==null && connection.Ultimate(actorId))DrawBattle();
         }
+        void ReleaseFloatingText()
+        {
+            foreach(var lease in floatingLeases.Values)floatingPool.Release(lease);floatingLeases.Clear();floatingText.Clear();
+        }
         void ClearFloating()
         {
-            foreach(var text in floatingText.Values)if(text!=null)Destroy(text.gameObject);
-            floatingText.Clear();Array.Clear(cardEntities,0,cardEntities.Length);
+            ReleaseFloatingText();Array.Clear(cardEntities,0,cardEntities.Length);
             for(int i=0;i<heardReadyTicks.Length;i++)heardReadyTicks[i]=-1;
             hudSoundTick=-1;readySound?.Stop();
         }
@@ -100,10 +104,11 @@ namespace Zatod.Presentation
                 }
             }
             hudSoundTick=frame.Tick;
+            if(frame.Finished)ReleaseFloatingText();
             var live=new HashSet<int>();
             foreach(var effect in frame.CombatEvents)
             {
-                if(effect.Kind=="death" || effect.Wave!=frame.Wave)continue;
+                if(frame.Finished || effect.Kind=="death" || effect.Wave!=frame.Wave)continue;
                 const float life=.85f;
                 float age=(float)((frame.Tick-effect.Tick)*ZatodBattleSimulation.StepSeconds+interpolation);
                 if(age>life)continue;
@@ -120,7 +125,9 @@ namespace Zatod.Presentation
                     };
                     if(effect.Kind=="energy" || effect.Kind=="last_hit")value+=" ENERGY";
                     if(effect.Kind=="last_hit")value="LAST HIT!\n"+value;
-                    text=Label(hud.Floating,value,0,0,220,60,effect.Kind=="energy"?19:effect.Critical?30:23);text.alignment=TextAlignmentOptions.Center;
+                    if(floatingPool==null){floatingPool=gameObject.AddComponent<ZatodPoolManager>();floatingPool.MaxRetained=64;floatingPool.MaxPerKey=64;floatingPool.Prewarm("combat-text",12,()=>Label(hud.Floating,"",0,0,220,60,23).gameObject);}
+                    var lease=floatingPool.Acquire("combat-text",hud.Floating,()=>Label(hud.Floating,"",0,0,220,60,23).gameObject);floatingLeases.Add(effect.Id,lease);
+                    text=lease.Object.GetComponent<TextMeshProUGUI>();text.text=value;text.fontSize=effect.Kind=="energy"?19:effect.Critical?30:23;text.alignment=TextAlignmentOptions.Center;
                     text.name="Combat_"+effect.Kind+"_"+effect.Id;
                     floatingText.Add(effect.Id,text);
                 }
@@ -139,7 +146,7 @@ namespace Zatod.Presentation
                 if(effect.Kind=="immune" || effect.Kind=="dodge" || effect.Kind=="miss" || effect.Kind=="resist")color=new Color(.83f,.9f,1);
                 color.a=1-Mathf.InverseLerp(.47f,life,age);text.color=color;
             }
-            foreach(int id in floatingText.Keys.Where(id=>!live.Contains(id)).ToArray()){Destroy(floatingText[id].gameObject);floatingText.Remove(id);}
+            foreach(int id in floatingText.Keys.Where(id=>!live.Contains(id)).ToArray()){floatingPool.Release(floatingLeases[id]);floatingLeases.Remove(id);floatingText.Remove(id);}
         }
     }
 }

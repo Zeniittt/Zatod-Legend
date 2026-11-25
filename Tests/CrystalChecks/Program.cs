@@ -97,7 +97,7 @@ static partial class Program
                     args.Length == 5 ? args[4] : null);
                 return;
             }
-            if(args.Contains("--d35")){SkillPromoteChecks();SkillEvolutionChecks();Console.WriteLine("[D35Checks] PASS / "+checks+" assertions");return;} Inventory(); ImportedData(); CampaignDropConfig(); CampaignLootChecks(); BattleStatisticsChecks(); CraftingChecks(); ProgressionChecks();InventoryChecks();SkillPromoteChecks();SkillEvolutionChecks(); SharedWorld(); ZatodBattles(); Sessions(); FreePvpPresets(); SourceCombatRules(); PresentationMotion(); CombatSummons(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); if(ImportedCatalog(RuntimeData).Data.UseExpandedCombatRules)ExpandedCombatChecks(RuntimeData); }
+            if(args.Contains("--d38")){D38PolicyChecks();return;} if(args.Contains("--d35")){SkillPromoteChecks();SkillEvolutionChecks();Console.WriteLine("[D35Checks] PASS / "+checks+" assertions");return;} Inventory(); ImportedData(); CampaignDropConfig(); CampaignLootChecks(); BattleStatisticsChecks(); CraftingChecks(); ProgressionChecks();InventoryChecks();SkillPromoteChecks();SkillEvolutionChecks(); SharedWorld(); ZatodBattles(); Sessions(); FreePvpPresets(); SourceCombatRules(); PresentationMotion(); CombatSummons(); CanonicalContent(); CombatPresentationEvents(); Console.WriteLine("[ZatodChecks] PASS / "+checks+" assertions"); if(ImportedCatalog(RuntimeData).Data.UseExpandedCombatRules)ExpandedCombatChecks(RuntimeData); }
         catch(Exception error) { Console.Error.WriteLine(error.ToString());Environment.ExitCode=1; }
     }
     sealed class Oracle { public List<OracleRow> Rows; }

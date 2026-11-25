@@ -1,8 +1,43 @@
 # Zatod Legend — Lịch sử lỗi và cách xử lý
 
-Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi sửa lỗi. Chỉ ghi nguyên nhân đã có bằng chứng; giả thuyết ghi riêng. Design.md là nguồn quyết định thiết kế.
+Cập nhật 25/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi sửa lỗi. Chỉ ghi nguyên nhân đã có bằng chứng; giả thuyết ghi riêng. Design.md là nguồn quyết định thiết kế.
+
+## D38 — Hoàn tất triển khai và IPA trên Mac, 25/11/2026
+
+- **Kết quả:** Equip/7 điểm Town/selector8chương/portal/boss154ải/55key+99minor/preload/PoolManager đã triển khai. Giữ Owned/GUID và simulation/replay rules; không chạy server Windows hoặc app thật để thử.
+- **Kiểm:** legacy8.051/native3.017/Hero112/policy46; preload74match; UI52+hit8/8+pointer; WorldTCP130/Equip11/lifecycle11; PvP5v5/116tick/digest10896472758431214544 và replay/.NET khớp. Farm20.510trận clear154/5Tím; stress39vòng/1.205,61s có7.078frame summon/2.011reuseFX. Sửa cleanup/selection cuối được kiểm lại: một vòng33checks, replayUI136checks, pooltextactive0 và console không có lỗi mới. Báo cáo `docs/zatod-world-ui-polish-implementation.md`.
+- **Build:** Unity export0lỗi/5warning; Xcode Releasearm64 BUILD SUCCEEDED, signing disabled. IPA `/Users/bloom/Desktop/Zatod Legend/Builds/D38/20261125-105521/ZatodLegend-D38-unsigned.ipa`,1.650.298.553byte; ZIP64/CRC/plist/LAN/framework/unsigned và20TextAsset trongproduct đạt. SHA256 `98068d3c555e1285b61e22e051f1f1dffd3482101da23d474de3df92fd664cec`. Giữ IPA cũ; chưa ký/cài/chạy iPhone hoặc kiểm lại Windows/Android thật; client/server cần cùngD38.
+- **Bàn giao:** source/config/art/test nằm trong worktree, chưa commit/push. Source126C# và20Data khớp workspace build; Artifacts giữ evidence. Editor cuối dừngPlayMode, fixtures tắt. Các thử lỗi/các mốc đang triển khai bên dưới là lịch sử điều tra; không dùng chúng thay trạng thái cuối này.
+
+## BUG-084 — World input đọc control UI đã bị hủy
+
+- **Ngày:** 25/11/2026. **Trạng thái:** đã sửa và kiểm pointer click/drag/close, replay UI và console sau return.
+- **Triệu chứng/bằng chứng:** sau pointer test đóng/hủy UI, world Update lặp MissingReferenceException ở WorldIntegration InputLocked. EventSystem còn giữ selected GameObject đã Destroy; toán tử `?.` không xử lý Unity fake-null nên GetComponent vẫn được gọi. Reopen selector cũng có thể hủy các nút cũ đang được chọn.
+- **Sửa:** kiểm Unity-null trước khi đọc input field; selector clear selection thuộc view trước rebuild và khi Hide. Không đổi khóa input gameplay/modal. Kiểm lại click/drag/close và console sau return.
+
+## BUG-083 — Combat text còn giữ lease khi đã về world
+
+- **Ngày:** 25/11/2026. **Trạng thái:** đã sửa và kiểm lại: một vòng thật/33 assertions và replay UI 136 assertions; pool UI active bằng 0 khi về world, giữ 34 object idle để tái sử dụng.
+- **Bằng chứng:** kiểm cuối thấy pool UI còn 9 lease active dù đã rời replay; stage/effect pool đã dọn. `Show` ẩn HUD nhưng chưa gọi ClearFloating, nên các số cuối trận chỉ được release ở lần vào trận sau. Không có bằng chứng tăng vô hạn; đây là sai vòng đời cleanup D38.
+- **Sửa:** release số combat khi frame Finished và khi Show rời battle; không dựng lại text từ các event của frame đã kết thúc. Bổ sung assertion pool UI active bằng 0 sau return/exit replay. Scene/simulation/timing/reward không đổi.
+
+## BUG-082 — Vùng trong suốt của đảo chọn chương chặn đảo khác
+
+- **Ngày:** 25/11/2026. **Trạng thái:** đã sửa, kiểm GraphicRaycaster 8/8 đảo, pointer click/drag và responsive đạt.
+- **Triệu chứng:** bấm giữa hình chương 6 có thể chọn chương 7. Test gọi trực tiếp onClick vẫn đạt nên không đủ để chứng minh vùng bấm đúng.
+- **Nguyên nhân xác nhận:** Image mặc định bắt toàn bộ hình chữ nhật; góc trong suốt của ảnh chương 7 chồng lên chương 6. Probe qua EventSystem xác nhận sai 1/8 điểm giữa đảo; pixel nguồn tương ứng có alpha 0. Sprite đã có mesh Tight 122 vertex nên có thể dùng geometry hiện có, không cần bật đọc texture hoặc đổi pixel/nén.
+- **Hướng sửa/kiểm:** giới hạn raycast theo mesh của Sprite, dùng cùng hình học khi vẽ; kiểm lại các tâm đảo, kéo/chọn và responsive. Evidence trước sửa: `Artifacts/D38Checks/hit-probe2.json`. Không đổi điều kiện mở chương hoặc gameplay.
+- **Kết quả:** thêm `ZatodSpriteHitArea` dùng mesh Tight có sẵn cho hit test; giữ nguyên ảnh/nén/layout, không bật readable texture. Probe thực nhận đúng cả 8 đảo, Input System mouse chọn một lần và kéo không chọn; 52 checks responsive/cutout vẫn đạt. Evidence `hit-probe-final.json`, `pointer.json`, `Visual-final/`.
 
 ## REVIEW-017 — Selector chương, art thị trấn và policy đánh lại ải Crystal
+
+- **Kiểm D38 ngày 25/11:** giao dịch Equip qua TCP đạt 11 ca về nhấn kép, reply trễ sang Hero khác, receipt lặp, GUID stale, rollback khi lưu lỗi, reconnect và flow xem/craft. Lifecycle đạt 11 ca lỗi/hủy/retry loading, reset pool, generation guard và giới hạn giữ object. Ba peer TCP đạt 130 assertions về cùng/khác map, join muộn, Passed cá nhân, request stale, minor/key và guard battle. Preload đạt 74 match (66 Hero và 8 encounter cuối chương), không thiếu dependency bắt buộc.
+- **Farm D38 ngày 25/11:** account khởi đầu nguyên trạng vượt 154/154 ải và đủ 5 Hero Tím sau 20.510 trận; Player/Hero 69, tiêu 90.844 thể lực, chờ 348,93 ngày mô phỏng. Chỉ farm lại key và tuân thủ gate chương; không sửa reward/EXP/regen/giá hoặc cấp đồ/level. Balance vẫn nặng; không dùng kết quả này để tự duyệt balance mới. Evidence: `Artifacts/D38Checks/farm.json`, bản gọn `farm-summary.json`.
+- **Nguồn item sau policy mới:** 99 loại drop, 81 có nguồn key; 18 chỉ ở minor, trong đó 12 ghép được từ nguồn key. Sáu loại còn lại (`axe_of_plunderer`, `brilliance_scroll`, `dragoncore_scroll`, `grandbow_scroll`, `harpy_eagle`, `satan_scroll`) không có nguồn key/recipe từ key trong phiên. Đối chiếu cả 66 Hero và cây recipe xác nhận chúng không là dependency đồ trước Tím. Không thêm loot/recipe; Get Way giữ art/flow D29 và hiện Passed/gate level đúng policy D38.
+
+- **Bắt đầu thực thi D38, 25/11/2026:** từ baseline `522721a34`, nhánh `codex/d38-world-ui`. Đã nối policy dùng chung selector/portal/begin; nhập 55 Key/99 minor cùng gate Lv1/5/8/16/26/36/46/56 từ source, giữ encounter/reward/Evo. Core 8.051 và policy 46 assertions đạt; Unity đang kiểm, chưa nghiệm thu phase/build. Dùng workspace/profile/port riêng.
+- **Đầu vào công trình:** helper bake effect cũ chỉ tra `patch/pfca/effect/`, không thấy bốn container tại `recovered/assets/install_time_pack/remake/pfca/effect/`. Script `Bake-ZatodD38Buildings.py` resolve đúng nguồn đã giải nén, không cần APK/ZIP. Container PeakArena có timeline tham chiếu `a2.png` nhưng atlas container không có sprite này (KeyError khi decode); không tự bỏ layer hoặc coi cờ spine=true là format đã được hỗ trợ. Chọn công trình Crystal `eff_UI_Main_Pvp_fort` cho điểm PvP realtime với nhãn riêng; đây là lựa chọn art Zatod, không khẳng định feature Crystal gốc là realtime. Giữ container/source raw.
+- **Công cụ Unity:** lần mở Editor main thoát trước khi ready, log chưa xác định nguyên nhân; chuyển sang workspace kiểm/build cô lập đã có theo quy trình D34, không thay scene/source raw main. Import art vượt timeout30s nhưng vẫn tiếp tục; đã chờ/kiểm asset rồi chạy với timeout dài, xác nhận đủ25resources. Lỗi compile local trùng tên biến effect đã sửa; console/compiler cuối còn phải kiểm sau test.
 
 - **Ngày:** 24/11/2026. **Trạng thái:** đã khảo sát và chốt D38; chưa sửa runtime/import/bake/build.
 - **Triệu chứng/yêu cầu:** điểm Phó bản ở làng đi thẳng chapter1; object tính năng còn art world cũ, điểm ải có hai kiếm; người dùng muốn selector Legend World, portal hai đầu, boss đại diện và Passed nhưng vẫn xem preview.
@@ -31,6 +66,8 @@ Cập nhật 24/11/2026 (Asia/Saigon). Tra theo mã/triệu chứng trước khi
 - **Cách xử lý cần làm:** build/cậpnhật đúngWindows/server lênD35; chúýStart-ZatodServer.ps1 ưu tiênDesktopWindows trướcBuilds/ZatodPrototype. GiữDataDirectory/Owned/GUID, client/servercùngconfig/rules, thửlạihai command vàreceipt/save/reconnect trướcđánhdấuđãsửa. Người dùng hiệnchỉyêucầu kiểmcase, chưa có lệnhbuild/deploy hoặc tắtserverđangdùng.
 
 ## UX-001 — Equip thành công còn phải bấmOK để đóng panelitem
+
+- **Triển khai D38 ngày 25/11/2026:** panel theo dõi operation/Hero/slot/GUID và context mỗi lần mở/đóng; chỉ tự đóng khi snapshot có receipt khớp và đúng GUID đã mặc. Đang kiểm trong Unity với profile riêng. Không coi item đã mặc hoặc một refresh bất kỳ là giao dịch vừa thành công.
 
 - **Ngày:**24/11/2026. **Trạng thái:** đã xácnhận flowcode vàghi quyếtđịnh mớiD28, chưa thayruntime.
 - **Triệu chứng/nguyênnhân:** `ZatodEquipmentView.Act` gửiconnection.Equip, `ZatodPrototypeView.OnChanged` gọiRefresh; Refresh thấyEquippedItems cóitem thì đổiActionButton thànhOK, vẫngiữGameObjectactive. `Act` ởtrạngtháiequipped chỉHide khi bấmlầnnữa. Đây làhànhvi code hiệncó, khôngphải equip chưađượclưu.

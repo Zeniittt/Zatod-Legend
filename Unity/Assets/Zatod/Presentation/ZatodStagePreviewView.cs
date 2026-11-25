@@ -17,7 +17,7 @@ namespace Zatod.Presentation
         public GameObject[] BossBadges;
         public string StageId {get;private set;}
         public int StarCount {get;private set;}
-        Action close,challenge;
+        Action close,challenge;bool keyStage;
         Vector2 lastSize;
         void Awake(){Close.onClick.AddListener(()=>close?.Invoke());Challenge.onClick.AddListener(()=>challenge?.Invoke());}
         void LateUpdate(){Fit();}
@@ -26,9 +26,9 @@ namespace Zatod.Presentation
             var size=((RectTransform)transform).rect.size;if(size==lastSize)return;lastSize=size;
             Layout.localScale=Vector3.one*Mathf.Min(size.x/1600,size.y/900);
         }
-        public void Open(CampaignStageDefinition stage,HeroCatalog catalog,int stars,bool connected,Action onClose,Action onChallenge,bool unlocked=true)
+        public void Open(CampaignStageDefinition stage,HeroCatalog catalog,int stars,bool connected,Action onClose,Action onChallenge,bool unlocked=true,string lockReason=null)
         {
-            StageId=stage.Id;close=onClose;challenge=onChallenge;Title.text=stage.Name;Description.text=stage.Description??"";
+            keyStage=stage.KeyStage;StageId=stage.Id;close=onClose;challenge=onChallenge;Title.text=stage.Name;Description.text=stage.Description??"";
             Cost.text=stage.VitalityCost.ToString();DailyAttempts.text="Daily Attempts: ?";RaidVoucher.text="Raid Voucher: ?";
             var enemies=stage.Waves.Last().Enemies.OrderBy(e=>e.Boss).ToArray();
             for(int i=0;i<Enemies.Length;i++)
@@ -36,17 +36,19 @@ namespace Zatod.Presentation
                 bool show=i<enemies.Length;Enemies[i].Root.gameObject.SetActive(show);BossBadges[i].SetActive(show && enemies[i].Boss);
                 if(show){ZatodFormationView.DrawEnemyCard(Enemies[i],enemies[i],catalog);Enemies[i].InstanceId=enemies[i].Id;}
             }
-            DrawDrops(DropRow,stage,catalog,80,22,7);Refresh(stars,connected,unlocked);
+            DrawDrops(DropRow,stage,catalog,80,22,7);Refresh(stars,connected,unlocked,lockReason);
             gameObject.SetActive(true);transform.SetAsLastSibling();lastSize=Vector2.zero;Fit();
         }
-        public void Refresh(int stars,bool connected,bool unlocked=true)
+        public void Refresh(int stars,bool connected,bool unlocked=true,string lockReason=null)
         {
-            StarCount=Math.Clamp(stars,0,3);Challenge.interactable=connected && unlocked;Notice.text=!connected?"Disconnected":unlocked?"":"Clear the previous stage first";
+            StarCount=Math.Clamp(stars,0,3);bool passed=!keyStage && StarCount>0;
+            Challenge.interactable=connected && unlocked && !passed;Notice.text=!connected?"Disconnected":lockReason??(passed?"Passed":unlocked?"":"Clear the previous stage first");
+            Notice.enableAutoSizing=true;Notice.fontSizeMin=13;Notice.textWrappingMode=TextWrappingModes.Normal;
             StarBackground.sprite=Art(StarCount==0?"campaign_detail_star_unlock_bg":"campaign_detail_star_lock_bg");
             for(int i=0;i<Stars.Length;i++)Stars[i].sprite=Art("campaign_stage_star_"+(i<StarCount?1:StarCount==0?2:3));
             string raidArt=StarCount==3?"button_com_big":"button_grey";
             Raid.image.sprite=RaidMany.image.sprite=Art(raidArt);
-            Raid.interactable=RaidMany.interactable=StarCount==3;
+            Raid.interactable=RaidMany.interactable=false;
             Raid.transition=RaidMany.transition=UnityEngine.UI.Selectable.Transition.None;
             // Deliberately no raid/tutorial listeners: these controls only preview their UI state.
         }
