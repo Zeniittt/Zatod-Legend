@@ -11,7 +11,7 @@ static partial class Program
         var catalog=ImportedCatalog();var crafting=new CraftingCatalog(catalog);
         Check(catalog.Data.CraftRecipes.Count>47,"Missing recursive recipes");
         Check(catalog.Item(crafting.ForItem("shortsword").Ingredients[0].ItemId).ItemKind==ItemKind.Fragment,"Fragment metadata");
-        var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),catalog);
+        var campaign=new CampaignCatalog(Read<CampaignDefinition>((BundledData+"/Campaigns.txt")),catalog);
         var owned=campaign.CreateDemoCharacter(catalog);owned.CharacterId=Guid.NewGuid().ToString("D");var session=new ZatodPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"),owned);var inventory=new ItemInventory(owned,catalog);
         var recipe=crafting.ForItem("green_boots");Check(recipe.GoldCost==1200 && recipe.Ingredients.Count==3,"Source boot formula");
         foreach(var i in recipe.Ingredients)inventory.AddItemByItemId(i.ItemId,i.Amount);

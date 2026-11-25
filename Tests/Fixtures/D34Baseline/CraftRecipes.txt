@@ -1,0 +1,1001 @@
+{
+  "SchemaVersion": 1,
+  "ConfigVersion": "zatod-skill-promote-1",
+  "CraftRecipes": [
+    {
+      "Id": "accessory_of_intelligence_recipe",
+      "SourceItemId": 118,
+      "OutputItemId": "accessory_of_intelligence",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "accessory_of_intelligence_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "cloak_of_intelligence",
+          "Amount": 1
+        },
+        {
+          "ItemId": "circlet_of_nobility",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 300
+    },
+    {
+      "Id": "mask_of_agility_recipe",
+      "SourceItemId": 119,
+      "OutputItemId": "mask_of_agility",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "mask_of_agility_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "stockings_of_agility",
+          "Amount": 1
+        },
+        {
+          "ItemId": "circlet_of_nobility",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 300
+    },
+    {
+      "Id": "ring_of_sanctum_recipe",
+      "SourceItemId": 120,
+      "OutputItemId": "ring_of_sanctum",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "ring_of_protection",
+          "Amount": 1
+        },
+        {
+          "ItemId": "mask_of_celebrity",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 300
+    },
+    {
+      "Id": "bracer_of_strength_recipe",
+      "SourceItemId": 121,
+      "OutputItemId": "bracer_of_strength",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "bracer_of_strength_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "boxing_gloves_of_strength",
+          "Amount": 1
+        },
+        {
+          "ItemId": "circlet_of_nobility",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 300
+    },
+    {
+      "Id": "vital_shield_recipe",
+      "SourceItemId": 122,
+      "OutputItemId": "vital_shield",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "small_stout_shield",
+          "Amount": 1
+        },
+        {
+          "ItemId": "stockings_of_agility",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 300
+    },
+    {
+      "Id": "scarf_of_regeneration_recipe",
+      "SourceItemId": 123,
+      "OutputItemId": "scarf_of_regeneration",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "scarf_of_regeneration_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_regen",
+          "Amount": 1
+        },
+        {
+          "ItemId": "branches",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 300
+    },
+    {
+      "Id": "starlight_staff_recipe",
+      "SourceItemId": 196,
+      "OutputItemId": "starlight_staff",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "starlight_staff_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "simple_staff",
+          "Amount": 1
+        },
+        {
+          "ItemId": "branches",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "ring_of_soul_recipe",
+      "SourceItemId": 197,
+      "OutputItemId": "ring_of_soul",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "ring_of_soul_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_regen",
+          "Amount": 1
+        },
+        {
+          "ItemId": "mask_of_celebrity",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "iron_buckler_recipe",
+      "SourceItemId": 198,
+      "OutputItemId": "iron_buckler",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "iron_buckler_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "chainmail",
+          "Amount": 1
+        },
+        {
+          "ItemId": "branches",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "life_vessel_recipe",
+      "SourceItemId": 199,
+      "OutputItemId": "life_vessel",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "life_vessel_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "mask_of_celebrity",
+          "Amount": 1
+        },
+        {
+          "ItemId": "boxing_gloves_of_strength",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "green_boots_recipe",
+      "SourceItemId": 200,
+      "OutputItemId": "green_boots",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "boots",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_protection",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_regen",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "ring_of_aquila_recipe",
+      "SourceItemId": 201,
+      "OutputItemId": "ring_of_aquila",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "mask_of_agility",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_sanctum",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "courage_medal_recipe",
+      "SourceItemId": 202,
+      "OutputItemId": "courage_medal",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "courage_medal_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "chainmail",
+          "Amount": 1
+        },
+        {
+          "ItemId": "mask_of_celebrity",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "shoes_of_claw_recipe",
+      "SourceItemId": 203,
+      "OutputItemId": "shoes_of_claw",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "boots",
+          "Amount": 1
+        },
+        {
+          "ItemId": "claw_of_assassin",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "pegleg_of_strength_recipe",
+      "SourceItemId": 204,
+      "OutputItemId": "pegleg_of_strength",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "boots",
+          "Amount": 1
+        },
+        {
+          "ItemId": "gloves_of_speed",
+          "Amount": 1
+        },
+        {
+          "ItemId": "belt_of_strength",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "pegleg_of_agility_recipe",
+      "SourceItemId": 205,
+      "OutputItemId": "pegleg_of_agility",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "boots",
+          "Amount": 1
+        },
+        {
+          "ItemId": "gloves_of_speed",
+          "Amount": 1
+        },
+        {
+          "ItemId": "boots_of_agility",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "mythic_shoes_recipe",
+      "SourceItemId": 207,
+      "OutputItemId": "mythic_shoes",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "boots",
+          "Amount": 1
+        },
+        {
+          "ItemId": "orb_of_mana",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "zen_staff_recipe",
+      "SourceItemId": 208,
+      "OutputItemId": "zen_staff",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "short_staff",
+          "Amount": 1
+        },
+        {
+          "ItemId": "mask_of_celebrity",
+          "Amount": 1
+        },
+        {
+          "ItemId": "robe_of_intelligence",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "orb_of_perseverance_recipe",
+      "SourceItemId": 209,
+      "OutputItemId": "orb_of_perseverance",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "ring_of_healing",
+          "Amount": 1
+        },
+        {
+          "ItemId": "void_gem",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "celestial_drum_recipe",
+      "SourceItemId": 210,
+      "OutputItemId": "celestial_drum",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "celestial_drum_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "bracer_of_strength",
+          "Amount": 1
+        },
+        {
+          "ItemId": "robe_of_intelligence",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "domination_recipe",
+      "SourceItemId": 211,
+      "OutputItemId": "domination",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "mask_of_blood_thirty",
+          "Amount": 1
+        },
+        {
+          "ItemId": "helm_of_warrior",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "crazy_face_recipe",
+      "SourceItemId": 212,
+      "OutputItemId": "crazy_face",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "crazy_face_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "mask_of_blood_thirty",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "magic_resis_scarf_recipe",
+      "SourceItemId": 214,
+      "OutputItemId": "magic_resis_scarf",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "ring_of_healing",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_regen",
+          "Amount": 2
+        },
+        {
+          "ItemId": "cloak_of_wizardry",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "charge_shield_recipe",
+      "SourceItemId": 215,
+      "OutputItemId": "charge_shield",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "small_stout_shield",
+          "Amount": 1
+        },
+        {
+          "ItemId": "orb_of_health",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_healing",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "mekan_recipe",
+      "SourceItemId": 216,
+      "OutputItemId": "mekan",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "mekan_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "scarf_of_regeneration",
+          "Amount": 1
+        },
+        {
+          "ItemId": "iron_buckler",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "axe_of_strength_recipe",
+      "SourceItemId": 219,
+      "OutputItemId": "axe_of_strength",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "axe_of_strength_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "blade_of_agility_recipe",
+      "SourceItemId": 220,
+      "OutputItemId": "blade_of_agility",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "blade_of_agility_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "staff_of_intelligence_recipe",
+      "SourceItemId": 221,
+      "OutputItemId": "staff_of_intelligence",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "staff_of_intelligence_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "shortsword_recipe",
+      "SourceItemId": 222,
+      "OutputItemId": "shortsword",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "shortsword_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "claymore_recipe",
+      "SourceItemId": 223,
+      "OutputItemId": "claymore",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "claymore_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "lance_recipe",
+      "SourceItemId": 225,
+      "OutputItemId": "lance",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "lance_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "hammer_of_mithril_recipe",
+      "SourceItemId": 226,
+      "OutputItemId": "hammer_of_mithril",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "hammer_of_mithril_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "amulet_of_abyss_recipe",
+      "SourceItemId": 227,
+      "OutputItemId": "amulet_of_abyss",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "amulet_of_abyss_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "verdant_staff_recipe",
+      "SourceItemId": 228,
+      "OutputItemId": "verdant_staff",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "verdant_staff_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "crystal_sword_scroll_recipe",
+      "SourceItemId": 229,
+      "OutputItemId": "crystal_sword_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "crystal_sword_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "anemoi_s_scepter_scroll_recipe",
+      "SourceItemId": 231,
+      "OutputItemId": "anemoi_s_scepter_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "anemoi_s_scepter_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "gloves_of_ghost_scroll_recipe",
+      "SourceItemId": 232,
+      "OutputItemId": "gloves_of_ghost_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "gloves_of_ghost_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "dispersant_scroll_recipe",
+      "SourceItemId": 233,
+      "OutputItemId": "dispersant_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "dispersant_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "bar_of_hawk_scroll_recipe",
+      "SourceItemId": 234,
+      "OutputItemId": "bar_of_hawk_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "bar_of_hawk_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "crimson_staff_scroll_recipe",
+      "SourceItemId": 237,
+      "OutputItemId": "crimson_staff_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "crimson_staff_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "boots_of_adventure_scroll_recipe",
+      "SourceItemId": 241,
+      "OutputItemId": "boots_of_adventure_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "boots_of_adventure_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "aurora_recipe",
+      "SourceItemId": 242,
+      "OutputItemId": "aurora",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "aurora_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "belt_of_strength",
+          "Amount": 1
+        },
+        {
+          "ItemId": "axe_of_strength",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "noir_recipe",
+      "SourceItemId": 243,
+      "OutputItemId": "noir",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "noir_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "boots_of_agility",
+          "Amount": 1
+        },
+        {
+          "ItemId": "blade_of_agility",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "crystal_sword_recipe",
+      "SourceItemId": 244,
+      "OutputItemId": "crystal_sword",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "crystal_sword_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "shortsword",
+          "Amount": 1
+        },
+        {
+          "ItemId": "claw_of_assassin",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "thorny_mail_recipe",
+      "SourceItemId": 245,
+      "OutputItemId": "thorny_mail",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "shortsword",
+          "Amount": 1
+        },
+        {
+          "ItemId": "chainmail",
+          "Amount": 1
+        },
+        {
+          "ItemId": "robe_of_intelligence",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "bar_of_hawk_recipe",
+      "SourceItemId": 246,
+      "OutputItemId": "bar_of_hawk",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "bar_of_hawk_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "staff_of_intelligence",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_regen",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "boots_of_adventure_recipe",
+      "SourceItemId": 247,
+      "OutputItemId": "boots_of_adventure",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "boots_of_adventure_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "boots",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "gloves_of_ghost_recipe",
+      "SourceItemId": 248,
+      "OutputItemId": "gloves_of_ghost",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "gloves_of_ghost_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "gloves_of_speed",
+          "Amount": 1
+        },
+        {
+          "ItemId": "claw_of_assassin",
+          "Amount": 1
+        },
+        {
+          "ItemId": "helm_of_warrior",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "crimson_staff_recipe",
+      "SourceItemId": 251,
+      "OutputItemId": "crimson_staff",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "crimson_staff_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "staff_of_intelligence",
+          "Amount": 1
+        },
+        {
+          "ItemId": "accessory_of_intelligence",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "anemoi_s_scepter_recipe",
+      "SourceItemId": 252,
+      "OutputItemId": "anemoi_s_scepter",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "anemoi_s_scepter_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "staff_of_intelligence",
+          "Amount": 1
+        },
+        {
+          "ItemId": "void_gem",
+          "Amount": 1
+        },
+        {
+          "ItemId": "mask_of_celebrity",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "rothar_recipe",
+      "SourceItemId": 254,
+      "OutputItemId": "rothar",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "claymore",
+          "Amount": 1
+        },
+        {
+          "ItemId": "amulet_of_abyss",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "rousing_rose_recipe",
+      "SourceItemId": 257,
+      "OutputItemId": "rousing_rose",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "orb_of_mana",
+          "Amount": 1
+        },
+        {
+          "ItemId": "orb_of_health",
+          "Amount": 1
+        },
+        {
+          "ItemId": "orb_of_vigor",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "dispersant_recipe",
+      "SourceItemId": 258,
+      "OutputItemId": "dispersant",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "dispersant_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "blade_of_agility",
+          "Amount": 2
+        },
+        {
+          "ItemId": "robe_of_intelligence",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "crossblade_recipe",
+      "SourceItemId": 260,
+      "OutputItemId": "crossblade",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "aurora",
+          "Amount": 1
+        },
+        {
+          "ItemId": "noir",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "azul_scepter_recipe",
+      "SourceItemId": 261,
+      "OutputItemId": "azul_scepter",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "orb_of_vigor",
+          "Amount": 1
+        },
+        {
+          "ItemId": "axe_of_strength",
+          "Amount": 1
+        },
+        {
+          "ItemId": "blade_of_agility",
+          "Amount": 1
+        },
+        {
+          "ItemId": "staff_of_intelligence",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    }
+  ]
+}

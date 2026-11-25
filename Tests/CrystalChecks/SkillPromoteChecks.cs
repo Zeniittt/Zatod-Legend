@@ -30,7 +30,7 @@ static partial class Program
         Check(hero.Skills.Single(x=>x.SlotId==definition.SkillSlots[2].Id).Level==21,"Missing slot was not seeded by SlotId");
         var high=hero.Skills.Single(x=>x.SlotId==ultimate);high.Level=90;catalog.Bind(account);
         Check(high.Level==90,"Loading must preserve old levels above cap");high.Level=1;
-        var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),catalog);
+        var campaign=new CampaignCatalog(Read<CampaignDefinition>((BundledData+"/Campaigns.txt")),catalog);
         var session=new ZatodPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"),account);
         string Op()=>Guid.NewGuid().ToString("D");
         string State()=>JsonSerializer.Serialize(account,Json);

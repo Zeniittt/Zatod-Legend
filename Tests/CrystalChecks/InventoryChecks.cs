@@ -10,8 +10,8 @@ partial class Program
         Check(GuestIdentity.Name("  A\u0301nh  ")=="Ánh","Guest Unicode composed name");
         foreach(var bad in new[]{"", "   ", "<color=red>Admin", new string('x',25), "one\n<sprite=0>"})
         {bool rejected=false;try{GuestIdentity.Name(bad);}catch(ArgumentException){rejected=true;}Check(rejected,"Invalid guest name rejected");}
-        var c=ImportedCatalog();var p=new ProgressionCatalog(Read<ProgressionDefinition>("Unity/Assets/Zatod/Resources/Data/Progression.txt"));
-        var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),c);
+        var c=ImportedCatalog();var p=new ProgressionCatalog(Read<ProgressionDefinition>((BundledData+"/Progression.txt")));
+        var campaign=new CampaignCatalog(Read<CampaignDefinition>((BundledData+"/Campaigns.txt")),c);
         var a=campaign.CreateDemoCharacter(c);p.Initialize(a,1000);CurrencyBalance.AddGold(a,10000000);var inv=new ItemInventory(a,c);var planner=new InventoryCatalog(c);
         var session=new ZatodPlayerSession(c,campaign,Guid.NewGuid().ToString("D"),a,progression:p);
         Check(c.Data.Items.Count==142&&c.Data.StarRules.Count==5,"Inventory metadata/Soulstone coverage");

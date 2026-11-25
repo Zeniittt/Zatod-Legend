@@ -8,8 +8,8 @@ static partial class Program
 {
     static void ProgressionChecks()
     {
-        var rules=new ProgressionCatalog(Read<ProgressionDefinition>("Unity/Assets/Zatod/Resources/Data/Progression.txt"));var heroes=ImportedCatalog();
-        var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),heroes);
+        var rules=new ProgressionCatalog(Read<ProgressionDefinition>((BundledData+"/Progression.txt")));var heroes=ImportedCatalog();
+        var campaign=new CampaignCatalog(Read<CampaignDefinition>((BundledData+"/Campaigns.txt")),heroes);
         var natural=campaign.CreateDemoCharacter(heroes);long naturalTime=1000000;
         var naturalSession=new ZatodPlayerSession(heroes,campaign,Guid.NewGuid().ToString("D"),natural,progression:rules,clock:()=>naturalTime);
         for(int run=0;run<5;run++)
@@ -50,7 +50,7 @@ static partial class Program
         Check(reconnect.LastCampaignReward.BattleId==battle.BattleId&&CurrencyBalance.GetGold(saved)==495,"Receipt lost after reconnect");
         owned.Stamina=5;Reject(()=>session.BeginCampaign("chapter_one_stage_1",null,2,Guid.NewGuid().ToString("N")),"Entry checked net instead of full cost");
         // Losing and cancelling must not grant victory rewards.
-        var hard=Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt");
+        var hard=Read<CampaignDefinition>((BundledData+"/Campaigns.txt"));
         foreach(var enemy in hard.Chapters[0].Stages[0].Waves.SelectMany(w=>w.Enemies)){enemy.Level=40;enemy.HpMultiplier=100;enemy.DamageMultiplier=100;}
         var hardCatalog=new CampaignCatalog(hard,heroes);var loser=hardCatalog.CreateDemoCharacter(heroes);
         var losingSession=new ZatodPlayerSession(heroes,hardCatalog,Guid.NewGuid().ToString("D"),loser,progression:rules,clock:()=>now);

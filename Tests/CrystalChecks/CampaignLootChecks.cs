@@ -10,7 +10,7 @@ static partial class Program
     static void CampaignLootChecks()
     {
         var catalog=ImportedCatalog();
-        CampaignDefinition Data()=>Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt");
+        CampaignDefinition Data()=>Read<CampaignDefinition>((BundledData+"/Campaigns.txt"));
         var campaign=new CampaignCatalog(Data(),catalog);
         var stage=campaign.Stage("chapter_one_stage_1");
         string a=stage.DropItems[0].ItemId,b=stage.DropItems[1].ItemId;

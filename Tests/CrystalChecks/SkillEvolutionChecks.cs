@@ -18,7 +18,11 @@ static partial class Program
     static ZatodUnitState UnitState(object unit)=>(ZatodUnitState)Member(unit,"State");
     static void Call(ZatodBattleSimulation simulation,string name,params object[] args)
     {
-        try{typeof(ZatodBattleSimulation).GetMethod(name,BindingFlags.NonPublic|BindingFlags.Instance).Invoke(simulation,args);}
+        try
+        {
+            var method=typeof(ZatodBattleSimulation).GetMethod(name,BindingFlags.NonPublic|BindingFlags.Instance);
+            method.Invoke(simulation,args.Concat(method.GetParameters().Skip(args.Length).Select(p=>p.DefaultValue)).ToArray());
+        }
         catch(TargetInvocationException e){throw e.InnerException;}
     }
     static HeroData EvoHero(HeroCatalog catalog,string id,int level)

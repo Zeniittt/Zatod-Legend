@@ -29,7 +29,7 @@ static partial class Program
         var poison=new ZatodBattleSimulation(Periodic(-8,false));for(int i=0;i<4;i++)poison.Step();
         Check(poison.Statistics().Single(s=>s.Team==0).DamageDealt==1 && poison.Statistics().Single(s=>s.Team==1).DamageTaken==1,"DoT not attributed to buff caster");
 
-        var catalog=ImportedCatalog();var campaign=new CampaignCatalog(Read<CampaignDefinition>("Unity/Assets/Zatod/Resources/Data/Campaigns.txt"),catalog);var account=campaign.CreateDemoCharacter(catalog);foreach(var h in account.HeroDesk)h.Level=40;
+        var catalog=ImportedCatalog();var campaign=new CampaignCatalog(Read<CampaignDefinition>((BundledData+"/Campaigns.txt")),catalog);var account=campaign.CreateDemoCharacter(catalog);foreach(var h in account.HeroDesk)h.Level=40;
         var stage=campaign.Stage("chapter_one_stage_1");var initial=ZatodMatchFactory.Campaign(campaign,catalog,account,stage.Id,account.HeroDesk.Select(h=>h.HeroInstanceId),11,"stat-report");
         var baseline=new ZatodBattleSimulation(initial);while(!baseline.Finished){foreach(var u in baseline.Frame().Units.Where(u=>u.Team==0&&u.Alive))baseline.RequestUltimate(u.EntityId);baseline.Step();}
         var replay=baseline.Replay();Check(replay.Statistics.Count==initial.Players.Count+initial.Waves.Sum(w=>w.Enemies.Count),"Prior-wave units disappeared from report");
