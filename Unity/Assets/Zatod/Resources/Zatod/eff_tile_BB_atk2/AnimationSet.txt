@@ -1,0 +1,62 @@
+{
+    "HeroId": "effect_eff_tile_BB_atk2",
+    "CanvasWidth": 210,
+    "CanvasHeight": 127,
+    "PixelsPerUnit": 100,
+    "AnchorPixelX": 576.0,
+    "AnchorPixelY": 28.0,
+    "Clips": [
+        {
+            "StabilizeHorizontalAnchor": false,
+            "State": "Start",
+            "SourceFolder": "Zatod/eff_tile_BB_atk2",
+            "ClipResource": "Zatod/eff_tile_BB_atk2/Animations/Start",
+            "FramesPerSecond": 24,
+            "Loop": false,
+            "Projectile": false,
+            "SourceFrames": [
+                "Assets/Zatod/Art/Imported/eff_tile_BB_atk2/Start_0.png#eff_tile_BB_atk2_Start_0000",
+                "Assets/Zatod/Art/Imported/eff_tile_BB_atk2/Start_0.png#eff_tile_BB_atk2_Start_0001"
+            ],
+            "Frames": [],
+            "ContentBounds": [],
+            "UseProjectileOrigin": false,
+            "PreserveSpritePivot": true,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0,
+            "PresentationHeight": 0,
+            "SourceDurationSeconds": 0.0833333358168602,
+            "VisualReferenceWidthPixels": 0,
+            "FrameTimes": [
+                0.0,
+                0.0416666679084301
+            ],
+            "AudioCues": []
+        },
+        {
+            "StabilizeHorizontalAnchor": false,
+            "State": "Loop",
+            "SourceFolder": "Zatod/eff_tile_BB_atk2",
+            "ClipResource": "Zatod/eff_tile_BB_atk2/Animations/Loop",
+            "FramesPerSecond": 24,
+            "Loop": true,
+            "Projectile": false,
+            "SourceFrames": [
+                "Assets/Zatod/Art/Imported/eff_tile_BB_atk2/Loop_0.png#eff_tile_BB_atk2_Loop_0000"
+            ],
+            "Frames": [],
+            "ContentBounds": [],
+            "UseProjectileOrigin": false,
+            "PreserveSpritePivot": true,
+            "ProjectileOriginPixelX": 0.0,
+            "ProjectileOriginPixelY": 0.0,
+            "PresentationHeight": 0,
+            "SourceDurationSeconds": 0.0416666679084301,
+            "VisualReferenceWidthPixels": 0,
+            "FrameTimes": [
+                0.0
+            ],
+            "AudioCues": []
+        }
+    ]
+}
