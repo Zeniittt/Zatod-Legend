@@ -9,7 +9,9 @@ namespace Zatod.Networking
     public sealed partial class ZatodConnection
     {
         ZatodLanDiscovery lanDiscovery;
-        string requestedName;
+        string requestedName,requestedPassword;
+        bool requestedRegistration;
+        string loginFailure;
         public bool FindingPvp{get;private set;}
         double loginDeadline;
         bool lookingForServer;
@@ -32,8 +34,7 @@ namespace Zatod.Networking
         public string SavedServerAddress=>HasArgument("--server")?Address:PlayerPrefs.GetString(ServerPreference,"");
         public string SuggestedServerAddress{get;private set;}="";
         public string CatalogVersion=>catalog?.Data.ConfigVersion??ClientCatalog.Data.ConfigVersion;
-        string NamePreference=>"ZatodPrototype.Name."+Argument("--zatod-profile",Argument("--zatod-smoke",DevelopmentProfile));
-        public string SavedDisplayName=>PlayerPrefs.GetString(NamePreference,"");
+        public string SavedDisplayName=>PlayerPrefs.GetString("Zatod.Username."+DevelopmentProfile,"");
         void InitializeLan()
         {
             lanDiscovery=gameObject.AddComponent<ZatodLanDiscovery>();lanDiscovery.Initialize(this);
@@ -55,12 +56,16 @@ namespace Zatod.Networking
             address=parsed.ToString();return true;
         }
         public void JoinLan(string name)=>JoinLan(name,"");
-        public void JoinLan(string name,string serverIp)
+        public void JoinLan(string name,string serverIp)=>SetStatus("Use Login or Register with your username and password.");
+        public void Login(string username,string password,string serverIp="")=>BeginLogin(username,password,serverIp,false);
+        public void Register(string username,string password,string serverIp="")=>BeginLogin(username,password,serverIp,true);
+        void BeginLogin(string name,string password,string serverIp,bool register)
         {
             if(LoginBusy||NetworkClient.active||IsServer)return;
             try
             {
-                requestedName=GuestIdentity.Name(name);
+                requestedName=PlayerIdentity.Username(name);requestedPassword=PlayerIdentity.Password(password);requestedRegistration=register;loginFailure=null;
+                if(pendingItemOperationAccount!=null && pendingItemOperationAccount!=name){pendingItemOperation=null;PendingItemOperationId=null;}
                 string entered=(serverIp??"").Trim();
                 if(entered.Length>0)
                 {
@@ -85,10 +90,11 @@ namespace Zatod.Networking
             if(!lookingForServer||!LoginBusy)return;
             lookingForServer=false;lanDiscovery.StopDiscovery();Address=host;Port=port;GetComponent<TelepathyTransport>().port=port;Connect();
         }
-        void StopLogin(){lookingForServer=false;lookingForAddress=false;LoginBusy=false;lanDiscovery?.StopDiscovery();}
+        void StopLogin(){lookingForServer=false;lookingForAddress=false;LoginBusy=false;requestedPassword=null;lanDiscovery?.StopDiscovery();}
         void FinishLogin()
         {
-            if(!string.IsNullOrEmpty(requestedName)){PlayerPrefs.SetString(NamePreference,Snapshot.Account.Name);PlayerPrefs.Save();}
+            if(!LoginBusy)return;
+            if(!string.IsNullOrEmpty(Snapshot.Username)){PlayerPrefs.SetString("Zatod.Username."+DevelopmentProfile,Snapshot.Username);PlayerPrefs.Save();}
             if(TryServerAddress(Address,out var host)){PlayerPrefs.SetString(ServerPreference,host);PlayerPrefs.Save();}
             StopLogin();
         }

@@ -17,6 +17,7 @@ static partial class Program
     static void Main(string[] args)
     {
         try {
+            if(args.Contains("--d39")){PlayerPersistenceChecks();return;}
             if(args.FirstOrDefault()=="--d34-stage-probe")
             {
                 if(args.Length!=3)throw new ArgumentException("Usage: --d34-stage-probe <Data directory> <stage>");
@@ -390,7 +391,7 @@ static partial class Program
         session.DevItem("iron_axe",2);string retainedGuid=session.Account.Inventory[0].Id;
         var ownedAgain=new ZatodPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"),session.Account);
         Check(ownedAgain.Account.Inventory.Any(x=>x.Id==retainedGuid) && ownedAgain.Account.HeroDesk.All(h=>h.Level==40),"New launch reset owned Hero/items");
-        Check(!ownedAgain.Run.IsUnlocked("chapter_one_stage_2"),"Owned save restored campaign progress");
+        Check(ownedAgain.Run.IsUnlocked("chapter_one_stage_2"),"Owned save did not restore confirmed campaign progress (D39)");
 
     }
     static ZatodMatchDefinition Fixture(string type="AD",double amount=100,double defense=0,double speed=0,double haste=0,int enemies=1)

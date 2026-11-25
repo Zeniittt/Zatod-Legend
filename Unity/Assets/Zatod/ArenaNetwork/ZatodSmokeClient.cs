@@ -17,6 +17,13 @@ namespace Zatod.Networking
             connection=GetComponent<ZatodConnection>();catalog=connection.ClientCatalog;
             role=ZatodConnection.Argument("--zatod-smoke","left");
             started=Time.realtimeSinceStartup;connection.ReplayReceived+=OnReplay;
+            if(!role.StartsWith("lan_",StringComparison.Ordinal))
+            {
+                string profile=ZatodConnection.Argument("--zatod-profile",role);
+                string username="smoke_"+ReplayArchive.Hash(System.Text.Encoding.UTF8.GetBytes(profile)).Substring(0,16);
+                if(role=="reset")connection.Login(username,"Zatod smoke fixture",connection.Address);
+                else connection.Register(username,"Zatod smoke fixture",connection.Address);
+            }
         }
         void Update()
         {
@@ -29,13 +36,14 @@ namespace Zatod.Networking
                 if(role.StartsWith("world_",StringComparison.Ordinal)){CheckWorld();return;}
                 if(phase==0)
                 {
-                    if(snapshot.Cleared.Count!=0)throw new Exception("New application launch restored campaign progress.");
                     if(role=="reset")
                     {
                         var retained=snapshot.Account.HeroDesk.Single(h=>h.HeroDefinitionId=="lina");
                         if(retained.Level!=40 || retained.RankId!="blue" || retained.EquippedItems.Count!=6 || retained.AbsorbedItems.Count!=18)throw new Exception("New launch reset owned Hero/item progress.");
-                        new ItemInventory(snapshot.Account,catalog).Validate();Done("fresh-launch-reset owned-hero-and-guids-retained");return;
+                        if(!snapshot.Cleared.Contains("chapter_one_stage_1"))throw new Exception("Confirmed Campaign progress lost after relogin.");
+                        new ItemInventory(snapshot.Account,catalog).Validate();Done("relogin campaign-stars owned-hero-and-guids-retained");return;
                     }
+                    if(snapshot.Cleared.Count!=0)throw new Exception("Newly registered account already has Campaign progress.");
                     heroes=snapshot.Account.HeroDesk.Select(h=>h.HeroInstanceId).Take(5).ToArray();
                     foreach(string id in heroes)connection.DevLevel(id,40);phase=1;
                 }
@@ -168,24 +176,24 @@ namespace Zatod.Networking
         void CheckLan()
         {
             bool left=role=="lan_left";
-            if(phase==0){connection.JoinLan(left?"An Nguyễn":"Lan Right");phase=1;return;}
+            if(phase==0){connection.Register(left?"lan_left":"lan_right","Zatod LAN fixture");phase=1;return;}
             var account=connection.Snapshot?.Account;var self=connection.WorldSelf;
             if(phase==1&&account!=null&&self!=null)
             {
-                if(account.Name!=(left?"An Nguyễn":"Lan Right")||self.Name!=account.Name)throw new Exception("Guest name not accepted/broadcast.");
-                var peer=connection.WorldPlayers.FirstOrDefault(p=>p.ConnectionId!=self.ConnectionId&&p.Name==(left?"Lan Right":"An Nguyễn"));
+                if(account.Name!=(left?"lan_left":"lan_right")||self.Name!=account.Name)throw new Exception("Player name not accepted/broadcast.");
+                var peer=connection.WorldPlayers.FirstOrDefault(p=>p.ConnectionId!=self.ConnectionId&&p.Name==(left?"lan_right":"lan_left"));
                 if(peer==null)return;
                 if(peer.AccountId==account.CharacterId)throw new Exception("Guest accounts share a GUID.");
                 lanAccount=account.CharacterId;lanGuids=account.Inventory.Select(i=>i.Id).ToArray();
                 phase=left?2:4;worldPhaseAt=Time.realtimeSinceStartup;return;
             }
             if(phase==2&&Time.realtimeSinceStartup-worldPhaseAt>2){connection.Disconnect();phase=3;worldPhaseAt=Time.realtimeSinceStartup;return;}
-            if(phase==3&&!connection.Connected&&!connection.LoginBusy&&Time.realtimeSinceStartup-worldPhaseAt>.5f){connection.JoinLan("An Renamed");phase=5;return;}
-            if(phase==4&&connection.WorldPlayers.Any(p=>p.Name=="An Renamed")){Done("lan discovery guest-names distinct-accounts peer-rename");return;}
-            if(phase==5&&account!=null&&self!=null&&self.Name=="An Renamed")
+            if(phase==3&&!connection.Connected&&!connection.LoginBusy&&Time.realtimeSinceStartup-worldPhaseAt>.5f){connection.Login("lan_left","Zatod LAN fixture");phase=5;return;}
+            if(phase==4&&Time.realtimeSinceStartup-worldPhaseAt>4&&connection.WorldPlayers.Any(p=>p.Name=="lan_left")){Done("lan discovery distinct-accounts login-register");return;}
+            if(phase==5&&account!=null&&self!=null&&self.Name=="lan_left")
             {
                 if(account.CharacterId!=lanAccount||!account.Inventory.Select(i=>i.Id).SequenceEqual(lanGuids))throw new Exception("Guest rename/reconnect changed ownership.");
-                Done("lan discovery Unicode-name reconnect rename same-GUID inventory-retained endpoint="+connection.Address+":"+connection.Port);
+                Done("lan discovery password-login reconnect same-GUID inventory-retained endpoint="+connection.Address+":"+connection.Port);
             }
         }
         void Done(string details)

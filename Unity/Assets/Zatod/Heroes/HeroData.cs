@@ -7,7 +7,7 @@ namespace Zatod.Heroes
     public sealed class HeroData
     {
         public string HeroInstanceId, HeroDefinitionId, RankId;
-        // Reserved progress fields; this phase implements rank progression only.
+        // Owned progress; battle snapshots resolve these against the current definitions.
         public int Level = 1, Stars = 1;
         public long Exp;
         public bool Awakened;
@@ -29,7 +29,7 @@ namespace Zatod.Heroes
 
     [Serializable] public sealed class HeroSkillData { public string SlotId; public int Level = 1; }
 
-    // Declarations only: no inventory, economy, quest or account-level logic yet.
+    // Player progress only. Login credentials belong to the server database record.
     [Serializable]
     public sealed class CharacterData
     {
@@ -60,7 +60,8 @@ namespace Zatod.Heroes
     {
         public string Id, ItemId;
     }
-    [Serializable] public sealed class CampaignProgressData { public List<string> ClearedStageIds = new List<string>(); }
+    [Serializable] public sealed class CampaignProgressData { public List<CampaignStageProgress> Stages = new List<CampaignStageProgress>(); }
+    [Serializable] public sealed class CampaignStageProgress { public string StageId; public int Stars; }
     [Serializable] public sealed class QuestProgressData { public string Id, PeriodId; public long Progress; public bool Claimed; }
 
     [Serializable]

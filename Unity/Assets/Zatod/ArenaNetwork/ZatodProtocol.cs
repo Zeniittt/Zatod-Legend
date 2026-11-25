@@ -11,6 +11,7 @@ namespace Zatod.Networking
     [Serializable] public sealed class ZatodAccountSnapshot
     {
         public CharacterData Account;
+        public string Username;
         public long ServerTime;
         public List<string> Cleared=new List<string>();
         public List<ZatodStageStars> StageStars=new List<ZatodStageStars>();

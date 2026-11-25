@@ -1,5 +1,7 @@
 # Chơi thử Zatod Legend prototype
 
+**D39, 25/11/2026:** flow hiện hành chuyển sang **Login / Register bằng username/password**, username phân biệt hoa/thường. Mọi Player ở chung `ZatodServerData/datas.json` trên host; Player/Hero/kho/tài nguyên/đội hình và clear/sao Campaign giữ qua đăng nhập/restart. Không resume trận; login về Town. Bắt đầu data mới, không nhập Owned/replay cũ. Client/server phải cùng D39; hướng dẫn chi tiết và trạng thái kiểm/build tại [báo cáo D39](zatod-player-persistence-implementation.md). Các đoạn hướng dẫn Connect/tên guest/reset Campaign bên dưới là lịch sử trước D39, không áp cho bản mới.
+
 Cập nhật23/11/2026: bản LAN Windows/Android được xuất ở `Desktop/Zatod Legend LAN Test`, server chạy bằng `Server/Start-Server.cmd`, Windowsclient bằng `Windows/Play-Zatod.cmd`. Login nguồn mới cóTên vàServer IP; Android/desktop tựdòđiềnđịa chỉ vàcóFind LAN, vẫn nhập tayđược. iOS dùngIPv4 PC trực tiếp/port7788. Xem [hướng dẫn Xcode/Mac/iPhone](zatod-ios-build-and-install.md); WindowsbuildD32 đãphát trước23/11 chưađược rebuildUI này trongphaseiOS. Các hướngdẫn21/11 bên dưới là luồngdev trướcD32.
 
 Scene mới: `Unity/Assets/Zatod/Scenes/ZatodPrototype.unity`. Menu build: **Zatod > Tools > Build Windows Prototype**. Bản Windows ở `Builds/ZatodPrototype/ZatodLegend.exe`.

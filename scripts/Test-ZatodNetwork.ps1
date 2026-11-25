@@ -27,8 +27,7 @@ try {
     if($results.Count -ne 2 -or @($results|Where-Object {$_ -notmatch 'PASS.*pvp digest='}).Count -gt 0){throw 'Missing successful two-client reports.'}
     $digests=@($results|ForEach-Object {if($_ -match 'digest=(\d+)'){$matches[1]}})
     if($digests.Count -ne 2 -or $digests[0] -ne $digests[1]){throw 'PvP clients returned different digests.'}
-    function Read-OwnedIdentity([string]$ownedPath){
-        $account=Get-Content -LiteralPath $ownedPath -Raw|ConvertFrom-Json
+    function Read-OwnedIdentity($account){
         $identities=@($account.Inventory|ForEach-Object {"$($_.Id):$($_.ItemId)"})
         foreach($hero in $account.HeroDesk){
             $identities+=@($hero.EquippedItems|ForEach-Object {"$($_.Id):$($_.ItemId)"})
@@ -36,19 +35,22 @@ try {
         }
         return @($identities|Sort-Object)
     }
-    $leftOwned=@(Get-ChildItem "$evidence/Server/Owned" -Filter '*.json'|Where-Object {
-        $account=Get-Content -LiteralPath $_.FullName -Raw|ConvertFrom-Json
-        @($account.HeroDesk|Where-Object {$_.HeroDefinitionId -eq 'lina' -and $_.RankId -eq 'blue'}).Count -eq 1
+    $databasePath=Join-Path $evidence 'Server/ZatodServerData/datas.json'
+    $database=Get-Content -LiteralPath $databasePath -Raw|ConvertFrom-Json
+    $leftOwned=@($database.Players|Where-Object {
+        @($_.Player.HeroDesk|Where-Object {$_.HeroDefinitionId -eq 'lina' -and $_.RankId -eq 'blue'}).Count -eq 1
     })
     if($leftOwned.Count -ne 1){throw 'Cannot identify the persisted blue Lina profile.'}
-    $beforeIdentities=Read-OwnedIdentity $leftOwned[0].FullName
+    $beforeIdentities=Read-OwnedIdentity $leftOwned[0].Player
     if($beforeIdentities.Count -lt 24){throw 'Persisted item provenance is incomplete.'}
     $resetArguments=@('-batchmode','-nographics','--zatod-smoke','reset','--zatod-profile',"smoke-$stamp-left",'--zatod-port',"$Port",'--smoke-output',"`"$evidence/reset.result`"",'-logFile',"`"$evidence/reset.log`"")
     $reset=Start-Process -FilePath $executable -ArgumentList $resetArguments -WindowStyle Hidden -PassThru
     $players+=$reset
     $reset.WaitForExit(40000)|Out-Null
-    if(-not $reset.HasExited -or $reset.ExitCode -ne 0 -or -not (Test-Path "$evidence/reset.result")){throw 'New application launch reset check failed.'}
-    $afterIdentities=Read-OwnedIdentity $leftOwned[0].FullName
+    if(-not $reset.HasExited -or $reset.ExitCode -ne 0 -or -not (Test-Path "$evidence/reset.result")){throw 'New application login/persistence check failed.'}
+    $database=Get-Content -LiteralPath $databasePath -Raw|ConvertFrom-Json
+    $reloaded=$database.Players|Where-Object {$_.Username -ceq $leftOwned[0].Username}
+    $afterIdentities=Read-OwnedIdentity $reloaded.Player
     if(@(Compare-Object $beforeIdentities $afterIdentities).Count -ne 0){throw 'Relaunch changed item GUID/type identities.'}
     $results+=Get-Content "$evidence/reset.result"
     $results+="PASS exact owned GUID/type pairs retained: $($afterIdentities.Count)"

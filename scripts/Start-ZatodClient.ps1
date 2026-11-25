@@ -7,4 +7,4 @@ if(-not (Test-Path -LiteralPath $exe)){throw 'Build the Zatod prototype from Uni
 $clientArguments=@('--zatod-profile',"`"$Profile`"",'--zatod-port',"$Port")
 if(-not [string]::IsNullOrWhiteSpace($Server)){$clientArguments+=@('--server',$Server)}
 $process=Start-Process -FilePath $exe -ArgumentList $clientArguments -PassThru
-Write-Output "Zatod client PID=$($process.Id), profile=$Profile. Enter a name and click Connect; an empty Server parameter uses LAN discovery."
+Write-Output "Zatod client PID=$($process.Id), profile=$Profile. Use Login or Register with username/password; an empty Server parameter uses LAN discovery."

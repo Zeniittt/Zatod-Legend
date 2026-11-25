@@ -1,5 +1,7 @@
 # Zatod Legend — Build và cài iPhone
 
+**D39, 25/11/2026:** sau khi có bản D39 trên cả client/server, dùng tab Login hoặc Register, username/password và Server IP. IP chỉ chọn endpoint; file chung `ZatodServerData/datas.json` nằm trên máy Windows hosting và giữ qua đổi mạng/cập nhật build nếu giữ thư mục dữ liệu. Hướng dẫn D39 và trạng thái build mới tại [báo cáo persistence](zatod-player-persistence-implementation.md); các bước Connect/tên guest bên dưới mô tả bản cũ.
+
 23/11/2026. Unity6000.6.2f1. Mac miniM4/Tahoe26.6.2, iPhone11/iOS27. Server vẫn chạy trênPC Windows; không cần clone toàn bộ project Unity lênMac.
 
 **Quy tắc bàn giao đã chốt — Design D37:** sau nhiệm vụ code/kiểm tra trên Mac, mặc định tạo **IPA chưa ký cho Sideloadly** và báo đường dẫn tuyệt đối, thư mục chứa, kết quả kiểm tra. Chế độ khác do người dùng chọn là build/ký development/cài/chạy trực tiếp trên iPhone nối cáp với Mac, không qua Sideloadly. Windows hỏi trước đóng gói nếu chưa được yêu cầu build. Đọc hiểu hoặc sửa tài liệu/skill không kích hoạt build.

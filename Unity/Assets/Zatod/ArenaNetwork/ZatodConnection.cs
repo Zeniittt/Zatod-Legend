@@ -30,7 +30,6 @@ namespace Zatod.Networking
         public event Action MatchStarted;
         public event Action FrameReceived;
         public event Action ReplayReceived;
-        readonly string launchId=Guid.NewGuid().ToString("D");
         readonly Dictionary<int,Incoming> uploads=new Dictionary<int,Incoming>();
         Incoming download;
         HeroCatalog catalog;
@@ -43,7 +42,7 @@ namespace Zatod.Networking
         CampaignCatalog campaign;
         ProgressionCatalog progression;double nextEconomySync;
         readonly Dictionary<int,ZatodPlayerSession> sessions=new Dictionary<int,ZatodPlayerSession>();
-        readonly Dictionary<string,ZatodPlayerSession> launches=new Dictionary<string,ZatodPlayerSession>(StringComparer.Ordinal);
+        PlayerDatabaseStore playerStore;
         readonly Dictionary<string,ZatodReplay> archives=new Dictionary<string,ZatodReplay>(StringComparer.Ordinal);
         string archiveDirectory;
         readonly List<int> queue=new List<int>();
@@ -76,7 +75,7 @@ namespace Zatod.Networking
             Address=Argument("--server",Address);
             if(IsServer)StartServer();
             InitializeLan();
-            if(!IsServer && HasArgument("--zatod-smoke")){gameObject.AddComponent<ZatodSmokeClient>();if(!Argument("--zatod-smoke","").StartsWith("lan_",StringComparison.Ordinal))Connect();}
+            if(!IsServer && HasArgument("--zatod-smoke"))gameObject.AddComponent<ZatodSmokeClient>();
         }
         void SetStatus(string value){Status=value;Changed?.Invoke();}
         public void Connect()
@@ -93,17 +92,8 @@ namespace Zatod.Networking
             Snapshot=null;download=null;
             NetworkClient.Connect(Address);SetStatus("Connecting to "+Address+":"+Port);
         }
-        string AccountKey()
-        {
-            string profile=Argument("--zatod-profile",Argument("--zatod-smoke",DevelopmentProfile));
-            string key="ZatodPrototype.Account."+profile;
-            string account=PlayerPrefs.GetString(key,PlayerPrefs.GetString("CrystalPrototype.Account."+profile,""));
-            if(!Guid.TryParseExact(account,"D",out _)){account=Guid.NewGuid().ToString("D");PlayerPrefs.SetString(key,account);PlayerPrefs.Save();}
-            if(!PlayerPrefs.HasKey(key)){PlayerPrefs.SetString(key,account);PlayerPrefs.Save();}
-            return account;
-        }
-        void OnConnected(){Request(new ZatodRequest{Command="hello",A=launchId,B=AccountKey(),C=requestedName});}
-        void OnDisconnected(){ReleaseBattleAssets();FindingPvp=false;StopLogin();ItemOperationBusy=false;ClearClientWorld();Battle=null;PendingCampaignLoot=Array.Empty<string>();SetStatus("Disconnected. Reconnect within this launch to keep its campaign run.");}
+        void OnConnected(){Request(new ZatodRequest{Command=requestedRegistration?"register":"login",A=requestedName,B=requestedPassword});requestedPassword=null;}
+        void OnDisconnected(){ReleaseBattleAssets();FindingPvp=false;StopLogin();Snapshot=null;LastReplay=null;ItemOperationBusy=false;ClearClientWorld();Battle=null;PendingCampaignLoot=Array.Empty<string>();SetStatus(loginFailure??"Disconnected. Log in again to load your saved progress.");}
         void OnError(TransportError error,string reason){SetStatus(error+": "+reason);}
         public void Disconnect(){if(!IsServer)NetworkClient.Disconnect();}
         public void Request(ZatodRequest request)
@@ -130,12 +120,13 @@ namespace Zatod.Networking
         public bool ItemOperationBusy {get;private set;}
         public string PendingItemOperationId {get;private set;}
         ZatodRequest pendingItemOperation;
+        string pendingItemOperationAccount;
         public void Equip(string heroId,string slotId,string guid)=>SendItemOperation(new ZatodRequest{Command="equip",A=heroId,B=slotId,C=guid});
         public void Craft(string recipeId)=>SendItemOperation(new ZatodRequest{Command="craft",A=recipeId});
         public void InventoryAction(string command,string target,int level,string signature)=>SendItemOperation(new ZatodRequest{Command=command,A=target,B=signature,Number=level});
         void SendItemOperation(ZatodRequest request)
         {
-            if(!Connected||ItemOperationBusy)return;request.OperationId=Guid.NewGuid().ToString("D");pendingItemOperation=request;PendingItemOperationId=request.OperationId;ItemOperationBusy=true;Request(request);SetStatus("Updating items...");
+            if(!Connected||Snapshot==null||ItemOperationBusy)return;request.OperationId=Guid.NewGuid().ToString("D");pendingItemOperation=request;pendingItemOperationAccount=Snapshot.Username;PendingItemOperationId=request.OperationId;ItemOperationBusy=true;Request(request);SetStatus("Updating items...");
         }
         public void RetryItemOperation(){if(Connected && pendingItemOperation!=null){ItemOperationBusy=true;Request(pendingItemOperation);}}
         public void UpgradeSkill(string heroId,string slotId,int count=1)
@@ -149,6 +140,7 @@ namespace Zatod.Networking
         public void Promote(string heroId)
         {if(Snapshot!=null)SendItemOperation(new ZatodRequest{Command="promote",A=heroId,ExpectedRevision=Snapshot.Account.Revision});}
         public void DevLevel(string heroId,int level)=>Request(new ZatodRequest{Command="level",A=heroId,Number=level});
+        public void SaveFormation(IEnumerable<string> heroes)=>Request(new ZatodRequest{Command="formation",Heroes=heroes.ToArray()});
         public bool UltimatePending(int actorId)=>intents.Contains(actorId) || sentIntents.Contains(actorId) || Battle?.UltimateRequested(actorId)==true;
         public bool Ultimate(int actorId)
         {
@@ -178,7 +170,7 @@ namespace Zatod.Networking
                 var bytes=Assemble(ref download,packet);if(bytes==null)return;
                 switch(packet.kind)
                 {
-                    case "account":accountReceivedAt=Time.realtimeSinceStartupAsDouble;Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);FinishLogin();if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Campaign progress belongs to this app launch.");break;
+                    case "account":accountReceivedAt=Time.realtimeSinceStartupAsDouble;Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);FinishLogin();if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Progress is saved on the server.");break;
                     case "start":FindingPvp=false;
                         var start=ReplayArchive.DecodePayload<ZatodStart>(bytes);ReleaseBattleAssets();
                         SetStatus("Preparing battle assets...");
@@ -198,6 +190,7 @@ namespace Zatod.Networking
                     case "abort":FindingPvp=false;Battle=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
                     case "error":
                         var rejection=ReplayArchive.DecodePayload<ZatodNotice>(bytes);
+                        if(Snapshot==null){loginFailure="Error: "+rejection.Text;StopLogin();NetworkClient.Disconnect();SetStatus(loginFailure);break;}
                         FindingPvp=rejection.PvpQueued;submitted=false;ItemOperationBusy=false;pendingItemOperation=null;
                         SetStatus("Error: "+rejection.Text);break;
                     default:throw new InvalidDataException("Unknown Crystal message.");

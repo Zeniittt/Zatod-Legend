@@ -4,7 +4,7 @@ using System.Linq;
 using Zatod.Heroes;
 namespace Zatod.Combat
 {
-    // One application launch owns its campaign run. Archives never restore stage progress.
+    // Account progress survives launches; an issued battle is transient and never resumes.
     public sealed partial class ZatodPlayerSession
     {
         public CharacterData Account { get; }
@@ -24,7 +24,8 @@ namespace Zatod.Combat
             this.catalog=catalog;this.campaign=campaign;this.progression=progression;this.clock=clock??(()=>DateTimeOffset.UtcNow.ToUnixTimeSeconds());
             this.rollLoot=rollLoot??ZatodCampaignLoot.Roll;
             Account=owned??campaign.CreateDemoCharacter(catalog);if(owned==null)Account.CharacterId=launchId;
-            Run=new CampaignRun(campaign);new ItemInventory(Account,catalog).Validate();
+            Account.MainCampaignProgress=Account.MainCampaignProgress??new CampaignProgressData();
+            Run=new CampaignRun(campaign);Run.Restore(Account.MainCampaignProgress);new ItemInventory(Account,catalog).Validate();
             if(progression!=null){progression.Initialize(Account,Now);progression.Recover(Account,Now);Account.CampaignRewards=Account.CampaignRewards??new List<EconomyBattleReceipt>();}
             var last=Account.CampaignRewards?.LastOrDefault();if(last!=null)LastCampaignReward=new ZatodCampaignReward{BattleId=last.BattleId,StageId=last.StageId,Items=last.Items,Economy=last};
         }
@@ -66,6 +67,7 @@ namespace Zatod.Combat
             var replay=ZatodBattleSimulation.Resimulate(new ZatodReplay{Initial=trusted,Inputs=claim.Inputs,EndTick=claim.EndTick});
             var reward=new ZatodCampaignReward{BattleId=trusted.BattleId,StageId=trusted.StageId};
             int originalCount=Account.Inventory.Count;long revision=Account.Revision;var checkpoint=new EconomyCheckpoint(Account);
+            var previousProgress=Account.MainCampaignProgress;var previousRun=Run.Capture();
             try
             {
                 if(replay.Winner==0)
@@ -82,17 +84,30 @@ namespace Zatod.Combat
                     receipt.Items=reward.Items.ConvertAll(item=>new ItemData{Id=item.Id,ItemId=item.ItemId});
                     Account.CampaignRewards.Add(receipt);reward.Economy=receipt;
                 }
+                Run.AcceptValidated(trusted.StageId,replay.Winner==0,replay.Stars);
+                Account.MainCampaignProgress=Run.Capture();
                 Account.Revision++;persistOwned?.Invoke();
             }
             catch
             {
-                Account.Inventory.RemoveRange(originalCount,Account.Inventory.Count-originalCount);checkpoint.Restore();Account.Revision=revision;throw;
+                Account.Inventory.RemoveRange(originalCount,Account.Inventory.Count-originalCount);checkpoint.Restore();Account.Revision=revision;
+                Account.MainCampaignProgress=previousProgress;Run.Restore(previousRun);throw;
             }
             // Consume only after the inventory save succeeds. Retries cannot re-roll or double-grant.
-            issued.Remove(trusted.BattleId);Run.AcceptValidated(trusted.StageId,replay.Winner==0,replay.Stars);
+            issued.Remove(trusted.BattleId);
             reward.Items=reward.Items.ConvertAll(item=>new ItemData{Id=item.Id,ItemId=item.ItemId});LastCampaignReward=reward;return replay;
         }
         public void CancelCampaign(){issued.Clear();}
+        public void SetFormation(IEnumerable<string> selected,Action persistOwned=null)
+        {
+            if(issued.Count>0)throw new ArgumentException("Finish or cancel the battle before changing formation.");
+            var ids=(selected??Array.Empty<string>()).ToList();
+            if(ids.Count>5 || ids.Distinct(StringComparer.Ordinal).Count()!=ids.Count || ids.Any(id=>!Account.HeroDesk.Any(h=>h.HeroInstanceId==id)))
+                throw new ArgumentException("Choose up to five unique owned Heroes.");
+            var previous=Account.Formation;long revision=Account.Revision;
+            try{Account.Formation=new HeroFormationData{HeroInstanceIds=ids};new HeroFormation(Account,catalog);Account.Revision++;persistOwned?.Invoke();}
+            catch{Account.Formation=previous;Account.Revision=revision;throw;}
+        }
         public bool RefreshEconomy(Action persistOwned=null)
         {
             if(progression==null)return false;var checkpoint=new EconomyCheckpoint(Account);

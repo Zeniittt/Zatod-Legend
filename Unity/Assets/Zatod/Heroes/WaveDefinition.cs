@@ -68,7 +68,7 @@ namespace Zatod.Heroes
         }
         static bool Finite(double value) => !double.IsNaN(value) && !double.IsInfinity(value);
     }
-    // Per-launch progress. No replay repository or disk persistence owns this object.
+    // Working Campaign state. The owning player commits its capture together with rewards.
     public sealed class CampaignRun
     {
         readonly CampaignCatalog catalog;
@@ -76,6 +76,18 @@ namespace Zatod.Heroes
         public CampaignRun(CampaignCatalog catalog) { this.catalog = catalog ?? throw new ArgumentNullException(nameof(catalog)); }
         public IReadOnlyDictionary<string,int> Stars => stars;
         public bool IsUnlocked(string stageId) => catalog.IsUnlocked(stageId,stars.Keys);
+        public CampaignProgressData Capture() => new CampaignProgressData
+        { Stages = stars.OrderBy(s=>s.Key,StringComparer.Ordinal).Select(s=>new CampaignStageProgress{StageId=s.Key,Stars=s.Value}).ToList() };
+        public void Restore(CampaignProgressData progress)
+        {
+            var restored=new Dictionary<string,int>(StringComparer.Ordinal);
+            foreach(var row in progress?.Stages ?? throw new ArgumentException("Campaign progress is missing."))
+            {
+                HeroCatalog.Require(row!=null && !string.IsNullOrEmpty(row.StageId) && row.Stars>=1 && row.Stars<=3 && !restored.ContainsKey(row.StageId),"Invalid Campaign progress.");
+                catalog.Stage(row.StageId);restored.Add(row.StageId,row.Stars);
+            }
+            stars.Clear();foreach(var row in restored)stars.Add(row.Key,row.Value);
+        }
         public void AcceptValidated(string stageId, bool won, int starCount)
         {
             HeroCatalog.Require(IsUnlocked(stageId), "Stage is locked in this run.");

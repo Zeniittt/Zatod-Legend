@@ -33,6 +33,7 @@ namespace Zatod.Presentation
         public int WaveIndex {get;private set;}
         public HeroPosition? PositionFilter {get;private set;}
         public bool Pending {get;private set;}
+        public Action SelectionChanged;
         public IReadOnlyList<ZatodFormationCard> RosterCards=>rosterCards;
         readonly List<ZatodFormationCard> rosterCards=new List<ZatodFormationCard>();
         HeroCatalog catalog;
@@ -148,7 +149,7 @@ namespace Zatod.Presentation
             if(Pending || !roster.Any(h=>h.HeroInstanceId==id))return;
             if(selection.Contains(id))selection.Remove(id);else if(selection.Count<5)selection.Add(id);else return;
             foreach(var card in rosterCards){bool chosen=selection.Contains(card.InstanceId);card.Selected.gameObject.SetActive(chosen);card.Portrait.color=chosen?new Color(.4f,.4f,.4f):Color.white;}
-            DrawTeam();
+            DrawTeam();SelectionChanged?.Invoke();
         }
         void DrawTeam()
         {

@@ -30,6 +30,7 @@ namespace Zatod.Presentation
         TextMeshProUGUI playLabel;
         UnityEngine.UI.Button playbackButton;
         int drawnTick=-1;float tickDrawTime;bool initializedSelection;
+        string selectionAccount;
         ZatodBattleSimulation drawnSimulation;
         ZatodFrame drawnFrame;
         ZatodBattleSceneController battleScene;
@@ -118,6 +119,7 @@ namespace Zatod.Presentation
             stage.gameObject.SetActive(false);
             formation=Instantiate(Resources.Load<GameObject>("Zatod/UI/Formation/ZatodFormationView"),root,false).GetComponent<ZatodFormationView>();
             formation.gameObject.SetActive(false);
+            formation.SelectionChanged=()=>{if(formation.SelectionMode!="pvp")connection.SaveFormation(selected);};
             stagePreview=Instantiate(Resources.Load<GameObject>("Zatod/UI/StagePreview/ZatodStagePreviewView"),root,false).GetComponent<ZatodStagePreviewView>();
             stagePreview.gameObject.SetActive(false);
             BuildWorld();
@@ -128,12 +130,19 @@ namespace Zatod.Presentation
         void OnChanged()
         {
             status.text=connection.Status;
+            if(connection.Snapshot==null)
+            {
+                initializedSelection=false;selectionAccount=null;selected.Clear();freePvpSelection.Clear();currentChapter=null;
+                inventoryView?.gameObject.SetActive(false);heroRoster?.gameObject.SetActive(false);heroDetail?.gameObject.SetActive(false);
+                stagePreview.gameObject.SetActive(false);formation.gameObject.SetActive(false);screen="campaign";
+            }
             if(equipmentWindow!=null && equipmentWindow.gameObject.activeSelf){if(connection.Snapshot==null || !connection.Connected)equipmentWindow.Hide();else equipmentWindow.Refresh(connection.Snapshot.Account);}
             if(battleScene!=null && battleScene.OccupiesClient && (!connection.Connected || connection.Battle==null && replay==null))
             {ClearBattle();Show("campaign");return;}
             if(connection.Snapshot!=null)
             {
-                if(!initializedSelection){selected.AddRange(connection.Snapshot.Account.HeroDesk.Take(5).Select(h=>h.HeroInstanceId));initializedSelection=true;}
+                if(!initializedSelection || selectionAccount!=connection.Snapshot.Account.CharacterId)
+                {selected.Clear();selected.AddRange(connection.Snapshot.Account.Formation.HeroInstanceIds);initializedSelection=true;selectionAccount=connection.Snapshot.Account.CharacterId;}
             }
             if(inventoryView!=null && inventoryView.gameObject.activeSelf && connection.Snapshot!=null){inventoryView.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}
             if(heroRoster!=null && heroRoster.gameObject.activeSelf && connection.Snapshot!=null){heroRoster.Refresh(connection.Snapshot.Account);RefreshWorldChrome();return;}

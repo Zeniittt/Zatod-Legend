@@ -65,7 +65,7 @@ static partial class Program
         Check(session.Account.Inventory.Count==3 && rollCalls==1,"Replay/duplicate rerolled or granted items");
         var reconnected=new ZatodPlayerSession(catalog,campaign,Guid.NewGuid().ToString("D"),session.Account);
         Reject(()=>reconnected.ValidateCampaign(claim),"New launch accepted an old claim");
-        Check(reconnected.Account.Inventory.Select(i=>i.Id).SequenceEqual(items.Select(i=>i.Id)) && !reconnected.Run.IsUnlocked("chapter_one_stage_2"),"Owned loot failed to survive launch or restored map progress");
+        Check(reconnected.Account.Inventory.Select(i=>i.Id).SequenceEqual(items.Select(i=>i.Id)) && reconnected.Run.IsUnlocked("chapter_one_stage_2"),"Owned loot or confirmed Campaign progress failed to survive launch (D39)");
         session.BeginCampaign(stage.Id,null,11,"cancel-loot");session.CancelCampaign();
         Check(session.PendingLoot("cancel-loot").Count==0 && session.Account.Inventory.Count==3,"Cancel granted or retained loot");
 
