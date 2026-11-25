@@ -1,0 +1,118 @@
+{
+  "UnitId": "effect_eff_buff_Naga_atk3",
+  "Resource": "eff_buff_Naga_atk3",
+  "Sheets": [
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_buff_Naga_atk3/Start_0.png",
+      "Frames": [
+        {
+          "Name": "eff_buff_Naga_atk3_Start_0000",
+          "X": 0,
+          "Y": 66,
+          "Width": 200,
+          "Height": 66,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_buff_Naga_atk3_Start_0001",
+          "X": 200,
+          "Y": 66,
+          "Width": 200,
+          "Height": 66,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_buff_Naga_atk3_Start_0002",
+          "X": 400,
+          "Y": 66,
+          "Width": 200,
+          "Height": 66,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_buff_Naga_atk3_Start_0003",
+          "X": 0,
+          "Y": 0,
+          "Width": 200,
+          "Height": 66,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        },
+        {
+          "Name": "eff_buff_Naga_atk3_Start_0004",
+          "X": 200,
+          "Y": 0,
+          "Width": 200,
+          "Height": 66,
+          "PivotX": 0.5,
+          "PivotY": 0.5
+        }
+      ]
+    },
+    {
+      "Path": "Assets/Zatod/Art/Imported/eff_buff_Naga_atk3/Loop_0.png",
+      "Frames": [
+        {
+          "Name": "eff_buff_Naga_atk3_Loop_0000",
+          "X": 0,
+          "Y": 0,
+          "Width": 183,
+          "Height": 66,
+          "PivotX": 0.4972677595628415,
+          "PivotY": 0.5
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "Start",
+      "Fps": 24.0,
+      "Duration": 0.20833333333333334,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_Naga_atk3/Start_0.png",
+          "Name": "eff_buff_Naga_atk3_Start_0000"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_Naga_atk3/Start_0.png",
+          "Name": "eff_buff_Naga_atk3_Start_0001"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_Naga_atk3/Start_0.png",
+          "Name": "eff_buff_Naga_atk3_Start_0002"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_Naga_atk3/Start_0.png",
+          "Name": "eff_buff_Naga_atk3_Start_0003"
+        },
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_Naga_atk3/Start_0.png",
+          "Name": "eff_buff_Naga_atk3_Start_0004"
+        }
+      ],
+      "Loop": false,
+      "Width": 200,
+      "Height": 66,
+      "AudioCues": []
+    },
+    {
+      "Name": "Loop",
+      "Fps": 24.0,
+      "Duration": 0.041666666666666664,
+      "Frames": [
+        {
+          "Sheet": "Assets/Zatod/Art/Imported/eff_buff_Naga_atk3/Loop_0.png",
+          "Name": "eff_buff_Naga_atk3_Loop_0000"
+        }
+      ],
+      "Loop": true,
+      "Width": 183,
+      "Height": 66,
+      "AudioCues": []
+    }
+  ]
+}
