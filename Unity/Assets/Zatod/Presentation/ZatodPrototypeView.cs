@@ -40,7 +40,7 @@ namespace Zatod.Presentation
         {
             connection=GetComponent<ZatodConnection>();
             if(connection.IsServer || ZatodConnection.HasArgument("--zatod-smoke")){enabled=false;return;}
-            catalog=HeroDataJson.LoadBundledCatalog();campaign=CampaignDataJson.LoadZatod(catalog);
+            catalog=connection.ClientCatalog;campaign=CampaignDataJson.LoadZatod(catalog);
             if(Font==null)Font=Resources.Load<TMP_FontAsset>("UI/FormationFont");
             battleScene=gameObject.AddComponent<ZatodBattleSceneController>();
             battleScene.Changed+=OnBattleSceneChanged;
@@ -82,6 +82,23 @@ namespace Zatod.Presentation
             menu=Box("Menu",root,30,150,1540,660);Image(menu,Panel);
             var template=Resources.Load<GameObject>("Zatod/UI/ZatodBattleHUD");
             hud=template!=null?Instantiate(template,root,false).GetComponent<ZatodBattleHudLayout>():ZatodBattleHudLayout.Create(root,Font);
+            foreach(var card in hud.Cards)
+            {
+                card.UltimateSignal=card.Ready.gameObject.AddComponent<CanvasGroup>();
+                card.UltimateSignal.blocksRaycasts=false;
+                card.UltimateEdges=card.Ready.GetComponentsInChildren<UnityEngine.UI.Image>(true)
+                    .Where(edge=>edge!=card.Ready).ToArray();
+                foreach(var edge in card.UltimateEdges)edge.enabled=false;
+                card.ReadyCue=ZatodHudEffect.Create(card.Ready.transform,"eff_UI_battle_skill_will_ready",Vector2.zero,142);
+                card.TriggerCue=ZatodHudEffect.Create(card.Ready.transform,"eff_UI_battle_skill_activate",Vector2.zero,142);
+                card.CastCue=ZatodHudEffect.Create(card.Ready.transform,"eff_UI_battle_skill_cast",Vector2.zero,160);
+                card.FullEnergyCue=ZatodHudEffect.Create(card.Energy.transform.parent,"eff_UI_full_power",Vector2.zero,114);
+                card.EnergyCostCue=ZatodHudEffect.Create(card.Energy.transform.parent,"eff_UI_battle_skill_cost",Vector2.zero,114);
+                var warning=new GameObject("Low health",typeof(RectTransform),typeof(UnityEngine.UI.Image));warning.transform.SetParent(card.Portrait.transform,false);
+                card.LowHealth=warning.GetComponent<UnityEngine.UI.Image>();card.LowHealth.sprite=ZatodBattleHudLayout.Art("battle_hero_head_litlight");card.LowHealth.raycastTarget=false;
+                var wr=(RectTransform)warning.transform;wr.anchorMin=Vector2.zero;wr.anchorMax=Vector2.one;wr.offsetMin=wr.offsetMax=Vector2.zero;
+                warning.SetActive(false);
+            }
             stage=(RectTransform)hud.transform;actors=hud.Actors;background=hud.Background;clock=hud.Time;result=hud.Outcome;toolbar=hud.ReplayControls;
             background.enabled=false;background.raycastTarget=false;
             actors.gameObject.AddComponent<ZatodResponsiveLayout>().Fit();hud.Floating.gameObject.AddComponent<ZatodResponsiveLayout>().Fit();
@@ -89,7 +106,7 @@ namespace Zatod.Presentation
             hud.Continue.onClick.AddListener(()=>Show("campaign"));
             hud.WatchReplay.onClick.AddListener(()=>{if(connection.LastReplay!=null)LoadReplay(connection.LastReplay);});
             hud.Auto.onClick.AddListener(()=>{connection.AutoUltimate=!connection.AutoUltimate;RefreshAuto();});
-            playbackButton=Button(toolbar,"Tạm dừng",15,5,150,40,()=>{playing=!playing;playLabel.text=playing?"Tạm dừng":"Phát";});
+            playbackButton=Button(toolbar,"Tạm dừng",15,5,150,40,()=>SetReplayPlaying(!playing));
             playLabel=playbackButton.GetComponentInChildren<TextMeshProUGUI>(true);
             Button(toolbar,"Tốc độ",175,5,120,40,()=>{speed=speed>=4?1:speed*2;});
             var seekRect=Box("Seek",toolbar,330,13,1200,22);seek=seekRect.gameObject.AddComponent<UnityEngine.UI.Slider>();
@@ -174,11 +191,16 @@ namespace Zatod.Presentation
             featureView?.gameObject.SetActive(false);
             equipmentWindow?.Hide();inventoryView?.gameObject.SetActive(false);heroRoster.gameObject.SetActive(false);heroDetail.gameObject.SetActive(false);
             formation.gameObject.SetActive(false);stagePreview.gameObject.SetActive(false);
-            record=value;replay=new ZatodBattleSimulation(value.Initial);replayElapsed=0;playing=true;ClearBattle();menu.gameObject.SetActive(false);battleScene.Enter();DrawBattle();
+            record=value;replay=new ZatodBattleSimulation(value.Initial);replayElapsed=0;SetReplayPlaying(true);ClearBattle();menu.gameObject.SetActive(false);battleScene.Enter();DrawBattle();
+        }
+        void SetReplayPlaying(bool value)
+        {
+            playing=value;
+            playLabel.text=playing?"Tạm dừng":"Phát";
         }
         void Seek(int tick)
         {
-            if(record==null)return;replay=new ZatodBattleSimulation(record.Initial);playing=false;ClearBattle();AdvanceReplay(tick);DrawBattle();
+            if(record==null)return;replay=new ZatodBattleSimulation(record.Initial);replayElapsed=0;SetReplayPlaying(false);ClearBattle();AdvanceReplay(tick);DrawBattle();
         }
         void AdvanceReplay(int target)
         {
@@ -205,7 +227,7 @@ namespace Zatod.Presentation
             clock.text=TimeSpan.FromSeconds(Math.Ceiling(frame.TimeRemaining)).ToString(@"mm\:ss");
             result.text=frame.Finished?(frame.Winner==(replay==null?connection.Team:0)?"CHIẾN THẮNG":"THẤT BẠI")+" · "+frame.Stars+" sao"+(replay==null && simulation.Mode==ZatodMode.Campaign?"\n"+(connection.LastReplay!=null?"Đã xác nhận":"Đang xác nhận..."):""):"";
             DrawHud(frame,simulation,interpolation);
-            battleScene.Stage.Draw(frame,simulation,interpolation,connection.Team,replay==null,replay==null || playing);
+            battleScene.Stage.Draw(frame,simulation,interpolation,replay==null?connection.Team:0,replay==null,replay==null || playing,replay==null?1:speed);
             DrawBattleResult(frame,simulation,interpolation);
             if(record!=null && record.EndTick>0)seek.SetValueWithoutNotify(frame.Tick/(float)record.EndTick);
         }
@@ -214,7 +236,7 @@ namespace Zatod.Presentation
             if(world==null || stage==null)return;
             world.SetSuspended(battleScene.OccupiesClient);
             stage.gameObject.SetActive(battleScene.Phase==ZatodScenePhase.InBattle);
-            if(battleScene.Stage!=null){battleScene.Stage.Fit(actors);battleScene.Stage.Ultimate=id=>{if(replay==null)connection.Ultimate(id);};}
+            if(battleScene.Stage!=null){battleScene.Stage.Fit(actors);battleScene.Stage.Ultimate=ActivateUltimate;battleScene.Stage.UltimatePending=connection.UltimatePending;}
             RefreshWorldChrome();if(battleScene.Phase==ZatodScenePhase.InBattle)DrawBattle();
         }
         void OnDestroy()

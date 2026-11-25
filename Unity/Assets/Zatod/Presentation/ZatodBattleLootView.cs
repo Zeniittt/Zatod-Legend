@@ -12,6 +12,7 @@ namespace Zatod.Presentation
         sealed class Chest {public Transform Root;public SpriteRenderer Shine,Halo;}
         readonly Dictionary<int,Chest> chests=new Dictionary<int,Chest>();
         ZatodBattleSimulation bound;List<ZatodLootDrop> plan=new List<ZatodLootDrop>();AudioSource audio;
+        bool audioPaused;
         float finishedAt=-1;
         public int Collected {get;private set;}
         public int Planned=>plan.Count;
@@ -20,7 +21,12 @@ namespace Zatod.Presentation
         public void Draw(ZatodBattleSimulation simulation,double interpolation,Camera camera,RectTransform marker,bool playAudio)
         {
             if(bound!=simulation){Clear();bound=simulation;plan=simulation.LootPlan();}
-            if(audio==null){audio=gameObject.AddComponent<AudioSource>();audio.spatialBlend=0;}
+            if(audio==null){audio=gameObject.AddComponent<AudioSource>();audio.spatialBlend=0;audio.playOnAwake=false;}
+            if(audioPaused==playAudio)
+            {
+                audioPaused=!playAudio;
+                if(audioPaused)audio.Pause();else audio.UnPause();
+            }
             double time=simulation.CurrentTick*ZatodBattleSimulation.StepSeconds+interpolation;
             if(simulation.Finished){if(finishedAt<0)finishedAt=Time.unscaledTime;time+=Time.unscaledTime-finishedAt;}
             var deaths=simulation.DeathRecords();var active=new HashSet<int>();int collected=0;
@@ -60,7 +66,7 @@ namespace Zatod.Presentation
         void Sound(){var clip=Resources.Load<AudioClip>("Zatod/Audio/battle_loot");if(clip!=null)audio.PlayOneShot(clip,.4f);}
         public void Clear()
         {
-            foreach(var chest in chests.Values)if(chest.Root!=null)Destroy(chest.Root.gameObject);chests.Clear();bound=null;plan.Clear();finishedAt=-1;Collected=0;if(audio!=null)audio.Stop();
+            foreach(var chest in chests.Values)if(chest.Root!=null)Destroy(chest.Root.gameObject);chests.Clear();bound=null;plan.Clear();finishedAt=-1;Collected=0;if(audio!=null)audio.Stop();audioPaused=false;
         }
     }
 }

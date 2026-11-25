@@ -9,6 +9,7 @@ namespace Zatod.Combat
     {
         public CharacterData Account { get; }
         public CampaignRun Run { get; }
+        public bool CampaignInProgress => issued.Count > 0;
         public ZatodCampaignReward LastCampaignReward { get; private set; }
         readonly HeroCatalog catalog;
         readonly CampaignCatalog campaign;

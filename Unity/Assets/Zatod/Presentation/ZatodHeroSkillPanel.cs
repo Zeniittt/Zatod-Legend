@@ -77,7 +77,7 @@ namespace Zatod.Presentation
                 Text(choice.transform,"Level","",font,22).alignment=TextAlignmentOptions.Center;
                 choices.Add(choice);
             }
-            // Purple remains a presentation-only locked slot until D34 opens that content.
+            // Older catalogs only define three slots and still show a preview of the fourth.
             if(choices.Count==3)
             {
                 var locked=Button(cards,"PurpleSlot","Skills/skill_icon_bg_1");locked.interactable=false;
@@ -115,7 +115,9 @@ namespace Zatod.Presentation
                 choice.transform.Find("EvoCount/Count").GetComponent<TextMeshProUGUI>().text=(open?catalog.Skill(slot.SkillId).Evolutions.Count(e=>hero.Skills.Single(x=>x.SlotId==slot.Id).Level>=e.RequiredSkillLevel):0).ToString();
             }
             var selected=definition.SkillSlots.Single(x=>x.Id==SelectedSlotId);var skill=catalog.Skill(selected.SkillId);int level=hero.Skills.Single(x=>x.SlotId==SelectedSlotId).Level;
-            heroName.text=definition.Name+" · "+HeroProgression.CurrentRank(hero,catalog).Name;namePlate.GetComponent<UnityEngine.UI.Image>().sprite=Art("hero_rank_"+Rank(hero,catalog));
+            var rank=HeroProgression.CurrentRank(hero,catalog);
+            heroName.text=definition.Name+" · "+rank.Name;
+            DrawRankPlate(namePlate.GetComponent<UnityEngine.UI.Image>(),definition,rank.Id,catalog);
             heading.text="<color=#FFD46E>"+skill.Name+"</color>  Lvl "+level;
             var intro=presentation.Entries.FirstOrDefault(x=>x.HeroId==definition.Id && x.Slot==definition.SkillSlots.IndexOf(selected)+1)?.Intro;
             // Resolve the same source placeholders as Details; the intro never invents combat numbers.

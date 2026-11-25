@@ -9,6 +9,7 @@ namespace Zatod.Heroes
         public int SchemaVersion = 1;
         public int MaxHeroStars = 5;
         public string ConfigVersion = "heroes-prototype-1";
+        public bool UseExpandedCombatRules;
         public List<StatDefinition> Stats = new List<StatDefinition>();
         public List<ItemDefinition> Items = new List<ItemDefinition>();
         public List<CraftRecipeDefinition> CraftRecipes = new List<CraftRecipeDefinition>();
@@ -52,13 +53,18 @@ namespace Zatod.Heroes
     }
 
     public enum HeroPosition { Front, Middle, Rear }
+    public enum ZatodDeathPresentation { Fade, FadeWithoutHold, Hide, Remain }
 
     [Serializable]
     public abstract class CombatantDefinition
     {
         public string Id, Name;
         public int SourceUnitId;
-        public string SourcePuppet, SourceResource;
+        public string SourcePuppet, SourceResource, SourceGender;
+        public double BirthSeconds,HurtSeconds;
+        public double DamageStatisticsRatio=1,AlternateDeathSeconds;
+        public bool IsTitan;
+        public List<ZatodActionRemap> ActionRemaps=new List<ZatodActionRemap>();
         public double ArtScale = 1, CollideRadius;
         public List<StatAmount> PreciseBaseStats = new List<StatAmount>();
         public List<HeroGrowthDefinition> Growth = new List<HeroGrowthDefinition>();
@@ -68,6 +74,7 @@ namespace Zatod.Heroes
         public string BodyPrefabResource, AnimationSetResource, NormalAttackSkillId;
         public int ProjectileHurtboxHeight = 100;
         public int DeathAnimationMilliseconds = 1500;
+        public ZatodDeathPresentation DeathPresentation;
         public List<HeroSpawnPointDefinition> SpawnPoints = new List<HeroSpawnPointDefinition>();
         public List<StatValue> BaseStats = new List<StatValue>();
     }
@@ -77,6 +84,7 @@ namespace Zatod.Heroes
     {
         public string StartingRankId, SoulstoneItemId;
         public int InitialStars=1;
+        public bool AvailableInFreePvp;
         public List<HeroRankDefinition> Ranks = new List<HeroRankDefinition>();
         public List<HeroSkillSlotDefinition> SkillSlots = new List<HeroSkillSlotDefinition>();
     }

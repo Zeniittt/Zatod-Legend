@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using Zatod.Heroes;
 using Zatod.World;
@@ -41,12 +40,25 @@ namespace Zatod.Editor
             if(index?.MapResources==null || index.MapResources.Count==0)throw new ArgumentException("Worlds.txt must reference the island config files.");
             var result=new WorldConfigDocuments{IndexSource=source,Index=index};
             foreach(string resource in index.MapResources)
-            {
-                string text=File.ReadAllText(MapAssetPath(resource));var map=JsonUtility.FromJson<WorldMapDefinition>(text);
-                if(map==null)throw new ArgumentException("Invalid island JSON: "+resource);
-                result.Maps.Add(new WorldMapDraft{Resource=resource,SourceText=text,Draft=map});
-            }
+                result.Maps.Add(ReadMap(resource));
             return result;
+        }
+        static WorldMapDraft ReadMap(string resource)
+        {
+            string text=File.ReadAllText(MapAssetPath(resource));
+            var map=JsonUtility.FromJson<WorldMapDefinition>(text)??throw new ArgumentException("Invalid island JSON: "+resource);
+            return new WorldMapDraft{Resource=resource,SourceText=text,Draft=map};
+        }
+        public static void Attach(WorldConfigDocuments documents,string resource)
+        {
+            if(documents==null)throw new ArgumentException("Reload map config first.");
+            if(documents.Index.MapResources.Contains(resource,StringComparer.OrdinalIgnoreCase))
+                throw new ArgumentException("Worlds.txt already references: "+resource);
+            var map=ReadMap(resource);
+            if(string.IsNullOrWhiteSpace(map.Draft.Id) || documents.Maps.Any(m=>m.Draft.Id==map.Draft.Id))
+                throw new ArgumentException("Island id is missing or already in use: "+map.Draft.Id);
+            documents.Index.MapResources.Add(resource);
+            documents.Maps.Add(map);
         }
         public static bool FilesChanged(WorldConfigDocuments documents)
         {
@@ -65,24 +77,44 @@ namespace Zatod.Editor
             return catalog;
         }
         public static int Save(WorldConfigDocuments documents,CampaignCatalog campaign)
+            => SaveCampaignAndMaps(documents,campaign,null);
+
+        public static int SaveCampaignAndMaps(WorldConfigDocuments documents,CampaignCatalog campaign,string originalCampaign)
+        {
+            var transaction=new ConfigFileTransaction();
+            int mapsSaved=PrepareSave(documents,campaign,originalCampaign,transaction);
+            transaction.Commit("world");
+            AcceptSaved(documents,transaction);
+            transaction.ImportAssets();
+            return mapsSaved;
+        }
+
+        internal static int PrepareSave(WorldConfigDocuments documents,CampaignCatalog campaign,string originalCampaign,ConfigFileTransaction transaction)
         {
             if(FilesChanged(documents))throw new IOException("Map config changed on disk. Draft preserved; reload before saving.");
+            if(originalCampaign!=null && File.ReadAllText(CampaignDataJson.AssetPath)!=originalCampaign)
+                throw new IOException("Campaign config changed on disk. Draft preserved; reload before saving.");
             Validate(documents,campaign);
-            var writes=new List<Tuple<string,string,string>>();
-            if(JsonUtility.ToJson(documents.Index)!=JsonUtility.ToJson(JsonUtility.FromJson<WorldDefinition>(documents.IndexSource)))writes.Add(Tuple.Create(IndexPath,documents.IndexSource,JsonUtility.ToJson(documents.Index,true)));
-            foreach(var map in documents.Maps.Where(m=>m.Changed))writes.Add(Tuple.Create(map.AssetPath,map.SourceText,JsonUtility.ToJson(map.Draft,true)));
-            if(writes.Count==0)return 0;
-            string backup=Path.GetFullPath("../Artifacts/ZatodConfigBefore/maps-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fff")+"-"+Guid.NewGuid().ToString("N"));
-            foreach(var item in writes)
+            if(originalCampaign!=null)
+                transaction.Add(CampaignDataJson.AssetPath,originalCampaign,JsonUtility.ToJson(campaign.Data,true));
+            int mapsSaved=0;
+            if(JsonUtility.ToJson(documents.Index)!=JsonUtility.ToJson(JsonUtility.FromJson<WorldDefinition>(documents.IndexSource)))
             {
-                string path=Path.Combine(backup,item.Item1.Substring("Assets/Zatod/Resources/Data/".Length));Directory.CreateDirectory(Path.GetDirectoryName(path));File.WriteAllText(path,item.Item2);
+                transaction.Add(IndexPath,documents.IndexSource,JsonUtility.ToJson(documents.Index,true));
+                mapsSaved++;
             }
-            var completed=new List<Tuple<string,string,string>>();
-            try{foreach(var item in writes){HeroDataJson.WriteFileAtomically(item.Item1,item.Item3);completed.Add(item);}}
-            catch{foreach(var item in completed.AsEnumerable().Reverse())HeroDataJson.WriteFileAtomically(item.Item1,item.Item2);throw;}
-            documents.IndexSource=File.ReadAllText(IndexPath);foreach(var map in documents.Maps)map.SourceText=File.ReadAllText(map.AssetPath);
-            foreach(var item in writes)AssetDatabase.ImportAsset(item.Item1);
-            return writes.Count;
+            foreach(var map in documents.Maps.Where(m=>m.Changed))
+            {
+                transaction.Add(map.AssetPath,map.SourceText,JsonUtility.ToJson(map.Draft,true));
+                mapsSaved++;
+            }
+            return mapsSaved;
+        }
+
+        internal static void AcceptSaved(WorldConfigDocuments documents,ConfigFileTransaction transaction)
+        {
+            documents.IndexSource=transaction.SavedText(IndexPath,documents.IndexSource);
+            foreach(var map in documents.Maps)map.SourceText=transaction.SavedText(map.AssetPath,map.SourceText);
         }
     }
 }

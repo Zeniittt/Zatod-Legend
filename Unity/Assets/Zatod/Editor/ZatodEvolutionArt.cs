@@ -16,28 +16,46 @@ namespace Zatod.Editor
         public static void Prepare()
         {
             ZatodSkillUiAssets.Prepare();
-            foreach(string resource in Resources)ImportEffect(resource);
+            foreach(string resource in Resources)ImportBakedResource(resource);
             AssetDatabase.SaveAssets();
         }
-        static void ImportEffect(string resource)
+        public static void ImportBakedResource(string resource,bool mobileCompression=false)
         {
+            if(string.IsNullOrWhiteSpace(resource) || resource.IndexOfAny(new[]{'/','\\'})>=0 || resource=="..")throw new ArgumentException("Invalid baked resource name.",nameof(resource));
             string manifestPath="Assets/Zatod/Art/Imported/"+resource+"/bake-manifest.txt";
             var manifest=JsonUtility.FromJson<ZatodBakeManifest>(File.ReadAllText(manifestPath));
+            if(manifest.Sheets.Select(s=>s.Path).Distinct(StringComparer.Ordinal).Count()!=manifest.Sheets.Length ||
+                manifest.Actions.Select(a=>a.Name).Distinct(StringComparer.Ordinal).Count()!=manifest.Actions.Length)
+                throw new InvalidDataException("Duplicate bake sheet/action; rebake the source with canonical action names: "+resource);
             var sprites=new Dictionary<string,Sprite>(StringComparer.Ordinal);
             var factory=new SpriteDataProviderFactories();factory.Init();
             foreach(var sheet in manifest.Sheets)
             {
+                if(!sheet.Path.StartsWith("Assets/Zatod/Art/Imported/"+resource+"/",StringComparison.Ordinal) || !File.Exists(sheet.Path))
+                    throw new InvalidDataException("Stale or missing bake sheet; rebake the resource before importing: "+sheet.Path);
                 AssetDatabase.ImportAsset(sheet.Path,ImportAssetOptions.ForceSynchronousImport);
-                var importer=(TextureImporter)AssetImporter.GetAtPath(sheet.Path);
+                var importer=AssetImporter.GetAtPath(sheet.Path) as TextureImporter;
+                if(importer==null)throw new InvalidDataException("Texture importer unavailable for baked sheet: "+sheet.Path);
                 importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Multiple;
-                importer.spritePixelsPerUnit=100;importer.mipmapEnabled=false;importer.alphaIsTransparency=true;
+                importer.spritePixelsPerUnit=manifest.PixelsPerUnit>0?manifest.PixelsPerUnit:100;importer.mipmapEnabled=false;importer.alphaIsTransparency=true;
                 importer.maxTextureSize=4096;importer.textureCompression=TextureImporterCompression.Uncompressed;
                 var provider=factory.GetSpriteEditorDataProviderFromObject(importer);provider.InitSpriteEditorDataProvider();
                 var old=provider.GetSpriteRects().ToDictionary(x=>x.name,StringComparer.Ordinal);
                 var rects=sheet.Frames.Select(f=>new SpriteRect{name=f.Name,rect=new Rect(f.X,f.Y,f.Width,f.Height),pivot=new Vector2(f.PivotX,f.PivotY),alignment=SpriteAlignment.Custom,spriteID=old.TryGetValue(f.Name,out var previous)?previous.spriteID:GUID.Generate()}).ToArray();
                 provider.SetSpriteRects(rects);
                 provider.GetDataProvider<ISpriteNameFileIdDataProvider>().SetNameFileIdPairs(rects.Select(x=>new SpriteNameFileIdPair(x.name,x.spriteID)));
-                provider.Apply();importer.SaveAndReimport();
+                provider.Apply();
+                if(mobileCompression)
+                {
+                    foreach(string platform in new[]{"Android","iPhone"})
+                    {
+                        var settings=importer.GetPlatformTextureSettings(platform);
+                        settings.name=platform;settings.overridden=true;settings.maxTextureSize=4096;
+                        settings.format=TextureImporterFormat.ASTC_6x6;settings.textureCompression=TextureImporterCompression.Compressed;
+                        settings.crunchedCompression=false;importer.SetPlatformTextureSettings(settings);
+                    }
+                }
+                importer.SaveAndReimport();
                 foreach(var sprite in AssetDatabase.LoadAllAssetsAtPath(sheet.Path).OfType<Sprite>())sprites.Add(sheet.Path+"#"+sprite.name,sprite);
             }
             string folder="Assets/Zatod/Resources/Zatod/"+resource;Directory.CreateDirectory(folder+"/Animations");AssetDatabase.Refresh();

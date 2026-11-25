@@ -37,17 +37,20 @@ namespace Zatod.Presentation
         readonly List<ZatodFormationCard> rosterCards=new List<ZatodFormationCard>();
         HeroCatalog catalog;
         CampaignStageDefinition encounter;
-        CharacterData account;
+        IReadOnlyList<HeroData> roster;
+        bool freePvpRoster;
         IList<string> selection;
         Action back;
         Action<string,string[]> start;
         bool connected;
+        string unavailableReason;
         Vector2 lastSize;
 
         const string Assets="Zatod/UI/Formation/";
+        public static Sprite FindArt(string name)=>Resources.Load<Sprite>(Assets+name);
         public static Sprite Art(string name)
         {
-            var sprite=Resources.Load<Sprite>(Assets+name);
+            var sprite=FindArt(name);
             if(sprite==null)throw new InvalidOperationException("Missing Zatod formation art: "+name);
             return sprite;
         }
@@ -58,7 +61,7 @@ namespace Zatod.Presentation
             for(int i=0;i<Filters.Length;i++){int index=i;Filters[i].onClick.AddListener(()=>SetFilter(index==0?(HeroPosition?)null:(HeroPosition)(index-1)));}
             Battle.onClick.AddListener(()=>
             {
-                if(Pending || !connected || selection==null || selection.Count<1)return;
+                if(Pending || !connected || unavailableReason!=null || selection==null || selection.Count<1)return;
                 Pending=true;Battle.interactable=false;Notice.text="";
                 start?.Invoke(encounter?.Id,selection.ToArray());
             });
@@ -73,18 +76,20 @@ namespace Zatod.Presentation
         }
         public void Open(CampaignStageDefinition stage,HeroCatalog definitions,CharacterData owned,IList<string> selected,Action onBack,Action<string,string[]> onBattle)
         {
-            SelectionMode="campaign";CampaignChrome(true);encounter=stage;catalog=definitions;account=owned;selection=selected;back=onBack;start=onBattle;
-            WaveIndex=0;PositionFilter=null;Pending=false;connected=true;
+            SelectionMode="campaign";CampaignChrome(true);encounter=stage;catalog=definitions;roster=owned.HeroDesk;freePvpRoster=false;selection=selected;back=onBack;start=onBattle;
+            WaveIndex=0;PositionFilter=null;Pending=false;connected=true;unavailableReason=null;
             gameObject.SetActive(true);lastSize=Vector2.zero;Fit();
             StageName.text=stage.Name;Description.text=stage.Description??"";Cost.text="Cost: "+stage.VitalityCost;Rewards.text="Reward";
             ZatodStageUi.DrawDrops(DropRow,stage,catalog,64,16,3);Power.text="?";Notice.text="";
             RefreshRoster(true);DrawWave();
         }
-        public void OpenTeam(string mode,HeroCatalog definitions,CharacterData owned,IList<string> selected,Action onBack,Action<string[]> onBattle)
+        public void OpenTeam(string mode,HeroCatalog definitions,CharacterData owned,IList<string> selected,Action onBack,Action<string[]> onBattle,
+            IReadOnlyList<HeroData> freePvp=null,string blocked=null)
         {
-            SelectionMode=mode;encounter=null;catalog=definitions;account=owned;selection=selected;back=onBack;start=(_,team)=>onBattle?.Invoke(team);
-            WaveIndex=0;PositionFilter=null;Pending=false;connected=true;CampaignChrome(false);
-            StageName.text=mode=="arena"?"Arena":"PvP Realtime";Description.text=Cost.text=Rewards.text=WaveLabel.text=Notice.text="";
+            SelectionMode=mode;encounter=null;catalog=definitions;roster=freePvp??owned.HeroDesk;freePvpRoster=freePvp!=null;selection=selected;back=onBack;start=(_,team)=>onBattle?.Invoke(team);
+            WaveIndex=0;PositionFilter=null;Pending=false;connected=true;unavailableReason=blocked;CampaignChrome(false);
+            StageName.text=mode=="arena"?"Arena":"PvP Realtime";Description.text=Cost.text=Rewards.text=WaveLabel.text="";
+            Notice.text=unavailableReason??"";
             foreach(Transform child in DropRow){child.gameObject.SetActive(false);Destroy(child.gameObject);}
             foreach(var card in EnemyCards)card.Root.gameObject.SetActive(false);
             gameObject.SetActive(true);transform.SetAsLastSibling();lastSize=Vector2.zero;Fit();RefreshRoster(true);
@@ -97,8 +102,11 @@ namespace Zatod.Presentation
         }
         public void RefreshAccount(CharacterData owned,bool isConnected,string status,bool waiting=false)
         {
-            if(account==null)return;account=owned;connected=isConnected;Pending=waiting;
-            Notice.text=waiting?"Waiting for another player...":isConnected && status!=null && status.StartsWith("Error",StringComparison.OrdinalIgnoreCase)?status:!isConnected?"Disconnected":"";
+            if(roster==null)return;
+            if(!freePvpRoster)roster=owned.HeroDesk;
+            connected=isConnected;Pending=waiting;
+            string error=status!=null && status.StartsWith("Error",StringComparison.OrdinalIgnoreCase)?status:"";
+            Notice.text=!isConnected?"Disconnected":unavailableReason??(waiting?"Waiting for another player...":error);
             RefreshRoster(false);
         }
         public void SetFilter(HeroPosition? value)
@@ -122,10 +130,10 @@ namespace Zatod.Presentation
         }
         void RefreshRoster(bool resetScroll)
         {
-            foreach(string id in selection.Where(id=>!account.HeroDesk.Any(h=>h.HeroInstanceId==id)).ToArray())selection.Remove(id);
+            foreach(string id in selection.Where(id=>!roster.Any(h=>h.HeroInstanceId==id)).ToArray())selection.Remove(id);
             float position=Content.rect.height<=RosterScroll.viewport.rect.height+.01f?1:RosterScroll.verticalNormalizedPosition;
             foreach(var card in rosterCards){card.Root.gameObject.SetActive(false);Destroy(card.Root.gameObject);}rosterCards.Clear();
-            foreach(var hero in account.HeroDesk.Where(h=>!PositionFilter.HasValue || catalog.Hero(h.HeroDefinitionId).Position==PositionFilter))
+            foreach(var hero in roster.Where(h=>!PositionFilter.HasValue || catalog.Hero(h.HeroDefinitionId).Position==PositionFilter))
             {
                 var card=CreateCard(Content,"Owned_"+hero.HeroInstanceId,108,Font);card.InstanceId=hero.HeroInstanceId;
                 DrawCard(card,hero.HeroDefinitionId,hero.Level,hero.Stars,Rank(hero),selection.Contains(hero.HeroInstanceId));
@@ -134,29 +142,29 @@ namespace Zatod.Presentation
             for(int i=0;i<Filters.Length;i++)Filters[i].image.sprite=Art("battle_prepare_shai_xuan_but_"+((i==0 && !PositionFilter.HasValue || PositionFilter.HasValue && i==(int)PositionFilter+1)?3:1));
             LayoutRebuilder.ForceRebuildLayoutImmediate(Content);Canvas.ForceUpdateCanvases();RosterScroll.StopMovement();RosterScroll.verticalNormalizedPosition=resetScroll?1:position;DrawTeam();
         }
-        int Rank(HeroData hero)=>Math.Max(1,catalog.Hero(hero.HeroDefinitionId).Ranks.FindIndex(r=>r.Id==hero.RankId)+1);
+        int Rank(HeroData hero)=>ZatodHeroUi.Rank(hero,catalog);
         public void Toggle(string id)
         {
-            if(Pending || !account.HeroDesk.Any(h=>h.HeroInstanceId==id))return;
+            if(Pending || !roster.Any(h=>h.HeroInstanceId==id))return;
             if(selection.Contains(id))selection.Remove(id);else if(selection.Count<5)selection.Add(id);else return;
             foreach(var card in rosterCards){bool chosen=selection.Contains(card.InstanceId);card.Selected.gameObject.SetActive(chosen);card.Portrait.color=chosen?new Color(.4f,.4f,.4f):Color.white;}
             DrawTeam();
         }
         void DrawTeam()
         {
-            var heroes=selection.Select(id=>account.HeroDesk.Single(h=>h.HeroInstanceId==id)).OrderByDescending(h=>catalog.Hero(h.HeroDefinitionId).Position).ThenBy(h=>catalog.Hero(h.HeroDefinitionId).SourceUnitId).ToArray();
+            var heroes=selection.Select(id=>roster.Single(h=>h.HeroInstanceId==id)).OrderByDescending(h=>catalog.Hero(h.HeroDefinitionId).Position).ThenBy(h=>catalog.Hero(h.HeroDefinitionId).SourceUnitId).ToArray();
             int offset=5-heroes.Length;
             for(int i=0;i<5;i++)
             {
                 var card=TeamCards[i];card.Root.gameObject.SetActive(i>=offset);card.Button.onClick.RemoveAllListeners();if(i<offset){card.InstanceId=null;continue;}
                 var hero=heroes[i-offset];card.InstanceId=hero.HeroInstanceId;DrawCard(card,hero.HeroDefinitionId,hero.Level,hero.Stars,Rank(hero),false);string id=hero.HeroInstanceId;card.Button.onClick.AddListener(()=>Toggle(id));
             }
-            Battle.interactable=connected && !Pending && heroes.Length>0;Power.text=encounter==null?"":"?";
+            Battle.interactable=connected && !Pending && unavailableReason==null && heroes.Length>0;Power.text=encounter==null?"":"?";
         }
         public static void DrawEnemyCard(ZatodFormationCard card,WaveSpawnDefinition spawn,HeroCatalog catalog)
         {
             CombatantDefinition definition=spawn.Kind==SpawnKind.Hero?(CombatantDefinition)catalog.Hero(spawn.DefinitionId):catalog.Monster(spawn.DefinitionId);
-            int rank=spawn.EstimateRank?(int)Math.Floor((spawn.Level+9)/10d):definition is HeroDefinition hero?Math.Max(1,hero.Ranks.FindIndex(r=>r.Id==spawn.RankId)+1):1;
+            int rank=(int)Math.Floor(spawn.ResolveRank(catalog,definition,out _));
             DrawCard(card,definition.Id,spawn.Level,spawn.Stars,rank,false);
         }
         static void DrawCard(ZatodFormationCard card,string id,int level,int stars,int rank,bool selected)

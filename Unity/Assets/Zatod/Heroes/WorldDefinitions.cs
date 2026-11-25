@@ -52,13 +52,60 @@ namespace Zatod.World
                 foreach(var point in map.Interactions)
                 {
                     if(point==null || string.IsNullOrWhiteSpace(point.Id) || !ids.Add(point.Id) || !Inside(map,point.X,point.Y) || !Finite(point.Radius,point.Height,point.HalfWidth,point.HalfDepth) || point.Radius<=0 || point.Height<=0 || point.HalfWidth<0 || point.HalfDepth<0 || !Enum.IsDefined(typeof(WorldInteractionKind),point.Kind))throw new ArgumentException("Invalid world interaction: "+map.Id);
-                    if(point.Kind==WorldInteractionKind.Stage)campaign.Stage(point.TargetId);
                 }
             }
-            Map("town");
+            Spawn("town","entry");
             foreach(var a in data.Maps)foreach(var b in data.Maps)
                 if(a!=b && a.MinX<b.MaxX && a.MaxX>b.MinX && a.MinY<b.MaxY && a.MaxY>b.MinY)throw new ArgumentException("Overlapping islands: "+a.Id+" / "+b.Id);
-            foreach(var point in data.Maps.SelectMany(m=>m.Interactions).Where(p=>p.Kind==WorldInteractionKind.Portal))Spawn(point.TargetId,point.DestinationSpawnId);
+            ValidateCampaignRoutes(campaign);
+        }
+        void ValidateCampaignRoutes(CampaignCatalog campaign)
+        {
+            var stageMaps=new Dictionary<string,string>(StringComparer.Ordinal);
+            foreach(var chapter in campaign.Data.Chapters)
+            {
+                if(string.IsNullOrEmpty(chapter.WorldMapId) || !maps.ContainsKey(chapter.WorldMapId))
+                    throw new ArgumentException("Campaign chapter has no world map: "+chapter.Id+" / "+chapter.WorldMapId);
+                foreach(var stage in chapter.Stages)stageMaps.Add(stage.Id,chapter.WorldMapId);
+            }
+            var portals=new List<(string From,string To)>();
+            var seenStages=new HashSet<string>(StringComparer.Ordinal);
+            foreach(var map in Data.Maps)
+            foreach(var point in map.Interactions)
+            {
+                if(point.Kind==WorldInteractionKind.Portal)
+                {
+                    if(point.TargetId==null || !maps.TryGetValue(point.TargetId,out var destination) ||
+                        !destination.Spawns.Any(spawn=>spawn.Id==point.DestinationSpawnId))
+                        throw new ArgumentException("Unknown portal destination: "+map.Id+"/"+point.Id+" → "+point.TargetId+"/"+point.DestinationSpawnId);
+                    portals.Add((map.Id,point.TargetId));
+                }
+                else if(point.Kind==WorldInteractionKind.Stage)
+                {
+                    if(point.TargetId==null || !stageMaps.TryGetValue(point.TargetId,out var expected))
+                        throw new ArgumentException("Unknown stage at world entrance: "+map.Id+"/"+point.Id+" → "+point.TargetId);
+                    if(expected!=map.Id)throw new ArgumentException("Stage entrance on wrong island: "+point.TargetId+" is on "+map.Id+", expected "+expected);
+                    if(!seenStages.Add(point.TargetId))throw new ArgumentException("Duplicate world entrance for stage: "+point.TargetId);
+                }
+            }
+            foreach(var stage in stageMaps)
+                if(!seenStages.Contains(stage.Key))throw new ArgumentException("Missing world entrance for stage: "+stage.Value+" / "+stage.Key);
+            var fromTown=ReachableFromTown(portals.ToLookup(p=>p.From,p=>p.To,StringComparer.Ordinal));
+            var backToTown=ReachableFromTown(portals.ToLookup(p=>p.To,p=>p.From,StringComparer.Ordinal));
+            foreach(string mapId in stageMaps.Values.Distinct(StringComparer.Ordinal))
+            {
+                if(!fromTown.Contains(mapId))throw new ArgumentException("No portal route from Town to campaign island: "+mapId);
+                if(!backToTown.Contains(mapId))throw new ArgumentException("No portal return route to Town from campaign island: "+mapId);
+            }
+        }
+        static HashSet<string> ReachableFromTown(ILookup<string,string> portals)
+        {
+            var seen=new HashSet<string>(StringComparer.Ordinal){"town"};
+            var pending=new Queue<string>();pending.Enqueue("town");
+            while(pending.Count>0)
+                foreach(string destination in portals[pending.Dequeue()])
+                    if(seen.Add(destination))pending.Enqueue(destination);
+            return seen;
         }
         public WorldMapDefinition Map(string id)=>id!=null && maps.TryGetValue(id,out var map)?map:throw new ArgumentException("Unknown world map: "+id);
         public WorldSpawnPoint Spawn(string map,string id)=>Map(map).Spawns.SingleOrDefault(s=>s.Id==id)??throw new ArgumentException("Unknown world spawn: "+map+"/"+id);

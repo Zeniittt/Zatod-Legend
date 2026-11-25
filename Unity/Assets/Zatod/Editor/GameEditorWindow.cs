@@ -246,6 +246,21 @@ namespace Zatod.Editor
                     if (list == null) { list = (IList)Activator.CreateInstance(type); field.SetValue(target, list); }
                     DrawList(parent, label, list, type.GetGenericArguments()[0]);
                 }
+                else if(type==typeof(ZatodSummonDefinition))
+                {
+                    var summon=value as ZatodSummonDefinition;
+                    var section=new Foldout { text=label, value=false };
+                    parent.Add(section);
+                    PopulateOnOpen(section,()=>
+                    {
+                        section.Add(Button(summon==null?"Add summon":"Remove summon",null,()=>
+                        {
+                            field.SetValue(target,summon==null?new ZatodSummonDefinition{Enabled=true}:null);
+                            Edited();BuildUi();
+                        }));
+                        if(summon!=null)DrawObject(section,summon);
+                    });
+                }
                 else if(type.IsClass && (type.Namespace=="Zatod.Heroes" || type.Namespace=="Zatod.World") && value!=null)
                 {
                     var nested = new Foldout { text = label, value = false };
@@ -373,15 +388,24 @@ namespace Zatod.Editor
         {
             Guard(() =>
             {
-                var catalog=new HeroCatalog(draft);var campaign=new CampaignCatalog(campaignDraft,catalog);WorldConfigFileStore.Validate(worldDocuments,campaign);
+                var catalog=new HeroCatalog(draft);var campaign=new CampaignCatalog(campaignDraft,catalog);
                 new ProgressionCatalog(progressionDraft);
                 if(FilesChanged())throw new IOException("Config files changed on disk. Draft preserved; reload before saving.");
-                if(HeroDirty)sourceDocuments=HeroConfigFileStore.Save(draft,sourceDocuments??new HeroConfigDocuments());
-                string nextCampaign=JsonUtility.ToJson(campaignDraft,true);
-                if(CampaignDirty){string backup=Path.GetFullPath("../Artifacts/ZatodConfigBefore/"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss"));Directory.CreateDirectory(backup);File.WriteAllText(Path.Combine(backup,"Campaigns.txt"),campaignSourceJson);HeroDataJson.WriteFileAtomically(CampaignDataJson.AssetPath,nextCampaign);AssetDatabase.ImportAsset(CampaignDataJson.AssetPath);}
-                SaveProgression();int mapsSaved=WorldConfigFileStore.Save(worldDocuments,campaign);
-                campaignSourceJson=campaignJson=File.ReadAllText(CampaignDataJson.AssetPath);
+                var transaction=new ConfigFileTransaction();
+                var nextHeroes=HeroDirty?HeroConfigFileStore.PrepareSave(draft,sourceDocuments,transaction):sourceDocuments;
+                bool saveProgression=ProgressionDirty;
+                if(saveProgression)
+                    transaction.Add(ProgressionDataJson.AssetPath,progressionSource,JsonUtility.ToJson(progressionDraft,true));
+                int mapsSaved=WorldConfigFileStore.PrepareSave(worldDocuments,campaign,CampaignDirty?campaignSourceJson:null,transaction);
+                transaction.Commit("all");
+
+                sourceDocuments=nextHeroes;
+                campaignSourceJson=campaignJson=transaction.SavedText(CampaignDataJson.AssetPath,campaignSourceJson);
+                progressionSource=progressionJson=transaction.SavedText(ProgressionDataJson.AssetPath,progressionSource);
+                WorldConfigFileStore.AcceptSaved(worldDocuments,transaction);
                 sourceJson = draftJson = HeroDataJson.WriteCatalog(draft); UpdateDirtyState();
+                transaction.ImportAssets();
+                if(saveProgression)ProgressionDataJson.ResetCache();
                 SetStatus("SAVED / maps="+mapsSaved+" / "+string.Join(", ",HeroDataJson.Sections.Select(s=>s+".txt"))+" / " + draft.ConfigVersion);
             });
         }

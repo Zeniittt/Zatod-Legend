@@ -11,6 +11,10 @@ namespace Zatod.Presentation
         public UnityEngine.UI.Image[] StarIcons;
         public UnityEngine.UI.Button Button;
         public TextMeshProUGUI Name,Stars;
+        [NonSerialized] public CanvasGroup UltimateSignal;
+        [NonSerialized] public UnityEngine.UI.Image[] UltimateEdges;
+        [NonSerialized] public ZatodHudEffect ReadyCue,TriggerCue,CastCue,FullEnergyCue,EnergyCostCue;
+        [NonSerialized] public UnityEngine.UI.Image LowHealth;
     }
     public sealed class ZatodBattleHudLayout : MonoBehaviour
     {
@@ -23,6 +27,11 @@ namespace Zatod.Presentation
         public GameObject ResultPanel;
         public ZatodHeroCard[] Cards;
         public static Sprite Art(string name)=>Resources.Load<Sprite>("Zatod/UI/"+name);
+        public static Sprite Portrait(string heroId)
+        {
+            string name="Portraits/"+heroId;
+            return Art(name)??ZatodFormationView.FindArt(name);
+        }
         static RectTransform Rect(string name,Transform parent,Vector2 min,Vector2 max,Vector2 low,Vector2 high)
         {
             var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(parent,false);

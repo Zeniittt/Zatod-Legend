@@ -34,6 +34,12 @@ namespace Zatod.Networking
         readonly Dictionary<int,Incoming> uploads=new Dictionary<int,Incoming>();
         Incoming download;
         HeroCatalog catalog;
+        HeroCatalog clientCatalog;
+        public HeroCatalog ClientCatalog=>clientCatalog??=HeroDataJson.LoadBundledCatalog();
+        const string FreePvpMismatch="PvP roster differs from the server. Use matching builds.";
+        public string FreePvpBlockReason=>Snapshot?.FreePvpHeroIds?.Count>0 &&
+            (string.IsNullOrEmpty(Snapshot.FreePvpRosterKey) || Snapshot.FreePvpRosterKey!=ClientCatalog.FreePvp.CompatibilityKey)
+            ?FreePvpMismatch:null;
         CampaignCatalog campaign;
         ProgressionCatalog progression;double nextEconomySync;
         readonly Dictionary<int,ZatodPlayerSession> sessions=new Dictionary<int,ZatodPlayerSession>();
@@ -43,6 +49,7 @@ namespace Zatod.Networking
         readonly List<int> queue=new List<int>();
         readonly List<RealtimeRoom> rooms=new List<RealtimeRoom>();
         readonly HashSet<int> intents=new HashSet<int>();
+        readonly HashSet<int> sentIntents=new HashSet<int>();
         float elapsed;
         bool submitted;
         const int Chunk=8192;
@@ -105,7 +112,14 @@ namespace Zatod.Networking
         }
         public void Campaign(string stageId,IEnumerable<string> heroes)=>Request(new ZatodRequest{Command="campaign",A=stageId,Heroes=heroes.ToArray()});
         public void Arena(IEnumerable<string> heroes)=>Request(new ZatodRequest{Command="arena",Heroes=heroes.ToArray()});
-        public void FindPvp(IEnumerable<string> heroes){if(!Connected)return;FindingPvp=true;Request(new ZatodRequest{Command="queue",Heroes=heroes.ToArray()});Changed?.Invoke();}
+        public void FindPvp(IEnumerable<string> heroes)
+        {
+            if(!Connected || FindingPvp || Battle!=null && !Battle.Finished)return;
+            if(FreePvpBlockReason is string reason){SetStatus("Error: "+reason);return;}
+            var request=new ZatodRequest{Command="queue",Heroes=heroes.ToArray(),
+                FreePvpRosterKey=Snapshot?.FreePvpHeroIds?.Count>0?ClientCatalog.FreePvp.CompatibilityKey:null};
+            FindingPvp=true;Request(request);Changed?.Invoke();
+        }
         public void Cancel()
         {
             FindingPvp=false;Request(new ZatodRequest{Command="cancel"});Battle=null;PendingCampaignLoot=Array.Empty<string>();intents.Clear();submitted=false;Changed?.Invoke();
@@ -133,16 +147,11 @@ namespace Zatod.Networking
         public void Promote(string heroId)
         {if(Snapshot!=null)SendItemOperation(new ZatodRequest{Command="promote",A=heroId,ExpectedRevision=Snapshot.Account.Revision});}
         public void DevLevel(string heroId,int level)=>Request(new ZatodRequest{Command="level",A=heroId,Number=level});
+        public bool UltimatePending(int actorId)=>intents.Contains(actorId) || sentIntents.Contains(actorId) || Battle?.UltimateRequested(actorId)==true;
         public bool Ultimate(int actorId)
         {
-            if(Battle==null || Battle.Finished)return false;
-            if(Battle.Mode==ZatodMode.RealtimePvp)
-            {
-                var actor=Battle.Frame().Units.FirstOrDefault(u=>u.EntityId==actorId);
-                if(actor==null || actor.Team!=Team || !actor.Alive || actor.Energy<actor.MaxEnergy)return false;
-                return intents.Add(actorId);
-            }
-            return Battle.RequestUltimate(actorId);
+            if(Battle==null || UltimatePending(actorId) || !Battle.CanActivateUltimate(actorId,Team))return false;
+            return Battle.Mode==ZatodMode.RealtimePvp?intents.Add(actorId):Battle.RequestUltimate(actorId);
         }
         public void SubmitCampaign()
         {
@@ -169,20 +178,23 @@ namespace Zatod.Networking
                 {
                     case "account":accountReceivedAt=Time.realtimeSinceStartupAsDouble;Snapshot=ReplayArchive.DecodePayload<ZatodAccountSnapshot>(bytes);FinishLogin();if(pendingItemOperation!=null && Snapshot.Account.ItemOperations!=null && Snapshot.Account.ItemOperations.Any(o=>o.OperationId==PendingItemOperationId)){ItemOperationBusy=false;pendingItemOperation=null;}else if(pendingItemOperation!=null && !ItemOperationBusy)RetryItemOperation();SetStatus("Connected. Campaign progress belongs to this app launch.");break;
                     case "start":FindingPvp=false;
-                        var start=ReplayArchive.DecodePayload<ZatodStart>(bytes);Battle=new ZatodBattleSimulation(start.Match);Team=start.Team;elapsed=0;submitted=false;intents.Clear();LastReplay=null;
+                        var start=ReplayArchive.DecodePayload<ZatodStart>(bytes);Battle=new ZatodBattleSimulation(start.Match);Team=start.Team;elapsed=0;submitted=false;intents.Clear();sentIntents.Clear();LastReplay=null;
                         PendingCampaignLoot=start.Match.Mode==ZatodMode.Campaign?(start.LootItems??new List<string>()).AsReadOnly():Array.Empty<string>();
                         SetStatus(start.Match.Mode+" Â· "+start.Match.BattleId);MatchStarted?.Invoke();FrameReceived?.Invoke();
                         if(start.Match.Mode==ZatodMode.RealtimePvp)SendOperation(1);break;
                     case "tick":
                         var tick=ReplayArchive.DecodePayload<ZatodTick>(bytes);
                         if(Battle==null || Battle.BattleId!=tick.BattleId || tick.Tick!=Battle.CurrentTick+1)throw new InvalidDataException("Realtime tick sequence mismatch.");
-                        foreach(var input in tick.Inputs)Battle.QueueInput(input);Battle.Step();
+                        foreach(var input in tick.Inputs)Battle.QueueInput(input);Battle.Step();sentIntents.Clear();
                         if(Battle.Frame().Digest!=tick.Digest)throw new InvalidDataException("Realtime simulation digest mismatch.");
                         FrameReceived?.Invoke();if(!Battle.Finished)SendOperation(tick.Tick+1);break;
                     case "replay":LastReplay=ReplayArchive.DecodePayload<ZatodReplay>(bytes);SetStatus("Validated replay: winner "+LastReplay.Winner+", stars "+LastReplay.Stars);ReplayReceived?.Invoke();break;
                     case "notice":SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
                     case "abort":FindingPvp=false;Battle=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
-                    case "error":FindingPvp=false;submitted=false;ItemOperationBusy=false;pendingItemOperation=null;SetStatus(ReplayArchive.DecodePayload<ZatodNotice>(bytes).Text);break;
+                    case "error":
+                        var rejection=ReplayArchive.DecodePayload<ZatodNotice>(bytes);
+                        FindingPvp=rejection.PvpQueued;submitted=false;ItemOperationBusy=false;pendingItemOperation=null;
+                        SetStatus("Error: "+rejection.Text);break;
                     default:throw new InvalidDataException("Unknown Crystal message.");
                 }
             }
@@ -190,7 +202,8 @@ namespace Zatod.Networking
         }
         void SendOperation(int tick)
         {
-            Send(null,"operation",new ZatodOperation{BattleId=Battle.BattleId,Tick=tick,Actors=intents.OrderBy(x=>x).ToList()});intents.Clear();
+            Send(null,"operation",new ZatodOperation{BattleId=Battle.BattleId,Tick=tick,Actors=intents.OrderBy(x=>x).ToList()});
+            sentIntents.UnionWith(intents);intents.Clear();
         }
         static byte[] Assemble(ref Incoming incoming,ZatodPacket packet)
         {

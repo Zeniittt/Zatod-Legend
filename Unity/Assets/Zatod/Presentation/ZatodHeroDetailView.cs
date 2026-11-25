@@ -66,7 +66,7 @@ namespace Zatod.Presentation
             var rail=InfoPanel.Find("ExpRail");var fill=rail.Find("ProgressionFill")?.GetComponent<UnityEngine.UI.Image>();
             if(fill==null){fill=Picture(rail,"ProgressionFill","hero_exp_progress");Stretch(fill.rectTransform,2);fill.type=UnityEngine.UI.Image.Type.Filled;fill.fillMethod=UnityEngine.UI.Image.FillMethod.Horizontal;}
             long required=ProgressionDataJson.LoadBundled().Hero(hero.Level).NextLevelExp;fill.fillAmount=required>0?Mathf.Clamp01((float)((double)hero.Exp/required)):1;
-            Illustration.sprite=Art("Illustrations/"+definition.Id);RankFrame.sprite=Art("hero_rank_"+Rank(hero,catalog));
+            Illustration.sprite=Art("Illustrations/"+definition.Id);DrawRankPlate(RankFrame,definition,rank.Id,catalog);
             for(int n=0;n<Stars.Length;n++)Stars[n].sprite=Art(n<hero.Stars?"hero_star_1":"hero_star_bg");
             foreach(Transform child in EquipmentLayer){child.gameObject.SetActive(false);Destroy(child.gameObject);}
             int i=0;foreach(var slot in rank.EquipmentSlots.Take(6)){Equipment(EquipmentLayer,hero,slot,account,catalog,i<3?0:420,90+(i%3)*142,98,()=>OnEquipment?.Invoke(hero.HeroInstanceId,slot.Id));i++;}

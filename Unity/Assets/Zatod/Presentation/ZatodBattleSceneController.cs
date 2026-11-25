@@ -43,7 +43,7 @@ namespace Zatod.Presentation
                 }
                 if(!wanted && Stage!=null)
                 {
-                    SetPhase(ZatodScenePhase.ReturningWorld);var scene=Stage.gameObject.scene;Stage=null;
+                    Stage.Clear();SetPhase(ZatodScenePhase.ReturningWorld);var scene=Stage.gameObject.scene;Stage=null;
                     yield return SceneManager.UnloadSceneAsync(scene);
                 }
                 else break;

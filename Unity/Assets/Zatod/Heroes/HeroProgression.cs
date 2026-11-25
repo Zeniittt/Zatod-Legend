@@ -52,7 +52,12 @@ namespace Zatod.Heroes
         {
             catalog.ValidateHero(hero);
             var definition = catalog.Hero(hero.HeroDefinitionId);
-            var unlocked = new HashSet<string>(catalog.RankPath(definition, hero.RankId).SelectMany(r => r.UnlockSkillSlotIds), StringComparer.Ordinal);
+            return UnlockedSkills(definition, catalog.RankPath(definition, hero.RankId));
+        }
+
+        public static List<HeroSkillSlotDefinition> UnlockedSkills(HeroDefinition definition, IEnumerable<HeroRankDefinition> path)
+        {
+            var unlocked = new HashSet<string>(path.SelectMany(rank => rank.UnlockSkillSlotIds), StringComparer.Ordinal);
             return definition.SkillSlots.Where(s => unlocked.Contains(s.Id)).ToList();
         }
     }

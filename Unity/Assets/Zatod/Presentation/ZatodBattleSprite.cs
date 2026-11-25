@@ -12,6 +12,7 @@ namespace Zatod.Presentation
         public SpriteRenderer Renderer{get;private set;}
         public HeroAnimationSetData Set{get;private set;}
         public string CurrentState{get;private set;}
+        public string Resource{get;private set;}
         public float SampleSeconds{get;private set;}
         SpriteRenderer source;PlayableGraph graph;AnimationPlayableOutput output;
         readonly Dictionary<string,AnimationClipPlayable> playables=new Dictionary<string,AnimationClipPlayable>();
@@ -19,6 +20,10 @@ namespace Zatod.Presentation
         public void Initialize(string resource)
         {
             var asset=Resources.Load<TextAsset>(resource);if(asset==null)throw new System.IO.FileNotFoundException("Missing battle animation: "+resource);
+            if(graph.IsValid())graph.Destroy();
+            if(Renderer!=null){Renderer.enabled=false;ReleaseObject(Renderer.gameObject);}
+            if(source!=null){source.enabled=false;ReleaseObject(source.gameObject);}
+            definitions.Clear();playables.Clear();CurrentState=null;SampleSeconds=0;Resource=resource;
             Set=JsonUtility.FromJson<HeroAnimationSetData>(asset.text);
             var visual=new GameObject("Sprite",typeof(SpriteRenderer));visual.layer=ZatodBattleStage.BattleLayer;visual.transform.SetParent(transform,false);
             Renderer=visual.GetComponent<SpriteRenderer>();Renderer.sharedMaterial=Resources.Load<Material>("Zatod/World/ZatodWorldSprite");
@@ -69,5 +74,6 @@ namespace Zatod.Presentation
             scale.x=Mathf.Sign(scale.x)*width/Renderer.sprite.bounds.size.x;Renderer.transform.localScale=scale;
         }
         void OnDestroy(){if(graph.IsValid())graph.Destroy();}
+        static void ReleaseObject(GameObject value){if(Application.isPlaying)Destroy(value);else DestroyImmediate(value);}
     }
 }

@@ -11,7 +11,7 @@ namespace Zatod.Networking
 {
     public sealed partial class ZatodConnection
     {
-        readonly Dictionary<int,List<string>> queuedTeams=new Dictionary<int,List<string>>();
+        readonly Dictionary<int,List<HeroData>> queuedTeams=new Dictionary<int,List<HeroData>>();
         void StartServer()
         {
             catalog=HeroDataJson.LoadBundledCatalog();campaign=CampaignDataJson.LoadZatod(catalog);progression=ProgressionDataJson.LoadBundled();
@@ -55,7 +55,7 @@ namespace Zatod.Networking
                 // A stale Hero request needs the current revision before the player can retry it.
                 if(sessions.TryGetValue(connection.connectionId,out var current))
                     try{SendAccount(connection,current,false);}catch(Exception snapshotError){Debug.LogWarning("[ZatodServer] Snapshot after rejection failed: "+snapshotError.Message);}
-                Send(connection,"error",new ZatodNotice{Text=error.Message});
+                Send(connection,"error",new ZatodNotice{Text=error.Message,PvpQueued=queue.Contains(connection.connectionId)});
                 Debug.LogWarning("[ZatodServer] REJECTED connection="+connection.connectionId+" "+error.Message);
             }
         }
@@ -106,7 +106,10 @@ namespace Zatod.Networking
                     var arena=ZatodMatchFactory.Versus(catalog,left,right,Seed(),Guid.NewGuid().ToString("N"),false);
                     var replay=new ZatodBattleSimulation(arena).RunToCompletion();Archive(replay);Send(connection,"replay",replay);SendAccount(connection,session);break;
                 case "queue":
-                    var selected=session.Team(request.Heroes);queuedTeams[id]=selected.Select(h=>h.HeroInstanceId).ToList();queue.Add(id);
+                    if(session.CampaignInProgress)throw new ArgumentException("Finish or cancel Campaign before joining PvP.");
+                    if(catalog.FreePvp.CompatibilityKey!=null && catalog.FreePvp.CompatibilityKey!=request.FreePvpRosterKey)
+                        throw new ArgumentException(FreePvpMismatch);
+                    queuedTeams.Add(id,PvpTeam(session,request.Heroes));queue.Add(id);
                     Send(connection,"notice",new ZatodNotice{Text="Finding a second online player..."});Pair();break;
                 case "item":if(request.Number<1 || request.Number>100)throw new ArgumentException("Dev grant amount must be 1-100.");session.DevItem(request.A,request.Number);SendAccount(connection,session);break;
                 case "equip":session.EquipItem(request.A,request.B,request.C,request.OperationId??Guid.NewGuid().ToString("D"),()=>SaveOwned(session));SendAccount(connection,session,false);break;
@@ -143,7 +146,7 @@ namespace Zatod.Networking
         void SendAccount(NetworkConnectionToClient connection,ZatodPlayerSession session,bool save=true)
         {
             if(save)SaveOwned(session);
-            Send(connection,"account",new ZatodAccountSnapshot{ServerTime=DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Account=session.Account,LastCampaignReward=session.LastCampaignReward,Cleared=session.Run.Stars.Keys.ToList(),StageStars=session.Run.Stars.OrderBy(s=>s.Key,StringComparer.Ordinal).Select(s=>new ZatodStageStars{StageId=s.Key,Stars=s.Value}).ToList(),Replays=archives.Values.OrderByDescending(x=>x.Initial.BattleId).Take(100).Select(x=>x.Initial.BattleId).ToList()});
+            Send(connection,"account",new ZatodAccountSnapshot{ServerTime=DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Account=session.Account,LastCampaignReward=session.LastCampaignReward,Cleared=session.Run.Stars.Keys.ToList(),StageStars=session.Run.Stars.OrderBy(s=>s.Key,StringComparer.Ordinal).Select(s=>new ZatodStageStars{StageId=s.Key,Stars=s.Value}).ToList(),Replays=archives.Values.OrderByDescending(x=>x.Initial.BattleId).Take(100).Select(x=>x.Initial.BattleId).ToList(),FreePvpHeroIds=catalog.FreePvp.HeroIds.ToList(),FreePvpRosterKey=catalog.FreePvp.CompatibilityKey});
         }
         void Archive(ZatodReplay replay)
         {
@@ -151,14 +154,29 @@ namespace Zatod.Networking
             string path=Path.Combine(archiveDirectory,replay.Initial.BattleId+".zatod.gz");
             string temporary=path+".tmp";File.WriteAllBytes(temporary,ReplayArchive.EncodePayload(replay));File.Move(temporary,path);archives.Add(replay.Initial.BattleId,replay);
         }
+        List<HeroData> PvpTeam(ZatodPlayerSession session,IEnumerable<string> ids)
+            =>catalog.FreePvp.HeroIds.Count>0?catalog.FreePvp.Team(ids):session.Team(ids);
         void RemoveFromQueue(int id){queue.Remove(id);queuedTeams.Remove(id);}
         void Pair()
         {
             if(queue.Count<2)return;
-            int left=queue[0],right=queue[1];var lt=sessions[left].Team(queuedTeams[left]);var rt=sessions[right].Team(queuedTeams[right]);
+            int left=queue[0],right=queue[1];
+            ZatodMatchDefinition match;
+            RealtimeRoom room;
+            try
+            {
+                match=ZatodMatchFactory.Versus(catalog,queuedTeams[left],queuedTeams[right],Seed(),Guid.NewGuid().ToString("N"),true);
+                room=new RealtimeRoom{Left=left,Right=right,Simulation=new ZatodBattleSimulation(match),NextTime=NetworkTime.time+ZatodBattleSimulation.StepSeconds};
+            }
+            catch
+            {
+                RemoveFromQueue(left);RemoveFromQueue(right);
+                if(NetworkServer.connections.TryGetValue(left,out var waiting))
+                    Send(waiting,"error",new ZatodNotice{Text="PvP could not start. Find another match to retry."});
+                throw;
+            }
             RemoveFromQueue(left);RemoveFromQueue(right);
-            var match=ZatodMatchFactory.Versus(catalog,lt,rt,Seed(),Guid.NewGuid().ToString("N"),true);
-            var room=new RealtimeRoom{Left=left,Right=right,Simulation=new ZatodBattleSimulation(match),NextTime=NetworkTime.time+ZatodBattleSimulation.StepSeconds};rooms.Add(room);
+            rooms.Add(room);
             Send(NetworkServer.connections[left],"start",new ZatodStart{Match=match,Team=0});Send(NetworkServer.connections[right],"start",new ZatodStart{Match=match,Team=1});
             Debug.Log("[ZatodServer] PVP_START "+match.BattleId+" left="+left+" right="+right);
         }
@@ -171,7 +189,7 @@ namespace Zatod.Networking
             if(operation.Tick<=5 && operation.Tick<=room.Simulation.CurrentTick && operation.Actors.Count==0)return;
             if(operation.Tick!=room.Simulation.CurrentTick+1 || room.Operations.ContainsKey(id))throw new ArgumentException("Operation does not belong to the next tick.");
             int team=room.Left==id?0:1;
-            if(operation.Actors.Any(actor=>!room.Simulation.Frame().Units.Any(u=>u.EntityId==actor && u.Team==team)))throw new ArgumentException("Operation actor is not owned by this connection.");
+            if(operation.Actors.Any(actor=>!room.Simulation.Frame().Units.Any(u=>u.EntityId==actor && u.Team==team && u.SummonerId==0)))throw new ArgumentException("Operation actor is not owned by this connection.");
             room.Operations.Add(id,operation);
         }
         void UpdateRooms()

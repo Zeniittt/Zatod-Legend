@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -25,6 +26,13 @@ namespace Zatod.Editor
             if(worldDocuments==null || worldDocuments.Maps.Count==0){page.Add(new HelpBox("Reload Worlds.txt and its island configs.",HelpBoxMessageType.Error));return;}
             page.Add(new HelpBox("Positions inside each island are LOCAL; Origin X/Y places it in the shared world. Saved changes apply on the next Play in Editor. Rebuild and restart standalone server/client to update their bundled config.",HelpBoxMessageType.Info));
             page.Add(new Label(WorldConfigFileStore.IndexPath){name="world-index-path"});
+            var resource=new TextField("Island config resource"){name="new-map-resource",tooltip="Resource path such as Data/WorldMaps/new_island, without .txt"};
+            page.Add(resource);
+            page.Add(Button("Add island draft","attach-map",()=>Guard(()=>
+            {
+                WorldConfigFileStore.Attach(worldDocuments,resource.value?.Trim());
+                mapSelection=worldDocuments.Maps.Count-1;Edited();BuildUi();
+            })));
             var choices=worldDocuments.Maps.Select(m=>m.Draft.Name+" ["+m.Draft.Id+"]").ToList();mapSelection=Mathf.Clamp(mapSelection,0,choices.Count-1);
             var choice=new UnityEngine.UIElements.PopupField<string>("Island",choices,mapSelection){name="map-choice"};
             choice.RegisterValueChangedCallback(e=>{mapSelection=choices.IndexOf(e.newValue);BuildUi();});page.Add(choice);
@@ -33,7 +41,9 @@ namespace Zatod.Editor
             actions.Add(Button("Select config asset","select-map-asset",()=>{Selection.activeObject=AssetDatabase.LoadAssetAtPath<TextAsset>(document.AssetPath);EditorGUIUtility.PingObject(Selection.activeObject);}));
             actions.Add(Button("Save maps","save-maps",()=>Guard(()=>
             {
-                var campaign=new Zatod.Heroes.CampaignCatalog(campaignDraft,new Zatod.Heroes.HeroCatalog(draft));
+                var heroes=Zatod.Heroes.HeroDataJson.ReadDocuments(HeroConfigFileStore.ReadExisting());
+                var savedDefinition=JsonUtility.FromJson<Zatod.Heroes.CampaignDefinition>(File.ReadAllText(Zatod.Heroes.CampaignDataJson.AssetPath));
+                var campaign=new Zatod.Heroes.CampaignCatalog(savedDefinition,heroes);
                 int saved=WorldConfigFileStore.Save(worldDocuments,campaign);UpdateDirtyState();SetStatus("SAVED MAPS / "+saved+" file(s). Next Editor Play; rebuild/restart standalone server and client.");
             })));page.Add(actions);
             page.Add(new Label(document.AssetPath){name="map-config-path"});

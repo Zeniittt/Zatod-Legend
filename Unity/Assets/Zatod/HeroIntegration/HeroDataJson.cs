@@ -58,7 +58,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Stats: table = new StatsConfigData { Stats = data.Stats }; break;
                 case HeroConfigSection.Items: table = new ItemsConfigData { Items = data.Items }; break;
                 case HeroConfigSection.Skills: table = new SkillsConfigData { Skills = data.Skills, SkillProgression = data.SkillProgression }; break;
-                case HeroConfigSection.Heroes: table = new HeroesConfigData { Heroes = data.Heroes }; break;
+                case HeroConfigSection.Heroes: table = new HeroesConfigData { Heroes = data.Heroes, UseExpandedCombatRules = data.UseExpandedCombatRules }; break;
                 case HeroConfigSection.Monsters: table = new MonstersConfigData { Monsters = data.Monsters }; break;
                 case HeroConfigSection.Buffs: table = new BuffsConfigData { Buffs = data.Buffs }; break;
                 case HeroConfigSection.CraftRecipes: table = new CraftRecipesConfigData { CraftRecipes = data.CraftRecipes }; break;
@@ -114,7 +114,7 @@ namespace Zatod.Heroes
                 case HeroConfigSection.Stats: data.Stats = ((StatsConfigData)table).Stats; break;
                 case HeroConfigSection.Items: data.Items = ((ItemsConfigData)table).Items; break;
                 case HeroConfigSection.Skills: data.Skills = ((SkillsConfigData)table).Skills; data.SkillProgression = ((SkillsConfigData)table).SkillProgression ?? new SkillProgressionDefinition(); break;
-                case HeroConfigSection.Heroes: data.Heroes = ((HeroesConfigData)table).Heroes; break;
+                case HeroConfigSection.Heroes: data.Heroes = ((HeroesConfigData)table).Heroes; data.UseExpandedCombatRules = ((HeroesConfigData)table).UseExpandedCombatRules; break;
                 case HeroConfigSection.Monsters: data.Monsters = ((MonstersConfigData)table).Monsters; break;
                 case HeroConfigSection.Buffs: data.Buffs = ((BuffsConfigData)table).Buffs; break;
                 case HeroConfigSection.CraftRecipes: data.CraftRecipes = ((CraftRecipesConfigData)table).CraftRecipes; break;
@@ -152,6 +152,9 @@ namespace Zatod.Heroes
         // Caller chooses the persistence location. A future server account repository owns revisions
         // and multi-resource transactions; this helper only prevents partially written JSON files.
         public static void WriteFileAtomically(string path, string json)
+            => WriteBytesAtomically(path, new UTF8Encoding(false).GetBytes(json));
+
+        public static void WriteBytesAtomically(string path, byte[] bytes)
         {
             string full = Path.GetFullPath(path);
             Directory.CreateDirectory(Path.GetDirectoryName(full));
@@ -160,7 +163,6 @@ namespace Zatod.Heroes
             {
                 using (var stream = new FileStream(temporary, FileMode.CreateNew, FileAccess.Write, FileShare.None))
                 {
-                    byte[] bytes = new UTF8Encoding(false).GetBytes(json);
                     stream.Write(bytes, 0, bytes.Length);
                     stream.Flush(true);
                 }

@@ -14,7 +14,7 @@ namespace Zatod.Networking
         float worldPhaseAt;bool sawWorldPeer,sawWorldMovement,sawWorldIsolation,sawChapterOnePeer;
         void Start()
         {
-            connection=GetComponent<ZatodConnection>();catalog=HeroDataJson.LoadBundledCatalog();
+            connection=GetComponent<ZatodConnection>();catalog=connection.ClientCatalog;
             role=ZatodConnection.Argument("--zatod-smoke","left");
             started=Time.realtimeSinceStartup;connection.ReplayReceived+=OnReplay;
         }
@@ -41,7 +41,7 @@ namespace Zatod.Networking
                 }
                 if(phase==1 && snapshot.Account.HeroDesk.All(h=>h.Level==40))
                 {
-                    if(role=="right"){connection.FindPvp(heroes);phase=5;queued=true;}
+                    if(role=="right"){connection.FindPvp(PvpPicks(snapshot));phase=5;queued=true;}
                     else{phase=10;}
                 }
                 if(phase==10)
@@ -69,13 +69,15 @@ namespace Zatod.Networking
                     connection.Campaign("chapter_one_stage_1",heroes);phase=2;
                 }
                 if(phase==3 && snapshot.Cleared.Contains("chapter_one_stage_1")){connection.Arena(heroes);phase=4;}
-                if(phase==6 && !queued){connection.FindPvp(heroes);queued=true;phase=5;}
+                if(phase==6 && !queued){connection.FindPvp(PvpPicks(snapshot));queued=true;phase=5;}
                 var battle=connection.Battle;
                 if(battle!=null && !battle.Finished)
                     foreach(var actor in battle.Frame().Units.Where(u=>u.Team==connection.Team && u.Alive && u.Energy>=u.MaxEnergy))connection.Ultimate(actor.EntityId);
             }
             catch(Exception error){Fail(error);}
         }
+        string[] PvpPicks(ZatodAccountSnapshot snapshot)
+            =>snapshot.FreePvpHeroIds?.Count>0?snapshot.FreePvpHeroIds.Take(5).ToArray():heroes;
         void OnReplay()
         {
             try

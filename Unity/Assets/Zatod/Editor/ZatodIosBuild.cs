@@ -62,11 +62,14 @@ namespace Zatod.Editor
         }
         [MenuItem("Zatod/Build LAN Test/iOS Xcode Project")]
         public static void Export()
+            =>ExportTo(Zatod.Networking.ZatodConnection.Argument("-buildOutput",Path.Combine(ZatodLanBuild.OutputRoot,"iOS","Xcode-"+DateTime.Now.ToString("yyyyMMdd-HHmmss"))));
+        public static void ExportTo(string path)
         {
             if(EditorApplication.isPlaying)throw new InvalidOperationException("Stop Play Mode before export.");
             if(Enumerable.Range(0,UnityEngine.SceneManagement.SceneManager.sceneCount).Any(i=>UnityEngine.SceneManagement.SceneManager.GetSceneAt(i).isDirty))throw new InvalidOperationException("Save modified scenes before export.");
             if(EditorUserBuildSettings.activeBuildTarget!=BuildTarget.iOS)throw new InvalidOperationException("Switch the active platform to iOS before exporting.");
-            string path=Zatod.Networking.ZatodConnection.Argument("-buildOutput",Path.Combine(ZatodLanBuild.OutputRoot,"iOS","Xcode-"+DateTime.Now.ToString("yyyyMMdd-HHmmss")));
+            if(string.IsNullOrWhiteSpace(path))throw new ArgumentException("An export path is required.",nameof(path));
+            path=Path.GetFullPath(path);
             if(Directory.Exists(path)&&Directory.EnumerateFileSystemEntries(path).Any())throw new InvalidOperationException("Choose an empty export folder; an existing Xcode project will not be overwritten.");
             Configure();int textures=ConfigureTextures();Directory.CreateDirectory(path);
             var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ZatodPrototypeSetup.ScenePath,ZatodBattleSceneController.ScenePath},locationPathName=path,target=BuildTarget.iOS,subtarget=0,options=BuildOptions.None});

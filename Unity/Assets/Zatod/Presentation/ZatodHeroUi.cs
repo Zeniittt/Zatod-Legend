@@ -43,7 +43,23 @@ namespace Zatod.Presentation
             content=Box(view,"Content");content.anchorMin=Vector2.up;content.anchorMax=Vector2.one;content.pivot=new Vector2(.5f,1);content.sizeDelta=Vector2.zero;
             scroll.viewport=view;scroll.content=content;return scroll;
         }
-        public static int Rank(HeroData hero,HeroCatalog catalog)=>Math.Max(1,catalog.Hero(hero.HeroDefinitionId).Ranks.FindIndex(r=>r.Id==hero.RankId)+1);
+        public static int Rank(HeroData hero,HeroCatalog catalog)=>Rank(catalog.Hero(hero.HeroDefinitionId),hero.RankId,catalog);
+        public static int Rank(HeroDefinition hero,string rankId,HeroCatalog catalog)
+            =>hero?.Ranks.Any(rank=>rank.Id==rankId)==true?catalog.RankPath(hero,rankId).Count:1;
+        public static Color RankColor(string rankId)=>(rankId??"").Split('_')[0] switch
+        {
+            "purple"=>new Color(.77f,.59f,1),
+            "blue"=>new Color(.4f,.7f,1),
+            "green"=>new Color(.5f,1,.4f),
+            _=>Color.white
+        };
+        public static void DrawRankPlate(UnityEngine.UI.Image plate,HeroDefinition definition,string rankId,HeroCatalog catalog)
+        {
+            var sprite=Resources.Load<Sprite>(Path+"hero_rank_"+Rank(definition,rankId,catalog));
+            plate.sprite=sprite??Art("hero_info_bg_0");
+            plate.color=sprite!=null?Color.white:RankColor(rankId);
+            plate.type=plate.sprite!=null && plate.sprite.border.sqrMagnitude>0?UnityEngine.UI.Image.Type.Sliced:UnityEngine.UI.Image.Type.Simple;
+        }
         public static string EquipmentState(HeroData hero,EquipmentSlotDefinition slot,CharacterData account)
         {if(hero.EquippedItems.Any(i=>i.SlotId==slot.Id))return "equipped";return account.Inventory.Any(i=>i.ItemId==slot.RequiredItemId)?"available":"missing";}
         public static void Equipment(Transform parent,HeroData hero,EquipmentSlotDefinition slot,CharacterData account,HeroCatalog catalog,float x,float y,float size,Action onClick=null)

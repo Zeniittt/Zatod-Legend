@@ -18,6 +18,18 @@ namespace Zatod.Heroes
             var skill=AtLevel(source,level);var info=skill.Crystal;
             var buff=catalog.Data.Buffs.FirstOrDefault(x=>x.SourceId==info.BuffId);
             string Number(double v)=>v.ToString("0.##",CultureInfo.InvariantCulture);
+            if(info.PassiveStatRatios?.Count>0)
+            {
+                double amount=info.BasicAmount+info.Growth.Where(x=>x.Field=="Basic Num").Sum(x=>(level-1)*x.Amount);
+                string audience=info.ActiveType=="passive"?"Grants ":"Grants the team ";
+                string text=audience+string.Join(", ",info.PassiveStatRatios.Select(x=>Number(amount*x.Value)+" "+(catalog.Data.Stats.FirstOrDefault(s=>s.Id==x.StatId)?.Name??x.StatId.Replace('_',' '))))+".";
+                if(info.PassiveExtraDamageTargets?.Count>0)
+                {
+                    var names=catalog.Data.Heroes.Where(h=>info.PassiveExtraDamageTargets.Contains(h.SourceUnitId)).Select(h=>h.Name).ToArray();
+                    if(names.Length>0)text+=" Also grants "+Number(amount)+" Physical Attack to "+string.Join(", ",names)+".";
+                }
+                return text;
+            }
             string value=Regex.Replace(source.Description??source.Name,@"%(Skill|Buff)&([^%]+)%",m=>
             {
                 string field=m.Groups[2].Value;double number=0;
@@ -27,7 +39,19 @@ namespace Zatod.Heroes
                     else if(field=="Plus Ratio")number=info.PlusRatio;
                     else if(field.StartsWith("Script Arg") && int.TryParse(field.Substring(10),out int i) && i>0 && i<=info.ScriptArgs.Count)number=info.ScriptArgs[i-1];
                     else if(field=="CD")number=info.Cooldown;
+                    else if(field=="Gain MP")number=info.GainEnergy;
                     else if(field=="Passive Attr")return ZatodStatName(info.PassiveAttribute);
+                    else if(info.Summon?.Enabled==true)
+                    {
+                        number=field switch
+                        {
+                            "SummonCount"=>info.Summon.Count,
+                            "SummonDurationSeconds"=>info.Summon.DurationSeconds,
+                            "SummonHealthMultiplier"=>info.Summon.HealthMultiplier,
+                            "SummonDamageMultiplier"=>info.Summon.DamageMultiplier,
+                            _=>0
+                        };
+                    }
                 }
                 else if(buff!=null)
                 {

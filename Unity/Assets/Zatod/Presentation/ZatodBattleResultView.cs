@@ -27,13 +27,15 @@ namespace Zatod.Presentation
         readonly List<TextMeshProUGUI> heroLevels=new List<TextMeshProUGUI>();
         EconomyBattleReceipt economy;UnityEngine.UI.Image playerBar;
         readonly List<ReplaySprite> effects=new List<ReplaySprite>();
+        AudioSource audio;
+        bool audioPaused;
         Action onContinue;HeroCatalog catalog;ZatodReplay replay;Vector2 size;float opened;
         void Awake()
         {
             Continue.onClick.AddListener(()=>onContinue?.Invoke());
             StatisticsButton.onClick.AddListener(()=>StatisticsView.Open(report,catalog,Font));
         }
-        public void Open(ZatodReplay record,ZatodCampaignReward receipt,HeroCatalog definitions,CharacterData account,Action close)
+        public void Open(ZatodReplay record,ZatodCampaignReward receipt,HeroCatalog definitions,CharacterData account,Action close,bool playAudio=true)
         {
             replay=record;catalog=definitions;onContinue=close;BattleId=record.Initial.BattleId;opened=Time.unscaledTime;
             report.Clear();report.AddRange((record.Statistics??new List<ZatodUnitStatistics>()).Select(s=>s.Copy()));
@@ -42,9 +44,14 @@ namespace Zatod.Presentation
             playerBar=TeamBar.Find("ProgressionFill")?.GetComponent<UnityEngine.UI.Image>();if(playerBar==null)playerBar=MakeExpBar(TeamBar,"team_expbar");
             foreach(var unit in record.Initial.Players.Take(5))
             {
-                var hero=account.HeroDesk.FirstOrDefault(h=>h.HeroDefinitionId==unit.DefinitionId);
+                string definitionId=ZatodContentIds.Canonical(unit.DefinitionId);
+                var definition=catalog.Data.Heroes.FirstOrDefault(h=>h.Id==definitionId);
+                var owned=string.IsNullOrEmpty(unit.RankId) || unit.Stars<=0
+                    ?account.HeroDesk.FirstOrDefault(h=>h.HeroDefinitionId==definitionId):null;
+                string rankId=string.IsNullOrEmpty(unit.RankId)?owned?.RankId:unit.RankId;
+                int stars=unit.Stars>0?unit.Stars:owned?.Stars??1;
                 var card=ZatodFormationView.CreateCard(HeroRow,"Hero_"+unit.EntityId,108,Font);
-                ConfigureCard(card,unit.DefinitionId,unit.Level,hero?.Stars??1,hero==null?1:ZatodHeroUi.Rank(hero,catalog));heroRoots.Add(card.Root);
+                ConfigureCard(card,definitionId,unit.Level,stars,ZatodHeroUi.Rank(definition,rankId,catalog));heroRoots.Add(card.Root);
                 var bg=Picture(card.Root,"ExpBackground","battleresult/heroexp_bg");Place(bg.rectTransform,0,114,108,10);heroBars.Add(MakeExpBar(bg.rectTransform,"expbar"));heroLevels.Add(card.Level);
                 var exp=Text(card.Root,"Exp","0/0",Font,19);Place(exp.rectTransform,0,128,108,25);exp.alignment=TextAlignmentOptions.Center;heroExp.Add(exp);
             }
@@ -63,7 +70,17 @@ namespace Zatod.Presentation
             RewardLabel.text=settled?"Rewards:":"Replay";
             for(int i=0;i<Stars.Length;i++)Stars[i].sprite=Art("battleresult/new_resource/"+(i<record.Stars?"star":"star_1"));
             StatisticsView.gameObject.SetActive(false);gameObject.SetActive(true);size=Vector2.zero;Fit();PlayResultEffects(record.Stars);
-            var audio=GetComponent<AudioSource>();if(audio==null)audio=gameObject.AddComponent<AudioSource>();var clip=Resources.Load<AudioClip>("Zatod/Audio/battle_win");if(clip!=null)audio.PlayOneShot(clip,.5f);
+            audio?.Stop();audioPaused=false;
+            if(playAudio)
+            {
+                if(audio==null)
+                {
+                    audio=GetComponent<AudioSource>();
+                    if(audio==null)audio=gameObject.AddComponent<AudioSource>();
+                    audio.playOnAwake=false;
+                }
+                var clip=Resources.Load<AudioClip>("Zatod/Audio/battle_win");if(clip!=null)audio.PlayOneShot(clip,.5f);
+            }
         }
         void PlayResultEffects(int stars)
         {
@@ -72,7 +89,13 @@ namespace Zatod.Presentation
             var rect=Box(transform,"NativeStarAnimation");rect.anchorMin=rect.anchorMax=rect.pivot=new Vector2(.5f,1);rect.anchoredPosition=new Vector2(0,-((RectTransform)transform).rect.height*.16f);
             var visual=rect.gameObject.AddComponent<ReplaySprite>();visual.Initialize("Zatod/eff_UI_pve_victory_star_"+Math.Clamp(stars,1,3)+"/AnimationSet");effects.Add(visual);rect.SetSiblingIndex(Banner.GetSiblingIndex()+1);
         }
-        public void Hide(){StatisticsView.gameObject.SetActive(false);gameObject.SetActive(false);BattleId=null;}
+        internal void SetAudioPaused(bool paused)
+        {
+            if(audio==null || audioPaused==paused)return;
+            audioPaused=paused;
+            if(paused)audio.Pause();else audio.UnPause();
+        }
+        public void Hide(){audio?.Stop();audioPaused=false;StatisticsView.gameObject.SetActive(false);gameObject.SetActive(false);BattleId=null;}
         static void Clear(Transform parent){foreach(Transform child in parent){child.gameObject.SetActive(false);UnityEngine.Object.Destroy(child.gameObject);}}
         void LateUpdate()
         {

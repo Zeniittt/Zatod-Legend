@@ -32,6 +32,15 @@ namespace Zatod.Editor
 
         public static HeroConfigDocuments Save(HeroCatalogData data, HeroConfigDocuments expected)
         {
+            var transaction = new ConfigFileTransaction();
+            var next = PrepareSave(data, expected, transaction);
+            transaction.Commit("heroes");
+            transaction.ImportAssets();
+            return next;
+        }
+
+        internal static HeroConfigDocuments PrepareSave(HeroCatalogData data, HeroConfigDocuments expected, ConfigFileTransaction transaction)
+        {
             if (expected == null) throw new ArgumentNullException(nameof(expected));
             var next = HeroDataJson.WriteDocuments(data);
             var current = ReadExisting();
@@ -45,37 +54,8 @@ namespace Zatod.Editor
                     throw new ArgumentException("Change ConfigVersion before saving a balance update.");
             }
 
-            var written = new List<HeroConfigSection>();
-            AssetDatabase.StartAssetEditing();
-            try
-            {
-                foreach (var section in HeroDataJson.Sections)
-                {
-                    if (current.Get(section) == next.Get(section)) continue;
-                    HeroDataJson.WriteFileAtomically(HeroDataJson.AssetPath(section), next.Get(section));
-                    written.Add(section);
-                }
-            }
-            catch (Exception error)
-            {
-                var rollbackErrors = new List<Exception>();
-                foreach (var section in written)
-                {
-                    try
-                    {
-                        if (current.Get(section) == null) File.Delete(HeroDataJson.AssetPath(section));
-                        else HeroDataJson.WriteFileAtomically(HeroDataJson.AssetPath(section), current.Get(section));
-                    }
-                    catch (Exception rollbackError) { rollbackErrors.Add(rollbackError); }
-                }
-                if (rollbackErrors.Count > 0)
-                {
-                    rollbackErrors.Insert(0, error);
-                    throw new AggregateException("Config write failed and rollback was incomplete. Restore the last valid config set.", rollbackErrors);
-                }
-                throw;
-            }
-            finally { AssetDatabase.StopAssetEditing(); ImportFiles(); }
+            foreach (var section in HeroDataJson.Sections)
+                transaction.Add(HeroDataJson.AssetPath(section), current.Get(section), next.Get(section));
             return next;
         }
 

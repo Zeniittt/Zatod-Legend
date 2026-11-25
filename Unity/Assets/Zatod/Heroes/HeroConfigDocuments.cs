@@ -15,7 +15,7 @@ namespace Zatod.Heroes
     [Serializable] public sealed class StatsConfigData : HeroConfigTable { public List<StatDefinition> Stats; }
     [Serializable] public sealed class ItemsConfigData : HeroConfigTable { public List<ItemDefinition> Items; }
     [Serializable] public sealed class SkillsConfigData : HeroConfigTable { public List<SkillDefinition> Skills; public SkillProgressionDefinition SkillProgression = new SkillProgressionDefinition(); }
-    [Serializable] public sealed class HeroesConfigData : HeroConfigTable { public List<HeroDefinition> Heroes; }
+    [Serializable] public sealed class HeroesConfigData : HeroConfigTable { public bool UseExpandedCombatRules; public List<HeroDefinition> Heroes; }
     [Serializable] public sealed class MonstersConfigData : HeroConfigTable { public List<MonsterDefinition> Monsters; }
     [Serializable] public sealed class CraftRecipesConfigData : HeroConfigTable { public List<CraftRecipeDefinition> CraftRecipes; }
     [Serializable] public sealed class StarRulesConfigData : HeroConfigTable { public int MaxHeroStars=5; public List<StarRuleDefinition> StarRules; }

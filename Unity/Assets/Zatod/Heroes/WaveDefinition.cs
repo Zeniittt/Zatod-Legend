@@ -21,6 +21,13 @@ namespace Zatod.Heroes
         public double InitialEnergy;
         public bool Boss, EstimateRank;
         public double HpMultiplier = 1, DamageMultiplier = 1, ArmorMultiplier = 1, MagicResistanceMultiplier = 1, SizeMultiplier = 1;
+
+        public double ResolveRank(HeroCatalog catalog,CombatantDefinition definition,out List<HeroRankDefinition> path)
+        {
+            path=definition is HeroDefinition hero && !EstimateRank && !string.IsNullOrEmpty(RankId)
+                ?catalog.RankPath(hero,RankId):null;
+            return EstimateRank?Math.Floor((Level+9)/10d)+(Level-1)%10/10d:path?.Count??1;
+        }
     }
     [Serializable] public sealed class WaveDefinition
     {

@@ -7,10 +7,12 @@ namespace Zatod.Combat
 {
     public sealed partial class ZatodBattleSimulation
     {
-        bool EvolutionRules=>initial.RulesVersion==ZatodMatchDefinition.Rules;
+        bool EvolutionRules=>initial.RulesVersion==ZatodMatchDefinition.SkillEvolutionRulesV4 ||
+            initial.RulesVersion==ZatodMatchDefinition.WaveEntryRulesV5 || SummonsEnabled;
         double Evo(BattleSkillData skill,string field,double fallback=0)=>EvolutionRules?SkillEvolution.Value(skill.Definition,skill.Level,field,fallback):fallback;
         IEnumerable<SkillTriggeredEffect> Triggers(BattleSkillData skill,SkillEvolutionEvent when)=>!EvolutionRules?Enumerable.Empty<SkillTriggeredEffect>():SkillEvolution.Active(skill.Definition,skill.Level).SelectMany(x=>x.TriggeredEffects).Where(x=>x.Trigger==when);
-        BattleSkillData Native(Unit actor,int source)=>actor.Skills.FirstOrDefault(x=>x.Definition.Crystal.SourceId==source);
+        BattleSkillData Native(Unit actor,int source)=>actor.Skills.FirstOrDefault(x=>x.Definition.Crystal.SourceId==source)??
+            (ExpandedRules?actor.NativeOriginalSkills?.FirstOrDefault(x=>x.Definition.Crystal.SourceId==source):null);
         static bool HasControl(ZatodBuffDefinition definition,string control)=>(definition.Control??"").Split(new[]{',',' ',';'},StringSplitOptions.RemoveEmptyEntries).Contains(control);
         static bool ConflictsWithUncontrollable(ZatodBuffDefinition definition)=>new[]{"frozen","stun","immoblilize","silence","disarm","imprisonment","enchanted","fear","taunt","polymorph","icefrozen"}.Any(x=>HasControl(definition,x));
         void EvolutionBuffAdded(Unit target,ActiveBuff buff)
@@ -71,6 +73,8 @@ namespace Zatod.Combat
                         case SkillEvolutionEffect.DependentSkill:
                             var definition=initial.SkillDependencies.Single(x=>x.Id==effect.SkillId).Copy();
                             var dependent=new BattleSkillData{Level=skill.Level,Definition=definition};
+                            if(ExpandedRules && definition.Crystal.TrackType=="region")
+                            {CreateRegion(actor,victim,dependent);break;}
                             if(effect.UseSkillPower){definition.Crystal.BasicAmount=power*effect.Ratio;definition.Crystal.PlusRatio=0;definition.Crystal.Growth.Clear();}
                             var hits=Affected(actor,victim,definition.Crystal).Where(x=>x.State.Alive).ToArray();
                             if(effect.ScaleByEnemyCount)
@@ -114,7 +118,9 @@ namespace Zatod.Combat
         void RemoveEvolutionBuff(Unit target,ActiveBuff buff,bool expired)
         {
             if(!target.Buffs.Remove(buff))return;
-            if(buff.Definition.SourceId==10004501)target.State.Team=buff.OriginalTeam;
+            RefreshNativeHealth(target);
+            if(ExpandedRules)NpcBuffRemoved(target,buff,expired);
+            if(!ExpandedRules && buff.Definition.SourceId==10004501)target.State.Team=buff.OriginalTeam;
             var actor=Find(buff.CasterId);
             if(!EvolutionRules || actor==null || buff.SourceSkill==null || !buff.MainSkillBuff || !target.State.Alive)return;
             EvolutionEvent(actor,target,buff.SourceSkill,SkillEvolutionEvent.BuffRemoved);
@@ -182,7 +188,7 @@ namespace Zatod.Combat
         {
             var skill=Native(target,203);
             if(skill==null || target.LifeInsightUsed)return false;
-            target.LifeInsightUsed=true;target.State.Hp=1;target.State.Energy=0;target.Cast=null;
+            target.LifeInsightUsed=true;target.State.Hp=1;target.State.Energy=0;InterruptCast(target);
             foreach(var b in target.Buffs.Where(x=>x.CasterId!=target.State.EntityId).ToArray())RemoveEvolutionBuff(target,b,false);
             ApplyBuff(target,target,skill,10002005);
             ApplySkill(target,target,skill);

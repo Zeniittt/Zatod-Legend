@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -27,13 +26,6 @@ namespace Zatod.Editor
             page.Add(new HelpBox("Shared level curves. Current player/Hero progress belongs to Owned, not config. Changes apply to future loads; rebuild/restart standalone server and client.",HelpBoxMessageType.Info));
             DrawObject(page,progressionDraft);
             page.Add(Button("Validate progression","validate-progression",()=>Guard(()=>{new ProgressionCatalog(progressionDraft);SetStatus("VALID progression");})));
-        }
-        void SaveProgression()
-        {
-            if(!ProgressionDirty)return;new ProgressionCatalog(progressionDraft);
-            string backup=Path.GetFullPath("../Artifacts/ZatodConfigBefore/"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss"));Directory.CreateDirectory(backup);File.WriteAllText(Path.Combine(backup,"Progression.txt"),progressionSource);
-            HeroDataJson.WriteFileAtomically(ProgressionDataJson.AssetPath,JsonUtility.ToJson(progressionDraft,true));AssetDatabase.ImportAsset(ProgressionDataJson.AssetPath);
-            progressionSource=progressionJson=File.ReadAllText(ProgressionDataJson.AssetPath);ProgressionDataJson.ResetCache();
         }
     }
 }

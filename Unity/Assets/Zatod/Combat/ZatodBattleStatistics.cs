@@ -6,7 +6,7 @@ namespace Zatod.Combat
 {
     [Serializable] public sealed class ZatodUnitStatistics
     {
-        public int EntityId,Team,Wave,Level,Kills;
+        public int EntityId,Team,Wave,Level,Kills,SummonerId;
         public string DefinitionId,Name,Resource;
         public double DamageDealt,DamageTaken,Healing;
         public ZatodUnitStatistics Copy()=>(ZatodUnitStatistics)MemberwiseClone();
@@ -25,7 +25,7 @@ namespace Zatod.Combat
         public List<ZatodLootDrop> LootPlan()=>(initial.LootDrops??new List<ZatodLootDrop>()).ConvertAll(d=>d.Copy());
         void RegisterStatistics(ZatodUnitData data)
         {
-            if(!statistics.ContainsKey(data.EntityId))statistics.Add(data.EntityId,new ZatodUnitStatistics{EntityId=data.EntityId,Team=data.Team,Wave=data.Team==0?0:wave+1,Level=data.Level,DefinitionId=data.DefinitionId,Name=data.Name,Resource=data.Resource});
+            if(!statistics.ContainsKey(data.EntityId))statistics.Add(data.EntityId,new ZatodUnitStatistics{EntityId=data.EntityId,Team=data.Team,Wave=data.Team==0 && data.SummonerId==0?0:wave+1,Level=data.Level,DefinitionId=data.DefinitionId,Name=data.Name,Resource=data.Resource,SummonerId=data.SummonerId});
         }
         public List<ZatodUnitStatistics> Statistics()=>statistics.Values.OrderBy(s=>s.Team).ThenBy(s=>s.Wave).ThenBy(s=>s.EntityId).Select(s=>s.Copy()).ToList();
         void RecordDamage(Unit source,Unit target,double amount)

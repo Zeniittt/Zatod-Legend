@@ -14,7 +14,7 @@ namespace Zatod.Heroes
     }
     [Serializable] public sealed class CampaignChapterDefinition
     {
-        public string Id,Name,WorldMapId;
+        public string Id,Name,WorldMapId,BattleMusicResource;
         public List<CampaignStageDefinition> Stages=new List<CampaignStageDefinition>();
     }
     [Serializable] public sealed class CampaignStageDefinition
@@ -47,6 +47,7 @@ namespace Zatod.Heroes
     {
         public CampaignDefinition Data{get;}
         readonly Dictionary<string,CampaignStageDefinition> stages;
+        readonly Dictionary<string,CampaignChapterDefinition> chapterByStage=new Dictionary<string,CampaignChapterDefinition>(StringComparer.Ordinal);
         readonly Dictionary<string,string> prerequisites=new Dictionary<string,string>();
         public CampaignCatalog(CampaignDefinition data,HeroCatalog heroes)
         {
@@ -86,7 +87,9 @@ namespace Zatod.Heroes
                         if(slot==null || slot.PowerBasisPoints<1000 || slot.PowerBasisPoints>100000)throw new ArgumentException("Invalid encounter power.");
                         heroes.Monster(slot.MonsterId);
                     }
-                    stages.Add(stage.Id,stage);prerequisites.Add(stage.Id,stage.Waves!=null && stage.Waves.Count>0 ? (string.IsNullOrEmpty(stage.RequiredStageId) ? null : stage.RequiredStageId) : previous);previous=stage.Id;
+                    stages.Add(stage.Id,stage);
+                    chapterByStage.Add(stage.Id,chapter);
+                    prerequisites.Add(stage.Id,stage.Waves!=null && stage.Waves.Count>0 ? (string.IsNullOrEmpty(stage.RequiredStageId) ? null : stage.RequiredStageId) : previous);previous=stage.Id;
                 }
             }
             foreach (var id in stages.Keys)
@@ -102,6 +105,7 @@ namespace Zatod.Heroes
         }
         public CampaignStageDefinition Stage(string id)
         {if(id==null || !stages.TryGetValue(id,out var stage))throw new ArgumentException("Unknown Campaign stage.");return stage;}
+        public string BattleMusicFor(string id){Stage(id);return chapterByStage[id].BattleMusicResource;}
         public bool IsUnlocked(string id,IEnumerable<string> cleared)
         {Stage(id);return prerequisites[id]==null || cleared.Contains(prerequisites[id]);}
         public string Prerequisite(string id){Stage(id);return prerequisites[id];}

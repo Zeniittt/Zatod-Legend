@@ -9,7 +9,7 @@ namespace Zatod.Networking
     public sealed partial class ZatodConnection
     {
         ZatodLanDiscovery lanDiscovery;
-        string requestedName,lanCatalogVersion;
+        string requestedName;
         public bool FindingPvp{get;private set;}
         double loginDeadline;
         bool lookingForServer;
@@ -31,7 +31,7 @@ namespace Zatod.Networking
         string ServerPreference=>"ZatodPrototype.Server."+Argument("--zatod-profile",Argument("--zatod-smoke",DevelopmentProfile));
         public string SavedServerAddress=>HasArgument("--server")?Address:PlayerPrefs.GetString(ServerPreference,"");
         public string SuggestedServerAddress{get;private set;}="";
-        public string CatalogVersion=>catalog?.Data.ConfigVersion??(lanCatalogVersion??=HeroDataJson.LoadBundledCatalog().Data.ConfigVersion);
+        public string CatalogVersion=>catalog?.Data.ConfigVersion??ClientCatalog.Data.ConfigVersion;
         string NamePreference=>"ZatodPrototype.Name."+Argument("--zatod-profile",Argument("--zatod-smoke",DevelopmentProfile));
         public string SavedDisplayName=>PlayerPrefs.GetString(NamePreference,"");
         void InitializeLan()

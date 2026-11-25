@@ -8,6 +8,7 @@ namespace Zatod.Heroes
     public sealed class HeroCatalog
     {
         public HeroCatalogData Data { get; private set; }
+        public FreePvpRoster FreePvp { get; }
         readonly Dictionary<string, StatDefinition> stats;
         readonly Dictionary<string, ItemDefinition> items;
         readonly Dictionary<string, SkillDefinition> skills;
@@ -36,6 +37,10 @@ namespace Zatod.Heroes
                 if (skill.Crystal != null && skill.Crystal.SourceId > 0)
                 {
                     Require(skill.Crystal.SourceId > 0 && skill.Crystal.Cooldown >= 0 && skill.Crystal.Phases != null, "Invalid Crystal skill: " + skill.Id);
+                    Require(skill.Crystal.PassiveStatRatios!=null && skill.Crystal.PassiveExtraDamageTargets!=null,"Missing passive mapping: "+skill.Id);
+                    Require(skill.Crystal.PassiveStatRatios.All(s=>s!=null && stats.ContainsKey(s.StatId) && !double.IsNaN(s.Value) && !double.IsInfinity(s.Value)) &&
+                        skill.Crystal.PassiveStatRatios.Select(s=>s.StatId).Distinct().Count()==skill.Crystal.PassiveStatRatios.Count,"Invalid passive stat ratios: "+skill.Id);
+                    Require(skill.Crystal.PassiveExtraDamageTargets.All(i=>i>0) && skill.Crystal.PassiveExtraDamageTargets.Distinct().Count()==skill.Crystal.PassiveExtraDamageTargets.Count,"Invalid passive recipient IDs: "+skill.Id);
                     foreach (var phase in skill.Crystal.Phases)
                         Require(!string.IsNullOrWhiteSpace(phase.Action) && phase.Duration > 0 && phase.AttackTimes.All(t => t >= 0 && t <= phase.Duration + .00001), "Invalid Crystal phase: " + skill.Id);
                     continue;
@@ -119,6 +124,7 @@ namespace Zatod.Heroes
             ValidateCrystalData(data);
             foreach (var hero in data.Heroes) ValidateDefinition(hero);
             foreach (var monster in data.Monsters) ValidateMonster(monster);
+            FreePvp = new FreePvpRoster(this);
         }
 
         public StatDefinition Stat(string id) { return Find(stats, id, "stat"); }
@@ -133,9 +139,11 @@ namespace Zatod.Heroes
             ValidateStats(monster.BaseStats,"Monster "+monster.Id);
             foreach(string id in new[]{"health","damage","defense","attack_range","move_speed","attack_interval"})
                 Require(monster.BaseStats.Any(s=>s.StatId==id),"Missing monster stat "+id+": "+monster.Id);
-            foreach(string id in new[]{"health","attack_range","move_speed","attack_interval"})
+            foreach(string id in new[]{"health","attack_range","attack_interval"})
                 Require(monster.BaseStats.Single(s=>s.StatId==id).Value>0,"Monster stat must be positive: "+id);
+            Require(monster.BaseStats.Single(s=>s.StatId=="move_speed").Value>=0,"Monster movement cannot be negative: "+monster.Id);
             Require(monster.ProjectileHurtboxHeight>0 && monster.DeathAnimationMilliseconds>0,"Invalid monster body: "+monster.Id);
+            Require(Enum.IsDefined(typeof(ZatodDeathPresentation),monster.DeathPresentation),"Invalid monster death presentation: "+monster.Id);
             var points=Index(monster.SpawnPoints,p=>p.Id,"Monster spawn points");
             foreach(var point in points.Values)Require(point.Height>=0,"Monster point below ground: "+point.Id);
             var normal=Skill(monster.NormalAttackSkillId);
@@ -232,6 +240,7 @@ namespace Zatod.Heroes
         {
             Require(hero.ProjectileHurtboxHeight > 0, "Hero needs a positive projectile hurtbox height: " + hero.Id);
             Require(hero.DeathAnimationMilliseconds > 0, "Hero needs a positive death animation duration: " + hero.Id);
+            Require(Enum.IsDefined(typeof(ZatodDeathPresentation),hero.DeathPresentation),"Invalid Hero death presentation: "+hero.Id);
             var spawnPoints = Index(hero.SpawnPoints, p => p.Id, "Spawn points of " + hero.Id);
             foreach (var point in spawnPoints.Values) Require(point.Height >= 0, "Spawn point below ground: " + point.Id);
             var usedSkills = hero.SkillSlots.Select(s => Skill(s.SkillId)).ToList();
@@ -285,6 +294,11 @@ namespace Zatod.Heroes
             foreach(var buff in data.Buffs)
             {
                 Require(buff!=null && buff.SourceId>0 && buffIds.Add(buff.SourceId) && !double.IsNaN(buff.Duration) && !double.IsInfinity(buff.Duration) && buff.Duration>=0,"Invalid Crystal buff.");
+                Require(Enum.IsDefined(typeof(ZatodBuffEffectLayer),buff.EffectLayer) &&
+                    !double.IsNaN(buff.EffectHeightOffset) && !double.IsInfinity(buff.EffectHeightOffset) &&
+                    !double.IsInfinity(buff.EffectScale) && buff.EffectScale>=0,"Invalid buff effect presentation: "+buff.Id);
+                Require(Enum.IsDefined(typeof(ZatodBuffShader),buff.Shader) &&
+                    buff.ActorScaleX>0 && buff.ActorScaleY>0 && !double.IsInfinity(buff.ActorScaleX) && !double.IsInfinity(buff.ActorScaleY),"Invalid native buff style: "+buff.Id);
                 ValidatePrecise(buff.Stats,"Buff "+buff.SourceId);
                 foreach(var scaling in buff.Scaling){Stat(scaling.StatId);Stat(scaling.Attribute);Require(!double.IsNaN(scaling.Ratio) && !double.IsInfinity(scaling.Ratio),"Invalid buff scaling.");}
             }
@@ -296,12 +310,32 @@ namespace Zatod.Heroes
                 Require(info.BuffId==0 || buffIds.Contains(info.BuffId),"Unknown Crystal buff: "+skill.Id);
                 Require(info.CostEnergy>=0 && info.InitialCooldown>=0 && info.GlobalCooldown>=0 && info.MinRange>=0 && info.MaxRange>=info.MinRange,"Invalid Crystal range/cost: "+skill.Id);
                 Require(string.IsNullOrEmpty(info.TrackType) || new[]{"projectile","chain","region"}.Contains(info.TrackType),"Unsupported Crystal delivery: "+skill.Id);
+                foreach(var form in (info.NativeForm?.Enabled==true?new[]{info.NativeForm}:Array.Empty<ZatodBattleFormDefinition>()).Concat(info.Summon?.Forms??new List<ZatodBattleFormDefinition>()))
+                {
+                    Require(info.ExpandedRules && !string.IsNullOrWhiteSpace(form.Resource) && !string.IsNullOrWhiteSpace(form.AnimationSetResource) &&
+                        form.ArtScale>0 && form.ArtScale<=10 && form.ActiveSkillSourceIds.Count>0 && form.ActiveSkillSourceIds.Count<=12 &&
+                        form.ActiveSkillSourceIds.Distinct().Count()==form.ActiveSkillSourceIds.Count && form.ActiveSkillSourceIds.Contains(form.BasicSourceId) &&
+                        form.ActiveSkillSourceIds.All(id=>data.Skills.Any(s=>s.Crystal?.SourceId==id)),"Invalid native battle form: "+skill.Id);
+                    Require(form.ActionRemaps.All(m=>!string.IsNullOrWhiteSpace(m.Action) && !string.IsNullOrWhiteSpace(m.Target)),"Invalid form action remap: "+skill.Id);
+                }
+                if(info.Summon?.Enabled==true)
+                {
+                    var summon=info.Summon;
+                    Require(info.ActiveType=="active" && (info.Phases.Any(phase=>phase.AttackTimes.Count>0) || info.ExpandedRules && info.TriggerOnly) &&
+                        summon.HasValidParameters,"Invalid combat summon: "+skill.Id);
+                    if(!string.IsNullOrEmpty(summon.MonsterId))Monster(summon.MonsterId);
+                    if(!string.IsNullOrEmpty(summon.AlternateMonsterId))Monster(summon.AlternateMonsterId);
+                    Require(!(summon.IncludeSkills || summon.InheritLevelAndStars || summon.Persistent || summon.ReplaceExisting || summon.AtImpact || summon.StackOnRecast || summon.UseSkillLevel || !string.IsNullOrEmpty(summon.AlternateMonsterId)) || info.ExpandedRules,
+                        "Native summon options require V7 content: "+skill.Id);
+                    Require(!(summon.IncludeSkills || summon.InheritLevelAndStars) || !string.IsNullOrEmpty(summon.MonsterId),"Native template summon needs a Monster: "+skill.Id);
+                }
                 foreach(var phase in info.Phases)
                     Require(!double.IsNaN(phase.Duration) && !double.IsInfinity(phase.Duration) && phase.AttackTimes.SequenceEqual(phase.AttackTimes.OrderBy(t=>t)),"Invalid Crystal event order: "+skill.Id);
             }
             foreach(var item in data.Items){ValidatePrecise(item.PreciseStats,"Item "+item.DefinitionId);}
             foreach(var unit in data.Heroes.Cast<CombatantDefinition>().Concat(data.Monsters))
             {
+                Require(unit.DamageStatisticsRatio>=0 && unit.DamageStatisticsRatio<=100 && unit.AlternateDeathSeconds>=0 && unit.AlternateDeathSeconds<=60 && unit.BirthSeconds>=0 && unit.BirthSeconds<=60 && unit.HurtSeconds>=0 && unit.HurtSeconds<=60,"Invalid native action duration: "+unit.Id);
                 ValidatePrecise(unit.PreciseBaseStats,"Unit "+unit.Id);
                 foreach(var growth in unit.Growth)ValidatePrecise(growth.PerLevel,"Growth "+unit.Id);
                 foreach(var rank in unit.RankStats){ValidatePrecise(rank.Stats,"Rank "+unit.Id);ValidatePrecise(rank.EstimatedStats,"Estimated rank "+unit.Id);}
