@@ -1,0 +1,673 @@
+{
+  "Id": "chapter_three",
+  "Name": "Chapter 3 - Naga Sea",
+  "Theme": "grass",
+  "VisualResource": "grass_background",
+  "MinX": 0,
+  "MinY": 0,
+  "MaxX": 62,
+  "MaxY": 42,
+  "OriginX": 330,
+  "OriginY": 0,
+  "InterestRadius": 48,
+  "Spawns": [
+    {
+      "Id": "entry",
+      "X": 6,
+      "Y": 5
+    },
+    {
+      "Id": "from_next",
+      "X": 53,
+      "Y": 35
+    }
+  ],
+  "Interactions": [
+    {
+      "Id": "town",
+      "Label": "Town",
+      "VisualResource": "goddess",
+      "X": 3,
+      "Y": 4,
+      "Kind": 1,
+      "TargetId": "town",
+      "DestinationSpawnId": "entry",
+      "Height": 2.3,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "previous",
+      "Label": "Chapter 2",
+      "VisualResource": "goddess",
+      "X": 3,
+      "Y": 35,
+      "Kind": 1,
+      "TargetId": "chapter_two",
+      "DestinationSpawnId": "from_next",
+      "Height": 2.3,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "next",
+      "Label": "Chapter 4",
+      "VisualResource": "goddess",
+      "X": 56,
+      "Y": 4,
+      "Kind": 1,
+      "TargetId": "chapter_four",
+      "DestinationSpawnId": "entry",
+      "Height": 2.3,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_1",
+      "Label": "Chaotic Waters",
+      "VisualResource": "crystal_stage_40",
+      "X": 9,
+      "Y": 10,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_1",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_2",
+      "Label": "Humidity",
+      "VisualResource": "crystal_stage_41",
+      "X": 16,
+      "Y": 10,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_2",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_3",
+      "Label": "Ship Seizure",
+      "VisualResource": "crystal_stage_42",
+      "X": 23,
+      "Y": 10,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_3",
+      "DestinationSpawnId": "entry",
+      "Height": 2.8,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_4",
+      "Label": "I'm a Singer",
+      "VisualResource": "crystal_stage_43",
+      "X": 30,
+      "Y": 10,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_4",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_5",
+      "Label": "Thunder Bolt",
+      "VisualResource": "crystal_stage_44",
+      "X": 37,
+      "Y": 10,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_5",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_6",
+      "Label": "Mermaid? Merman!",
+      "VisualResource": "crystal_stage_45",
+      "X": 44,
+      "Y": 10,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_6",
+      "DestinationSpawnId": "entry",
+      "Height": 2.8,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_7",
+      "Label": "Naga Boarding",
+      "VisualResource": "crystal_stage_46",
+      "X": 51,
+      "Y": 10,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_7",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_8",
+      "Label": "Decent Person",
+      "VisualResource": "crystal_stage_47",
+      "X": 51,
+      "Y": 20,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_8",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_9",
+      "Label": "Ship Repair",
+      "VisualResource": "crystal_stage_48",
+      "X": 44,
+      "Y": 20,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_9",
+      "DestinationSpawnId": "entry",
+      "Height": 2.8,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_10",
+      "Label": "Unsolved Mystery",
+      "VisualResource": "crystal_stage_49",
+      "X": 37,
+      "Y": 20,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_10",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_11",
+      "Label": "Unpleasant Visitor",
+      "VisualResource": "crystal_stage_50",
+      "X": 30,
+      "Y": 20,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_11",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_12",
+      "Label": "Twisted Beliefs",
+      "VisualResource": "crystal_stage_51",
+      "X": 23,
+      "Y": 20,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_12",
+      "DestinationSpawnId": "entry",
+      "Height": 2.8,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_13",
+      "Label": "Betrayal",
+      "VisualResource": "crystal_stage_52",
+      "X": 16,
+      "Y": 20,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_13",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_14",
+      "Label": "Shipwreck",
+      "VisualResource": "crystal_stage_53",
+      "X": 9,
+      "Y": 20,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_14",
+      "DestinationSpawnId": "entry",
+      "Height": 2.8,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_15",
+      "Label": "Final Assault",
+      "VisualResource": "crystal_stage_54",
+      "X": 9,
+      "Y": 30,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_15",
+      "DestinationSpawnId": "entry",
+      "Height": 1.0,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    },
+    {
+      "Id": "stage_16",
+      "Label": "Naga Siren",
+      "VisualResource": "crystal_stage_55",
+      "X": 16,
+      "Y": 30,
+      "Kind": 0,
+      "TargetId": "chapter_three_stage_16",
+      "DestinationSpawnId": "entry",
+      "Height": 2.8,
+      "Radius": 2.8,
+      "HalfWidth": 0.45,
+      "HalfDepth": 0.25
+    }
+  ],
+  "Props": [
+    {
+      "Id": "prop_1",
+      "VisualResource": "grass_patch",
+      "X": 32.93482015867827,
+      "Y": 32.81321777867055,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_3",
+      "VisualResource": "grass_tree_1",
+      "X": 37.844474451513754,
+      "Y": 37.80309461297643,
+      "Height": 2.8941226221144256,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_5",
+      "VisualResource": "grass_patch",
+      "X": 49.21829710212912,
+      "Y": 36.88786537322336,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_6",
+      "VisualResource": "grass_tree_2",
+      "X": 11.496293560250571,
+      "Y": 40.57102628833701,
+      "Height": 3.12275165703478,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_7",
+      "VisualResource": "grass_patch",
+      "X": 17.80898673620185,
+      "Y": 3.1957367644039794,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_9",
+      "VisualResource": "grass_tree_0",
+      "X": 45.45357341801456,
+      "Y": 31.89839629315216,
+      "Height": 3.010300809209732,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_12",
+      "VisualResource": "grass_tree_1",
+      "X": 54.50136918150151,
+      "Y": 15.994059397910151,
+      "Height": 3.1085484182256304,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_15",
+      "VisualResource": "grass_tree_2",
+      "X": 60.419015656978196,
+      "Y": 9.043038208814789,
+      "Height": 3.2819644340443963,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_16",
+      "VisualResource": "grass_patch",
+      "X": 60.27659378093829,
+      "Y": 15.90208466707494,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_18",
+      "VisualResource": "grass_tree_0",
+      "X": 33.2424695684764,
+      "Y": 17.547730064268677,
+      "Height": 3.367132948202522,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_21",
+      "VisualResource": "grass_tree_1",
+      "X": 3.6870474066525607,
+      "Y": 17.793611980455037,
+      "Height": 2.6429466055829587,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_22",
+      "VisualResource": "grass_patch",
+      "X": 24.63050413383918,
+      "Y": 31.425941340061566,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_23",
+      "VisualResource": "grass_patch",
+      "X": 36.232525358802334,
+      "Y": 37.34362546890567,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_24",
+      "VisualResource": "grass_tree_2",
+      "X": 11.402243386265829,
+      "Y": 24.9669012441692,
+      "Height": 3.34036265688918,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_25",
+      "VisualResource": "grass_patch",
+      "X": 58.24137556244469,
+      "Y": 11.927675774530478,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_26",
+      "VisualResource": "grass_patch",
+      "X": 31.670683681119144,
+      "Y": 40.87299339867319,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_28",
+      "VisualResource": "grass_patch",
+      "X": 40.99738089731289,
+      "Y": 31.392775917813474,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_29",
+      "VisualResource": "grass_patch",
+      "X": 15.846888019410823,
+      "Y": 33.71576573472639,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_30",
+      "VisualResource": "grass_tree_1",
+      "X": 60.03317719225503,
+      "Y": 1.8056540499161047,
+      "Height": 2.7857706493601517,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_31",
+      "VisualResource": "grass_patch",
+      "X": 11.426949006989057,
+      "Y": 5.992915155379261,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_32",
+      "VisualResource": "grass_patch",
+      "X": 57.06258808863494,
+      "Y": 11.101006941532859,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_33",
+      "VisualResource": "grass_tree_2",
+      "X": 57.49099566620319,
+      "Y": 14.475835227355919,
+      "Height": 3.032949901347209,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_37",
+      "VisualResource": "grass_patch",
+      "X": 9.348717276700668,
+      "Y": 38.71753991614405,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_38",
+      "VisualResource": "grass_patch",
+      "X": 54.120562253499955,
+      "Y": 7.264851276293708,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_39",
+      "VisualResource": "grass_tree_1",
+      "X": 42.07300133491621,
+      "Y": 6.89867084377651,
+      "Height": 3.2801498792269608,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_40",
+      "VisualResource": "grass_patch",
+      "X": 10.957364473903286,
+      "Y": 36.5132668342994,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_43",
+      "VisualResource": "grass_patch",
+      "X": 12.623063423367764,
+      "Y": 5.564062952498951,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_44",
+      "VisualResource": "grass_patch",
+      "X": 16.416924347101954,
+      "Y": 33.79113661881573,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_45",
+      "VisualResource": "grass_tree_0",
+      "X": 14.712812948002425,
+      "Y": 25.407134905256505,
+      "Height": 2.429594768073643,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_48",
+      "VisualResource": "grass_tree_1",
+      "X": 17.850527700959354,
+      "Y": 14.833083147280645,
+      "Height": 2.48200739837549,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_50",
+      "VisualResource": "grass_patch",
+      "X": 53.7268241918634,
+      "Y": 30.445077990022178,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_51",
+      "VisualResource": "grass_tree_2",
+      "X": 42.0002845886118,
+      "Y": 30.01956488229621,
+      "Height": 2.91064795106726,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_52",
+      "VisualResource": "grass_patch",
+      "X": 48.632324945803305,
+      "Y": 6.15266612645878,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_53",
+      "VisualResource": "grass_patch",
+      "X": 11.11535014510028,
+      "Y": 32.99766101057872,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_55",
+      "VisualResource": "grass_patch",
+      "X": 44.0077130322109,
+      "Y": 14.344445092371181,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_57",
+      "VisualResource": "grass_tree_1",
+      "X": 37.52673060758681,
+      "Y": 31.21826887090718,
+      "Height": 2.5134258336686566,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_58",
+      "VisualResource": "grass_patch",
+      "X": 55.462885091504646,
+      "Y": 38.77624176329374,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_59",
+      "VisualResource": "grass_patch",
+      "X": 33.16474239772943,
+      "Y": 31.07663922208404,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_60",
+      "VisualResource": "grass_tree_2",
+      "X": 22.701937277957168,
+      "Y": 13.63617187018939,
+      "Height": 3.3014854858128557,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_61",
+      "VisualResource": "grass_patch",
+      "X": 28.469808554879055,
+      "Y": 37.37885720560318,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    },
+    {
+      "Id": "prop_63",
+      "VisualResource": "grass_tree_0",
+      "X": 5.745695074759652,
+      "Y": 32.15592859543506,
+      "Height": 3.376459499495471,
+      "HalfWidth": 0.35,
+      "HalfDepth": 0.23
+    },
+    {
+      "Id": "prop_64",
+      "VisualResource": "grass_patch",
+      "X": 26.08854294437697,
+      "Y": 5.4003694109373415,
+      "Height": 0.45,
+      "HalfWidth": 0,
+      "HalfDepth": 0
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-skill-promote-1",
+  "ConfigVersion": "zatod-d34-v7-3b14df41db3fe55e",
   "CraftRecipes": [
     {
       "Id": "accessory_of_intelligence_recipe",
@@ -996,6 +996,876 @@
         }
       ],
       "GoldCost": 5000
+    },
+    {
+      "Id": "pegleg_of_intelligence_recipe",
+      "SourceItemId": 206,
+      "OutputItemId": "pegleg_of_intelligence",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "boots",
+          "Amount": 1
+        },
+        {
+          "ItemId": "gloves_of_speed",
+          "Amount": 1
+        },
+        {
+          "ItemId": "robe_of_intelligence",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "sacrifice_recipe",
+      "SourceItemId": 213,
+      "OutputItemId": "sacrifice",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "sacrifice_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "mask_of_blood_thirty",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_regen",
+          "Amount": 1
+        },
+        {
+          "ItemId": "ring_of_sanctum",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 1200
+    },
+    {
+      "Id": "plate_armor_recipe",
+      "SourceItemId": 224,
+      "OutputItemId": "plate_armor",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "plate_armor_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "charybdis_scroll_recipe",
+      "SourceItemId": 230,
+      "OutputItemId": "charybdis_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "charybdis_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "bones_basher_scroll_recipe",
+      "SourceItemId": 235,
+      "OutputItemId": "bones_basher_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "bones_basher_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "blade_of_blood_scroll_recipe",
+      "SourceItemId": 236,
+      "OutputItemId": "blade_of_blood_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "blade_of_blood_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "hades_scroll_recipe",
+      "SourceItemId": 238,
+      "OutputItemId": "hades_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "hades_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "booklet_scroll_recipe",
+      "SourceItemId": 239,
+      "OutputItemId": "booklet_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "booklet_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "shade_scroll_recipe",
+      "SourceItemId": 240,
+      "OutputItemId": "shade_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "shade_scroll_shard",
+          "Amount": 5
+        }
+      ],
+      "GoldCost": 1500
+    },
+    {
+      "Id": "charybdis_recipe",
+      "SourceItemId": 249,
+      "OutputItemId": "charybdis",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "charybdis_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "gloves_of_speed",
+          "Amount": 1
+        },
+        {
+          "ItemId": "hammer_of_mithril",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "booklet_recipe",
+      "SourceItemId": 250,
+      "OutputItemId": "booklet",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "booklet_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "staff_of_intelligence",
+          "Amount": 1
+        },
+        {
+          "ItemId": "belt_of_strength",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "bones_basher_recipe",
+      "SourceItemId": 253,
+      "OutputItemId": "bones_basher",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "bones_basher_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "lance",
+          "Amount": 1
+        },
+        {
+          "ItemId": "belt_of_strength",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "hades_recipe",
+      "SourceItemId": 255,
+      "OutputItemId": "hades",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "hades_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "helm_of_warrior",
+          "Amount": 1
+        },
+        {
+          "ItemId": "robe_of_intelligence",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "athos_recipe",
+      "SourceItemId": 256,
+      "OutputItemId": "athos",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "staff_of_intelligence",
+          "Amount": 2
+        },
+        {
+          "ItemId": "orb_of_vigor",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "shade_recipe",
+      "SourceItemId": 259,
+      "OutputItemId": "shade",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "shade_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "axe_of_strength",
+          "Amount": 1
+        },
+        {
+          "ItemId": "hammer_of_mithril",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "berserk_axe_recipe",
+      "SourceItemId": 262,
+      "OutputItemId": "berserk_axe",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "orb_of_perseverance",
+          "Amount": 1
+        },
+        {
+          "ItemId": "shortsword",
+          "Amount": 1
+        },
+        {
+          "ItemId": "claymore",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "blade_of_blood_recipe",
+      "SourceItemId": 263,
+      "OutputItemId": "blade_of_blood",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "blade_of_blood_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "hammer_of_mithril",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "mekan_tier_2_recipe",
+      "SourceItemId": 264,
+      "OutputItemId": "mekan_tier_2",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "mekan",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "sanguestone_recipe",
+      "SourceItemId": 265,
+      "OutputItemId": "sanguestone",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "orb_of_perseverance",
+          "Amount": 1
+        },
+        {
+          "ItemId": "rousing_rose",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 5000
+    },
+    {
+      "Id": "necklace_of_dodge_recipe",
+      "SourceItemId": 291,
+      "OutputItemId": "necklace_of_dodge",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "necklace_of_dodge_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "extreme_orb_recipe",
+      "SourceItemId": 292,
+      "OutputItemId": "extreme_orb",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "extreme_orb_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "hyperiron_recipe",
+      "SourceItemId": 293,
+      "OutputItemId": "hyperiron",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "hyperiron_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "blade_of_stalker_recipe",
+      "SourceItemId": 294,
+      "OutputItemId": "blade_of_stalker",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "blade_of_stalker_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "crystal_staff_recipe",
+      "SourceItemId": 295,
+      "OutputItemId": "crystal_staff",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "crystal_staff_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "thunderstorm_scroll_recipe",
+      "SourceItemId": 296,
+      "OutputItemId": "thunderstorm_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "thunderstorm_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "axe_of_manta_scroll_recipe",
+      "SourceItemId": 297,
+      "OutputItemId": "axe_of_manta_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "axe_of_manta_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "hellfire_scroll_recipe",
+      "SourceItemId": 298,
+      "OutputItemId": "hellfire_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "hellfire_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "flute_of_flame_scroll_recipe",
+      "SourceItemId": 299,
+      "OutputItemId": "flute_of_flame_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "flute_of_flame_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "assault_scroll_recipe",
+      "SourceItemId": 300,
+      "OutputItemId": "assault_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "assault_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "magic_sphere_scroll_recipe",
+      "SourceItemId": 301,
+      "OutputItemId": "magic_sphere_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "magic_sphere_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "orb_of_refresh_scroll_recipe",
+      "SourceItemId": 302,
+      "OutputItemId": "orb_of_refresh_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "orb_of_refresh_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "golden_hooped_rod_scroll_recipe",
+      "SourceItemId": 303,
+      "OutputItemId": "golden_hooped_rod_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "golden_hooped_rod_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "baphomet_s_scythe_scroll_recipe",
+      "SourceItemId": 304,
+      "OutputItemId": "baphomet_s_scythe_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "baphomet_s_scythe_scroll_shard",
+          "Amount": 20
+        }
+      ],
+      "GoldCost": 6000
+    },
+    {
+      "Id": "flute_of_flame_recipe",
+      "SourceItemId": 305,
+      "OutputItemId": "flute_of_flame",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "flute_of_flame_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "magic_resis_scarf",
+          "Amount": 1
+        },
+        {
+          "ItemId": "scarf_of_regeneration",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "paradise_recipe",
+      "SourceItemId": 306,
+      "OutputItemId": "paradise",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "aurora",
+          "Amount": 1
+        },
+        {
+          "ItemId": "necklace_of_dodge",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "hellfire_recipe",
+      "SourceItemId": 307,
+      "OutputItemId": "hellfire",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "hellfire_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "zen_staff",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "axe_of_manta_recipe",
+      "SourceItemId": 308,
+      "OutputItemId": "axe_of_manta",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "axe_of_manta_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "noir",
+          "Amount": 1
+        },
+        {
+          "ItemId": "extreme_orb",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "magic_sphere_recipe",
+      "SourceItemId": 309,
+      "OutputItemId": "magic_sphere",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "magic_sphere_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "orb_of_perseverance",
+          "Amount": 1
+        },
+        {
+          "ItemId": "extreme_orb",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "orb_of_refresh_recipe",
+      "SourceItemId": 310,
+      "OutputItemId": "orb_of_refresh",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "orb_of_refresh_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "orb_of_perseverance",
+          "Amount": 1
+        },
+        {
+          "ItemId": "zen_staff",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "assault_recipe",
+      "SourceItemId": 311,
+      "OutputItemId": "assault",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "assault_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "hyperiron",
+          "Amount": 1
+        },
+        {
+          "ItemId": "plate_armor",
+          "Amount": 1
+        },
+        {
+          "ItemId": "chainmail",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "thunderstorm_recipe",
+      "SourceItemId": 312,
+      "OutputItemId": "thunderstorm",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "thunderstorm_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "charybdis",
+          "Amount": 1
+        },
+        {
+          "ItemId": "hyperiron",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "booklet_tier_2_recipe",
+      "SourceItemId": 313,
+      "OutputItemId": "booklet_tier_2",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "booklet",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "crimson_staff_tier_2_recipe",
+      "SourceItemId": 314,
+      "OutputItemId": "crimson_staff_tier_2",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "crimson_staff",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "ice_eye_recipe",
+      "SourceItemId": 315,
+      "OutputItemId": "ice_eye",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "extreme_orb",
+          "Amount": 2
+        },
+        {
+          "ItemId": "orb_of_vigor",
+          "Amount": 1
+        },
+        {
+          "ItemId": "poisoned_ball",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "dispersant_tier_2_recipe",
+      "SourceItemId": 316,
+      "OutputItemId": "dispersant_tier_2",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "dispersant",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "mekan_tier_3_recipe",
+      "SourceItemId": 317,
+      "OutputItemId": "mekan_tier_3",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "mekan_tier_2",
+          "Amount": 2
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "golden_hooped_rod_recipe",
+      "SourceItemId": 318,
+      "OutputItemId": "golden_hooped_rod",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "golden_hooped_rod_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "lance",
+          "Amount": 2
+        },
+        {
+          "ItemId": "blade_of_stalker",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "baphomet_s_scythe_recipe",
+      "SourceItemId": 319,
+      "OutputItemId": "baphomet_s_scythe",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "baphomet_s_scythe_scroll",
+          "Amount": 1
+        },
+        {
+          "ItemId": "crystal_staff",
+          "Amount": 1
+        },
+        {
+          "ItemId": "extreme_orb",
+          "Amount": 1
+        },
+        {
+          "ItemId": "void_gem",
+          "Amount": 1
+        }
+      ],
+      "GoldCost": 18000
+    },
+    {
+      "Id": "axe_of_plunderer_recipe",
+      "SourceItemId": 337,
+      "OutputItemId": "axe_of_plunderer",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "axe_of_plunderer_shard",
+          "Amount": 50
+        }
+      ],
+      "GoldCost": 15000
+    },
+    {
+      "Id": "harpy_eagle_recipe",
+      "SourceItemId": 338,
+      "OutputItemId": "harpy_eagle",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "harpy_eagle_shard",
+          "Amount": 50
+        }
+      ],
+      "GoldCost": 15000
+    },
+    {
+      "Id": "grandbow_scroll_recipe",
+      "SourceItemId": 341,
+      "OutputItemId": "grandbow_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "grandbow_scroll_shard",
+          "Amount": 50
+        }
+      ],
+      "GoldCost": 15000
+    },
+    {
+      "Id": "satan_scroll_recipe",
+      "SourceItemId": 342,
+      "OutputItemId": "satan_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "satan_scroll_shard",
+          "Amount": 50
+        }
+      ],
+      "GoldCost": 15000
+    },
+    {
+      "Id": "dragoncore_scroll_recipe",
+      "SourceItemId": 343,
+      "OutputItemId": "dragoncore_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "dragoncore_scroll_shard",
+          "Amount": 50
+        }
+      ],
+      "GoldCost": 15000
+    },
+    {
+      "Id": "brilliance_scroll_recipe",
+      "SourceItemId": 344,
+      "OutputItemId": "brilliance_scroll",
+      "OutputAmount": 1,
+      "Ingredients": [
+        {
+          "ItemId": "brilliance_scroll_shard",
+          "Amount": 50
+        }
+      ],
+      "GoldCost": 15000
     }
   ]
 }

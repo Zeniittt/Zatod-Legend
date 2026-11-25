@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ConfigVersion": "zatod-skill-promote-1",
+  "ConfigVersion": "zatod-d34-v7-3b14df41db3fe55e",
   "Stats": [
     {
       "Id": "health",
@@ -135,6 +135,21 @@
     {
       "Id": "physical_immunity",
       "Name": "Physical Immunity",
+      "Minimum": 0
+    },
+    {
+      "Id": "energy_cost_reduction",
+      "Name": "Energy Cost Reduction",
+      "Minimum": 0
+    },
+    {
+      "Id": "energy_regen",
+      "Name": "Energy Regen",
+      "Minimum": 0
+    },
+    {
+      "Id": "mpratio",
+      "Name": "Mpratio",
       "Minimum": 0
     }
   ]
