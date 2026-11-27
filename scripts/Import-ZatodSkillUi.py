@@ -2,7 +2,7 @@
 from pathlib import Path
 import json, re, sys, shutil
 ROOT=Path(__file__).resolve().parent.parent
-REF=ROOT/'Unity/Assets/Crystal Legend'
+REF=ROOT/'Crystal Legend'
 sys.path.insert(0,str(REF/'recovery_tools'))
 from lua_data import read_table,named_row,Reader
 art=REF/'recovered/assets/install_time_pack/remake'

@@ -1,15 +1,15 @@
 CRYSTAL LEGENDS REFERENCE FOR ZATOD LEGEND
 Original transfer: 2026-11-19 (Asia/Saigon)
-Reference-location update: 2026-11-23 (Asia/Saigon)
+Reference-location update: 2026-11-27 (Asia/Saigon)
 
 CURRENT DESIGN: Read ../Design.md and ../AGENTS.md before using this historical reference. Design.md records current user decisions, implementation status and open questions; later confirmed decisions supersede older brainstorming below.
 
 WORKSPACE AND CHAT CONTEXT
 Main project: E:/viec/Zatod Legend
-Reference folder: E:/viec/Zatod Legend/Unity/Assets/Crystal Legend
+Reference folder: <repository root>/Crystal Legend (sibling of Unity/)
 Original source preserved: C:/Users/tinnq/OneDrive/Desktop/Crystal+Legends_1.1.100312_APKPurez
 The separately named C:/Users/tinnq/OneDrive/Desktop/Crystal Legend was empty at transfer time.
-The reference was originally copied outside Unity/Assets on 2026-11-19. On 2026-11-23 the user relocated it to Unity/Assets/Crystal Legend; the old repository-root Crystal Legend folder is absent. From the Unity project directory the same location is Assets/Crystal Legend. This location update supersedes the old outside-Assets placement in D04. It does not certify that raw assets have been imported, configured, or tested for runtime use.
+Current location (2026-11-27): Crystal Legend/ at repository root, next to Unity/. From the Unity project directory use ../Crystal Legend/. The user explicitly requested moving the full reference out of Assets after the slow-build investigation; this supersedes the 2026-11-23 relocation into Assets and the 2026-11-24 cancellation of an earlier move. Keep raw files and GUID metadata intact; update path resolvers and preserve the six local-only Git exceptions. This move prevents Unity from importing the raw reference; it does not certify a complete Android/Windows build or runtime asset validation.
 
 Relevant Codex chats (read their history when needed):
 - Khan sat cach reverse Crystal Legend / title: Khảo sát cách reverse Crystal Legend
@@ -26,7 +26,7 @@ Future direction already requested, but implementation remains a separate next s
 4. Integrate Crystal Legends Hero assets and review Hero/config systems.
 Preserve existing Zatod work and pixel Hero assets until a deliberate integration replaces them.
 
-REFERENCE CONTENTS (paths below are relative to Unity/Assets/Crystal Legend/ from the repository root)
+REFERENCE CONTENTS (paths below are relative to Crystal Legend/ from the repository root)
 - Original APKs: root; all four APKs retained.
 - recovered/scripts/lua/com.farlightgames.dgame.gp.apac/assets/remake/data/
   4,299 decompiled Lua chunks, including configs, combat, Hero hooks, UI and checker scripts.
@@ -71,3 +71,10 @@ Artifacts/CrystalLegendReferenceMerge/20261119/copy.log
 Artifacts/CrystalLegendReferenceMerge/20261119/verification.json
 Artifacts/CrystalLegendReferenceMerge/20261119/verification-files.json
 At the original transfer, /Crystal Legend/ was ignored by Git. The anchored rule does not match the new Unity/Assets/Crystal Legend location. An initial 2026-11-23 check found the new folder untracked. Later that day, 96,077 reference files were committed in 26 batches and pushed to main; source and extracted assets now travel with a main checkout. The three oversized files listed above remain local and ignored. Three decoded network_diagnosis copies under recovered/scripts/{custom_bytecode,lua,lua51_bytecode} also remain local and ignored because GitHub detected third-party cloud credentials; these diagnostics are not D35 inputs. Push protection was not bypassed. Tracking lists, 38 manifest source hashes and runtime config baseline hashes were verified; see ChangeLog REVIEW-011. Artifacts/ remains ignored. Existing import/bake scripts still contain repository-root Crystal Legend paths and must be adapted before use; this documentation-only task did not change or run them.
+
+
+RELOCATION 2026-11-27
+Current reference is Crystal Legend/ next to Unity/. The earlier transfer audit above records historical locations and limitations; do not restore its old path or blanket /Crystal Legend/ ignore rule. Current helpers and source manifests use the root path. Existing Lua/asset data, metadata and previously ignored originals are preserved. Only the same six oversized/sensitive paths remain ignored. See Design D04 and ChangeLog REVIEW-027 for verification and Git handoff status.
+
+OTHER CLONES (INCLUDING WINDOWS)
+Close Unity before pulling the completed relocation. Git moves tracked files, but cannot move local ignored originals. If Unity/Assets/Crystal Legend still exists after pull, inspect it and move the remaining local-only files to the matching paths under repository-root Crystal Legend. Do not overwrite a different destination file or stage the old folder. The six old-path ignore aliases remain temporarily to protect those originals (including diagnostic credentials) until local migration is complete. Existing Library import caches may remain; this task does not delete them or imply that ignored originals have synced to another machine.

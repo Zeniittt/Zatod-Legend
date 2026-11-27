@@ -1,6 +1,6 @@
 # Zatod Legend — Thiết kế đã thống nhất
 
-Cập nhật: **25/11/2026, Asia/Saigon**.
+Cập nhật: **27/11/2026, Asia/Saigon**.
 
 Đây là nguồn quyết định chung của project. Mỗi chat cần đọc file này trước khi làm việc và cập nhật khi người dùng chốt thêm. Đồng ý về thiết kế không đồng nghĩa thay đổi đó đã được triển khai hoặc được yêu cầu triển khai ngay.
 
@@ -41,7 +41,9 @@ Không khẳng định backend Crystal tính xong Arena trước phản hồi St
 
 ### D04 — Nguồn Crystal Legends và asset
 
-- **Quyết định mới nhất 24/11/2026:** giữ reference tại `Unity/Assets/Crystal Legend/`; người dùng đã hủy phương án chuyển ra ngoài Assets. Thao tác chuyển vừa hoàn tất đã được hoàn trả, đối chiếu đủ 96.077 file giữ nguyên inode/kích thước/mtime. Không đổi resolver/Gitignore hoặc dọn cache theo phương án đã hủy. D35 còn chờ giải quyết dung lượng để kiểm Editor và build IPA.
+- **Quyết định hiện hành 27/11/2026:** người dùng yêu cầu chuyển toàn bộ reference ra `Crystal Legend/` tại repository root, ngang cấp `Unity/`, rồi commit/push theo batch khi cần. Từ project Unity dùng `../Crystal Legend/`. Quyết định này thay vị trí trong Assets và việc hủy di chuyển ngày 24/11; giữ dữ liệu raw/metadata/GUID và sáu ngoại lệ Git local-only, không thay gameplay/save hoặc tài nguyên runtime đã import. Helper import/bake và manifest nguồn dùng vị trí root; không ignore cả thư mục reference. **Trạng thái:** đã di chuyển và kiểm đủ 196.103 file giữ nguyên inode/kích thước/mtime; 196.104 đường dẫn tracked gồm metadata của thư mục ngoài. Đã kiểm resolver/manifest/helper; chia 27 batch Git và commit bàn giao; chưa build lại Android/Windows sau di chuyển.
+- **Lịch sử 24/11/2026 (đã được quyết định 27/11 thay thế):** người dùng từng hủy phương án chuyển reference ra ngoài Assets; lượt đó đã hoàn trả và giữ resolver/Gitignore cũ. Không áp chỉ dẫn hủy lịch sử để ngăn việc di chuyển mới đã được yêu cầu rõ ràng.
+- Các bullet 23–24/11 dưới đây là lịch sử chuyển nguồn và bàn giao; vị trí hiện hành luôn theo quyết định 27/11 ở trên.
 - **Trạng thái riêng clone Mac ngày 24/11/2026:** sau lượt dọn phần tải dở, người dùng yêu cầu kéo đủ 28 commit và tự xử lý conflict. Đã cập nhật main từ `0eb6bb073` tới `46d197182`, có đủ 96.077 file reference tại `Unity/Assets/Crystal Legend/`, không khác Git. Giữ source Zatod, tài liệu brainstorm và quy tắc build D37 khi gộp các chỉnh sửa local. 38 source khớp manifest sau quy đổi LF → CRLF trong bộ nhớ để đối chiếu; không sửa file nguồn. Chưa chạy Unity import/build hoặc triển khai D35; xem REVIEW-013.
 - **Vị trí hiện hành từ23/11/2026:** người dùng đã di chuyển bộ nguồn tham chiếu vào `Unity/Assets/Crystal Legend/` tính từ repository root; từ thư mục projectUnity là `Assets/Crystal Legend/`. Thư mục root cũ không còn. Chỉ dẫn mới này thay yêu cầu đặt ngoàiUnity/Assets trước đây; giữ nguyên dữ liệu raw và bản gốc trên ổC, không tự di chuyển lại.
 - Đây vẫn là bộ nguồn reverse/tham chiếu, không phải toàn bộ nội dung đã được cấu hình hoặc nghiệm thu để dùng trong game. Vị trí nằm trongAssets có thể được Unity quét/import; lượt cập nhật tài liệu này chưa chạyEditor/build hoặc xác nhận kết quả import. Ruleignore `/Crystal Legend/` cũ không khớp vị trí mới. **Cập nhật bàn giao23/11:** đã commit/push96.077 file reference lênmain theo26 lô; clone main đã có source/asset giải nén, trừ các file local được nêu dưới đây. Đã kiểm danh sách tracking và hash38source theo manifest; chưa nghiệmthu Unityimport toàn bộ folderraw.

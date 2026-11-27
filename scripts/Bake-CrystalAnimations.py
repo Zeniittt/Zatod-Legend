@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,sys,math,concurrent.futures,argparse,hashlib
 ROOT=Path(__file__).resolve().parent.parent
-REF=ROOT/'Unity/Assets/Crystal Legend'
+REF=ROOT/'Crystal Legend'
 sys.path.insert(0,str(REF/'recovery_tools'))
 sys.path.insert(0,str(REF/'.recovery-deps'))
 from PIL import Image

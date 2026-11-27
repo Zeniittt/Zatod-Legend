@@ -10,7 +10,7 @@ import re
 import sys
 
 ROOT=Path(__file__).resolve().parent.parent
-REF=ROOT/'Unity/Assets/Crystal Legend'
+REF=ROOT/'Crystal Legend'
 DATA=ROOT/'Unity/Assets/Zatod/Resources/Data'
 sys.path.insert(0,str(REF/'recovery_tools'))
 from lua_data import read_table,named_row,Reader

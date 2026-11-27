@@ -5,7 +5,8 @@
 - Trước khi phân tích, đề xuất hoặc chỉnh sửa project, đọc [Design.md](Design.md). Đọc thêm tài liệu trong `docs/` liên quan đến nhiệm vụ; khi cần nguồn reverse, đọc `docs/crystal-legends-reference.txt`.
 - Dùng skill của project tại `.agents/skills/zatod-design/SKILL.md` để duy trì các quyết định. `Design.md` là nguồn quyết định chung giữa các chat; không dựa riêng vào trí nhớ của một chat.
 - Trước khi chẩn đoán hoặc sửa lỗi, đọc [ChangeLog.md](ChangeLog.md) và tìm mục có triệu chứng liên quan để dùng lại kinh nghiệm đã kiểm chứng.
-- Nguồn Crystal hiện ở `Unity/Assets/Crystal Legend/` tính từ repository root, hoặc `Assets/Crystal Legend/` từ projectUnity, theo lần di chuyển23/11/2026. Không dùng root cũ hoặc bảnC làm đường mặc định. Kiểm resolver của script import/bake trước khi chạy vì helper hiện vẫn có đường cũ; xem `docs/crystal-legends-reference.txt` vàD04.
+- Nguồn Crystal hiện ở `Crystal Legend/` ngang cấp `Unity/` từ repository root, hoặc `../Crystal Legend/` từ project Unity, theo quyết định mới ngày 27/11/2026 tại D04. Không đặt lại nguồn reverse trong `Unity/Assets`; chỉ import tài nguyên runtime đã chọn. Helper import/bake và quy tắc Git ignore phải dùng vị trí mới; xem `docs/crystal-legends-reference.txt`.
+- Sau khi pull lần di chuyển 27/11 trên clone khác, kiểm phần còn sót trong `Unity/Assets/Crystal Legend/`: Git không chuyển các file local bị ignore. Chuyển phần đó sang path tương ứng ở root sau khi kiểm đích, không ghi đè file khác hoặc stage thư mục cũ; giữ sáu ngoại lệ file lớn/nhạy cảm và alias ignore cũ trong giai đoạn chuyển tiếp.
 
 ## Giữ các quyết định đã chốt
 

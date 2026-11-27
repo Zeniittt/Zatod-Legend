@@ -12,7 +12,7 @@ namespace Zatod.Editor
         public static int Prepare()
         {
             string reference=Environment.GetEnvironmentVariable("ZATOD_CRYSTAL_REFERENCE");
-            string source=Path.Combine(string.IsNullOrWhiteSpace(reference)?"Assets/Crystal Legend":reference,"recovered/assets/install_time_pack/remake")+Path.DirectorySeparatorChar;
+            string source=Path.Combine(string.IsNullOrWhiteSpace(reference)?"../Crystal Legend":reference,"recovered/assets/install_time_pack/remake")+Path.DirectorySeparatorChar;
             const string target="Assets/Zatod/Resources/Zatod/UI/Hero/Skills/";
             var catalog=HeroDataJson.LoadBundledCatalog();int count=0;
             void Copy(string input,string output)

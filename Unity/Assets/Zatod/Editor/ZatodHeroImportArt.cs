@@ -43,7 +43,7 @@ namespace Zatod.Editor
             foreach(var asset in assets)
             {
                 string source=Within(repositoryRoot,asset.Source);
-                if(!asset.Source.StartsWith("Unity/Assets/Crystal Legend/recovered/assets/",StringComparison.Ordinal) || Hash(source)!=asset.Sha256)
+                if(!asset.Source.StartsWith("Crystal Legend/recovered/assets/",StringComparison.Ordinal) || Hash(source)!=asset.Sha256)
                     throw new InvalidDataException("Native art hash/source mismatch: "+asset.Source);
                 if(!asset.Target.StartsWith("Zatod/UI/",StringComparison.Ordinal) && !asset.Target.StartsWith("Zatod/Audio/",StringComparison.Ordinal) && !asset.Target.StartsWith("Zatod/Backgrounds/",StringComparison.Ordinal))throw new InvalidDataException("Invalid native resource target.");
                 _=Within("Assets/Zatod/Resources",asset.Target);

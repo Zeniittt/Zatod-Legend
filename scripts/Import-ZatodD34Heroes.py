@@ -15,7 +15,7 @@ import shutil
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-REF = ROOT / 'Unity/Assets/Crystal Legend'
+REF = ROOT / 'Crystal Legend'
 DATA = ROOT / 'Tests/Fixtures/D34Baseline'
 ART = REF / 'recovered/assets/install_time_pack/remake'
 NEW_HEROES = (5, 11, 12, 13, 14, 15, 21, 23, 26, 31, 32, 33, 34, 35, 39)
@@ -509,7 +509,7 @@ def build(baseline, output, include_encounters=False, source=None):
     input_hashes = {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(set(inputs))}
     pending = [c for c in coverage if not c['RuntimeEvoImported']]
     manifest = dict(SchemaVersion=1, Draft=True, RuntimeActivationReady=False,
-        SourceRoot='Unity/Assets/Crystal Legend', InputPolicy='Tracked Lua + baseline Data + ZatodContentIds.cs; no Artifacts inputs',
+        SourceRoot='Crystal Legend', InputPolicy='Tracked Lua + baseline Data + ZatodContentIds.cs; no Artifacts inputs',
         BaselineFiles={path.relative_to(baseline).as_posix():hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(baseline.rglob('*.txt'))},
         Counts={name: len(doc[name]) for name, doc in docs.items()}, AddedHeroes=[units[i]['Id'] for i in added_hero_ids],
         NewAliases={k: v for k, v in aliases.items() if k not in original_aliases},
